@@ -232,6 +232,41 @@ a {
   display: block;
 }
 
+/* Community-Headline: breit „Gemeinsam sind wir“ / „weniger allein.“; schmal Umbruch nach „Gemeinsam“ */
+.community-headline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 0.3em;
+}
+
+.community-headline__first-line {
+  white-space: nowrap;
+}
+
+.community-headline__a::after {
+  content: " ";
+}
+
+.community-headline__c {
+  flex-basis: 100%;
+}
+
+@media (max-width: 680px) {
+  .community-headline__first-line {
+    white-space: normal;
+    display: contents;
+  }
+
+  .community-headline__a {
+    flex-basis: 100%;
+  }
+
+  .community-headline__c {
+    flex-basis: auto;
+  }
+}
+
 /* Rechte Hero-Spalte: Serif (Georgia), nicht Sans */
 .hero__lede {
   margin: 0;
