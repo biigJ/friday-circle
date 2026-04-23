@@ -269,6 +269,42 @@ a {
   pointer-events: auto;
 }
 
+/* Marke im Video (gogogo, Programme auf Projekte): Kicker → Wortmarke → Tagline → CTA, links, getrennt von Fließtext-Overlays */
+.product__overlay--brand {
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: clamp(20px, 4vw, 48px);
+  padding-bottom: clamp(20px, 4vw, 48px);
+}
+
+.product__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(0.3rem, 1vw, 0.55rem);
+  max-width: min(40rem, 100%);
+  text-align: left;
+}
+
+.product__brand .product__kicker {
+  margin: 0;
+  max-width: 38ch;
+  line-height: 1.45;
+}
+
+.product__brand .product__logo {
+  margin: clamp(0.2rem, 1vw, 0.5rem) 0 0;
+}
+
+.product__brand .product__tagline {
+  margin: 0;
+}
+
+.product__brand .product__cta {
+  margin-top: clamp(0.6rem, 2vw, 1rem);
+  align-self: flex-start;
+}
+
 .product__kicker {
   margin: 0 0 8px;
   font-size: clamp(12px, 1.05vw, 14px);
@@ -300,8 +336,7 @@ a {
 
 .product__cta {
   font-size: 0.85rem;
-  align-self: flex-end;
-  margin-top: auto;
+  align-self: flex-start;
 }
 
 /* Lösungen: heller Overlay-Scrim (Lesetext auf Video) */
