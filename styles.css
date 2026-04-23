@@ -6,6 +6,7 @@
   --accent: #99f0dd;
   --surface: #18594e;
   --font-sans: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: Georgia, "Times New Roman", Times, serif;
   --nav-pad-x: clamp(20px, 4vw, 48px);
   --content-max: 1280px;
   --section-pad-y: clamp(48px, 8vw, 96px);
@@ -30,7 +31,7 @@ body {
   margin: 0;
   font-family: var(--font-sans);
   font-size: 15px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.5;
   color: var(--text);
   background: var(--bg);
@@ -177,9 +178,10 @@ a {
   display: block;
 }
 
+/* Rechte Hero-Spalte: Serif (Georgia), nicht Sans */
 .hero__lede {
   margin: 0;
-  font-family: var(--font-sans);
+  font-family: var(--font-serif);
   font-size: clamp(15px, 1.32vw, 19px);
   font-weight: 400;
   letter-spacing: 0.01em;
@@ -206,7 +208,7 @@ a {
   margin: clamp(20px, 3vw, 32px) 0 clamp(12px, 2vw, 20px);
   font-family: var(--font-sans);
   font-size: clamp(13px, 1.15vw, 16px);
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.5;
   color: color-mix(in srgb, var(--text) 85%, transparent);
 }
@@ -270,7 +272,7 @@ a {
 .product__kicker {
   margin: 0 0 8px;
   font-size: clamp(12px, 1.05vw, 14px);
-  font-weight: 400;
+  font-weight: 300;
   max-width: 28ch;
   color: color-mix(in srgb, var(--text) 88%, transparent);
 }
@@ -292,7 +294,7 @@ a {
 .product__tagline {
   margin: 12px 0 20px;
   font-size: clamp(14px, 1.55vw, 20px);
-  font-weight: 400;
+  font-weight: 300;
   color: color-mix(in srgb, var(--text) 92%, transparent);
 }
 
@@ -340,7 +342,7 @@ a {
   max-width: var(--goals-prose-ch);
   font-family: var(--font-sans);
   font-size: var(--goals-prose-fs);
-  font-weight: 400;
+  font-weight: 300;
   line-height: var(--goals-prose-lh);
   color: var(--text);
 }
@@ -349,7 +351,7 @@ a {
   font-family: var(--font-sans);
   font-size: clamp(13px, 1.22vw, 16px);
   line-height: 1.6;
-  font-weight: 400;
+  font-weight: 300;
   color: rgba(255, 255, 255, 0.94);
 }
 
@@ -428,7 +430,7 @@ a {
   padding: 0 var(--nav-pad-x);
   font-family: var(--font-sans);
   font-size: clamp(14px, 1.22vw, 17px);
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.6;
 }
 
@@ -506,7 +508,7 @@ a {
 .steps__sub {
   margin: 0 0 24px;
   font-size: 0.88rem;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.55;
   opacity: 0.92;
 }
@@ -545,7 +547,7 @@ a {
 .step__text {
   margin: 0;
   font-size: 0.85rem;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.55;
 }
 
@@ -595,7 +597,7 @@ a {
 
 .footer__links a {
   font-size: 0.82rem;
-  font-weight: 400;
+  font-weight: 300;
   text-decoration: none;
   color: color-mix(in srgb, var(--bg) 88%, transparent);
 }
@@ -609,6 +611,7 @@ a {
 .footer__copy {
   margin: 0;
   font-size: 0.8rem;
+  font-weight: 300;
   opacity: 0.65;
 }
 
