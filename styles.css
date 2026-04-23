@@ -6,13 +6,11 @@
   --accent: #99f0dd;
   --surface: #18594e;
   --font-sans: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
-  /* System-Serif: überall vorhanden (Georgia/Times), kein Download */
-  --font-serif: Georgia, "Times New Roman", Times, serif;
   --nav-pad-x: clamp(20px, 4vw, 48px);
   --content-max: 1280px;
   --section-pad-y: clamp(48px, 8vw, 96px);
   --goals-prose-ch: 56ch;
-  --goals-prose-fs: clamp(15px, 1.35vw, 18px);
+  --goals-prose-fs: clamp(13px, 1.2vw, 16px);
   --goals-prose-lh: 1.55;
   /* Abstand Text/CTA vom Video-Rand (Rahmen liegt schon bündig zur Nav-Spalte) */
   --overlay-pad-x: clamp(12px, 2.5vw, 24px);
@@ -31,7 +29,8 @@ html {
 body {
   margin: 0;
   font-family: var(--font-sans);
-  font-size: 16px;
+  font-size: 15px;
+  font-weight: 400;
   line-height: 1.5;
   color: var(--text);
   background: var(--bg);
@@ -163,7 +162,7 @@ a {
 
 .hero__heading {
   margin: 0;
-  font-size: clamp(32px, 5vw, 64px);
+  font-size: clamp(30px, 4.2vw, 58px);
   font-weight: 700;
   font-family: var(--font-sans);
   line-height: 1.05;
@@ -171,7 +170,7 @@ a {
 }
 
 .hero__heading--subpage {
-  font-size: clamp(28px, 4.5vw, 56px);
+  font-size: clamp(26px, 3.75vw, 52px);
 }
 
 .hero__heading .nowrap {
@@ -180,12 +179,11 @@ a {
 
 .hero__lede {
   margin: 0;
-  font-family: var(--font-serif);
-  font-size: clamp(17px, 1.55vw, 21px);
+  font-family: var(--font-sans);
+  font-size: clamp(15px, 1.32vw, 19px);
   font-weight: 400;
   letter-spacing: 0.01em;
   line-height: 1.58;
-  /* Etwas weicher als reines Schwarz = leichter neben fetter Inter-Headline */
   color: color-mix(in srgb, var(--text) 78%, var(--bg));
   max-width: 40ch;
   text-align: left;
@@ -206,8 +204,9 @@ a {
 
 .landing-bridge__kicker {
   margin: clamp(20px, 3vw, 32px) 0 clamp(12px, 2vw, 20px);
-  font-family: var(--font-serif);
-  font-size: clamp(15px, 1.4vw, 18px);
+  font-family: var(--font-sans);
+  font-size: clamp(13px, 1.15vw, 16px);
+  font-weight: 400;
   line-height: 1.5;
   color: color-mix(in srgb, var(--text) 85%, transparent);
 }
@@ -216,7 +215,7 @@ a {
   margin: 0 0 clamp(20px, 3vw, 32px);
   font-family: var(--font-sans);
   font-weight: 700;
-  font-size: clamp(20px, 4.33vw, 53px);
+  font-size: clamp(18px, 3.75vw, 48px);
   line-height: 1.12;
   letter-spacing: -0.02em;
   max-width: 22ch;
@@ -270,15 +269,15 @@ a {
 
 .product__kicker {
   margin: 0 0 8px;
-  font-size: clamp(13px, 1.2vw, 15px);
-  font-weight: 500;
+  font-size: clamp(12px, 1.05vw, 14px);
+  font-weight: 400;
   max-width: 28ch;
   color: color-mix(in srgb, var(--text) 88%, transparent);
 }
 
 .product__logo {
   margin: 0;
-  font-size: clamp(48px, 10vw, 120px);
+  font-size: clamp(44px, 8.5vw, 112px);
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 0.95;
@@ -292,13 +291,13 @@ a {
 
 .product__tagline {
   margin: 12px 0 20px;
-  font-size: clamp(16px, 1.8vw, 22px);
-  font-weight: 500;
+  font-size: clamp(14px, 1.55vw, 20px);
+  font-weight: 400;
   color: color-mix(in srgb, var(--text) 92%, transparent);
 }
 
 .product__cta {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   align-self: flex-end;
   margin-top: auto;
 }
@@ -339,14 +338,16 @@ a {
 
 .goals-overlay__copy {
   max-width: var(--goals-prose-ch);
+  font-family: var(--font-sans);
   font-size: var(--goals-prose-fs);
+  font-weight: 400;
   line-height: var(--goals-prose-lh);
   color: var(--text);
 }
 
 .goals-media--dark .goals-overlay__copy {
   font-family: var(--font-sans);
-  font-size: clamp(15px, 1.45vw, 18px);
+  font-size: clamp(13px, 1.22vw, 16px);
   line-height: 1.6;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.94);
@@ -364,7 +365,7 @@ a {
   margin-top: 1.5rem;
   pointer-events: auto;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   text-decoration: none;
   border-bottom: 2px solid var(--accent);
   align-self: flex-start;
@@ -408,7 +409,7 @@ a {
 
 .loesungen-overlay__subhead {
   margin: 1.35em 0 0.5em;
-  font-size: clamp(1.05rem, 1.15vw, 1.2rem);
+  font-size: clamp(0.95rem, 1.05vw, 1.1rem);
   font-weight: 700;
   line-height: 1.25;
 }
@@ -425,8 +426,9 @@ a {
   max-width: var(--content-max);
   margin: 0 auto;
   padding: 0 var(--nav-pad-x);
-  font-family: var(--font-serif);
-  font-size: clamp(16px, 1.45vw, 19px);
+  font-family: var(--font-sans);
+  font-size: clamp(14px, 1.22vw, 17px);
+  font-weight: 400;
   line-height: 1.6;
 }
 
@@ -441,7 +443,7 @@ a {
 .page-continuation__inner h2 {
   margin: 1.5em 0 0.5em;
   font-family: var(--font-sans);
-  font-size: clamp(1.05rem, 1.2vw, 1.25rem);
+  font-size: clamp(0.95rem, 1.08vw, 1.12rem);
   font-weight: 700;
   line-height: 1.3;
 }
@@ -497,13 +499,14 @@ a {
 
 .steps__heading {
   margin: 0 0 12px;
-  font-size: clamp(1.35rem, 2.2vw, 1.75rem);
+  font-size: clamp(1.2rem, 1.95vw, 1.55rem);
   font-weight: 700;
 }
 
 .steps__sub {
   margin: 0 0 24px;
-  font-size: 0.95rem;
+  font-size: 0.88rem;
+  font-weight: 400;
   line-height: 1.55;
   opacity: 0.92;
 }
@@ -541,13 +544,14 @@ a {
 
 .step__text {
   margin: 0;
-  font-size: 0.92rem;
+  font-size: 0.85rem;
+  font-weight: 400;
   line-height: 1.55;
 }
 
 .steps__more {
   margin-top: 28px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 600;
   color: var(--accent);
   text-decoration: none;
@@ -590,7 +594,8 @@ a {
 }
 
 .footer__links a {
-  font-size: 0.88rem;
+  font-size: 0.82rem;
+  font-weight: 400;
   text-decoration: none;
   color: color-mix(in srgb, var(--bg) 88%, transparent);
 }
@@ -654,7 +659,7 @@ a {
   }
 
   .landing-bridge__display {
-    font-size: clamp(19px, 5vw, 37px);
+    font-size: clamp(17px, 4.5vw, 34px);
   }
 
   .product__overlay {
