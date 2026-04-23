@@ -240,12 +240,6 @@ a {
   margin: 0;
 }
 
-/* Community: Intro etwas kompakter nach gogogo-Block */
-.community > .hero {
-  padding-top: clamp(40px, 7vw, 88px);
-  padding-bottom: clamp(28px, 4vw, 56px);
-}
-
 /* Product / video blocks — gleiche horizontale Spalte wie .nav__inner / .hero__grid */
 .product {
   padding: 0 0 var(--section-pad-y);
