@@ -292,6 +292,10 @@ a {
   margin: 0;
 }
 
+.community .landing-bridge__display--split {
+  font-size: clamp(calc(18px * 0.6), calc(3.75vw * 0.6), calc(48px * 0.6));
+}
+
 /* Product / video blocks — gleiche horizontale Spalte wie .nav__inner / .hero__grid */
 .product {
   padding: 0 0 var(--section-pad-y);
@@ -945,6 +949,10 @@ a {
 
   .landing-bridge__display {
     font-size: clamp(17px, 4.5vw, 34px);
+  }
+
+  .community .landing-bridge__display--split {
+    font-size: clamp(calc(17px * 0.6), calc(4.5vw * 0.6), calc(34px * 0.6));
   }
 
   .product__overlay {
