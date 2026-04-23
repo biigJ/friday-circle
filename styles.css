@@ -454,6 +454,16 @@ a {
   margin-top: 1em;
 }
 
+/* Lösungen: gleicher horizontaler Text-Einzug wie im Video-Overlay (nav + overlay-inset) */
+.page-loesungen .page-continuation__inner {
+  padding-left: calc(var(--nav-pad-x) + var(--overlay-pad-x));
+  padding-right: calc(var(--nav-pad-x) + var(--overlay-pad-x));
+}
+
+.page-loesungen .page-continuation__inner h2:first-of-type {
+  margin-top: 0;
+}
+
 .page-continuation__cta {
   font-family: var(--font-sans);
   font-weight: 600;
