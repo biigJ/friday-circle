@@ -969,6 +969,15 @@ a {
     );
   }
 
+  /* Video: Hochformat auf schmalen Viewports (Smartphone / schmales Fenster) */
+  .product__video {
+    aspect-ratio: 9 / 16;
+    max-height: min(90dvh, 720px);
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
 }
 
 @media (max-width: 520px) {
