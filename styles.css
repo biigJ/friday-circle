@@ -181,7 +181,7 @@ a {
   margin: 0;
   font-family: var(--font-serif);
   font-size: clamp(17px, 1.55vw, 21px);
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.55;
   max-width: 40ch;
   text-align: left;
