@@ -269,10 +269,10 @@ a {
   pointer-events: auto;
 }
 
-/* Marke im Video (gogogo, Programme auf Projekte): Kicker → Wortmarke → Tagline → CTA, links, getrennt von Fließtext-Overlays */
+/* Marke im Video (gogogo, Projekte): zentrierte Spalte wie Screenshot — Kicker → Wortmarke → Tagline → CTA */
 .product__overlay--brand {
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   padding-top: clamp(20px, 4vw, 48px);
   padding-bottom: clamp(20px, 4vw, 48px);
 }
@@ -280,29 +280,36 @@ a {
 .product__brand {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: clamp(0.3rem, 1vw, 0.55rem);
-  max-width: min(40rem, 100%);
-  text-align: left;
+  align-items: center;
+  gap: clamp(0.45rem, 1.4vw, 0.85rem);
+  max-width: min(44rem, 92%);
+  text-align: center;
 }
 
 .product__brand .product__kicker {
   margin: 0;
-  max-width: 38ch;
+  max-width: 42ch;
   line-height: 1.45;
+  text-align: center;
+  color: var(--accent);
+  text-shadow: 0 1px 18px color-mix(in srgb, var(--surface) 28%, transparent);
 }
 
 .product__brand .product__logo {
-  margin: clamp(0.2rem, 1vw, 0.5rem) 0 0;
+  margin: clamp(0.25rem, 1.2vw, 0.6rem) 0 0;
+  text-align: center;
 }
 
 .product__brand .product__tagline {
   margin: 0;
+  color: var(--accent);
+  font-weight: 400;
+  text-shadow: 0 1px 14px color-mix(in srgb, var(--surface) 22%, transparent);
 }
 
 .product__brand .product__cta {
-  margin-top: clamp(0.6rem, 2vw, 1rem);
-  align-self: flex-start;
+  margin-top: clamp(0.85rem, 2.5vw, 1.35rem);
+  align-self: center;
 }
 
 .product__kicker {
