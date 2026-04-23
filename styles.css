@@ -13,6 +13,8 @@
   --goals-prose-ch: 56ch;
   --goals-prose-fs: clamp(15px, 1.35vw, 18px);
   --goals-prose-lh: 1.55;
+  /* Abstand Text/CTA vom Video-Rand (Rahmen liegt schon bündig zur Nav-Spalte) */
+  --overlay-pad-x: clamp(12px, 2.5vw, 24px);
 }
 
 *,
@@ -216,15 +218,19 @@ a {
   max-width: 22ch;
 }
 
-/* Product / video blocks */
+/* Product / video blocks — gleiche horizontale Spalte wie .nav__inner / .hero__grid */
 .product {
-  padding: 0 var(--nav-pad-x) var(--section-pad-y);
+  padding: 0 0 var(--section-pad-y);
 }
 
 .product__media {
-  position: relative;
   max-width: var(--content-max);
   margin: 0 auto;
+  padding: 0 var(--nav-pad-x);
+}
+
+.product__frame {
+  position: relative;
   border-radius: clamp(10px, 1.2vw, 16px);
   overflow: hidden;
   background: #1a1a1a;
@@ -244,7 +250,7 @@ a {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: clamp(24px, 5vw, 56px) var(--nav-pad-x);
+  padding: clamp(24px, 5vw, 56px) var(--overlay-pad-x);
   background: linear-gradient(
     105deg,
     color-mix(in srgb, var(--bg) 55%, transparent) 0%,
@@ -313,7 +319,7 @@ a {
 .goals-media--dark .product__overlay {
   justify-content: flex-start;
   align-items: flex-start;
-  padding: clamp(36px, 6vw, 72px) var(--nav-pad-x);
+  padding: clamp(36px, 6vw, 72px) var(--overlay-pad-x);
   background: linear-gradient(
     105deg,
     rgba(18, 18, 18, 0.94) 0%,
@@ -648,7 +654,7 @@ a {
   }
 
   .product__overlay {
-    padding: clamp(20px, 5vw, 36px) var(--nav-pad-x);
+    padding: clamp(20px, 5vw, 36px) var(--overlay-pad-x);
     background: linear-gradient(
       180deg,
       color-mix(in srgb, var(--bg) 72%, transparent) 0%,
@@ -661,7 +667,7 @@ a {
   }
 
   .goals-media--dark .product__overlay {
-    padding: clamp(28px, 6vw, 48px) var(--nav-pad-x);
+    padding: clamp(28px, 6vw, 48px) var(--overlay-pad-x);
     background: linear-gradient(
       180deg,
       rgba(18, 18, 18, 0.94) 0%,
