@@ -220,7 +220,6 @@ a {
   font-size: clamp(18px, 3.75vw, 48px);
   line-height: 1.12;
   letter-spacing: -0.02em;
-  max-width: 22ch;
 }
 
 /* Product / video blocks — gleiche horizontale Spalte wie .nav__inner / .hero__grid */
