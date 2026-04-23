@@ -365,7 +365,7 @@ a {
 
 /* Ziele: dunkler Kasten, weißer Inter-Fließtext (Referenz-Screenshot) */
 .goals-media--dark .product__video {
-  filter: grayscale(0.88) brightness(0.62) saturate(0.55);
+  filter: grayscale(0.68) brightness(0.76) saturate(0.82);
 }
 
 .goals-media--dark .product__overlay {
