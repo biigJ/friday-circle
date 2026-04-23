@@ -20,11 +20,34 @@
 
     <main class="gogogo-flow" id="main">
       <div class="gogogo-flow__inner">
-        <h1 class="gogogo-flow__title">gogogo</h1>
-        <p class="gogogo-flow__intro">Ein paar kurze Fragen – danach bist du startklar.</p>
-
         <form id="gogogo-intake" class="gogogo-form" novalidate>
           <div class="gogogo-step" data-step-index="0">
+            <header class="gogogo-welcome" aria-labelledby="gogogo-welcome-heading">
+              <h1 id="gogogo-welcome-heading" class="gogogo-welcome__title">Willkommen bei gogogo!</h1>
+              <p class="steps__sub gogogo-welcome__sub">
+                gogogo macht tägliche Bewegung einfach. Jetzt starten und ein neues Bewegungslevel erreichen.
+              </p>
+              <ol class="steps__list gogogo-welcome__steps">
+                <li class="step">
+                  <span class="step__num" aria-hidden="true">1</span>
+                  <p class="step__text">
+                    Beantworte fünf kurze Fragen zu deiner Woche, deinen Zielen und deinen Kapazitäten.
+                  </p>
+                </li>
+                <li class="step">
+                  <span class="step__num" aria-hidden="true">2</span>
+                  <p class="step__text">
+                    Du bekommst deinen individuellen Wochenplan – vier Einheiten, realistisch in deinen Alltag eingebaut.
+                  </p>
+                </li>
+                <li class="step">
+                  <span class="step__num" aria-hidden="true">3</span>
+                  <p class="step__text">
+                    Wir bleiben gemeinsam dran. Wöchentlicher Check-in, tägliche Begleitung. Kein Algorithmus. Ein Mensch.
+                  </p>
+                </li>
+              </ol>
+            </header>
             <p class="gogogo-step__meta" aria-hidden="true">Frage 1 von 5</p>
             <fieldset class="gogogo-fieldset">
               <legend class="gogogo-legend">Ich kann einen Assistenten bei meinem Bewegungsziel gebrauchen.</legend>

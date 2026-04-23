@@ -734,10 +734,6 @@ a {
   padding: var(--section-pad-y) 0;
 }
 
-.steps.steps--after-gogogo-video {
-  padding: clamp(28px, 5vw, 48px) 0 0;
-}
-
 .steps__inner {
   max-width: var(--content-max);
   margin: 0 auto;
@@ -1045,7 +1041,13 @@ a {
   padding: 0 var(--nav-pad-x);
 }
 
-.gogogo-flow__title {
+.gogogo-welcome {
+  margin: 0 0 clamp(1.25rem, 2.5vw, 1.75rem);
+  padding-bottom: clamp(1rem, 2vw, 1.5rem);
+  border-bottom: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+}
+
+.gogogo-welcome__title {
   margin: 0 0 0.35em;
   font-size: clamp(30px, 4.2vw, 58px);
   font-weight: 700;
@@ -1053,10 +1055,12 @@ a {
   line-height: 1.05;
 }
 
-.gogogo-flow__intro {
-  margin: 0 0 clamp(24px, 4vw, 40px);
-  color: color-mix(in srgb, var(--text) 82%, var(--bg));
-  font-size: clamp(14px, 1.22vw, 17px);
+.gogogo-welcome__sub {
+  margin-bottom: clamp(16px, 2.5vw, 22px);
+}
+
+.gogogo-welcome__steps {
+  margin-top: 0;
 }
 
 .gogogo-step__meta {
