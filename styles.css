@@ -286,13 +286,20 @@ a {
   text-align: center;
 }
 
+/* Kicker = gleiche Größe & Schnitt wie Tagline (Lesbarkeit) */
+.product__brand .product__kicker,
+.product__brand .product__tagline {
+  font-size: clamp(14px, 1.55vw, 20px);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
 .product__brand .product__kicker {
   margin: 0;
   max-width: 42ch;
-  line-height: 1.45;
   text-align: center;
   color: var(--accent);
-  text-shadow: 0 1px 18px color-mix(in srgb, var(--surface) 28%, transparent);
+  text-shadow: 0 1px 14px color-mix(in srgb, var(--surface) 22%, transparent);
 }
 
 .product__brand .product__logo {
@@ -303,7 +310,6 @@ a {
 .product__brand .product__tagline {
   margin: 0;
   color: var(--accent);
-  font-weight: 400;
   text-shadow: 0 1px 14px color-mix(in srgb, var(--surface) 22%, transparent);
 }
 
