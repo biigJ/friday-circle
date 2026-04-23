@@ -224,6 +224,28 @@ a {
   letter-spacing: 0.015em;
 }
 
+.landing-bridge--two-col .landing-bridge__cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(28px, 5vw, 48px) clamp(32px, 5vw, 80px);
+  margin-top: clamp(20px, 3vw, 32px);
+  margin-bottom: clamp(20px, 3vw, 32px);
+}
+
+.landing-bridge--two-col .landing-bridge__kicker {
+  margin: 0 0 clamp(12px, 2vw, 20px);
+}
+
+.landing-bridge--two-col .landing-bridge__display--split {
+  margin: 0;
+}
+
+/* Community: Intro etwas kompakter nach gogogo-Block */
+.community > .hero {
+  padding-top: clamp(40px, 7vw, 88px);
+  padding-bottom: clamp(28px, 4vw, 56px);
+}
+
 /* Product / video blocks — gleiche horizontale Spalte wie .nav__inner / .hero__grid */
 .product {
   padding: 0 0 var(--section-pad-y);
@@ -370,8 +392,95 @@ a {
   filter: var(--product-video-filter-vivid);
 }
 
-#gogogo .product__video {
+#gogogo .product__video,
+.product--community .product__video {
   filter: var(--product-video-filter-vivid);
+}
+
+/* Community / Produkte: linksbündiger Block im Video (Kicker → Name → Fließtext → CTAs) */
+.product__overlay--brand-start {
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: clamp(24px, 5vw, 52px) var(--overlay-pad-x);
+  background: linear-gradient(
+    105deg,
+    rgba(18, 18, 18, 0.92) 0%,
+    rgba(18, 18, 18, 0.68) 44%,
+    rgba(18, 18, 18, 0.22) 72%,
+    transparent 100%
+  );
+}
+
+.product__brand--start {
+  align-items: flex-start;
+  text-align: left;
+  max-width: min(40rem, 92%);
+}
+
+.product__brand--start .product__kicker {
+  font-size: clamp(14px, 1.55vw, 20px);
+  font-weight: 400;
+  line-height: 1.5;
+  max-width: 38ch;
+  margin: 0 0 clamp(0.35rem, 1vw, 0.55rem);
+  color: var(--accent);
+  text-shadow: 0 1px 14px color-mix(in srgb, var(--surface) 22%, transparent);
+  text-align: left;
+}
+
+.product__brand--start .product__logo--community {
+  margin: 0 0 clamp(0.5rem, 1.5vw, 0.85rem);
+  text-align: left;
+  align-self: flex-start;
+}
+
+.product__logo--community {
+  font-size: clamp(26px, 4.2vw, 52px);
+  line-height: 1.08;
+  letter-spacing: 0.01em;
+}
+
+.product__brand-prose {
+  margin: 0;
+  max-width: 38rem;
+}
+
+.product__brand-prose p {
+  margin: 0 0 1em;
+  font-family: var(--font-sans);
+  font-size: clamp(13px, 1.2vw, 16px);
+  font-weight: 300;
+  line-height: 1.58;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.product__brand-prose p:last-child {
+  margin-bottom: 0;
+}
+
+.product__brand-actions {
+  margin-top: clamp(1rem, 2.5vw, 1.5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.65rem;
+  pointer-events: auto;
+}
+
+.community-product__cta {
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.96);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 2px;
+  align-self: flex-start;
+}
+
+.community-product__cta:hover,
+.community-product__cta:focus-visible {
+  color: var(--accent);
+  border-bottom-color: color-mix(in srgb, var(--accent) 78%, #fff);
 }
 
 .goals-media--dark .product__overlay {
@@ -689,6 +798,10 @@ a {
     max-width: 52ch;
   }
 
+  .landing-bridge--two-col .landing-bridge__cols {
+    grid-template-columns: 1fr;
+  }
+
   .steps__inner {
     grid-template-columns: 1fr;
   }
@@ -748,6 +861,15 @@ a {
       rgba(18, 18, 18, 0.94) 0%,
       rgba(18, 18, 18, 0.72) 55%,
       rgba(18, 18, 18, 0.35) 100%
+    );
+  }
+
+  .product__overlay--brand-start {
+    background: linear-gradient(
+      180deg,
+      rgba(18, 18, 18, 0.94) 0%,
+      rgba(18, 18, 18, 0.72) 52%,
+      rgba(18, 18, 18, 0.32) 100%
     );
   }
 
