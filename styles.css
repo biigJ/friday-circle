@@ -17,6 +17,9 @@
   --overlay-pad-x: clamp(12px, 2.5vw, 24px);
   /* Landing + Ziele: helleres, farbigeres Video (nicht Lösungen/Projekte-Default) */
   --product-video-filter-vivid: grayscale(0.48) brightness(0.9) saturate(1.08);
+  /* Landing: ockerer Bereich unter dem Video (Grafik-Platzhalter) */
+  --landing-graphic-bg: color-mix(in srgb, #b89a6a 28%, var(--bg));
+  --landing-graphic-border: color-mix(in srgb, #7a623e 22%, var(--bg));
 }
 
 *,
@@ -294,7 +297,7 @@ a {
 }
 
 .landing-bridge__kicker {
-  margin: clamp(20px, 3vw, 32px) 0 clamp(12px, 2vw, 20px);
+  margin: 0 0 clamp(12px, 2vw, 20px);
   font-family: var(--font-sans);
   font-size: clamp(13px, 1.15vw, 16px);
   font-weight: 300;
@@ -303,7 +306,7 @@ a {
 }
 
 .landing-bridge__display {
-  margin: 0 0 clamp(20px, 3vw, 32px);
+  margin: 0;
   font-family: var(--font-sans);
   font-weight: 700;
   font-size: clamp(18px, 3.75vw, 48px);
@@ -331,9 +334,36 @@ a {
   font-size: clamp(calc(18px * 0.6), calc(3.75vw * 0.6), calc(48px * 0.6));
 }
 
+/* Landing: unter dem Video — Linien, zweiter großer Satz, Grafik-Fläche */
+.landing-after-video {
+  padding: 0 0 var(--section-pad-y);
+}
+
+.landing-after-video__inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 var(--nav-pad-x);
+}
+
+.landing-after-video__display {
+  margin: clamp(20px, 3vw, 32px) 0;
+}
+
+.landing-graphic-slot {
+  margin-top: clamp(20px, 3vw, 32px);
+  min-height: clamp(200px, 32vw, 360px);
+  border-radius: clamp(10px, 1.2vw, 16px);
+  background: var(--landing-graphic-bg);
+  border: 1px solid color-mix(in srgb, var(--landing-graphic-border) 45%, transparent);
+}
+
 /* Product / video blocks — gleiche horizontale Spalte wie .nav__inner / .hero__grid */
 .product {
   padding: 0 0 var(--section-pad-y);
+}
+
+#gogogo.product {
+  padding-bottom: clamp(8px, 1.5vw, 16px);
 }
 
 .product__media {
