@@ -6,9 +6,8 @@
   --accent: #99f0dd;
   --surface: #18594e;
   --font-sans: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* System-Serif: überall vorhanden (Georgia/Times), kein Download */
   --font-serif: Georgia, "Times New Roman", Times, serif;
-  /* Echter Light-Schnitt für Hero-Intro (rechts) — sichtbarer als Georgia 300 */
-  --font-hero-lede: "Source Serif 4", Georgia, "Times New Roman", serif;
   --nav-pad-x: clamp(20px, 4vw, 48px);
   --content-max: 1280px;
   --section-pad-y: clamp(48px, 8vw, 96px);
@@ -181,14 +180,13 @@ a {
 
 .hero__lede {
   margin: 0;
-  font-family: var(--font-hero-lede);
+  font-family: var(--font-serif);
   font-size: clamp(17px, 1.55vw, 21px);
-  font-weight: 300;
-  font-style: normal;
-  font-optical-sizing: auto;
+  font-weight: 400;
   letter-spacing: 0.01em;
   line-height: 1.58;
-  color: color-mix(in srgb, var(--text) 72%, var(--bg));
+  /* Etwas weicher als reines Schwarz = leichter neben fetter Inter-Headline */
+  color: color-mix(in srgb, var(--text) 78%, var(--bg));
   max-width: 40ch;
   text-align: left;
 }
