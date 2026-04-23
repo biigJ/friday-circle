@@ -297,7 +297,7 @@ a {
 }
 
 .landing-bridge__kicker {
-  margin: 0 0 clamp(12px, 2vw, 20px);
+  margin: clamp(16px, 2.5vw, 24px) 0 clamp(12px, 2vw, 20px);
   font-family: var(--font-sans);
   font-size: clamp(13px, 1.15vw, 16px);
   font-weight: 300;
@@ -334,7 +334,7 @@ a {
   font-size: clamp(calc(18px * 0.6), calc(3.75vw * 0.6), calc(48px * 0.6));
 }
 
-/* Landing: unter dem Video — Linien, zweiter großer Satz, Grafik-Fläche */
+/* Landing: unter dem Video — Linie, Sweet-Spot-Satz, Grafik-Fläche */
 .landing-after-video {
   padding: 0 0 var(--section-pad-y);
 }
@@ -342,16 +342,25 @@ a {
 .landing-after-video__inner {
   max-width: var(--content-max);
   margin: 0 auto;
-  padding: 0 var(--nav-pad-x);
+  padding: clamp(40px, 6vw, 80px) var(--nav-pad-x) 0;
 }
 
 .landing-after-video__display {
-  margin: clamp(20px, 3vw, 32px) 0;
+  margin: clamp(20px, 3vw, 32px) 0 clamp(16px, 2.5vw, 28px);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(calc(18px * 0.6), calc(3.75vw * 0.6), calc(48px * 0.6));
+  line-height: 1.12;
+  letter-spacing: 0.015em;
 }
 
 .landing-graphic-slot {
-  margin-top: clamp(20px, 3vw, 32px);
-  min-height: clamp(200px, 32vw, 360px);
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: min(34rem, calc(100% - clamp(40px, 10vw, 100px)));
+  min-height: clamp(300px, 52vw, 560px);
   border-radius: clamp(10px, 1.2vw, 16px);
   background: var(--landing-graphic-bg);
   border: 1px solid color-mix(in srgb, var(--landing-graphic-border) 45%, transparent);
@@ -363,7 +372,7 @@ a {
 }
 
 #gogogo.product {
-  padding-bottom: clamp(8px, 1.5vw, 16px);
+  padding-bottom: 0;
 }
 
 .product__media {
@@ -982,6 +991,10 @@ a {
 
   .landing-bridge__display {
     font-size: clamp(17px, 4.5vw, 34px);
+  }
+
+  .landing-after-video__display {
+    font-size: clamp(calc(17px * 0.6), calc(4.5vw * 0.6), calc(34px * 0.6));
   }
 
   .community .landing-bridge__display--split {
