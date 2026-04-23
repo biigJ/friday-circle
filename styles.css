@@ -8,11 +8,11 @@
   --font-sans: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-serif: Georgia, "Times New Roman", Times, serif;
   --nav-pad-x: clamp(20px, 4vw, 48px);
+  --content-max: 1280px;
   --section-pad-y: clamp(48px, 8vw, 96px);
   --goals-prose-ch: 56ch;
   --goals-prose-fs: clamp(15px, 1.35vw, 18px);
   --goals-prose-lh: 1.55;
-  --goals-overlay-pad-x: clamp(24px, 4vw, 48px);
 }
 
 *,
@@ -45,18 +45,17 @@ a {
   color: inherit;
 }
 
-/* Nav */
+/* Nav — gleiche 1280px-Box wie Hero (Padding innen, kein Rand-Streifen) */
 .nav {
   position: sticky;
   top: 0;
   z-index: 100;
   background: color-mix(in srgb, var(--bg) 92%, transparent);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid color-mix(in srgb, var(--text) 8%, transparent);
 }
 
 .nav__inner {
-  max-width: 1280px;
+  max-width: var(--content-max);
   margin: 0 auto;
   padding: clamp(18px, 2.2vw, 26px) var(--nav-pad-x);
   display: grid;
@@ -68,8 +67,8 @@ a {
 .nav__logo {
   justify-self: start;
   font-weight: 600;
-  font-size: 0.95rem;
-  letter-spacing: 0.04em;
+  font-size: clamp(1.05rem, 1.35vw, 1.35rem);
+  letter-spacing: 0.018em;
   text-decoration: none;
   color: var(--logo);
   flex-shrink: 0;
@@ -81,9 +80,9 @@ a {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: clamp(20px, 3.2vw, 40px);
-  font-size: 0.9rem;
-  font-weight: 400;
+  gap: clamp(28px, 4.2vw, 52px);
+  font-size: 0.92rem;
+  font-weight: 600;
 }
 
 .nav__links a {
@@ -144,18 +143,19 @@ a {
   box-shadow: 0 6px 22px color-mix(in srgb, var(--surface) 42%, transparent);
 }
 
-/* Hero */
+/* Hero — linke Kante = Logo; Lede unten bündig mit Headline */
 .hero {
-  padding: clamp(48px, 9vw, 112px) var(--nav-pad-x) clamp(40px, 6vw, 80px);
+  padding: clamp(48px, 9vw, 112px) 0 clamp(40px, 6vw, 80px);
 }
 
 .hero__grid {
-  max-width: 1280px;
+  max-width: var(--content-max);
   margin: 0 auto;
+  padding: 0 var(--nav-pad-x);
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
   gap: clamp(40px, 8vw, 120px);
-  align-items: start;
+  align-items: end;
 }
 
 .hero__heading {
@@ -182,13 +182,12 @@ a {
   font-weight: 400;
   line-height: 1.55;
   max-width: 40ch;
-  justify-self: end;
   text-align: left;
 }
 
 /* Landing bridge (between hero and video) */
 .landing-bridge {
-  max-width: 1280px;
+  max-width: var(--content-max);
   margin: 0 auto;
   padding: 0 var(--nav-pad-x) clamp(28px, 5vw, 56px);
 }
@@ -224,7 +223,7 @@ a {
 
 .product__media {
   position: relative;
-  max-width: 1280px;
+  max-width: var(--content-max);
   margin: 0 auto;
   border-radius: clamp(10px, 1.2vw, 16px);
   overflow: hidden;
@@ -243,9 +242,9 @@ a {
   inset: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
-  padding: clamp(24px, 5vw, 56px);
+  padding: clamp(24px, 5vw, 56px) var(--nav-pad-x);
   background: linear-gradient(
     105deg,
     color-mix(in srgb, var(--bg) 55%, transparent) 0%,
@@ -290,6 +289,8 @@ a {
 
 .product__cta {
   font-size: 0.9rem;
+  align-self: flex-end;
+  margin-top: auto;
 }
 
 /* Lösungen: heller Overlay-Scrim (Lesetext auf Video) */
@@ -312,7 +313,7 @@ a {
 .goals-media--dark .product__overlay {
   justify-content: flex-start;
   align-items: flex-start;
-  padding: clamp(36px, 6vw, 72px) clamp(28px, 5vw, 56px);
+  padding: clamp(36px, 6vw, 72px) var(--nav-pad-x);
   background: linear-gradient(
     105deg,
     rgba(18, 18, 18, 0.94) 0%,
@@ -367,7 +368,8 @@ a {
 }
 
 .goals-media--dark .goals-overlay__cta {
-  margin-top: 1.75rem;
+  margin-top: auto;
+  align-self: flex-end;
   color: rgba(255, 255, 255, 0.96);
   border-bottom: none;
   padding-bottom: 0;
@@ -406,14 +408,13 @@ a {
 }
 
 .page-continuation {
-  padding: 0 var(--nav-pad-x) var(--section-pad-y);
+  padding: 0 0 var(--section-pad-y);
 }
 
 .page-continuation__inner {
-  max-width: 1280px;
+  max-width: var(--content-max);
   margin: 0 auto;
-  padding-left: var(--goals-overlay-pad-x);
-  padding-right: var(--nav-pad-x);
+  padding: 0 var(--nav-pad-x);
   font-family: var(--font-serif);
   font-size: clamp(16px, 1.45vw, 19px);
   line-height: 1.6;
@@ -448,12 +449,13 @@ a {
 
 /* Steps */
 .steps {
-  padding: var(--section-pad-y) var(--nav-pad-x);
+  padding: var(--section-pad-y) 0;
 }
 
 .steps__inner {
-  max-width: 1280px;
+  max-width: var(--content-max);
   margin: 0 auto;
+  padding: 0 var(--nav-pad-x);
   display: grid;
   grid-template-columns: 1fr 1.05fr;
   gap: clamp(24px, 4vw, 48px);
@@ -551,12 +553,13 @@ a {
 .footer {
   background: var(--text);
   color: var(--bg);
-  padding: clamp(40px, 6vw, 72px) var(--nav-pad-x);
+  padding: clamp(40px, 6vw, 72px) 0;
 }
 
 .footer__inner {
-  max-width: 1280px;
+  max-width: var(--content-max);
   margin: 0 auto;
+  padding: 0 var(--nav-pad-x);
 }
 
 .footer__logo {
@@ -598,10 +601,10 @@ a {
 @media (max-width: 900px) {
   .hero__grid {
     grid-template-columns: 1fr;
+    align-items: start;
   }
 
   .hero__lede {
-    justify-self: start;
     max-width: 52ch;
   }
 
@@ -637,7 +640,7 @@ a {
     width: 100%;
     justify-self: auto;
     justify-content: flex-start;
-    gap: clamp(14px, 3vw, 24px);
+    gap: clamp(18px, 3.5vw, 28px);
   }
 
   .landing-bridge__display {
@@ -645,7 +648,7 @@ a {
   }
 
   .product__overlay {
-    padding: clamp(20px, 5vw, 36px);
+    padding: clamp(20px, 5vw, 36px) var(--nav-pad-x);
     background: linear-gradient(
       180deg,
       color-mix(in srgb, var(--bg) 72%, transparent) 0%,
@@ -658,7 +661,7 @@ a {
   }
 
   .goals-media--dark .product__overlay {
-    padding: clamp(28px, 6vw, 48px) clamp(20px, 5vw, 36px);
+    padding: clamp(28px, 6vw, 48px) var(--nav-pad-x);
     background: linear-gradient(
       180deg,
       rgba(18, 18, 18, 0.94) 0%,
@@ -667,9 +670,6 @@ a {
     );
   }
 
-  .page-continuation__inner {
-    padding-left: var(--nav-pad-x);
-  }
 }
 
 @media (max-width: 520px) {
