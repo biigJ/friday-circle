@@ -381,8 +381,8 @@ a {
 }
 
 .goals-media--dark .goals-overlay__cta {
-  margin-top: auto;
-  align-self: flex-end;
+  margin-top: 1.5rem;
+  align-self: flex-start;
   color: rgba(255, 255, 255, 0.96);
   border-bottom: none;
   padding-bottom: 0;
