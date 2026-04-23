@@ -17,7 +17,7 @@ friday-circle/
 │  ├─ loesungen.MOV          ← Hauptquelle Lösungen (optional: loesungen.mp4)
 │  ├─ steps.jpg              ← 3-Schritte-Bereich auf der Startseite
 │  ├─ haimo.mp4 + haimo-poster.jpg   ← Projekte
-│  └─ neuro-workspace.mp4 + neuro-workspace-poster.jpg
+│  └─ werkhaim.mp4 + werkhaim-poster.jpg
 └─ README.md
 ```
 
@@ -38,7 +38,7 @@ python3 -m http.server 5173
 - **gogogo auf Ziele:** `assets/gogogo.mp4`.
 - **Lösungen:** `assets/loesungen.MOV`; optional `assets/loesungen.mp4` als zweite `<source>` für Browser ohne QuickTime.
 - **Schritte-Bild:** `assets/steps.jpg` — fehlt es, zeigt der Bereich einen leeren Platzhalter.
-- **Projekte:** Videos/Poster für haimo und neuro workspace wie oben; fehlende Dateien führen zu leerem Video — bitte nachlegen.
+- **Projekte:** Videos/Poster für haimo und werkhaim wie oben; fehlende Dateien führen zu leerem Video — bitte nachlegen.
 
 ## Schriften
 
