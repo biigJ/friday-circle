@@ -172,10 +172,6 @@ a {
   letter-spacing: 0.01em;
 }
 
-.hero__heading--subpage {
-  font-size: clamp(26px, 3.75vw, 52px);
-}
-
 .hero__heading .nowrap {
   display: block;
 }
@@ -429,9 +425,7 @@ a {
 }
 
 .product__logo--community {
-  font-size: clamp(26px, 4.2vw, 52px);
-  line-height: 1.08;
-  letter-spacing: 0.01em;
+  line-height: 1.05;
 }
 
 .product__brand-prose {
@@ -567,9 +561,11 @@ a {
 
 .loesungen-overlay__subhead {
   margin: 1.35em 0 0.5em;
-  font-size: clamp(0.95rem, 1.05vw, 1.1rem);
+  font-size: clamp(30px, 4.2vw, 58px);
   font-weight: 700;
-  line-height: 1.25;
+  font-family: var(--font-sans);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
 }
 
 .loesungen-overlay__subhead:first-child {
@@ -601,9 +597,10 @@ a {
 .page-continuation__inner h2 {
   margin: 1.5em 0 0.5em;
   font-family: var(--font-sans);
-  font-size: clamp(0.95rem, 1.08vw, 1.12rem);
+  font-size: clamp(30px, 4.2vw, 58px);
   font-weight: 700;
-  line-height: 1.3;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
 }
 
 .page-continuation__inner h2:first-of-type {
@@ -667,8 +664,11 @@ a {
 
 .steps__heading {
   margin: 0 0 12px;
-  font-size: clamp(1.2rem, 1.95vw, 1.55rem);
+  font-family: var(--font-sans);
+  font-size: clamp(30px, 4.2vw, 58px);
   font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
 }
 
 .steps__sub {
