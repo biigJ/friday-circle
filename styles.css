@@ -734,6 +734,10 @@ a {
   padding: var(--section-pad-y) 0;
 }
 
+.steps.steps--after-gogogo-video {
+  padding: clamp(28px, 5vw, 48px) 0 0;
+}
+
 .steps__inner {
   max-width: var(--content-max);
   margin: 0 auto;
