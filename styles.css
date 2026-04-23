@@ -484,6 +484,16 @@ a {
   line-height: 1.05;
 }
 
+.product__logo--single-line {
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .product__logo--single-line {
+    white-space: normal;
+  }
+}
+
 .product__brand-prose {
   margin: 0;
   max-width: 38rem;
