@@ -1038,3 +1038,161 @@ a {
     margin-left: auto;
   }
 }
+
+/* gogogo Intake: nur Logo + Login */
+.nav--gogogo-intake .nav__inner--gogogo-intake {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: clamp(18px, 2.2vw, 26px) var(--nav-pad-x);
+}
+
+.cta-pill--login {
+  background: transparent;
+  color: var(--surface);
+  border: 2px solid var(--surface);
+  box-shadow: none;
+}
+
+.cta-pill--login:hover,
+.cta-pill--login:focus-visible {
+  transform: translateY(-1px);
+  background: color-mix(in srgb, var(--surface) 10%, transparent);
+}
+
+.gogogo-flow {
+  padding: clamp(32px, 5vw, 56px) 0 clamp(48px, 8vw, 96px);
+}
+
+.gogogo-flow__inner {
+  max-width: min(36rem, calc(100% - 2 * var(--nav-pad-x)));
+  margin: 0 auto;
+  padding: 0 var(--nav-pad-x);
+}
+
+.gogogo-flow__title {
+  margin: 0 0 0.35em;
+  font-size: clamp(30px, 4.2vw, 58px);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 1.05;
+}
+
+.gogogo-flow__intro {
+  margin: 0 0 clamp(24px, 4vw, 40px);
+  color: color-mix(in srgb, var(--text) 82%, var(--bg));
+  font-size: clamp(14px, 1.22vw, 17px);
+}
+
+.gogogo-step__meta {
+  margin: 0 0 1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: color-mix(in srgb, var(--text) 55%, transparent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.gogogo-fieldset {
+  margin: 0 0 clamp(1.5rem, 3vw, 2rem);
+  padding: 0;
+  border: none;
+  min-width: 0;
+}
+
+.gogogo-legend {
+  padding: 0;
+  margin-bottom: 0.75rem;
+  font-size: clamp(15px, 1.28vw, 18px);
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.gogogo-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.gogogo-options--inline {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+}
+
+.gogogo-radio {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.gogogo-radio input {
+  margin: 0.2rem 0 0;
+  accent-color: var(--surface);
+}
+
+.gogogo-form__next,
+.gogogo-form__submit {
+  margin-top: 0.5rem;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+}
+
+.gogogo-field {
+  margin-bottom: 1rem;
+}
+
+.gogogo-label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.gogogo-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid color-mix(in srgb, var(--text) 25%, transparent);
+  border-radius: 8px;
+  font: inherit;
+  background: #fff;
+}
+
+.gogogo-input:focus-visible {
+  outline: 2px solid var(--surface);
+  outline-offset: 1px;
+}
+
+.gogogo-legal {
+  margin: clamp(1.25rem, 2.5vw, 1.75rem) 0 1rem;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: color-mix(in srgb, var(--text) 78%, transparent);
+}
+
+.gogogo-legal a {
+  color: var(--surface);
+  font-weight: 600;
+}
+
+.gogogo-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  margin: 0 0 1.25rem;
+  cursor: pointer;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.gogogo-consent input {
+  margin: 0.2rem 0 0;
+  accent-color: var(--surface);
+  flex-shrink: 0;
+}

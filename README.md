@@ -9,6 +9,8 @@ friday-circle/
 ├─ ziele.html
 ├─ loesungen.html
 ├─ projekte.html
+├─ community.html
+├─ gogogo.html
 ├─ styles.css
 ├─ assets/
 │  ├─ hero.mp4
