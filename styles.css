@@ -82,9 +82,9 @@ a {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: clamp(28px, 4.2vw, 52px);
+  gap: clamp(45px, 6.72vw, 83px);
   font-size: 0.92rem;
-  font-weight: 600;
+  font-weight: 300;
 }
 
 .nav__links a {
@@ -646,7 +646,7 @@ a {
     width: 100%;
     justify-self: auto;
     justify-content: flex-start;
-    gap: clamp(18px, 3.5vw, 28px);
+    gap: clamp(29px, 5.6vw, 45px);
   }
 
   .landing-bridge__display {
