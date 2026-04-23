@@ -14,7 +14,14 @@
     <header class="nav" aria-label="Hauptnavigation">
       <div class="nav__inner">
         <a href="index.html" class="nav__logo">FRIDAY CIRCLE</a>
-        <nav class="nav__links" aria-label="Primär">
+        <button type="button" class="nav__burger" aria-expanded="false" aria-controls="primary-nav" aria-label="Menü öffnen">
+          <span class="nav__burger-box">
+            <span class="nav__burger-line" aria-hidden="true"></span>
+            <span class="nav__burger-line" aria-hidden="true"></span>
+            <span class="nav__burger-line" aria-hidden="true"></span>
+          </span>
+        </button>
+        <nav id="primary-nav" class="nav__links" aria-label="Primär">
           <a href="ziele.html">Ziele</a>
           <a href="loesungen.html">Lösungen</a>
           <a href="projekte.html" class="nav__link--current" aria-current="page">Projekte</a>
@@ -113,5 +120,6 @@
         <p class="footer__copy">© 2026 Friday Circle</p>
       </div>
     </footer>
+    <script src="nav.js" defer></script>
   </body>
 </html>
