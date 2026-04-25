@@ -1018,6 +1018,7 @@ a {
     --mobile-fs-heading: clamp(2.55rem, 8.4vw, 3.2rem);
     --mobile-fs-mid: clamp(1.28rem, 4.65vw, 1.52rem);
     --mobile-fs-body: clamp(1.02rem, 3.7vw, 1.14rem);
+    --mobile-fs-footer: calc(var(--mobile-fs-body) * 0.7);
     --goals-prose-fs: var(--mobile-fs-body);
   }
 
@@ -1092,12 +1093,12 @@ a {
   }
 
   .footer__logo {
-    font-size: var(--mobile-fs-mid);
+    font-size: var(--mobile-fs-footer);
   }
 
   .footer__links a,
   .footer__copy {
-    font-size: var(--mobile-fs-body);
+    font-size: var(--mobile-fs-footer);
   }
 
   .landing-bridge__display {
