@@ -1011,6 +1011,110 @@ a {
   .landing-name-story__grid {
     grid-template-columns: 1fr;
   }
+
+  /* Typo: bis 900px (Tablet/Smartphone), nicht nur ≤760 — sonst z.B. iPad ohne Effekt */
+  :root {
+    /* A Headlines, B große Aussagen & Hero-Lede, C Fließtext */
+    --mobile-fs-heading: clamp(1.82rem, 6vw, 2.28rem);
+    --mobile-fs-mid: clamp(1.28rem, 4.65vw, 1.52rem);
+    --mobile-fs-body: clamp(1.02rem, 3.7vw, 1.14rem);
+    --goals-prose-fs: var(--mobile-fs-body);
+  }
+
+  body {
+    font-size: var(--mobile-fs-body);
+  }
+
+  .hero__heading {
+    font-size: var(--mobile-fs-heading);
+  }
+
+  .hero__lede {
+    font-size: var(--mobile-fs-mid);
+  }
+
+  .landing-bridge__kicker {
+    font-size: var(--mobile-fs-body);
+  }
+
+  .landing-name-story__quote {
+    font-size: var(--mobile-fs-mid);
+  }
+
+  .landing-name-story__text {
+    font-size: var(--mobile-fs-body);
+  }
+
+  .product__brand .product__kicker,
+  .product__brand .product__tagline {
+    font-size: var(--mobile-fs-mid);
+  }
+
+  .product__kicker {
+    font-size: var(--mobile-fs-mid);
+  }
+
+  .product__tagline {
+    font-size: var(--mobile-fs-mid);
+  }
+
+  .product__logo {
+    font-size: min(3.6rem, calc(var(--mobile-fs-heading) * 2.1));
+  }
+
+  .gogogo-welcome__title {
+    font-size: var(--mobile-fs-heading);
+  }
+
+  .gogogo-legend {
+    font-size: var(--mobile-fs-mid);
+  }
+
+  .nav__links {
+    font-size: var(--mobile-fs-body);
+  }
+
+  .nav__logo {
+    font-size: clamp(1.02rem, var(--mobile-fs-mid), 1.22rem);
+  }
+
+  .steps__heading {
+    font-size: var(--mobile-fs-heading);
+  }
+
+  .steps__sub {
+    font-size: var(--mobile-fs-mid);
+  }
+
+  .step__text,
+  .steps__more {
+    font-size: var(--mobile-fs-body);
+  }
+
+  .footer__logo {
+    font-size: var(--mobile-fs-mid);
+  }
+
+  .footer__links a,
+  .footer__copy {
+    font-size: var(--mobile-fs-body);
+  }
+
+  .landing-bridge__display {
+    font-size: var(--mobile-fs-mid);
+  }
+
+  .landing-after-video__display {
+    font-size: var(--mobile-fs-mid);
+  }
+
+  .landing-name-story__heading {
+    font-size: var(--mobile-fs-mid);
+  }
+
+  .community .landing-bridge__display--split {
+    font-size: var(--mobile-fs-mid);
+  }
 }
 
 @media (max-width: 760px) {
@@ -1062,22 +1166,6 @@ a {
 
   .nav.nav--open .nav__links {
     display: flex;
-  }
-
-  .landing-bridge__display {
-    font-size: clamp(17px, 4.5vw, 34px);
-  }
-
-  .landing-after-video__display {
-    font-size: clamp(calc(17px * 0.6), calc(4.5vw * 0.6), calc(34px * 0.6));
-  }
-
-  .landing-name-story__heading {
-    font-size: clamp(calc(17px * 0.6), calc(4.5vw * 0.6), calc(34px * 0.6));
-  }
-
-  .community .landing-bridge__display--split {
-    font-size: clamp(calc(17px * 0.6), calc(4.5vw * 0.6), calc(34px * 0.6));
   }
 
   .product__overlay {
@@ -1171,10 +1259,15 @@ a {
 
 .gogogo-welcome__title {
   margin: 0 0 0.35em;
-  font-size: clamp(30px, 4.2vw, 58px);
   font-weight: 700;
   letter-spacing: 0.01em;
   line-height: 1.05;
+}
+
+@media (min-width: 901px) {
+  .gogogo-welcome__title {
+    font-size: clamp(30px, 4.2vw, 58px);
+  }
 }
 
 .gogogo-welcome__sub {
@@ -1204,9 +1297,14 @@ a {
 .gogogo-legend {
   padding: 0;
   margin-bottom: 0.75rem;
-  font-size: clamp(15px, 1.28vw, 18px);
   font-weight: 600;
   line-height: 1.35;
+}
+
+@media (min-width: 901px) {
+  .gogogo-legend {
+    font-size: clamp(15px, 1.28vw, 18px);
+  }
 }
 
 .gogogo-options {
