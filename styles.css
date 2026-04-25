@@ -17,9 +17,10 @@
   --overlay-pad-x: clamp(12px, 2.5vw, 24px);
   /* Landing + Ziele: helleres, farbigeres Video (nicht Lösungen/Projekte-Default) */
   --product-video-filter-vivid: grayscale(0.48) brightness(0.9) saturate(1.08);
+  --product-video-filter-landing: grayscale(0.74) brightness(0.6) saturate(0.54);
   /* Landing: ockerer Bereich unter dem Video (Grafik-Platzhalter) */
-  --landing-graphic-bg: color-mix(in srgb, #b89a6a 28%, var(--bg));
-  --landing-graphic-border: color-mix(in srgb, #7a623e 22%, var(--bg));
+  --landing-graphic-bg: color-mix(in srgb, #b89a6a 16%, var(--bg));
+  --landing-graphic-border: color-mix(in srgb, #7a623e 12%, var(--bg));
 }
 
 *,
@@ -314,6 +315,10 @@ a {
   letter-spacing: 0.015em;
 }
 
+.landing-bridge:not(.landing-bridge--two-col) .landing-bridge__display {
+  color: color-mix(in srgb, var(--surface) 78%, #000);
+}
+
 .landing-bridge--two-col .landing-bridge__cols {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -336,7 +341,7 @@ a {
 
 /* Landing: unter dem Video — Linie, Sweet-Spot-Satz, Grafik-Fläche */
 .landing-after-video {
-  padding: 0 0 var(--section-pad-y);
+  padding: 0 0 clamp(24px, 4vw, 48px);
 }
 
 .landing-after-video__inner {
@@ -348,7 +353,7 @@ a {
 .landing-after-video__display {
   margin: clamp(20px, 3vw, 32px) 0 clamp(16px, 2.5vw, 28px);
   font-family: var(--font-sans);
-  font-weight: 700;
+  font-weight: 400;
   font-size: clamp(calc(18px * 0.6), calc(3.75vw * 0.6), calc(48px * 0.6));
   line-height: 1.12;
   letter-spacing: 0.015em;
@@ -359,11 +364,74 @@ a {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  max-width: min(34rem, calc(100% - clamp(40px, 10vw, 100px)));
-  min-height: clamp(300px, 52vw, 560px);
+  max-width: min(68rem, calc(100% - clamp(40px, 10vw, 100px)));
+  aspect-ratio: 3 / 2;
+  height: auto;
   border-radius: clamp(10px, 1.2vw, 16px);
   background: var(--landing-graphic-bg);
-  border: 1px solid color-mix(in srgb, var(--landing-graphic-border) 45%, transparent);
+  border: 1px solid color-mix(in srgb, var(--landing-graphic-border) 35%, transparent);
+}
+
+.landing-after-video__rule-after-graphic {
+  margin-top: clamp(28px, 5vw, 56px);
+  margin-bottom: 0;
+}
+
+.landing-after-video__rule-after-name-story {
+  margin-top: clamp(28px, 5vw, 56px);
+  margin-bottom: clamp(14px, 2.5vw, 28px);
+}
+
+.landing-name-story__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: clamp(40px, 8vw, 120px);
+  align-items: start;
+  margin-top: clamp(16px, 2.5vw, 28px);
+}
+
+.landing-name-story__heading {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: clamp(calc(18px * 0.6), calc(3.75vw * 0.6), calc(48px * 0.6));
+  line-height: 1.12;
+  letter-spacing: 0.015em;
+}
+
+.landing-name-story__heading .nowrap {
+  display: block;
+}
+
+.landing-name-story__prose {
+  min-width: 0;
+}
+
+.landing-name-story__quote {
+  margin: 0 0 clamp(12px, 1.5vw, 18px);
+  font-family: var(--font-serif);
+  font-size: clamp(15px, 1.32vw, 19px);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.58;
+  color: color-mix(in srgb, var(--text) 78%, var(--bg));
+  text-align: left;
+}
+
+.landing-name-story__text {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(15px, 1.32vw, 19px);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.58;
+  color: color-mix(in srgb, var(--text) 78%, var(--bg));
+  text-align: left;
+  max-width: none;
+}
+
+.landing-name-story__text + .landing-name-story__text {
+  margin-top: clamp(12px, 1.5vw, 18px);
 }
 
 /* Product / video blocks — gleiche horizontale Spalte wie .nav__inner / .hero__grid */
@@ -516,7 +584,10 @@ a {
   filter: var(--product-video-filter-vivid);
 }
 
-#gogogo .product__video,
+#gogogo .product__video {
+  filter: var(--product-video-filter-landing);
+}
+
 .product--community .product__video {
   filter: var(--product-video-filter-vivid);
 }
@@ -936,6 +1007,10 @@ a {
   .landing-bridge--two-col .landing-bridge__cols {
     grid-template-columns: 1fr;
   }
+
+  .landing-name-story__grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 760px) {
@@ -994,6 +1069,10 @@ a {
   }
 
   .landing-after-video__display {
+    font-size: clamp(calc(17px * 0.6), calc(4.5vw * 0.6), calc(34px * 0.6));
+  }
+
+  .landing-name-story__heading {
     font-size: clamp(calc(17px * 0.6), calc(4.5vw * 0.6), calc(34px * 0.6));
   }
 
