@@ -1015,7 +1015,7 @@ a {
   /* Typo: bis 900px (Tablet/Smartphone), nicht nur ≤760 — sonst z.B. iPad ohne Effekt */
   :root {
     /* A Headlines, B große Aussagen & Hero-Lede, C Fließtext */
-    --mobile-fs-heading: clamp(1.82rem, 6vw, 2.28rem);
+    --mobile-fs-heading: clamp(2.55rem, 8.4vw, 3.2rem);
     --mobile-fs-mid: clamp(1.28rem, 4.65vw, 1.52rem);
     --mobile-fs-body: clamp(1.02rem, 3.7vw, 1.14rem);
     --goals-prose-fs: var(--mobile-fs-body);
