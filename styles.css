@@ -553,8 +553,8 @@ a {
   max-width: 100%;
 }
 
-/* Reihung: gogogo (Standard) → CYCLE (Rot) → go sam (Elektroblau) → haimo (S/W) → werkhaim (S/W) */
-.landing-program-ctas__link--cycle {
+/* Reihung: gogogo (Standard, .cta-pill--gogogo) → CYCLE → go sam → haimo → werkhaim */
+.cta-pill--program-cycle {
   /* Referenzrot aus Vorgabe */
   background: #c52f33;
   color: #fff0f0;
@@ -562,18 +562,19 @@ a {
   border: 1px solid color-mix(in srgb, #fff 12%, #c52f33);
 }
 
-.landing-program-ctas__link--cycle:hover,
-.landing-program-ctas__link--cycle:focus-visible {
+.cta-pill--program-cycle:hover,
+.cta-pill--program-cycle:focus-visible {
+  color: #fff0f0;
   filter: brightness(1.04);
   box-shadow: 0 4px 18px color-mix(in srgb, #c52f33 45%, transparent);
 }
 
-.landing-program-ctas__link--cycle:focus-visible {
+.cta-pill--program-cycle:focus-visible {
   outline: 2px solid #2a0a0a;
   outline-offset: 2px;
 }
 
-.landing-program-ctas__link--gosam {
+.cta-pill--program-gosam {
   /* Leuchtendes Blau laut Vorgabe (an ~#3366FF) */
   background: #3366ff;
   color: #edf2ff;
@@ -581,49 +582,52 @@ a {
   border: 1px solid color-mix(in srgb, #fff 14%, #2b55d9);
 }
 
-.landing-program-ctas__link--gosam:hover,
-.landing-program-ctas__link--gosam:focus-visible {
+.cta-pill--program-gosam:hover,
+.cta-pill--program-gosam:focus-visible {
+  color: #edf2ff;
   filter: brightness(1.04);
   box-shadow: 0 4px 20px color-mix(in srgb, #3366ff 40%, transparent);
 }
 
-.landing-program-ctas__link--gosam:focus-visible {
+.cta-pill--program-gosam:focus-visible {
   outline: 2px solid #8ab0ff;
   outline-offset: 2px;
 }
 
-.landing-program-ctas__link--haimo {
+.cta-pill--program-haimo {
   background: #0a0a0a;
   color: #f6f6f6;
   box-shadow: 0 1px 0 #000;
   border: 1px solid #2a2a2a;
 }
 
-.landing-program-ctas__link--haimo:hover,
-.landing-program-ctas__link--haimo:focus-visible {
+.cta-pill--program-haimo:hover,
+.cta-pill--program-haimo:focus-visible {
+  color: #f6f6f6;
   filter: brightness(1.12);
   box-shadow: 0 4px 20px color-mix(in srgb, #000 25%, #0a0a0a);
 }
 
-.landing-program-ctas__link--haimo:focus-visible {
+.cta-pill--program-haimo:focus-visible {
   outline: 2px solid #f6f6f6;
   outline-offset: 2px;
 }
 
-.landing-program-ctas__link--werkhaim {
+.cta-pill--program-werkhaim {
   background: #f4f4f4;
   color: #0a0a0a;
   box-shadow: 0 1px 0 color-mix(in srgb, #0a0a0a 8%, #f4f4f4);
   border: 1px solid #0a0a0a;
 }
 
-.landing-program-ctas__link--werkhaim:hover,
-.landing-program-ctas__link--werkhaim:focus-visible {
+.cta-pill--program-werkhaim:hover,
+.cta-pill--program-werkhaim:focus-visible {
+  color: #0a0a0a;
   background: #e6e6e6;
   box-shadow: 0 4px 18px color-mix(in srgb, #0a0a0a 12%, transparent);
 }
 
-.landing-program-ctas__link--werkhaim:focus-visible {
+.cta-pill--program-werkhaim:focus-visible {
   outline: 2px solid #0a0a0a;
   outline-offset: 2px;
 }
@@ -932,10 +936,19 @@ a {
   align-self: flex-start;
 }
 
-.community-product__cta:hover,
-.community-product__cta:focus-visible {
+.community-product__cta:hover:not(.cta-pill),
+.community-product__cta:focus-visible:not(.cta-pill) {
   color: var(--accent);
   border-bottom-color: color-mix(in srgb, var(--accent) 78%, #fff);
+}
+
+/* Programm-Farbe als Pill (statt Unterstreich-Link) im Community-Video */
+a.community-product__cta.cta-pill {
+  border-bottom: none;
+  padding-bottom: 0;
+  white-space: normal;
+  text-align: left;
+  max-width: min(100%, 32rem);
 }
 
 .goals-media--dark .product__overlay {
