@@ -3,6 +3,41 @@
   var header = document.querySelector("header.nav");
   var btn = document.querySelector(".nav__burger");
   var nav = document.getElementById("primary-nav");
+  var gogogoBucket = document.querySelector(".nav__cta-bucket");
+  var gogogoToggle = document.getElementById("nav-gogogo-toggle");
+  var gogogoPanel = document.getElementById("nav-gogogo-dropdown");
+
+  function gogogoSetOpen(open) {
+    if (!gogogoBucket || !gogogoToggle || !gogogoPanel) return;
+    gogogoToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    gogogoPanel.hidden = !open;
+    gogogoBucket.classList.toggle("is-open", open);
+  }
+
+  if (gogogoBucket && gogogoToggle && gogogoPanel) {
+    gogogoToggle.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      gogogoSetOpen(!!(gogogoPanel.hidden));
+    });
+    gogogoPanel.querySelectorAll("a[role=menuitem]").forEach(function (a) {
+      a.addEventListener("click", function () {
+        gogogoSetOpen(false);
+      });
+    });
+    gogogoBucket.addEventListener("click", function (e) {
+      e.stopPropagation();
+    });
+    document.addEventListener("click", function () {
+      gogogoSetOpen(false);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && gogogoToggle.getAttribute("aria-expanded") === "true") {
+        gogogoSetOpen(false);
+        gogogoToggle.focus();
+      }
+    });
+  }
 
   if (!header || !btn || !nav) return;
 
@@ -10,6 +45,7 @@
     header.classList.toggle("nav--open", open);
     btn.setAttribute("aria-expanded", open ? "true" : "false");
     btn.setAttribute("aria-label", open ? "Menü schließen" : "Menü öffnen");
+    gogogoSetOpen(false);
   }
 
   function closeIfMobile() {

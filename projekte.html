@@ -27,7 +27,37 @@
           <a href="projekte.html" class="nav__link--current" aria-current="page">Projekte</a>
           <a href="community.html">Community</a>
         </nav>
-        <a href="gogogo.html" class="cta-pill cta-pill--gogogo">gogogo</a>
+        <div class="nav__cta-bucket">
+          <div class="nav__cta-split">
+            <a href="gogogo/index.html" class="cta-pill cta-pill--gogogo nav__cta-primary">gogogo</a>
+            <button
+              type="button"
+              class="nav__cta-toggle"
+              id="nav-gogogo-toggle"
+              aria-expanded="false"
+              aria-haspopup="true"
+              aria-controls="nav-gogogo-dropdown"
+              aria-label="Weitere gogogo-Seiten anzeigen"
+            >
+              <span class="nav__cta-toggle-icon" aria-hidden="true"></span>
+            </button>
+          </div>
+          <div
+            id="nav-gogogo-dropdown"
+            class="nav__gogogo-panel"
+            role="menu"
+            aria-labelledby="nav-gogogo-dropdown-title"
+            hidden
+          >
+            <p class="nav__gogogo-panel-kicker" id="nav-gogogo-dropdown-title">gogogo</p>
+            <a role="menuitem" class="nav__gogogo-item" href="gogogo/einstieg.html"
+              >Fragebogen starten <span class="nav__gogogo-external" aria-hidden="true">↗</span></a
+            >
+            <a role="menuitem" class="nav__gogogo-item" href="projekte.html#gogogo"
+              >Projekt-Überblick <span class="nav__gogogo-external" aria-hidden="true">↗</span></a
+            >
+          </div>
+        </div>
       </div>
     </header>
 
@@ -46,7 +76,7 @@
         </div>
       </section>
 
-      <section class="product projekte-hero-video" aria-label="gogogo">
+      <section id="gogogo" class="product projekte-hero-video" aria-label="gogogo">
         <div class="product__media">
           <div class="product__frame">
             <video class="product__video" autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.png">
@@ -59,7 +89,7 @@
                 </p>
                 <h2 class="product__logo">gogogo</h2>
                 <p class="product__tagline">Komm in Bewegung.</p>
-                <a href="gogogo.html" class="cta-pill cta-pill--gogogo product__cta">mehr lesen</a>
+                <a href="gogogo/index.html" class="cta-pill cta-pill--gogogo product__cta">mehr lesen</a>
               </div>
             </div>
           </div>

@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>gogogo – Komm in Bewegung | Friday Circle</title>
+    <meta
+      name="description"
+      content="Individueller Trainingsplan, wöchentliche Begleitung, tägliche Accountability. Kein Abo. Kein Kurs. Ein Mensch der dranbleibt."
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="canonical" href="https://fridaycircle.club/gogogo/" />
+    <style>
+      /* gogogo landing — tokens & layout (complements styles.css) */
+      .gogogo-landing {
+        --gg-bg: #f0eee6;
+        --gg-text: #0a0a0a;
+        --gg-teal: #2d7d6f;
+        --gg-muted: #666;
+        --gg-font-head: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        --gg-font-body: Georgia, "Times New Roman", Times, serif;
+        background: var(--gg-bg);
+        color: var(--gg-text);
+        font-family: var(--gg-font-body);
+        line-height: 1.5;
+        margin: 0;
+        min-height: 100%;
+      }
+      .gogogo-landing h1,
+      .gogogo-landing h2,
+      .gogogo-landing h3,
+      .gogogo-landing .gg-head {
+        font-family: var(--gg-font-head);
+      }
+      .gogogo-landing a {
+        color: inherit;
+      }
+      .gg-hero-wrap {
+        position: relative;
+        min-height: 100dvh;
+      }
+      .gg-nav {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        padding: clamp(16px, 3vw, 24px) clamp(20px, 4vw, 48px);
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+      .gg-nav a.gg-wordmark {
+        font-family: var(--gg-font-head);
+        font-weight: 600;
+        font-size: clamp(1.05rem, 1.35vw, 1.3rem);
+        letter-spacing: 0.04em;
+        text-decoration: none;
+        color: var(--gg-text);
+      }
+      .gg-hero {
+        min-height: 100dvh;
+        min-height: 100vh; /* fallback */
+        display: flex;
+        flex-direction: column;
+      }
+      .gg-hero__split {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        max-width: 1280px;
+        margin: 0 auto;
+        width: 100%;
+      }
+      @media (min-width: 900px) {
+        .gg-hero__split {
+          flex-direction: row;
+        }
+        .gg-hero__text {
+          flex: 0 0 55%;
+          max-width: 55%;
+        }
+        .gg-hero__image {
+          flex: 0 0 45%;
+          max-width: 45%;
+        }
+      }
+      .gg-hero__text {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: clamp(4.25rem, 8vw, 5rem) clamp(20px, 4vw, 48px) clamp(32px, 5vw, 64px);
+        order: 1;
+      }
+      .gg-hero__image {
+        order: 2;
+        min-height: 42vh;
+      }
+      @media (min-width: 900px) {
+        .gg-hero__text {
+          padding-bottom: clamp(48px, 6vw, 80px);
+        }
+        .gg-hero__image {
+          min-height: 0;
+        }
+      }
+      .gg-label {
+        font-family: var(--gg-font-head);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gg-teal);
+        margin: 0 0 0.75rem;
+      }
+      .gg-hero h1 {
+        font-weight: 700;
+        font-size: clamp(2.5rem, 6vw, 5rem);
+        line-height: 1.05;
+        margin: 0 0 1rem;
+        letter-spacing: -0.02em;
+      }
+      .gg-hero__sub {
+        font-family: var(--gg-font-body);
+        font-size: clamp(1.2rem, 2.2vw, 1.75rem);
+        font-style: italic;
+        line-height: 1.35;
+        margin: 0 0 1.5rem;
+        color: var(--gg-text);
+      }
+      .gg-trust {
+        list-style: none;
+        margin: 0 0 1.75rem;
+        padding: 0;
+        font-family: var(--gg-font-head);
+        font-size: 0.875rem;
+        color: var(--gg-muted);
+      }
+      .gg-trust li {
+        position: relative;
+        padding-left: 1.35em;
+        margin-bottom: 0.4rem;
+      }
+      .gg-trust li::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: var(--gg-teal);
+        font-weight: 600;
+      }
+      .gg-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        align-self: flex-start;
+        background: #0a0a0a;
+        color: #fff;
+        font-family: var(--gg-font-head);
+        font-size: 1.05rem;
+        font-weight: 600;
+        text-decoration: none;
+        padding: 1rem 1.75rem;
+        border-radius: 9999px;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.2s ease, background 0.2s ease;
+      }
+      .gg-cta:hover,
+      .gg-cta:focus-visible {
+        background: #222;
+        transform: translateY(-1px);
+      }
+      .gg-hero__image.hero-image {
+        background: #d4cfc6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0;
+        margin: 0;
+      }
+      .gg-hero__image.hero-image p {
+        font-family: var(--gg-font-body);
+        font-size: 0.8rem;
+        font-style: italic;
+        color: #666;
+        text-align: center;
+        max-width: 16rem;
+        margin: 0;
+        padding: 1rem;
+      }
+      .gg-bar {
+        background: #0a0a0a;
+        color: #fff;
+        text-align: center;
+        padding: clamp(1.25rem, 3vw, 1.75rem) clamp(20px, 4vw, 48px);
+      }
+      .gg-bar p {
+        font-family: var(--gg-font-body);
+        font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+        font-style: italic;
+        margin: 0;
+        line-height: 1.5;
+      }
+      .gg-section {
+        padding: clamp(48px, 8vw, 96px) clamp(20px, 4vw, 48px);
+      }
+      .gg-section h2 {
+        text-align: center;
+        font-weight: 700;
+        font-size: clamp(1.5rem, 3vw, 2.25rem);
+        margin: 0 0 clamp(2rem, 4vw, 3rem);
+        line-height: 1.2;
+      }
+      .gg-steps {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        gap: clamp(2rem, 4vw, 2.5rem);
+      }
+      @media (min-width: 700px) {
+        .gg-steps {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      .gg-step {
+        text-align: left;
+      }
+      .gg-step__num {
+        font-family: var(--gg-font-head);
+        font-size: 4rem;
+        font-weight: 700;
+        line-height: 1;
+        color: var(--gg-teal);
+        margin: 0 0 0.5rem;
+      }
+      .gg-step h3 {
+        font-family: var(--gg-font-head);
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin: 0 0 0.75rem;
+        line-height: 1.3;
+      }
+      .gg-step p {
+        margin: 0 0 0.5rem;
+        font-size: 0.98rem;
+        line-height: 1.55;
+        color: var(--gg-text);
+      }
+      .gg-arg {
+        background: #1a1a1a;
+        color: #fff;
+        padding: clamp(48px, 8vw, 96px) clamp(20px, 4vw, 48px);
+      }
+      .gg-arg h2 {
+        color: #fff;
+        margin: 0 0 clamp(2rem, 4vw, 3rem);
+      }
+      .gg-arg__grid {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        gap: clamp(1.5rem, 3vw, 2rem);
+      }
+      @media (min-width: 768px) {
+        .gg-arg__grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      .gg-arg__block h3 {
+        font-family: var(--gg-font-head);
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: #fff;
+        margin: 0 0 0.75rem;
+        line-height: 1.3;
+      }
+      .gg-arg__block p {
+        font-family: var(--gg-font-body);
+        font-size: 0.98rem;
+        line-height: 1.55;
+        color: #a8a8a8;
+        margin: 0;
+      }
+      .gg-onb {
+        padding: clamp(48px, 8vw, 96px) clamp(20px, 4vw, 48px);
+      }
+      .gg-onb h2 {
+        margin: 0 0 0.5rem;
+      }
+      .gg-onb__sub {
+        text-align: center;
+        font-family: var(--gg-font-body);
+        font-size: clamp(1rem, 1.5vw, 1.2rem);
+        margin: 0 0 2rem;
+        color: var(--gg-text);
+      }
+      .gg-form-wrap {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .gg-form fieldset {
+        border: none;
+        margin: 0 0 1.5rem;
+        padding: 0;
+      }
+      .gg-form legend,
+      .gg-form .gg-legend {
+        font-family: var(--gg-font-head);
+        font-weight: 700;
+        font-size: 0.95rem;
+        margin-bottom: 0.75rem;
+        display: block;
+        width: 100%;
+        padding: 0;
+        float: none;
+      }
+      .gg-form .gg-radios {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .gg-form label.gg-radio {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+        font-family: var(--gg-font-body);
+        font-size: 0.95rem;
+        cursor: pointer;
+        line-height: 1.4;
+      }
+      .gg-form label.gg-radio input {
+        margin-top: 0.25em;
+        flex-shrink: 0;
+      }
+      .gg-form .gg-field {
+        margin-bottom: 1.5rem;
+      }
+      .gg-form .gg-field label {
+        display: block;
+        font-family: var(--gg-font-head);
+        font-weight: 700;
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+      }
+      .gg-form input[type="text"],
+      .gg-form input[type="email"],
+      .gg-form textarea {
+        width: 100%;
+        font-family: var(--gg-font-body);
+        font-size: 1rem;
+        padding: 0.75rem 1rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background: #fff;
+        color: var(--gg-text);
+      }
+      .gg-form textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+      .gg-form input:focus-visible,
+      .gg-form textarea:focus-visible {
+        outline: 2px solid var(--gg-teal);
+        outline-offset: 1px;
+      }
+      .gg-form .gg-submit {
+        width: 100%;
+        margin-top: 0.5rem;
+      }
+      .gg-form .gg-fine {
+        text-align: center;
+        font-family: var(--gg-font-head);
+        font-size: 0.8rem;
+        color: var(--gg-muted);
+        margin: 0.75rem 0 0;
+      }
+      .gg-guarantee {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 60px clamp(20px, 4vw, 32px);
+        text-align: center;
+      }
+      .gg-guarantee p {
+        font-family: var(--gg-font-body);
+        font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+        font-style: italic;
+        line-height: 1.45;
+        margin: 0;
+        color: var(--gg-text);
+      }
+      .gg-footer {
+        background: #0a0a0a;
+        color: #fff;
+        text-align: center;
+        padding: 1.25rem clamp(20px, 4vw, 48px);
+        font-family: var(--gg-font-head);
+        font-size: 0.85rem;
+      }
+      .gg-footer a {
+        color: #fff;
+        text-decoration: none;
+      }
+      .gg-footer a:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 2px;
+      }
+    </style>
+  </head>
+  <body class="gogogo-landing">
+    <main>
+      <div class="gg-hero-wrap">
+        <header class="gg-nav" role="banner">
+          <a class="gg-wordmark" href="https://fridaycircle.club">FRIDAY CIRCLE</a>
+        </header>
+
+        <section class="gg-hero" aria-labelledby="gg-hero-title">
+          <div class="gg-hero__split">
+            <div class="gg-hero__text">
+              <p class="gg-label">PROJEKT GOGOGO</p>
+              <h1 id="gg-hero-title">Du weißt was du tun müsstest.</h1>
+              <p class="gg-hero__sub">Wir bauen dir den Plan der wirklich läuft.</p>
+              <ul class="gg-trust">
+                <li>Kein Abo. Kein Kurs.</li>
+                <li>Ein Mensch der dranbleibt.</li>
+                <li>Erster Schritt kostenlos.</li>
+              </ul>
+              <a class="gg-cta" href="#onboarding">Jetzt starten →</a>
+            </div>
+            <div
+              class="gg-hero__image hero-image"
+              role="img"
+              aria-label="Foto-Platzhalter: Mann läuft durch Berlin, morgens, entspannt"
+            >
+              <p>[Foto: Mann läuft durch Berlin, morgens, entspannt]</p>
+              <!-- To use a real image: replace this div with e.g. <img class="hero-image" src="..." alt="..." /> and match .hero-image in CSS. -->
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="gg-bar">
+        <p>168 Stunden hat die Woche. Vier davon verändern den Rest.</p>
+      </div>
+
+      <section class="gg-section" style="background: #f0eee6" aria-labelledby="gg-how-title">
+        <h2 id="gg-how-title" class="gg-head">So funktioniert gogogo.</h2>
+        <div class="gg-steps">
+          <article class="gg-step">
+            <p class="gg-step__num" aria-hidden="true">1</p>
+            <h3>Fünf Fragen.</h3>
+            <p>Du beschreibst deine Woche, deine Gewohnheiten, deine Hindernisse. Kein Fragebogen – ein Gespräch.</p>
+          </article>
+          <article class="gg-step">
+            <p class="gg-step__num" aria-hidden="true">2</p>
+            <h3>Dein Plan.</h3>
+            <p>Du bekommst einen individuellen Wochenplan mit vier Einheiten. Realistisch. Eingebaut in dein Leben – nicht umgekehrt.</p>
+          </article>
+          <article class="gg-step">
+            <p class="gg-step__num" aria-hidden="true">3</p>
+            <h3>Wir bleiben dran.</h3>
+            <p>Wöchentlicher Check-in, tägliche Begleitung per WhatsApp. Kein Algorithmus. Ein Mensch.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="gg-arg" aria-labelledby="gg-arg-title">
+        <h2 id="gg-arg-title" class="gg-head">Wir bauen Dein Dranbleiben.</h2>
+        <div class="gg-arg__grid">
+          <div class="gg-arg__block">
+            <h3>Kein System das dir verkauft wird. Deins.</h3>
+            <p>Du hast bereits alles was du brauchst. Wir helfen dir, es abzurufen – auf Basis deiner Woche, deiner Kapazitäten, deiner Geschichte.</p>
+          </div>
+          <div class="gg-arg__block">
+            <h3>Kein Grind. Kein Tracking. Ein Mensch.</h3>
+            <p>Apps erinnern dich. Kurse motivieren dich. Wir kennen deine Woche – und bleiben dran.</p>
+          </div>
+          <div class="gg-arg__block">
+            <h3>Vier Stunden. Messbarer Effekt auf alles andere.</h3>
+            <p>Besserer Schlaf, schnellere Entscheidungen, höhere Stresstoleranz. Dokumentierte Physiologie – kein Versprechen.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="onboarding" class="gg-onb" style="background: #f0eee6" aria-labelledby="gg-onb-title">
+        <h2 id="gg-onb-title" class="gg-head">Dein erster Schritt.</h2>
+        <p class="gg-onb__sub">Drei Fragen. Zwei Minuten. Wir melden uns persönlich.</p>
+        <div class="gg-form-wrap">
+          <!-- Replace PLACEHOLDER with your Formspree ID -->
+          <form
+            class="gg-form"
+            action="https://formspree.io/f/PLACEHOLDER"
+            method="POST"
+          >
+            <input type="hidden" name="source" value="gogogo-landing" />
+
+            <fieldset>
+              <legend class="gg-legend">Was passiert bei dir meistens nach zwei Wochen Training?</legend>
+              <div class="gg-radios">
+                <label class="gg-radio">
+                  <input type="radio" name="q_two_weeks_training" value="Ich höre auf" required />
+                  Ich höre auf
+                </label>
+                <label class="gg-radio">
+                  <input
+                    type="radio"
+                    name="q_two_weeks_training"
+                    value="Ich mache weiter aber lustlos"
+                  />
+                  Ich mache weiter aber lustlos
+                </label>
+                <label class="gg-radio">
+                  <input type="radio" name="q_two_weeks_training" value="Ich schaffe es selten bis dahin" />
+                  Ich schaffe es selten bis dahin
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend class="gg-legend">Was stört dich an bisherigen Lösungen am meisten?</legend>
+              <div class="gg-radios">
+                <label class="gg-radio">
+                  <input type="radio" name="q_past_solutions" value="Zu viel Aufwand" required />
+                  Zu viel Aufwand
+                </label>
+                <label class="gg-radio">
+                  <input type="radio" name="q_past_solutions" value="Kein Mensch dahinter" />
+                  Kein Mensch dahinter
+                </label>
+                <label class="gg-radio">
+                  <input type="radio" name="q_past_solutions" value="Passt nicht zu meinem Alltag" />
+                  Passt nicht zu meinem Alltag
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend class="gg-legend">Was wäre für dich ein echter Erfolg in vier Wochen?</legend>
+              <div class="gg-radios">
+                <label class="gg-radio">
+                  <input type="radio" name="q_success_four_weeks" value="Ich trainiere regelmäßig" required />
+                  Ich trainiere regelmäßig
+                </label>
+                <label class="gg-radio">
+                  <input type="radio" name="q_success_four_weeks" value="Ich fühle mich klarer im Kopf" />
+                  Ich fühle mich klarer im Kopf
+                </label>
+                <label class="gg-radio">
+                  <input type="radio" name="q_success_four_weeks" value="Ich habe eine Routine die hält" />
+                  Ich habe eine Routine die hält
+                </label>
+              </div>
+            </fieldset>
+
+            <div class="gg-field">
+              <label for="gg-name">Name</label>
+              <input id="gg-name" name="name" type="text" required placeholder="Dein Name" autocomplete="name" />
+            </div>
+            <div class="gg-field">
+              <label for="gg-email">E-Mail</label>
+              <input
+                id="gg-email"
+                name="email"
+                type="email"
+                required
+                placeholder="Deine E-Mail-Adresse"
+                autocomplete="email"
+              />
+            </div>
+            <div class="gg-field">
+              <label for="gg-blocker">Was hält dich gerade auf?</label>
+              <textarea
+                id="gg-blocker"
+                name="blocker"
+                rows="4"
+                placeholder="Schreib einfach was dir in den Kopf kommt."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="gg-cta gg-submit">Absenden – wir melden uns in 24h</button>
+            <p class="gg-fine">Keine Weitergabe deiner Daten. Kein Spam.</p>
+          </form>
+        </div>
+      </section>
+
+      <div class="gg-guarantee" style="background: #f0eee6">
+        <p>Wenn du nach dem Erstgespräch keinen konkreten nächsten Schritt siehst, zahlst du nichts. Kein Kleingedrucktes.</p>
+      </div>
+    </main>
+
+    <footer class="gg-footer" role="contentinfo">
+      <a href="https://fridaycircle.club">© 2026 Friday Circle</a>
+      ·
+      <a href="#">Impressum</a>
+      ·
+      <a href="#">Datenschutz</a>
+      ·
+      <a href="mailto:joscha@fridaycircle.club">joscha@fridaycircle.club</a>
+    </footer>
+  </body>
+</html>
