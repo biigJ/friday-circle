@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preload" href="assets/gogogo.mp4" as="video" type="video/mp4" />
   </head>
   <body>
     <header class="nav" aria-label="Hauptnavigation">
@@ -84,7 +85,16 @@
       <section class="product goals-media--dark" aria-label="Programme und Mission">
         <div class="product__media">
           <div class="product__frame">
-            <video class="product__video" autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.png">
+            <video
+              class="product__video"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="auto"
+              fetchpriority="high"
+              poster="assets/hero-poster.png"
+            >
               <source src="assets/gogogo.mp4" type="video/mp4" />
             </video>
             <div class="product__overlay goals-overlay">
