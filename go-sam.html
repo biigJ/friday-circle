@@ -3,17 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ziele — FRIDAY CIRCLE</title>
-    <meta name="description" content="Ziele von Friday Circle." />
+    <title>go sam — FRIDAY CIRCLE</title>
+    <meta name="description" content="go sam – Friday Circle" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body class="body--program-sub">
     <header class="nav" aria-label="Hauptnavigation">
       <div class="nav__inner">
-        <a href="index.html" class="nav__logo">FRIDAY CIRCLE</a>
+        <a href="index.html" class="nav__logo" aria-label="Friday Circle Startseite">FRIDAY CIRCLE</a>
         <button type="button" class="nav__burger" aria-expanded="false" aria-controls="primary-nav" aria-label="Menü öffnen">
           <span class="nav__burger-box">
             <span class="nav__burger-line" aria-hidden="true"></span>
@@ -22,7 +22,7 @@
           </span>
         </button>
         <nav id="primary-nav" class="nav__links" aria-label="Primär">
-          <a href="ziele.html" class="nav__link--current" aria-current="page">Ziele</a>
+          <a href="ziele.html">Ziele</a>
           <a href="loesungen.html">Lösungen</a>
           <a href="projekte.html">Projekte</a>
           <a href="community.html">Community</a>
@@ -64,42 +64,14 @@
       </div>
     </header>
 
-    <main>
-      <section class="hero" aria-labelledby="ziele-heading">
-        <div class="hero__grid">
-          <div class="hero__left">
-            <h1 id="ziele-heading" class="hero__heading">
-              <span class="nowrap">Ziele von</span>
-              <span class="nowrap">Friday Circle</span>
-            </h1>
+    <main class="program-sub" id="main">
+      <section class="program-sub__hero" aria-labelledby="gosam-hero">
+        <div class="program-sub__hero-inner">
+          <div>
+            <h1 id="gosam-hero" class="program-sub__title">go sam</h1>
+            <a href="community.html#go-sam" class="program-sub__cta cta-pill cta-pill--gogogo">los geht’s</a>
           </div>
-          <p class="hero__lede">
-            Du hast genug Informationen. Genug Apps. Genug Optionen. Was fehlt ist jemand der mit dir herausfindet was davon wirklich zählt – und was nur Lärm ist.
-          </p>
-        </div>
-      </section>
-
-      <section class="product goals-media--dark" aria-label="Programme und Mission">
-        <div class="product__media">
-          <div class="product__frame">
-            <video class="product__video" autoplay muted loop playsinline preload="metadata" poster="assets/hero-poster.png">
-              <source src="assets/gogogo.mp4" type="video/mp4" />
-            </video>
-            <div class="product__overlay goals-overlay">
-              <div class="goals-overlay__copy">
-              <p>
-                Friday Circle baut Programme die genau das tun. Bewegung zuerst, weil sie das wirksamste und zugänglichste Werkzeug ist. Dann Alltag, Raum, Fokus. Jedes Programm hat ein Ende – weil Abhängigkeit nicht unser Ziel ist. Deine Autonomie schon.
-              </p>
-              <p>
-                Technologie beschleunigt seit Jahrzehnten – Buchdruck, Dampfmaschine, Internet. Der Unterschied heute: die Beschleunigung findet permanent in deiner Hosentasche statt. Friday Circle ist kein Gegner von Technologie. Aber ein Mensch der seinen Körper kennt, seinen Alltag im Griff hat und weiß was ihm wichtig ist, nutzt Technologie besser als jemand der von ihr getrieben wird.
-              </p>
-              <p>Unsere Mission: Menschen handlungsfähig machen. Schnell. Ohne Umwege.</p>
-              </div>
-              <a href="gogogo/index.html" class="goals-overlay__cta">
-                → Erstes Programm: <span class="goals-overlay__cta-brand">gogogo</span>
-              </a>
-            </div>
-          </div>
+          <div class="program-sub__stage" role="img" aria-label="Platzhalter für Inhalt">[Platzhalter: Visual]</div>
         </div>
       </section>
     </main>
@@ -107,7 +79,7 @@
     <footer class="footer" aria-label="Seitenfuß">
       <div class="footer__inner">
         <a href="index.html" class="footer__logo">FRIDAY CIRCLE</a>
-        <nav class="footer__links" aria-label="Rechtliches">
+        <nav class="footer__links" aria-label="Rechtliches und Über uns">
           <a href="#">Impressum</a>
           <a href="#">Datenschutz</a>
           <a href="#">Kontakt</a>

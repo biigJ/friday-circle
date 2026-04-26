@@ -10,15 +10,14 @@
   function gogogoSetOpen(open) {
     if (!gogogoBucket || !gogogoToggle || !gogogoPanel) return;
     gogogoToggle.setAttribute("aria-expanded", open ? "true" : "false");
-    gogogoPanel.hidden = !open;
     gogogoBucket.classList.toggle("is-open", open);
   }
 
   if (gogogoBucket && gogogoToggle && gogogoPanel) {
     gogogoToggle.addEventListener("click", function (e) {
-      e.preventDefault();
       e.stopPropagation();
-      gogogoSetOpen(!!(gogogoPanel.hidden));
+      e.preventDefault();
+      gogogoSetOpen(!gogogoBucket.classList.contains("is-open"));
     });
     gogogoPanel.querySelectorAll("a[role=menuitem]").forEach(function (a) {
       a.addEventListener("click", function () {
@@ -32,7 +31,7 @@
       gogogoSetOpen(false);
     });
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && gogogoToggle.getAttribute("aria-expanded") === "true") {
+      if (e.key === "Escape" && gogogoBucket.classList.contains("is-open")) {
         gogogoSetOpen(false);
         gogogoToggle.focus();
       }
