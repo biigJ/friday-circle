@@ -553,78 +553,78 @@ a {
   max-width: 100%;
 }
 
-/* Reihung: gogogo (Standard) → CYCLE (HYROX-nah, hell, leuchtend) → go sam (Ultramarin) → haimo (Ocker) → werkhaim (dunkelbraun) */
+/* Reihung: gogogo (Standard) → CYCLE (Rot) → go sam (Elektroblau) → haimo (S/W) → werkhaim (S/W) */
 .landing-program-ctas__link--cycle {
-  /* Weniger Rotton: Richtung Zitrone/Chartreuse */
-  background: #d2e75c;
-  color: #f5fce4;
-  box-shadow: 0 1px 0 color-mix(in srgb, #0a0a0a 12%, transparent);
-  border: 1px solid color-mix(in srgb, #6a8a20 25%, #d2e75c);
+  /* Referenzrot aus Vorgabe */
+  background: #c52f33;
+  color: #fff0f0;
+  box-shadow: 0 1px 0 color-mix(in srgb, #000 20%, #c52f33);
+  border: 1px solid color-mix(in srgb, #fff 12%, #c52f33);
 }
 
 .landing-program-ctas__link--cycle:hover,
 .landing-program-ctas__link--cycle:focus-visible {
-  filter: brightness(1.02);
-  box-shadow: 0 4px 18px color-mix(in srgb, #7a9a28 20%, transparent);
+  filter: brightness(1.04);
+  box-shadow: 0 4px 18px color-mix(in srgb, #c52f33 45%, transparent);
 }
 
 .landing-program-ctas__link--cycle:focus-visible {
-  outline: 2px solid color-mix(in srgb, #d2e75c 55%, #0a0a0a);
+  outline: 2px solid #2a0a0a;
   outline-offset: 2px;
 }
 
 .landing-program-ctas__link--gosam {
-  background: #2f5a8a;
-  color: #d9ebff;
-  box-shadow: 0 1px 0 color-mix(in srgb, #000 22%, #2f5a8a);
-  border: 1px solid color-mix(in srgb, #fff 18%, #2f5a8a);
+  /* Leuchtendes Blau laut Vorgabe (an ~#3366FF) */
+  background: #3366ff;
+  color: #edf2ff;
+  box-shadow: 0 1px 0 color-mix(in srgb, #000 18%, #3366ff);
+  border: 1px solid color-mix(in srgb, #fff 14%, #2b55d9);
 }
 
 .landing-program-ctas__link--gosam:hover,
 .landing-program-ctas__link--gosam:focus-visible {
-  filter: brightness(1.05);
-  box-shadow: 0 4px 20px color-mix(in srgb, #2f5a8a 35%, transparent);
+  filter: brightness(1.04);
+  box-shadow: 0 4px 20px color-mix(in srgb, #3366ff 40%, transparent);
 }
 
 .landing-program-ctas__link--gosam:focus-visible {
-  outline: 2px solid #8bb8e8;
+  outline: 2px solid #8ab0ff;
   outline-offset: 2px;
 }
 
 .landing-program-ctas__link--haimo {
-  /* Helles, beiges Ocker */
-  background: #c4a574;
-  color: #faf5ea;
-  box-shadow: 0 1px 0 color-mix(in srgb, #0a0a0a 10%, #c4a574);
-  border: 1px solid color-mix(in srgb, #8a7048 30%, #d8c4a0);
+  background: #0a0a0a;
+  color: #f6f6f6;
+  box-shadow: 0 1px 0 #000;
+  border: 1px solid #2a2a2a;
 }
 
 .landing-program-ctas__link--haimo:hover,
 .landing-program-ctas__link--haimo:focus-visible {
-  filter: brightness(1.03);
-  box-shadow: 0 4px 20px color-mix(in srgb, #8a7048 22%, transparent);
+  filter: brightness(1.12);
+  box-shadow: 0 4px 20px color-mix(in srgb, #000 25%, #0a0a0a);
 }
 
 .landing-program-ctas__link--haimo:focus-visible {
-  outline: 2px solid #e8d8bc;
+  outline: 2px solid #f6f6f6;
   outline-offset: 2px;
 }
 
 .landing-program-ctas__link--werkhaim {
-  background: #1a100c;
-  color: #ebe0d4;
-  box-shadow: 0 1px 0 #000;
-  border: 1px solid #2a1f1a;
+  background: #f4f4f4;
+  color: #0a0a0a;
+  box-shadow: 0 1px 0 color-mix(in srgb, #0a0a0a 8%, #f4f4f4);
+  border: 1px solid #0a0a0a;
 }
 
 .landing-program-ctas__link--werkhaim:hover,
 .landing-program-ctas__link--werkhaim:focus-visible {
-  filter: brightness(1.1);
-  box-shadow: 0 4px 18px color-mix(in srgb, #000 45%, #1a100c);
+  background: #e6e6e6;
+  box-shadow: 0 4px 18px color-mix(in srgb, #0a0a0a 12%, transparent);
 }
 
 .landing-program-ctas__link--werkhaim:focus-visible {
-  outline: 2px solid #c9b8a8;
+  outline: 2px solid #0a0a0a;
   outline-offset: 2px;
 }
 
