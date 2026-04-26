@@ -256,17 +256,73 @@ a {
   text-decoration: none;
   color: var(--text);
   border-top: none;
-  transition: background 0.12s ease;
+  transition: background 0.12s ease, color 0.12s ease;
 }
 
 .nav__gogogo-item:first-of-type {
   padding-top: 0.45rem;
 }
 
-.nav__gogogo-item:hover,
-.nav__gogogo-item:focus-visible {
-  background: color-mix(in srgb, var(--text) 5%, #fff);
-  outline: none;
+/* Dropdown-Zeile: Hover/Focus — gleiche Markenfarben wie die Programm-CTA-Pills */
+.nav__gogogo-item--gogogo:hover,
+.nav__gogogo-item--gogogo:focus-visible {
+  background: var(--surface);
+  color: var(--accent);
+}
+
+.nav__gogogo-item--cycle:hover,
+.nav__gogogo-item--cycle:focus-visible {
+  background: #c52f33;
+  color: #fff0f0;
+}
+
+.nav__gogogo-item--gosam:hover,
+.nav__gogogo-item--gosam:focus-visible {
+  background: #3366ff;
+  color: #edf2ff;
+}
+
+.nav__gogogo-item--haimo:hover,
+.nav__gogogo-item--haimo:focus-visible {
+  background: #0a0a0a;
+  color: #f6f6f6;
+}
+
+.nav__gogogo-item--werkhaim:hover,
+.nav__gogogo-item--werkhaim:focus-visible {
+  background: #e6e6e6;
+  color: #0a0a0a;
+}
+
+.nav__gogogo-item:hover .nav__gogogo-external,
+.nav__gogogo-item:focus-visible .nav__gogogo-external {
+  color: inherit;
+  opacity: 0.88;
+}
+
+.nav__gogogo-item--cycle:focus-visible {
+  outline: 2px solid #2a0a0a;
+  outline-offset: 2px;
+}
+
+.nav__gogogo-item--haimo:focus-visible {
+  outline: 2px solid #f6f6f6;
+  outline-offset: 2px;
+}
+
+.nav__gogogo-item--gosam:focus-visible {
+  outline: 2px solid #8ab0ff;
+  outline-offset: 2px;
+}
+
+.nav__gogogo-item--werkhaim:focus-visible {
+  outline: 2px solid #0a0a0a;
+  outline-offset: 2px;
+}
+
+.nav__gogogo-item--gogogo:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 .nav__gogogo-external {
