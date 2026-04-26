@@ -534,6 +534,25 @@ a {
   border: 1px solid color-mix(in srgb, var(--landing-graphic-border) 35%, transparent);
 }
 
+.landing-program-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(10px, 1.6vw, 14px) clamp(12px, 2.2vw, 20px);
+  margin: clamp(24px, 4vw, 40px) auto 0;
+  width: 100%;
+  max-width: min(68rem, calc(100% - clamp(40px, 10vw, 100px)));
+}
+
+.landing-program-ctas__link {
+  text-decoration: none;
+  text-align: center;
+  line-height: 1.2;
+  white-space: normal;
+  max-width: 100%;
+}
+
 .landing-after-video__rule-after-graphic {
   margin-top: clamp(28px, 5vw, 56px);
   margin-bottom: 0;
