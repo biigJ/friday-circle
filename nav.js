@@ -3,35 +3,35 @@
   var header = document.querySelector("header.nav");
   var btn = document.querySelector(".nav__burger");
   var nav = document.getElementById("primary-nav");
-  var gogogoBucket = document.querySelector(".nav__cta-bucket");
+  var gogogoArrow = document.querySelector(".nav__cta-arrow");
   var gogogoToggle = document.getElementById("nav-gogogo-toggle");
   var gogogoPanel = document.getElementById("nav-gogogo-dropdown");
 
   function gogogoSetOpen(open) {
-    if (!gogogoBucket || !gogogoToggle || !gogogoPanel) return;
+    if (!gogogoArrow || !gogogoToggle || !gogogoPanel) return;
     gogogoToggle.setAttribute("aria-expanded", open ? "true" : "false");
-    gogogoBucket.classList.toggle("is-open", open);
+    gogogoArrow.classList.toggle("is-open", open);
   }
 
-  if (gogogoBucket && gogogoToggle && gogogoPanel) {
+  if (gogogoArrow && gogogoToggle && gogogoPanel) {
     gogogoToggle.addEventListener("click", function (e) {
       e.stopPropagation();
       e.preventDefault();
-      gogogoSetOpen(!gogogoBucket.classList.contains("is-open"));
+      gogogoSetOpen(!gogogoArrow.classList.contains("is-open"));
     });
     gogogoPanel.querySelectorAll("a[role=menuitem]").forEach(function (a) {
       a.addEventListener("click", function () {
         gogogoSetOpen(false);
       });
     });
-    gogogoBucket.addEventListener("click", function (e) {
+    gogogoArrow.addEventListener("click", function (e) {
       e.stopPropagation();
     });
     document.addEventListener("click", function () {
       gogogoSetOpen(false);
     });
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape" && gogogoBucket.classList.contains("is-open")) {
+      if (e.key === "Escape" && gogogoArrow.classList.contains("is-open")) {
         gogogoSetOpen(false);
         gogogoToggle.focus();
       }
