@@ -555,75 +555,76 @@ a {
 
 /* Reihung: gogogo (Standard) → CYCLE (HYROX-nah, hell, leuchtend) → go sam (Ultramarin) → haimo (Ocker) → werkhaim (dunkelbraun) */
 .landing-program-ctas__link--cycle {
-  /* Helles, leuchtendes Gelb in HYROX-Ballpark (eher zitronig, nicht satt) */
-  background: #f9e15a;
-  color: #0a0a0a;
-  box-shadow: 0 1px 0 color-mix(in srgb, #0a0a0a 16%, transparent);
-  border: 1px solid color-mix(in srgb, #d4a200 32%, #f9e15a);
+  /* Weniger Rotton: Richtung Zitrone/Chartreuse */
+  background: #d2e75c;
+  color: #f5fce4;
+  box-shadow: 0 1px 0 color-mix(in srgb, #0a0a0a 12%, transparent);
+  border: 1px solid color-mix(in srgb, #6a8a20 25%, #d2e75c);
 }
 
 .landing-program-ctas__link--cycle:hover,
 .landing-program-ctas__link--cycle:focus-visible {
   filter: brightness(1.02);
-  box-shadow: 0 4px 18px color-mix(in srgb, #d4a800 25%, transparent);
+  box-shadow: 0 4px 18px color-mix(in srgb, #7a9a28 20%, transparent);
 }
 
 .landing-program-ctas__link--cycle:focus-visible {
-  outline: 2px solid #0a0a0a;
+  outline: 2px solid color-mix(in srgb, #d2e75c 55%, #0a0a0a);
   outline-offset: 2px;
 }
 
 .landing-program-ctas__link--gosam {
-  background: #1a3a5c;
-  color: #e8f0fa;
-  box-shadow: 0 1px 0 color-mix(in srgb, #000 30%, #1a3a5c);
-  border: 1px solid color-mix(in srgb, #fff 12%, #1a3a5c);
+  background: #2f5a8a;
+  color: #d9ebff;
+  box-shadow: 0 1px 0 color-mix(in srgb, #000 22%, #2f5a8a);
+  border: 1px solid color-mix(in srgb, #fff 18%, #2f5a8a);
 }
 
 .landing-program-ctas__link--gosam:hover,
 .landing-program-ctas__link--gosam:focus-visible {
-  filter: brightness(1.08);
-  box-shadow: 0 4px 20px color-mix(in srgb, #1a3a5c 45%, transparent);
+  filter: brightness(1.05);
+  box-shadow: 0 4px 20px color-mix(in srgb, #2f5a8a 35%, transparent);
 }
 
 .landing-program-ctas__link--gosam:focus-visible {
-  outline: 2px solid #b8d4f0;
+  outline: 2px solid #8bb8e8;
   outline-offset: 2px;
 }
 
 .landing-program-ctas__link--haimo {
-  background: #5c3f0f;
-  color: #f2ead8;
-  box-shadow: 0 1px 0 color-mix(in srgb, #000 25%, #5c3f0f);
-  border: 1px solid color-mix(in srgb, #8b6a2a 45%, #5c3f0f);
+  /* Helles, beiges Ocker */
+  background: #c4a574;
+  color: #faf5ea;
+  box-shadow: 0 1px 0 color-mix(in srgb, #0a0a0a 10%, #c4a574);
+  border: 1px solid color-mix(in srgb, #8a7048 30%, #d8c4a0);
 }
 
 .landing-program-ctas__link--haimo:hover,
 .landing-program-ctas__link--haimo:focus-visible {
-  filter: brightness(1.05);
-  box-shadow: 0 4px 20px color-mix(in srgb, #5c3f0f 38%, transparent);
+  filter: brightness(1.03);
+  box-shadow: 0 4px 20px color-mix(in srgb, #8a7048 22%, transparent);
 }
 
 .landing-program-ctas__link--haimo:focus-visible {
-  outline: 2px solid #c9a24d;
+  outline: 2px solid #e8d8bc;
   outline-offset: 2px;
 }
 
 .landing-program-ctas__link--werkhaim {
   background: #1a100c;
-  color: #e5ddd4;
+  color: #ebe0d4;
   box-shadow: 0 1px 0 #000;
   border: 1px solid #2a1f1a;
 }
 
 .landing-program-ctas__link--werkhaim:hover,
 .landing-program-ctas__link--werkhaim:focus-visible {
-  filter: brightness(1.12);
+  filter: brightness(1.1);
   box-shadow: 0 4px 18px color-mix(in srgb, #000 45%, #1a100c);
 }
 
 .landing-program-ctas__link--werkhaim:focus-visible {
-  outline: 2px solid #e5ddd4;
+  outline: 2px solid #c9b8a8;
   outline-offset: 2px;
 }
 
