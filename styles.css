@@ -553,6 +553,80 @@ a {
   max-width: 100%;
 }
 
+/* Reihung: gogogo (Standard) → CYCLE (HYROX-nah, hell, leuchtend) → go sam (Ultramarin) → haimo (Ocker) → werkhaim (dunkelbraun) */
+.landing-program-ctas__link--cycle {
+  /* Helles, leuchtendes Gelb in HYROX-Ballpark (eher zitronig, nicht satt) */
+  background: #f9e15a;
+  color: #0a0a0a;
+  box-shadow: 0 1px 0 color-mix(in srgb, #0a0a0a 16%, transparent);
+  border: 1px solid color-mix(in srgb, #d4a200 32%, #f9e15a);
+}
+
+.landing-program-ctas__link--cycle:hover,
+.landing-program-ctas__link--cycle:focus-visible {
+  filter: brightness(1.02);
+  box-shadow: 0 4px 18px color-mix(in srgb, #d4a800 25%, transparent);
+}
+
+.landing-program-ctas__link--cycle:focus-visible {
+  outline: 2px solid #0a0a0a;
+  outline-offset: 2px;
+}
+
+.landing-program-ctas__link--gosam {
+  background: #1a3a5c;
+  color: #e8f0fa;
+  box-shadow: 0 1px 0 color-mix(in srgb, #000 30%, #1a3a5c);
+  border: 1px solid color-mix(in srgb, #fff 12%, #1a3a5c);
+}
+
+.landing-program-ctas__link--gosam:hover,
+.landing-program-ctas__link--gosam:focus-visible {
+  filter: brightness(1.08);
+  box-shadow: 0 4px 20px color-mix(in srgb, #1a3a5c 45%, transparent);
+}
+
+.landing-program-ctas__link--gosam:focus-visible {
+  outline: 2px solid #b8d4f0;
+  outline-offset: 2px;
+}
+
+.landing-program-ctas__link--haimo {
+  background: #5c3f0f;
+  color: #f2ead8;
+  box-shadow: 0 1px 0 color-mix(in srgb, #000 25%, #5c3f0f);
+  border: 1px solid color-mix(in srgb, #8b6a2a 45%, #5c3f0f);
+}
+
+.landing-program-ctas__link--haimo:hover,
+.landing-program-ctas__link--haimo:focus-visible {
+  filter: brightness(1.05);
+  box-shadow: 0 4px 20px color-mix(in srgb, #5c3f0f 38%, transparent);
+}
+
+.landing-program-ctas__link--haimo:focus-visible {
+  outline: 2px solid #c9a24d;
+  outline-offset: 2px;
+}
+
+.landing-program-ctas__link--werkhaim {
+  background: #1a100c;
+  color: #e5ddd4;
+  box-shadow: 0 1px 0 #000;
+  border: 1px solid #2a1f1a;
+}
+
+.landing-program-ctas__link--werkhaim:hover,
+.landing-program-ctas__link--werkhaim:focus-visible {
+  filter: brightness(1.12);
+  box-shadow: 0 4px 18px color-mix(in srgb, #000 45%, #1a100c);
+}
+
+.landing-program-ctas__link--werkhaim:focus-visible {
+  outline: 2px solid #e5ddd4;
+  outline-offset: 2px;
+}
+
 .landing-after-video__rule-after-graphic {
   margin-top: clamp(28px, 5vw, 56px);
   margin-bottom: 0;
