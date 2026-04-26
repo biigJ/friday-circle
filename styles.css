@@ -601,10 +601,6 @@ a {
   padding: 0 0 var(--section-pad-y);
 }
 
-#gogogo.product {
-  padding-bottom: 0;
-}
-
 .product__media {
   max-width: var(--content-max);
   margin: 0 auto;
@@ -1627,24 +1623,41 @@ a {
 /* Programm-Subpages: weißer Seitenhintergrund, beiger Hero an Nav angeschlossen */
 .body--program-sub {
   background: #fff;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 .program-sub {
   min-height: 50vh;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+  box-sizing: border-box;
 }
 
 .program-sub__hero {
   background: var(--bg);
   padding: clamp(28px, 4vw, 48px) var(--nav-pad-x) clamp(20px, 3vw, 32px);
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .program-sub__hero-inner {
+  width: 100%;
   max-width: var(--content-max);
   margin: 0 auto;
+  min-width: 0;
+  box-sizing: border-box;
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   gap: clamp(1.5rem, 3vw, 2.5rem);
   align-items: end;
+}
+
+.program-sub__hero-inner > div {
+  min-width: 0;
 }
 
 @media (max-width: 700px) {
@@ -1653,14 +1666,17 @@ a {
   }
 }
 
+/* gleiche Hierarchie wie .hero__heading auf Zielen/Lösungen/Projekte (Inter) */
 .program-sub__title {
   margin: 0 0 1.25rem;
-  font-family: var(--font-serif);
-  font-size: clamp(1.75rem, 3.2vw, 2.75rem);
-  font-weight: 400;
-  line-height: 1.1;
+  font-family: var(--font-sans);
+  font-size: clamp(30px, 4.2vw, 58px);
+  font-weight: 700;
+  line-height: 1.05;
   letter-spacing: 0.01em;
   color: var(--text);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .program-sub__cta {
@@ -1669,6 +1685,9 @@ a {
 
 .program-sub__stage {
   min-height: min(38vh, 400px);
+  min-width: 0;
+  max-width: 100%;
+  width: 100%;
   background: #e4e0d8;
   border: 1px solid color-mix(in srgb, var(--text) 10%, var(--bg));
   border-radius: 18px;
@@ -1679,6 +1698,9 @@ a {
   font-family: var(--font-sans);
   font-size: 0.8rem;
   font-style: italic;
+  text-align: center;
+  padding: clamp(12px, 2vw, 20px);
+  box-sizing: border-box;
 }
 
 @media (max-width: 700px) {
