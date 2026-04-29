@@ -73,6 +73,12 @@ a {
   column-gap: clamp(16px, 3vw, 32px);
 }
 
+/* Unterseiten: nur Wordmark, kein 3-Spalten-Grid / keine CTA-Spalte */
+.nav.nav--sub .nav__inner {
+  display: block;
+  grid-template-columns: none;
+}
+
 .nav__logo {
   justify-self: start;
   font-weight: 600;

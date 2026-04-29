@@ -8,6 +8,12 @@
       name="description"
       content="Individueller Trainingsplan, wöchentliche Begleitung, tägliche Accountability. Kein Abo. Kein Kurs. Ein Mensch der dranbleibt."
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../styles.css" />
     <link rel="canonical" href="https://fridaycircle.club/gogogo/" />
     <style>
@@ -32,34 +38,17 @@
       .gogogo-landing .gg-head {
         font-family: var(--gg-font-head);
       }
-      .gogogo-landing a {
+      .gogogo-landing main a {
         color: inherit;
       }
       .gg-hero-wrap {
         position: relative;
-        min-height: 100dvh;
-      }
-      .gg-nav {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 10;
-        padding: clamp(16px, 3vw, 24px) clamp(20px, 4vw, 48px);
-        max-width: 1280px;
-        margin: 0 auto;
-      }
-      .gg-nav a.gg-wordmark {
-        font-family: var(--gg-font-head);
-        font-weight: 600;
-        font-size: clamp(1.05rem, 1.35vw, 1.3rem);
-        letter-spacing: 0.04em;
-        text-decoration: none;
-        color: var(--gg-text);
+        min-height: calc(100dvh - 4.5rem);
+        min-height: calc(100vh - 4.5rem);
       }
       .gg-hero {
-        min-height: 100dvh;
-        min-height: 100vh; /* fallback */
+        min-height: calc(100dvh - 4.5rem);
+        min-height: calc(100vh - 4.5rem);
         display: flex;
         flex-direction: column;
       }
@@ -186,6 +175,61 @@
         max-width: 16rem;
         margin: 0;
         padding: 1rem;
+      }
+      .gg-hero-wrap--dark {
+        background: linear-gradient(165deg, #0c1a18 0%, #15302c 48%, #0f2320 100%);
+        color: #f5f2ea;
+      }
+      .gg-hero--dark .gg-hero__text {
+        color: #f5f2ea;
+      }
+      .gg-hero--dark .gg-label {
+        color: #6ec4b3;
+      }
+      .gg-hero--dark h1 {
+        color: #faf8f3;
+      }
+      .gg-hero--dark .gg-hero__sub {
+        color: rgba(245, 242, 234, 0.95);
+      }
+      .gg-hero__lede {
+        font-family: var(--gg-font-body);
+        font-size: clamp(1rem, 1.55vw, 1.12rem);
+        line-height: 1.55;
+        margin: 0 0 1rem;
+        max-width: 44ch;
+        color: inherit;
+      }
+      .gg-hero__fine {
+        font-family: var(--gg-font-head);
+        font-size: 0.8rem;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        color: rgba(245, 242, 234, 0.55);
+        margin: 0.85rem 0 0;
+      }
+      .gg-cta--teal {
+        background: #2d7d6f;
+        color: #fff;
+        margin-top: 0.25rem;
+      }
+      .gg-cta--teal:hover,
+      .gg-cta--teal:focus-visible {
+        background: #256a5e;
+      }
+      .gg-hero--dark .gg-trust {
+        color: rgba(245, 242, 234, 0.82);
+      }
+      .gg-hero--dark .gg-trust li::before {
+        color: #6ec4b3;
+      }
+      .gg-hero--dark .gg-hero__image.hero-image {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .gg-hero--dark .gg-hero__image.hero-image p {
+        color: rgba(245, 242, 234, 0.45);
+        max-width: 22rem;
       }
       .gg-bar {
         background: #0a0a0a;
@@ -387,51 +431,46 @@
         margin: 0;
         color: var(--gg-text);
       }
-      .gg-footer {
-        background: #0a0a0a;
-        color: #fff;
-        text-align: center;
-        padding: 1.25rem clamp(20px, 4vw, 48px);
-        font-family: var(--gg-font-head);
-        font-size: 0.85rem;
-      }
-      .gg-footer a {
-        color: #fff;
-        text-decoration: none;
-      }
-      .gg-footer a:focus-visible {
-        outline: 2px solid #fff;
-        outline-offset: 2px;
-      }
     </style>
   </head>
   <body class="gogogo-landing">
-    <main>
-      <div class="gg-hero-wrap">
-        <header class="gg-nav" role="banner">
-          <a class="gg-wordmark" href="https://fridaycircle.club">FRIDAY CIRCLE</a>
-        </header>
+    <header class="nav nav--sub" aria-label="Hauptnavigation">
+      <div class="nav__inner">
+        <a href="../index.html" class="nav__logo" aria-label="Friday Circle Startseite">FRIDAY CIRCLE</a>
+      </div>
+    </header>
 
-        <section class="gg-hero" aria-labelledby="gg-hero-title">
+    <main>
+      <div class="gg-hero-wrap gg-hero-wrap--dark">
+        <section class="gg-hero gg-hero--dark" aria-labelledby="gg-hero-title">
           <div class="gg-hero__split">
             <div class="gg-hero__text">
-              <p class="gg-label">PROJEKT GOGOGO</p>
-              <h1 id="gg-hero-title">Du weißt was du tun müsstest.</h1>
-              <p class="gg-hero__sub">Wir bauen dir den Plan der wirklich läuft.</p>
+              <p class="gg-label">PROJEKT GOGOGO — FRIDAY CIRCLE</p>
+              <h1 id="gg-hero-title">Podcasts, Studien, Trainingspläne – du hast alles gelesen.</h1>
+              <p class="gg-hero__sub">Und trotzdem bleibt der Sonntagslauf aus.</p>
+              <p class="gg-hero__lede">
+                Das ist kein Willensproblem. Du brauchst den richtigen Kontext – nicht den nächsten Plan.
+              </p>
+              <p class="gg-hero__lede">
+                gogogo gibt dir die Struktur, dich selbst wieder ernst zu nehmen. Ohne dich dafür zu rechtfertigen.
+              </p>
               <ul class="gg-trust">
-                <li>Kein Abo. Kein Kurs.</li>
-                <li>Ein Mensch der dranbleibt.</li>
-                <li>Erster Schritt kostenlos.</li>
+                <li>Kein Abo. Kein Kurs. Kein Algorithmus.</li>
+                <li>Ein Mensch der deine Woche kennt – und dranbleibt.</li>
+                <li>Erster Schritt kostenlos. Antwort in 24h.</li>
               </ul>
-              <a class="gg-cta" href="#onboarding">Jetzt starten →</a>
+              <a class="gg-cta gg-cta--teal" href="#onboarding">Erstgespräch buchen →</a>
+              <p class="gg-hero__fine">Kostenlos. Kein Spam. Keine Verpflichtung.</p>
             </div>
             <div
               class="gg-hero__image hero-image"
               role="img"
               aria-label="Foto-Platzhalter: Mann läuft durch Berlin, morgens, entspannt"
             >
-              <p>[Foto: Mann läuft durch Berlin, morgens, entspannt]</p>
-              <!-- To use a real image: replace this div with e.g. <img class="hero-image" src="..." alt="..." /> and match .hero-image in CSS. -->
+              <p>
+                [Foto: Mann läuft durch Berlin, Morgen, entspannt, keine Sportkleidung, kein Gym, kein Lächeln in die
+                Kamera]
+              </p>
             </div>
           </div>
         </section>
@@ -586,14 +625,19 @@
       </div>
     </main>
 
-    <footer class="gg-footer" role="contentinfo">
-      <a href="https://fridaycircle.club">© 2026 Friday Circle</a>
-      ·
-      <a href="#">Impressum</a>
-      ·
-      <a href="#">Datenschutz</a>
-      ·
-      <a href="mailto:joscha@fridaycircle.club">joscha@fridaycircle.club</a>
+    <footer class="footer" aria-label="Seitenfuß">
+      <div class="footer__inner">
+        <a href="../index.html" class="footer__logo">FRIDAY CIRCLE</a>
+        <nav class="footer__links" aria-label="Rechtliches und Über uns">
+          <a href="#">Impressum</a>
+          <a href="#">Datenschutz</a>
+          <a href="#">Kontakt</a>
+          <a href="#">About</a>
+          <a href="#">Gründung</a>
+          <a href="#">Zusammenarbeit</a>
+        </nav>
+        <p class="footer__copy">© 2026</p>
+      </div>
     </footer>
   </body>
 </html>

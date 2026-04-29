@@ -6,558 +6,1674 @@
     <title>gogogo – Komm in Bewegung | Friday Circle</title>
     <meta
       name="description"
-      content="Individueller Trainingsplan, wöchentliche Begleitung, tägliche Accountability. Kein Abo. Kein Kurs. Ein Mensch der dranbleibt."
+      content="Du weißt was zu tun wäre. Wir bauen dir den Plan der wirklich läuft. Kein Abo. Kein Kurs. Ein Mensch der dranbleibt. Erster Schritt kostenlos."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
-    <link rel="canonical" href="https://fridaycircle.club/gogogo/" />
+    <link rel="preload" href="assets/hero.mp4" as="video" type="video/mp4" />
     <style>
-      /* gogogo landing — tokens & layout (complements styles.css) */
-      .gogogo-landing {
-        --gg-bg: #f0eee6;
-        --gg-text: #0a0a0a;
-        --gg-teal: #2d7d6f;
-        --gg-muted: #666;
-        --gg-font-head: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        --gg-font-body: Georgia, "Times New Roman", Times, serif;
-        background: var(--gg-bg);
-        color: var(--gg-text);
-        font-family: var(--gg-font-body);
+      /* gogogo landing — design tokens (standalone; complements styles.css reset) */
+      /* Horizontal rhythm: --page-x / --page-max set on body.gogogo-page */
+      body.gogogo-page {
+        --page-x: 5%;
+        --page-max: 1280px;
+        background-color: #f0eee6;
+      }
+      .gogogo-page {
+        --green-deep: #1a3a2a;
+        --green-signal: #2d9e8f;
+        --cream: #f0eee6;
+        --black: #0a0a0a;
+        --white: #ffffff;
+        --grey-light: #666666;
+        --grey-mid: #444444;
+        --grey-dark: #999999;
+        --font-head: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        --font-body: Georgia, "Times New Roman", Times, serif;
+        color: var(--black);
+        background: #f0eee6;
+        font-family: var(--font-body);
         line-height: 1.5;
         margin: 0;
         min-height: 100%;
       }
-      .gogogo-landing h1,
-      .gogogo-landing h2,
-      .gogogo-landing h3,
-      .gogogo-landing .gg-head {
-        font-family: var(--gg-font-head);
+      .gogogo-page {
+        scroll-behavior: smooth;
       }
-      .gogogo-landing a {
+      html {
+        scroll-behavior: smooth;
+      }
+      .gogogo-page *,
+      .gogogo-page *::before,
+      .gogogo-page *::after {
+        box-sizing: border-box;
+      }
+      .gogogo-page main a {
         color: inherit;
-      }
-      .gg-hero-wrap {
-        position: relative;
-        min-height: 100dvh;
-      }
-      .gg-nav {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 10;
-        padding: clamp(16px, 3vw, 24px) clamp(20px, 4vw, 48px);
-        max-width: 1280px;
-        margin: 0 auto;
-      }
-      .gg-nav a.gg-wordmark {
-        font-family: var(--gg-font-head);
-        font-weight: 600;
-        font-size: clamp(1.05rem, 1.35vw, 1.3rem);
-        letter-spacing: 0.04em;
         text-decoration: none;
-        color: var(--gg-text);
       }
-      .gg-hero {
-        min-height: 100dvh;
-        min-height: 100vh; /* fallback */
-        display: flex;
-        flex-direction: column;
+      .gogogo-page h1,
+      .gogogo-page h2,
+      .gogogo-page h3,
+      .gogogo-page .gogl-head,
+      .gogogo-page .gogl-hl {
+        font-family: var(--font-head);
       }
-      .gg-hero__split {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        max-width: 1280px;
-        margin: 0 auto;
-        width: 100%;
+      .gogogo-page .nav,
+      .gogogo-page .nav .gogogo-landing__header-cta {
+        font-family: var(--font-sans);
       }
-      @media (min-width: 900px) {
-        .gg-hero__split {
-          flex-direction: row;
-        }
-        .gg-hero__text {
-          flex: 0 0 55%;
-          max-width: 55%;
-        }
-        .gg-hero__image {
-          flex: 0 0 45%;
-          max-width: 45%;
-        }
-      }
-      .gg-hero__text {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: clamp(4.25rem, 8vw, 5rem) clamp(20px, 4vw, 48px) clamp(32px, 5vw, 64px);
-        order: 1;
-      }
-      .gg-hero__image {
-        order: 2;
-        min-height: 42vh;
-      }
-      @media (min-width: 900px) {
-        .gg-hero__text {
-          padding-bottom: clamp(48px, 6vw, 80px);
-        }
-        .gg-hero__image {
-          min-height: 0;
-        }
-      }
-      .gg-label {
-        font-family: var(--gg-font-head);
-        font-size: 0.75rem;
+      .gogogo-page .gogogo-landing__logo {
+        font-family: var(--font-sans);
         font-weight: 600;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: var(--gg-teal);
-        margin: 0 0 0.75rem;
+        font-size: clamp(1.05rem, 1.35vw, 1.35rem);
+        letter-spacing: 0.018em;
+        color: var(--logo);
       }
-      .gg-hero h1 {
-        font-weight: 700;
-        font-size: clamp(2.5rem, 6vw, 5rem);
-        line-height: 1.05;
-        margin: 0 0 1rem;
-        letter-spacing: -0.02em;
+      .gogogo-page .nav__links--empty {
+        min-width: 0;
+        min-height: 0;
+        visibility: hidden;
+        pointer-events: none;
       }
-      .gg-hero__sub {
-        font-family: var(--gg-font-body);
-        font-size: clamp(1.2rem, 2.2vw, 1.75rem);
-        font-style: italic;
-        line-height: 1.35;
-        margin: 0 0 1.5rem;
-        color: var(--gg-text);
-      }
-      .gg-trust {
-        list-style: none;
-        margin: 0 0 1.75rem;
-        padding: 0;
-        font-family: var(--gg-font-head);
-        font-size: 0.875rem;
-        color: var(--gg-muted);
-      }
-      .gg-trust li {
-        position: relative;
-        padding-left: 1.35em;
-        margin-bottom: 0.4rem;
-      }
-      .gg-trust li::before {
-        content: "✓";
-        position: absolute;
-        left: 0;
-        color: var(--gg-teal);
-        font-weight: 600;
-      }
-      .gg-cta {
+      .gogogo-landing__header-cta {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        align-self: flex-start;
-        background: #0a0a0a;
-        color: #fff;
-        font-family: var(--gg-font-head);
-        font-size: 1.05rem;
-        font-weight: 600;
+        border: 1.5px solid var(--text);
+        background: transparent;
+        color: var(--text);
+        font-weight: 500;
+        font-size: 0.9rem;
+        padding: 10px 24px;
+        border-radius: 999px;
         text-decoration: none;
-        padding: 1rem 1.75rem;
-        border-radius: 9999px;
+        font-family: var(--font-sans);
+      }
+      .gogogo-landing__header-cta:hover,
+      .gogogo-landing__header-cta:focus-visible {
+        background: var(--text);
+        color: var(--bg);
+        outline: none;
+      }
+      .gogogo-page .footer {
+        font-family: var(--font-sans);
+      }
+      /* Bündig mit .nav__inner / .hero__grid / .product__media (styles.css) */
+      .gogl-slab {
+        max-width: var(--page-max);
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        padding-left: var(--page-x);
+        padding-right: var(--page-x);
+        box-sizing: border-box;
+      }
+      .gogl-hero {
+        position: relative;
+        min-height: calc(100vh - 4.5rem);
+        min-height: calc(100dvh - 4.5rem);
+        overflow: hidden;
+        background: #1a2a1f;
+      }
+      .gogl-hero__media {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background: #040c0a;
+        overflow: hidden;
+      }
+      .gogl-hero__video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* Dark grade: neutral hues (no hue-rotate — avoids green skin / teal cast) */
+        filter: brightness(0.39) contrast(1.1) saturate(0.5);
+      }
+      .gogl-hero__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        pointer-events: none;
+        background: rgba(0, 0, 0, 0.35);
+      }
+      .gogl-hero__content {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        transform: translateY(-50%);
+        max-width: var(--page-max);
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 2;
+        padding-left: var(--page-x);
+        padding-right: var(--page-x);
+        box-sizing: border-box;
+      }
+      .gogl-hero__title {
+        font-family: var(--font-head);
+        font-weight: 900;
+        font-size: clamp(2.4rem, 5vw, 4.2rem);
+        line-height: 1.1;
+        margin: 0 0 20px;
+      }
+      .gogl-hero__body {
+        font-family: var(--font-body);
+        font-style: italic;
+        font-size: 1.05rem;
+        color: #cccccc;
+        line-height: 1.6;
+        max-width: 480px;
+        margin: 0 0 32px;
+      }
+      .gogl-hero__cta {
+        display: inline-block;
+        background: #2d9e8f;
+        color: #ffffff;
+        font-family: var(--font-head);
+        font-weight: 700;
+        font-size: 1rem;
+        padding: 16px 36px;
+        border-radius: 999px;
         border: none;
         cursor: pointer;
-        transition: transform 0.2s ease, background 0.2s ease;
+        text-align: center;
+        text-decoration: none;
       }
-      .gg-cta:hover,
-      .gg-cta:focus-visible {
-        background: #222;
-        transform: translateY(-1px);
+      .gogl-hero__cta:hover,
+      .gogl-hero__cta:focus-visible {
+        filter: brightness(1.06);
+        outline: none;
       }
-      .gg-hero__image.hero-image {
-        background: #d4cfc6;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 0;
-        margin: 0;
+      .gogl-bar {
+        width: 100%;
+        background: var(--black);
+        padding: 10px 20px;
+        text-align: center;
+        box-sizing: border-box;
       }
-      .gg-hero__image.hero-image p {
-        font-family: var(--gg-font-body);
+      .gogl-bar p {
+        font-family: 'Helvetica Neue', sans-serif;
+        font-style: normal;
         font-size: 0.8rem;
-        font-style: italic;
-        color: #666;
-        text-align: center;
-        max-width: 16rem;
-        margin: 0;
-        padding: 1rem;
-      }
-      .gg-bar {
-        background: #0a0a0a;
-        color: #fff;
-        text-align: center;
-        padding: clamp(1.25rem, 3vw, 1.75rem) clamp(20px, 4vw, 48px);
-      }
-      .gg-bar p {
-        font-family: var(--gg-font-body);
-        font-size: clamp(0.95rem, 1.4vw, 1.1rem);
-        font-style: italic;
-        margin: 0;
+        letter-spacing: 0.05em;
+        color: var(--white);
         line-height: 1.5;
-      }
-      .gg-section {
-        padding: clamp(48px, 8vw, 96px) clamp(20px, 4vw, 48px);
-      }
-      .gg-section h2 {
-        text-align: center;
-        font-weight: 700;
-        font-size: clamp(1.5rem, 3vw, 2.25rem);
-        margin: 0 0 clamp(2rem, 4vw, 3rem);
-        line-height: 1.2;
-      }
-      .gg-steps {
-        max-width: 1100px;
+        max-width: var(--page-max);
         margin: 0 auto;
-        display: grid;
-        gap: clamp(2rem, 4vw, 2.5rem);
+        padding: 0;
+        box-sizing: border-box;
       }
-      @media (min-width: 700px) {
-        .gg-steps {
-          grid-template-columns: repeat(3, 1fr);
+      .gogl-section {
+        background: transparent;
+        padding: 80px 0;
+      }
+      .gogl-section--narrow {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .gogl-kicker {
+        font-family: var(--font-head);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 0.75rem;
+        color: var(--green-signal);
+        margin: 0 0 16px;
+      }
+      /* Below-hero section headlines: same scale as hero titles, light weight */
+      .gogl-section-title {
+        font-family: var(--font-head);
+        font-weight: 300;
+        font-size: clamp(2rem, 3.5vw, 3rem);
+        line-height: 1.15;
+      }
+      .gogl-h2 {
+        font-family: var(--font-head);
+        font-weight: 900;
+        font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+        color: var(--black);
+        line-height: 1.2;
+        margin: 0 0 32px;
+      }
+      .gogl-prose {
+        font-family: var(--font-body);
+        font-size: 1.05rem;
+        color: #333333;
+        line-height: 1.8;
+        max-width: 720px;
+        margin: 0 0 24px;
+      }
+      .gogl-em {
+        font-family: var(--font-body);
+        font-style: italic;
+        font-size: 1.1rem;
+        color: var(--black);
+        border-left: 3px solid var(--green-signal);
+        padding-left: 20px;
+        margin: 0 0 24px;
+        line-height: 1.6;
+      }
+      .gogl-prob {
+        width: 100%;
+        background: var(--green-deep);
+        padding: 80px 0;
+      }
+      .gogl-prob__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 48px;
+        align-items: start;
+      }
+      @media (min-width: 900px) {
+        .gogl-prob__grid {
+          grid-template-columns: 3fr 2fr;
+          gap: 64px;
         }
       }
-      .gg-step {
+      .gogl-prob__left .gogl-kicker {
+        margin-bottom: 24px;
+      }
+      .gogl-prob__left .gogl-h2 {
+        color: var(--white);
+        margin-bottom: 40px;
+      }
+      .gogl-prob__p {
+        font-family: var(--font-body);
+        font-size: 1rem;
+        color: #cccccc;
+        line-height: 1.8;
+        margin: 0 0 24px;
+      }
+      .gogl-prob__p strong {
+        color: var(--white);
+        font-weight: 700;
+      }
+      .gogl-prob__cards {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        max-width: 220px;
+        margin: 0 auto;
+      }
+      @media (min-width: 900px) {
+        .gogl-prob__cards {
+          margin: 0 0 0 auto;
+        }
+      }
+      .gogl-data-card {
+        border: 1px solid var(--green-signal);
+        padding: 24px;
         text-align: left;
       }
-      .gg-step__num {
-        font-family: var(--gg-font-head);
-        font-size: 4rem;
-        font-weight: 700;
+      .gogl-data-card__num {
+        font-family: var(--font-head);
+        font-weight: 900;
+        font-size: 2.5rem;
+        color: var(--green-signal);
         line-height: 1;
-        color: var(--gg-teal);
-        margin: 0 0 0.5rem;
+        margin: 0 0 8px;
       }
-      .gg-step h3 {
-        font-family: var(--gg-font-head);
-        font-size: 1.1rem;
-        font-weight: 700;
-        margin: 0 0 0.75rem;
-        line-height: 1.3;
+      .gogl-data-card__sub {
+        font-family: var(--font-body);
+        font-size: 0.9rem;
+        color: var(--white);
+        line-height: 1.4;
+        margin: 0;
       }
-      .gg-step p {
-        margin: 0 0 0.5rem;
-        font-size: 0.98rem;
-        line-height: 1.55;
-        color: var(--gg-text);
+      .gogl-mission {
+        background: transparent;
+        padding: 80px 0;
+        width: 100%;
       }
-      .gg-arg {
-        background: #1a1a1a;
-        color: #fff;
-        padding: clamp(48px, 8vw, 96px) clamp(20px, 4vw, 48px);
-      }
-      .gg-arg h2 {
-        color: #fff;
-        margin: 0 0 clamp(2rem, 4vw, 3rem);
-      }
-      .gg-arg__grid {
-        max-width: 1100px;
+      .gogl-mission__inner {
+        max-width: var(--page-max);
         margin: 0 auto;
+      }
+      .gogl-mission__steps {
         display: grid;
-        gap: clamp(1.5rem, 3vw, 2rem);
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-top: 8px;
       }
       @media (min-width: 768px) {
-        .gg-arg__grid {
+        .gogl-mission__steps {
           grid-template-columns: repeat(3, 1fr);
         }
       }
-      .gg-arg__block h3 {
-        font-family: var(--gg-font-head);
-        font-size: 1.05rem;
-        font-weight: 700;
-        color: #fff;
-        margin: 0 0 0.75rem;
-        line-height: 1.3;
+      .gogl-step-card {
+        background: transparent;
+        padding: 32px;
       }
-      .gg-arg__block p {
-        font-family: var(--gg-font-body);
+      .gogl-step-card__n {
+        font-family: var(--font-head);
+        font-weight: 900;
+        font-size: 2rem;
+        color: var(--green-signal);
+        line-height: 1;
+        margin: 0 0 12px;
+      }
+      .gogl-step-card h3 {
+        font-family: var(--font-head);
+        font-weight: 700;
+        font-size: 1.05rem;
+        margin: 0 0 12px;
+        line-height: 1.3;
+        color: var(--black);
+      }
+      .gogl-step-card p {
+        font-family: var(--font-body);
         font-size: 0.98rem;
-        line-height: 1.55;
-        color: #a8a8a8;
+        color: #333;
+        line-height: 1.7;
         margin: 0;
       }
-      .gg-onb {
-        padding: clamp(48px, 8vw, 96px) clamp(20px, 4vw, 48px);
+      .gogl-train {
+        width: 100%;
+        background: var(--black);
+        padding: 80px 0;
       }
-      .gg-onb h2 {
-        margin: 0 0 0.5rem;
-      }
-      .gg-onb__sub {
-        text-align: center;
-        font-family: var(--gg-font-body);
-        font-size: clamp(1rem, 1.5vw, 1.2rem);
-        margin: 0 0 2rem;
-        color: var(--gg-text);
-      }
-      .gg-form-wrap {
-        max-width: 600px;
+      .gogl-train__inner {
+        max-width: var(--page-max);
         margin: 0 auto;
       }
-      .gg-form fieldset {
+      .gogl-train .gogl-kicker {
+        margin-bottom: 16px;
+      }
+      .gogl-train__h2 {
+        font-family: var(--font-head);
+        font-weight: 900;
+        font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+        color: var(--white);
+        margin: 0 0 16px;
+        line-height: 1.2;
+      }
+      .gogl-train__sub {
+        font-family: var(--font-body);
+        font-style: italic;
+        font-size: 1.1rem;
+        color: #aaaaaa;
+        margin: 0 0 48px;
+        max-width: 600px;
+        line-height: 1.5;
+      }
+      .gogl-train__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      @media (min-width: 600px) {
+        .gogl-train__grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      .gogl-train-card {
+        background: #1a1a1a;
+        padding: 32px;
+      }
+      .gogl-train-card__lab {
+        font-family: var(--font-head);
+        text-transform: uppercase;
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+        color: var(--green-signal);
+        margin: 0 0 8px;
+      }
+      .gogl-train-card h3 {
+        font-family: var(--font-head);
+        font-weight: 700;
+        font-size: 1.05rem;
+        color: var(--white);
+        margin: 0 0 12px;
+        line-height: 1.3;
+      }
+      .gogl-train-card p {
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        color: #999;
+        line-height: 1.7;
+        margin: 0;
+      }
+      .gogl-eco {
+        background: transparent;
+        padding: 80px 0;
+      }
+      .gogl-eco__inner {
+        max-width: var(--page-max);
+        margin: 0 auto;
+      }
+      .gogl-eco__row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px 24px;
+        padding: 24px 0;
+        border-bottom: 1px solid #dddddd;
+      }
+      .gogl-eco__row:first-of-type {
+        padding-top: 0;
+      }
+      .gogl-eco__left {
+        flex: 1 1 280px;
+        min-width: 0;
+      }
+      .gogl-eco__left h3 {
+        font-family: var(--font-head);
+        font-weight: 700;
+        font-size: 1.05rem;
+        margin: 0 0 8px;
+        color: var(--black);
+      }
+      .gogl-eco__left p {
+        font-family: var(--font-body);
+        font-size: 0.98rem;
+        color: #333;
+        line-height: 1.6;
+        margin: 0;
+      }
+      .gogl-eco__right {
+        flex: 0 0 auto;
+        text-align: right;
+        min-width: 140px;
+      }
+      .gogl-eco__price {
+        font-family: var(--font-head);
+        font-weight: 900;
+        font-size: 1.2rem;
+        color: var(--green-deep);
+        display: block;
+        margin-bottom: 4px;
+      }
+      .gogl-eco__hint {
+        font-family: var(--font-head);
+        font-size: 0.8rem;
+        color: #888;
+      }
+      .gogl-eco__btns {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 8px;
+        justify-content: flex-end;
+      }
+      .gogl-btn-ghost {
+        display: inline-block;
+        border: 1.5px solid var(--black);
+        background: transparent;
+        color: var(--black);
+        font-family: var(--font-head);
+        font-weight: 500;
+        font-size: 0.85rem;
+        padding: 10px 18px;
+        border-radius: 999px;
+        cursor: pointer;
+      }
+      .gogl-btn-ghost:hover,
+      .gogl-btn-ghost:focus-visible {
+        background: var(--black);
+        color: var(--cream);
+        outline: none;
+      }
+      .gogl-testi {
+        background: var(--green-deep);
+        padding: 80px 0;
+      }
+      .gogl-testi__inner {
+        max-width: var(--page-max);
+        margin: 0 auto;
+      }
+      .gogl-testi__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      @media (min-width: 900px) {
+        .gogl-testi__grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      .gogl-testi-card {
+        background: rgba(255, 255, 255, 0.07);
+        padding: 32px;
+      }
+      .gogl-testi-card blockquote {
+        font-family: var(--font-body);
+        font-style: italic;
+        font-size: 1.05rem;
+        color: var(--white);
+        line-height: 1.7;
+        margin: 0 0 20px;
+      }
+      .gogl-testi-card cite {
+        font-family: var(--font-head);
+        font-style: normal;
+        font-size: 0.8rem;
+        color: var(--green-signal);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        display: block;
+      }
+      .gogl-form-section {
+        background: transparent;
+        padding: 80px 0;
+      }
+      .gogl-form-wrap {
+        max-width: 640px;
+        margin: 0 auto;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .gogl-form-wrap .gogl-kicker,
+      .gogl-form__h2,
+      .gogl-form__sub {
+        text-align: center;
+        display: block;
+      }
+      .gogl-form__h2 {
+        color: var(--black);
+        margin: 0 0 12px;
+      }
+      .gogl-form__sub {
+        font-family: var(--font-body);
+        font-style: italic;
+        font-size: 1.05rem;
+        color: #555555;
+        margin: 0 0 48px;
+        line-height: 1.5;
+      }
+      .gogl-form fieldset {
         border: none;
         margin: 0 0 1.5rem;
         padding: 0;
       }
-      .gg-form legend,
-      .gg-form .gg-legend {
-        font-family: var(--gg-font-head);
+      .gogl-form legend,
+      .gogl-form__q {
+        font-family: var(--font-head);
         font-weight: 700;
         font-size: 0.95rem;
-        margin-bottom: 0.75rem;
+        margin-bottom: 12px;
         display: block;
         width: 100%;
-        padding: 0;
-        float: none;
+        color: var(--black);
       }
-      .gg-form .gg-radios {
+      .gogl-radios {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 10px;
       }
-      .gg-form label.gg-radio {
+      .gogl-radio {
         display: flex;
-        align-items: flex-start;
-        gap: 0.5rem;
-        font-family: var(--gg-font-body);
+        align-items: center;
+        gap: 10px;
+        font-family: var(--font-body);
         font-size: 0.95rem;
         cursor: pointer;
         line-height: 1.4;
       }
-      .gg-form label.gg-radio input {
-        margin-top: 0.25em;
+      .gogl-radio input {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .gogl-radio__ui {
         flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+        border: 1.5px solid #999;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--white);
       }
-      .gg-form .gg-field {
-        margin-bottom: 1.5rem;
+      .gogl-radio input:checked + .gogl-radio__ui {
+        border-color: var(--green-signal);
+        background: var(--white);
       }
-      .gg-form .gg-field label {
+      .gogl-radio input:checked + .gogl-radio__ui::after {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--green-signal);
         display: block;
-        font-family: var(--gg-font-head);
-        font-weight: 700;
+      }
+      .gogl-radio input:focus-visible + .gogl-radio__ui {
+        outline: 2px solid var(--green-signal);
+        outline-offset: 2px;
+      }
+      .gogl-field label {
+        font-family: var(--font-head);
+        font-weight: 600;
         font-size: 0.9rem;
-        margin-bottom: 0.4rem;
+        display: block;
+        margin-bottom: 8px;
+        color: var(--black);
       }
-      .gg-form input[type="text"],
-      .gg-form input[type="email"],
-      .gg-form textarea {
+      .gogl-field input,
+      .gogl-field textarea {
         width: 100%;
-        font-family: var(--gg-font-body);
-        font-size: 1rem;
-        padding: 0.75rem 1rem;
-        border: 1px solid #ccc;
+        padding: 14px;
+        border: 1.5px solid #cccccc;
         border-radius: 4px;
-        background: #fff;
-        color: var(--gg-text);
+        background: var(--white);
+        font-family: var(--font-body);
+        font-size: 1rem;
+        color: var(--black);
       }
-      .gg-form textarea {
-        min-height: 120px;
+      .gogl-field textarea {
+        min-height: 8rem;
         resize: vertical;
       }
-      .gg-form input:focus-visible,
-      .gg-form textarea:focus-visible {
-        outline: 2px solid var(--gg-teal);
-        outline-offset: 1px;
+      .gogl-field {
+        margin-bottom: 1.25rem;
       }
-      .gg-form .gg-submit {
+      .gogl-form__submit {
         width: 100%;
-        margin-top: 0.5rem;
+        background: var(--green-deep);
+        color: var(--white);
+        font-family: var(--font-head);
+        font-weight: 700;
+        font-size: 1rem;
+        padding: 20px;
+        border-radius: 999px;
+        border: none;
+        cursor: pointer;
+        margin-top: 24px;
       }
-      .gg-form .gg-fine {
+      .gogl-form__submit:hover,
+      .gogl-form__submit:focus-visible {
+        filter: brightness(1.05);
+        outline: none;
+      }
+      .gogl-form__fine {
+        font-family: var(--font-head);
+        font-size: 0.75rem;
+        color: #999999;
         text-align: center;
-        font-family: var(--gg-font-head);
-        font-size: 0.8rem;
-        color: var(--gg-muted);
-        margin: 0.75rem 0 0;
+        margin: 12px 0 0;
       }
-      .gg-guarantee {
-        max-width: 500px;
+      .gogl-guarantee {
+        background: transparent;
+        padding: 80px 0;
+        width: 100%;
+        text-align: center;
+      }
+      .gogl-guarantee__inner {
+        max-width: var(--page-max);
         margin: 0 auto;
-        padding: 60px clamp(20px, 4vw, 32px);
-        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
       }
-      .gg-guarantee p {
-        font-family: var(--gg-font-body);
-        font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+      .gogl-guarantee__line {
+        width: 60px;
+        height: 2px;
+        background: var(--green-signal);
+        margin: 0 auto 40px;
+      }
+      .gogl-guarantee blockquote {
+        font-family: var(--font-body);
         font-style: italic;
-        line-height: 1.45;
-        margin: 0;
-        color: var(--gg-text);
+        font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+        color: var(--black);
+        line-height: 1.6;
+        margin: 0 0 20px;
       }
-      .gg-footer {
-        background: #0a0a0a;
-        color: #fff;
-        text-align: center;
-        padding: 1.25rem clamp(20px, 4vw, 48px);
-        font-family: var(--gg-font-head);
-        font-size: 0.85rem;
+      .gogl-guarantee cite {
+        font-family: var(--font-head);
+        font-style: normal;
+        font-size: 0.8rem;
+        color: #888888;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        display: block;
       }
-      .gg-footer a {
-        color: #fff;
-        text-decoration: none;
-      }
-      .gg-footer a:focus-visible {
-        outline: 2px solid #fff;
-        outline-offset: 2px;
+      @media (max-width: 640px) {
+        .gogl-hero__content {
+          top: 50%;
+          transform: translateY(-50%);
+        }
       }
     </style>
   </head>
-  <body class="gogogo-landing">
+  <body class="gogogo-page">
+    <header class="nav" aria-label="Hauptnavigation">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo gogogo-landing__logo" aria-label="Friday Circle Startseite">gogogo</a>
+        <nav class="nav__links nav__links--empty" aria-hidden="true"></nav>
+        <div class="nav__cta-bucket">
+          <a class="gogogo-landing__header-cta" href="#onboarding">Jetzt starten</a>
+        </div>
+      </div>
+    </header>
+
+    <div style="
+  width: 100%;
+  background: #0a0a0a;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 20px;
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+">
+  Beta-Version — für Freunde und Freunde von Freunden.
+  Frühbucher erhalten 20% Rabatt. &nbsp;·&nbsp;
+  Wir freuen uns auf dein Feedback.
+</div>
+
     <main>
-      <div class="gg-hero-wrap">
-        <header class="gg-nav" role="banner">
-          <a class="gg-wordmark" href="https://fridaycircle.club">FRIDAY CIRCLE</a>
-        </header>
-
-        <section class="gg-hero" aria-labelledby="gg-hero-title">
-          <div class="gg-hero__split">
-            <div class="gg-hero__text">
-              <p class="gg-label">PROJEKT GOGOGO</p>
-              <h1 id="gg-hero-title">Du weißt was du tun müsstest.</h1>
-              <p class="gg-hero__sub">Wir bauen dir den Plan der wirklich läuft.</p>
-              <ul class="gg-trust">
-                <li>Kein Abo. Kein Kurs.</li>
-                <li>Ein Mensch der dranbleibt.</li>
-                <li>Erster Schritt kostenlos.</li>
-              </ul>
-              <a class="gg-cta" href="#onboarding">Jetzt starten →</a>
-            </div>
-            <div
-              class="gg-hero__image hero-image"
-              role="img"
-              aria-label="Foto-Platzhalter: Mann läuft durch Berlin, morgens, entspannt"
-            >
-              <p>[Foto: Mann läuft durch Berlin, morgens, entspannt]</p>
-              <!-- To use a real image: replace this div with e.g. <img class="hero-image" src="..." alt="..." /> and match .hero-image in CSS. -->
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <div class="gg-bar">
-        <p>168 Stunden hat die Woche. Vier davon verändern den Rest.</p>
-      </div>
-
-      <section class="gg-section" style="background: #f0eee6" aria-labelledby="gg-how-title">
-        <h2 id="gg-how-title" class="gg-head">So funktioniert gogogo.</h2>
-        <div class="gg-steps">
-          <article class="gg-step">
-            <p class="gg-step__num" aria-hidden="true">1</p>
-            <h3>Fünf Fragen.</h3>
-            <p>Du beschreibst deine Woche, deine Gewohnheiten, deine Hindernisse. Kein Fragebogen – ein Gespräch.</p>
-          </article>
-          <article class="gg-step">
-            <p class="gg-step__num" aria-hidden="true">2</p>
-            <h3>Dein Plan.</h3>
-            <p>Du bekommst einen individuellen Wochenplan mit vier Einheiten. Realistisch. Eingebaut in dein Leben – nicht umgekehrt.</p>
-          </article>
-          <article class="gg-step">
-            <p class="gg-step__num" aria-hidden="true">3</p>
-            <h3>Wir bleiben dran.</h3>
-            <p>Wöchentlicher Check-in, tägliche Begleitung per WhatsApp. Kein Algorithmus. Ein Mensch.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="gg-arg" aria-labelledby="gg-arg-title">
-        <h2 id="gg-arg-title" class="gg-head">Wir bauen Dein Dranbleiben.</h2>
-        <div class="gg-arg__grid">
-          <div class="gg-arg__block">
-            <h3>Kein System das dir verkauft wird. Deins.</h3>
-            <p>Du hast bereits alles was du brauchst. Wir helfen dir, es abzurufen – auf Basis deiner Woche, deiner Kapazitäten, deiner Geschichte.</p>
-          </div>
-          <div class="gg-arg__block">
-            <h3>Kein Grind. Kein Tracking. Ein Mensch.</h3>
-            <p>Apps erinnern dich. Kurse motivieren dich. Wir kennen deine Woche – und bleiben dran.</p>
-          </div>
-          <div class="gg-arg__block">
-            <h3>Vier Stunden. Messbarer Effekt auf alles andere.</h3>
-            <p>Besserer Schlaf, schnellere Entscheidungen, höhere Stresstoleranz. Dokumentierte Physiologie – kein Versprechen.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="onboarding" class="gg-onb" style="background: #f0eee6" aria-labelledby="gg-onb-title">
-        <h2 id="gg-onb-title" class="gg-head">Dein erster Schritt.</h2>
-        <p class="gg-onb__sub">Drei Fragen. Zwei Minuten. Wir melden uns persönlich.</p>
-        <div class="gg-form-wrap">
-          <!-- Replace PLACEHOLDER with your Formspree ID -->
-          <form
-            class="gg-form"
-            action="https://formspree.io/f/PLACEHOLDER"
-            method="POST"
+      <section class="gogl-hero" aria-labelledby="gogl-hero-title">
+        <div class="gogl-hero__media" aria-hidden="true">
+          <video
+            class="gogl-hero__video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="assets/hero-poster.png"
           >
+            <source src="assets/hero.mp4" type="video/mp4" />
+          </video>
+          <div class="gogl-hero__overlay"></div>
+        </div>
+        <!-- HERO CONTENT -->
+        <div style="
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  width: 100%;
+  padding-left: var(--page-x);
+  padding-right: var(--page-x);
+  box-sizing: border-box;
+  min-height: 0;
+">
+
+  <!-- CENTER: Headline + Body + CTAs (vertical middle between hero top and card row) -->
+  <div style="
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+  ">
+  <div style="width: 100%; box-sizing: border-box;">
+    <h1 id="gogl-hero-title" style="
+      font-family: 'Helvetica Neue', sans-serif;
+      font-weight: 900;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.15;
+      margin: 0 0 16px 0;
+      color: #ffffff;
+    ">Du weißt was zu tun wäre.</h1>
+
+    <h2 style="
+      font-family: 'Helvetica Neue', sans-serif;
+      font-weight: 500;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.15;
+      margin: 0 0 32px 0;
+      color: #ffffff;
+    ">Und trotzdem schiebst du deinen<br />5km-Lauf vor dir her.</h2>
+
+    <p style="
+      font-family: Georgia, serif;
+      font-style: italic;
+      font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+      color: #cccccc;
+      line-height: 1.6;
+      max-width: 500px;
+      margin: 0 0 36px 0;
+    ">Kein Willensproblem. Überlastung. Wir stehen zwischen Fitness-App und Personal Trainer – und bauen dir den Kontext der wirklich hält. Auf Basis deiner Woche.</p>
+
+    <div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: center;">
+      <a href="#onboarding" style="
+        background: #2d9e8f;
+        color: #ffffff;
+        font-family: 'Helvetica Neue', sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        padding: 16px 32px;
+        border-radius: 999px;
+        text-decoration: none;
+        display: inline-block;
+      ">Erstgespräch buchen →</a>
+
+      <a href="#einstieg" style="
+        background: transparent;
+        color: #ffffff;
+        font-family: 'Helvetica Neue', sans-serif;
+        font-weight: 500;
+        font-size: 1rem;
+        padding: 15px 32px;
+        border-radius: 999px;
+        border: 1.5px solid rgba(255,255,255,0.5);
+        text-decoration: none;
+        display: inline-block;
+      ">Kostenloser Einstieg</a>
+    </div>
+  </div>
+  </div>
+
+  <!-- BOTTOM: Two Cards -->
+  <div style="
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    padding-bottom: 32px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+  ">
+
+    <!-- Card Left -->
+    <div style="
+      background: rgba(10,10,10,0.60);
+      backdrop-filter: blur(8px);
+      padding: 28px 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      border-right: 1px solid rgba(255,255,255,0.1);
+    ">
+      <p style="
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #2d9e8f;
+        margin: 0 0 8px 0;
+      ">BERLIN · VOR ORT</p>
+      <p style="
+        font-family: 'Helvetica Neue', sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        color: #ffffff;
+        margin: 0 0 8px 0;
+      ">Training mit Joscha</p>
+      <p style="
+        font-family: Georgia, serif;
+        font-style: italic;
+        font-size: 0.85rem;
+        color: #aaaaaa;
+        margin: 0 0 16px 0;
+        line-height: 1.5;
+      ">Grundlagengespräch · Bewegungsanalyse · Formtraining · Plangestaltung</p>
+      <a href="/personal-training" style="
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #2d9e8f;
+        text-decoration: none;
+      ">Mehr erfahren →</a>
+    </div>
+
+    <!-- Card Right -->
+    <div style="
+      background: rgba(10,10,10,0.60);
+      backdrop-filter: blur(8px);
+      padding: 28px 32px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    ">
+      <p style="
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #2d9e8f;
+        margin: 0 0 8px 0;
+      ">ONLINE · ÜBERALL</p>
+      <p style="
+        font-family: 'Helvetica Neue', sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        color: #ffffff;
+        margin: 0 0 8px 0;
+      ">Online-Betreuung. Egal wo du bist.</p>
+      <p style="
+        font-family: Georgia, serif;
+        font-style: italic;
+        font-size: 0.85rem;
+        color: #aaaaaa;
+        margin: 0 0 16px 0;
+        line-height: 1.5;
+      ">Wie BetterHelp nur für Bewegung. Kein Social Media. Kein App-Chaos. Dein Trainer. Dein Plan.</p>
+      <a href="#onboarding" style="
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: #2d9e8f;
+        text-decoration: none;
+      ">Trainer finden →</a>
+    </div>
+
+  </div>
+</div>
+      </section>
+
+      <div class="gogl-bar">
+        <p>168 Stunden hat die Woche. Vier davon verändern alles andere.</p>
+      </div>
+
+<section style="background: #f0eee6; padding: 80px 0;">
+  <div style="max-width: var(--page-max); margin: 0 auto; padding: 0 var(--page-x);">
+    
+    <h2 class="gogl-section-title" style="
+      color:#0a0a0a;
+      margin:0 0 40px 0;
+    ">Mach es einfach.</h2>
+
+    <div class="oura-cards" style="
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:16px;
+    ">
+
+      <!-- Card 1: go Accountability -->
+      <div class="oura-card" id="card-accountability" style="
+        position:relative;
+        border-radius:16px;
+        overflow:hidden;
+        min-height:420px;
+        background:#1a2a1f;
+        cursor:pointer;
+        transition:all 0.4s ease;
+      ">
+        <!-- Photo placeholder -->
+        <div style="
+          position:absolute;
+          inset:0;
+          background:linear-gradient(135deg,#1a3a2a 0%,#0d1f15 100%);
+        "></div>
+        <!-- Overlay -->
+        <div style="
+          position:absolute;
+          inset:0;
+          background:linear-gradient(to top, rgba(0,0,0,0.7) 40%, transparent 100%);
+        "></div>
+        <!-- Label top left -->
+        <div style="
+          position:absolute;
+          top:20px;left:20px;
+          background:rgba(0,0,0,0.4);
+          backdrop-filter:blur(8px);
+          border-radius:999px;
+          padding:6px 14px;
+          display:flex;align-items:center;gap:8px;
+        ">
+          <span style="font-family:'Helvetica Neue',sans-serif;font-size:0.75rem;color:#ffffff;letter-spacing:0.05em;">go Accountability</span>
+        </div>
+        <!-- Plus button top right -->
+        <button type="button" onclick="toggleCard('card-accountability')" style="
+          position:absolute;top:16px;right:16px;
+          width:36px;height:36px;
+          border-radius:50%;
+          background:rgba(255,255,255,0.15);
+          backdrop-filter:blur(8px);
+          border:none;cursor:pointer;
+          color:#ffffff;font-size:1.2rem;
+          display:flex;align-items:center;justify-content:center;
+          transition:background 0.2s;
+        ">+</button>
+        <!-- Content bottom -->
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:28px;">
+          <h3 style="
+            font-family:'Helvetica Neue',sans-serif;
+            font-weight:700;font-size:1.3rem;
+            color:#ffffff;margin:0 0 8px 0;line-height:1.2;
+          ">Komm in Bewegung.<br>Mit einem echten Buddy.</h3>
+          <!-- Expanded content - hidden by default -->
+          <div class="card-expanded" style="
+            max-height:0;overflow:hidden;
+            transition:max-height 0.4s ease;
+          ">
+            <p style="
+              font-family:Georgia,serif;font-style:italic;
+              font-size:0.9rem;color:#cccccc;
+              line-height:1.7;margin:12px 0 16px 0;
+            ">WhatsApp täglich. Wöchentlicher Check-in. Wir kennen deine Woche – und bleiben dran wenn sie schiefläuft. Kein Algorithmus. Ein Mensch der Bescheid weiß.</p>
+            <a href="#onboarding" style="
+              font-family:'Helvetica Neue',sans-serif;
+              font-weight:600;font-size:0.85rem;
+              color:#2d9e8f;text-decoration:none;
+              display:inline-block;
+              background:rgba(255,255,255,0.1);
+              padding:10px 20px;border-radius:999px;
+            ">Jetzt starten →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: go Training -->
+      <div class="oura-card" id="card-training" style="
+        position:relative;
+        border-radius:16px;
+        overflow:hidden;
+        min-height:420px;
+        background:#0d0d0d;
+        cursor:pointer;
+        transition:all 0.4s ease;
+      ">
+        <!-- Photo placeholder -->
+        <div style="
+          position:absolute;inset:0;
+          background:linear-gradient(135deg,#1a1a1a 0%,#0a0a0a 100%);
+        "></div>
+        <!-- Overlay -->
+        <div style="
+          position:absolute;inset:0;
+          background:linear-gradient(to top,rgba(0,0,0,0.7) 40%,transparent 100%);
+        "></div>
+        <!-- Label top left -->
+        <div style="
+          position:absolute;top:20px;left:20px;
+          background:rgba(0,0,0,0.4);
+          backdrop-filter:blur(8px);
+          border-radius:999px;
+          padding:6px 14px;
+          display:flex;align-items:center;gap:8px;
+        ">
+          <span style="font-family:'Helvetica Neue',sans-serif;font-size:0.75rem;color:#ffffff;letter-spacing:0.05em;">go Training</span>
+        </div>
+        <!-- Plus button -->
+        <button type="button" onclick="toggleCard('card-training')" style="
+          position:absolute;top:16px;right:16px;
+          width:36px;height:36px;border-radius:50%;
+          background:rgba(255,255,255,0.15);
+          backdrop-filter:blur(8px);
+          border:none;cursor:pointer;
+          color:#ffffff;font-size:1.2rem;
+          display:flex;align-items:center;justify-content:center;
+          transition:background 0.2s;
+        ">+</button>
+        <!-- Content bottom -->
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:28px;">
+          <h3 style="
+            font-family:'Helvetica Neue',sans-serif;
+            font-weight:700;font-size:1.3rem;
+            color:#ffffff;margin:0 0 8px 0;line-height:1.2;
+          ">Den passenden Personal Trainer.<br>Vor Ort oder online.</h3>
+          <!-- Expanded content -->
+          <div class="card-expanded" style="
+            max-height:0;overflow:hidden;
+            transition:max-height 0.4s ease;
+          ">
+            <p style="
+              font-family:Georgia,serif;font-style:italic;
+              font-size:0.9rem;color:#cccccc;
+              line-height:1.7;margin:12px 0 16px 0;
+            ">Bewegungsanalyse, Plangestaltung, Formtraining. Kein Programm von der Stange. Dein Trainer kennt deine Woche – und baut deinen Plan danach.</p>
+            <a href="/personal-training" style="
+              font-family:'Helvetica Neue',sans-serif;
+              font-weight:600;font-size:0.85rem;
+              color:#2d9e8f;text-decoration:none;
+              display:inline-block;
+              background:rgba(255,255,255,0.1);
+              padding:10px 20px;border-radius:999px;
+            ">Trainer finden →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+      <section id="einstieg" style="background:#f0eee6; padding:80px 0; overflow:hidden;">
+  <div style="max-width:var(--page-max);margin:0 auto;padding:0 var(--page-x);">
+    
+    <h2 class="gogl-section-title" style="
+      text-align:center;
+      color:#0a0a0a;
+      margin:0 0 48px 0;
+    ">Warum gogogo</h2>
+
+  </div>
+
+  <!-- Carousel: viewport clips; track translates for paging + expanded-card nudge -->
+  <div style="position:relative;">
+    <div
+      id="carousel-viewport"
+      style="
+        box-sizing:border-box;
+        max-width:var(--page-max);
+        margin:0 auto;
+        padding:0 var(--page-x);
+        overflow:hidden;
+      "
+    >
+    <div
+      id="carousel-track"
+      style="
+        display:flex;
+        gap:16px;
+        transition:transform 0.45s ease;
+      "
+    >
+
+      <!-- CARD 1: Du kennst das bereits -->
+      <div class="c-card" id="cc-1" style="
+        flex:0 0 calc(33.333% - 11px);
+        min-height:480px;
+        border-radius:20px;
+        overflow:hidden;
+        position:relative;
+        background:#1a3a2a;
+        transition:flex 0.5s ease;
+        cursor:pointer;
+      ">
+        <!-- Photo placeholder - replace src later -->
+        <img src="" alt="Urban Sports" style="
+          position:absolute;inset:0;
+          width:100%;height:100%;
+          object-fit:cover;
+          opacity:0;
+        " class="card-photo">
+        <div style="
+          position:absolute;inset:0;
+          background:linear-gradient(to top,rgba(0,0,0,0.75) 50%,rgba(0,0,0,0.2) 100%);
+        "></div>
+        
+        <!-- Top label -->
+        <div style="
+          position:absolute;top:20px;left:20px;
+          background:rgba(0,0,0,0.35);
+          backdrop-filter:blur(8px);
+          border-radius:999px;
+          padding:6px 16px;
+        ">
+          <span style="
+            font-family:'Helvetica Neue',sans-serif;
+            font-size:0.72rem;color:#fff;
+            letter-spacing:0.06em;
+          ">Du kennst das bereits</span>
+        </div>
+
+        <!-- Plus / X button -->
+        <button onclick="expandCard('cc-1')" class="cc-btn" style="
+          position:absolute;top:16px;right:16px;
+          width:36px;height:36px;border-radius:50%;
+          background:rgba(255,255,255,0.2);
+          backdrop-filter:blur(8px);
+          border:none;cursor:pointer;
+          color:#fff;font-size:1.1rem;
+          display:flex;align-items:center;justify-content:center;
+          z-index:10;
+        ">+</button>
+
+        <!-- Collapsed content - always visible bottom -->
+        <div class="cc-collapsed" style="
+          position:absolute;bottom:0;left:0;right:0;
+          padding:28px;
+          transition:opacity 0.3s;
+        ">
+          <h3 style="
+            font-family:'Helvetica Neue',sans-serif;
+            font-weight:700;font-size:1.15rem;
+            color:#fff;margin:0;line-height:1.3;
+          ">Urban Sports. Apps.<br>Der PT den du dreimal besucht hast.</h3>
+        </div>
+
+        <!-- Expanded content - hidden by default -->
+        <div class="cc-expanded" style="
+          position:absolute;inset:0;
+          display:flex;
+          opacity:0;pointer-events:none;
+          transition:opacity 0.3s;
+          padding:40px;
+          align-items:flex-end;
+        ">
+          <div style="width:50%;padding-right:32px;">
+            <p style="
+              font-family:'Helvetica Neue',sans-serif;
+              font-size:0.7rem;text-transform:uppercase;
+              letter-spacing:0.1em;color:#2d9e8f;margin:0 0 12px 0;
+            ">Du kennst das bereits</p>
+            <h3 style="
+              font-family:'Helvetica Neue',sans-serif;
+              font-weight:700;font-size:1.4rem;
+              color:#fff;margin:0;line-height:1.3;
+            ">Urban Sports. Apps. Der PT den du dreimal besucht hast.</h3>
+          </div>
+          <div style="width:50%;">
+            <p style="
+              font-family:Georgia,serif;font-style:italic;
+              font-size:0.9rem;color:#cccccc;
+              line-height:1.75;margin:0 0 20px 0;
+            ">Urban Sports gibt dir Zugang. Apps geben dir Pläne. YouTube gibt dir Inspiration. Instagram gibt dir Schuldgefühle. Kein einziges dieser Tools kennt deine Woche – oder bleibt dran wenn sie schiefläuft. Das ist keine Kritik. Das sind Werkzeuge. gogogo ist der Mensch der sie mit dir sinnvoll einsetzt.</p>
+            <a href="#onboarding" style="
+              font-family:'Helvetica Neue',sans-serif;
+              font-weight:600;font-size:0.85rem;
+              color:#2d9e8f;text-decoration:none;
+              background:rgba(255,255,255,0.1);
+              padding:10px 20px;border-radius:999px;
+              display:inline-block;
+            ">Jetzt starten →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2: Es liegt nicht an dir -->
+      <div class="c-card" id="cc-2" style="
+        flex:0 0 calc(33.333% - 11px);
+        min-height:480px;
+        border-radius:20px;
+        overflow:hidden;
+        position:relative;
+        background:#0a0a0a;
+        transition:flex 0.5s ease;
+        cursor:pointer;
+      ">
+        <img src="" alt="Kontext" style="
+          position:absolute;inset:0;
+          width:100%;height:100%;
+          object-fit:cover;opacity:0;
+        " class="card-photo">
+        <div style="
+          position:absolute;inset:0;
+          background:linear-gradient(to top,rgba(0,0,0,0.75) 50%,rgba(0,0,0,0.2) 100%);
+        "></div>
+        <div style="
+          position:absolute;top:20px;left:20px;
+          background:rgba(0,0,0,0.35);backdrop-filter:blur(8px);
+          border-radius:999px;padding:6px 16px;
+        ">
+          <span style="font-family:'Helvetica Neue',sans-serif;font-size:0.72rem;color:#fff;letter-spacing:0.06em;">Das eigentliche Problem</span>
+        </div>
+        <button onclick="expandCard('cc-2')" class="cc-btn" style="
+          position:absolute;top:16px;right:16px;
+          width:36px;height:36px;border-radius:50%;
+          background:rgba(255,255,255,0.2);backdrop-filter:blur(8px);
+          border:none;cursor:pointer;color:#fff;font-size:1.1rem;
+          display:flex;align-items:center;justify-content:center;z-index:10;
+        ">+</button>
+        <div class="cc-collapsed" style="position:absolute;bottom:0;left:0;right:0;padding:28px;transition:opacity 0.3s;">
+          <h3 style="font-family:'Helvetica Neue',sans-serif;font-weight:700;font-size:1.15rem;color:#fff;margin:0;line-height:1.3;">Es liegt nicht an dir.<br>Es liegt am Kontext.</h3>
+        </div>
+        <div class="cc-expanded" style="position:absolute;inset:0;display:flex;opacity:0;pointer-events:none;transition:opacity 0.3s;padding:40px;align-items:flex-end;">
+          <div style="width:50%;padding-right:32px;">
+            <p style="font-family:'Helvetica Neue',sans-serif;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:#2d9e8f;margin:0 0 12px 0;">Das eigentliche Problem</p>
+            <h3 style="font-family:'Helvetica Neue',sans-serif;font-weight:700;font-size:1.4rem;color:#fff;margin:0;line-height:1.3;">Es liegt nicht an dir. Es liegt am Kontext.</h3>
+          </div>
+          <div style="width:50%;">
+            <p style="font-family:Georgia,serif;font-style:italic;font-size:0.9rem;color:#cccccc;line-height:1.75;margin:0 0 20px 0;">Dein Gehirn ist nicht für Vorsätze gebaut – es ist für unmittelbare Belohnungen optimiert. Jede App, jede Benachrichtigung konkurriert mit dem Impuls aufzustehen und zu trainieren. Die meisten Trainingspläne sind für ein ideales Leben gebaut – nicht für deins. Eine Woche mit Overtime, schlechtem Schlaf, vollen Terminen existiert in keinem Programm. In der Realität ist sie der Normalzustand. gogogo baut den Plan um dein Leben. Nicht umgekehrt.</p>
+            <a href="#onboarding" style="font-family:'Helvetica Neue',sans-serif;font-weight:600;font-size:0.85rem;color:#2d9e8f;text-decoration:none;background:rgba(255,255,255,0.1);padding:10px 20px;border-radius:999px;display:inline-block;">Erstgespräch buchen →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3: Echtes Training -->
+      <div class="c-card" id="cc-3" style="
+        flex:0 0 calc(33.333% - 11px);
+        min-height:480px;
+        border-radius:20px;
+        overflow:hidden;
+        position:relative;
+        background:#1a3a2a;
+        transition:flex 0.5s ease;
+        cursor:pointer;
+      ">
+        <img src="" alt="Training" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;" class="card-photo">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.75) 50%,rgba(0,0,0,0.2) 100%);"></div>
+        <div style="position:absolute;top:20px;left:20px;background:rgba(0,0,0,0.35);backdrop-filter:blur(8px);border-radius:999px;padding:6px 16px;">
+          <span style="font-family:'Helvetica Neue',sans-serif;font-size:0.72rem;color:#fff;letter-spacing:0.06em;">Echtes Training</span>
+        </div>
+        <button onclick="expandCard('cc-3')" class="cc-btn" style="position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.2);backdrop-filter:blur(8px);border:none;cursor:pointer;color:#fff;font-size:1.1rem;display:flex;align-items:center;justify-content:center;z-index:10;">+</button>
+        <div class="cc-collapsed" style="position:absolute;bottom:0;left:0;right:0;padding:28px;transition:opacity 0.3s;">
+          <h3 style="font-family:'Helvetica Neue',sans-serif;font-weight:700;font-size:1.15rem;color:#fff;margin:0;line-height:1.3;">Aus dem Erstgespräch<br>wird sofort ein Plan.</h3>
+        </div>
+        <div class="cc-expanded" style="position:absolute;inset:0;display:flex;opacity:0;pointer-events:none;transition:opacity 0.3s;padding:40px;align-items:flex-end;">
+          <div style="width:50%;padding-right:32px;">
+            <p style="font-family:'Helvetica Neue',sans-serif;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:#2d9e8f;margin:0 0 12px 0;">Echtes Training</p>
+            <h3 style="font-family:'Helvetica Neue',sans-serif;font-weight:700;font-size:1.4rem;color:#fff;margin:0;line-height:1.3;">Aus dem Erstgespräch wird sofort ein Plan.</h3>
+          </div>
+          <div style="width:50%;">
+            <p style="font-family:Georgia,serif;font-style:italic;font-size:0.9rem;color:#cccccc;line-height:1.75;margin:0 0 20px 0;">Jedes Erstgespräch endet mit einem konkreten Wochenplan. Kraft, Ausdauer, Balance &amp; Mobilität – vier Bereiche, ein System. Kein Lifestyle, keine Ideologie. Bewegung ist die wirksamste Medizin die du dir verschreiben kannst – als dokumentierte Physiologie, nicht als Versprechen.</p>
+            <a href="#onboarding" style="font-family:'Helvetica Neue',sans-serif;font-weight:600;font-size:0.85rem;color:#2d9e8f;text-decoration:none;background:rgba(255,255,255,0.1);padding:10px 20px;border-radius:999px;display:inline-block;">Erstgespräch buchen →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4: Langfristig wirksam -->
+      <div class="c-card" id="cc-4" style="
+        flex:0 0 calc(33.333% - 11px);
+        min-height:480px;
+        border-radius:20px;
+        overflow:hidden;
+        position:relative;
+        background:#151a18;
+        transition:flex 0.5s ease;
+        cursor:pointer;
+      ">
+        <img src="" alt="Langfristig" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;" class="card-photo">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.75) 50%,rgba(0,0,0,0.2) 100%);"></div>
+        <div style="position:absolute;top:20px;left:20px;background:rgba(0,0,0,0.35);backdrop-filter:blur(8px);border-radius:999px;padding:6px 16px;">
+          <span style="font-family:'Helvetica Neue',sans-serif;font-size:0.72rem;color:#fff;letter-spacing:0.06em;">Langfristig wirksam</span>
+        </div>
+        <button onclick="expandCard('cc-4')" class="cc-btn" style="position:absolute;top:16px;right:16px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.2);backdrop-filter:blur(8px);border:none;cursor:pointer;color:#fff;font-size:1.1rem;display:flex;align-items:center;justify-content:center;z-index:10;">+</button>
+        <div class="cc-collapsed" style="position:absolute;bottom:0;left:0;right:0;padding:28px;transition:opacity 0.3s;">
+          <h3 style="font-family:'Helvetica Neue',sans-serif;font-weight:700;font-size:1.15rem;color:#fff;margin:0;line-height:1.3;">Kleine Schritte.<br>Dauerhaft dranbleiben.</h3>
+        </div>
+        <div class="cc-expanded" style="position:absolute;inset:0;display:flex;opacity:0;pointer-events:none;transition:opacity 0.3s;padding:40px;align-items:flex-end;">
+          <div style="width:50%;padding-right:32px;">
+            <p style="font-family:'Helvetica Neue',sans-serif;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:#2d9e8f;margin:0 0 12px 0;">Langfristig wirksam</p>
+            <h3 style="font-family:'Helvetica Neue',sans-serif;font-weight:700;font-size:1.4rem;color:#fff;margin:0;line-height:1.3;">Kleine Schritte. Dauerhaft dranbleiben.</h3>
+          </div>
+          <div style="width:50%;">
+            <p style="font-family:Georgia,serif;font-style:italic;font-size:0.9rem;color:#cccccc;line-height:1.75;margin:0 0 20px 0;">Motivation ist ein Wetterbericht. Gewohnheit ist Klima. gogogo kalibriert deinen Plan an echte Wochen – nicht an Urlaubshemd-Phantasien – und bleibt im Gespräch wenn sich dein Job, deine Familie oder dein Schlaf verändert. So wird aus vier Stunden pro Woche ein Rhythmus, den du nicht mehr diskutierst.</p>
+            <a href="#onboarding" style="font-family:'Helvetica Neue',sans-serif;font-weight:600;font-size:0.85rem;color:#2d9e8f;text-decoration:none;background:rgba(255,255,255,0.1);padding:10px 20px;border-radius:999px;display:inline-block;">Erstgespräch buchen →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    </div>
+
+    <!-- Navigation arrows bottom right -->
+    <div style="
+      display:flex;gap:8px;
+      justify-content:flex-end;
+      max-width:var(--page-max);
+      margin:20px auto 0;
+      padding:0 var(--page-x);
+    ">
+      <button onclick="carouselPrev()" style="
+        width:44px;height:44px;border-radius:50%;
+        background:#0a0a0a;border:none;cursor:pointer;
+        color:#fff;font-size:1rem;
+        display:flex;align-items:center;justify-content:center;
+      ">←</button>
+      <button onclick="carouselNext()" style="
+        width:44px;height:44px;border-radius:50%;
+        background:#0a0a0a;border:none;cursor:pointer;
+        color:#fff;font-size:1rem;
+        display:flex;align-items:center;justify-content:center;
+      ">→</button>
+    </div>
+
+  </div>
+</section>
+
+      <section style="background:#f0eee6;padding:80px 0;">
+  <div style="max-width:var(--page-max);margin:0 auto;padding:0 var(--page-x);">
+
+    <h2 id="gogl-testi-h" class="gogl-section-title" style="
+      color:#0a0a0a;
+      margin:0 0 40px 0;
+      max-width:600px;
+    ">Joscha mag Menschen. Und besonders wenn er ihnen einen kleinen lieben Schubs geben darf.</h2>
+
+    <!-- 5-tile Whoop-style grid: 2 rows, mixed portrait/landscape -->
+    <div style="
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      grid-template-rows:auto auto;
+      gap:12px;
+    ">
+
+      <!-- Tile 1: Freitagsgruppe — landscape, spans 2 cols row 1 -->
+      <div class="fp-tile" id="fp-1" style="
+        grid-column:1/3;
+        min-height:280px;
+        border-radius:16px;
+        overflow:hidden;
+        position:relative;
+        background:#1a3a2a;
+        cursor:pointer;
+      ">
+        <img src="" alt="Freitagsgruppe Berlin" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;" class="tile-photo">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.7) 40%,rgba(0,0,0,0.1) 100%);"></div>
+        <button onclick="expandTile('fp-1')" class="fp-btn" style="position:absolute;top:16px;right:16px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.2);backdrop-filter:blur(8px);border:none;cursor:pointer;color:#fff;font-size:1rem;display:flex;align-items:center;justify-content:center;z-index:10;">+</button>
+        <div class="fp-collapsed" style="position:absolute;bottom:0;left:0;right:0;padding:24px;transition:opacity 0.3s;">
+          <p style="font-family:'Helvetica Neue',sans-serif;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:#2d9e8f;margin:0 0 6px 0;">Freitagsgruppe Berlin</p>
+          <h4 style="font-family:'Helvetica Neue',sans-serif;font-weight:700;font-size:1.1rem;color:#fff;margin:0;line-height:1.3;">Wir trainieren freitags zusammen im Prenzlauer Berg.</h4>
+        </div>
+        <div class="fp-expanded" style="position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity 0.3s;padding:28px;display:flex;align-items:flex-end;">
+          <p style="font-family:Georgia,serif;font-style:italic;font-size:0.9rem;color:#cccccc;line-height:1.7;max-width:600px;margin:0;">Keine Mitgliedschaft – einfach als Freunde. Dieser Moment kurz vorm Wochenende ist toll. Gemeinschaft. Man fiebert die restliche Woche drauf hin.</p>
+        </div>
+      </div>
+
+      <!-- Tile 2: Tandem Training — portrait, 1 col row 1 -->
+      <div class="fp-tile" id="fp-2" style="
+        grid-column:3/4;
+        min-height:280px;
+        border-radius:16px;
+        overflow:hidden;
+        position:relative;
+        background:#0a0a0a;
+        cursor:pointer;
+      ">
+        <img src="" alt="Tandem Training" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;" class="tile-photo">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.75) 40%,rgba(0,0,0,0.1) 100%);"></div>
+        <button onclick="expandTile('fp-2')" class="fp-btn" style="position:absolute;top:16px;right:16px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.2);backdrop-filter:blur(8px);border:none;cursor:pointer;color:#fff;font-size:1rem;display:flex;align-items:center;justify-content:center;z-index:10;">+</button>
+        <div class="fp-collapsed" style="position:absolute;bottom:0;left:0;right:0;padding:24px;transition:opacity 0.3s;">
+          <p style="font-family:'Helvetica Neue',sans-serif;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:#2d9e8f;margin:0 0 6px 0;">Tandem</p>
+          <h4 style="font-family:'Helvetica Neue',sans-serif;font-weight:700;font-size:1rem;color:#fff;margin:0;line-height:1.3;">Seit einem Jahr trainieren wir zusammen.</h4>
+        </div>
+        <div class="fp-expanded" style="position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity 0.3s;padding:24px;display:flex;align-items:flex-end;">
+          <p style="font-family:Georgia,serif;font-style:italic;font-size:0.85rem;color:#cccccc;line-height:1.7;margin:0;">Als Tandem. Johann hilft bei Marketing und Productdevelopment und ich motiviere ihn wöchentlich zum Training. Komplett simpel aber effektiv.</p>
+        </div>
+      </div>
+
+      <!-- Tile 3: WhatsApp Gruppe — portrait, 1 col row 2 -->
+      <div class="fp-tile" id="fp-3" style="
+        grid-column:1/2;
+        min-height:280px;
+        border-radius:16px;
+        overflow:hidden;
+        position:relative;
+        background:#1a3a2a;
+        cursor:pointer;
+      ">
+        <img src="" alt="WhatsApp Gruppe" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;" class="tile-photo">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.75) 40%,rgba(0,0,0,0.1) 100%);"></div>
+        <button onclick="expandTile('fp-3')" class="fp-btn" style="position:absolute;top:16px;right:16px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.2);backdrop-filter:blur(8px);border:none;cursor:pointer;color:#fff;font-size:1rem;display:flex;align-items:center;justify-content:center;z-index:10;">+</button>
+        <div class="fp-collapsed" style="position:absolute;bottom:0;left:0;right:0;padding:24px;transition:opacity 0.3s;">
+          <p style="font-family:'Helvetica Neue',sans-serif;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:#2d9e8f;margin:0 0 6px 0;">WhatsApp Accountability</p>
+          <h4 style="font-family:'Helvetica Neue',sans-serif;font-weight:700;font-size:1rem;color:#fff;margin:0;line-height:1.3;">Täglich. Ehrlich. Wirksam.</h4>
+        </div>
+        <div class="fp-expanded" style="position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity 0.3s;padding:24px;display:flex;align-items:flex-end;">
+          <p style="font-family:Georgia,serif;font-style:italic;font-size:0.85rem;color:#cccccc;line-height:1.7;margin:0;">Mit Fatih und meinem Bruder habe ich zwei Jahre lang täglich über Wohlbefinden und Bewegung kommuniziert. Das hilft mehr als eine App – denn wenn man weiß, dass die anderen auf einen zählen, kann man auch auf sie zählen.</p>
+        </div>
+      </div>
+
+      <!-- Tile 4: Mimi — portrait, 1 col row 2 -->
+      <div class="fp-tile" id="fp-4" style="
+        grid-column:2/3;
+        min-height:280px;
+        border-radius:16px;
+        overflow:hidden;
+        position:relative;
+        background:#0a0a0a;
+        cursor:pointer;
+      ">
+        <img src="" alt="Mimi" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;" class="tile-photo">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.75) 40%,rgba(0,0,0,0.1) 100%);"></div>
+        <button onclick="expandTile('fp-4')" class="fp-btn" style="position:absolute;top:16px;right:16px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.2);backdrop-filter:blur(8px);border:none;cursor:pointer;color:#fff;font-size:1rem;display:flex;align-items:center;justify-content:center;z-index:10;">+</button>
+        <div class="fp-collapsed" style="position:absolute;bottom:0;left:0;right:0;padding:24px;transition:opacity 0.3s;">
+          <p style="font-family:'Helvetica Neue',sans-serif;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:#2d9e8f;margin:0 0 6px 0;">Echtes Interesse</p>
+          <h4 style="font-family:'Helvetica Neue',sans-serif;font-weight:700;font-size:1rem;color:#fff;margin:0;line-height:1.3;">Wohlwollendes Interesse verändert alles.</h4>
+        </div>
+        <div class="fp-expanded" style="position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity 0.3s;padding:24px;display:flex;align-items:flex-end;">
+          <p style="font-family:Georgia,serif;font-style:italic;font-size:0.85rem;color:#cccccc;line-height:1.7;margin:0;">Mimi ist eine von vielen aus dem Fitness Studio. Was zählt: echtes, wohlwollendes Interesse. Motivation kommt durch Wahrnehmung der Kapazitäten, der Fortschritte und über gezielte Arbeit.</p>
+        </div>
+      </div>
+
+      <!-- Tile 5: Die Idee — landscape, spans full width row 2 -->
+      <div class="fp-tile" id="fp-5" style="
+        grid-column:3/4;
+        min-height:280px;
+        border-radius:16px;
+        overflow:hidden;
+        position:relative;
+        background:#1a3a2a;
+        cursor:pointer;
+      ">
+        <img src="" alt="Die Idee" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;" class="tile-photo">
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.75) 40%,rgba(0,0,0,0.1) 100%);"></div>
+        <button onclick="expandTile('fp-5')" class="fp-btn" style="position:absolute;top:16px;right:16px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.2);backdrop-filter:blur(8px);border:none;cursor:pointer;color:#fff;font-size:1rem;display:flex;align-items:center;justify-content:center;z-index:10;">+</button>
+        <div class="fp-collapsed" style="position:absolute;bottom:0;left:0;right:0;padding:24px;transition:opacity 0.3s;">
+          <p style="font-family:'Helvetica Neue',sans-serif;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:#2d9e8f;margin:0 0 6px 0;">Woher die Idee kommt</p>
+          <h4 style="font-family:'Helvetica Neue',sans-serif;font-weight:700;font-size:1rem;color:#fff;margin:0;line-height:1.3;">So viel Potenzial lassen wir einfach liegen.</h4>
+        </div>
+        <div class="fp-expanded" style="position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity 0.3s;padding:24px;display:flex;align-items:flex-end;">
+          <p style="font-family:Georgia,serif;font-style:italic;font-size:0.85rem;color:#cccccc;line-height:1.7;margin:0;">Alle Trainertermine im Fitnessstudio zeigen mir wie wichtig die ganzheitliche Unterhaltung mit dem einzelnen Menschen ist. Da, wo ich als Architekt aufgehört und als Trainer angefangen habe, entstand die Idee. So viel Potenzial für ein zufriedenes Leben lassen wir liegen – wenn wir nicht einfach in Bewegung kommen.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+      <section id="onboarding" class="gogl-form-section" aria-labelledby="gogl-form-h">
+        <div class="gogl-slab">
+        <div class="gogl-form-wrap">
+          <p class="gogl-kicker">DEIN ERSTER SCHRITT</p>
+          <h2 id="gogl-form-h" class="gogl-section-title gogl-form__h2">Komm in Bewegung.</h2>
+          <p class="gogl-form__sub">Beantworte ein paar Fragen in 2 Minuten. Wir antworten innerhalb von 24 Stunden persönlich.</p>
+          <!-- Ersetze action durch deinen Formspree-Endpunkt: action="https://formspree.io/f/xxxxx" -->
+          <form class="gogl-form" method="post" action="#">
             <input type="hidden" name="source" value="gogogo-landing" />
-
             <fieldset>
-              <legend class="gg-legend">Was passiert bei dir meistens nach zwei Wochen Training?</legend>
-              <div class="gg-radios">
-                <label class="gg-radio">
-                  <input type="radio" name="q_two_weeks_training" value="Ich höre auf" required />
-                  Ich höre auf
+              <legend class="gogl-form__q">Wie aktiv bist du gerade wirklich?</legend>
+              <div class="gogl-radios">
+                <label class="gogl-radio">
+                  <input type="radio" name="q1" value="Ich trainiere sporadisch – weniger als einmal pro Woche" required />
+                  <span class="gogl-radio__ui" aria-hidden="true"></span>
+                  <span>Ich trainiere sporadisch – weniger als einmal pro Woche</span>
                 </label>
-                <label class="gg-radio">
-                  <input
-                    type="radio"
-                    name="q_two_weeks_training"
-                    value="Ich mache weiter aber lustlos"
-                  />
-                  Ich mache weiter aber lustlos
+                <label class="gogl-radio">
+                  <input type="radio" name="q1" value="Ich hatte mal eine Routine – jetzt nicht mehr" />
+                  <span class="gogl-radio__ui" aria-hidden="true"></span>
+                  <span>Ich hatte mal eine Routine – jetzt nicht mehr</span>
                 </label>
-                <label class="gg-radio">
-                  <input type="radio" name="q_two_weeks_training" value="Ich schaffe es selten bis dahin" />
-                  Ich schaffe es selten bis dahin
+                <label class="gogl-radio">
+                  <input type="radio" name="q1" value="Ich trainiere regelmäßig aber ohne System und Fortschritt" />
+                  <span class="gogl-radio__ui" aria-hidden="true"></span>
+                  <span>Ich trainiere regelmäßig aber ohne System und Fortschritt</span>
                 </label>
               </div>
             </fieldset>
-
             <fieldset>
-              <legend class="gg-legend">Was stört dich an bisherigen Lösungen am meisten?</legend>
-              <div class="gg-radios">
-                <label class="gg-radio">
-                  <input type="radio" name="q_past_solutions" value="Zu viel Aufwand" required />
-                  Zu viel Aufwand
+              <legend class="gogl-form__q">Was hast du schon probiert?</legend>
+              <div class="gogl-radios">
+                <label class="gogl-radio">
+                  <input type="radio" name="q2" value="Fitnessstudio-Mitgliedschaft (die ich kaum nutze)" required />
+                  <span class="gogl-radio__ui" aria-hidden="true"></span>
+                  <span>Fitnessstudio-Mitgliedschaft (die ich kaum nutze)</span>
                 </label>
-                <label class="gg-radio">
-                  <input type="radio" name="q_past_solutions" value="Kein Mensch dahinter" />
-                  Kein Mensch dahinter
+                <label class="gogl-radio">
+                  <input type="radio" name="q2" value="Apps oder Online-Programme" />
+                  <span class="gogl-radio__ui" aria-hidden="true"></span>
+                  <span>Apps oder Online-Programme</span>
                 </label>
-                <label class="gg-radio">
-                  <input type="radio" name="q_past_solutions" value="Passt nicht zu meinem Alltag" />
-                  Passt nicht zu meinem Alltag
+                <label class="gogl-radio">
+                  <input type="radio" name="q2" value="Personal Training (hat nicht gehalten)" />
+                  <span class="gogl-radio__ui" aria-hidden="true"></span>
+                  <span>Personal Training (hat nicht gehalten)</span>
+                </label>
+                <label class="gogl-radio">
+                  <input type="radio" name="q2" value="Mehreres davon" />
+                  <span class="gogl-radio__ui" aria-hidden="true"></span>
+                  <span>Mehreres davon</span>
                 </label>
               </div>
             </fieldset>
-
             <fieldset>
-              <legend class="gg-legend">Was wäre für dich ein echter Erfolg in vier Wochen?</legend>
-              <div class="gg-radios">
-                <label class="gg-radio">
-                  <input type="radio" name="q_success_four_weeks" value="Ich trainiere regelmäßig" required />
-                  Ich trainiere regelmäßig
+              <legend class="gogl-form__q">Was hält dich aktuell am meisten auf?</legend>
+              <div class="gogl-radios">
+                <label class="gogl-radio">
+                  <input type="radio" name="q3" value="Keine Zeit oder zu erschöpft nach der Arbeit" required />
+                  <span class="gogl-radio__ui" aria-hidden="true"></span>
+                  <span>Keine Zeit oder zu erschöpft nach der Arbeit</span>
                 </label>
-                <label class="gg-radio">
-                  <input type="radio" name="q_success_four_weeks" value="Ich fühle mich klarer im Kopf" />
-                  Ich fühle mich klarer im Kopf
+                <label class="gogl-radio">
+                  <input type="radio" name="q3" value="Ich fange an und breche dann ab" />
+                  <span class="gogl-radio__ui" aria-hidden="true"></span>
+                  <span>Ich fange an und breche dann ab</span>
                 </label>
-                <label class="gg-radio">
-                  <input type="radio" name="q_success_four_weeks" value="Ich habe eine Routine die hält" />
-                  Ich habe eine Routine die hält
+                <label class="gogl-radio">
+                  <input type="radio" name="q3" value="Ich weiß nicht wo anfangen" />
+                  <span class="gogl-radio__ui" aria-hidden="true"></span>
+                  <span>Ich weiß nicht wo anfangen</span>
+                </label>
+                <label class="gogl-radio">
+                  <input type="radio" name="q3" value="Zu viele Optionen, keine Klarheit" />
+                  <span class="gogl-radio__ui" aria-hidden="true"></span>
+                  <span>Zu viele Optionen, keine Klarheit</span>
                 </label>
               </div>
             </fieldset>
-
-            <div class="gg-field">
-              <label for="gg-name">Name</label>
-              <input id="gg-name" name="name" type="text" required placeholder="Dein Name" autocomplete="name" />
+            <fieldset>
+              <legend class="gogl-form__q">Was wäre für dich ein echter Erfolg in acht Wochen?</legend>
+              <div class="gogl-radios">
+                <label class="gogl-radio">
+                  <input type="radio" name="q4" value="Ich trainiere vier Mal pro Woche – konsequent" required />
+                  <span class="gogl-radio__ui" aria-hidden="true"></span>
+                  <span>Ich trainiere vier Mal pro Woche – konsequent</span>
+                </label>
+                <label class="gogl-radio">
+                  <input type="radio" name="q4" value="Ich fühle mich körperlich und mental klarer" />
+                  <span class="gogl-radio__ui" aria-hidden="true"></span>
+                  <span>Ich fühle mich körperlich und mental klarer</span>
+                </label>
+                <label class="gogl-radio">
+                  <input type="radio" name="q4" value="Ich habe ein System das zu meinem Leben passt" />
+                  <span class="gogl-radio__ui" aria-hidden="true"></span>
+                  <span>Ich habe ein System das zu meinem Leben passt</span>
+                </label>
+                <label class="gogl-radio">
+                  <input type="radio" name="q4" value="Ich habe einen Trainer der mich kennt und dranbleibt" />
+                  <span class="gogl-radio__ui" aria-hidden="true"></span>
+                  <span>Ich habe einen Trainer der mich kennt und dranbleibt</span>
+                </label>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend class="gogl-form__q">Wie willst du betreut werden?</legend>
+              <div class="gogl-radios">
+                <label class="gogl-radio">
+                  <input type="radio" name="q5" value="Online – WhatsApp und Web-Call reichen mir" required />
+                  <span class="gogl-radio__ui" aria-hidden="true"></span>
+                  <span>Online – WhatsApp und Web-Call reichen mir</span>
+                </label>
+                <label class="gogl-radio">
+                  <input type="radio" name="q5" value="Vor Ort in Berlin – ich will echten Kontakt" />
+                  <span class="gogl-radio__ui" aria-hidden="true"></span>
+                  <span>Vor Ort in Berlin – ich will echten Kontakt</span>
+                </label>
+                <label class="gogl-radio">
+                  <input type="radio" name="q5" value="Beides – je nach Woche" />
+                  <span class="gogl-radio__ui" aria-hidden="true"></span>
+                  <span>Beides – je nach Woche</span>
+                </label>
+              </div>
+            </fieldset>
+            <div class="gogl-field">
+              <label for="gogl-name">Name</label>
+              <input id="gogl-name" name="name" type="text" required placeholder="Dein Name" autocomplete="name" />
             </div>
-            <div class="gg-field">
-              <label for="gg-email">E-Mail</label>
+            <div class="gogl-field">
+              <label for="gogl-email">E-Mail</label>
               <input
-                id="gg-email"
+                id="gogl-email"
                 name="email"
                 type="email"
                 required
@@ -565,35 +1681,191 @@
                 autocomplete="email"
               />
             </div>
-            <div class="gg-field">
-              <label for="gg-blocker">Was hält dich gerade auf?</label>
+            <div class="gogl-field">
+              <label for="gogl-ta">Was soll sich konkret ändern?</label>
               <textarea
-                id="gg-blocker"
+                id="gogl-ta"
                 name="blocker"
-                rows="4"
+                rows="5"
                 placeholder="Schreib einfach was dir in den Kopf kommt."
               ></textarea>
             </div>
-
-            <button type="submit" class="gg-cta gg-submit">Absenden – wir melden uns in 24h</button>
-            <p class="gg-fine">Keine Weitergabe deiner Daten. Kein Spam.</p>
+            <button type="submit" class="gogl-form__submit">Absenden – wir melden uns in 24h</button>
+            <p class="gogl-form__fine">Keine Weitergabe deiner Daten. Kein Spam.</p>
           </form>
+        </div>
         </div>
       </section>
 
-      <div class="gg-guarantee" style="background: #f0eee6">
-        <p>Wenn du nach dem Erstgespräch keinen konkreten nächsten Schritt siehst, zahlst du nichts. Kein Kleingedrucktes.</p>
-      </div>
+      <section class="gogl-guarantee" aria-label="Garantie">
+        <div class="gogl-slab">
+        <div class="gogl-guarantee__inner">
+        <div class="gogl-guarantee__line" aria-hidden="true"></div>
+        <blockquote>
+          „Wenn du nach dem Erstgespräch keinen konkreten nächsten Schritt siehst, zahlst du nichts. Kein
+          Kleingedrucktes.“
+        </blockquote>
+        <cite>— Joscha Grope, Gründer Friday Circle</cite>
+        </div>
+        </div>
+      </section>
     </main>
 
-    <footer class="gg-footer" role="contentinfo">
-      <a href="https://fridaycircle.club">© 2026 Friday Circle</a>
-      ·
-      <a href="#">Impressum</a>
-      ·
-      <a href="#">Datenschutz</a>
-      ·
-      <a href="mailto:joscha@fridaycircle.club">joscha@fridaycircle.club</a>
+    <footer class="footer" aria-label="Seitenfuß">
+      <div class="footer__inner">
+        <a href="index.html" class="footer__logo">FRIDAY CIRCLE</a>
+        <nav class="footer__links" aria-label="Rechtliches und Über uns">
+          <a href="#">Impressum</a>
+          <a href="#">Datenschutz</a>
+          <a href="#">Kontakt</a>
+          <a href="#">About</a>
+          <a href="#">Gründung</a>
+          <a href="#">Zusammenarbeit</a>
+        </nav>
+        <p class="footer__copy">© 2026</p>
+      </div>
     </footer>
+    <script>
+// Warum gogogo carousel: 3 tiles visible, expand shifts track so wide tile stays in frame
+let carouselPos = 0;
+let expandNudgeX = 0;
+
+function getCarouselStepPx() {
+  const viewport = document.getElementById('carousel-viewport');
+  if (!viewport) return 0;
+  const style = getComputedStyle(viewport);
+  const pl = parseFloat(style.paddingLeft) || 0;
+  const pr = parseFloat(style.paddingRight) || 0;
+  const inner = viewport.clientWidth - pl - pr;
+  /* three equal columns, two 16px gaps — one step = one column + gap */
+  return (inner - 32) / 3 + 16;
+}
+
+function applyCarouselTransform() {
+  const track = document.getElementById('carousel-track');
+  if (!track) return;
+  const step = getCarouselStepPx();
+  const x = carouselPos * step + expandNudgeX;
+  track.style.transform = `translateX(-${x}px)`;
+}
+
+function collapseAllCarouselCards() {
+  document.querySelectorAll('.c-card').forEach(c => {
+    c.classList.remove('cc-open');
+    c.style.flex = '0 0 calc(33.333% - 11px)';
+    const collapsed = c.querySelector('.cc-collapsed');
+    const expanded = c.querySelector('.cc-expanded');
+    const btn = c.querySelector('.cc-btn');
+    if (collapsed) collapsed.style.opacity = '1';
+    if (expanded) {
+      expanded.style.opacity = '0';
+      expanded.style.pointerEvents = 'none';
+    }
+    if (btn) btn.textContent = '+';
+  });
+}
+
+function nudgeExpandedIntoView() {
+  const viewport = document.getElementById('carousel-viewport');
+  const track = document.getElementById('carousel-track');
+  const open = track?.querySelector('.c-card.cc-open');
+  expandNudgeX = 0;
+  if (!open || !viewport) {
+    applyCarouselTransform();
+    return;
+  }
+  const pad = 12;
+  const vr = viewport.getBoundingClientRect();
+  const cr = open.getBoundingClientRect();
+  let delta = 0;
+  if (cr.right > vr.right - pad) delta += cr.right - vr.right + pad;
+  if (cr.left < vr.left + pad) delta += cr.left - vr.left - pad;
+  expandNudgeX = delta;
+  applyCarouselTransform();
+}
+
+function expandCard(id) {
+  const card = document.getElementById(id);
+  const isOpen = card.classList.contains('cc-open');
+
+  collapseAllCarouselCards();
+  expandNudgeX = 0;
+  applyCarouselTransform();
+
+  if (!isOpen) {
+    card.classList.add('cc-open');
+    card.style.flex = '0 0 calc(66.666% - 8px)';
+    const collapsed = card.querySelector('.cc-collapsed');
+    const expanded = card.querySelector('.cc-expanded');
+    const btn = card.querySelector('.cc-btn');
+    if (collapsed) collapsed.style.opacity = '0';
+    if (expanded) {
+      expanded.style.opacity = '1';
+      expanded.style.pointerEvents = 'auto';
+    }
+    if (btn) btn.textContent = '×';
+    setTimeout(nudgeExpandedIntoView, 520);
+  }
+}
+
+function carouselNext() {
+  const track = document.getElementById('carousel-track');
+  const cards = track?.querySelectorAll('.c-card') || [];
+  if (carouselPos < cards.length - 3) {
+    collapseAllCarouselCards();
+    expandNudgeX = 0;
+    carouselPos++;
+    applyCarouselTransform();
+  }
+}
+
+function carouselPrev() {
+  if (carouselPos > 0) {
+    collapseAllCarouselCards();
+    expandNudgeX = 0;
+    carouselPos--;
+    applyCarouselTransform();
+  }
+}
+
+// Fürsprecher tiles expand
+function expandTile(id) {
+  const tile = document.getElementById(id);
+  const isOpen = tile.classList.contains('fp-open');
+  
+  document.querySelectorAll('.fp-tile').forEach(t => {
+    t.classList.remove('fp-open');
+    t.querySelector('.fp-collapsed').style.opacity = '1';
+    t.querySelector('.fp-expanded').style.opacity = '0';
+    t.querySelector('.fp-expanded').style.pointerEvents = 'none';
+    t.querySelector('.fp-btn').textContent = '+';
+  });
+  
+  if (!isOpen) {
+    tile.classList.add('fp-open');
+    tile.querySelector('.fp-collapsed').style.opacity = '0';
+    tile.querySelector('.fp-expanded').style.opacity = '1';
+    tile.querySelector('.fp-expanded').style.pointerEvents = 'auto';
+    tile.querySelector('.fp-btn').textContent = '×';
+  }
+}
+
+function toggleCard(id) {
+  const card = document.getElementById(id);
+  const expanded = card.querySelector('.card-expanded');
+  const btn = card.querySelector('button');
+  const isOpen = expanded.style.maxHeight && expanded.style.maxHeight !== '0px';
+  document.querySelectorAll('.oura-card .card-expanded').forEach(el => {
+    el.style.maxHeight = '0px';
+  });
+  document.querySelectorAll('.oura-card button').forEach(b => {
+    b.textContent = '+';
+  });
+  if (!isOpen) {
+    expanded.style.maxHeight = '300px';
+    btn.textContent = '×';
+  }
+}
+    </script>
   </body>
 </html>
