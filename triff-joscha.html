@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Triff Joscha | gogogo — Friday Circle</title>
+    <meta
+      name="description"
+      content="Lerne Joscha kennen — was gogogo ausmacht und wie ein Erstgespräch funktioniert."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preload" href="assets/triff-joscha-hero.mp4" as="video" type="video/mp4" />
+    <style>
+      body.gogogo-page {
+        --page-x: 5%;
+        --page-max: 1280px;
+        background-color: #f0eee6;
+      }
+      .gogogo-page {
+        --green-deep: #1a3a2a;
+        --green-signal: #2d9e8f;
+        --cream: #f0eee6;
+        --black: #0a0a0a;
+        --white: #ffffff;
+        --font-head: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        --font-body: Georgia, "Times New Roman", Times, serif;
+        color: var(--black);
+        background: #f0eee6;
+        font-family: var(--font-body);
+        line-height: 1.5;
+        margin: 0;
+        min-height: 100%;
+      }
+      .gogogo-page *,
+      .gogogo-page *::before,
+      .gogogo-page *::after {
+        box-sizing: border-box;
+      }
+      .gogogo-page .gogogo-landing__logo {
+        font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 600;
+        font-size: clamp(1.05rem, 1.35vw, 1.35rem);
+        letter-spacing: 0.018em;
+        color: var(--logo);
+      }
+      .gogogo-page .nav__links--empty {
+        min-width: 0;
+        min-height: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      .gogogo-landing__header-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1.5px solid var(--text);
+        background: transparent;
+        color: var(--text);
+        font-weight: 500;
+        font-size: 0.9rem;
+        padding: 10px 24px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+      .gogogo-landing__header-cta:hover,
+      .gogogo-landing__header-cta:focus-visible {
+        background: var(--text);
+        color: var(--bg);
+        outline: none;
+      }
+      .gogl-slab {
+        max-width: var(--page-max);
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        padding-left: var(--page-x);
+        padding-right: var(--page-x);
+        box-sizing: border-box;
+      }
+      .gogl-section-title {
+        font-family: var(--font-head);
+        font-weight: 300;
+        font-size: clamp(2rem, 3.5vw, 3rem);
+        line-height: 1.15;
+        color: var(--black);
+        margin: 0 0 24px;
+      }
+      /* Hero (wie Landing) */
+      .tj-hero {
+        position: relative;
+        min-height: calc(100vh - 4.5rem);
+        min-height: calc(100dvh - 4.5rem);
+        overflow: hidden;
+        background: #1a2a1f;
+      }
+      .tj-hero__media {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background: #040c0a;
+        overflow: hidden;
+      }
+      .tj-hero__video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(0.39) contrast(1.1) saturate(0.5);
+      }
+      .tj-hero__overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background: rgba(0, 0, 0, 0.35);
+      }
+      .tj-hero__inner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        z-index: 2;
+        max-width: var(--page-max);
+        width: 100%;
+        margin: 0 auto;
+        padding: 2rem var(--page-x) 3rem;
+        box-sizing: border-box;
+      }
+      .tj-hero__title {
+        font-family: var(--font-head);
+        font-weight: 900;
+        font-size: clamp(2rem, 3.5vw, 3rem);
+        line-height: 1.15;
+        margin: 0 0 20px;
+        color: #ffffff;
+        text-align: center;
+      }
+      .tj-hero__lede {
+        font-family: var(--font-body);
+        font-style: italic;
+        font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+        color: #cccccc;
+        line-height: 1.65;
+        max-width: 36rem;
+        margin: 0 auto 28px;
+        text-align: center;
+      }
+      .tj-hero__cta-wrap {
+        text-align: center;
+      }
+      .tj-hero__cta {
+        display: inline-block;
+        background: #2d9e8f;
+        color: #ffffff;
+        font-family: var(--font-head);
+        font-weight: 700;
+        font-size: 1rem;
+        padding: 16px 36px;
+        border-radius: 999px;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+      }
+      .tj-hero__cta:hover,
+      .tj-hero__cta:focus-visible {
+        filter: brightness(1.06);
+        outline: none;
+      }
+      /* Was wir machen */
+      .tj-was {
+        background: var(--cream);
+        padding: 80px 0;
+      }
+      .tj-was__intro {
+        font-family: var(--font-body);
+        font-size: clamp(1rem, 1.35vw, 1.08rem);
+        line-height: 1.75;
+        color: #333;
+        max-width: 40rem;
+        margin: 0 0 40px;
+      }
+      .tj-poster {
+        position: relative;
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+        aspect-ratio: 16 / 9;
+        border: none;
+        border-radius: 0;
+        padding: 0;
+        cursor: pointer;
+        overflow: hidden;
+        background: #0a0a0a center / cover no-repeat;
+        display: block;
+      }
+      .tj-poster:focus-visible {
+        outline: 2px solid var(--green-signal);
+        outline-offset: 4px;
+      }
+      .tj-poster__shade {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.28);
+        transition: background 0.2s ease;
+      }
+      .tj-poster:hover .tj-poster__shade,
+      .tj-poster:focus-visible .tj-poster__shade {
+        background: rgba(0, 0, 0, 0.18);
+      }
+      .tj-poster__play {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.92);
+        border: none;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+        color: #c52f33;
+        transition: transform 0.2s ease, background 0.2s ease;
+      }
+      .tj-poster:hover .tj-poster__play,
+      .tj-poster:focus-visible .tj-poster__play {
+        transform: translate(-50%, -50%) scale(1.06);
+        background: #fff;
+      }
+      .tj-poster__play svg {
+        width: 28px;
+        height: 28px;
+        margin-left: 4px;
+      }
+      .tj-poster__hint {
+        position: absolute;
+        bottom: 12px;
+        right: 14px;
+        font-family: Inter, sans-serif;
+        font-size: 0.72rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.85);
+        pointer-events: none;
+      }
+      /* Meine Story */
+      .tj-story {
+        background: var(--cream);
+        padding: 0 0 96px;
+      }
+      .tj-story__text {
+        font-family: var(--font-body);
+        font-size: clamp(1rem, 1.35vw, 1.12rem);
+        line-height: 1.85;
+        color: #333;
+        max-width: 40rem;
+        margin: 0;
+      }
+      /* YouTube lightbox */
+      .tj-yt-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 20000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: clamp(12px, 4vw, 40px);
+        box-sizing: border-box;
+      }
+      .tj-yt-modal[hidden] {
+        display: none !important;
+      }
+      .tj-yt-modal__backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(10, 10, 10, 0.72);
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+      }
+      .tj-yt-modal__frame {
+        position: relative;
+        z-index: 1;
+        width: min(960px, 100%);
+        background: #000;
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+      }
+      .tj-yt-modal__close {
+        position: absolute;
+        top: -44px;
+        right: 0;
+        font-family: var(--font-head);
+        font-size: 1.25rem;
+        line-height: 1;
+        width: 40px;
+        height: 40px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .tj-yt-modal__close:hover,
+      .tj-yt-modal__close:focus-visible {
+        background: rgba(255, 255, 255, 0.15);
+        outline: none;
+      }
+      .tj-yt-modal__embed {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+      }
+      .tj-yt-modal__embed iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      @media (max-width: 640px) {
+        .tj-yt-modal__close {
+          top: -48px;
+        }
+      }
+    </style>
+  </head>
+  <body class="gogogo-page">
+    <header class="nav" aria-label="Hauptnavigation">
+      <div class="nav__inner">
+        <a href="gogogo-landing.html" class="nav__logo gogogo-landing__logo" aria-label="gogogo Startseite">gogogo</a>
+        <nav class="nav__links nav__links--empty" aria-hidden="true"></nav>
+        <div class="nav__cta-bucket">
+          <!-- Ersetze beide calendly.com-Links durch deinen echten Calendly-Link -->
+          <a
+            class="gogogo-landing__header-cta"
+            href="https://calendly.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Erstgespräch</a
+          >
+        </div>
+      </div>
+    </header>
+
+    <div
+      style="
+        width: 100%;
+        background: #0a0a0a;
+        color: #ffffff;
+        text-align: center;
+        padding: 10px 20px;
+        font-family: 'Helvetica Neue', sans-serif;
+        font-size: 0.8rem;
+        letter-spacing: 0.05em;
+      "
+    >
+      Beta-Version — für Freunde und Freunde von Freunden. Frühbucher erhalten 20% Rabatt. &nbsp;·&nbsp; Wir freuen uns
+      auf dein Feedback.
+    </div>
+
+    <main>
+      <!--
+        Hero-Video: Datei „triff-joscha-hero.mp4“ in /assets/ legen (H.264, stumm, Loop empfohlen).
+        Optional: triff-joscha-hero-poster.png als poster="" ergänzen.
+      -->
+      <section class="tj-hero" aria-labelledby="tj-hero-title">
+        <div class="tj-hero__media" aria-hidden="true">
+          <video
+            class="tj-hero__video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="assets/triff-joscha-hero-poster.png"
+          >
+            <source src="assets/triff-joscha-hero.mp4" type="video/mp4" />
+          </video>
+          <div class="tj-hero__overlay"></div>
+        </div>
+        <div class="tj-hero__inner">
+          <h1 id="tj-hero-title" class="tj-hero__title">Triff Joscha</h1>
+          <p class="tj-hero__lede">
+            Hier gibt’s mich ohne Marketing-Filter: wie ich arbeite, woran ich glaube — und ob wir zusammenpassen.
+          </p>
+          <div class="tj-hero__cta-wrap">
+            <a
+              class="tj-hero__cta"
+              href="https://calendly.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Erstgespräch bei Calendly buchen</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="tj-was" aria-labelledby="tj-was-heading">
+        <div class="gogl-slab">
+          <h2 id="tj-was-heading" class="gogl-section-title">Was wir machen</h2>
+          <p class="tj-was__intro">
+            Wir bringen Bewegung in den Alltag — ohne App-Chaos und ohne schlechtes Gewissen. Ein Plan, der zu deiner
+            Woche passt, und ein Mensch, der dranbleibt.
+          </p>
+
+          <!-- YouTube-Video-ID aus der URL (z. B. youtube.com/watch?v=XXXX → XXXX) unten eintragen -->
+          <button
+            type="button"
+            class="tj-poster"
+            id="tj-open-yt"
+            style="background-image: url('assets/triff-joscha-wir-machen-poster.png')"
+            aria-label="Video ansehen"
+            data-youtube-id="YOUR_YOUTUBE_VIDEO_ID"
+          >
+            <span class="tj-poster__shade" aria-hidden="true"></span>
+            <span class="tj-poster__play" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </span>
+            <span class="tj-poster__hint">Video</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="tj-story" aria-labelledby="tj-story-heading">
+        <div class="gogl-slab">
+          <h2 id="tj-story-heading" class="gogl-section-title">Meine Story</h2>
+          <p class="tj-story__text">
+            Ich bin Architekt, habe zwanzig Jahre Räume für andere entworfen – und dabei lange vergessen, meinen eigenen
+            Alltag in Ordnung zu bringen. Als ich anfing als Fitnesstrainer zu arbeiten, habe ich jeden Tag gesehen wie viel
+            Potenzial Menschen einfach liegenlassen, nicht aus Faulheit, sondern weil das Leben dazwischenkommt und kein
+            System passt. Ich habe mit Freunden, Trainingspartnern und Mitgliedern im Gym erlebt, dass ein ehrliches
+            Gespräch und eine einfache Wochenroutine mehr bewirken als jede App und jedes teure Coaching. gogogo ist der
+            Versuch, genau das zugänglich zu machen – für Menschen die wissen was sie tun müssten, und einfach jemanden
+            brauchen der dranbleibt.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" aria-label="Seitenfuß">
+      <div class="footer__inner">
+        <a href="index.html" class="footer__logo">FRIDAY CIRCLE</a>
+        <nav class="footer__links" aria-label="Rechtliches und Über uns">
+          <a href="#">Impressum</a>
+          <a href="#">Datenschutz</a>
+          <a href="#">Kontakt</a>
+          <a href="#">About</a>
+          <a href="#">Gründung</a>
+          <a href="#">Zusammenarbeit</a>
+        </nav>
+        <p class="footer__copy">© 2026</p>
+      </div>
+    </footer>
+
+    <div id="tj-yt-modal" class="tj-yt-modal" role="dialog" aria-modal="true" aria-label="Video" hidden>
+      <div class="tj-yt-modal__backdrop" id="tj-yt-backdrop"></div>
+      <div class="tj-yt-modal__frame">
+        <button type="button" class="tj-yt-modal__close" id="tj-yt-close" aria-label="Video schließen">×</button>
+        <div class="tj-yt-modal__embed">
+          <iframe
+            id="tj-yt-iframe"
+            title="YouTube-Video"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        var modal = document.getElementById('tj-yt-modal');
+        var iframe = document.getElementById('tj-yt-iframe');
+        var openBtn = document.getElementById('tj-open-yt');
+        var closeBtn = document.getElementById('tj-yt-close');
+        var backdrop = document.getElementById('tj-yt-backdrop');
+        if (!modal || !iframe || !openBtn) return;
+
+        var placeholder = 'YOUR_YOUTUBE_VIDEO_ID';
+
+        function openModal(id) {
+          if (!id || id === placeholder) {
+            window.alert(
+              'Bitte trage in triff-joscha.html bei data-youtube-id die YouTube-Video-ID ein (nur der Code aus der URL).'
+            );
+            return;
+          }
+          iframe.src =
+            'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) + '?autoplay=1&rel=0';
+          modal.hidden = false;
+          document.documentElement.style.overflow = 'hidden';
+          closeBtn && closeBtn.focus();
+        }
+
+        function closeModal() {
+          iframe.removeAttribute('src');
+          modal.hidden = true;
+          document.documentElement.style.overflow = '';
+        }
+
+        openBtn.addEventListener('click', function () {
+          openModal(openBtn.getAttribute('data-youtube-id'));
+        });
+
+        closeBtn && closeBtn.addEventListener('click', closeModal);
+        backdrop && backdrop.addEventListener('click', closeModal);
+
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape' && !modal.hidden) closeModal();
+        });
+      })();
+    </script>
+  </body>
+</html>

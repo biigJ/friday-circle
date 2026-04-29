@@ -15,6 +15,15 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <script>
+      (function () {
+        try {
+          if (sessionStorage.getItem('goglStoererDismissed') === '1') {
+            document.documentElement.classList.add('gogl-stoerer-js-hide');
+          }
+        } catch (e) {}
+      })();
+    </script>
     <link rel="preload" href="assets/hero.mp4" as="video" type="video/mp4" />
     <style>
       /* gogogo landing — design tokens (standalone; complements styles.css reset) */
@@ -116,8 +125,9 @@
       }
       .gogl-hero {
         position: relative;
-        min-height: calc(100vh - 4.5rem);
-        min-height: calc(100dvh - 4.5rem);
+        /* Platz für Beta-Leiste + Banderole im Viewport; Hero etwas niedriger */
+        min-height: calc(100dvh - 11.5rem);
+        min-height: calc(100vh - 11.5rem);
         overflow: hidden;
         background: #1a2a1f;
       }
@@ -134,6 +144,8 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        /* Oberen Bildrand leicht abschneiden → mehr Fußraum sichtbar */
+        object-position: center 68%;
         /* Dark grade: neutral hues (no hue-rotate — avoids green skin / teal cast) */
         filter: brightness(0.39) contrast(1.1) saturate(0.5);
       }
@@ -565,187 +577,153 @@
         letter-spacing: 0.1em;
         display: block;
       }
-      .gogl-form-section {
-        background: transparent;
-        padding: 80px 0;
-      }
-      .gogl-form-wrap {
-        max-width: 640px;
-        margin: 0 auto;
-        width: 100%;
-        box-sizing: border-box;
-      }
-      .gogl-form-wrap .gogl-kicker,
-      .gogl-form__h2,
-      .gogl-form__sub {
-        text-align: center;
-        display: block;
-      }
-      .gogl-form__h2 {
-        color: var(--black);
-        margin: 0 0 12px;
-      }
-      .gogl-form__sub {
-        font-family: var(--font-body);
-        font-style: italic;
-        font-size: 1.05rem;
-        color: #555555;
-        margin: 0 0 48px;
-        line-height: 1.5;
-      }
-      .gogl-form fieldset {
-        border: none;
-        margin: 0 0 1.5rem;
-        padding: 0;
-      }
-      .gogl-form legend,
-      .gogl-form__q {
-        font-family: var(--font-head);
-        font-weight: 700;
-        font-size: 0.95rem;
-        margin-bottom: 12px;
-        display: block;
-        width: 100%;
-        color: var(--black);
-      }
-      .gogl-radios {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-      .gogl-radio {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-family: var(--font-body);
-        font-size: 0.95rem;
-        cursor: pointer;
-        line-height: 1.4;
-      }
-      .gogl-radio input {
-        position: absolute;
-        opacity: 0;
-        width: 0;
-        height: 0;
-      }
-      .gogl-radio__ui {
-        flex-shrink: 0;
-        width: 20px;
-        height: 20px;
-        border: 1.5px solid #999;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: var(--white);
-      }
-      .gogl-radio input:checked + .gogl-radio__ui {
-        border-color: var(--green-signal);
-        background: var(--white);
-      }
-      .gogl-radio input:checked + .gogl-radio__ui::after {
-        content: "";
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: var(--green-signal);
-        display: block;
-      }
-      .gogl-radio input:focus-visible + .gogl-radio__ui {
-        outline: 2px solid var(--green-signal);
-        outline-offset: 2px;
-      }
-      .gogl-field label {
-        font-family: var(--font-head);
-        font-weight: 600;
-        font-size: 0.9rem;
-        display: block;
-        margin-bottom: 8px;
-        color: var(--black);
-      }
-      .gogl-field input,
-      .gogl-field textarea {
-        width: 100%;
-        padding: 14px;
-        border: 1.5px solid #cccccc;
-        border-radius: 4px;
-        background: var(--white);
-        font-family: var(--font-body);
-        font-size: 1rem;
-        color: var(--black);
-      }
-      .gogl-field textarea {
-        min-height: 8rem;
-        resize: vertical;
-      }
-      .gogl-field {
-        margin-bottom: 1.25rem;
-      }
-      .gogl-form__submit {
-        width: 100%;
-        background: var(--green-deep);
-        color: var(--white);
-        font-family: var(--font-head);
-        font-weight: 700;
-        font-size: 1rem;
-        padding: 20px;
-        border-radius: 999px;
-        border: none;
-        cursor: pointer;
-        margin-top: 24px;
-      }
-      .gogl-form__submit:hover,
-      .gogl-form__submit:focus-visible {
-        filter: brightness(1.05);
-        outline: none;
-      }
-      .gogl-form__fine {
-        font-family: var(--font-head);
-        font-size: 0.75rem;
-        color: #999999;
-        text-align: center;
-        margin: 12px 0 0;
-      }
-      .gogl-guarantee {
-        background: transparent;
-        padding: 80px 0;
-        width: 100%;
-        text-align: center;
-      }
-      .gogl-guarantee__inner {
-        max-width: var(--page-max);
-        margin: 0 auto;
-        width: 100%;
-        box-sizing: border-box;
-      }
-      .gogl-guarantee__line {
-        width: 60px;
-        height: 2px;
-        background: var(--green-signal);
-        margin: 0 auto 40px;
-      }
-      .gogl-guarantee blockquote {
-        font-family: var(--font-body);
-        font-style: italic;
-        font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-        color: var(--black);
-        line-height: 1.6;
-        margin: 0 0 20px;
-      }
-      .gogl-guarantee cite {
-        font-family: var(--font-head);
-        font-style: normal;
-        font-size: 0.8rem;
-        color: #888888;
-        text-transform: uppercase;
-        letter-spacing: 0.1em;
-        display: block;
-      }
       @media (max-width: 640px) {
         .gogl-hero__content {
           top: 50%;
           transform: translateY(-50%);
         }
+      }
+      /* Persönliche Notiz — zentriert, transluzent, gleicher Rotton; Größe über vw/vh gekoppelt */
+      .gogl-stoerer {
+        --stoerer-inset: clamp(12px, 3.5vw, 56px);
+        position: fixed;
+        inset: 0;
+        z-index: 10000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: var(--stoerer-inset);
+        box-sizing: border-box;
+        pointer-events: none;
+      }
+      .gogl-stoerer[hidden] {
+        display: none !important;
+      }
+      /* Kein Aufblitzen wenn bereits geschlossen (sessionStorage, vor erstem Paint) */
+      html.gogl-stoerer-js-hide #gogl-stoerer {
+        display: none !important;
+      }
+      .gogl-stoerer__backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(10, 10, 10, 0.12);
+        /* ca. 10 % der vorherigen Unschärfe (10px → 1px) */
+        backdrop-filter: blur(1px);
+        -webkit-backdrop-filter: blur(1px);
+        pointer-events: auto;
+      }
+      .gogl-stoerer__panel {
+        position: relative;
+        z-index: 1;
+        pointer-events: auto;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        width: min(
+          92vw,
+          calc(100vw - 2 * var(--stoerer-inset)),
+          max(22rem, min(52rem, calc(38vw + 14vh)))
+        );
+        max-width: calc(100vw - 2 * var(--stoerer-inset));
+        max-height: min(88vh, calc(100vh - 2 * var(--stoerer-inset)));
+        min-height: 0;
+        height: auto;
+        border-radius: 0;
+        overflow: hidden;
+        background: color-mix(in srgb, #c52f33 42%, rgba(255, 250, 250, 0.05));
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: none;
+        box-shadow: none;
+        color: #fff0f0;
+      }
+      @media (max-width: 767px) {
+        .gogl-stoerer__panel {
+          width: min(94vw, calc(100vw - 2 * var(--stoerer-inset)));
+        }
+      }
+      .gogl-stoerer__scroll {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+        padding: 24px 28px 16px;
+        box-sizing: border-box;
+      }
+      @media (max-width: 767px) {
+        .gogl-stoerer__scroll {
+          padding: 20px 18px 14px;
+        }
+      }
+      .gogl-stoerer__body {
+        width: 100%;
+        text-align: left;
+      }
+      .gogl-stoerer__copy {
+        margin: 0;
+        text-align: left;
+        font-size: clamp(0.84rem, 1.35vw, 0.98rem);
+        line-height: 1.58;
+      }
+      .gogl-stoerer__lead {
+        font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 500;
+      }
+      .gogl-stoerer__rest {
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-weight: 400;
+      }
+      .gogl-stoerer__actions {
+        flex: 0 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        justify-content: center;
+        align-items: center;
+        padding: 12px 28px calc(18px + env(safe-area-inset-bottom, 0));
+        box-sizing: border-box;
+        border-top: none;
+        background: transparent;
+      }
+      .gogl-stoerer__actions a {
+        flex: 0 1 auto;
+        min-width: min(11.5rem, 100%);
+        box-sizing: border-box;
+        text-align: center;
+        font-family: var(--font-head);
+        font-weight: 600;
+        font-size: 0.9rem;
+        padding: 12px 28px;
+        border-radius: 999px;
+        text-decoration: none;
+        transition: filter 0.2s ease, background 0.2s ease;
+      }
+      /* Farben getauscht: links Outline, rechts gefüllt */
+      .gogl-stoerer__actions a:first-of-type {
+        background: transparent;
+        color: #fff0f0;
+        border: 1.5px solid color-mix(in srgb, #fff 45%, #c52f33);
+      }
+      .gogl-stoerer__actions a:first-of-type:hover,
+      .gogl-stoerer__actions a:first-of-type:focus-visible {
+        background: color-mix(in srgb, #fff 10%, transparent);
+      }
+      .gogl-stoerer__actions a:last-of-type {
+        background: #fff0f0;
+        color: #8b2226;
+        border: 1px solid color-mix(in srgb, #fff 40%, #8b2226);
+      }
+      .gogl-stoerer__actions a:last-of-type:hover,
+      .gogl-stoerer__actions a:last-of-type:focus-visible {
+        /* Weiß ~15 % transparenter (85 % deckend) */
+        background: color-mix(in srgb, #fff0f0 85%, transparent);
+      }
+      .gogl-stoerer__actions a:focus-visible {
+        outline: 2px solid #fff0f0;
+        outline-offset: 2px;
       }
     </style>
   </head>
@@ -755,7 +733,7 @@
         <a href="index.html" class="nav__logo gogogo-landing__logo" aria-label="Friday Circle Startseite">gogogo</a>
         <nav class="nav__links nav__links--empty" aria-hidden="true"></nav>
         <div class="nav__cta-bucket">
-          <a class="gogogo-landing__header-cta" href="#onboarding">Jetzt starten</a>
+          <a class="gogogo-landing__header-cta" href="gogogo-quiz.html">Jetzt starten</a>
         </div>
       </div>
     </header>
@@ -774,6 +752,36 @@
   Frühbucher erhalten 20% Rabatt. &nbsp;·&nbsp;
   Wir freuen uns auf dein Feedback.
 </div>
+
+    <aside
+      id="gogl-stoerer"
+      class="gogl-stoerer"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Persönliche Notiz zum Start von gogogo"
+      aria-live="polite"
+    >
+      <div class="gogl-stoerer__backdrop" aria-hidden="true"></div>
+      <div class="gogl-stoerer__panel">
+        <div class="gogl-stoerer__scroll">
+          <div class="gogl-stoerer__body">
+            <p class="gogl-stoerer__copy">
+              <span class="gogl-stoerer__lead">Diese Website ist allen Menschen gewidmet, die mich von 2024 bis heute begleitet haben.</span><span class="gogl-stoerer__rest">
+                Es geht um Transformation und um den Blick auf das Wesentliche. Was hilft High-Performance und Disziplin, wenn das
+                Menschliche auf der Strecke bleibt. Es soll weitergehen. Von Architekt zu Trainer zu Gründer. Ob es das
+                richtige ist, weiß ich nicht. Im Bekanntenkreis und mir haben die hier angesprochenen Themen geholfen.
+                Einfach in Bewegung zu kommen. Wortwörtlich. Kleine Schritte, kein Grind, kein Super-Hero. Einfach ein paar
+                Stunden in Bewegung – das wirkt sich auf alles andere aus. Schau mal selbst, ob es Dir was sagt. Ich bin sehr
+                gespannt, ob wir etwas aufbauen können, was nachhaltig guten Einfluss auf das Leben anderer Menschen haben kann.</span>
+            </p>
+          </div>
+        </div>
+        <div class="gogl-stoerer__actions">
+          <a href="triff-joscha.html" class="gogl-stoerer__cta">Meine Story</a>
+          <a href="#einstieg" class="gogl-stoerer__cta">Entdecken</a>
+        </div>
+      </div>
+    </aside>
 
     <main>
       <section class="gogl-hero" aria-labelledby="gogl-hero-title">
@@ -816,6 +824,7 @@
     justify-content: center;
     width: 100%;
     box-sizing: border-box;
+    padding-top: 0.5rem;
   ">
   <div style="width: 100%; box-sizing: border-box;">
     <h1 id="gogl-hero-title" style="
@@ -832,7 +841,7 @@
       font-weight: 500;
       font-size: clamp(2rem, 3.5vw, 3rem);
       line-height: 1.15;
-      margin: 0 0 32px 0;
+      margin: 0 0 20px 0;
       color: #ffffff;
     ">Und trotzdem schiebst du deinen<br />5km-Lauf vor dir her.</h2>
 
@@ -841,13 +850,13 @@
       font-style: italic;
       font-size: clamp(0.95rem, 1.6vw, 1.1rem);
       color: #cccccc;
-      line-height: 1.6;
+      line-height: 1.45;
       max-width: 500px;
-      margin: 0 0 36px 0;
-    ">Kein Willensproblem. Überlastung. Wir stehen zwischen Fitness-App und Personal Trainer – und bauen dir den Kontext der wirklich hält. Auf Basis deiner Woche.</p>
+      margin: 0 0 22px 0;
+    ">Kein Willensproblem. Überlastung.<br />Wir stehen zwischen Fitness-App und Personal Trainer.<br />Wir bauen dir den Kontext der wirklich hält auf Basis deiner Woche.</p>
 
     <div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: center;">
-      <a href="#onboarding" style="
+      <a href="gogogo-quiz.html" style="
         background: #2d9e8f;
         color: #ffffff;
         font-family: 'Helvetica Neue', sans-serif;
@@ -857,7 +866,7 @@
         border-radius: 999px;
         text-decoration: none;
         display: inline-block;
-      ">Erstgespräch buchen →</a>
+      ">Jetzt registrieren</a>
 
       <a href="#einstieg" style="
         background: transparent;
@@ -870,17 +879,17 @@
         border: 1.5px solid rgba(255,255,255,0.5);
         text-decoration: none;
         display: inline-block;
-      ">Kostenloser Einstieg</a>
+      ">Mehr erfahren</a>
     </div>
   </div>
   </div>
 
-  <!-- BOTTOM: Two Cards -->
+  <!-- BOTTOM: Two Cards (niedriger) -->
   <div style="
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%;
-    padding-bottom: 32px;
+    padding-bottom: 18px;
     box-sizing: border-box;
     flex-shrink: 0;
   ">
@@ -889,7 +898,7 @@
     <div style="
       background: rgba(10,10,10,0.60);
       backdrop-filter: blur(8px);
-      padding: 28px 32px;
+      padding: 16px 22px 18px;
       border-top: 1px solid rgba(255,255,255,0.1);
       border-right: 1px solid rgba(255,255,255,0.1);
     ">
@@ -899,22 +908,22 @@
         text-transform: uppercase;
         letter-spacing: 0.12em;
         color: #2d9e8f;
-        margin: 0 0 8px 0;
+        margin: 0 0 6px 0;
       ">BERLIN · VOR ORT</p>
       <p style="
         font-family: 'Helvetica Neue', sans-serif;
         font-weight: 700;
-        font-size: 1rem;
+        font-size: 0.95rem;
         color: #ffffff;
-        margin: 0 0 8px 0;
+        margin: 0 0 6px 0;
       ">Training mit Joscha</p>
       <p style="
         font-family: Georgia, serif;
         font-style: italic;
-        font-size: 0.85rem;
+        font-size: 0.82rem;
         color: #aaaaaa;
-        margin: 0 0 16px 0;
-        line-height: 1.5;
+        margin: 0 0 10px 0;
+        line-height: 1.4;
       ">Grundlagengespräch · Bewegungsanalyse · Formtraining · Plangestaltung</p>
       <a href="/personal-training" style="
         font-family: 'Helvetica Neue', sans-serif;
@@ -929,7 +938,7 @@
     <div style="
       background: rgba(10,10,10,0.60);
       backdrop-filter: blur(8px);
-      padding: 28px 32px;
+      padding: 16px 22px 18px;
       border-top: 1px solid rgba(255,255,255,0.1);
     ">
       <p style="
@@ -938,24 +947,24 @@
         text-transform: uppercase;
         letter-spacing: 0.12em;
         color: #2d9e8f;
-        margin: 0 0 8px 0;
+        margin: 0 0 6px 0;
       ">ONLINE · ÜBERALL</p>
       <p style="
         font-family: 'Helvetica Neue', sans-serif;
         font-weight: 700;
-        font-size: 1rem;
+        font-size: 0.95rem;
         color: #ffffff;
-        margin: 0 0 8px 0;
+        margin: 0 0 6px 0;
       ">Online-Betreuung. Egal wo du bist.</p>
       <p style="
         font-family: Georgia, serif;
         font-style: italic;
-        font-size: 0.85rem;
+        font-size: 0.82rem;
         color: #aaaaaa;
-        margin: 0 0 16px 0;
-        line-height: 1.5;
+        margin: 0 0 10px 0;
+        line-height: 1.4;
       ">Wie BetterHelp nur für Bewegung. Kein Social Media. Kein App-Chaos. Dein Trainer. Dein Plan.</p>
-      <a href="#onboarding" style="
+      <a href="gogogo-quiz.html" style="
         font-family: 'Helvetica Neue', sans-serif;
         font-size: 0.85rem;
         font-weight: 600;
@@ -1049,7 +1058,7 @@
               font-size:0.9rem;color:#cccccc;
               line-height:1.7;margin:12px 0 16px 0;
             ">WhatsApp täglich. Wöchentlicher Check-in. Wir kennen deine Woche – und bleiben dran wenn sie schiefläuft. Kein Algorithmus. Ein Mensch der Bescheid weiß.</p>
-            <a href="#onboarding" style="
+            <a href="gogogo-quiz.html" style="
               font-family:'Helvetica Neue',sans-serif;
               font-weight:600;font-size:0.85rem;
               color:#2d9e8f;text-decoration:none;
@@ -1258,7 +1267,7 @@
               font-size:0.9rem;color:#cccccc;
               line-height:1.75;margin:0 0 20px 0;
             ">Urban Sports gibt dir Zugang. Apps geben dir Pläne. YouTube gibt dir Inspiration. Instagram gibt dir Schuldgefühle. Kein einziges dieser Tools kennt deine Woche – oder bleibt dran wenn sie schiefläuft. Das ist keine Kritik. Das sind Werkzeuge. gogogo ist der Mensch der sie mit dir sinnvoll einsetzt.</p>
-            <a href="#onboarding" style="
+            <a href="gogogo-quiz.html" style="
               font-family:'Helvetica Neue',sans-serif;
               font-weight:600;font-size:0.85rem;
               color:#2d9e8f;text-decoration:none;
@@ -1314,7 +1323,7 @@
           </div>
           <div style="width:50%;">
             <p style="font-family:Georgia,serif;font-style:italic;font-size:0.9rem;color:#cccccc;line-height:1.75;margin:0 0 20px 0;">Dein Gehirn ist nicht für Vorsätze gebaut – es ist für unmittelbare Belohnungen optimiert. Jede App, jede Benachrichtigung konkurriert mit dem Impuls aufzustehen und zu trainieren. Die meisten Trainingspläne sind für ein ideales Leben gebaut – nicht für deins. Eine Woche mit Overtime, schlechtem Schlaf, vollen Terminen existiert in keinem Programm. In der Realität ist sie der Normalzustand. gogogo baut den Plan um dein Leben. Nicht umgekehrt.</p>
-            <a href="#onboarding" style="font-family:'Helvetica Neue',sans-serif;font-weight:600;font-size:0.85rem;color:#2d9e8f;text-decoration:none;background:rgba(255,255,255,0.1);padding:10px 20px;border-radius:999px;display:inline-block;">Erstgespräch buchen →</a>
+            <a href="gogogo-quiz.html" style="font-family:'Helvetica Neue',sans-serif;font-weight:600;font-size:0.85rem;color:#2d9e8f;text-decoration:none;background:rgba(255,255,255,0.1);padding:10px 20px;border-radius:999px;display:inline-block;">Erstgespräch buchen →</a>
           </div>
         </div>
       </div>
@@ -1346,7 +1355,7 @@
           </div>
           <div style="width:50%;">
             <p style="font-family:Georgia,serif;font-style:italic;font-size:0.9rem;color:#cccccc;line-height:1.75;margin:0 0 20px 0;">Jedes Erstgespräch endet mit einem konkreten Wochenplan. Kraft, Ausdauer, Balance &amp; Mobilität – vier Bereiche, ein System. Kein Lifestyle, keine Ideologie. Bewegung ist die wirksamste Medizin die du dir verschreiben kannst – als dokumentierte Physiologie, nicht als Versprechen.</p>
-            <a href="#onboarding" style="font-family:'Helvetica Neue',sans-serif;font-weight:600;font-size:0.85rem;color:#2d9e8f;text-decoration:none;background:rgba(255,255,255,0.1);padding:10px 20px;border-radius:999px;display:inline-block;">Erstgespräch buchen →</a>
+            <a href="gogogo-quiz.html" style="font-family:'Helvetica Neue',sans-serif;font-weight:600;font-size:0.85rem;color:#2d9e8f;text-decoration:none;background:rgba(255,255,255,0.1);padding:10px 20px;border-radius:999px;display:inline-block;">Erstgespräch buchen →</a>
           </div>
         </div>
       </div>
@@ -1378,7 +1387,7 @@
           </div>
           <div style="width:50%;">
             <p style="font-family:Georgia,serif;font-style:italic;font-size:0.9rem;color:#cccccc;line-height:1.75;margin:0 0 20px 0;">Motivation ist ein Wetterbericht. Gewohnheit ist Klima. gogogo kalibriert deinen Plan an echte Wochen – nicht an Urlaubshemd-Phantasien – und bleibt im Gespräch wenn sich dein Job, deine Familie oder dein Schlaf verändert. So wird aus vier Stunden pro Woche ein Rhythmus, den du nicht mehr diskutierst.</p>
-            <a href="#onboarding" style="font-family:'Helvetica Neue',sans-serif;font-weight:600;font-size:0.85rem;color:#2d9e8f;text-decoration:none;background:rgba(255,255,255,0.1);padding:10px 20px;border-radius:999px;display:inline-block;">Erstgespräch buchen →</a>
+            <a href="gogogo-quiz.html" style="font-family:'Helvetica Neue',sans-serif;font-weight:600;font-size:0.85rem;color:#2d9e8f;text-decoration:none;background:rgba(255,255,255,0.1);padding:10px 20px;border-radius:999px;display:inline-block;">Erstgespräch buchen →</a>
           </div>
         </div>
       </div>
@@ -1542,171 +1551,37 @@
   </div>
 </section>
 
-      <section id="onboarding" class="gogl-form-section" aria-labelledby="gogl-form-h">
-        <div class="gogl-slab">
-        <div class="gogl-form-wrap">
-          <p class="gogl-kicker">DEIN ERSTER SCHRITT</p>
-          <h2 id="gogl-form-h" class="gogl-section-title gogl-form__h2">Komm in Bewegung.</h2>
-          <p class="gogl-form__sub">Beantworte ein paar Fragen in 2 Minuten. Wir antworten innerhalb von 24 Stunden persönlich.</p>
-          <!-- Ersetze action durch deinen Formspree-Endpunkt: action="https://formspree.io/f/xxxxx" -->
-          <form class="gogl-form" method="post" action="#">
-            <input type="hidden" name="source" value="gogogo-landing" />
-            <fieldset>
-              <legend class="gogl-form__q">Wie aktiv bist du gerade wirklich?</legend>
-              <div class="gogl-radios">
-                <label class="gogl-radio">
-                  <input type="radio" name="q1" value="Ich trainiere sporadisch – weniger als einmal pro Woche" required />
-                  <span class="gogl-radio__ui" aria-hidden="true"></span>
-                  <span>Ich trainiere sporadisch – weniger als einmal pro Woche</span>
-                </label>
-                <label class="gogl-radio">
-                  <input type="radio" name="q1" value="Ich hatte mal eine Routine – jetzt nicht mehr" />
-                  <span class="gogl-radio__ui" aria-hidden="true"></span>
-                  <span>Ich hatte mal eine Routine – jetzt nicht mehr</span>
-                </label>
-                <label class="gogl-radio">
-                  <input type="radio" name="q1" value="Ich trainiere regelmäßig aber ohne System und Fortschritt" />
-                  <span class="gogl-radio__ui" aria-hidden="true"></span>
-                  <span>Ich trainiere regelmäßig aber ohne System und Fortschritt</span>
-                </label>
-              </div>
-            </fieldset>
-            <fieldset>
-              <legend class="gogl-form__q">Was hast du schon probiert?</legend>
-              <div class="gogl-radios">
-                <label class="gogl-radio">
-                  <input type="radio" name="q2" value="Fitnessstudio-Mitgliedschaft (die ich kaum nutze)" required />
-                  <span class="gogl-radio__ui" aria-hidden="true"></span>
-                  <span>Fitnessstudio-Mitgliedschaft (die ich kaum nutze)</span>
-                </label>
-                <label class="gogl-radio">
-                  <input type="radio" name="q2" value="Apps oder Online-Programme" />
-                  <span class="gogl-radio__ui" aria-hidden="true"></span>
-                  <span>Apps oder Online-Programme</span>
-                </label>
-                <label class="gogl-radio">
-                  <input type="radio" name="q2" value="Personal Training (hat nicht gehalten)" />
-                  <span class="gogl-radio__ui" aria-hidden="true"></span>
-                  <span>Personal Training (hat nicht gehalten)</span>
-                </label>
-                <label class="gogl-radio">
-                  <input type="radio" name="q2" value="Mehreres davon" />
-                  <span class="gogl-radio__ui" aria-hidden="true"></span>
-                  <span>Mehreres davon</span>
-                </label>
-              </div>
-            </fieldset>
-            <fieldset>
-              <legend class="gogl-form__q">Was hält dich aktuell am meisten auf?</legend>
-              <div class="gogl-radios">
-                <label class="gogl-radio">
-                  <input type="radio" name="q3" value="Keine Zeit oder zu erschöpft nach der Arbeit" required />
-                  <span class="gogl-radio__ui" aria-hidden="true"></span>
-                  <span>Keine Zeit oder zu erschöpft nach der Arbeit</span>
-                </label>
-                <label class="gogl-radio">
-                  <input type="radio" name="q3" value="Ich fange an und breche dann ab" />
-                  <span class="gogl-radio__ui" aria-hidden="true"></span>
-                  <span>Ich fange an und breche dann ab</span>
-                </label>
-                <label class="gogl-radio">
-                  <input type="radio" name="q3" value="Ich weiß nicht wo anfangen" />
-                  <span class="gogl-radio__ui" aria-hidden="true"></span>
-                  <span>Ich weiß nicht wo anfangen</span>
-                </label>
-                <label class="gogl-radio">
-                  <input type="radio" name="q3" value="Zu viele Optionen, keine Klarheit" />
-                  <span class="gogl-radio__ui" aria-hidden="true"></span>
-                  <span>Zu viele Optionen, keine Klarheit</span>
-                </label>
-              </div>
-            </fieldset>
-            <fieldset>
-              <legend class="gogl-form__q">Was wäre für dich ein echter Erfolg in acht Wochen?</legend>
-              <div class="gogl-radios">
-                <label class="gogl-radio">
-                  <input type="radio" name="q4" value="Ich trainiere vier Mal pro Woche – konsequent" required />
-                  <span class="gogl-radio__ui" aria-hidden="true"></span>
-                  <span>Ich trainiere vier Mal pro Woche – konsequent</span>
-                </label>
-                <label class="gogl-radio">
-                  <input type="radio" name="q4" value="Ich fühle mich körperlich und mental klarer" />
-                  <span class="gogl-radio__ui" aria-hidden="true"></span>
-                  <span>Ich fühle mich körperlich und mental klarer</span>
-                </label>
-                <label class="gogl-radio">
-                  <input type="radio" name="q4" value="Ich habe ein System das zu meinem Leben passt" />
-                  <span class="gogl-radio__ui" aria-hidden="true"></span>
-                  <span>Ich habe ein System das zu meinem Leben passt</span>
-                </label>
-                <label class="gogl-radio">
-                  <input type="radio" name="q4" value="Ich habe einen Trainer der mich kennt und dranbleibt" />
-                  <span class="gogl-radio__ui" aria-hidden="true"></span>
-                  <span>Ich habe einen Trainer der mich kennt und dranbleibt</span>
-                </label>
-              </div>
-            </fieldset>
-            <fieldset>
-              <legend class="gogl-form__q">Wie willst du betreut werden?</legend>
-              <div class="gogl-radios">
-                <label class="gogl-radio">
-                  <input type="radio" name="q5" value="Online – WhatsApp und Web-Call reichen mir" required />
-                  <span class="gogl-radio__ui" aria-hidden="true"></span>
-                  <span>Online – WhatsApp und Web-Call reichen mir</span>
-                </label>
-                <label class="gogl-radio">
-                  <input type="radio" name="q5" value="Vor Ort in Berlin – ich will echten Kontakt" />
-                  <span class="gogl-radio__ui" aria-hidden="true"></span>
-                  <span>Vor Ort in Berlin – ich will echten Kontakt</span>
-                </label>
-                <label class="gogl-radio">
-                  <input type="radio" name="q5" value="Beides – je nach Woche" />
-                  <span class="gogl-radio__ui" aria-hidden="true"></span>
-                  <span>Beides – je nach Woche</span>
-                </label>
-              </div>
-            </fieldset>
-            <div class="gogl-field">
-              <label for="gogl-name">Name</label>
-              <input id="gogl-name" name="name" type="text" required placeholder="Dein Name" autocomplete="name" />
-            </div>
-            <div class="gogl-field">
-              <label for="gogl-email">E-Mail</label>
-              <input
-                id="gogl-email"
-                name="email"
-                type="email"
-                required
-                placeholder="Deine E-Mail-Adresse"
-                autocomplete="email"
-              />
-            </div>
-            <div class="gogl-field">
-              <label for="gogl-ta">Was soll sich konkret ändern?</label>
-              <textarea
-                id="gogl-ta"
-                name="blocker"
-                rows="5"
-                placeholder="Schreib einfach was dir in den Kopf kommt."
-              ></textarea>
-            </div>
-            <button type="submit" class="gogl-form__submit">Absenden – wir melden uns in 24h</button>
-            <p class="gogl-form__fine">Keine Weitergabe deiner Daten. Kein Spam.</p>
-          </form>
-        </div>
-        </div>
-      </section>
-
-      <section class="gogl-guarantee" aria-label="Garantie">
-        <div class="gogl-slab">
-        <div class="gogl-guarantee__inner">
-        <div class="gogl-guarantee__line" aria-hidden="true"></div>
-        <blockquote>
-          „Wenn du nach dem Erstgespräch keinen konkreten nächsten Schritt siehst, zahlst du nichts. Kein
-          Kleingedrucktes.“
-        </blockquote>
-        <cite>— Joscha Grope, Gründer Friday Circle</cite>
-        </div>
+      <section id="gogl-story" class="gogl-outro" aria-label="Registrierung" style="background: #f0eee6; padding: 80px 0;">
+        <div class="gogl-slab" style="text-align: center;">
+          <a
+            href="gogogo-quiz.html"
+            style="
+              display: inline-block;
+              background: #2d9e8f;
+              color: #ffffff;
+              font-family: 'Helvetica Neue', sans-serif;
+              font-weight: 700;
+              font-size: 1rem;
+              padding: 16px 32px;
+              border-radius: 999px;
+              text-decoration: none;
+            "
+            >Jetzt registrieren</a
+          >
+          <p
+            style="
+              font-family: Georgia, serif;
+              font-style: italic;
+              font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+              color: #555555;
+              line-height: 1.6;
+              max-width: 500px;
+              margin: 28px auto 0;
+            "
+          >
+            „Wenn du nach dem Erstgespräch keinen konkreten nächsten Schritt siehst, zahlst du nichts. Kein
+            Kleingedrucktes.“
+          </p>
         </div>
       </section>
     </main>
@@ -1726,6 +1601,53 @@
       </div>
     </footer>
     <script>
+(function initGoglStoerer() {
+  var el = document.getElementById('gogl-stoerer');
+  var backdrop = el && el.querySelector('.gogl-stoerer__backdrop');
+  if (!el) return;
+
+  function dismiss() {
+    el.hidden = true;
+    try {
+      document.documentElement.classList.add('gogl-stoerer-js-hide');
+      sessionStorage.setItem('goglStoererDismissed', '1');
+    } catch (e) {}
+  }
+
+  try {
+    if (sessionStorage.getItem('goglStoererDismissed') === '1') {
+      el.hidden = true;
+      document.documentElement.classList.add('gogl-stoerer-js-hide');
+      return;
+    }
+  } catch (e) {}
+
+  /* Nur schließen, wenn der Nutzer den Backdrop hier wirklich gedrückt hat — verhindert
+     „Geisterklicks“ nach Navigation (Klick auf gogogo endet auf dem Overlay). */
+  if (backdrop) {
+    var pressStartedOnBackdrop = false;
+    backdrop.addEventListener('pointerdown', function (e) {
+      if (e.target === backdrop) pressStartedOnBackdrop = true;
+    });
+    backdrop.addEventListener('pointerup', function (e) {
+      if (e.target !== backdrop) pressStartedOnBackdrop = false;
+    });
+    backdrop.addEventListener('pointercancel', function () {
+      pressStartedOnBackdrop = false;
+    });
+    backdrop.addEventListener('click', function (e) {
+      if (e.target !== backdrop || !pressStartedOnBackdrop) {
+        pressStartedOnBackdrop = false;
+        return;
+      }
+      pressStartedOnBackdrop = false;
+      dismiss();
+    });
+  }
+  el.querySelectorAll('a.gogl-stoerer__cta').forEach(function (a) {
+    a.addEventListener('click', dismiss);
+  });
+})();
 // Warum gogogo carousel: 3 tiles visible, expand shifts track so wide tile stays in frame
 let carouselPos = 0;
 let expandNudgeX = 0;
