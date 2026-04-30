@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Zusammenarbeit | gogogo — Trainer, Tech &amp; Sales</title>
+    <meta
+      name="description"
+      content="Bewirb dich als Personal Trainer, in Tech oder Sales — oder mit anderem Background. Kurz erzählen, wir melden uns."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      body.gogogo-page {
+        --page-x: 5%;
+        --page-max: 1280px;
+        background-color: #f0eee6;
+      }
+      .gogogo-page {
+        --green-deep: #1a3a2a;
+        --green-signal: #2d9e8f;
+        --cream: #f0eee6;
+        --black: #0a0a0a;
+        --white: #ffffff;
+        --font-head: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        --font-body: Georgia, "Times New Roman", Times, serif;
+        --logo: #0a0a0a;
+        color: var(--black);
+        background: #f0eee6;
+        font-family: var(--font-body);
+        line-height: 1.5;
+        margin: 0;
+        min-height: 100%;
+      }
+      .gogogo-page *,
+      .gogogo-page *::before,
+      .gogogo-page *::after {
+        box-sizing: border-box;
+      }
+      .gogogo-page .gogogo-landing__logo {
+        font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 600;
+        font-size: clamp(1.05rem, 1.35vw, 1.35rem);
+        letter-spacing: 0.018em;
+        color: var(--logo);
+      }
+      .gogogo-page .nav__links--empty {
+        min-width: 0;
+        min-height: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      .gogl-slab {
+        max-width: var(--page-max);
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        padding-left: var(--page-x);
+        padding-right: var(--page-x);
+        box-sizing: border-box;
+      }
+      .gogl-form__h1 {
+        font-family: var(--font-sans);
+        font-weight: 300;
+        font-size: clamp(2rem, 3.5vw, 3rem);
+        line-height: 1.15;
+        color: var(--black);
+        margin: 0 0 12px;
+      }
+      .gogl-form-section {
+        background: transparent;
+        padding: 80px 0;
+      }
+      .gogl-form-wrap {
+        max-width: 640px;
+        margin: 0 auto;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .gogl-form-wrap .gogl-form__h1,
+      .gogl-form__sub {
+        text-align: center;
+        display: block;
+      }
+      .gogl-form__sub {
+        font-family: var(--font-sans);
+        font-style: normal;
+        font-weight: 400;
+        font-size: 0.9rem;
+        color: #444444;
+        margin: 0 0 48px;
+        line-height: 1.5;
+      }
+      .gogl-form fieldset {
+        border: none;
+        margin: 0 0 1.5rem;
+        padding: 0;
+      }
+      .gogl-form legend,
+      .gogl-form__q {
+        font-family: var(--font-head);
+        font-weight: 700;
+        font-size: 0.95rem;
+        margin-bottom: 12px;
+        display: block;
+        width: 100%;
+        color: var(--black);
+      }
+      .gogl-radios {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .gogl-radio {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--font-body);
+        font-size: 0.95rem;
+        cursor: pointer;
+        line-height: 1.4;
+      }
+      .gogl-radio input {
+        position: absolute;
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .gogl-radio__ui {
+        flex-shrink: 0;
+        width: 20px;
+        height: 20px;
+        border: 1.5px solid #999;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--white);
+      }
+      .gogl-radio input:checked + .gogl-radio__ui {
+        border-color: var(--green-signal);
+        background: var(--white);
+      }
+      .gogl-radio input:checked + .gogl-radio__ui::after {
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--green-signal);
+        display: block;
+      }
+      .gogl-radio input:focus-visible + .gogl-radio__ui {
+        outline: 2px solid var(--green-signal);
+        outline-offset: 2px;
+      }
+      .gogl-field label {
+        font-family: var(--font-head);
+        font-weight: 600;
+        font-size: 0.9rem;
+        display: block;
+        margin-bottom: 8px;
+        color: var(--black);
+      }
+      .gogl-field input,
+      .gogl-field textarea {
+        width: 100%;
+        padding: 14px;
+        border: 1.5px solid #cccccc;
+        border-radius: 4px;
+        background: var(--white);
+        font-family: var(--font-body);
+        font-size: 1rem;
+        color: var(--black);
+      }
+      .gogl-field textarea {
+        min-height: 8rem;
+        resize: vertical;
+      }
+      .gogl-field {
+        margin-bottom: 1.25rem;
+      }
+      .gogl-form__submit {
+        width: 100%;
+        background: var(--green-deep);
+        color: var(--white);
+        font-family: var(--font-head);
+        font-weight: 700;
+        font-size: 1rem;
+        padding: 20px;
+        border-radius: 999px;
+        border: none;
+        cursor: pointer;
+        margin-top: 24px;
+      }
+      .gogl-form__submit:hover,
+      .gogl-form__submit:focus-visible {
+        filter: brightness(1.05);
+        outline: none;
+      }
+      .gogl-consent {
+        margin: 0 0 8px;
+      }
+      .gogl-consent__label {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        line-height: 1.45;
+        font-weight: 400;
+        cursor: pointer;
+        color: var(--black);
+      }
+      .gogl-consent__label input {
+        flex-shrink: 0;
+        width: 18px;
+        height: 18px;
+        margin: 2px 0 0;
+        accent-color: var(--green-deep);
+      }
+      .gogl-consent__label a {
+        color: var(--green-deep);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+      .gogl-consent__label a:hover {
+        color: var(--green-signal);
+      }
+      .gogl-form__fine {
+        font-family: var(--font-head);
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: #666666;
+        text-align: center;
+        margin: 16px 0 0;
+        line-height: 1.5;
+        max-width: 32rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+  </head>
+  <body class="gogogo-page" id="top">
+    <header class="nav" aria-label="Hauptnavigation">
+      <div class="nav__inner">
+        <a href="../gogogo-landing.html#top" class="nav__logo gogogo-landing__logo" aria-label="gogogo Startseite">gogogo</a>
+        <nav class="nav__links nav__links--empty" aria-hidden="true"></nav>
+        <div class="nav__cta-bucket">
+          <a class="gogogo-landing__header-cta" href="../gogogo-landing.html">Zurück zur Seite</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="bewerbung" class="gogl-form-section" aria-labelledby="zz-h">
+        <div class="gogl-slab">
+          <div class="gogl-form-wrap">
+            <h1 id="zz-h" class="gogl-form__h1">Zusammenarbeit.</h1>
+            <p class="gogl-form__sub">
+              Personal Trainer, Tech, Sales — oder etwas anderes, das gut passt. Kurz vorstellen: Rolle, Erfahrung, was du
+              mitbringen willst. Wir lesen uns und melden uns persönlich.
+            </p>
+            <!-- Formspree: Endpunkt und _next-URL anpassen -->
+            <form class="gogl-form" method="POST" action="https://formspree.io/f/DEIN_FORMSPREE_ZUSAMMENARBEIT">
+              <input type="hidden" name="_subject" value="Neue Bewerbung — Zusammenarbeit gogogo" />
+              <input type="hidden" name="_next" value="https://DEINE_URL/danke-zusammenarbeit/index.html" />
+              <input type="hidden" name="source" value="zusammenarbeit" />
+              <input type="text" name="_gotcha" value="" style="display: none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+              <fieldset>
+                <legend class="gogl-form__q">In welchem Bereich möchtest du dich einbringen?</legend>
+                <div class="gogl-radios">
+                  <label class="gogl-radio">
+                    <input type="radio" name="rolle" value="Personal Trainer" required />
+                    <span class="gogl-radio__ui" aria-hidden="true"></span>
+                    <span>Personal Trainer</span>
+                  </label>
+                  <label class="gogl-radio">
+                    <input type="radio" name="rolle" value="Tech" />
+                    <span class="gogl-radio__ui" aria-hidden="true"></span>
+                    <span>Tech</span>
+                  </label>
+                  <label class="gogl-radio">
+                    <input type="radio" name="rolle" value="Sales" />
+                    <span class="gogl-radio__ui" aria-hidden="true"></span>
+                    <span>Sales</span>
+                  </label>
+                  <label class="gogl-radio">
+                    <input type="radio" name="rolle" value="Sonstiges" />
+                    <span class="gogl-radio__ui" aria-hidden="true"></span>
+                    <span>Sonstiges (z.&nbsp;B. Operations, Content, …)</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <div class="gogl-field">
+                <label for="zz-rolle-detail">Präzisierung zur Rolle <span style="font-weight: 400; color: #666">(optional)</span></label>
+                <input
+                  id="zz-rolle-detail"
+                  name="rolle_detail"
+                  type="text"
+                  placeholder="z. B. Stack, Zertifikate, Schwerpunkt"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="gogl-field">
+                <label for="zz-name">Name</label>
+                <input id="zz-name" name="name" type="text" required placeholder="Vor- und Nachname" autocomplete="name" />
+              </div>
+              <div class="gogl-field">
+                <label for="zz-email">E-Mail</label>
+                <input
+                  id="zz-email"
+                  name="email"
+                  type="email"
+                  required
+                  placeholder="Deine E-Mail-Adresse"
+                  autocomplete="email"
+                />
+              </div>
+              <div class="gogl-field">
+                <label for="zz-phone">Telefon <span style="font-weight: 400; color: #666">(optional)</span></label>
+                <input id="zz-phone" name="telefon" type="tel" placeholder="Für einen schnellen Rückruf" autocomplete="tel" />
+              </div>
+              <div class="gogl-field">
+                <label for="zz-link">Profil oder Portfolio <span style="font-weight: 400; color: #666">(optional)</span></label>
+                <input
+                  id="zz-link"
+                  name="profil_url"
+                  type="url"
+                  placeholder="https://…"
+                  autocomplete="url"
+                />
+              </div>
+              <div class="gogl-field">
+                <label for="zz-ta">Was bringst du mit — und was suchst du?</label>
+                <textarea
+                  id="zz-ta"
+                  name="nachricht"
+                  rows="6"
+                  required
+                  placeholder="Kurz: Erfahrung, Motivation, Verfügbarkeit, Standort …"
+                ></textarea>
+              </div>
+
+              <div class="gogl-field gogl-consent">
+                <label class="gogl-consent__label" for="zz-dsgvo">
+                  <input type="checkbox" id="zz-dsgvo" name="dsgvo_einverstaendnis" value="ja" required />
+                  <span
+                    >Ich bin einverstanden, dass meine Angaben zur Bearbeitung meiner Bewerbung gespeichert werden. Keine
+                    Weitergabe an Dritte. <a href="../datenschutz/index.html">Datenschutz</a></span
+                  >
+                </label>
+              </div>
+              <button type="submit" class="gogl-form__submit">Bewerbung senden</button>
+              <p class="gogl-form__fine">
+                Nach dem Absenden erhältst du eine Bestätigungs-E-Mail. Erst nach Bestätigung werten wir deine Bewerbung aus.
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" aria-label="Seitenfuß">
+      <div class="footer__inner">
+        <a href="../index.html" class="footer__logo">FRIDAY CIRCLE</a>
+        <nav class="footer__links" aria-label="Rechtliches und Über uns">
+          <a href="#">Impressum</a>
+          <a href="../datenschutz/index.html">Datenschutz</a>
+          <a href="#">Kontakt</a>
+          <a href="#">About</a>
+          <a href="../triff-joscha.html">Triff Joscha</a>
+          <a href="#top">Zusammenarbeit</a>
+        </nav>
+        <p class="footer__copy">© 2026</p>
+      </div>
+    </footer>
+  </body>
+</html>
