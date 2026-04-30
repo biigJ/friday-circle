@@ -668,6 +668,9 @@
         font-size: clamp(0.84rem, 1.35vw, 0.98rem);
         line-height: 1.58;
       }
+      .gogl-stoerer__body > .gogl-stoerer__copy + .gogl-stoerer__copy {
+        margin-top: 0.75em;
+      }
       .gogl-stoerer__lead {
         font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
         font-weight: 500;
@@ -675,6 +678,10 @@
       .gogl-stoerer__rest {
         font-family: Georgia, "Times New Roman", Times, serif;
         font-weight: 400;
+      }
+      .gogl-stoerer__signoff {
+        font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 600;
       }
       .gogl-stoerer__actions {
         flex: 0 0 auto;
@@ -758,27 +765,32 @@
       class="gogl-stoerer"
       role="dialog"
       aria-modal="true"
-      aria-label="Persönliche Notiz zum Start von gogogo"
+      aria-label="Einordnung zu gogogo"
       aria-live="polite"
     >
       <div class="gogl-stoerer__backdrop" aria-hidden="true"></div>
       <div class="gogl-stoerer__panel">
         <div class="gogl-stoerer__scroll">
           <div class="gogl-stoerer__body">
-            <p class="gogl-stoerer__copy">
-              <span class="gogl-stoerer__lead">Diese Website ist allen Menschen gewidmet, die mich von 2024 bis heute begleitet haben.</span><span class="gogl-stoerer__rest">
-                Es geht um Transformation und um den Blick auf das Wesentliche. Was hilft High-Performance und Disziplin, wenn das
-                Menschliche auf der Strecke bleibt. Es soll weitergehen. Von Architekt zu Trainer zu Gründer. Ob es das
-                richtige ist, weiß ich nicht. Im Bekanntenkreis und mir haben die hier angesprochenen Themen geholfen.
-                Einfach in Bewegung zu kommen. Wortwörtlich. Kleine Schritte, kein Grind, kein Super-Hero. Einfach ein paar
-                Stunden in Bewegung – das wirkt sich auf alles andere aus. Schau mal selbst, ob es Dir was sagt. Ich bin sehr
-                gespannt, ob wir etwas aufbauen können, was nachhaltig guten Einfluss auf das Leben anderer Menschen haben kann.</span>
+            <p class="gogl-stoerer__copy gogl-stoerer__lead">
+              Diese Seite ist für alle, die ich kenne – und die mich gerade kennenlernen.
             </p>
+            <p class="gogl-stoerer__copy gogl-stoerer__rest">
+              Ich baue gerade etwas auf. Einen Service, der zwischen Fitness-App und Personal Trainer sitzt. Für Menschen, die
+              wissen was zu tun wäre – und trotzdem nicht in Bewegung kommen.
+            </p>
+            <p class="gogl-stoerer__copy gogl-stoerer__rest">
+              Nicht weil sie faul sind. Sondern weil der Kontext fehlt.
+            </p>
+            <p class="gogl-stoerer__copy gogl-stoerer__rest">
+              Ich teste das gerade mit echten Menschen. Kostenlos. Wenn du neugierig bist – ich freu mich.
+            </p>
+            <p class="gogl-stoerer__copy gogl-stoerer__signoff">Joscha</p>
           </div>
         </div>
         <div class="gogl-stoerer__actions">
-          <a href="triff-joscha.html" class="gogl-stoerer__cta">Meine Story</a>
-          <a href="#einstieg" class="gogl-stoerer__cta">Entdecken</a>
+          <a href="triff-joscha.html" class="gogl-stoerer__cta">Wer ist Joscha</a>
+          <a href="#" class="gogl-stoerer__cta gogl-stoerer__cta--dismiss-only">Was ist gogogo</a>
         </div>
       </div>
     </aside>
@@ -1579,8 +1591,8 @@
               margin: 28px auto 0;
             "
           >
-            „Wenn du nach dem Erstgespräch keinen konkreten nächsten Schritt siehst, zahlst du nichts. Kein
-            Kleingedrucktes.“
+            Wenn du nach dem Erstgespräch keinen konkreten nächsten Schritt siehst, zahlst du nichts. Kein
+            Kleingedrucktes.
           </p>
         </div>
       </section>
@@ -1645,7 +1657,12 @@
     });
   }
   el.querySelectorAll('a.gogl-stoerer__cta').forEach(function (a) {
-    a.addEventListener('click', dismiss);
+    a.addEventListener('click', function (e) {
+      if (a.classList.contains('gogl-stoerer__cta--dismiss-only')) {
+        e.preventDefault();
+      }
+      dismiss();
+    });
   });
 })();
 // Warum gogogo carousel: 3 tiles visible, expand shifts track so wide tile stays in frame

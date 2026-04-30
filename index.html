@@ -254,7 +254,7 @@
         </div>
         <div class="gogl-stoerer__actions">
           <a href="gogogo-landing.html" class="gogl-stoerer__cta">Ich will in Bewegung kommen.</a>
-          <a href="#landing-bridge" class="gogl-stoerer__cta">FRIDAY CIRCLE entdecken.</a>
+          <a href="#" class="gogl-stoerer__cta gogl-stoerer__cta--dismiss-only">FRIDAY CIRCLE entdecken.</a>
         </div>
       </div>
     </aside>
@@ -417,7 +417,12 @@
           });
         }
         el.querySelectorAll("a.gogl-stoerer__cta").forEach(function (a) {
-          a.addEventListener("click", dismiss);
+          a.addEventListener("click", function (e) {
+            if (a.classList.contains("gogl-stoerer__cta--dismiss-only")) {
+              e.preventDefault();
+            }
+            dismiss();
+          });
         });
       })();
     </script>
