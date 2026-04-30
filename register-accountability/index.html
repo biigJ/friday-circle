@@ -3,18 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Komm in Bewegung — Quiz | gogogo</title>
-    <meta
-      name="description"
-      content="Beantworte ein paar Fragen — wir melden uns persönlich bei dir."
-    />
+    <title>Komm in Bewegung. — go Accountability | gogogo</title>
+    <meta name="description" content="Beantworte ein paar Fragen — wir melden uns persönlich bei dir." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../styles.css" />
     <style>
       body.gogogo-page {
         --page-x: 5%;
@@ -29,6 +26,7 @@
         --white: #ffffff;
         --font-head: "Helvetica Neue", Helvetica, Arial, sans-serif;
         --font-body: Georgia, "Times New Roman", Times, serif;
+        --logo: #0a0a0a;
         color: var(--black);
         background: #f0eee6;
         font-family: var(--font-body);
@@ -82,13 +80,6 @@
         padding-left: var(--page-x);
         padding-right: var(--page-x);
         box-sizing: border-box;
-      }
-      .gogl-section-title {
-        font-family: var(--font-head);
-        font-weight: 300;
-        font-size: clamp(2rem, 3.5vw, 3rem);
-        line-height: 1.15;
-        color: var(--black);
       }
       .gogl-form__h1 {
         font-family: var(--font-body);
@@ -274,10 +265,10 @@
   <body class="gogogo-page">
     <header class="nav" aria-label="Hauptnavigation">
       <div class="nav__inner">
-        <a href="gogogo-landing.html" class="nav__logo gogogo-landing__logo" aria-label="gogogo Startseite">gogogo</a>
+        <a href="../gogogo-landing.html" class="nav__logo gogogo-landing__logo" aria-label="gogogo Startseite">gogogo</a>
         <nav class="nav__links nav__links--empty" aria-hidden="true"></nav>
         <div class="nav__cta-bucket">
-          <a class="gogogo-landing__header-cta" href="gogogo-landing.html">Zurück zur Seite</a>
+          <a class="gogogo-landing__header-cta" href="../start/">Zurück zur Auswahl</a>
         </div>
       </div>
     </header>
@@ -294,8 +285,8 @@
         letter-spacing: 0.05em;
       "
     >
-      Beta-Version — für Freunde und Freunde von Freunden. Frühbucher erhalten 20% Rabatt. &nbsp;·&nbsp; Wir freuen uns
-      auf dein Feedback.
+      Beta-Version — für Freunde und Freunde von Freunden. Frühbucher erhalten 20% Rabatt. · Wir freuen uns auf dein
+      Feedback.
     </div>
 
     <main>
@@ -303,18 +294,13 @@
         <div class="gogl-slab">
           <div class="gogl-form-wrap">
             <h1 id="gogl-form-h" class="gogl-form__h1">Komm in Bewegung.</h1>
-            <p class="gogl-form__sub">
-              Zwei Minuten. Wir antworten persönlich innerhalb von 24 Stunden.
-            </p>
-            <!-- Formspree: DEIN_FORMSPREE_CODE und DEINE_URL ersetzen. reCAPTCHA-Zwischenseite ggf. im Formspree-Dashboard unter Spam-Schutz steuern. -->
-            <form
-              class="gogl-form"
-              method="POST"
-              action="https://formspree.io/f/DEIN_FORMSPREE_CODE"
-            >
-              <input type="hidden" name="_subject" value="Neue Anmeldung – gogogo" />
-              <input type="hidden" name="_next" value="https://DEINE_URL/danke.html" />
-              <input type="hidden" name="source" value="gogogo-quiz" />
+            <p class="gogl-form__sub">Zwei Minuten. Wir antworten persönlich innerhalb von 24 Stunden.</p>
+            <!-- Formspree: DEIN_FORMSPREE_ACCOUNTABILITY und DEINE_URL ersetzen -->
+            <form class="gogl-form" method="POST" action="https://formspree.io/f/DEIN_FORMSPREE_ACCOUNTABILITY">
+              <input type="hidden" name="_subject" value="Neue Anmeldung – go-accountability" />
+              <input type="hidden" name="_next" value="https://DEINE_URL/danke-accountability/" />
+              <input type="hidden" name="service" value="go-accountability" />
+              <input type="hidden" name="source" value="register-accountability" />
               <input type="text" name="_gotcha" value="" style="display: none" tabindex="-1" autocomplete="off" aria-hidden="true" />
               <fieldset>
                 <legend class="gogl-form__q">Wie regelmäßig bewegst du dich gerade?</legend>
@@ -496,7 +482,7 @@
                   <span
                     >Ich bin einverstanden, dass meine Angaben zur Kontaktaufnahme und Betreuung durch gogogo gespeichert
                     werden. Keine Weitergabe an Dritte.
-                    <a href="datenschutz/">Datenschutz</a></span
+                    <a href="../datenschutz/">Datenschutz</a></span
                   >
                 </label>
               </div>
@@ -513,10 +499,10 @@
 
     <footer class="footer" aria-label="Seitenfuß">
       <div class="footer__inner">
-        <a href="index.html" class="footer__logo">FRIDAY CIRCLE</a>
+        <a href="../index.html" class="footer__logo">FRIDAY CIRCLE</a>
         <nav class="footer__links" aria-label="Rechtliches und Über uns">
           <a href="#">Impressum</a>
-          <a href="datenschutz/">Datenschutz</a>
+          <a href="../datenschutz/">Datenschutz</a>
           <a href="#">Kontakt</a>
           <a href="#">About</a>
           <a href="#">Gründung</a>

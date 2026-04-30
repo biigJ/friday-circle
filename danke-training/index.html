@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Danke — go Training | gogogo</title>
+    <meta name="description" content="Anmeldung eingegangen — bitte Postfach prüfen." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      .danke-main {
+        min-height: calc(100vh - 12rem);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 48px var(--page-pad, 24px);
+        box-sizing: border-box;
+      }
+      .danke-inner {
+        max-width: 30rem;
+        text-align: center;
+      }
+      .danke-inner .danke-lead {
+        font-family: var(--font-serif);
+        font-size: 1.125rem;
+        line-height: 1.6;
+        margin: 0 0 16px;
+        color: #111;
+      }
+      .danke-inner .danke-sub {
+        font-family: var(--font-sans);
+        font-size: 0.95rem;
+        line-height: 1.55;
+        color: #444;
+        margin: 0 0 20px;
+      }
+      .danke-inner .danke-note {
+        font-family: var(--font-serif);
+        font-size: 0.95rem;
+        font-style: italic;
+        line-height: 1.6;
+        color: #333;
+        margin: 0 0 28px;
+      }
+      .danke-inner .danke-note a {
+        color: #18594e;
+        font-style: normal;
+      }
+      .danke-back {
+        display: inline-block;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="nav" aria-label="Hauptnavigation">
+      <div class="nav__inner">
+        <a href="../index.html" class="nav__logo" aria-label="Friday Circle Startseite">FRIDAY CIRCLE</a>
+        <button type="button" class="nav__burger" aria-expanded="false" aria-controls="primary-nav" aria-label="Menü öffnen">
+          <span class="nav__burger-box">
+            <span class="nav__burger-line" aria-hidden="true"></span>
+            <span class="nav__burger-line" aria-hidden="true"></span>
+            <span class="nav__burger-line" aria-hidden="true"></span>
+          </span>
+        </button>
+        <nav id="primary-nav" class="nav__links" aria-label="Primär">
+          <a href="../ziele.html">Ziele</a>
+          <a href="../loesungen.html">Lösungen</a>
+          <a href="../projekte.html">Projekte</a>
+          <a href="../community.html">Community</a>
+        </nav>
+        <div class="nav__cta-bucket">
+          <div class="nav__cta-split">
+            <a href="../gogogo-landing.html" class="cta-pill cta-pill--gogogo nav__cta-primary">gogogo</a>
+            <div class="nav__cta-arrow">
+              <button
+                type="button"
+                class="nav__cta-toggle"
+                id="nav-gogogo-toggle"
+                aria-expanded="false"
+                aria-haspopup="true"
+                aria-controls="nav-gogogo-dropdown"
+                aria-label="Programme: Menü anzeigen"
+              >
+                <span class="nav__cta-toggle-icon" aria-hidden="true"></span>
+              </button>
+              <div id="nav-gogogo-dropdown" class="nav__gogogo-panel" role="menu" aria-label="Programme">
+                <a role="menuitem" class="nav__gogogo-item nav__gogogo-item--gogogo" href="../gogogo-landing.html#onboarding"
+                  >gogogo <span class="nav__gogogo-external" aria-hidden="true">↗</span></a
+                >
+                <p class="nav__program-soon" role="presentation">mehr Programme</p>
+                <a role="menuitem" class="nav__gogogo-item nav__gogogo-item--cycle" href="../cycle-training.html"
+                  >CYCLE TRAINING <span class="nav__gogogo-external" aria-hidden="true">↗</span></a
+                >
+                <a role="menuitem" class="nav__gogogo-item nav__gogogo-item--gosam" href="../go-sam.html"
+                  >go sam <span class="nav__gogogo-external" aria-hidden="true">↗</span></a
+                >
+                <a role="menuitem" class="nav__gogogo-item nav__gogogo-item--haimo" href="../haimo.html"
+                  >haimo <span class="nav__gogogo-external" aria-hidden="true">↗</span></a
+                >
+                <a role="menuitem" class="nav__gogogo-item nav__gogogo-item--werkhaim" href="../werkhaim.html"
+                  >werkhaim <span class="nav__gogogo-external" aria-hidden="true">↗</span></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="danke-main" aria-labelledby="danke-heading">
+      <div class="danke-inner">
+        <p id="danke-heading" class="danke-lead">
+          Danke. Schau in dein Postfach – du bekommst gleich eine Bestätigungs-E-Mail.
+        </p>
+        <p class="danke-sub">Wir melden uns innerhalb von 24 Stunden persönlich.</p>
+        <p class="danke-note">
+          Falls du sofort starten willst – ich bin Joscha, ich trainiere selbst in Berlin und habe gerade einen Platz frei.
+          Meld dich direkt:
+          <a href="mailto:DEINE_EMAIL">E-Mail</a>
+          ·
+          <a href="https://wa.me/DEINE_WHATSAPP_NUMMER" rel="noopener noreferrer">WhatsApp</a>
+        </p>
+        <a href="/" class="cta-pill cta-pill--gogogo danke-back">Zurück zur Startseite</a>
+      </div>
+    </main>
+
+    <footer class="footer" aria-label="Seitenfuß">
+      <div class="footer__inner">
+        <a href="../index.html" class="footer__logo">FRIDAY CIRCLE</a>
+        <nav class="footer__links" aria-label="Rechtliches und Über uns">
+          <a href="#">Impressum</a>
+          <a href="../datenschutz/">Datenschutz</a>
+          <a href="#">Kontakt</a>
+          <a href="#">About</a>
+          <a href="#">Gründung</a>
+          <a href="#">Zusammenarbeit</a>
+        </nav>
+        <p class="footer__copy">© 2026</p>
+      </div>
+    </footer>
+    <script src="../nav.js" defer></script>
+  </body>
+</html>
