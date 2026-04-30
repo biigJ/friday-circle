@@ -1472,7 +1472,7 @@ a.community-product__cta.cta-pill {
     font-size: var(--mobile-fs-footer);
   }
 
-  /* Footer: Logo + © links; Rechtliches Mitte; About/Gründung/Zusammenarbeit rechts */
+  /* Footer: Logo + © links; Rechtliches Mitte; About/Triff Joscha/Zusammenarbeit rechts */
   .footer__inner {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr) minmax(0, 1fr);
