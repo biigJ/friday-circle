@@ -1014,7 +1014,7 @@
         overflow:hidden;
         min-height:420px;
         background:#1a2a1f;
-        cursor:pointer;
+        cursor:default;
         transition:all 0.4s ease;
       ">
         <!-- Photo placeholder -->
@@ -1060,24 +1060,41 @@
             font-weight:700;font-size:1.3rem;
             color:#ffffff;margin:0 0 8px 0;line-height:1.2;
           ">Komm in Bewegung.<br>Mit einem echten Buddy.</h3>
-          <!-- Expanded content - hidden by default -->
+          <!-- Expanded: gleicher Inhalt wie „Was passt zu dir?“ -->
           <div class="card-expanded" style="
             max-height:0;overflow:hidden;
             transition:max-height 0.4s ease;
           ">
             <p style="
-              font-family:Georgia,serif;font-style:italic;
-              font-size:0.9rem;color:#cccccc;
-              line-height:1.7;margin:12px 0 16px 0;
-            ">WhatsApp täglich. Wöchentlicher Check-in. Wir kennen deine Woche – und bleiben dran wenn sie schiefläuft. Kein Algorithmus. Ein Mensch der Bescheid weiß.</p>
+              font-family:'Helvetica Neue',sans-serif;
+              font-size:0.7rem;
+              letter-spacing:0.12em;
+              text-transform:uppercase;
+              color:#2d9e8f;
+              margin:12px 0 10px 0;
+            ">GO ACCOUNTABILITY</p>
+            <p style="
+              font-family:'Helvetica Neue',sans-serif;
+              font-size:0.9rem;
+              line-height:1.55;
+              color:rgba(255,255,255,0.92);
+              margin:0 0 12px 0;
+            ">Trainingsplan der zu deiner Woche passt. Täglicher Check-in. Optionale Web-Calls. Du machst es selbst – wir sorgen dafür, dass du dranbleibst.</p>
+            <p style="
+              font-family:'Helvetica Neue',sans-serif;
+              font-size:0.8rem;
+              color:#9a9a9a;
+              margin:0 0 14px 0;
+            ">Beta: kostenlos · Danach ab 29 €/Monat</p>
             <a href="register-accountability/index.html" style="
               font-family:'Helvetica Neue',sans-serif;
               font-weight:600;font-size:0.85rem;
-              color:#2d9e8f;text-decoration:none;
+              color:#ffffff;text-decoration:none;
               display:inline-block;
-              background:rgba(255,255,255,0.1);
+              background:#2d9e8f;
+              border:1.5px solid #2d9e8f;
               padding:10px 20px;border-radius:999px;
-            ">Jetzt starten →</a>
+            ">Ich mach es einfach →</a>
           </div>
         </div>
       </div>
@@ -1089,7 +1106,7 @@
         overflow:hidden;
         min-height:420px;
         background:#0d0d0d;
-        cursor:pointer;
+        cursor:default;
         transition:all 0.4s ease;
       ">
         <!-- Photo placeholder -->
@@ -1130,25 +1147,42 @@
             font-family:'Helvetica Neue',sans-serif;
             font-weight:700;font-size:1.3rem;
             color:#ffffff;margin:0 0 8px 0;line-height:1.2;
-          ">Den passenden Personal Trainer.<br>Vor Ort oder online.</h3>
-          <!-- Expanded content -->
+          ">Den passenden Trainer.<br>Vor Ort oder online.</h3>
+          <!-- Expanded: gleicher Inhalt wie „Was passt zu dir?“ -->
           <div class="card-expanded" style="
             max-height:0;overflow:hidden;
             transition:max-height 0.4s ease;
           ">
             <p style="
-              font-family:Georgia,serif;font-style:italic;
-              font-size:0.9rem;color:#cccccc;
-              line-height:1.7;margin:12px 0 16px 0;
-            ">Bewegungsanalyse, Plangestaltung, Formtraining. Kein Programm von der Stange. Dein Trainer kennt deine Woche – und baut deinen Plan danach.</p>
+              font-family:'Helvetica Neue',sans-serif;
+              font-size:0.7rem;
+              letter-spacing:0.12em;
+              text-transform:uppercase;
+              color:#9a9a9a;
+              margin:12px 0 10px 0;
+            ">GO TRAINING</p>
+            <p style="
+              font-family:'Helvetica Neue',sans-serif;
+              font-size:0.9rem;
+              line-height:1.55;
+              color:rgba(255,255,255,0.92);
+              margin:0 0 12px 0;
+            ">Wir finden den Trainer der zu dir passt – nicht umgekehrt. Online, vor Ort in Berlin, oder beides.</p>
+            <p style="
+              font-family:'Helvetica Neue',sans-serif;
+              font-size:0.8rem;
+              color:#9a9a9a;
+              margin:0 0 14px 0;
+            ">Beta: kostenlos · Danach ab 149 €/Monat</p>
             <a href="register-training/index.html" style="
               font-family:'Helvetica Neue',sans-serif;
               font-weight:600;font-size:0.85rem;
-              color:#2d9e8f;text-decoration:none;
+              color:#ffffff;text-decoration:none;
               display:inline-block;
-              background:rgba(255,255,255,0.1);
+              background:transparent;
+              border:1.5px solid rgba(255,255,255,0.55);
               padding:10px 20px;border-radius:999px;
-            ">Trainer finden →</a>
+            ">Ich suche einen Trainer →</a>
           </div>
         </div>
       </div>
@@ -1801,7 +1835,7 @@ function toggleCard(id) {
     b.textContent = '+';
   });
   if (!isOpen) {
-    expanded.style.maxHeight = '300px';
+    expanded.style.maxHeight = '560px';
     btn.textContent = '×';
   }
 }
