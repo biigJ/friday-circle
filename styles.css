@@ -61,6 +61,7 @@ a {
   z-index: 100;
   background: color-mix(in srgb, var(--bg) 92%, transparent);
   backdrop-filter: blur(10px);
+  font-family: var(--font-sans);
 }
 
 .nav__inner {
@@ -77,6 +78,29 @@ a {
 .nav.nav--sub .nav__inner {
   display: block;
   grid-template-columns: none;
+}
+
+/* gogogo-Flows: Zurück-Pill im Header (Body kann Serif sein — wie gogogo-Landing) */
+.gogogo-landing__header-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--text);
+  background: transparent;
+  color: var(--text);
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 10px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-family: var(--font-sans);
+}
+
+.gogogo-landing__header-cta:hover,
+.gogogo-landing__header-cta:focus-visible {
+  background: var(--text);
+  color: var(--bg);
+  outline: none;
 }
 
 .nav__logo {
@@ -1303,6 +1327,7 @@ a.community-product__cta.cta-pill {
   background: var(--text);
   color: var(--bg);
   padding: clamp(40px, 6vw, 72px) 0;
+  font-family: var(--font-sans);
 }
 
 .footer__inner {
