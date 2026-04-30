@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Datenschutz | FRIDAY CIRCLE</title>
+    <meta name="description" content="Datenschutzerklärung FRIDAY CIRCLE / gogogo." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      .legal-main {
+        max-width: 40rem;
+        margin: 0 auto;
+        padding: 48px 24px 80px;
+      }
+      .legal-main h1 {
+        font-family: var(--font-sans);
+        font-size: 1.75rem;
+        font-weight: 600;
+        margin: 0 0 16px;
+      }
+      .legal-main p {
+        font-family: var(--font-serif);
+        line-height: 1.6;
+        color: #333;
+        margin: 0 0 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="nav" aria-label="Hauptnavigation">
+      <div class="nav__inner">
+        <a href="../index.html" class="nav__logo" aria-label="Friday Circle Startseite">FRIDAY CIRCLE</a>
+        <button type="button" class="nav__burger" aria-expanded="false" aria-controls="primary-nav" aria-label="Menü öffnen">
+          <span class="nav__burger-box">
+            <span class="nav__burger-line" aria-hidden="true"></span>
+            <span class="nav__burger-line" aria-hidden="true"></span>
+            <span class="nav__burger-line" aria-hidden="true"></span>
+          </span>
+        </button>
+        <nav id="primary-nav" class="nav__links" aria-label="Primär">
+          <a href="../ziele.html">Ziele</a>
+          <a href="../loesungen.html">Lösungen</a>
+          <a href="../projekte.html">Projekte</a>
+          <a href="../community.html">Community</a>
+        </nav>
+        <div class="nav__cta-bucket">
+          <div class="nav__cta-split">
+            <a href="../gogogo-landing.html" class="cta-pill cta-pill--gogogo nav__cta-primary">gogogo</a>
+            <div class="nav__cta-arrow">
+              <button
+                type="button"
+                class="nav__cta-toggle"
+                id="nav-gogogo-toggle"
+                aria-expanded="false"
+                aria-haspopup="true"
+                aria-controls="nav-gogogo-dropdown"
+                aria-label="Programme: Menü anzeigen"
+              >
+                <span class="nav__cta-toggle-icon" aria-hidden="true"></span>
+              </button>
+              <div id="nav-gogogo-dropdown" class="nav__gogogo-panel" role="menu" aria-label="Programme">
+                <a role="menuitem" class="nav__gogogo-item nav__gogogo-item--gogogo" href="../gogogo-landing.html#onboarding"
+                  >gogogo <span class="nav__gogogo-external" aria-hidden="true">↗</span></a
+                >
+                <p class="nav__program-soon" role="presentation">mehr Programme</p>
+                <a role="menuitem" class="nav__gogogo-item nav__gogogo-item--cycle" href="../cycle-training.html"
+                  >CYCLE TRAINING <span class="nav__gogogo-external" aria-hidden="true">↗</span></a
+                >
+                <a role="menuitem" class="nav__gogogo-item nav__gogogo-item--gosam" href="../go-sam.html"
+                  >go sam <span class="nav__gogogo-external" aria-hidden="true">↗</span></a
+                >
+                <a role="menuitem" class="nav__gogogo-item nav__gogogo-item--haimo" href="../haimo.html"
+                  >haimo <span class="nav__gogogo-external" aria-hidden="true">↗</span></a
+                >
+                <a role="menuitem" class="nav__gogogo-item nav__gogogo-item--werkhaim" href="../werkhaim.html"
+                  >werkhaim <span class="nav__gogogo-external" aria-hidden="true">↗</span></a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="legal-main" aria-labelledby="legal-h">
+      <h1 id="legal-h">Datenschutz</h1>
+      <p>Hier folgt die Datenschutzerklärung für FRIDAY CIRCLE und gogogo (Platzhalter bis zur finalen Fassung).</p>
+      <p><a href="../index.html">Zur Startseite</a></p>
+    </main>
+
+    <footer class="footer" aria-label="Seitenfuß">
+      <div class="footer__inner">
+        <a href="../index.html" class="footer__logo">FRIDAY CIRCLE</a>
+        <nav class="footer__links" aria-label="Rechtliches und Über uns">
+          <a href="#">Impressum</a>
+          <a href="./">Datenschutz</a>
+          <a href="#">Kontakt</a>
+          <a href="#">About</a>
+          <a href="#">Gründung</a>
+          <a href="#">Zusammenarbeit</a>
+        </nav>
+        <p class="footer__copy">© 2026</p>
+      </div>
+    </footer>
+    <script src="../nav.js" defer></script>
+  </body>
+</html>

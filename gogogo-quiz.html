@@ -83,20 +83,20 @@
         padding-right: var(--page-x);
         box-sizing: border-box;
       }
-      .gogl-kicker {
-        font-family: var(--font-head);
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        font-size: 0.75rem;
-        color: var(--green-signal);
-        margin: 0 0 16px;
-      }
       .gogl-section-title {
         font-family: var(--font-head);
         font-weight: 300;
         font-size: clamp(2rem, 3.5vw, 3rem);
         line-height: 1.15;
         color: var(--black);
+      }
+      .gogl-form__h1 {
+        font-family: var(--font-body);
+        font-weight: 400;
+        font-size: clamp(2rem, 3.5vw, 3rem);
+        line-height: 1.15;
+        color: var(--black);
+        margin: 0 0 12px;
       }
       .gogl-form-section {
         background: transparent;
@@ -108,21 +108,17 @@
         width: 100%;
         box-sizing: border-box;
       }
-      .gogl-form-wrap .gogl-kicker,
-      .gogl-form__h2,
+      .gogl-form-wrap .gogl-form__h1,
       .gogl-form__sub {
         text-align: center;
         display: block;
       }
-      .gogl-form__h2 {
-        color: var(--black);
-        margin: 0 0 12px;
-      }
       .gogl-form__sub {
-        font-family: var(--font-body);
-        font-style: italic;
-        font-size: 1.05rem;
-        color: #555555;
+        font-family: var(--font-head);
+        font-style: normal;
+        font-weight: 400;
+        font-size: 0.9rem;
+        color: #444444;
         margin: 0 0 48px;
         line-height: 1.5;
       }
@@ -232,12 +228,46 @@
         filter: brightness(1.05);
         outline: none;
       }
+      .gogl-consent {
+        margin: 0 0 8px;
+      }
+      .gogl-consent__label {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        font-family: var(--font-body);
+        font-size: 0.85rem;
+        line-height: 1.45;
+        font-weight: 400;
+        cursor: pointer;
+        color: var(--black);
+      }
+      .gogl-consent__label input {
+        flex-shrink: 0;
+        width: 18px;
+        height: 18px;
+        margin: 2px 0 0;
+        accent-color: var(--green-deep);
+      }
+      .gogl-consent__label a {
+        color: var(--green-deep);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+      .gogl-consent__label a:hover {
+        color: var(--green-signal);
+      }
       .gogl-form__fine {
         font-family: var(--font-head);
-        font-size: 0.75rem;
-        color: #999999;
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: #666666;
         text-align: center;
-        margin: 12px 0 0;
+        margin: 16px 0 0;
+        line-height: 1.5;
+        max-width: 32rem;
+        margin-left: auto;
+        margin-right: auto;
       }
     </style>
   </head>
@@ -272,61 +302,67 @@
       <section id="onboarding" class="gogl-form-section" aria-labelledby="gogl-form-h">
         <div class="gogl-slab">
           <div class="gogl-form-wrap">
-            <p class="gogl-kicker">DEIN ERSTER SCHRITT</p>
-            <h2 id="gogl-form-h" class="gogl-section-title gogl-form__h2">Komm in Bewegung.</h2>
+            <h1 id="gogl-form-h" class="gogl-form__h1">Komm in Bewegung.</h1>
             <p class="gogl-form__sub">
-              Beantworte ein paar Fragen in 2 Minuten. Wir antworten innerhalb von 24 Stunden persönlich.
+              Zwei Minuten. Wir antworten persönlich innerhalb von 24 Stunden.
             </p>
-            <!-- Ersetze action durch deinen Formspree-Endpunkt: action="https://formspree.io/f/xxxxx" -->
-            <form class="gogl-form" method="post" action="#">
+            <!-- Formspree: DEIN_FORMSPREE_CODE und DEINE_URL ersetzen. reCAPTCHA-Zwischenseite ggf. im Formspree-Dashboard unter Spam-Schutz steuern. -->
+            <form
+              class="gogl-form"
+              method="POST"
+              action="https://formspree.io/f/DEIN_FORMSPREE_CODE"
+            >
+              <input type="hidden" name="_subject" value="Neue Anmeldung – gogogo" />
+              <input type="hidden" name="_next" value="https://DEINE_URL/danke.html" />
               <input type="hidden" name="source" value="gogogo-quiz" />
+              <input type="text" name="_gotcha" value="" style="display: none" tabindex="-1" autocomplete="off" aria-hidden="true" />
               <fieldset>
-                <legend class="gogl-form__q">Wie aktiv bist du gerade wirklich?</legend>
+                <legend class="gogl-form__q">Wie regelmäßig bewegst du dich gerade?</legend>
                 <div class="gogl-radios">
                   <label class="gogl-radio">
-                    <input type="radio" name="q1" value="Ich trainiere sporadisch – weniger als einmal pro Woche" required />
+                    <input type="radio" name="q1" value="Kaum – weniger als einmal pro Woche" required />
                     <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Ich trainiere sporadisch – weniger als einmal pro Woche</span>
+                    <span>Kaum – weniger als einmal pro Woche</span>
                   </label>
                   <label class="gogl-radio">
-                    <input type="radio" name="q1" value="Ich hatte mal eine Routine – jetzt nicht mehr" />
+                    <input type="radio" name="q1" value="Ich hatte mal eine Routine – läuft gerade nicht" />
                     <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Ich hatte mal eine Routine – jetzt nicht mehr</span>
+                    <span>Ich hatte mal eine Routine – läuft gerade nicht</span>
                   </label>
                   <label class="gogl-radio">
-                    <input type="radio" name="q1" value="Ich trainiere regelmäßig aber ohne System und Fortschritt" />
+                    <input type="radio" name="q1" value="Regelmäßig, aber ohne System oder Fortschritt" />
                     <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Ich trainiere regelmäßig aber ohne System und Fortschritt</span>
+                    <span>Regelmäßig, aber ohne System oder Fortschritt</span>
                   </label>
                 </div>
               </fieldset>
               <fieldset>
-                <legend class="gogl-form__q">Was hast du schon probiert?</legend>
+                <legend class="gogl-form__q">Was hat bisher nicht funktioniert?</legend>
                 <div class="gogl-radios">
                   <label class="gogl-radio">
-                    <input type="radio" name="q2" value="Fitnessstudio-Mitgliedschaft (die ich kaum nutze)" required />
+                    <input type="radio" name="q2" value="Fitnessstudio – ich geh kaum hin" required />
                     <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Fitnessstudio-Mitgliedschaft (die ich kaum nutze)</span>
+                    <span>Fitnessstudio – ich geh kaum hin</span>
                   </label>
                   <label class="gogl-radio">
-                    <input type="radio" name="q2" value="Apps oder Online-Programme" />
+                    <input type="radio" name="q2" value="Apps und Programme – ich zieh es nicht durch" />
                     <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Apps oder Online-Programme</span>
+                    <span>Apps und Programme – ich zieh es nicht durch</span>
                   </label>
                   <label class="gogl-radio">
-                    <input type="radio" name="q2" value="Personal Training (hat nicht gehalten)" />
+                    <input type="radio" name="q2" value="Personal Training – war zu teuer oder zu unverbindlich" />
                     <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Personal Training (hat nicht gehalten)</span>
+                    <span>Personal Training – war zu teuer oder zu unverbindlich</span>
                   </label>
                   <label class="gogl-radio">
-                    <input type="radio" name="q2" value="Mehreres davon" />
+                    <input type="radio" name="q2" value="Ich hab noch gar nichts ernsthaft probiert" />
                     <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Mehreres davon</span>
+                    <span>Ich hab noch gar nichts ernsthaft probiert</span>
                   </label>
                 </div>
               </fieldset>
               <fieldset>
-                <legend class="gogl-form__q">Was hält dich aktuell am meisten auf?</legend>
+                <legend class="gogl-form__q">Was blockiert dich gerade am meisten?</legend>
                 <div class="gogl-radios">
                   <label class="gogl-radio">
                     <input type="radio" name="q3" value="Keine Zeit oder zu erschöpft nach der Arbeit" required />
@@ -334,14 +370,14 @@
                     <span>Keine Zeit oder zu erschöpft nach der Arbeit</span>
                   </label>
                   <label class="gogl-radio">
-                    <input type="radio" name="q3" value="Ich fange an und breche dann ab" />
+                    <input type="radio" name="q3" value="Ich fange an und breche dann wieder ab" />
                     <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Ich fange an und breche dann ab</span>
+                    <span>Ich fange an und breche dann wieder ab</span>
                   </label>
                   <label class="gogl-radio">
-                    <input type="radio" name="q3" value="Ich weiß nicht wo anfangen" />
+                    <input type="radio" name="q3" value="Ich weiß nicht, wo ich anfangen soll" />
                     <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Ich weiß nicht wo anfangen</span>
+                    <span>Ich weiß nicht, wo ich anfangen soll</span>
                   </label>
                   <label class="gogl-radio">
                     <input type="radio" name="q3" value="Zu viele Optionen, keine Klarheit" />
@@ -354,9 +390,14 @@
                 <legend class="gogl-form__q">Was wäre für dich ein echter Erfolg in acht Wochen?</legend>
                 <div class="gogl-radios">
                   <label class="gogl-radio">
-                    <input type="radio" name="q4" value="Ich trainiere vier Mal pro Woche – konsequent" required />
+                    <input
+                      type="radio"
+                      name="q4"
+                      value="Ich bewege mich mindestens dreimal pro Woche – konsequent"
+                      required
+                    />
                     <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Ich trainiere vier Mal pro Woche – konsequent</span>
+                    <span>Ich bewege mich mindestens dreimal pro Woche – konsequent</span>
                   </label>
                   <label class="gogl-radio">
                     <input type="radio" name="q4" value="Ich fühle mich körperlich und mental klarer" />
@@ -364,24 +405,24 @@
                     <span>Ich fühle mich körperlich und mental klarer</span>
                   </label>
                   <label class="gogl-radio">
-                    <input type="radio" name="q4" value="Ich habe ein System das zu meinem Leben passt" />
+                    <input type="radio" name="q4" value="Ich habe ein System, das zu meinem Leben passt" />
                     <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Ich habe ein System das zu meinem Leben passt</span>
+                    <span>Ich habe ein System, das zu meinem Leben passt</span>
                   </label>
                   <label class="gogl-radio">
-                    <input type="radio" name="q4" value="Ich habe einen Trainer der mich kennt und dranbleibt" />
+                    <input type="radio" name="q4" value="Ich habe einen Trainer, der mich kennt und dranbleibt" />
                     <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Ich habe einen Trainer der mich kennt und dranbleibt</span>
+                    <span>Ich habe einen Trainer, der mich kennt und dranbleibt</span>
                   </label>
                 </div>
               </fieldset>
               <fieldset>
-                <legend class="gogl-form__q">Wie willst du betreut werden?</legend>
+                <legend class="gogl-form__q">Wie willst du begleitet werden?</legend>
                 <div class="gogl-radios">
                   <label class="gogl-radio">
-                    <input type="radio" name="q5" value="Online – WhatsApp und Web-Call reichen mir" required />
+                    <input type="radio" name="q5" value="Online – WhatsApp-Check-in und Web-Call reichen mir" required />
                     <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Online – WhatsApp und Web-Call reichen mir</span>
+                    <span>Online – WhatsApp-Check-in und Web-Call reichen mir</span>
                   </label>
                   <label class="gogl-radio">
                     <input type="radio" name="q5" value="Vor Ort in Berlin – ich will echten Kontakt" />
@@ -389,9 +430,9 @@
                     <span>Vor Ort in Berlin – ich will echten Kontakt</span>
                   </label>
                   <label class="gogl-radio">
-                    <input type="radio" name="q5" value="Beides – je nach Woche" />
+                    <input type="radio" name="q5" value="Beides – je nach Woche und Situation" />
                     <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Beides – je nach Woche</span>
+                    <span>Beides – je nach Woche und Situation</span>
                   </label>
                 </div>
               </fieldset>
@@ -414,13 +455,26 @@
                 <label for="gogl-ta">Was soll sich konkret ändern?</label>
                 <textarea
                   id="gogl-ta"
-                  name="blocker"
+                  name="was_soll_sich_aendern"
                   rows="5"
                   placeholder="Schreib einfach was dir in den Kopf kommt."
                 ></textarea>
               </div>
+              <div class="gogl-field gogl-consent">
+                <label class="gogl-consent__label" for="gogl-dsgvo">
+                  <input type="checkbox" id="gogl-dsgvo" name="dsgvo_einverstaendnis" value="ja" required />
+                  <span
+                    >Ich bin einverstanden, dass meine Angaben zur Kontaktaufnahme und Betreuung durch gogogo gespeichert
+                    werden. Keine Weitergabe an Dritte.
+                    <a href="datenschutz/">Datenschutz</a></span
+                  >
+                </label>
+              </div>
               <button type="submit" class="gogl-form__submit">Absenden – wir melden uns in 24h</button>
-              <p class="gogl-form__fine">Keine Weitergabe deiner Daten. Kein Spam.</p>
+              <p class="gogl-form__fine">
+                Nach dem Absenden erhältst du eine Bestätigungs-E-Mail. Erst nach Bestätigung nehmen wir Kontakt auf.
+                Keine Weitergabe deiner Daten. Kein Spam.
+              </p>
             </form>
           </div>
         </div>
@@ -432,7 +486,7 @@
         <a href="index.html" class="footer__logo">FRIDAY CIRCLE</a>
         <nav class="footer__links" aria-label="Rechtliches und Über uns">
           <a href="#">Impressum</a>
-          <a href="#">Datenschutz</a>
+          <a href="datenschutz/">Datenschutz</a>
           <a href="#">Kontakt</a>
           <a href="#">About</a>
           <a href="#">Gründung</a>
