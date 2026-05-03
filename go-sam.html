@@ -1,48 +1,224 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>go sam — FRIDAY CIRCLE</title>
-    <meta name="description" content="go sam – Friday Circle" />
+    <title>go sam · Aligna · Friday Circle</title>
+    <meta name="description" content="30 Tage eine Gewohnheit — mit Buddy. Keine Push-Nachrichten-Gamification. Waitlist für go sam." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="program-landing.css" />
   </head>
-  <body class="body--program-sub">
-        <header class="nav nav--sub" aria-label="Hauptnavigation">
+  <body class="gogogo-page gogl-program">
+    <header class="nav" aria-label="Hauptnavigation">
       <div class="nav__inner">
-        <a href="index.html" class="nav__logo" aria-label="Friday Circle Startseite">FRIDAY CIRCLE</a>
+        <div class="pgl-brand-stack">
+          <a href="#top" class="nav__logo gogogo-landing__logo">go sam</a>
+          <p class="pgl-parent">
+            Ein Produkt bei <a href="https://fridaycircle.club" rel="noopener noreferrer">fridaycircle.club</a>
+          </p>
+        </div>
+        <nav class="nav__links nav__links--empty" aria-hidden="true"></nav>
+        <div class="nav__cta-bucket">
+          <a class="gogogo-landing__header-cta" href="#waitlist">Auf die Waitlist →</a>
+        </div>
       </div>
     </header>
 
-    <main class="program-sub" id="main">
-      <section class="program-sub__hero" aria-labelledby="gosam-hero">
-        <div class="program-sub__hero-inner">
-          <div>
-            <h1 id="gosam-hero" class="program-sub__title">go sam</h1>
-            <a href="community.html#go-sam" class="program-sub__cta cta-pill cta-pill--program-gosam">los geht’s</a>
+    <div class="gogl-banderole">
+      <p>Beta · Waitlist offen · Frühbucher erhalten kostenlosen Zugang</p>
+    </div>
+
+    <main id="top">
+      <section class="pgl-hero" aria-labelledby="gs-h1">
+        <div class="pgl-hero__media" style="background-image: linear-gradient(118deg, #101a22 0%, #15261f 50%, #0b1014 100%)" aria-hidden="true"></div>
+        <div class="pgl-hero__overlay"></div>
+        <div class="pgl-hero__wrap">
+          <div class="pgl-hero__center">
+            <div style="width: 100%">
+              <h1 id="gs-h1" class="pgl-hero__title">30&nbsp;Tage. Eine Gewohnheit.<br />Jemand der es mit dir sieht.</h1>
+              <p class="pgl-hero__sub">
+                Keine Push-Notifications. Kein Gamification. Nur du, dein Ziel — und ein echter Mensch der dranbleibt.
+              </p>
+              <div class="pgl-cta-row">
+                <a class="pgl-cta pgl-cta--primary" href="#waitlist">Auf die Waitlist →</a>
+                <a class="pgl-cta pgl-cta--ghost" href="#ablauf">Wie es funktioniert</a>
+              </div>
+            </div>
           </div>
-          <div class="program-sub__stage" role="img" aria-label="Platzhalter für Inhalt">[Platzhalter: Visual]</div>
+        </div>
+      </section>
+
+      <section id="problem" class="pgl-section">
+        <div class="gogl-slab-pl">
+          <h2 class="pgl-section-title">Das Problem</h2>
+          <div class="pgl-cards-2">
+            <article class="pgl-card">
+              <p class="pgl-card__kicker">Alltag</p>
+              <h3>Apps motivieren nicht</h3>
+              <p>Du weißt das bereits. Streaks brechen. Notifications wischt man weg. Das Problem ist nicht die App.</p>
+            </article>
+            <article class="pgl-card">
+              <p class="pgl-card__kicker">Resonanz</p>
+              <h3>Soziale Resonanz schlägt Willenskraft</h3>
+              <p>Wenn jemand sieht was du tust, änderst du was du tust. Das ist keine Theorie – das ist Verhalten.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="ablauf" class="pgl-section" style="background: #eae6dc">
+        <div class="gogl-slab-pl">
+          <h2 class="pgl-section-title">Wie go sam funktioniert</h2>
+          <div class="pgl-steps">
+            <article class="pgl-step">
+              <span class="pgl-step__n" aria-hidden="true">1</span>
+              <h3>Du wählst eine Gewohnheit. 30 Tage.</h3>
+              <p>Ein klar abgegrenzter Rahmen.</p>
+            </article>
+            <article class="pgl-step">
+              <span class="pgl-step__n" aria-hidden="true">2</span>
+              <h3>Täglich kurzes Check-in. Dein Buddy sieht es.</h3>
+              <p>Wenige Sekunden täglich, maximale Kontinuität.</p>
+            </article>
+            <article class="pgl-step">
+              <span class="pgl-step__n" aria-hidden="true">3</span>
+              <h3>Nach 30 Tagen weißt du ob es trägt.</h3>
+              <p>Kein ewiger Projekt-Marathon ohne Feedback.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="waitlist" class="pgl-section">
+        <div class="gogl-slab-pl">
+          <h2 class="pgl-section-title">Waitlist</h2>
+          <p class="pgl-section-lead">Träg dich ein — wir melden uns, wenn go sam startet.</p>
+
+          <form id="gosam-waitlist" class="pgl-form" novalidate>
+            <div class="pgl-field">
+              <label for="gs-name">Name</label>
+              <input id="gs-name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div class="pgl-field">
+              <label for="gs-email">E-Mail</label>
+              <input id="gs-email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="pgl-form-check">
+              <input type="checkbox" id="gs-optin" required />
+              <label for="gs-optin">
+                Ich bin einverstanden, dass meine E-Mail-Adresse für die Waitlist von go sam gespeichert wird.&nbsp;<a href="datenschutz/index.html">Datenschutz</a>
+              </label>
+            </div>
+            <button type="submit" class="pgl-cta pgl-cta--primary">Auf die Waitlist</button>
+            <p id="gosam-feedback" class="pgl-form-msg" role="status" aria-live="polite"></p>
+            <p id="gosam-devnote" style="margin-top: 12px; font-family: Inter, sans-serif; font-size: 0.75rem; color: #777"></p>
+          </form>
         </div>
       </section>
     </main>
 
-        <footer class="footer" aria-label="Seitenfuß">
+    <footer class="footer" aria-label="Seitenfuß">
       <div class="footer__inner">
         <a href="index.html" class="footer__logo">FRIDAY CIRCLE</a>
         <nav class="footer__links" aria-label="Rechtliches und Über uns">
-          <a href="#">Impressum</a>
-          <a href="#">Datenschutz</a>
-          <a href="#">Kontakt</a>
-          <a href="#">About</a>
+          <a href="impressum/index.html">Impressum</a>
+          <a href="datenschutz/index.html">Datenschutz</a>
+          <a href="kontakt/index.html">Kontakt</a>
+          <a href="about/index.html">About</a>
           <a href="triff-joscha.html">Triff Joscha</a>
           <a href="zusammenarbeit/index.html">Zusammenarbeit</a>
         </nav>
         <p class="footer__copy">© 2026</p>
       </div>
     </footer>
-    <script src="nav.js" defer></script>
+    <script>
+      /* go sam Waitlist → Supabase table goSamWaitlist (name, email, opted_in, created_at).
+         // TODO: replace with real Supabase URL and anon key */
+      (function () {
+        var SUPABASE_URL = "https://YOUR_PROJECT.supabase.co";
+        var SUPABASE_ANON_KEY = "YOUR_PUBLIC_ANON_KEY";
+
+        function configReady() {
+          return (
+            !/YOUR_PROJECT|YOUR_PUBLIC|REPLACE/i.test(SUPABASE_URL + SUPABASE_ANON_KEY) &&
+            /^https:\/\/[a-z0-9-]+\.supabase\.co\/?$/i.test(SUPABASE_URL.trim()) &&
+            SUPABASE_ANON_KEY.trim().length > 30
+          );
+        }
+
+        var form = document.getElementById("gosam-waitlist");
+        var feedback = document.getElementById("gosam-feedback");
+        var note = document.getElementById("gosam-devnote");
+        if (!form) return;
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          feedback.textContent = "";
+          feedback.className = "pgl-form-msg";
+          feedback.classList.remove("is-visible", "pgl-form-msg--err");
+          note.textContent = "";
+
+          var name = document.getElementById("gs-name").value.trim();
+          var email = document.getElementById("gs-email").value.trim();
+          var ck = document.getElementById("gs-optin").checked;
+
+          if (!name || !email || !ck) {
+            feedback.textContent = "Bitte Name, gültige E-Mail und Einwilligung ausfüllen.";
+            feedback.classList.add("pgl-form-msg--err", "is-visible");
+            return;
+          }
+
+          var payload = {
+            name: name,
+            email: email,
+            opted_in: true
+          };
+
+          function showSuccess(extra) {
+            feedback.textContent = "Du bist dabei. Wir melden uns wenn es losgeht.";
+            feedback.classList.add("is-visible");
+            form.reset();
+            if (extra) note.textContent = extra;
+          }
+
+          if (!configReady()) {
+            console.warn("[go sam] Supabase noch nicht konfiguriert — speichert nur lokal (Demo)");
+            try {
+              var stash = JSON.parse(localStorage.getItem("goSamWaitlist_demo") || "[]");
+              stash.push({ payload: payload, savedAt: new Date().toISOString() });
+              localStorage.setItem("goSamWaitlist_demo", JSON.stringify(stash));
+            } catch (err) {}
+            showSuccess("Dev: SUPABASE_URL / SUPABASE_ANON_KEY in diesem Skript noch mit echten Projekt-Werten tauschen.");
+            return;
+          }
+
+          fetch(SUPABASE_URL.replace(/\/$/, "") + "/rest/v1/goSamWaitlist", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              apikey: SUPABASE_ANON_KEY,
+              Authorization: "Bearer " + SUPABASE_ANON_KEY,
+              Prefer: "return=minimal"
+            },
+            body: JSON.stringify(payload)
+          })
+            .then(function (res) {
+              if (!res.ok) throw new Error(res.statusText || "Speichern fehlgeschlagen");
+              showSuccess("");
+            })
+            .catch(function (err) {
+              console.error(err);
+              feedback.textContent = "Momentan nicht möglich. Bitte später erneut oder per E-Mail kontaktieren.";
+              feedback.classList.add("pgl-form-msg--err", "is-visible");
+            });
+        });
+      })();
+    </script>
   </body>
 </html>

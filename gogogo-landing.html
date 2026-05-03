@@ -732,6 +732,107 @@
         outline: 2px solid #fff0f0;
         outline-offset: 2px;
       }
+      /* gogogo Blog (WHOOP-inspiriert): Inter unter der Kachel, horizontales Scrollen */
+      .gog-blog-viewport {
+        box-sizing: border-box;
+        max-width: var(--page-max);
+        margin: 0 auto;
+        padding: 0 var(--page-x);
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+      .gog-blog-viewport::-webkit-scrollbar {
+        height: 0;
+        width: 0;
+      }
+      .gog-blog-track {
+        display: flex;
+        gap: 20px;
+        padding-bottom: 8px;
+      }
+      .gog-blog-card {
+        flex: 0 0 min(292px, 82vw);
+        max-width: 320px;
+      }
+      .gog-blog-thumb {
+        border-radius: 18px;
+        aspect-ratio: 3 / 2;
+        width: 100%;
+        background: linear-gradient(145deg, #e4e1d8 0%, #cfd6d2 45%, #b8bfb9 100%);
+        margin-bottom: 14px;
+        position: relative;
+        overflow: hidden;
+      }
+      /* Platzhalter: später eigenes Bild (object-fit cover) einsetzen */
+      .gog-blog-thumb img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 18px;
+      }
+      .gog-blog-cardlink {
+        display: block;
+        color: inherit;
+        text-decoration: none;
+      }
+      .gog-blog-cardlink:hover h3,
+      .gog-blog-cardlink:focus-visible h3 {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .gog-blog-cardlink:focus-visible {
+        outline: 2px solid #2d9e8f;
+        outline-offset: 4px;
+        border-radius: 6px;
+      }
+      .gog-blog-cat {
+        display: inline-block;
+        font-family: Inter, system-ui, -apple-system, sans-serif;
+        font-size: 0.625rem;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-weight: 500;
+        color: #252525;
+        border: 1px solid #c9c5ba;
+        border-radius: 999px;
+        padding: 5px 12px;
+        margin-bottom: 10px;
+      }
+      .gog-blog-card h3 {
+        font-family: Inter, system-ui, -apple-system, sans-serif;
+        font-weight: 700;
+        font-size: 1.02rem;
+        line-height: 1.32;
+        color: #0a0a0a;
+        margin: 0 0 8px;
+      }
+      .gog-blog-card time {
+        font-family: Inter, system-ui, -apple-system, sans-serif;
+        font-size: 0.78rem;
+        color: #616161;
+        display: block;
+        margin-bottom: 10px;
+      }
+      .gog-blog-tags {
+        font-family: Inter, system-ui, -apple-system, sans-serif;
+        font-size: 0.72rem;
+        line-height: 1.6;
+        color: #3d3d3d;
+        margin: 0;
+      }
+      .gog-blog-tags a {
+        color: #18594e;
+        text-decoration: none;
+        white-space: nowrap;
+      }
+      .gog-blog-tags a:hover {
+        text-decoration: underline;
+      }
+
     </style>
   </head>
   <body class="gogogo-page" id="top">
@@ -1195,7 +1296,7 @@
   <div style="max-width:var(--page-max);margin:0 auto;padding:0 var(--page-x);">
     
     <h2 class="gogl-section-title" style="
-      text-align:center;
+      text-align:left;
       color:#0a0a0a;
       margin:0 0 48px 0;
     ">Warum gogogo</h2>
@@ -1630,16 +1731,268 @@
           </p>
         </div>
       </section>
+
+      <section
+        id="gogogo-blog"
+        aria-labelledby="gogogo-blog-h"
+        itemscope
+        itemtype="https://schema.org/Blog"
+        style="background: #ffffff; padding: 72px 0 92px; border-top: 1px solid #e8e4dc"
+      >
+        <div style="max-width: var(--page-max); margin: 0 auto; padding: 0 var(--page-x)">
+          <div
+            style="
+              display: flex;
+              flex-wrap: wrap;
+              align-items: center;
+              justify-content: space-between;
+              gap: 16px;
+              margin-bottom: 28px;
+            "
+          >
+            <div>
+              <h2 id="gogogo-blog-h" class="gogl-section-title" style="color: #0a0a0a; margin: 0; text-align: left">
+                Artikel zur Trainingsökologie
+              </h2>
+            </div>
+            <div style="display: flex; gap: 8px; flex-shrink: 0">
+              <button
+                type="button"
+                id="gog-blog-prev"
+                aria-controls="gog-blog-carousel"
+                style="
+                  width: 44px;
+                  height: 44px;
+                  border-radius: 50%;
+                  background: #0a0a0a;
+                  border: none;
+                  cursor: pointer;
+                  color: #fff;
+                  font-size: 1rem;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                ←
+              </button>
+              <button
+                type="button"
+                id="gog-blog-next"
+                aria-controls="gog-blog-carousel"
+                style="
+                  width: 44px;
+                  height: 44px;
+                  border-radius: 50%;
+                  background: #0a0a0a;
+                  border: none;
+                  cursor: pointer;
+                  color: #fff;
+                  font-size: 1rem;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                →
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="gog-blog-carousel" class="gog-blog-viewport" tabindex="0" aria-label="Blogbeiträge — horizontal scrollen">
+          <div id="gog-blog-track" class="gog-blog-track" role="list">
+            <!-- Artikel: je eigene Unterseite unter artikel/… -->
+            <article class="gog-blog-card" role="listitem" id="gog-blog-dopamin" itemscope itemtype="https://schema.org/BlogPosting">
+              <a href="artikel/waldbaden-dopamin-bewegung/index.html" class="gog-blog-cardlink" itemprop="url"
+                ><div class="gog-blog-thumb"><!-- später: <img src="" alt=""> --></div>
+                <span class="gog-blog-cat">NATUR · NEURO</span>
+                <h3 itemprop="headline">
+                  Waldbaden, #Dopamin und Bewegung: Was Licht, Wald und Spaziergänge für den Kopf ändern
+                </h3>
+                <time itemprop="datePublished" datetime="2026-05-03">3. Mai 2026</time></a>
+              <p class="gog-blog-tags">
+                Themen:
+                <a href="artikel/waldbaden-dopamin-bewegung/index.html" title="Waldbathing">#Waldbathing</a>
+                <a href="artikel/waldbaden-dopamin-bewegung/index.html">#Waldbaden</a>
+                <a href="artikel/waldbaden-dopamin-bewegung/index.html">#OutdoorFitness</a>
+                <a href="artikel/waldbaden-dopamin-bewegung/index.html">#Dopamine</a>
+                <a href="artikel/waldbaden-dopamin-bewegung/index.html">#ShinrinYoku</a>
+                <a href="artikel/waldbaden-dopamin-bewegung/index.html">#NatureWalk</a>
+              </p>
+              <meta itemprop="keywords" content="Waldbaden, Dopamin, Waldbathing, Outdoor Fitness, Shinrin-yoku, Spaziergang" />
+            </article>
+
+            <article class="gog-blog-card" role="listitem" id="gog-blog-hyrox">
+              <a href="artikel/hyrox-hiit-zirkel/index.html" class="gog-blog-cardlink"
+                ><div class="gog-blog-thumb"></div>
+                <span class="gog-blog-cat">HYROX · HIIT</span>
+                <h3>HYROX, HIIT & Zirkel: Belastung steuern ohne das Training kleinzureden</h3>
+                <time datetime="2026-05-10">10. Mai 2026</time></a>
+              <p class="gog-blog-tags">
+                <a href="artikel/hyrox-hiit-zirkel/index.html">#HYROX</a>
+                <a href="artikel/hyrox-hiit-zirkel/index.html">#HIIT</a>
+                <a href="artikel/hyrox-hiit-zirkel/index.html">#CircuitTraining</a>
+                <a href="artikel/hyrox-hiit-zirkel/index.html">#FunctionalFitness</a>
+                <a href="artikel/hyrox-hiit-zirkel/index.html">#Ausdauer</a>
+              </p>
+            </article>
+
+            <article class="gog-blog-card" role="listitem" id="gog-blog-hybrid">
+              <a href="artikel/hybridathlet-geschichte/index.html" class="gog-blog-cardlink"
+                ><div class="gog-blog-thumb"></div>
+                <span class="gog-blog-cat">GESCHICHTE</span>
+                <h3>Vom Kombinationstraining zum Hybridathlet:in: Kurze Geschichte eines Begriffs</h3>
+                <time datetime="2026-05-17">17. Mai 2026</time></a>
+              <p class="gog-blog-tags">
+                <a href="artikel/hybridathlet-geschichte/index.html">#HybridAthlete</a>
+                <a href="artikel/hybridathlet-geschichte/index.html">#HybridTraining</a>
+                <a href="artikel/hybridathlet-geschichte/index.html">#CrossTraining</a>
+                <a href="artikel/hybridathlet-geschichte/index.html">#FitnessHistory</a>
+              </p>
+            </article>
+
+            <article class="gog-blog-card" role="listitem">
+              <a href="artikel/belastungsresilienz/index.html" class="gog-blog-cardlink"
+                ><div class="gog-blog-thumb"></div>
+                <span class="gog-blog-cat">PHYSIOLOGIE</span>
+                <h3>Belastungsresilienz: Warum Bewegung Körper und Kopf zusammenzieht – evidenzorientiert erklärt</h3>
+                <time datetime="2026-05-24">24. Mai 2026</time></a>
+              <p class="gog-blog-tags">
+                <a href="artikel/belastungsresilienz/index.html">#ResilienzTraining</a>
+                <a href="artikel/belastungsresilienz/index.html">#Bewegung</a>
+                <a href="artikel/belastungsresilienz/index.html">#Stress</a>
+                <a href="artikel/belastungsresilienz/index.html">#Stressmanagement</a>
+                <a href="artikel/belastungsresilienz/index.html">#Ausdauer</a>
+              </p>
+            </article>
+
+            <article class="gog-blog-card" role="listitem">
+              <a href="artikel/trt-training/index.html" class="gog-blog-cardlink"
+                ><div class="gog-blog-thumb"></div>
+                <span class="gog-blog-cat">HORMONE · KONTEXT</span>
+                <h3>TRT und Training: nüchterne Einordnung, keine Empfehlung – welche Daten zählen</h3>
+                <time datetime="2026-06-01">1. Juni 2026</time></a>
+              <p class="gog-blog-tags">
+                <a href="artikel/trt-training/index.html">#TRT</a>
+                <a href="artikel/trt-training/index.html">#Hormones</a>
+                <a href="artikel/trt-training/index.html">#FitnessOver40</a>
+                <a href="artikel/trt-training/index.html">#EvidenceBased</a>
+              </p>
+            </article>
+
+            <article class="gog-blog-card" role="listitem">
+              <a href="artikel/lipide-ausdauer/index.html" class="gog-blog-cardlink"
+                ><div class="gog-blog-thumb"></div>
+                <span class="gog-blog-cat">CARDIO METABOL</span>
+                <h3>Lipide unter Belastung: HDL, LDL im Kontext Ausdauer – was Meta-Analysen sagen können</h3>
+                <time datetime="2026-06-08">8. Juni 2026</time></a>
+              <p class="gog-blog-tags">
+                <a href="artikel/lipide-ausdauer/index.html">#Lipide</a>
+                <a href="artikel/lipide-ausdauer/index.html">#HeartHealth</a>
+                <a href="artikel/lipide-ausdauer/index.html">#Ausdauer</a>
+                <a href="artikel/lipide-ausdauer/index.html">#Lipoproteine</a>
+                <a href="artikel/lipide-ausdauer/index.html">#Fitness</a>
+              </p>
+            </article>
+
+            <article class="gog-blog-card" role="listitem">
+              <a href="artikel/schlaf-belastung/index.html" class="gog-blog-cardlink"
+                ><div class="gog-blog-thumb"></div>
+                <span class="gog-blog-cat">SLEEP</span>
+                <h3>Schlaf und Belastungssteuerung: Licht, zirkadianer Rhythmus, Training – ohne Gadget-Lärm</h3>
+                <time datetime="2026-06-15">15. Juni 2026</time></a>
+              <p class="gog-blog-tags">
+                <a href="artikel/schlaf-belastung/index.html">#Sleep</a>
+                <a href="artikel/schlaf-belastung/index.html">#Recovery</a>
+                <a href="artikel/schlaf-belastung/index.html">#AthleteSleep</a>
+                <a href="artikel/schlaf-belastung/index.html">#Fitness</a>
+              </p>
+            </article>
+
+            <article class="gog-blog-card" role="listitem">
+              <a href="artikel/ernaehrung-training/index.html" class="gog-blog-cardlink"
+                ><div class="gog-blog-thumb"></div>
+                <span class="gog-blog-cat">ERNÄHRUNG</span>
+                <h3>Ernährungsarten und Training: Paleo, vegan, keto – nüchterne Übersicht ohne Dogma</h3>
+                <time datetime="2026-06-22">22. Juni 2026</time></a>
+              <p class="gog-blog-tags">
+                <a href="artikel/ernaehrung-training/index.html">#Nutrition</a>
+                <a href="artikel/ernaehrung-training/index.html">#macros</a>
+                <a href="artikel/ernaehrung-training/index.html">#FitnessFood</a>
+                <a href="artikel/ernaehrung-training/index.html">#AthleteFuel</a>
+              </p>
+            </article>
+
+            <article class="gog-blog-card" role="listitem">
+              <a href="artikel/fitnessgeschichte-kompakt/index.html" class="gog-blog-cardlink"
+                ><div class="gog-blog-thumb"></div>
+                <span class="gog-blog-cat">KULTUR</span>
+                <h3>Fitnessgeschichte kompakt: Vom Kraftkeller zu HYROX und funktionalem Training</h3>
+                <time datetime="2026-06-29">29. Juni 2026</time></a>
+              <p class="gog-blog-tags">
+                <a href="artikel/fitnessgeschichte-kompakt/index.html">#FitnessHistory</a>
+                <a href="artikel/fitnessgeschichte-kompakt/index.html">#GymCulture</a>
+                <a href="artikel/fitnessgeschichte-kompakt/index.html">#FitnessTrends</a>
+              </p>
+            </article>
+
+            <article class="gog-blog-card" role="listitem">
+              <a href="artikel/buero-bewegung/index.html" class="gog-blog-cardlink"
+                ><div class="gog-blog-thumb"></div>
+                <span class="gog-blog-cat">DESK HEALTH</span>
+                <h3>Büroarbeit und Bewegung: wenn Mikrobewegung allein nicht ausreichen kann</h3>
+                <time datetime="2026-07-06">6. Juli 2026</time></a>
+              <p class="gog-blog-tags">
+                <a href="artikel/buero-bewegung/index.html">#DeskJob</a>
+                <a href="artikel/buero-bewegung/index.html">#OfficeFitness</a>
+                <a href="artikel/buero-bewegung/index.html">#movement</a>
+                <a href="artikel/buero-bewegung/index.html">#StandingDesk</a>
+              </p>
+            </article>
+
+            <article class="gog-blog-card" role="listitem">
+              <a href="artikel/zehntausend-schritte/index.html" class="gog-blog-cardlink"
+                ><div class="gog-blog-thumb"></div>
+                <span class="gog-blog-cat">MYTHEN</span>
+                <h3>Zehntausend Schritte täglich: Marketingzahl, Tracker und was Studien eher befürworten können</h3>
+                <time datetime="2026-07-13">13. Juli 2026</time></a>
+              <p class="gog-blog-tags">
+                <a href="artikel/zehntausend-schritte/index.html">#10000Steps</a>
+                <a href="artikel/zehntausend-schritte/index.html">#walking</a>
+                <a href="artikel/zehntausend-schritte/index.html">#FitnessMyth</a>
+                <a href="artikel/zehntausend-schritte/index.html">#FitnessTracker</a>
+              </p>
+            </article>
+
+            <article class="gog-blog-card" role="listitem">
+              <a href="artikel/longevity-gesundheitsspanne/index.html" class="gog-blog-cardlink"
+                ><div class="gog-blog-thumb"></div>
+                <span class="gog-blog-cat">LONGEVITY</span>
+                <h3>Longevity ohne Protokoll-Hype: Gesundheitsspanne und belastbare Trainingsimpulse</h3>
+                <time datetime="2026-07-20">20. Juli 2026</time></a>
+              <p class="gog-blog-tags">
+                <a href="artikel/longevity-gesundheitsspanne/index.html">#Longevity</a>
+                <a href="artikel/longevity-gesundheitsspanne/index.html">#healthspan</a>
+                <a href="artikel/longevity-gesundheitsspanne/index.html">#AgingAthlete</a>
+                <a href="artikel/longevity-gesundheitsspanne/index.html">#Zone2</a>
+              </p>
+            </article>
+          </div>
+        </div>
+
+      </section>
+
     </main>
 
     <footer class="footer" aria-label="Seitenfuß">
       <div class="footer__inner">
         <a href="index.html" class="footer__logo">FRIDAY CIRCLE</a>
         <nav class="footer__links" aria-label="Rechtliches und Über uns">
-          <a href="#">Impressum</a>
-          <a href="#">Datenschutz</a>
-          <a href="#">Kontakt</a>
-          <a href="#">About</a>
+          <a href="impressum/index.html">Impressum</a>
+          <a href="datenschutz/index.html">Datenschutz</a>
+          <a href="kontakt/index.html">Kontakt</a>
+          <a href="about/index.html">About</a>
           <a href="triff-joscha.html">Triff Joscha</a>
           <a href="zusammenarbeit/index.html">Zusammenarbeit</a>
         </nav>
@@ -1800,6 +2153,41 @@ function carouselPrev() {
     applyCarouselTransform();
   }
 }
+
+(function initGogoBlogCarousel() {
+  var vp = document.getElementById('gog-blog-carousel');
+  var prev = document.getElementById('gog-blog-prev');
+  var next = document.getElementById('gog-blog-next');
+  if (!vp || !prev || !next) return;
+
+  function stepPx() {
+    var c = vp.querySelector('.gog-blog-card');
+    if (!c) return Math.round(vp.clientWidth * 0.36);
+    return c.getBoundingClientRect().width + 20;
+  }
+
+  function updateNavFade() {
+    var maxScroll = vp.scrollWidth - vp.clientWidth - 1;
+    prev.style.opacity = vp.scrollLeft <= 1 ? '0.4' : '1';
+    next.style.opacity = vp.scrollLeft >= maxScroll - 1 ? '0.4' : '1';
+  }
+
+  prev.addEventListener('click', function () {
+    vp.scrollBy({ left: -stepPx(), behavior: 'smooth' });
+  });
+  next.addEventListener('click', function () {
+    vp.scrollBy({ left: stepPx(), behavior: 'smooth' });
+  });
+  vp.addEventListener('scroll', updateNavFade, { passive: true });
+  window.addEventListener(
+    'resize',
+    function () {
+      updateNavFade();
+    },
+    { passive: true }
+  );
+  updateNavFade();
+})();
 
 // Fürsprecher tiles expand
 function expandTile(id) {

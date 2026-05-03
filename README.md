@@ -18,7 +18,7 @@ friday-circle/
 │  ├─ gogogo.mp4             ← z.B. Ziele-Seite
 │  ├─ loesungen.MOV          ← Hauptquelle Lösungen (optional: loesungen.mp4)
 │  ├─ steps.jpg              ← optional (nicht mehr auf der Startseite verwendet)
-│  ├─ haimo.mp4 + haimo-poster.jpg   ← Projekte
+│  ├─ haima.mp4 + haima-poster.jpg   ← Projekte
 │  └─ werkhaim.mp4 + werkhaim-poster.jpg
 └─ README.md
 ```
@@ -40,7 +40,7 @@ python3 -m http.server 5173
 - **gogogo auf Ziele:** `assets/gogogo.mp4`.
 - **Lösungen:** `assets/loesungen.MOV`; optional `assets/loesungen.mp4` als zweite `<source>` für Browser ohne QuickTime.
 - **Schritte-Bild:** `assets/steps.jpg` — früher für die Startseite; aktuell ungenutzt.
-- **Projekte:** Videos/Poster für haimo und werkhaim wie oben; fehlende Dateien führen zu leerem Video — bitte nachlegen.
+- **Projekte:** Videos/Poster für haima und werkhaim wie oben; fehlende Dateien führen zu leerem Video — bitte nachlegen.
 
 ## Schriften
 

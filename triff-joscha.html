@@ -42,39 +42,6 @@
       .gogogo-page *::after {
         box-sizing: border-box;
       }
-      .gogogo-page .gogogo-landing__logo {
-        font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-weight: 600;
-        font-size: clamp(1.05rem, 1.35vw, 1.35rem);
-        letter-spacing: 0.018em;
-        color: var(--logo);
-      }
-      .gogogo-page .nav__links--empty {
-        min-width: 0;
-        min-height: 0;
-        visibility: hidden;
-        pointer-events: none;
-      }
-      .gogogo-landing__header-cta {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border: 1.5px solid var(--text);
-        background: transparent;
-        color: var(--text);
-        font-weight: 500;
-        font-size: 0.9rem;
-        padding: 10px 24px;
-        border-radius: 999px;
-        text-decoration: none;
-        font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
-      }
-      .gogogo-landing__header-cta:hover,
-      .gogogo-landing__header-cta:focus-visible {
-        background: var(--text);
-        color: var(--bg);
-        outline: none;
-      }
       .gogl-slab {
         max-width: var(--page-max);
         margin-left: auto;
@@ -346,17 +313,55 @@
   <body class="gogogo-page">
     <header class="nav" aria-label="Hauptnavigation">
       <div class="nav__inner">
-        <a href="gogogo-landing.html" class="nav__logo gogogo-landing__logo" aria-label="gogogo Startseite">gogogo</a>
-        <nav class="nav__links nav__links--empty" aria-hidden="true"></nav>
+        <a href="index.html" class="nav__logo" aria-label="Friday Circle Startseite">FRIDAY CIRCLE</a>
+        <button type="button" class="nav__burger" aria-expanded="false" aria-controls="primary-nav" aria-label="Menü öffnen">
+          <span class="nav__burger-box">
+            <span class="nav__burger-line" aria-hidden="true"></span>
+            <span class="nav__burger-line" aria-hidden="true"></span>
+            <span class="nav__burger-line" aria-hidden="true"></span>
+          </span>
+        </button>
+        <nav id="primary-nav" class="nav__links" aria-label="Primär">
+          <a href="ziele.html">Ziele</a>
+          <a href="loesungen.html">Lösungen</a>
+          <a href="projekte.html">Projekte</a>
+          <a href="community.html">Community</a>
+        </nav>
         <div class="nav__cta-bucket">
-          <!-- Ersetze beide calendly.com-Links durch deinen echten Calendly-Link -->
-          <a
-            class="gogogo-landing__header-cta"
-            href="https://calendly.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Erstgespräch</a
-          >
+          <div class="nav__cta-split">
+            <a href="gogogo-landing.html" class="cta-pill cta-pill--gogogo nav__cta-primary">gogogo</a>
+            <div class="nav__cta-arrow">
+              <button
+                type="button"
+                class="nav__cta-toggle"
+                id="nav-gogogo-toggle"
+                aria-expanded="false"
+                aria-haspopup="true"
+                aria-controls="nav-gogogo-dropdown"
+                aria-label="Programme: Menü anzeigen"
+              >
+                <span class="nav__cta-toggle-icon" aria-hidden="true"></span>
+              </button>
+              <div id="nav-gogogo-dropdown" class="nav__gogogo-panel" role="menu" aria-label="Programme">
+                <a role="menuitem" class="nav__gogogo-item nav__gogogo-item--gogogo" href="gogogo-landing.html#onboarding"
+                  >gogogo <span class="nav__gogogo-external" aria-hidden="true">↗</span></a
+                >
+                <p class="nav__program-soon" role="presentation">mehr Programme</p>
+                <a role="menuitem" class="nav__gogogo-item nav__gogogo-item--cycle" href="cycle-training.html"
+                  >CYCLE TRAINING <span class="nav__gogogo-external" aria-hidden="true">↗</span></a
+                >
+                <a role="menuitem" class="nav__gogogo-item nav__gogogo-item--gosam" href="go-sam.html"
+                  >go sam <span class="nav__gogogo-external" aria-hidden="true">↗</span></a
+                >
+                <a role="menuitem" class="nav__gogogo-item nav__gogogo-item--haima" href="haima.html"
+                  >haima <span class="nav__gogogo-external" aria-hidden="true">↗</span></a
+                >
+                <a role="menuitem" class="nav__gogogo-item nav__gogogo-item--werkhaim" href="werkhaim.html"
+                  >werkhaim <span class="nav__gogogo-external" aria-hidden="true">↗</span></a
+                >
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </header>
@@ -462,10 +467,10 @@
       <div class="footer__inner">
         <a href="index.html" class="footer__logo">FRIDAY CIRCLE</a>
         <nav class="footer__links" aria-label="Rechtliches und Über uns">
-          <a href="#">Impressum</a>
-          <a href="#">Datenschutz</a>
-          <a href="#">Kontakt</a>
-          <a href="#">About</a>
+          <a href="impressum/index.html">Impressum</a>
+          <a href="datenschutz/index.html">Datenschutz</a>
+          <a href="kontakt/index.html">Kontakt</a>
+          <a href="about/index.html">About</a>
           <a href="triff-joscha.html">Triff Joscha</a>
           <a href="zusammenarbeit/index.html">Zusammenarbeit</a>
         </nav>
@@ -532,5 +537,6 @@
         });
       })();
     </script>
+    <script src="nav.js" defer></script>
   </body>
 </html>
