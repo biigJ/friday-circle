@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BALKO · Fertig bepflanzte Balkone · Berlin</title>
+    <meta
+      name="description"
+      content="BALKO: kuratierte Pflanzenkombinationen für Balkone in Berlin — Kästen, Kübel, Hochbeete. Einrichtungs-Kauflisten und Custom Made."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="balko.css" />
+  </head>
+  <body class="balko-site">
+    <header class="bk-nav" aria-label="BALKO Navigation">
+      <div class="bk-nav__inner">
+        <a class="bk-logo" href="#top" aria-label="BALKO Berlin Start">BALKO Berlin</a>
+        <nav class="bk-nav__links" aria-label="Abschnitte">
+          <a href="#pflanzen">Pflanzen</a>
+          <a href="#einrichtung">Einrichtung</a>
+          <a href="#blog">Blog</a>
+          <a href="balko-warenkorb.html" class="bk-nav-cart">Warenkorb</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="bk-hero" aria-labelledby="hero-title">
+        <img
+          class="bk-hero__img"
+          src="assets/Eckbalkon%20mit%20Pizzaofen.png"
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="bk-hero__content">
+          <p class="bk-hero__eyebrow">Fertig bepflanzte Balkone</p>
+          <h1 id="hero-title" class="bk-hero__title">Mach Deinen Balkon zum Lieblingsort</h1>
+          <p class="bk-hero__sub">
+            Fertige Pflanzung in schönen Kästen, Kübeln und Hochbeeten. Keine Fahrt zum Baumarkt nötig. Alles erledigt
+            ohne Dreck und Verpackungsmüll. Design-Inspiration für unabhängige Kaufempfehlung. Custom-Made möglich.
+          </p>
+          <div class="bk-hero__actions">
+            <a class="bk-btn" href="#pflanzen">Pflanzen bestellen</a>
+            <a class="bk-btn bk-btn--ghost" href="#einrichtung">Einrichtungskonzept</a>
+          </div>
+        </div>
+        <div class="bk-banderole" aria-label="Beta-Test Hinweis">
+          <p>Beta-Test in Berlin für Freunde und Bekannte. Sucht Eure Produkte aus und wir planen und liefern kostenlos.</p>
+        </div>
+      </section>
+
+      <section id="pflanzen" class="bk-section" aria-labelledby="pflanzen-h">
+        <div class="bk-wrap">
+          <h2 id="pflanzen-h" class="bk-section-title">Kuratierte Kombinationen statt Prinzip Hoffnung</h2>
+          <p class="bk-lead">
+            Wir stellen Sorten, Erde und Aufbau so zusammen, dass es auf deinem Balkon in Berlin funktioniert.<br />
+            Filtere nach Gefäß, Licht, Wind und Stil.
+          </p>
+        </div>
+
+        <div class="bk-filter-bar" id="bk-plant-filters" aria-label="Pflanzenfilter">
+          <div class="bk-filter-bar__row">
+            <button type="button" class="bk-chip bk-chip--reset" id="bk-filter-reset">Filter löschen</button>
+            <div class="bk-filter-cluster" role="group" aria-label="Gefäß">
+              <button type="button" class="bk-chip" data-filter="typ" data-value="blumenkasten">Blumenkästen</button>
+              <button type="button" class="bk-chip" data-filter="typ" data-value="kuebel">Kübel</button>
+              <button type="button" class="bk-chip" data-filter="typ" data-value="hochbeet">Hochbeet</button>
+            </div>
+            <div class="bk-filter-cluster" role="group" aria-label="Sonne">
+              <button type="button" class="bk-chip" data-filter="sonne" data-value="keine">keine Sonne</button>
+              <button type="button" class="bk-chip" data-filter="sonne" data-value="wenig">wenig Sonne</button>
+              <button type="button" class="bk-chip" data-filter="sonne" data-value="viel">viel Sonne</button>
+            </div>
+          </div>
+          <div class="bk-filter-bar__row">
+            <div class="bk-filter-cluster" role="group" aria-label="Wind">
+              <button type="button" class="bk-chip" data-filter="wind" data-value="windig">windig</button>
+              <button type="button" class="bk-chip" data-filter="wind" data-value="geschuetzt">geschützt</button>
+            </div>
+            <div class="bk-filter-cluster" role="group" aria-label="Stil">
+              <button type="button" class="bk-chip" data-filter="stil" data-value="naturgarten">Naturgarten</button>
+              <button type="button" class="bk-chip" data-filter="stil" data-value="klassik">Klassik</button>
+              <button type="button" class="bk-chip" data-filter="stil" data-value="sweet">Sweet</button>
+              <button type="button" class="bk-chip" data-filter="stil" data-value="luxus">Luxus</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="bk-carousel-wrap">
+          <div class="bk-carousel-viewport" id="bk-carousel-viewport">
+            <div class="bk-carousel-track" id="bk-carousel-track">
+              <article
+                class="bk-plant-card"
+                id="bk-pc-1"
+                data-price-60="129"
+                data-price-80="149"
+                data-price-100="169"
+                data-typ="blumenkasten"
+                data-sonne="viel"
+                data-wind="windig"
+                data-stil="luxus"
+              >
+                <div
+                  class="bk-plant-card__photo"
+                  style="background-image: linear-gradient(160deg, #1a1520 0%, #3d2f20 100%)"
+                ></div>
+                <div class="bk-plant-card__shade" aria-hidden="true"></div>
+                <p class="bk-plant-card__tag">Luxus</p>
+                <button type="button" class="bk-plant-card__plus bk-pc-plus" aria-expanded="false" aria-controls="bk-pc-1-panel">
+                  +
+                </button>
+                <div class="bk-plant-card__collapsed">
+                  <p class="bk-plant-card__price">ab 129,00 €</p>
+                  <h3>Moonlight Gräser</h3>
+                </div>
+                <div class="bk-plant-card__expanded" id="bk-pc-1-panel" role="region">
+                  <div class="bk-plant-card__expanded-body">
+                  <p class="bk-plant-meta">Blumenkästen · viel Sonne · windig</p>
+                  <h3>Moonlight Gräser</h3>
+                  <dl class="bk-plant-detail">
+                    <dt>Gefäß &amp; Material</dt>
+                    <dd>Pulverbeschichteter Stahl, dunkel</dd>
+                    <dt>Pflanzen- &amp; Blumenauswahl</dt>
+                    <dd>Federgräser, Schwingel, Zierlauch</dd>
+                    <dt>Winterfest / Zwiebeln</dt>
+                    <dd>Überwinterung möglich; Topfkomponenten je nach Standort</dd>
+                    <dt>Blüte: Farbe &amp; Monate</dt>
+                    <dd>Silber, Purpur, September–Oktober</dd>
+                  </dl>
+                  </div>
+                  <div class="bk-plant-cta">
+                    <div class="bk-plant-sizes">
+                      <button type="button" class="bk-btn bk-btn--sm bk-size-btn">60 cm</button>
+                      <button type="button" class="bk-btn bk-btn--sm bk-size-btn">80 cm</button>
+                      <button type="button" class="bk-btn bk-btn--sm bk-size-btn">100 cm</button>
+                    </div>
+                    <p class="bk-plant-cta-price">129,00 €</p>
+                    <a class="bk-btn bk-btn--sm" href="balko-warenkorb.html">In den Warenkorb</a>
+                  </div>
+                </div>
+              </article>
+
+              <article
+                class="bk-plant-card"
+                id="bk-pc-2"
+                data-price-60="129"
+                data-price-80="149"
+                data-price-100="169"
+                data-typ="hochbeet"
+                data-sonne="viel"
+                data-wind="geschuetzt"
+                data-stil="naturgarten"
+              >
+                <div
+                  class="bk-plant-card__photo"
+                  style="background-image: linear-gradient(145deg, #2a3228 0%, #4a5044 100%)"
+                ></div>
+                <div class="bk-plant-card__shade" aria-hidden="true"></div>
+                <p class="bk-plant-card__tag">Naturgarten</p>
+                <button type="button" class="bk-plant-card__plus bk-pc-plus" aria-expanded="false" aria-controls="bk-pc-2-panel">
+                  +
+                </button>
+                <div class="bk-plant-card__collapsed">
+                  <p class="bk-plant-card__price">ab 129,00 €</p>
+                  <h3>Hochbeet Kräuterriegel</h3>
+                </div>
+                <div class="bk-plant-card__expanded" id="bk-pc-2-panel" role="region">
+                  <div class="bk-plant-card__expanded-body">
+                  <p class="bk-plant-meta">Hochbeet · viel Sonne · geschützt</p>
+                  <h3>Hochbeet Kräuterriegel</h3>
+                  <dl class="bk-plant-detail">
+                    <dt>Gefäß &amp; Material</dt>
+                    <dd>Cortenstahl</dd>
+                    <dt>Pflanzen- &amp; Blumenauswahl</dt>
+                    <dd>Rosmarin, Thymian, essbare Blüten</dd>
+                    <dt>Winterfest / Zwiebeln</dt>
+                    <dd>Winterhart im Kübel mit Abdeckung; Zwiebeln optional</dd>
+                    <dt>Blüte: Farbe &amp; Monate</dt>
+                    <dd>Weiß-Rosa, Juni–September</dd>
+                  </dl>
+                  </div>
+                  <div class="bk-plant-cta">
+                    <div class="bk-plant-sizes">
+                      <button type="button" class="bk-btn bk-btn--sm bk-size-btn">60 cm</button>
+                      <button type="button" class="bk-btn bk-btn--sm bk-size-btn">80 cm</button>
+                      <button type="button" class="bk-btn bk-btn--sm bk-size-btn">100 cm</button>
+                    </div>
+                    <p class="bk-plant-cta-price">129,00 €</p>
+                    <a class="bk-btn bk-btn--sm" href="balko-warenkorb.html">In den Warenkorb</a>
+                  </div>
+                </div>
+              </article>
+
+              <article
+                class="bk-plant-card"
+                id="bk-pc-3"
+                data-price-60="129"
+                data-price-80="149"
+                data-price-100="169"
+                data-typ="blumenkasten"
+                data-sonne="wenig"
+                data-wind="geschuetzt"
+                data-stil="sweet"
+              >
+                <div
+                  class="bk-plant-card__photo"
+                  style="background-image: linear-gradient(135deg, #4a2838 0%, #7a4058 100%)"
+                ></div>
+                <div class="bk-plant-card__shade" aria-hidden="true"></div>
+                <p class="bk-plant-card__tag">Sweet</p>
+                <button type="button" class="bk-plant-card__plus bk-pc-plus" aria-expanded="false" aria-controls="bk-pc-3-panel">
+                  +
+                </button>
+                <div class="bk-plant-card__collapsed">
+                  <p class="bk-plant-card__price">ab 129,00 €</p>
+                  <h3>Candy Bloom Kasten</h3>
+                </div>
+                <div class="bk-plant-card__expanded" id="bk-pc-3-panel" role="region">
+                  <div class="bk-plant-card__expanded-body">
+                  <p class="bk-plant-meta">Blumenkästen · wenig Sonne · geschützt</p>
+                  <h3>Candy Bloom Kasten</h3>
+                  <dl class="bk-plant-detail">
+                    <dt>Gefäß &amp; Material</dt>
+                    <dd>Verzinktes Blech</dd>
+                    <dt>Pflanzen- &amp; Blumenauswahl</dt>
+                    <dd>Begonien, petunienähnliche Saisonstars</dd>
+                    <dt>Winterfest / Zwiebeln</dt>
+                    <dd>Einjährig / frostempfindlich; Gefäß winterschützen</dd>
+                    <dt>Blüte: Farbe &amp; Monate</dt>
+                    <dd>Pink, Koralle, Mai–Oktober</dd>
+                  </dl>
+                  </div>
+                  <div class="bk-plant-cta">
+                    <div class="bk-plant-sizes">
+                      <button type="button" class="bk-btn bk-btn--sm bk-size-btn">60 cm</button>
+                      <button type="button" class="bk-btn bk-btn--sm bk-size-btn">80 cm</button>
+                      <button type="button" class="bk-btn bk-btn--sm bk-size-btn">100 cm</button>
+                    </div>
+                    <p class="bk-plant-cta-price">129,00 €</p>
+                    <a class="bk-btn bk-btn--sm" href="balko-warenkorb.html">In den Warenkorb</a>
+                  </div>
+                </div>
+              </article>
+
+              <article
+                class="bk-plant-card"
+                id="bk-pc-4"
+                data-price-60="129"
+                data-price-80="149"
+                data-price-100="169"
+                data-typ="kuebel"
+                data-sonne="keine"
+                data-wind="windig"
+                data-stil="klassik"
+              >
+                <div
+                  class="bk-plant-card__photo"
+                  style="background-image: linear-gradient(120deg, #2c2c28 0%, #525048 100%)"
+                ></div>
+                <div class="bk-plant-card__shade" aria-hidden="true"></div>
+                <p class="bk-plant-card__tag">Klassik</p>
+                <button type="button" class="bk-plant-card__plus bk-pc-plus" aria-expanded="false" aria-controls="bk-pc-4-panel">
+                  +
+                </button>
+                <div class="bk-plant-card__collapsed">
+                  <p class="bk-plant-card__price">ab 129,00 €</p>
+                  <h3>Buchs &amp; Immergrün</h3>
+                </div>
+                <div class="bk-plant-card__expanded" id="bk-pc-4-panel" role="region">
+                  <div class="bk-plant-card__expanded-body">
+                  <p class="bk-plant-meta">Kübel · keine Sonne · windig</p>
+                  <h3>Buchs &amp; Immergrün</h3>
+                  <dl class="bk-plant-detail">
+                    <dt>Gefäß &amp; Material</dt>
+                    <dd>Faserbeton</dd>
+                    <dt>Pflanzen- &amp; Blumenauswahl</dt>
+                    <dd>Buchs, Ilex-Sorten, strukturierte Kleinsträucher</dd>
+                    <dt>Winterfest / Zwiebeln</dt>
+                    <dd>Winterhart; ohne empfindliche Knollen</dd>
+                    <dt>Blüte: Farbe &amp; Monate</dt>
+                    <dd>Gelb-Grün, März–November</dd>
+                  </dl>
+                  </div>
+                  <div class="bk-plant-cta">
+                    <div class="bk-plant-sizes">
+                      <button type="button" class="bk-btn bk-btn--sm bk-size-btn">60 cm</button>
+                      <button type="button" class="bk-btn bk-btn--sm bk-size-btn">80 cm</button>
+                      <button type="button" class="bk-btn bk-btn--sm bk-size-btn">100 cm</button>
+                    </div>
+                    <p class="bk-plant-cta-price">129,00 €</p>
+                    <a class="bk-btn bk-btn--sm" href="balko-warenkorb.html">In den Warenkorb</a>
+                  </div>
+                </div>
+              </article>
+
+              <article
+                class="bk-plant-card"
+                id="bk-pc-5"
+                data-price-60="129"
+                data-price-80="149"
+                data-price-100="169"
+                data-typ="blumenkasten"
+                data-sonne="viel"
+                data-wind="geschuetzt"
+                data-stil="naturgarten"
+              >
+                <div
+                  class="bk-plant-card__photo"
+                  style="background-image: linear-gradient(160deg, #353828 0%, #6a6248 100%)"
+                ></div>
+                <div class="bk-plant-card__shade" aria-hidden="true"></div>
+                <p class="bk-plant-card__tag">Naturgarten</p>
+                <button type="button" class="bk-plant-card__plus bk-pc-plus" aria-expanded="false" aria-controls="bk-pc-5-panel">
+                  +
+                </button>
+                <div class="bk-plant-card__collapsed">
+                  <p class="bk-plant-card__price">ab 129,00 €</p>
+                  <h3>Lavendel-Linie</h3>
+                </div>
+                <div class="bk-plant-card__expanded" id="bk-pc-5-panel" role="region">
+                  <div class="bk-plant-card__expanded-body">
+                  <p class="bk-plant-meta">Blumenkästen · viel Sonne · geschützt</p>
+                  <h3>Lavendel-Linie</h3>
+                  <dl class="bk-plant-detail">
+                    <dt>Gefäß &amp; Material</dt>
+                    <dd>Hell verzinkter Stahl</dd>
+                    <dt>Pflanzen- &amp; Blumenauswahl</dt>
+                    <dd>Lavendel, Santolina, Schafgarbe</dd>
+                    <dt>Winterfest / Zwiebeln</dt>
+                    <dd>Winterhart bei guter Drainage</dd>
+                    <dt>Blüte: Farbe &amp; Monate</dt>
+                    <dd>Violett-Blau, Juni–August</dd>
+                  </dl>
+                  </div>
+                  <div class="bk-plant-cta">
+                    <div class="bk-plant-sizes">
+                      <button type="button" class="bk-btn bk-btn--sm bk-size-btn">60 cm</button>
+                      <button type="button" class="bk-btn bk-btn--sm bk-size-btn">80 cm</button>
+                      <button type="button" class="bk-btn bk-btn--sm bk-size-btn">100 cm</button>
+                    </div>
+                    <p class="bk-plant-cta-price">129,00 €</p>
+                    <a class="bk-btn bk-btn--sm" href="balko-warenkorb.html">In den Warenkorb</a>
+                  </div>
+                </div>
+              </article>
+
+              <article
+                class="bk-plant-card"
+                id="bk-pc-6"
+                data-price-60="129"
+                data-price-80="149"
+                data-price-100="169"
+                data-typ="kuebel"
+                data-sonne="viel"
+                data-wind="geschuetzt"
+                data-stil="luxus"
+              >
+                <div
+                  class="bk-plant-card__photo"
+                  style="background-image: linear-gradient(145deg, #222018 0%, #5c4a30 100%)"
+                ></div>
+                <div class="bk-plant-card__shade" aria-hidden="true"></div>
+                <p class="bk-plant-card__tag">Luxus</p>
+                <button type="button" class="bk-plant-card__plus bk-pc-plus" aria-expanded="false" aria-controls="bk-pc-6-panel">
+                  +
+                </button>
+                <div class="bk-plant-card__collapsed">
+                  <p class="bk-plant-card__price">ab 129,00 €</p>
+                  <h3>Oliven-Hochformat</h3>
+                </div>
+                <div class="bk-plant-card__expanded" id="bk-pc-6-panel" role="region">
+                  <div class="bk-plant-card__expanded-body">
+                  <p class="bk-plant-meta">Kübel · viel Sonne · geschützt</p>
+                  <h3>Oliven-Hochformat</h3>
+                  <dl class="bk-plant-detail">
+                    <dt>Gefäß &amp; Material</dt>
+                    <dd>Keramik / hochwertiger Mischwerkstoff</dd>
+                    <dt>Pflanzen- &amp; Blumenauswahl</dt>
+                    <dd>Olea europaea, strukturierter Unterwuchs</dd>
+                    <dt>Winterfest / Zwiebeln</dt>
+                    <dd>Herkunft mediterran — Winterkonzept klären</dd>
+                    <dt>Blüte: Farbe &amp; Monate</dt>
+                    <dd>Silber-Grün, ganzjährig Raum geben</dd>
+                  </dl>
+                  </div>
+                  <div class="bk-plant-cta">
+                    <div class="bk-plant-sizes">
+                      <button type="button" class="bk-btn bk-btn--sm bk-size-btn">60 cm</button>
+                      <button type="button" class="bk-btn bk-btn--sm bk-size-btn">80 cm</button>
+                      <button type="button" class="bk-btn bk-btn--sm bk-size-btn">100 cm</button>
+                    </div>
+                    <p class="bk-plant-cta-price">129,00 €</p>
+                    <a class="bk-btn bk-btn--sm" href="balko-warenkorb.html">In den Warenkorb</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+          <div class="bk-carousel-foot">
+            <p class="bk-footnote bk-footnote--carousel">
+              Bitte beachte: Alle Bilder sind Beispiele. Jede Bepflanzung ist ein Unikat und kann je nach Saison abweichen.
+            </p>
+            <div class="bk-carousel-nav">
+              <button type="button" id="bk-car-prev" aria-label="Zurück">‹</button>
+              <button type="button" id="bk-car-next" aria-label="Weiter">›</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="einrichtung" class="bk-section" aria-labelledby="einrichtung-h">
+        <div class="bk-wrap">
+          <h2 id="einrichtung-h" class="bk-section-title">Exklusive Einrichtung. Maße rein. Liste raus.</h2>
+          <form
+            class="bk-form--plain"
+            id="bk-form-einrichtung"
+            name="balko-einrichtung"
+            method="post"
+            action="balko-fragebogen.html"
+            enctype="multipart/form-data"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            netlify
+          >
+            <input type="hidden" name="form-name" value="balko-einrichtung" />
+            <p class="bk-field" style="display: none">
+              <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+            </p>
+            <div class="bk-field bk-field--checks">
+              <p class="bk-check-group-heading">
+                WOMIT KÖNNEN WIR HELFEN? MEHRAUSWAHL MÖGLICH. ZU DEN DETAILS AUF SEITE 2.
+              </p>
+              <div class="bk-check-grid">
+                <label class="bk-check bk-hilfe-opt"
+                  ><input type="checkbox" name="hilfe" value="pflanzen" />
+                  <span class="bk-hilfe-opt__text">
+                    <span class="bk-hilfe-opt__main">Hilfe bei Pflanzkombinationen (kostenlos)</span>
+                  </span></label
+                >
+                <label class="bk-check bk-hilfe-opt"
+                  ><input type="checkbox" name="hilfe" value="einkaufsliste" />
+                  <span class="bk-hilfe-opt__text">
+                    <span class="bk-hilfe-opt__main">Einkaufsliste für meine Einrichtung</span>
+                    <span class="bk-hilfe-opt__meta"><s>189,00 €</s> Aktion: 0,00 €</span>
+                  </span></label
+                >
+                <label class="bk-check bk-hilfe-opt"
+                  ><input type="checkbox" name="hilfe" value="custom" />
+                  <span class="bk-hilfe-opt__text">
+                    <span class="bk-hilfe-opt__main">Custom Made Möbel (nach Vereinbarung)</span>
+                  </span></label
+                >
+              </div>
+            </div>
+            <div class="bk-field">
+              <label for="bk-breite">Balkonbreite × Balkontiefe</label>
+              <input id="bk-breite" name="balkon_masse" type="text" placeholder="z. B. 3,80 m × 1,40 m" autocomplete="off" required />
+            </div>
+            <div class="bk-field">
+              <label for="bk-tuerabstand">kurzer Abstand der Tür zur Balkonecke</label>
+              <input
+                id="bk-tuerabstand"
+                name="tuer_abstand"
+                type="text"
+                placeholder="z. B. 65 cm bis zur Außenkante Geländer"
+                autocomplete="off"
+              />
+            </div>
+            <div class="bk-field">
+              <label>Blumenkastenvorrichtung vorhanden</label>
+              <div class="bk-check-single">
+                <label class="bk-check"><input type="checkbox" id="bk-rail" name="blumenkasten_vorrichtung" value="ja" /> ja</label>
+              </div>
+            </div>
+            <div class="bk-field">
+              <label for="bk-foto">Foto hochladen (3 Ecken des Balkons sichtbar)</label>
+              <input id="bk-foto" name="foto" type="file" accept="image/*" />
+            </div>
+            <div class="bk-field">
+              <label for="bk-ein-email">E-Mail-Adresse für Deinen individuellen Plan</label>
+              <input id="bk-ein-email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="bk-field">
+              <p class="bk-form-hint">
+                Mit Absenden bestätigst du, die
+                <a href="balko-nutzungsbedingungen.html" target="_blank" rel="noopener noreferrer"
+                  >Nutzungsbedingungen</a
+                >
+                gelesen zu haben und ihnen zuzustimmen. Es gelten Speicherung deiner Angaben im Rahmen des Shops,
+                Berlin als Geschäftsort, Gerichtsstand Berlin-Charlottenburg. <strong>BALKO</strong> ist eine Marke der
+                baetter.gmbh (Johann Froesa und Lisa Froesa) in Kooperation mit <strong>Friday Circle</strong> (Joscha
+                Grope). Details zum Unternehmen: siehe Impressum.
+              </p>
+              <div class="bk-agb-row">
+                <input type="checkbox" id="bk-agb" name="agb_zugestimmt" value="ja" required />
+                <label for="bk-agb">Ich akzeptiere die Nutzungsbedingungen und die Verarbeitung meiner Daten.</label>
+              </div>
+            </div>
+            <button type="submit" class="bk-sr-submit" tabindex="-1" aria-hidden="true">Absenden</button>
+            <a href="balko-fragebogen.html" class="bk-btn bk-submit" id="bk-ein-cta">Code generieren</a>
+            <p class="bk-form-hint">
+              Der Code wird Deiner E-Mail-Adresse und diesem Vorgang zugeordnet. Wenn Du eine neue Bestellung mit Deiner
+              E-Mail-Adresse machen willst, musst Du hier erneut starten. Deine Daten werden nicht dauerhaft gespeichert —
+              nur nach Bestellung im Rahmen des Bestellvorgangs. Auf der nächsten Seite erscheint der Projekt-Code.
+              Nachdem Du dort Deine Wünsche geäußert hast, wird er als Position im Warenkorb dargestellt. Du wirst jetzt
+              zum Fragebogen weitergeleitet, danach zum Abschluss der Bestellung zum Warenkorb. In einer Minute fertig.
+            </p>
+          </form>
+        </div>
+      </section>
+
+      <section id="vorher-nachher" class="bk-section" aria-labelledby="vn-h">
+        <div class="bk-wrap">
+          <h2 id="vn-h" class="bk-section-title bk-section-title--vn">Vorher &amp; Nachher</h2>
+          <div class="bk-compare-carousel">
+            <div class="bk-compare-carousel__controls">
+              <button type="button" class="bk-compare-carousel__btn" id="bk-vn-prev" aria-label="Vorheriges Vorher-Nachher-Paar">
+                ‹
+              </button>
+              <div class="bk-compare-carousel__dots" role="group" aria-label="Vorher-Nachher-Paar wählen">
+                <button type="button" class="bk-compare-carousel__dot is-active" data-vn-go="0" aria-pressed="true" aria-label="Beispiel 1 von 3">1</button>
+                <button type="button" class="bk-compare-carousel__dot" data-vn-go="1" aria-pressed="false" aria-label="Beispiel 2 von 3">2</button>
+                <button type="button" class="bk-compare-carousel__dot" data-vn-go="2" aria-pressed="false" aria-label="Beispiel 3 von 3">3</button>
+              </div>
+              <button type="button" class="bk-compare-carousel__btn" id="bk-vn-next" aria-label="Nächstes Vorher-Nachher-Paar">
+                ›
+              </button>
+            </div>
+            <div class="bk-compare-carousel__viewport" id="bk-vn-viewport">
+              <div class="bk-compare-carousel__track" id="bk-vn-track">
+                <div class="bk-compare-carousel__slide">
+                  <div class="bk-compare">
+                    <div class="bk-compare__inner" style="--bk-split: 50%">
+                      <img
+                        class="bk-compare__img bk-compare__img--before"
+                        src="assets/5Vorher.png"
+                        alt="Balkon vor der Umgestaltung (Beispiel 1)"
+                        width="1600"
+                        height="1000"
+                        decoding="async"
+                      />
+                      <div class="bk-compare__after-layer" aria-hidden="true">
+                        <img
+                          class="bk-compare__img bk-compare__img--after"
+                          src="assets/5Nachher.png"
+                          alt=""
+                          width="1600"
+                          height="1000"
+                          decoding="async"
+                        />
+                      </div>
+                      <span class="bk-compare__divider" aria-hidden="true"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="bk-compare-carousel__slide">
+                  <div class="bk-compare">
+                    <div class="bk-compare__inner" style="--bk-split: 50%">
+                      <img
+                        class="bk-compare__img bk-compare__img--before"
+                        src="assets/3Vorher.png"
+                        alt="Balkon vor der Umgestaltung (Beispiel 2)"
+                        width="1600"
+                        height="1000"
+                        decoding="async"
+                      />
+                      <div class="bk-compare__after-layer" aria-hidden="true">
+                        <img
+                          class="bk-compare__img bk-compare__img--after"
+                          src="assets/3Nachher.png"
+                          alt=""
+                          width="1600"
+                          height="1000"
+                          decoding="async"
+                        />
+                      </div>
+                      <span class="bk-compare__divider" aria-hidden="true"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="bk-compare-carousel__slide">
+                  <div class="bk-compare">
+                    <div class="bk-compare__inner" style="--bk-split: 50%">
+                      <img
+                        class="bk-compare__img bk-compare__img--before"
+                        src="assets/6Vorher.png"
+                        alt="Balkon vor der Umgestaltung (Beispiel 3)"
+                        width="1600"
+                        height="1000"
+                        decoding="async"
+                      />
+                      <div class="bk-compare__after-layer" aria-hidden="true">
+                        <img
+                          class="bk-compare__img bk-compare__img--after"
+                          src="assets/6Nachher.png"
+                          alt=""
+                          width="1600"
+                          height="1000"
+                          decoding="async"
+                        />
+                      </div>
+                      <span class="bk-compare__divider" aria-hidden="true"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="blog" class="bk-section" aria-labelledby="blog-h">
+        <div class="bk-wrap">
+          <header class="bk-blog-header">
+            <h2 id="blog-h" class="bk-section-title bk-section-title--blog">Artikel zu Wissen, Ideen und wie wir arbeiten.</h2>
+            <div class="bk-blog-foot">
+              <p class="bk-lead bk-blog-lead">
+                Hier findest du ausführliche Ratgeber zu Balkon gestalten und einrichten, zu pflegeleichten Kübelpflanzen und
+                Aufbauten ohne unnötigen Aufwand, zu Outdoor-Möbeln für kleine Flächen und zu natürlichem Sichtschutz. Wir
+                beschreiben dabei auch, wie wir bei BALKO planen, visualisieren und dich Schritt für Schritt durch den
+                Ablauf begleiten. Der Schwerpunkt liegt auf Berlin und typischen Stadt-Balkonen, viele Inhalte kannst du
+                aber genauso an anderen Orten nutzen.
+              </p>
+              <div class="bk-carousel-nav" role="group" aria-label="Blogartikel blättern">
+                <button type="button" id="bk-blog-prev" aria-controls="bk-blog-viewport" aria-label="Zurück in der Artikelliste">‹</button>
+                <button type="button" id="bk-blog-next" aria-controls="bk-blog-viewport" aria-label="Weiter in der Artikelliste">›</button>
+              </div>
+            </div>
+          </header>
+        </div>
+        <div class="bk-blog-viewport" id="bk-blog-viewport" tabindex="0" aria-label="Blogartikel — horizontal scrollen">
+          <div class="bk-blog-track" role="list">
+            <article class="bk-blog-card" role="listitem" id="bk-blog-designservice">
+              <a href="#einrichtung" class="bk-blog-cardlink">
+                <div class="bk-blog-thumb" role="presentation"></div>
+                <div class="bk-blog-card__copy">
+                  <span class="bk-blog-pill">Service · Interiordesign</span>
+                  <h3>Unser Designservice, Interiordesign für Balkone</h3>
+                  <time datetime="2026-05-04">4. Mai 2026</time>
+                </div>
+              </a>
+              <p class="bk-blog-tags">Themen: #Designservice #Interior #Visualisierung #Maßplanung</p>
+            </article>
+            <article class="bk-blog-card" role="listitem" id="bk-blog-lieblingsort">
+              <a href="artikel/balkon-lieblingsort/index.html" class="bk-blog-cardlink">
+                <div class="bk-blog-thumb" role="presentation"></div>
+                <div class="bk-blog-card__copy">
+                  <span class="bk-blog-pill">Balkon gestalten · Inspiration</span>
+                  <h3>Lieblingsort Balkon — einrichten &amp; gestalten</h3>
+                  <time datetime="2026-03-18">18. März 2026</time>
+                </div>
+              </a>
+              <p class="bk-blog-tags">Themen: #Balkon #Einrichten #Lieblingsort #Stadtgrün</p>
+            </article>
+            <article class="bk-blog-card" role="listitem" id="bk-blog-sichtschutz">
+              <a href="artikel/balkon-sichtschutz-ohne-bohren/index.html" class="bk-blog-cardlink">
+                <div class="bk-blog-thumb" role="presentation"></div>
+                <div class="bk-blog-card__copy">
+                  <span class="bk-blog-pill">Natürlich · Ohne Bohren</span>
+                  <h3>Balkon-Sichtschutz ohne Bohren</h3>
+                  <time datetime="2026-02-22">22. Februar 2026</time>
+                </div>
+              </a>
+              <p class="bk-blog-tags">Themen: #Sichtschutz #Mietwohnung #Privatsphäre #Pflanzen</p>
+            </article>
+            <article class="bk-blog-card" role="listitem" id="bk-blog-moebel-klein">
+              <a href="artikel/balkonmoebel-kleine-balkone/index.html" class="bk-blog-cardlink">
+                <div class="bk-blog-thumb" role="presentation"></div>
+                <div class="bk-blog-card__copy">
+                  <span class="bk-blog-pill">Sitzmöbel · Outdoor</span>
+                  <h3>Balkonmöbel für kleine Balkone</h3>
+                  <time datetime="2026-01-30">30. Januar 2026</time>
+                </div>
+              </a>
+              <p class="bk-blog-tags">Themen: #Kleinraum #Möbel #Klappbar #Wetterfest</p>
+            </article>
+            <article class="bk-blog-card" role="listitem" id="bk-blog-12">
+              <a href="artikel/balkon-sichtschutz-12-loesungen/index.html" class="bk-blog-cardlink">
+                <div class="bk-blog-thumb" role="presentation"></div>
+                <div class="bk-blog-card__copy">
+                  <span class="bk-blog-pill">Ratgeber · Haltbarkeit</span>
+                  <h3>Sichtschutz für Balkon: 12 Lösungen, die halten</h3>
+                  <time datetime="2026-04-05">5. April 2026</time>
+                </div>
+              </a>
+              <p class="bk-blog-tags">Themen: #Vergleich #Material #Pflege #Langlebigkeit</p>
+            </article>
+            <article class="bk-blog-card" role="listitem" id="bk-blog-berlin">
+              <a href="artikel/balkon-einrichten-berlin/index.html" class="bk-blog-cardlink">
+                <div class="bk-blog-thumb" role="presentation"></div>
+                <div class="bk-blog-card__copy">
+                  <span class="bk-blog-pill">Stadt · Lieblingsort</span>
+                  <h3>Balkon einrichten in Berlin</h3>
+                  <time datetime="2026-03-02">2. März 2026</time>
+                </div>
+              </a>
+              <p class="bk-blog-tags">Themen: #Berlin #StadtBalkon #Genehmigung #Typisch</p>
+            </article>
+            <article class="bk-blog-card" role="listitem" id="bk-blog-bambus">
+              <a href="artikel/balkon-bambus-sichtschutz/index.html" class="bk-blog-cardlink">
+                <div class="bk-blog-thumb" role="presentation"></div>
+                <div class="bk-blog-card__copy">
+                  <span class="bk-blog-pill">Montage · Varianten</span>
+                  <h3>Bambus-Sichtschutz am Balkon</h3>
+                  <time datetime="2026-02-08">8. Februar 2026</time>
+                </div>
+              </a>
+              <p class="bk-blog-tags">Themen: #Bambus #RobusteMatten #Nachhaltig #Sichtschutz</p>
+            </article>
+            <article class="bk-blog-card" role="listitem" id="bk-blog-deko">
+              <a href="artikel/balkon-deko/index.html" class="bk-blog-cardlink">
+                <div class="bk-blog-thumb" role="presentation"></div>
+                <div class="bk-blog-card__copy">
+                  <span class="bk-blog-pill">Deko · Ideen</span>
+                  <h3>Balkon Deko &amp; stimmige Details</h3>
+                  <time datetime="2026-04-20">20. April 2026</time>
+                </div>
+              </a>
+              <p class="bk-blog-tags">Themen: #Deko #Atmosphäre #Beleuchtung #Textilien</p>
+            </article>
+            <article class="bk-blog-card" role="listitem" id="bk-blog-stuhl">
+              <a href="artikel/balkon-stuhl/index.html" class="bk-blog-cardlink">
+                <div class="bk-blog-thumb" role="presentation"></div>
+                <div class="bk-blog-card__copy">
+                  <span class="bk-blog-pill">Möbel · Kleinraum</span>
+                  <h3>Balkon Stuhl — kompakt &amp; wetterstabil</h3>
+                  <time datetime="2026-01-14">14. Januar 2026</time>
+                </div>
+              </a>
+              <p class="bk-blog-tags">Themen: #Stuhl #Stapelbar #Outdoor #Pflegeleicht</p>
+            </article>
+            <article class="bk-blog-card" role="listitem" id="bk-blog-gelaender">
+              <a href="artikel/balkon-gelaender-verkleidung/index.html" class="bk-blog-cardlink">
+                <div class="bk-blog-thumb" role="presentation"></div>
+                <div class="bk-blog-card__copy">
+                  <span class="bk-blog-pill">Geländer · Schutz</span>
+                  <h3>Balkongeländer Verkleidung</h3>
+                  <time datetime="2026-03-28">28. März 2026</time>
+                </div>
+              </a>
+              <p class="bk-blog-tags">Themen: #Geländer #Verkleidung #Wind #Sicherheit</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" aria-label="Seitenfuß">
+      <div class="footer__inner">
+        <a href="index.html" class="footer__logo">FRIDAY CIRCLE</a>
+        <nav class="footer__links" aria-label="Rechtliches und Über uns">
+          <a href="impressum/index.html">Impressum</a>
+          <a href="datenschutz/index.html">Datenschutz</a>
+          <a href="kontakt/index.html">Kontakt</a>
+          <a href="about/index.html">About</a>
+        </nav>
+        <p class="footer__copy">© 2026</p>
+      </div>
+    </footer>
+
+    <script src="balko-cart.js"></script>
+    <script>
+      (function () {
+        var nav = document.querySelector(".bk-nav");
+        function updateNav() {
+          if (!nav) return;
+          nav.classList.toggle("is-scrolled", window.scrollY > 0);
+        }
+        window.addEventListener("scroll", updateNav, { passive: true });
+        updateNav();
+
+        var filterState = { typ: null, sonne: null, wind: null, stil: null };
+
+        function applyPlantFilters() {
+          document.querySelectorAll(".bk-plant-card").forEach(function (card) {
+            var ok = true;
+            ["typ", "sonne", "wind", "stil"].forEach(function (k) {
+              var f = filterState[k];
+              if (!f) return;
+              if (card.getAttribute("data-" + k) !== f) ok = false;
+            });
+            card.classList.toggle("is-filtered-out", !ok);
+          });
+          bkCollapseAllPlant();
+          bkCarouselPos = 0;
+          bkExpandNudgeX = 0;
+          bkApplyCarouselTransform();
+        }
+
+        var resetBtn = document.getElementById("bk-filter-reset");
+        if (resetBtn) {
+          resetBtn.addEventListener("click", function () {
+            filterState = { typ: null, sonne: null, wind: null, stil: null };
+            document.querySelectorAll(".bk-filter-bar .bk-filter-cluster .bk-chip").forEach(function (c) {
+              c.classList.remove("is-active");
+            });
+            applyPlantFilters();
+          });
+        }
+
+        document.querySelectorAll(".bk-filter-bar .bk-filter-cluster .bk-chip").forEach(function (chip) {
+          chip.addEventListener("click", function () {
+            var key = chip.getAttribute("data-filter");
+            var val = chip.getAttribute("data-value");
+            var cluster = chip.closest(".bk-filter-cluster");
+            if (chip.classList.contains("is-active")) {
+              chip.classList.remove("is-active");
+              filterState[key] = null;
+            } else {
+              cluster.querySelectorAll(".bk-chip").forEach(function (c) {
+                c.classList.remove("is-active");
+              });
+              chip.classList.add("is-active");
+              filterState[key] = val;
+            }
+            applyPlantFilters();
+          });
+        });
+        var bkCarouselPos = 0;
+        var bkExpandNudgeX = 0;
+        function bkCarouselStepPx() {
+          var viewport = document.getElementById("bk-carousel-viewport");
+          if (!viewport) return 0;
+          var st = getComputedStyle(viewport);
+          var pl = parseFloat(st.paddingLeft) || 0;
+          var pr = parseFloat(st.paddingRight) || 0;
+          var inner = viewport.clientWidth - pl - pr;
+          return (inner - 32) / 3 + 16;
+        }
+        function bkApplyCarouselTransform() {
+          var track = document.getElementById("bk-carousel-track");
+          if (!track) return;
+          var step = bkCarouselStepPx();
+          var x = bkCarouselPos * step + bkExpandNudgeX;
+          track.style.transform = "translateX(-" + x + "px)";
+        }
+        function bkVisibleCards() {
+          return Array.prototype.filter.call(document.querySelectorAll(".bk-plant-card"), function (c) {
+            return !c.classList.contains("is-filtered-out");
+          });
+        }
+        function bkCollapseAllPlant() {
+          document.querySelectorAll(".bk-plant-card").forEach(function (c) {
+            c.classList.remove("bk-cc-open");
+            c.style.flex = "";
+            var btn = c.querySelector(".bk-pc-plus");
+            if (btn) {
+              btn.textContent = "+";
+              btn.setAttribute("aria-expanded", "false");
+            }
+          });
+          bkExpandNudgeX = 0;
+          bkApplyCarouselTransform();
+        }
+        function bkNudgeExpandedIntoView() {
+          var viewport = document.getElementById("bk-carousel-viewport");
+          var track = document.getElementById("bk-carousel-track");
+          var open = track && track.querySelector(".bk-plant-card.bk-cc-open");
+          bkExpandNudgeX = 0;
+          if (!open || !viewport) {
+            bkApplyCarouselTransform();
+            return;
+          }
+          var pad = 12;
+          var vr = viewport.getBoundingClientRect();
+          var cr = open.getBoundingClientRect();
+          var delta = 0;
+          if (cr.right > vr.right - pad) delta += cr.right - vr.right + pad;
+          if (cr.left < vr.left + pad) delta += cr.left - vr.left - pad;
+          bkExpandNudgeX = delta;
+          bkApplyCarouselTransform();
+        }
+        function balkoFormatEUR(n) {
+          var x = typeof n === "number" ? n : parseFloat(String(n), 10);
+          if (isNaN(x)) x = 0;
+          return x.toFixed(2).replace(".", ",") + " €";
+        }
+        function balkoCmFromSizeLabel(text) {
+          var t = (text || "").trim();
+          if (t.indexOf("100") === 0) return 100;
+          if (t.indexOf("80") === 0) return 80;
+          return 60;
+        }
+        function balkoPriceForCardCm(card, cm) {
+          if (!card) return 129;
+          var v = card.getAttribute("data-price-" + cm);
+          var n = v ? parseInt(v, 10) : NaN;
+          return isNaN(n) ? 129 : n;
+        }
+        function balkoUpdatePlantCardPrice(card) {
+          if (!card) return;
+          var sel = card.querySelector(".bk-size-btn.is-selected");
+          var cm = sel ? balkoCmFromSizeLabel(sel.textContent) : 60;
+          var el = card.querySelector(".bk-plant-cta-price");
+          if (el) el.textContent = balkoFormatEUR(balkoPriceForCardCm(card, cm));
+        }
+        window.bkTogglePlantCard = function (id) {
+          var card = document.getElementById(id);
+          if (!card || card.classList.contains("is-filtered-out")) return;
+          var was = card.classList.contains("bk-cc-open");
+          bkCollapseAllPlant();
+          if (!was) {
+            card.classList.add("bk-cc-open");
+            if (window.matchMedia("(min-width:901px)").matches) {
+              card.style.flex = "0 0 calc(66.666% - 8px)";
+            }
+            var btn = card.querySelector(".bk-pc-plus");
+            if (btn) {
+              btn.textContent = "×";
+              btn.setAttribute("aria-expanded", "true");
+            }
+            var sz = card.querySelectorAll(".bk-size-btn");
+            sz.forEach(function (b) {
+              b.classList.remove("is-selected");
+            });
+            if (sz[0]) sz[0].classList.add("is-selected");
+            balkoUpdatePlantCardPrice(card);
+            setTimeout(bkNudgeExpandedIntoView, 520);
+          }
+        };
+        document.querySelectorAll(".bk-pc-plus").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var card = btn.closest(".bk-plant-card");
+            if (card) window.bkTogglePlantCard(card.id);
+          });
+        });
+
+        var prev = document.getElementById("bk-car-prev");
+        var next = document.getElementById("bk-car-next");
+        if (prev && next) {
+          prev.addEventListener("click", function () {
+            if (bkCarouselPos > 0) {
+              bkCollapseAllPlant();
+              bkCarouselPos--;
+              bkApplyCarouselTransform();
+            }
+          });
+          next.addEventListener("click", function () {
+            var visible = bkVisibleCards();
+            var maxPos = Math.max(0, visible.length - 3);
+            if (bkCarouselPos < maxPos) {
+              bkCollapseAllPlant();
+              bkCarouselPos++;
+              bkApplyCarouselTransform();
+            }
+          });
+        }
+        window.addEventListener(
+          "resize",
+          function () {
+            bkApplyCarouselTransform();
+            bkNudgeExpandedIntoView();
+          },
+          { passive: true }
+        );
+        bkApplyCarouselTransform();
+
+        (function () {
+          var vnTrack = document.getElementById("bk-vn-track");
+          var vnPrev = document.getElementById("bk-vn-prev");
+          var vnNext = document.getElementById("bk-vn-next");
+          var vnDotsWrap = document.querySelector(".bk-compare-carousel__dots");
+          var vnDots = vnDotsWrap ? vnDotsWrap.querySelectorAll("[data-vn-go]") : [];
+          var vnSlides = document.querySelectorAll(".bk-compare-carousel__slide");
+          var vnN = vnSlides.length;
+          var vnPos = 0;
+
+          function vnUpdateDots() {
+            vnDots.forEach(function (d, i) {
+              d.classList.toggle("is-active", i === vnPos);
+              d.setAttribute("aria-pressed", i === vnPos ? "true" : "false");
+            });
+            if (vnPrev) vnPrev.disabled = vnPos <= 0;
+            if (vnNext) vnNext.disabled = vnPos >= vnN - 1;
+          }
+
+          function vnGo(i) {
+            if (!vnTrack || vnN < 1) return;
+            vnPos = Math.max(0, Math.min(vnN - 1, i));
+            vnTrack.style.transform = "translateX(-" + vnPos * 100 + "%)";
+            vnUpdateDots();
+          }
+
+          if (vnTrack && vnN > 0) {
+            vnGo(0);
+            if (vnPrev) vnPrev.addEventListener("click", function () { vnGo(vnPos - 1); });
+            if (vnNext) vnNext.addEventListener("click", function () { vnGo(vnPos + 1); });
+            vnDots.forEach(function (dot) {
+              dot.addEventListener("click", function () {
+                var g = dot.getAttribute("data-vn-go");
+                vnGo(g ? parseInt(g, 10) : 0);
+              });
+            });
+          }
+        })();
+
+        var blogVp = document.getElementById("bk-blog-viewport");
+        var blogPrev = document.getElementById("bk-blog-prev");
+        var blogNext = document.getElementById("bk-blog-next");
+        if (blogVp && blogPrev && blogNext) {
+          function blogStep() {
+            var c = blogVp.querySelector(".bk-blog-card");
+            if (!c) return Math.round(blogVp.clientWidth * 0.4);
+            return c.getBoundingClientRect().width + 20;
+          }
+          blogPrev.addEventListener("click", function () {
+            blogVp.scrollBy({ left: -blogStep(), behavior: "smooth" });
+          });
+          blogNext.addEventListener("click", function () {
+            blogVp.scrollBy({ left: blogStep(), behavior: "smooth" });
+          });
+        }
+
+        function balkoGenProjectCode() {
+          var chars = "ABCDEFGHJKLMNPQRSTUVWXYZ0123456789";
+          var out = "";
+          for (var i = 0; i < 5; i++) {
+            out += chars.charAt(Math.floor(Math.random() * chars.length));
+          }
+          return out;
+        }
+
+        var einForm = document.getElementById("bk-form-einrichtung");
+        var einCta = document.getElementById("bk-ein-cta");
+        if (einCta && einForm) {
+          einCta.addEventListener("click", function (e) {
+            e.preventDefault();
+            einForm.requestSubmit();
+          });
+        }
+        if (einForm) {
+          einForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            var hilfeBoxes = einForm.querySelectorAll('input[name="hilfe"]:checked');
+            if (!hilfeBoxes.length) {
+              window.alert("Bitte wähle mindestens eine Option bei „Womit können wir helfen“.");
+              return;
+            }
+            var agb = document.getElementById("bk-agb");
+            if (!agb || !agb.checked) {
+              window.alert("Bitte akzeptiere die Nutzungsbedingungen.");
+              return;
+            }
+            var projektCode = balkoGenProjectCode();
+            sessionStorage.setItem("balko_project_code", projektCode);
+            sessionStorage.removeItem("balko_warenkorb_lines");
+            sessionStorage.removeItem("balko_fragebogen_contacts");
+            sessionStorage.removeItem("balko_extra_products");
+            sessionStorage.removeItem("balko_plant_cart");
+            var fd = new FormData(einForm);
+            fd.append("projekt_code", projektCode);
+            fetch("/", { method: "POST", body: fd }).catch(function () {});
+            var rail = document.getElementById("bk-rail");
+            sessionStorage.setItem(
+              "balko_einrichtung_step1",
+              JSON.stringify({
+                projekt_code: projektCode,
+                hilfe: Array.prototype.map.call(hilfeBoxes, function (el) {
+                  return el.value;
+                }),
+                email: document.getElementById("bk-ein-email").value,
+                masse: document.getElementById("bk-breite").value,
+                tuer: document.getElementById("bk-tuerabstand").value,
+                blumenkasten: rail && rail.checked ? "ja" : "",
+              })
+            );
+            sessionStorage.setItem("balko_last_form_url", "balko.html#einrichtung");
+            window.location.href = "balko-fragebogen.html";
+          });
+        }
+
+        document.addEventListener("click", function (e) {
+          var btn = e.target && e.target.closest && e.target.closest(".bk-size-btn");
+          if (btn && btn.closest(".bk-plant-card")) {
+            var sizes = btn.closest(".bk-plant-sizes");
+            if (sizes) {
+              sizes.querySelectorAll(".bk-size-btn").forEach(function (b) {
+                b.classList.remove("is-selected");
+              });
+              btn.classList.add("is-selected");
+            }
+            var cardSz = btn.closest(".bk-plant-card");
+            if (cardSz) balkoUpdatePlantCardPrice(cardSz);
+            return;
+          }
+
+          var t = e.target;
+          if (!t || !t.closest) return;
+          var a = t.closest("a.bk-btn");
+          if (!a || a.getAttribute("href") !== "balko-warenkorb.html") return;
+          var cta = a.closest(".bk-plant-cta");
+          if (!cta) return;
+          e.preventDefault();
+          var card = cta.closest(".bk-plant-card");
+          var titleEl = card && card.querySelector(".bk-plant-card__expanded h3");
+          var title = titleEl ? titleEl.textContent.trim() : "Pflanzenpaket";
+          var sizeBtn = cta.querySelector(".bk-size-btn.is-selected");
+          if (!sizeBtn) {
+            window.alert("Bitte wähle zuerst eine Länge: 60, 80 oder 100 cm.");
+            return;
+          }
+          var size = (sizeBtn.textContent || "").trim();
+          var cm = balkoCmFromSizeLabel(size);
+          var priceEuro = balkoPriceForCardCm(card, cm);
+          if (window.BalkoCart) {
+            window.BalkoCart.appendPlant(title, size, priceEuro);
+            window.BalkoCart.refreshNavBadges();
+          }
+          window.location.href = "balko-warenkorb.html";
+        });
+      })();
+    </script>
+  </body>
+</html>

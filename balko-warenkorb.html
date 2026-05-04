@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Warenkorb · BALKO</title>
+    <meta name="description" content="Dein BALKO-Warenkorb — Projektcode, Auswahl und Bestelldaten." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="balko.css" />
+    <style>
+      .bk-wk-page main {
+        padding: 112px var(--x) 96px;
+        max-width: min(1180px, 100%);
+        margin: 0 auto;
+        font-family: var(--display);
+      }
+      .bk-wk-page .bk-page-title {
+        font-family: var(--display);
+        font-weight: 600;
+        font-size: clamp(1.65rem, 3.2vw, 2.25rem);
+        letter-spacing: -0.02em;
+        color: var(--text);
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 10px 14px;
+      }
+      .bk-wk-page .bk-empty {
+        border: none;
+        border-top: 1px solid var(--border);
+        background: transparent;
+        padding: 36px 0;
+      }
+    </style>
+  </head>
+  <body class="balko-site bk-subpage bk-wk-page">
+    <header class="bk-nav" aria-label="BALKO Navigation">
+      <div class="bk-nav__inner">
+        <a class="bk-logo" href="balko.html#top">BALKO Berlin</a>
+        <nav class="bk-nav__links" aria-label="Abschnitte">
+          <a href="balko.html#pflanzen">Pflanzen</a>
+          <a href="balko.html#einrichtung">Einrichtung</a>
+          <a href="balko.html#blog">Blog</a>
+          <a href="balko-warenkorb.html" class="bk-nav-cart" aria-current="page">Warenkorb</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <a class="bk-wk-backlink" id="bk-wk-backlink" href="balko.html#einrichtung">‹ Zurück zum Formular</a>
+
+      <h1 class="bk-page-title">
+        Warenkorb
+        <span class="bk-wk-title-count" id="bk-wk-artikel-count" aria-live="polite"></span>
+      </h1>
+
+      <div id="bk-empty-state" class="bk-empty">
+        <p>Bitte starte mit der Einrichtungsanfrage — dort erhältst du einen Projektcode und kommst anschließend zum Fragebogen.</p>
+        <a class="bk-btn" href="balko.html#einrichtung">Zur Einrichtung</a>
+      </div>
+
+      <div id="bk-checkout-wrap" class="bk-wk-shell is-hidden">
+        <section class="bk-wk-lines" aria-label="Warenkorb-Inhalt">
+          <div class="bk-wk-line bk-wk-line--lead">
+            <div class="bk-wk-line__text">
+              <div class="bk-wk-line__title-row">
+                <h2 class="bk-wk-line__title">
+                  Planungsdokumente · Code <span id="bk-warenkorb-code">—</span>
+                </h2>
+                <span
+                  class="bk-wk-product-price"
+                  id="bk-wk-planung-preis-liste"
+                  aria-label="Listenpreis Planungsdokumente"
+                  >189,00 €</span>
+              </div>
+              <p class="bk-wk-line__meta">Grundrissskizze, Visualisierung, Produktliste</p>
+              <p class="bk-wk-line__desc">Deine folgenden Wünsche sollen bei der Planung berücksichtigt werden.</p>
+            </div>
+          </div>
+
+          <div class="bk-wk-wishes">
+            <div class="bk-wk-line bk-wk-line--detail">
+              <div class="bk-wk-line__text">
+                <span class="bk-wk-line__k">Pflanzenkombination</span>
+                <p class="bk-wk-line__v" id="bk-spec-pflanzen-val">—</p>
+              </div>
+            </div>
+            <div class="bk-wk-line bk-wk-line--detail">
+              <div class="bk-wk-line__text">
+                <span class="bk-wk-line__k">Einrichtung</span>
+                <p class="bk-wk-line__v" id="bk-spec-einrichtung-val">—</p>
+              </div>
+            </div>
+            <div class="bk-wk-line bk-wk-line--detail">
+              <div class="bk-wk-line__text">
+                <span class="bk-wk-line__k">Custom Made</span>
+                <p class="bk-wk-line__v" id="bk-spec-custom-val">—</p>
+              </div>
+            </div>
+          </div>
+
+          <div id="bk-wk-plants-block" class="bk-wk-plants is-hidden">
+            <p class="bk-wk-plants-heading">Pflanzenpakete</p>
+            <div id="bk-wk-plants-list" class="bk-wk-plants-list" aria-label="Gewählte Pflanzenpakete"></div>
+          </div>
+        </section>
+
+        <aside class="bk-wk-sidebar" aria-label="Zusammenfassung">
+          <div class="bk-wk-summary">
+            <div class="bk-wk-sum-head">
+              <h3 class="bk-wk-sum-title">Zusammenfassung</h3>
+              <span class="bk-wk-sum-artikel" id="bk-wk-sidebar-artikel"></span>
+            </div>
+            <div class="bk-wk-sum-body">
+              <div class="bk-wk-sum-row">
+                <span>Zwischensumme</span>
+                <span class="bk-wk-sum-amount" id="bk-wk-sum-zwischensumme">—</span>
+              </div>
+              <div class="bk-wk-sum-row">
+                <span>Bereitstellung per E-Mail</span>
+                <span class="bk-wk-sum-amount" id="bk-wk-sum-versand">—</span>
+              </div>
+              <div class="bk-wk-sum-row bk-wk-sum-row--muted">
+                <span>Aktion</span>
+                <span class="bk-wk-sum-amount" id="bk-wk-sum-aktion">—</span>
+              </div>
+              <div class="bk-wk-sum-row bk-wk-sum-row--total">
+                <span>Bestellsumme</span>
+                <span class="bk-wk-sum-amount" id="bk-wk-sum-total">—</span>
+              </div>
+            </div>
+          </div>
+          <button class="bk-wk-cta" type="submit" form="bk-form-bestellung">Bestellung absenden</button>
+          <div class="bk-wk-sidebar-agb">
+            <label class="bk-check" for="bk-wk-agb">
+              <input
+                type="checkbox"
+                form="bk-form-bestellung"
+                name="bestellung_nutzungsbedingungen"
+                id="bk-wk-agb"
+                value="ja"
+                required
+              />
+              <span>
+                Ich habe die
+                <a href="balko-nutzungsbedingungen.html" target="_blank" rel="noopener noreferrer">Nutzungsbedingungen</a>
+                gelesen und akzeptiere sie sowie die Verarbeitung meiner Daten im Rahmen dieser Bestellung.
+              </span>
+            </label>
+          </div>
+        </aside>
+
+        <section class="bk-wk-formblock" aria-labelledby="bk-wk-form-h">
+          <h2 class="bk-wk-formblock__title" id="bk-wk-form-h">Lieferadresse &amp; Kontakt</h2>
+          <form
+            class="bk-form--plain bk-wk-form"
+            id="bk-form-bestellung"
+            name="balko-warenkorb-bestellung"
+            method="post"
+            action="/"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field-wk"
+            netlify
+          >
+            <input type="hidden" name="form-name" value="balko-warenkorb-bestellung" />
+            <p class="bk-field" style="display: none">
+              <label>Don’t fill this out if you’re human: <input name="bot-field-wk" /></label>
+            </p>
+            <input type="hidden" name="projekt_code" id="bk-bestellung-code" value="" />
+            <input type="hidden" name="warenkorb_positionen" id="bk-bestellung-positionen" value="" />
+            <div class="bk-field">
+              <label for="bk-wk-email">E-Mail-Adresse für Bestätigungsemail</label>
+              <input id="bk-wk-email" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="bk-field">
+              <label for="bk-wk-email-2">E-Mail-Adresse erneut bestätigen</label>
+              <input id="bk-wk-email-2" name="email_wiederholung" type="email" autocomplete="email" required />
+            </div>
+            <div class="bk-wk-address-row bk-wk-address-row--2">
+              <div class="bk-field">
+                <label for="bk-wk-strasse">Straße</label>
+                <input id="bk-wk-strasse" name="strasse" type="text" autocomplete="address-line1" required />
+              </div>
+              <div class="bk-field">
+                <label for="bk-wk-nr">Hausnummer</label>
+                <input id="bk-wk-nr" name="hausnummer" type="text" autocomplete="address-line2" required />
+              </div>
+            </div>
+            <div class="bk-wk-address-row bk-wk-address-row--plz">
+              <div class="bk-field">
+                <label for="bk-wk-plz">Postleitzahl</label>
+                <input id="bk-wk-plz" name="plz" type="text" inputmode="numeric" autocomplete="postal-code" required />
+              </div>
+              <div class="bk-field">
+                <label for="bk-wk-ort">Ort</label>
+                <input id="bk-wk-ort" name="ort" type="text" autocomplete="address-level2" required />
+              </div>
+            </div>
+            <div class="bk-field">
+              <label for="bk-wk-klingel">Name an Klingel</label>
+              <input id="bk-wk-klingel" name="name_klingel" type="text" autocomplete="off" />
+            </div>
+            <div class="bk-field">
+              <label for="bk-wk-hinweis">Hinweis (Vorderhaus, Seitenflügel, Hinterhaus)</label>
+              <input id="bk-wk-hinweis" name="adresse_hinweis" type="text" autocomplete="off" />
+            </div>
+            <div class="bk-field">
+              <label for="bk-wk-geschoss">Geschoss</label>
+              <input id="bk-wk-geschoss" name="geschoss" type="text" autocomplete="off" />
+            </div>
+            <div class="bk-field">
+              <label for="bk-wk-tel">Telefonnummer</label>
+              <input id="bk-wk-tel" name="telefon" type="tel" autocomplete="tel" required />
+            </div>
+            <div class="bk-checkout-note bk-wk-form-note">
+              <p>Du erhältst eine Bestätigungsemail von uns zu Deiner Bestellung.</p>
+              <p>Sobald ein Liefertermin feststeht, melden wir uns mit einer zweiten E-Mail.</p>
+              <p>Vielen Dank für Dein Vertrauen.</p>
+            </div>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <script src="balko-cart.js"></script>
+    <script>
+      (function () {
+        function categorizeLines(lines) {
+          var pfl = [];
+          var ein = [];
+          var cust = [];
+          (lines || []).forEach(function (line) {
+            if (line.indexOf("Pflanzkombination:") === 0) {
+              pfl.push(line.replace(/^Pflanzkombination:\s*/, "").trim());
+            } else if (line.indexOf("Einrichtung:") === 0) {
+              ein.push(line.replace(/^Einrichtung:\s*/, "").trim());
+            } else if (/^Custom Made\b/i.test(line)) {
+              cust.push(line.replace(/^Custom Made\s*[—:–-]?\s*/i, "").trim());
+            }
+          });
+          return { pfl: pfl, ein: ein, cust: cust };
+        }
+
+        function joinOrDash(arr) {
+          var f = (arr || []).filter(function (s) {
+            return s && String(s).length;
+          });
+          if (!f.length) return "—";
+          return f.join(", ");
+        }
+
+        function formatEur(n) {
+          var x = typeof n === "number" ? n : parseFloat(String(n), 10);
+          if (isNaN(x)) x = 0;
+          var neg = x < 0;
+          x = Math.abs(x);
+          var s =
+            x.toLocaleString("de-DE", {
+              minimumFractionDigits: 2,
+              maximumFractionDigits: 2,
+            }) + " €";
+          return (neg ? "\u2212" : "") + s;
+        }
+
+        function warenkorbBackLinkHref() {
+          var url = sessionStorage.getItem("balko_last_form_url");
+          if (url !== "balko.html#einrichtung" && url !== "balko-fragebogen.html") {
+            url = sessionStorage.getItem("balko_einrichtung_step1")
+              ? "balko-fragebogen.html"
+              : "balko.html#einrichtung";
+          }
+          return url;
+        }
+
+        var backA = document.getElementById("bk-wk-backlink");
+        if (backA) backA.setAttribute("href", warenkorbBackLinkHref());
+
+        var code = sessionStorage.getItem("balko_project_code");
+        var wrap = document.getElementById("bk-checkout-wrap");
+        var empty = document.getElementById("bk-empty-state");
+
+        if (window.BalkoCart) BalkoCart.migrateLegacyPlants();
+
+        if (!code) {
+          if (empty) empty.classList.remove("is-hidden");
+          if (wrap) wrap.classList.add("is-hidden");
+          var tc0 = document.getElementById("bk-wk-artikel-count");
+          var sb0 = document.getElementById("bk-wk-sidebar-artikel");
+          if (tc0) tc0.textContent = "";
+          if (sb0) sb0.textContent = "";
+          if (window.BalkoCart) BalkoCart.refreshNavBadges();
+          return;
+        }
+
+        if (empty) empty.classList.add("is-hidden");
+        if (wrap) wrap.classList.remove("is-hidden");
+
+        var artikelN = window.BalkoCart ? BalkoCart.navBadgeCount() : 1;
+        var tc = document.getElementById("bk-wk-artikel-count");
+        var sb = document.getElementById("bk-wk-sidebar-artikel");
+        if (tc) tc.textContent = "(" + artikelN + " Artikel)";
+        if (sb) sb.textContent = artikelN + " Artikel";
+
+        var codeOut = document.getElementById("bk-warenkorb-code");
+        if (codeOut) codeOut.textContent = code;
+
+        var hiddenCode = document.getElementById("bk-bestellung-code");
+        if (hiddenCode) hiddenCode.value = code;
+
+        var lines = [];
+        try {
+          var rawLines = sessionStorage.getItem("balko_warenkorb_lines");
+          if (rawLines) lines = JSON.parse(rawLines);
+        } catch (e) {}
+
+        var cat = categorizeLines(lines);
+        var pflEl = document.getElementById("bk-spec-pflanzen-val");
+        var einEl = document.getElementById("bk-spec-einrichtung-val");
+        var cuEl = document.getElementById("bk-spec-custom-val");
+        if (pflEl) pflEl.textContent = joinOrDash(cat.pfl);
+        if (einEl) einEl.textContent = joinOrDash(cat.ein);
+        if (cuEl) cuEl.textContent = joinOrDash(cat.cust);
+
+        /** Listenpreis Planungsdokumente; Aktion hebt diesen Betrag in der Summe auf. */
+        var BK_PLANUNG_LISTEN = 189;
+        /** Zusatzkosten E-Mail-Bereitstellung (0 = kostenlos im Rahmen der Aktion). */
+        var BK_VERSAND_EMAIL = 0;
+
+        var plantItems = window.BalkoCart ? BalkoCart.getPlantItems() : [];
+        var plantRows = window.BalkoCart ? BalkoCart.aggregatePlantsForDisplay(plantItems) : [];
+        var plantsSum = 0;
+        plantRows.forEach(function (row) {
+          plantsSum += row.lineTotal;
+        });
+
+        var zwischensumme = BK_PLANUNG_LISTEN + plantsSum;
+        var versandBetrag = BK_VERSAND_EMAIL;
+        var aktionRabatt = -BK_PLANUNG_LISTEN;
+        var bestellsumme = zwischensumme + versandBetrag + aktionRabatt;
+
+        var planungPreisEl = document.getElementById("bk-wk-planung-preis-liste");
+        if (planungPreisEl) planungPreisEl.textContent = formatEur(BK_PLANUNG_LISTEN);
+
+        var sumZ = document.getElementById("bk-wk-sum-zwischensumme");
+        var sumV = document.getElementById("bk-wk-sum-versand");
+        var sumA = document.getElementById("bk-wk-sum-aktion");
+        var sumT = document.getElementById("bk-wk-sum-total");
+        if (sumZ) sumZ.textContent = formatEur(zwischensumme);
+        if (sumV) sumV.textContent = formatEur(versandBetrag);
+        if (sumA) sumA.textContent = formatEur(aktionRabatt);
+        if (sumT) sumT.textContent = formatEur(bestellsumme);
+
+        var plantsBlock = document.getElementById("bk-wk-plants-block");
+        var plantsList = document.getElementById("bk-wk-plants-list");
+        if (plantItems.length && plantsBlock && plantsList && window.BalkoCart) {
+          plantsBlock.classList.remove("is-hidden");
+          plantsList.innerHTML = "";
+          plantRows.forEach(function (row) {
+            var d = document.createElement("div");
+            d.className = "bk-wk-line bk-wk-line--product";
+            var name = document.createElement("p");
+            name.className = "bk-wk-product-name";
+            name.textContent = row.title + (row.size ? " · " + row.size : "");
+            var num = document.createElement("span");
+            num.className = "bk-wk-product-price";
+            num.textContent = formatEur(row.lineTotal);
+            d.appendChild(name);
+            d.appendChild(num);
+            plantsList.appendChild(d);
+          });
+        } else if (plantsBlock) {
+          plantsBlock.classList.add("is-hidden");
+        }
+
+        var plantLinesForHidden = [];
+        plantRows.forEach(function (row) {
+          plantLinesForHidden.push(
+            "Pflanzenpaket: " +
+              row.title +
+              (row.size ? " (" + row.size + ")" : "") +
+              " × " +
+              row.qty +
+              " — " +
+              formatEur(row.lineTotal)
+          );
+        });
+
+        var posHidden = document.getElementById("bk-bestellung-positionen");
+        if (posHidden) {
+          posHidden.value = [
+            "Projekt: " + code,
+            "Pflanzenkombination: " + joinOrDash(cat.pfl),
+            "Einrichtung: " + joinOrDash(cat.ein),
+            "Custom Made: " + joinOrDash(cat.cust),
+          ]
+            .concat(plantLinesForHidden)
+            .concat([
+              "",
+              "--- Beträge ---",
+              "Planungsdokumente: " + formatEur(BK_PLANUNG_LISTEN),
+              "Pflanzen gesamt: " + formatEur(plantsSum),
+              "Zwischensumme: " + formatEur(zwischensumme),
+              "Bereitstellung per E-Mail: " + formatEur(versandBetrag),
+              "Aktion: " + formatEur(aktionRabatt),
+              "Bestellsumme: " + formatEur(bestellsumme),
+            ])
+            .join("\n");
+        }
+
+        var contacts = {};
+        try {
+          var rawC = sessionStorage.getItem("balko_fragebogen_contacts");
+          if (rawC) contacts = JSON.parse(rawC);
+        } catch (e2) {}
+
+        var em = document.getElementById("bk-wk-email");
+        var em2 = document.getElementById("bk-wk-email-2");
+        var tel = document.getElementById("bk-wk-tel");
+        if (em && contacts.email) em.value = contacts.email;
+        if (em2 && contacts.email) em2.value = contacts.email;
+        if (tel && contacts.telefon) tel.value = contacts.telefon;
+
+        var form = document.getElementById("bk-form-bestellung");
+        if (form) {
+          form.addEventListener("submit", function (e) {
+            var a = em && em.value.trim();
+            var b = em2 && em2.value.trim();
+            if (a !== b) {
+              e.preventDefault();
+              window.alert("Die beiden E-Mail-Adressen stimmen nicht überein.");
+              return;
+            }
+          });
+        }
+
+        if (window.BalkoCart) BalkoCart.refreshNavBadges();
+      })();
+    </script>
+  </body>
+</html>

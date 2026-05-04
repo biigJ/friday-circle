@@ -1,0 +1,44 @@
+/* BALKO-Artikel (ergänzt gog-article.css); Kacheln ohne Rundung */
+.balko-article-page .gog-article-meta {
+  color: #9b7d43;
+}
+
+.balko-article-page .gog-article-lead {
+  border-left-color: #b89657;
+}
+
+.balko-article-page .gog-article-hashrow span {
+  color: #5c4a2a;
+  background: rgba(184, 150, 87, 0.14);
+  border-radius: 0;
+}
+
+.balko-article-page .gog-article-body h3 {
+  color: #9b7d43;
+}
+
+.balko-article-page .gog-article-pull {
+  border-radius: 0;
+  background: #1a1814;
+}
+
+.balko-article-page .gog-article-pull::before {
+  color: #b89657;
+}
+
+.balko-article-page .gog-article-table-wrap {
+  border-radius: 0;
+}
+
+.balko-article-page .gog-article-table-wrap thead {
+  background: #2a241c;
+}
+
+.balko-article-page .gogl-article-back a {
+  color: #9b7d43;
+}
+
+.balko-article-page .gogl-article-back a:hover,
+.balko-article-page .gogl-article-back a:focus-visible {
+  color: #b89657;
+}

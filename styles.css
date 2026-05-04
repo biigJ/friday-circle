@@ -324,6 +324,12 @@ a {
   color: #0a0a0a;
 }
 
+.nav__gogogo-item--balko:hover,
+.nav__gogogo-item--balko:focus-visible {
+  background: #0e0e0e;
+  color: #c8a96e;
+}
+
 .nav__gogogo-item:hover .nav__gogogo-external,
 .nav__gogogo-item:focus-visible .nav__gogogo-external {
   color: inherit;
@@ -347,6 +353,11 @@ a {
 
 .nav__gogogo-item--werkhaim:focus-visible {
   outline: 2px solid #0a0a0a;
+  outline-offset: 2px;
+}
+
+.nav__gogogo-item--balko:focus-visible {
+  outline: 2px solid #c8a96e;
   outline-offset: 2px;
 }
 
