@@ -85,7 +85,7 @@
         </div>
 
         <div id="bk-block-einkaufsliste" class="bk-q-block is-hidden">
-          <h3>Einkaufsliste für meine Einrichtung — ich benötige</h3>
+          <h3>Unabhängige Suche nach qualitätsvollen Möbeln — ich benötige</h3>
           <div class="bk-q-check-wrap">
             <label class="bk-q-check-label"><input type="checkbox" name="einricht_ein" value="seitlicher_sichtschutz" /> einen seitlichen Sichtschutz</label>
             <label class="bk-q-check-label"><input type="checkbox" name="einricht_ein" value="tuch_gelaender" /> ein Tuch für das Balkongeländer</label>
@@ -337,6 +337,7 @@
             }
 
             sessionStorage.setItem("balko_warenkorb_lines", JSON.stringify(lines));
+            sessionStorage.setItem("balko_wk_planung", "1");
             sessionStorage.setItem(
               "balko_fragebogen_contacts",
               JSON.stringify({

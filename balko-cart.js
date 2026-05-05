@@ -6,6 +6,36 @@
   var KEY_PLANTS = "balko_plant_cart";
   var KEY_PLANTS_LEGACY = "balko_extra_products";
   var KEY_CODE = "balko_project_code";
+  var KEY_PLANUNG = "balko_wk_planung";
+
+  function lineKey(it) {
+    var title = (it.title || "").trim() || "Pflanzenpaket";
+    var size = (it.size || "").trim();
+    var price = typeof it.price === "number" && !isNaN(it.price) ? it.price : 129;
+    return title + "\t" + size + "\t" + price;
+  }
+
+  /** Vereinheitlicht Einträge (inkl. Legacy ohne qty) zu eindeutigen Zeilen mit Summenmenge. */
+  function mergePlantItems(arr) {
+    var m = {};
+    (arr || []).forEach(function (raw) {
+      var title = (raw.title || "").trim() || "Pflanzenpaket";
+      var size = (raw.size || "").trim();
+      var price = typeof raw.price === "number" && !isNaN(raw.price) ? raw.price : 129;
+      var q =
+        typeof raw.qty === "number" && raw.qty > 0 ? Math.floor(raw.qty) : 1;
+      var key = title + "\t" + size + "\t" + price;
+      if (!m[key]) m[key] = { title: title, size: size, price: price, qty: 0 };
+      m[key].qty += q;
+    });
+    return Object.keys(m)
+      .map(function (k) {
+        return m[k];
+      })
+      .filter(function (it) {
+        return it.qty > 0;
+      });
+  }
 
   function migrateLegacyPlants() {
     if (sessionStorage.getItem(KEY_PLANTS)) return;
@@ -37,59 +67,80 @@
       var raw = sessionStorage.getItem(KEY_PLANTS);
       if (!raw) return [];
       var data = JSON.parse(raw);
-      return Array.isArray(data) ? data : [];
+      if (!Array.isArray(data)) return [];
+      var merged = mergePlantItems(data);
+      sessionStorage.setItem(KEY_PLANTS, JSON.stringify(merged));
+      return merged;
     } catch (e2) {
       return [];
     }
   }
 
   function setPlantItems(items) {
-    sessionStorage.setItem(KEY_PLANTS, JSON.stringify(items || []));
+    sessionStorage.setItem(KEY_PLANTS, JSON.stringify(mergePlantItems(items || [])));
   }
 
   function appendPlant(title, size, priceEuro) {
     var items = getPlantItems();
-    var p =
-      typeof priceEuro === "number" && !isNaN(priceEuro)
-        ? priceEuro
-        : 129;
-    items.push({
-      title: (title || "").trim() || "Pflanzenpaket",
-      size: (size || "").trim(),
-      price: p,
-    });
+    var t = (title || "").trim() || "Pflanzenpaket";
+    var s = (size || "").trim();
+    var p = typeof priceEuro === "number" && !isNaN(priceEuro) ? priceEuro : 129;
+    var key = t + "\t" + s + "\t" + p;
+    var found = false;
+    for (var i = 0; i < items.length; i++) {
+      if (lineKey(items[i]) === key) {
+        items[i].qty = (items[i].qty || 1) + 1;
+        found = true;
+        break;
+      }
+    }
+    if (!found) items.push({ title: t, size: s, price: p, qty: 1 });
     setPlantItems(items);
-    return items.length;
+    return items.reduce(function (a, b) {
+      return a + (b.qty || 1);
+    }, 0);
   }
 
-  /** 1 «Projekt-Slot» wenn ein Code existiert, plus jede Pflanzen-Zeile. */
+  /** Index-basiert (nach getPlantItems-Reihenfolge). newQty <= 0 entfernt die Zeile. */
+  function updatePlantQtyAt(index, newQty) {
+    var items = getPlantItems();
+    var n = parseInt(newQty, 10);
+    if (isNaN(n) || index < 0 || index >= items.length) return items;
+    if (n <= 0) items.splice(index, 1);
+    else items[index].qty = n;
+    setPlantItems(items);
+    return getPlantItems();
+  }
+
+  function plantQtySum(items) {
+    return (items || []).reduce(function (a, it) {
+      return a + (typeof it.qty === "number" && it.qty > 0 ? it.qty : 1);
+    }, 0);
+  }
+
+  /** Summe Pflanzenstückzahlen plus 1, wenn Planungsdokumente im Warenkorb (wie auf der Warenkorb-Seite). */
   function navBadgeCount() {
     migrateLegacyPlants();
+    var plants = plantQtySum(getPlantItems());
     var code = sessionStorage.getItem(KEY_CODE);
-    var plants = getPlantItems().length;
-    return (code ? 1 : 0) + plants;
+    var hasCode = !!(code && String(code).trim());
+    var planSlot = 0;
+    if (hasCode && sessionStorage.getItem(KEY_PLANUNG) !== "0") {
+      planSlot = 1;
+    }
+    return planSlot + plants;
   }
 
   function aggregatePlantsForDisplay(items) {
-    var m = {};
-    (items || []).forEach(function (it) {
-      var size = it.size || "—";
-      var unit =
-        typeof it.price === "number" && !isNaN(it.price) ? it.price : 129;
-      var key = (it.title || "") + "\t" + size + "\t" + unit;
-      if (!m[key]) {
-        m[key] = { title: it.title, size: size, unitPrice: unit, qty: 0 };
-      }
-      m[key].qty += 1;
-    });
-    return Object.keys(m).map(function (k) {
-      var o = m[k];
+    return (items || []).map(function (it) {
+      var unit = typeof it.price === "number" && !isNaN(it.price) ? it.price : 129;
+      var q = typeof it.qty === "number" && it.qty > 0 ? it.qty : 1;
       return {
-        title: o.title,
-        size: o.size,
-        qty: o.qty,
-        unitPrice: o.unitPrice,
-        lineTotal: o.unitPrice * o.qty,
+        title: it.title,
+        size: it.size || "",
+        qty: q,
+        unitPrice: unit,
+        lineTotal: unit * q,
       };
     });
   }
@@ -121,6 +172,8 @@
     getPlantItems: getPlantItems,
     setPlantItems: setPlantItems,
     appendPlant: appendPlant,
+    updatePlantQtyAt: updatePlantQtyAt,
+    plantQtySum: plantQtySum,
     navBadgeCount: navBadgeCount,
     aggregatePlantsForDisplay: aggregatePlantsForDisplay,
     refreshNavBadges: refreshNavBadges,
