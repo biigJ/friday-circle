@@ -21,6 +21,8 @@
     <style>
       /* FRIDAY CIRCLE Start — Overlay wie gogogo-Störer (eigene sessionStorage-Keys) */
       .gogl-stoerer {
+        --stoerer-signal: #ff2f3a;
+        --stoerer-signal-dark: #a4141c;
         --stoerer-inset: clamp(12px, 3.5vw, 56px);
         position: fixed;
         inset: 0;
@@ -64,7 +66,7 @@
         height: auto;
         border-radius: 0;
         overflow: hidden;
-        background: color-mix(in srgb, #c52f33 42%, rgba(255, 250, 250, 0.05));
+        background: color-mix(in srgb, var(--stoerer-signal) 72%, rgba(255, 250, 250, 0.04));
         backdrop-filter: blur(14px);
         -webkit-backdrop-filter: blur(14px);
         border: none;
@@ -146,7 +148,7 @@
       .gogl-stoerer__actions a:first-of-type {
         background: transparent;
         color: #fff0f0;
-        border: 1.5px solid color-mix(in srgb, #fff 45%, #c52f33);
+        border: 1.5px solid color-mix(in srgb, #fff 45%, var(--stoerer-signal));
       }
       .gogl-stoerer__actions a:first-of-type:hover,
       .gogl-stoerer__actions a:first-of-type:focus-visible {
@@ -154,8 +156,8 @@
       }
       .gogl-stoerer__actions a:last-of-type {
         background: #fff0f0;
-        color: #8b2226;
-        border: 1px solid color-mix(in srgb, #fff 40%, #8b2226);
+        color: var(--stoerer-signal-dark);
+        border: 1px solid color-mix(in srgb, #fff 40%, var(--stoerer-signal-dark));
       }
       .gogl-stoerer__actions a:last-of-type:hover,
       .gogl-stoerer__actions a:last-of-type:focus-visible {
