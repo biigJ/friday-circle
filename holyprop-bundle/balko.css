@@ -88,10 +88,6 @@ body.balko-site .bk-blog-card[id] {
   padding-bottom: 0;
 }
 
-.balko-site.bk-einrichtung-page #einrichtung.bk-section {
-  padding-top: 80px;
-}
-
 /* Kürzerer Übergang zur Einrichtung; Headline-Abstand zur Section-Oberkante wie bei #pflanzen (übernimmt .bk-section padding-top). */
 .balko-site #pflanzen.bk-section {
   padding-bottom: 0;
@@ -105,15 +101,6 @@ body.balko-site .bk-blog-card[id] {
   font-size: clamp(2rem, 3.5vw, 3rem);
   line-height: 1.15;
   letter-spacing: -0.02em;
-}
-
-.balko-site .bk-section-subline {
-  margin: -12px 0 32px;
-  color: var(--muted);
-  font-family: var(--display);
-  font-size: clamp(0.95rem, 1.6vw, 1.25rem);
-  font-weight: 500;
-  letter-spacing: 0.03em;
 }
 
 .balko-site .bk-lead {
@@ -175,19 +162,6 @@ body.balko-site .bk-blog-card[id] {
   color: var(--black);
 }
 
-.balko-site .bk-hero .bk-btn--hero-white {
-  background: #f0eee6;
-  border-color: #f0eee6;
-  color: var(--black);
-}
-
-.balko-site .bk-hero .bk-btn--hero-white:hover,
-.balko-site .bk-hero .bk-btn--hero-white:focus-visible {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--black);
-}
-
 .balko-site .bk-btn--sm {
   min-height: 40px;
   padding: 8px 14px;
@@ -205,11 +179,6 @@ body.balko-site .bk-blog-card[id] {
 }
 
 .balko-site .bk-nav.is-scrolled {
-  border-bottom-color: rgba(184, 150, 87, 0.28);
-  background: var(--black);
-}
-
-.balko-site.bk-landing-page .bk-nav {
   border-bottom-color: rgba(184, 150, 87, 0.28);
   background: var(--black);
 }
@@ -232,13 +201,6 @@ body.balko-site .bk-blog-card[id] {
   font-size: clamp(1.55rem, 2.6vw, 2.1rem);
   font-weight: 700;
   letter-spacing: 0.08em;
-}
-
-.balko-site .bk-logo img {
-  display: block;
-  width: clamp(132px, 13vw, 188px);
-  height: auto;
-  filter: invert(1);
 }
 
 .balko-site .bk-nav.is-scrolled .bk-logo {
@@ -286,10 +248,6 @@ body.balko-site .bk-blog-card[id] {
   background: var(--black);
 }
 
-.balko-site .bk-hero--landing {
-  min-height: clamp(590px, 80vh, 760px);
-}
-
 .balko-site .bk-hero__img {
   position: absolute;
   inset: 0;
@@ -298,14 +256,6 @@ body.balko-site .bk-blog-card[id] {
   object-fit: cover;
   object-position: center 58%;
   filter: saturate(1.12) contrast(1.04) brightness(1.02);
-}
-
-.balko-site .bk-hero--landing .bk-hero__img {
-  left: 0;
-  right: 0;
-  width: 100%;
-  transform: none;
-  object-position: center;
 }
 
 .balko-site .bk-hero::after {
@@ -323,11 +273,6 @@ body.balko-site .bk-blog-card[id] {
   width: min(100%, var(--max));
   margin: 0 auto;
   padding: clamp(96px, 16vh, 148px) var(--x) clamp(138px, 20vh, 210px);
-}
-
-.balko-site .bk-hero--landing .bk-hero__content {
-  padding-top: clamp(88px, 12vh, 118px);
-  padding-bottom: clamp(82px, 11vh, 124px);
 }
 
 .balko-site .bk-hero__eyebrow,
@@ -411,10 +356,6 @@ body.balko-site .bk-blog-card[id] {
   margin-top: 34px;
 }
 
-.balko-site .bk-hero__actions .bk-btn {
-  min-width: 190px;
-}
-
 @keyframes bkFadeUp {
   to {
     opacity: 1;
@@ -490,21 +431,6 @@ body.balko-site .bk-blog-card[id] {
   margin-top: 12px;
 }
 
-/* Pflanzen-Carousel: Stage umschließt Viewport + Pfeile; nur der Track scrollt, Pfeile bleiben fix */
-.balko-site .bk-carousel-plants-stage {
-  position: relative;
-  box-sizing: border-box;
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 var(--x);
-}
-
-.balko-site .bk-carousel-plants-stage .bk-carousel-viewport {
-  max-width: none;
-  margin: 0;
-  padding: 0;
-}
-
 .balko-site .bk-carousel-foot {
   display: block;
   max-width: var(--max);
@@ -536,28 +462,6 @@ body.balko-site .bk-blog-card[id] {
   margin: 0 auto;
   padding: 0 var(--x);
   overflow: hidden;
-}
-
-/* Kombinationen: wie Blog per Trackpad/Wisch horizontal scrollbar (nutzt scrollLeft, kein Transform) */
-.balko-site #bk-carousel-viewport {
-  overflow-x: auto;
-  overflow-y: visible;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.balko-site #bk-carousel-viewport::-webkit-scrollbar {
-  display: none;
-}
-
-.balko-site #bk-carousel-viewport:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 4px;
-}
-
-.balko-site .bk-carousel-plants-stage .bk-carousel-nav--plants {
-  right: 14px;
 }
 
 .balko-site .bk-carousel-nav--plants {
@@ -619,23 +523,23 @@ body.balko-site .bk-blog-card[id] {
   position: relative;
   width: 100%;
   flex: 0 0 auto;
-  height: clamp(220px, 24vw, 272px);
-  min-height: clamp(220px, 24vw, 272px);
-  max-height: clamp(220px, 24vw, 272px);
+  height: clamp(300px, 34vw, 360px);
+  min-height: clamp(300px, 34vw, 360px);
+  max-height: clamp(300px, 34vw, 360px);
   overflow: hidden;
   transition: height 0.45s ease, min-height 0.45s ease, max-height 0.45s ease;
 }
 
 .balko-site .bk-plant-card.bk-cc-open .bk-plant-card__media {
-  height: clamp(356px, 38vw, 424px);
-  min-height: clamp(356px, 38vw, 424px);
-  max-height: clamp(356px, 38vw, 424px);
+  height: clamp(510px, 57.8vw, 612px);
+  min-height: clamp(510px, 57.8vw, 612px);
+  max-height: clamp(510px, 57.8vw, 612px);
 }
 
 .balko-site .bk-plant-card__photo {
   position: absolute;
   inset: 0;
-  background-size: auto 104%;
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   background-color: #fff;
@@ -643,11 +547,7 @@ body.balko-site .bk-blog-card[id] {
 }
 
 .balko-site .bk-plant-card:not(.bk-cc-open) .bk-plant-card__photo {
-  background-size: auto 108%;
-}
-
-.balko-site .bk-plant-card.bk-cc-open .bk-plant-card__photo {
-  background-size: auto 106%;
+  background-size: 120%;
 }
 
 .balko-site .bk-plant-card__shade {
@@ -840,113 +740,6 @@ body.balko-site .bk-blog-card[id] {
   color: #fff;
 }
 
-.balko-site .bk-howto-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  margin: 0 0 64px;
-}
-
-.balko-site .bk-howto-card {
-  min-height: 0;
-  border-radius: 0;
-  overflow: visible;
-  position: relative;
-  border: none;
-  display: flex;
-  flex-direction: column;
-}
-
-.balko-site .bk-howto-card__media {
-  position: relative;
-  width: 100%;
-  flex: 0 0 auto;
-  height: clamp(300px, 34vw, 360px);
-  min-height: clamp(300px, 34vw, 360px);
-  max-height: clamp(300px, 34vw, 360px);
-  overflow: hidden;
-  background: #fff;
-  transition: height 0.45s ease, min-height 0.45s ease, max-height 0.45s ease;
-}
-
-.balko-site .bk-howto-card__media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transform: scale(1.08);
-  transition: transform 0.35s ease;
-}
-
-.balko-site .bk-howto-card.bk-howto-card--open .bk-howto-card__media img {
-  filter: brightness(0.24);
-}
-
-.balko-site .bk-howto-card__plus {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  z-index: 5;
-  width: 40px;
-  height: 40px;
-  border: 1px solid rgba(14, 14, 14, 0.25);
-  background: rgba(255, 250, 240, 0.92);
-  color: var(--text);
-  font-size: 1.2rem;
-  cursor: pointer;
-  border-radius: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.15s ease, border-color 0.15s ease;
-  line-height: 1;
-}
-
-.balko-site .bk-howto-card__plus:hover,
-.balko-site .bk-howto-card__plus:focus-visible {
-  background: rgba(240, 238, 230, 1);
-  border-color: var(--text);
-  outline: none;
-}
-
-.balko-site .bk-howto-card__overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 4;
-  display: flex;
-  align-items: flex-end;
-  padding: 24px;
-  box-sizing: border-box;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.22s ease;
-}
-
-.balko-site .bk-howto-card.bk-howto-card--open .bk-howto-card__overlay {
-  opacity: 1;
-}
-
-.balko-site .bk-howto-card__overlay p {
-  margin: 0;
-  max-width: 28rem;
-  font-family: var(--copy);
-  font-size: clamp(0.88rem, 1.35vw, 1rem);
-  line-height: 1.55;
-  color: #fff;
-}
-
-.balko-site .bk-howto-card h3 {
-  margin: 0;
-  padding: 12px 4px 0;
-  font-family: var(--display);
-  font-weight: 300;
-  font-size: clamp(0.7rem, 1.225vw, 1.05rem);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
-  color: var(--text);
-  text-align: left;
-}
-
 .balko-site .bk-plant-detail {
   margin: 0 0 14px;
   font-family: var(--copy);
@@ -1043,32 +836,6 @@ body.balko-site .bk-blog-card[id] {
   margin-top: 8px;
 }
 
-.balko-site .bk-choice-callout {
-  display: flex;
-  align-items: flex-end;
-  gap: 12px;
-  margin: 0 0 20px;
-  color: var(--text);
-}
-
-.balko-site .bk-choice-callout__arrow {
-  flex: 0 0 auto;
-  color: var(--accent);
-  font-family: var(--display);
-  font-size: clamp(2.2rem, 4.5vw, 4rem);
-  line-height: 0.82;
-}
-
-.balko-site .bk-choice-callout p {
-  margin: 0 0 0.1em;
-  max-width: min(38rem, 100%);
-  font-family: var(--section-head);
-  font-size: clamp(1.25rem, 2.25vw, 1.9rem);
-  font-weight: 300;
-  line-height: 1.16;
-  letter-spacing: -0.02em;
-}
-
 .balko-site .bk-form--plain .bk-hilfe-opt .bk-hilfe-opt__text {
   display: block;
   text-transform: none;
@@ -1087,119 +854,6 @@ body.balko-site .bk-blog-card[id] {
 .balko-site .bk-form--plain .bk-hilfe-opt s {
   text-decoration: line-through;
   text-decoration-thickness: 1px;
-}
-
-.balko-site .bk-form--plain .bk-check.bk-hilfe-opt--visual {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin: 0;
-  cursor: pointer;
-}
-
-.balko-site .bk-form--plain .bk-hilfe-opt--visual .bk-hilfe-opt__media {
-  position: relative;
-  display: block;
-  width: 100%;
-  height: clamp(180px, 19vw, 240px);
-  overflow: hidden;
-  background: #fff;
-}
-
-.balko-site .bk-form--plain .bk-hilfe-opt--visual .bk-hilfe-opt__media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transform: scale(1.04);
-  transition: filter 0.18s ease, transform 0.18s ease;
-}
-
-.balko-site .bk-form--plain .bk-hilfe-opt--visual:hover .bk-hilfe-opt__media img,
-.balko-site .bk-form--plain .bk-hilfe-opt--visual:focus-within .bk-hilfe-opt__media img {
-  filter: brightness(0.78);
-  transform: scale(1);
-}
-
-.balko-site .bk-form--plain .bk-hilfe-opt--visual:has(input[type="checkbox"]:checked) .bk-hilfe-opt__media img {
-  filter: brightness(0.68);
-  transform: scale(1);
-}
-
-.balko-site .bk-form--plain .bk-hilfe-opt--visual.bk-hilfe-opt--open .bk-hilfe-opt__media img {
-  filter: brightness(0.24);
-  transform: scale(1);
-}
-
-.balko-site .bk-hilfe-opt__plus {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  z-index: 4;
-  width: 40px;
-  height: 40px;
-  border: 1px solid rgba(14, 14, 14, 0.25);
-  background: rgba(255, 250, 240, 0.92);
-  color: var(--text);
-  font-size: 1.2rem;
-  cursor: pointer;
-  border-radius: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.15s ease, border-color 0.15s ease;
-  line-height: 1;
-}
-
-.balko-site .bk-hilfe-opt__plus:hover,
-.balko-site .bk-hilfe-opt__plus:focus-visible {
-  background: rgba(240, 238, 230, 1);
-  border-color: var(--text);
-  outline: none;
-}
-
-.balko-site .bk-hilfe-opt__overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
-  display: flex;
-  align-items: flex-end;
-  padding: 24px;
-  box-sizing: border-box;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.22s ease;
-}
-
-.balko-site .bk-hilfe-opt--visual.bk-hilfe-opt--open .bk-hilfe-opt__overlay {
-  opacity: 1;
-}
-
-.balko-site .bk-hilfe-opt__overlay span {
-  margin: 0;
-  font-family: var(--copy);
-  font-size: clamp(0.84rem, 1.1vw, 0.95rem);
-  line-height: 1.5;
-  color: #fff;
-  text-transform: none;
-  letter-spacing: normal;
-}
-
-.balko-site .bk-form--plain .bk-hilfe-opt--visual .bk-hilfe-opt__media input[type="checkbox"] {
-  position: absolute;
-  right: 14px;
-  bottom: 14px;
-  z-index: 2;
-  width: 2rem;
-  height: 2rem;
-  min-width: 2rem;
-  margin: 0;
-  accent-color: var(--accent);
-}
-
-.balko-site .bk-form--plain .bk-hilfe-opt--visual .bk-hilfe-opt__text {
-  padding: 0;
-  text-align: left;
 }
 
 .balko-site .bk-custom-sonstiges-wrap textarea {
@@ -1261,10 +915,7 @@ body.balko-site .bk-blog-card[id] {
 }
 
 .balko-site .bk-field--checks .bk-check-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  padding-left: 0;
+  padding-left: 1.35rem;
 }
 
 .balko-site .bk-form--plain .bk-check {
@@ -1685,20 +1336,6 @@ body.balko-site .bk-blog-card[id] {
 }
 
 @media (max-width: 900px) {
-  .balko-site .bk-howto-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .balko-site .bk-field--checks .bk-check-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .balko-site .bk-howto-card__media {
-    height: clamp(280px, 52vw, 320px);
-    min-height: clamp(280px, 52vw, 320px);
-    max-height: clamp(280px, 52vw, 320px);
-  }
-
   .balko-site .bk-plant-card {
     flex: 0 0 calc(50% - 8px) !important;
   }
@@ -1708,15 +1345,15 @@ body.balko-site .bk-blog-card[id] {
   }
 
   .balko-site .bk-plant-card__media {
-    height: clamp(200px, 38vw, 248px);
-    min-height: clamp(200px, 38vw, 248px);
-    max-height: clamp(200px, 38vw, 248px);
+    height: clamp(280px, 52vw, 320px);
+    min-height: clamp(280px, 52vw, 320px);
+    max-height: clamp(280px, 52vw, 320px);
   }
 
   .balko-site .bk-plant-card.bk-cc-open .bk-plant-card__media {
-    height: clamp(320px, 66vw, 392px);
-    min-height: clamp(320px, 66vw, 392px);
-    max-height: clamp(320px, 66vw, 392px);
+    height: clamp(476px, 88.4vw, 544px);
+    min-height: clamp(476px, 88.4vw, 544px);
+    max-height: clamp(476px, 88.4vw, 544px);
   }
 }
 
@@ -1726,36 +1363,10 @@ body.balko-site .bk-blog-card[id] {
   background: var(--black);
 }
 
-.balko-site.bk-einrichtung-page .bk-nav {
-  border-bottom-color: transparent;
-  background: transparent;
-}
-
-.balko-site.bk-einrichtung-page .bk-nav.is-scrolled {
-  border-bottom-color: rgba(184, 150, 87, 0.28);
-  background: var(--black);
-}
-
-.balko-site.bk-einrichtung-page .bk-nav__links {
-  color: rgba(240, 238, 230, 0.82);
-}
-
-.balko-site.bk-einrichtung-page .bk-nav.is-scrolled .bk-nav__links {
-  color: var(--accent);
-}
-
 .balko-site.bk-subpage .bk-logo,
 .balko-site.bk-subpage .bk-nav__links {
   color: var(--accent);
   font-weight: 700;
-}
-
-.balko-site.bk-subpage.bk-einrichtung-page .bk-nav__links {
-  color: rgba(240, 238, 230, 0.82);
-}
-
-.balko-site.bk-subpage.bk-einrichtung-page .bk-nav.is-scrolled .bk-nav__links {
-  color: var(--accent);
 }
 
 .balko-site.bk-subpage .bk-nav__links a:hover,
@@ -2741,10 +2352,6 @@ body.balko-site .bk-blog-card[id] {
 
   .balko-site .bk-carousel-nav {
     justify-content: flex-end;
-  }
-
-  .balko-site .bk-howto-grid {
-    grid-template-columns: 1fr;
   }
 
   .balko-site .bk-plant-card {

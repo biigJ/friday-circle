@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Fragebogen · BALKO Exteriordesign</title>
-    <meta name="description" content="BALKO Fragebogen: Details zu Pflanzen, Einrichtung und Custom Made — in einer Minute." />
+    <title>Fragebogen · Balkonius</title>
+    <meta name="description" content="Balkonius Fragebogen: Details zu Pflanzen, Einrichtung und Custom Made — in einer Minute." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,9 +15,11 @@
     <link rel="stylesheet" href="balko.css" />
   </head>
   <body class="balko-site bk-subpage">
-    <header class="bk-nav bk-nav--questionnaire" aria-label="BALKO Fragebogen">
+    <header class="bk-nav bk-nav--questionnaire" aria-label="Balkonius Fragebogen">
       <div class="bk-nav__inner">
-        <a class="bk-logo" href="balko.html#top">BALKO Berlin</a>
+        <a class="bk-logo" href="balko.html#top" aria-label="Balkonius Start">
+          <img src="assets/balkonius.svg" alt="Balkonius" />
+        </a>
         <p class="bk-header-tagline">Dein Exteriordesigner</p>
       </div>
     </header>
@@ -232,14 +234,14 @@
 
         var raw = sessionStorage.getItem("balko_einrichtung_step1");
         if (!raw) {
-          window.location.replace("balko.html#einrichtung");
+          window.location.replace("balko-einrichtung.html");
           return;
         }
         var step1 = {};
         try {
           step1 = JSON.parse(raw);
         } catch (e1) {
-          window.location.replace("balko.html#einrichtung");
+          window.location.replace("balko-einrichtung.html");
           return;
         }
         var projektCode = sessionStorage.getItem("balko_project_code") || step1.projekt_code || "";
