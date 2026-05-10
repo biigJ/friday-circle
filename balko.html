@@ -450,6 +450,18 @@
           return String(src).replace(/^\/images\/kombinationen\//, "assets/kombinationen/");
         }
 
+        /** Relative asset URL for CSS url(): encode each path segment (Vercel/Linux-safe; & and spaces in filenames). */
+        function bkEncodeAssetUrl(src) {
+          var s = bkNormalizeImage(src);
+          var q = s.indexOf("?");
+          var path = q >= 0 ? s.slice(0, q) : s;
+          var qs = q >= 0 ? s.slice(q) : "";
+          var encodedPath = path.split("/").map(function (seg) {
+            return seg === "" ? "" : encodeURIComponent(seg);
+          }).join("/");
+          return encodedPath + qs;
+        }
+
         function bkFilterMatchesCombo(combo) {
           var tags = (combo && combo.tags) || {};
           return Object.keys(filterState).every(function (key) {
@@ -545,7 +557,7 @@
           var minPrice = Math.min(prices.s || 0, prices.m || 0, prices.l || 0);
           return '<article class="bk-plant-card" id="bk-pc-' + bkEscapeHtml(combo.id) + '" data-combo-id="' + bkEscapeHtml(combo.id) + '" data-price-60="' + bkEscapeHtml(prices.s || 0) + '" data-price-80="' + bkEscapeHtml(prices.m || 0) + '" data-price-100="' + bkEscapeHtml(prices.l || 0) + '" data-sonne="' + bkEscapeHtml(tags.sonne) + '" data-wind="' + bkEscapeHtml(tags.wind) + '" data-stil="' + bkEscapeHtml(tags.stil) + '">' +
             '<div class="bk-plant-card__media">' +
-              '<div class="bk-plant-card__photo" style="background-image: url(\'' + bkEscapeHtml(bkNormalizeImage(combo.bild)) + '\')"></div>' +
+              '<div class="bk-plant-card__photo" style="background-image: url(' + bkEncodeAssetUrl(combo.bild) + ')"></div>' +
               '<div class="bk-plant-card__shade" aria-hidden="true"></div>' +
               '<button type="button" class="bk-plant-card__plus bk-pc-plus" aria-expanded="false" aria-controls="' + panelId + '">+</button>' +
               '<div class="bk-plant-card__expanded" id="' + panelId + '" role="region">' +
