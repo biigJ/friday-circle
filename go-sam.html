@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>go sam · Aligna · Friday Circle</title>
-    <meta name="description" content="30 Tage eine Gewohnheit — mit Buddy. Keine Push-Nachrichten-Gamification. Waitlist für go sam." />
+    <title>gogogo App · Friday Circle</title>
+    <meta name="description" content="30 Tage eine Gewohnheit — mit Buddy. Keine Push-Nachrichten-Gamification. Waitlist für die gogogo App." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -18,7 +18,7 @@
     <header class="nav" aria-label="Hauptnavigation">
       <div class="nav__inner">
         <div class="pgl-brand-stack">
-          <a href="#top" class="nav__logo gogogo-landing__logo">go sam</a>
+          <a href="#top" class="nav__logo gogogo-landing__logo">gogogo App</a>
           <p class="pgl-parent">
             Ein Produkt bei <a href="https://fridaycircle.club" rel="noopener noreferrer">fridaycircle.club</a>
           </p>
@@ -74,7 +74,7 @@
 
       <section id="ablauf" class="pgl-section" style="background: #eae6dc">
         <div class="gogl-slab-pl">
-          <h2 class="pgl-section-title">Wie go sam funktioniert</h2>
+          <h2 class="pgl-section-title">Wie die gogogo App funktioniert</h2>
           <div class="pgl-steps">
             <article class="pgl-step">
               <span class="pgl-step__n" aria-hidden="true">1</span>
@@ -98,7 +98,7 @@
       <section id="waitlist" class="pgl-section">
         <div class="gogl-slab-pl">
           <h2 class="pgl-section-title">Waitlist</h2>
-          <p class="pgl-section-lead">Träg dich ein — wir melden uns, wenn go sam startet.</p>
+          <p class="pgl-section-lead">Träg dich ein — wir melden uns, wenn die gogogo App startet.</p>
 
           <form id="gosam-waitlist" class="pgl-form" novalidate>
             <div class="pgl-field">
@@ -112,7 +112,7 @@
             <div class="pgl-form-check">
               <input type="checkbox" id="gs-optin" required />
               <label for="gs-optin">
-                Ich bin einverstanden, dass meine E-Mail-Adresse für die Waitlist von go sam gespeichert wird.&nbsp;<a href="datenschutz/index.html">Datenschutz</a>
+                Ich bin einverstanden, dass meine E-Mail-Adresse für die Waitlist der gogogo App gespeichert wird.&nbsp;<a href="datenschutz/index.html">Datenschutz</a>
               </label>
             </div>
             <button type="submit" class="pgl-cta pgl-cta--primary">Auf die Waitlist</button>
@@ -188,7 +188,7 @@
           }
 
           if (!configReady()) {
-            console.warn("[go sam] Supabase noch nicht konfiguriert — speichert nur lokal (Demo)");
+            console.warn("[gogogo App] Supabase noch nicht konfiguriert — speichert nur lokal (Demo)");
             try {
               var stash = JSON.parse(localStorage.getItem("goSamWaitlist_demo") || "[]");
               stash.push({ payload: payload, savedAt: new Date().toISOString() });
