@@ -1,27 +1,14 @@
-# Friday Circle – Website
+# Friday Circle
 
-Statische Seiten für **FRIDAY CIRCLE** (Hintergrund `#EDECE4`, Text `#000000`,
-Akzent Mint `#99F0DD`, Fläche `#18594E`).
+Statische Website für **FRIDAY CIRCLE**. Das Repo ist auf die aktiven Programme reduziert:
 
-```
-friday-circle/
-├─ index.html
-├─ ziele.html
-├─ loesungen.html
-├─ projekte.html
-├─ community.html
-├─ gogogo.html
-├─ styles.css
-├─ assets/
-│  ├─ hero.mp4
-│  ├─ hero-poster.png        ← optional, vor dem Abspielen
-│  ├─ gogogo.mp4             ← z.B. Ziele-Seite
-│  ├─ loesungen.MOV          ← Hauptquelle Lösungen (optional: loesungen.mp4)
-│  ├─ steps.jpg              ← optional (nicht mehr auf der Startseite verwendet)
-│  ├─ haima.mp4 + haima-poster.jpg   ← Projekte
-│  └─ werkhaim.mp4 + werkhaim-poster.jpg
-└─ README.md
-```
+- `gogogo`
+- `cycle training`
+- `gogogo App`
+- `biig Interior`
+- `intellektuell`
+
+Ausgelagerte Projekte wie Balko, Holyprop und Fitness First Social Club liegen nicht mehr in diesem Repo.
 
 ## Lokal öffnen
 
@@ -33,22 +20,28 @@ python3 -m http.server 5173
 # → http://localhost:5173
 ```
 
+## Vercel Deployment
+
+Friday Circle ist ein statisches Vercel-Projekt.
+
+- Framework Preset: `Other`
+- Root Directory: `.`
+- Build Command: leer lassen
+- Output Directory: leer lassen
+- Install Command: leer lassen
+
+Vercel serviert die HTML-Dateien direkt aus dem Repository-Root.
+
 ## Medien
 
 - **Hero-Video:** `assets/hero.mp4` — empfohlen H.264, stumm, Loop, z. B. 1920×1080.
 - **Poster:** `assets/hero-poster.png` (oder `.jpg`) im `<video poster="…">`.
 - **gogogo auf Ziele:** `assets/gogogo.mp4`.
-- **Lösungen:** `assets/loesungen.MOV`; optional `assets/loesungen.mp4` als zweite `<source>` für Browser ohne QuickTime.
-- **Schritte-Bild:** `assets/steps.jpg` — früher für die Startseite; aktuell ungenutzt.
-- **Projekte:** Videos/Poster für haima und werkhaim wie oben; fehlende Dateien führen zu leerem Video — bitte nachlegen.
+- **Lösungen:** `assets/loesungen.MOV`.
+- **biig Interior:** `assets/biigJ-33-kitchen.jpeg`.
+- **Triff Joscha:** `assets/triff-joscha-hero.mp4` und `assets/triff-joscha-hero-poster.png`, falls vorhanden.
 
 ## Schriften
 
 - **Inter** (Google Fonts) — Logo, Navigation, Überschriften, UI.
 - **Georgia** (System) — Fließtext in Hero, Landing-Bridge, Lösungen-Fortsetzung.
-
-## Backup
-
-Der Ordner war zuvor nicht in Git versioniert. Empfehlung: eigenes Repo nur für
-`friday-circle/`, regelmäßig committen und Remote nutzen, damit nichts erneut
-verloren geht.
