@@ -98,7 +98,8 @@
     margin-bottom:18px;
   }
   .fc-life-squares .age-banner-text { font-size:13px; font-weight:300; opacity:.75; flex:1; min-width:200px; }
-  .fc-life-squares .age-nums { display:flex; gap:22px; }
+  .fc-life-squares .age-nums { display:flex; gap:22px; flex-wrap:wrap; }
+  .fc-life-squares .age-stat { min-width:4.5rem; }
   .fc-life-squares .age-stat-val {
     font-family:'Playfair Display',serif; font-style:italic;
     font-size:22px; line-height:1; margin-bottom:2px;

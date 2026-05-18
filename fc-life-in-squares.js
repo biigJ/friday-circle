@@ -2231,6 +2231,7 @@ let activeTab = 'society';
 // ═══════════════════════════════════════════════════════════
 function init() {
   const sel = document.getElementById('birthSel');
+  if (!sel) return;
   for (let y=1950; y<=1995; y++) {
     const o=document.createElement('option');
     o.value=y; o.textContent=y;
@@ -2409,5 +2410,8 @@ function closePanel() {
   activeSq=null;
 }
 
-init();
-</script>
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", init);
+} else {
+  init();
+}
