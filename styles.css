@@ -650,16 +650,18 @@ a {
   letter-spacing: 0.015em;
 }
 
-.landing-graphic-slot {
+.fc-life-squares-embed {
   margin-top: 0;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
   max-width: min(68rem, calc(100% - clamp(40px, 10vw, 100px)));
-  aspect-ratio: 3 / 2;
-  height: auto;
+}
+
+.fc-life-squares-embed .fc-life-squares {
+  max-width: 100%;
+  padding: clamp(20px, 3vw, 40px) clamp(12px, 2.5vw, 24px) clamp(28px, 4vw, 56px);
   border-radius: clamp(10px, 1.2vw, 16px);
-  background: var(--landing-graphic-bg);
   border: 1px solid color-mix(in srgb, var(--landing-graphic-border) 35%, transparent);
 }
 

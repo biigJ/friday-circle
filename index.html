@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="fc-life-in-squares.css" />
     <script>
       (function () {
         try {
@@ -315,7 +316,87 @@
           <p id="sweet-spot-heading" class="landing-after-video__display">
             Hier liegt Dein Sweet Spot irgendwo dazwischen.
           </p>
-          <div class="landing-graphic-slot" aria-label="Platzhalter für Grafik"></div>
+          <div class="fc-life-squares-embed" aria-label="Dein Leben in 90 Jahren — interaktive Übersicht">
+            <div class="fc-life-squares">
+            <!-- CONTROLS -->
+              <div class="controls">
+                <span class="ctrl-label">Geburtsjahr:</span>
+                <select class="birth-select" id="birthSel" onchange="rebuild()"></select>
+
+                <div class="toggle-group" id="modeToggle">
+                  <button class="toggle-btn active" onclick="setMode('neg',this)">↓ Herausforderungen</button>
+                  <button class="toggle-btn" onclick="setMode('pos',this)">↑ Chancen &amp; Wandel</button>
+                  <button class="toggle-btn" onclick="setMode('global',this)">🌍 Welt außerhalb</button>
+                </div>
+
+                <div class="legend" id="legend">
+                  <div class="legend-item"><div class="legend-dot" style="background:var(--sq-pre)"></div>Vor dem Web</div>
+                  <div class="legend-item"><div class="legend-dot" style="background:var(--sq-early)"></div>Frühes Internet</div>
+                  <div class="legend-item"><div class="legend-dot" style="background:var(--sq-social)"></div>Social Media</div>
+                  <div class="legend-item"><div class="legend-dot" style="background:var(--sq-crisis)"></div>Krise</div>
+                  <div class="legend-item"><div class="legend-dot" style="background:var(--sq-future)"></div>Zukunft</div>
+                </div>
+              </div>
+
+              <!-- AGE BANNER -->
+              <div class="age-banner">
+                <div class="age-banner-text" id="bannerTxt">—</div>
+                <div class="age-nums" id="bannerNums"></div>
+              </div>
+
+              <!-- GRID -->
+              <div class="squares-grid" id="grid"></div>
+
+              <!-- DETAIL PANEL -->
+              <div class="detail-panel" id="panel">
+
+                <div class="panel-header">
+                  <div class="panel-year" id="pYear">—</div>
+                  <div class="panel-hdr-right">
+                    <div class="panel-era-tag" id="pEra"></div>
+                    <div class="panel-event" id="pEvent"></div>
+                    <div class="panel-event-sub" id="pSub"></div>
+                  </div>
+                  <button class="panel-close" onclick="closePanel()">×</button>
+                </div>
+
+                <!-- TABS — future years get extra "Was kann ich tun?" tab -->
+                <div class="panel-tabs" id="panelTabs"></div>
+
+                <!-- Tab: Gesellschaft (stats + context) -->
+                <div class="tab-content active" id="tab-society">
+                  <div class="panel-stats" id="pStats"></div>
+                  <div class="insight-grid" id="pInsights"></div>
+                </div>
+
+                <!-- Tab: Positives -->
+                <div class="tab-content" id="tab-pos">
+                  <div class="pos-grid" id="pPos"></div>
+                </div>
+
+                <!-- Tab: Global -->
+                <div class="tab-content" id="tab-global">
+                  <div class="global-grid" id="pGlobal"></div>
+                </div>
+
+                <!-- Tab: Agency (future only) -->
+                <div class="tab-content" id="tab-agency">
+                  <div class="agency-intro" id="pAgencyIntro"></div>
+                  <div class="agency-grid" id="pAgency"></div>
+                </div>
+
+              </div>
+
+              <!-- CTA -->
+              <div class="fc-cta">
+                <div class="fc-cta-text">
+                  <strong>Friday Circle</strong> <span>ist für Menschen, die diesen Zusammenhang erkannt haben — und bewusst wählen. Bewegung, echte Verbindung, digitale Klarheit. In Berlin. Mit echten Menschen.</span>
+                </div>
+                <a class="fc-btn" href="kontakt/index.html">Gespräch beginnen →</a>
+              </div>
+
+            </div>
+          </div>
           <p id="landing-program-intro" class="landing-program-ctas__intro">
             Schnelle, intelligente und persönliche Programme als Kurzinterventionen. Hilf Dir selbst unter
             unserer Anleitung. Gebaut, um es nicht lange nutzen zu müssen.
@@ -374,6 +455,7 @@
       </div>
     </footer>
     <script src="nav.js" defer></script>
+    <script src="fc-life-in-squares.js" defer></script>
     <script>
       (function initFcStoerer() {
         var el = document.getElementById("fc-stoerer");
