@@ -467,36 +467,21 @@ a {
   transition: background 0.15s ease, color 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
-.nav__cta-split:hover,
-.nav__cta-split:focus-within {
-  transform: translateY(-1px);
-}
-
-.nav__cta-split:hover .nav__cta-primary.cta-pill--gogogo,
-.nav__cta-split:hover .nav__cta-toggle,
-.nav__cta-split:focus-within .nav__cta-primary.cta-pill--gogogo,
-.nav__cta-split:focus-within .nav__cta-toggle,
+/* Grün nur beim Hover/Focus auf „gogogo“ (links), nicht auf dem Pfeil */
 .nav__cta-primary.cta-pill--gogogo:hover,
 .nav__cta-primary.cta-pill--gogogo:focus-visible {
   background: var(--surface);
   color: var(--accent);
   border-color: var(--surface);
   border-right: none;
-  box-shadow: 0 1px 0 color-mix(in srgb, #000 22%, transparent);
-}
-
-.nav__cta-split:hover .nav__cta-toggle,
-.nav__cta-split:focus-within .nav__cta-toggle {
-  border-left: 1px solid color-mix(in srgb, #fff 32%, var(--surface));
-}
-
-.nav__cta-split:hover .nav__cta-primary.cta-pill--gogogo,
-.nav__cta-split:focus-within .nav__cta-primary.cta-pill--gogogo,
-.nav__cta-primary.cta-pill--gogogo:hover,
-.nav__cta-primary.cta-pill--gogogo:focus-visible {
   box-shadow: 0 6px 22px color-mix(in srgb, var(--surface) 42%, transparent);
   filter: none;
-  transform: none;
+  transform: translateY(-1px);
+}
+
+.nav__cta-primary.cta-pill--gogogo:hover + .nav__cta-arrow .nav__cta-toggle,
+.nav__cta-primary.cta-pill--gogogo:focus-visible + .nav__cta-arrow .nav__cta-toggle {
+  border-left-color: color-mix(in srgb, #fff 32%, var(--surface));
 }
 
 /* Hero — linke Kante = Logo; Lede unten bündig mit Headline */
