@@ -620,60 +620,68 @@ a {
   font-size: clamp(calc(18px * 0.6), calc(3.75vw * 0.6), calc(48px * 0.6));
 }
 
-/* Programm-Hero-Slider (Landing, Holyprop-Layout) */
+/* Programm-Hero-Slider (Landing) */
 .landing-bridge--programs {
   max-width: none;
   padding-left: 0;
   padding-right: 0;
-  padding-bottom: 0;
+  padding-bottom: clamp(280px, 42vh, 520px);
+  overflow: visible;
+}
+
+.fc-program-hero-stage {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 var(--nav-pad-x);
 }
 
 .landing-bridge--programs .landing-bridge__rule {
-  max-width: var(--content-max);
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 0;
+  max-width: none;
+  width: 100%;
+  margin: 0 0 0;
 }
 
 .fc-program-hero {
-  --fc-hero-grow: 0;
-  position: relative;
-  min-height: 100vh;
-  min-height: 100dvh;
+  position: sticky;
+  top: var(--fc-nav-h, 72px);
+  z-index: 2;
+  min-height: calc(100vh - var(--fc-nav-h, 72px));
+  min-height: calc(100dvh - var(--fc-nav-h, 72px));
   display: flex;
   align-items: center;
   overflow: hidden;
   background: #0a0a0a;
   margin-top: clamp(20px, 3vw, 32px);
-  width: min(
-    100%,
-    calc(var(--content-max) + (100vw - var(--content-max)) * var(--fc-hero-grow))
-  );
+  width: min(calc(100vw - 2 * var(--nav-pad-x)), var(--content-max));
   max-width: 100vw;
   margin-left: auto;
   margin-right: auto;
   border-radius: clamp(10px, 1.2vw, 16px);
+  box-sizing: border-box;
   transition:
-    width 0.12s linear,
-    margin 0.12s linear,
-    border-radius 0.12s linear;
+    width 0.1s linear,
+    margin 0.1s linear,
+    border-radius 0.1s linear;
 }
 
 .fc-program-hero.is-flush {
-  width: 100vw;
-  max-width: none;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
   border-radius: 0;
 }
 
 @media (max-width: 760px) {
+  .landing-bridge--programs {
+    padding-bottom: 0;
+  }
+
   .fc-program-hero {
-    --fc-hero-grow: 1;
-    width: 100vw;
+    position: relative;
+    top: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    width: 100vw !important;
     max-width: none;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
     border-radius: 0;
   }
 }
