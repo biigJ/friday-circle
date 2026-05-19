@@ -6,7 +6,7 @@ Statische Website für **FRIDAY CIRCLE**. Das Repo ist auf die aktiven Programme
 - `cycle training`
 - `gogogo App`
 - `biig Interior`
-- `Programmierung` (`programmierung.html`, Geschichte unter `programmierung/geschichte.html`)
+- `Geschichte` (`programmierung.html`, Programmierung unter `programmierung/geschichte.html`)
 
 Ausgelagerte Projekte wie Balko, Holyprop und Fitness First Social Club liegen nicht mehr in diesem Repo.
 

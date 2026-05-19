@@ -30,7 +30,7 @@
 
   function start() {
     stop();
-    timer = window.setInterval(next, 5500);
+    timer = window.setInterval(next, 3000);
   }
 
   function stop() {
@@ -53,4 +53,36 @@
 
   show(0);
   start();
+
+  var mqFlush = window.matchMedia("(max-width: 760px)");
+  var navEl = document.querySelector("header.nav");
+
+  function navHeight() {
+    return navEl ? navEl.getBoundingClientRect().height : 72;
+  }
+
+  function updateHeroWidth() {
+    if (mqFlush.matches) {
+      root.style.setProperty("--fc-hero-grow", "1");
+      root.classList.add("is-flush");
+      return;
+    }
+    var rect = root.getBoundingClientRect();
+    var nh = navHeight();
+    var growStart = window.innerHeight * 0.72;
+    var range = Math.max(growStart - nh, 1);
+    var progress = 1 - (rect.top - nh) / range;
+    progress = Math.min(1, Math.max(0, progress));
+    root.style.setProperty("--fc-hero-grow", String(progress));
+    root.classList.toggle("is-flush", progress >= 0.995);
+  }
+
+  updateHeroWidth();
+  window.addEventListener("scroll", updateHeroWidth, { passive: true });
+  window.addEventListener("resize", updateHeroWidth, { passive: true });
+  if (mqFlush.addEventListener) {
+    mqFlush.addEventListener("change", updateHeroWidth);
+  } else if (mqFlush.addListener) {
+    mqFlush.addListener(updateHeroWidth);
+  }
 })();
