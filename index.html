@@ -295,41 +295,44 @@
         <div class="landing-after-video__inner">
           <div class="fc-life-squares-embed" aria-label="Dein Leben in 90 Jahren — interaktive Übersicht">
             <div class="fc-life-squares">
-              <h2 id="fc-life-headline" class="headline">
-                Dein Leben verläuft parallel<br />zum Leben des Internets.
-              </h2>
-              <p class="subline">
-                90 Quadrate — 90 Jahre. Klick auf ein Jahr und sieh, was gerade in der Welt passierte: was es
-                schwer macht, und was es möglich macht.
-              </p>
-              <!-- CONTROLS -->
-              <div class="controls">
-                <span class="ctrl-label">Geburtsjahr:</span>
-                <select class="birth-select" id="birthSel" onchange="rebuild()"></select>
+              <div class="fc-life-layout">
+                <div class="fc-life-layout__intro">
+                  <h2 id="fc-life-headline" class="headline">
+                    Dein Leben verläuft parallel<br />zum Leben des Internets.
+                  </h2>
+                  <p class="subline">
+                    90 Quadrate — 90 Jahre. Klick auf ein Jahr und sieh, was gerade in der Welt passierte: was es
+                    schwer macht, und was es möglich macht.
+                  </p>
+                  <div class="controls">
+                    <span class="ctrl-label">Geburtsjahr:</span>
+                    <select class="birth-select" id="birthSel" onchange="rebuild()"></select>
 
-                <div class="toggle-group" id="modeToggle">
-                  <button class="toggle-btn active" onclick="setMode('neg',this)">↓ Herausforderungen</button>
-                  <button class="toggle-btn" onclick="setMode('pos',this)">↑ Chancen &amp; Wandel</button>
-                  <button class="toggle-btn" onclick="setMode('global',this)">🌍 Welt außerhalb</button>
+                    <div class="toggle-group" id="modeToggle">
+                      <button class="toggle-btn active" onclick="setMode('neg',this)">↓ Herausforderungen</button>
+                      <button class="toggle-btn" onclick="setMode('pos',this)">↑ Chancen &amp; Wandel</button>
+                      <button class="toggle-btn" onclick="setMode('global',this)">🌍 Welt außerhalb</button>
+                    </div>
+
+                    <div class="legend" id="legend">
+                      <div class="legend-item"><div class="legend-dot" style="background:var(--sq-pre)"></div>Vor dem Web</div>
+                      <div class="legend-item"><div class="legend-dot" style="background:var(--sq-early)"></div>Frühes Internet</div>
+                      <div class="legend-item"><div class="legend-dot" style="background:var(--sq-social)"></div>Social Media</div>
+                      <div class="legend-item"><div class="legend-dot" style="background:var(--sq-crisis)"></div>Krise</div>
+                      <div class="legend-item"><div class="legend-dot" style="background:var(--sq-future)"></div>Zukunft</div>
+                    </div>
+                  </div>
                 </div>
 
-                <div class="legend" id="legend">
-                  <div class="legend-item"><div class="legend-dot" style="background:var(--sq-pre)"></div>Vor dem Web</div>
-                  <div class="legend-item"><div class="legend-dot" style="background:var(--sq-early)"></div>Frühes Internet</div>
-                  <div class="legend-item"><div class="legend-dot" style="background:var(--sq-social)"></div>Social Media</div>
-                  <div class="legend-item"><div class="legend-dot" style="background:var(--sq-crisis)"></div>Krise</div>
-                  <div class="legend-item"><div class="legend-dot" style="background:var(--sq-future)"></div>Zukunft</div>
+                <div class="fc-life-layout__grid">
+                  <div class="squares-grid" id="grid"></div>
                 </div>
               </div>
 
-              <!-- AGE BANNER -->
               <div class="age-banner">
                 <div class="age-banner-text" id="bannerTxt">—</div>
                 <div class="age-nums" id="bannerNums"></div>
               </div>
-
-              <!-- GRID -->
-              <div class="squares-grid" id="grid"></div>
 
               <!-- DETAIL PANEL -->
               <div class="detail-panel" id="panel">

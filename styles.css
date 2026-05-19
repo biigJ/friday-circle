@@ -655,14 +655,15 @@ a {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  max-width: min(68rem, calc(100% - clamp(40px, 10vw, 100px)));
+  max-width: min(72rem, calc(100% - clamp(32px, 8vw, 80px)));
 }
 
 .fc-life-squares-embed .fc-life-squares {
   max-width: 100%;
-  padding: clamp(20px, 3vw, 40px) clamp(12px, 2.5vw, 24px) clamp(28px, 4vw, 56px);
+  padding: 0;
   border-radius: clamp(10px, 1.2vw, 16px);
   border: 1px solid color-mix(in srgb, var(--landing-graphic-border) 35%, transparent);
+  overflow: hidden;
 }
 
 .landing-program-ctas__intro {
