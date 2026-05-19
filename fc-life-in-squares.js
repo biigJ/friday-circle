@@ -2241,11 +2241,28 @@ function init() {
   rebuild();
 }
 
+function modeToTab(m) {
+  return m === 'neg' ? 'society' : m === 'pos' ? 'pos' : 'global';
+}
+
+function tabToMode(id) {
+  if (id === 'society') return 'neg';
+  if (id === 'pos') return 'pos';
+  if (id === 'global') return 'global';
+  return mode;
+}
+
+function syncModeToggle() {
+  document.querySelectorAll('#modeToggle .toggle-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.mode === mode);
+  });
+}
+
 function setMode(m, btn) {
   mode = m;
-  document.querySelectorAll('#modeToggle .toggle-btn').forEach(b=>b.classList.remove('active'));
+  activeTab = modeToTab(m);
+  document.querySelectorAll('#modeToggle .toggle-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-  // refresh panel if open
   if (activeSq) {
     const year = parseInt(activeSq.dataset.year);
     renderPanel(year, activeSq);
@@ -2279,7 +2296,7 @@ function renderGrid() {
     const e = era(year);
     const lived = year<=NOW;
     const div=document.createElement('div');
-    div.className=`sq ${ERA_DEF[e].cls}${lived&&e!=='NOW'?' sq-lived':''}`;
+    div.className=`sq ${ERA_DEF[e].cls} ${year>NOW?'sq-future':'sq-lived'}`;
     div.dataset.year=year;
     div.innerHTML=`<span class="sq-lbl">${age}</span>`;
     div.addEventListener('click',()=>{ activeSq=div; renderPanel(year,div); });
@@ -2288,7 +2305,8 @@ function renderGrid() {
 }
 
 function renderPanel(year, sqEl) {
-  // mark active
+  activeTab = modeToTab(mode);
+
   document.querySelectorAll('.sq').forEach(s=>s.classList.remove('active'));
   sqEl.classList.add('active');
   activeSq=sqEl;
@@ -2394,7 +2412,11 @@ function renderPanel(year, sqEl) {
 }
 
 function switchTab(id) {
-  activeTab=id;
+  activeTab = id;
+  if (id === 'society' || id === 'pos' || id === 'global') {
+    mode = tabToMode(id);
+    syncModeToggle();
+  }
   document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
   document.querySelectorAll('.ptab').forEach(b=>b.classList.remove('active'));
   const el=document.getElementById(`tab-${id}`);

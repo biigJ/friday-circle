@@ -309,17 +309,18 @@
                     <select class="birth-select" id="birthSel" onchange="rebuild()"></select>
 
                     <div class="toggle-group" id="modeToggle">
-                      <button class="toggle-btn active" onclick="setMode('neg',this)">↓ Herausforderungen</button>
-                      <button class="toggle-btn" onclick="setMode('pos',this)">↑ Chancen &amp; Wandel</button>
-                      <button class="toggle-btn" onclick="setMode('global',this)">🌍 Welt außerhalb</button>
+                      <button type="button" class="toggle-btn active" data-mode="neg" onclick="setMode('neg',this)">↓ Herausforderungen</button>
+                      <button type="button" class="toggle-btn" data-mode="pos" onclick="setMode('pos',this)">↑ Chancen &amp; Wandel</button>
+                      <button type="button" class="toggle-btn" data-mode="global" onclick="setMode('global',this)">🌍 Welt außerhalb</button>
                     </div>
 
                     <div class="legend" id="legend">
-                      <div class="legend-item"><div class="legend-dot" style="background:var(--sq-pre)"></div>Vor dem Web</div>
-                      <div class="legend-item"><div class="legend-dot" style="background:var(--sq-early)"></div>Frühes Internet</div>
-                      <div class="legend-item"><div class="legend-dot" style="background:var(--sq-social)"></div>Social Media</div>
-                      <div class="legend-item"><div class="legend-dot" style="background:var(--sq-crisis)"></div>Krise</div>
-                      <div class="legend-item"><div class="legend-dot" style="background:var(--sq-future)"></div>Zukunft</div>
+                      <div class="legend-item"><div class="legend-dot"></div>Vor dem Web</div>
+                      <div class="legend-item"><div class="legend-dot legend-dot--early"></div>Frühes Internet</div>
+                      <div class="legend-item"><div class="legend-dot legend-dot--social"></div>Social Media</div>
+                      <div class="legend-item"><div class="legend-dot legend-dot--crisis"></div>Krise</div>
+                      <div class="legend-item"><div class="legend-dot legend-dot--now"></div>Heute</div>
+                      <div class="legend-item"><div class="legend-dot legend-dot--future"></div>Zukunft</div>
                     </div>
                   </div>
                 </div>
