@@ -17,12 +17,60 @@
     }
   }
 
-  function fetchPartial(name) {
-    var url = new URL("partials/" + name, partialBaseHref());
-    return fetch(url.href).then(function (r) {
-      if (!r.ok) throw new Error("partial " + name + " " + r.status);
-      return r.text();
+  function partialKey(name) {
+    return name.replace(/\.html$/, "");
+  }
+
+  function ensureSiteBase() {
+    var el = document.querySelector("base[data-fc-site-root]");
+    if (!el) {
+      el = document.createElement("base");
+      el.setAttribute("data-fc-site-root", "");
+      document.head.insertBefore(el, document.head.firstChild);
+    }
+    el.href = partialBaseHref();
+  }
+
+  function loadPartialScript(name) {
+    var key = partialKey(name);
+    if (window.FC_PARTIAL_HTML && window.FC_PARTIAL_HTML[key]) {
+      return Promise.resolve(window.FC_PARTIAL_HTML[key]);
+    }
+    return new Promise(function (resolve, reject) {
+      var s = document.createElement("script");
+      s.src = new URL("partials/" + key + ".js", partialBaseHref()).href;
+      s.onload = function () {
+        if (window.FC_PARTIAL_HTML && window.FC_PARTIAL_HTML[key]) {
+          resolve(window.FC_PARTIAL_HTML[key]);
+        } else {
+          reject(new Error("partial " + key + " missing export"));
+        }
+      };
+      s.onerror = function () {
+        reject(new Error("partial " + key + " script failed"));
+      };
+      document.head.appendChild(s);
     });
+  }
+
+  function fetchPartial(name) {
+    if (location.protocol === "file:") {
+      return loadPartialScript(name);
+    }
+    var url = new URL("partials/" + name, partialBaseHref());
+    return fetch(url.href)
+      .then(function (r) {
+        if (!r.ok) throw new Error("partial " + name + " " + r.status);
+        return r.text();
+      })
+      .catch(function () {
+        return loadPartialScript(name);
+      });
+  }
+
+  function chromeReady() {
+    ensureSiteBase();
+    document.dispatchEvent(new CustomEvent("fc-chrome-ready"));
   }
 
   function injectSiteChrome() {
@@ -44,14 +92,17 @@
       );
     }
     if (!jobs.length) {
+      chromeReady();
       bindNav();
       return;
     }
     Promise.all(jobs)
       .then(function () {
+        chromeReady();
         bindNav();
       })
       .catch(function () {
+        chromeReady();
         bindNav();
       });
   }
