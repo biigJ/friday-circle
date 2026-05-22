@@ -63,6 +63,7 @@
     root.classList.remove("is-flush");
     document.documentElement.style.setProperty("--fc-nav-h", navHeight() + "px");
     applyDesktopWidth(scrollProgress());
+    syncTileRowHeights();
   }
 
   updateHeroWidth();
@@ -88,6 +89,18 @@
     scaler.appendChild(head);
     scaler.appendChild(body);
   });
+
+  function syncTileRowHeights() {
+    var probe = tileGrid.querySelector(".gogl-tile");
+    if (!probe) return;
+    var rowH = Math.round((probe.offsetWidth * 3) / 5);
+    if (rowH > 0) {
+      tileGrid.style.setProperty("--gogl-row-h", rowH + "px");
+    }
+  }
+
+  syncTileRowHeights();
+  window.addEventListener("resize", syncTileRowHeights, { passive: true });
 
   var BG_TOP_PAD = 8;
   var BG_BOTTOM_PAD = 12;
@@ -151,27 +164,15 @@
     }
 
     requestAnimationFrame(function () {
-      requestAnimationFrame(function () {
-        clearTilePosition(tile);
-        requestAnimationFrame(function () {
-          var targetTop = getFrameTop();
-          var scalerTop = scaler.getBoundingClientRect().top;
-          tile.style.setProperty("--gogl-tile-shift-y", Math.round(targetTop - scalerTop) + "px");
-          requestAnimationFrame(function () {
-            fitBackgroundScaler(scaler, targetTop);
-          });
-        });
-      });
+      var targetTop = getFrameTop();
+      var scalerTop = scaler.getBoundingClientRect().top;
+      tile.style.setProperty("--gogl-tile-shift-y", Math.round(targetTop - scalerTop) + "px");
+      fitBackgroundScaler(scaler, targetTop);
     });
   }
 
   function afterExpand(tile) {
-    updateOverlayClass();
     alignExpandedTile(tile);
-    window.setTimeout(function () {
-      updateOverlayClass();
-      alignExpandedTile(tile);
-    }, 50);
   }
 
   function pauseSlider() {
@@ -254,12 +255,17 @@
     });
   }
 
+  var resizeAlignTimer;
   window.addEventListener(
     "resize",
     function () {
-      tileGrid.querySelectorAll(".gogl-tile").forEach(function (t) {
-        if (isExpanded(t)) alignExpandedTile(t);
-      });
+      syncTileRowHeights();
+      window.clearTimeout(resizeAlignTimer);
+      resizeAlignTimer = window.setTimeout(function () {
+        tileGrid.querySelectorAll(".gogl-tile").forEach(function (t) {
+          if (t.getAttribute("data-state") === "background") alignExpandedTile(t);
+        });
+      }, 120);
     },
     { passive: true }
   );

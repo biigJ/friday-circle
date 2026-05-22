@@ -684,17 +684,20 @@
         justify-content: center;
         overflow: visible;
       }
+      /* LAYOUT FREEZE (2026-05-22): 0,7× am Grid, stage-Zentrierung, Läufer-shift,
+         feste Zeilenhöhe (--gogl-row-h), Scaler immer absolut → kein Reflow bei Popup.
+         Siehe docs/gogogo-factfulness-layout.md */
       .gogl-tile-grid {
         --gogl-tile-font-scale: 0.8;
         --gogl-tile-visual-scale: 0.7;
-        /* Grid ist 0,7× → Popup-Scaler 2× = Doppelkachel, Schrift 50 % = gleiche Lesegröße */
         --gogl-popup-scale: 2;
         --gogl-gap: clamp(8px, 1.15vw, 12px);
         --gogl-tile-shift: calc((100% - 2 * var(--gogl-gap)) / 6 + var(--gogl-gap) / 2);
+        --gogl-row-h: auto;
         position: relative;
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        grid-template-rows: repeat(4, auto);
+        grid-template-rows: repeat(4, var(--gogl-row-h));
         gap: var(--gogl-gap);
         width: 100%;
         max-width: 100%;
@@ -718,10 +721,10 @@
       .gogl-tile-grid > .gogl-tile:nth-child(10) { grid-row: 4; grid-column: 1; }
       .gogl-tile-grid > .gogl-tile:nth-child(11) { grid-row: 4; grid-column: 2; }
       .gogl-tile-grid > .gogl-tile:nth-child(12) { grid-row: 4; grid-column: 3; }
-      .gogl-tile-grid .gogl-tile[data-state="closed"] {
-        aspect-ratio: 5 / 3;
-        width: 100%;
-        height: auto;
+      .gogl-tile-grid > .gogl-tile {
+        height: var(--gogl-row-h);
+        min-height: var(--gogl-row-h);
+        max-height: var(--gogl-row-h);
         align-self: start;
       }
       /* Läuferverband: nur im geschlossenen Zustand */
@@ -735,28 +738,26 @@
         --gogl-tile-shift-y: 0px;
         position: relative;
         width: 100%;
-        aspect-ratio: 5 / 3;
-        height: auto;
         overflow: visible;
         align-self: start;
-        padding: 0;
         background: transparent;
         box-shadow: none;
         z-index: 25;
         cursor: default;
         transform: none;
       }
-      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"]::after,
-      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"]::after {
-        display: none;
-      }
+      /* Läufer-Platzhalter: gleiche Verschiebung wie geschlossene Kacheln */
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"]:nth-child(6n + 4),
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"]:nth-child(6n + 5),
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"]:nth-child(6n + 6),
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"]:nth-child(6n + 4),
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"]:nth-child(6n + 5),
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"]:nth-child(6n + 6) {
-        transform: none;
+        transform: translateX(var(--gogl-tile-shift));
+      }
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"]::after,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"]::after {
+        display: none;
       }
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler,
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] > .gogl-tile__scaler {
@@ -809,51 +810,83 @@
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"]:nth-child(6n + 4) > .gogl-tile__scaler,
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"]:nth-child(6n + 5) > .gogl-tile__scaler,
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"]:nth-child(6n + 6) > .gogl-tile__scaler {
-        transform: translateX(calc(-50% + var(--gogl-tile-shift))) translateY(-50%)
-          scale(var(--gogl-popup-scale));
+        transform: translate(-50%, -50%) scale(var(--gogl-popup-scale));
       }
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"]:nth-child(6n + 4) > .gogl-tile__scaler,
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"]:nth-child(6n + 5) > .gogl-tile__scaler,
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"]:nth-child(6n + 6) > .gogl-tile__scaler {
-        transform: translateX(calc(-50% + var(--gogl-tile-shift)))
-          translateY(var(--gogl-tile-shift-y)) scale(var(--gogl-popup-scale));
+        transform: translateX(-50%) translateY(var(--gogl-tile-shift-y))
+          scale(var(--gogl-popup-scale));
       }
-      /* 50 % Schrift + 100 % Breite: wirkt nach Popup-Scale wie geschlossene Kachel, Text bricht um */
-      .gogl-tile__scaler {
+      /* Scaler nie im Grid-Fluss — Zellenhöhe bleibt konstant (geschlossen + Popup) */
+      .gogl-tile > .gogl-tile__scaler {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: stretch;
         width: 100%;
         max-width: 100%;
         min-width: 0;
         box-sizing: border-box;
+        overflow: hidden;
+        z-index: 1;
       }
-      /* Popup-Text: gleiche Lesegröße wie Kachel (÷ popup-scale, Feld bleibt scale(2)) */
-      .gogl-tile-grid.is-tile-overlay-active .gogl-tile__scaler .gogl-tile__title {
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile .gogl-tile__body,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile .gogl-tile__bg {
+        transition: none !important;
+      }
+      /* Popup-Text nur in geöffneter Kachel (nicht auf geschlossenen Kacheln mit Scaler) */
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler .gogl-tile__title,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] > .gogl-tile__scaler .gogl-tile__title {
         font-size: clamp(
           calc(1.19rem * var(--gogl-tile-font-scale, 1) / var(--gogl-popup-scale)),
           calc(2.01vw * var(--gogl-tile-font-scale, 1) / var(--gogl-popup-scale)),
           calc(1.53rem * var(--gogl-tile-font-scale, 1) / var(--gogl-popup-scale))
         );
       }
-      .gogl-tile-grid.is-tile-overlay-active .gogl-tile__scaler .gogl-tile__body p {
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler .gogl-tile__body p,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] > .gogl-tile__scaler .gogl-tile__body p {
         font-size: clamp(
           calc(0.84rem / var(--gogl-popup-scale)),
           calc(1.12vw / var(--gogl-popup-scale)),
           calc(0.98rem / var(--gogl-popup-scale))
         );
       }
-      .gogl-tile-grid.is-tile-overlay-active .gogl-tile__scaler .gogl-tile__bg h4 {
-        font-size: calc(0.62rem / var(--gogl-popup-scale));
-      }
-      .gogl-tile-grid.is-tile-overlay-active .gogl-tile__scaler .gogl-tile__bg p,
-      .gogl-tile-grid.is-tile-overlay-active .gogl-tile__scaler .gogl-tile__bg li {
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler .gogl-tile__bg h4,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] > .gogl-tile__scaler .gogl-tile__bg h4 {
         font-size: clamp(
-          calc(0.78rem / var(--gogl-popup-scale)),
-          calc(1.02vw / var(--gogl-popup-scale)),
-          calc(0.9rem / var(--gogl-popup-scale))
+          calc(0.62rem / var(--gogl-popup-scale)),
+          calc(0.85vw / var(--gogl-popup-scale)),
+          calc(0.72rem / var(--gogl-popup-scale))
         );
       }
-      .gogl-tile-grid.is-tile-overlay-active .gogl-tile__scaler .gogl-tile__bg-btn,
-      .gogl-tile-grid.is-tile-overlay-active .gogl-tile__scaler .gogl-tile__cta-mail {
-        font-size: calc(0.72rem / var(--gogl-popup-scale));
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler .gogl-tile__bg p,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] > .gogl-tile__scaler .gogl-tile__bg p {
+        font-size: clamp(
+          calc(0.72rem / var(--gogl-popup-scale)),
+          calc(0.95vw / var(--gogl-popup-scale)),
+          calc(0.84rem / var(--gogl-popup-scale))
+        );
+      }
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler .gogl-tile__bg li,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] > .gogl-tile__scaler .gogl-tile__bg li {
+        font-size: clamp(
+          calc(0.68rem / var(--gogl-popup-scale)),
+          calc(0.88vw / var(--gogl-popup-scale)),
+          calc(0.78rem / var(--gogl-popup-scale))
+        );
+      }
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler .gogl-tile__bg-btn,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] > .gogl-tile__scaler .gogl-tile__bg-btn,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler .gogl-tile__cta-mail,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] > .gogl-tile__scaler .gogl-tile__cta-mail {
+        font-size: clamp(
+          calc(0.68rem / var(--gogl-popup-scale)),
+          calc(0.9vw / var(--gogl-popup-scale)),
+          calc(0.78rem / var(--gogl-popup-scale))
+        );
       }
       .gogl-tile[data-state="open"] .gogl-tile__head,
       .gogl-tile[data-state="open"] .gogl-tile__body,
@@ -1025,10 +1058,7 @@
         position: relative;
         isolation: isolate;
         transform-origin: center center;
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: flex-end;
+        display: block;
         text-align: left;
         font-family: var(--font-sans);
         color: rgba(255, 255, 255, 0.92);
@@ -1116,6 +1146,7 @@
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] .gogl-tile__body {
         max-height: 4000px;
         padding-top: clamp(12px, 1.4vw, 16px);
+        transition: none;
       }
       .gogl-tile__body p {
         margin: 0;
@@ -1170,11 +1201,12 @@
         padding-top: 0;
         border-top: none;
       }
-      .gogl-tile[data-state="background"] .gogl-tile__bg {
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] .gogl-tile__bg {
         max-height: 4000px;
         margin-top: clamp(14px, 1.6vw, 18px);
         padding-top: clamp(14px, 1.6vw, 18px);
         border-top: 1px dashed rgba(255, 255, 255, 0.14);
+        transition: none;
       }
       .gogl-tile__bg h4 {
         margin: 0 0 8px;
