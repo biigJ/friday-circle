@@ -1,0 +1,320 @@
+(function initGoglJoschaGrow() {
+  var root = document.getElementById("gogl-joscha-grow");
+  if (!root) return;
+
+  var mqFlush = window.matchMedia("(max-width: 760px)");
+  var navEl = document.querySelector("header.nav");
+
+  function navHeight() {
+    return navEl ? navEl.getBoundingClientRect().height : 72;
+  }
+
+  function boxedWidth() {
+    var el = document.documentElement;
+    var pad = 48;
+    var probe = document.createElement("div");
+    probe.style.cssText = "position:absolute;visibility:hidden;padding:0 var(--nav-pad-x);";
+    document.body.appendChild(probe);
+    pad = parseFloat(getComputedStyle(probe).paddingLeft) || pad;
+    document.body.removeChild(probe);
+    var max = parseFloat(getComputedStyle(el).getPropertyValue("--content-max")) || 1280;
+    return Math.max(0, Math.min(window.innerWidth, max) - pad * 2);
+  }
+
+  function applyMobileFlush() {
+    root.style.width = "";
+    root.classList.add("is-flush");
+  }
+
+  function applyDesktopWidth(progress) {
+    var boxed = boxedWidth();
+    var full = window.innerWidth;
+    var w = boxed + (full - boxed) * progress;
+    var flush = progress >= 0.995;
+
+    root.style.width = Math.round(w) + "px";
+    root.classList.toggle("is-flush", flush);
+    if (flush) {
+      root.style.borderRadius = "0";
+    } else {
+      root.style.removeProperty("border-radius");
+    }
+  }
+
+  function scrollProgress() {
+    var nh = navHeight();
+    var rect = root.getBoundingClientRect();
+    var growStart = window.innerHeight * 0.72;
+    var range = Math.max(growStart - nh, 1);
+
+    if (rect.top >= growStart) return 0;
+    if (rect.top <= nh) return 1;
+    return 1 - (rect.top - nh) / range;
+  }
+
+  function updateHeroWidth() {
+    navEl = document.querySelector("header.nav");
+
+    if (mqFlush.matches) {
+      applyMobileFlush();
+      return;
+    }
+
+    root.classList.remove("is-flush");
+    document.documentElement.style.setProperty("--fc-nav-h", navHeight() + "px");
+    applyDesktopWidth(scrollProgress());
+  }
+
+  updateHeroWidth();
+  window.addEventListener("scroll", updateHeroWidth, { passive: true });
+  window.addEventListener("resize", updateHeroWidth, { passive: true });
+  if (mqFlush.addEventListener) {
+    mqFlush.addEventListener("change", updateHeroWidth);
+  } else if (mqFlush.addListener) {
+    mqFlush.addListener(updateHeroWidth);
+  }
+
+  var tileGrid = document.getElementById("gogl-tile-grid");
+  if (!tileGrid) return;
+
+  tileGrid.querySelectorAll(".gogl-tile").forEach(function (tile) {
+    if (tile.querySelector(".gogl-tile__scaler")) return;
+    var head = tile.querySelector(".gogl-tile__head");
+    var body = tile.querySelector(".gogl-tile__body");
+    if (!head || !body) return;
+    var scaler = document.createElement("div");
+    scaler.className = "gogl-tile__scaler";
+    tile.insertBefore(scaler, head);
+    scaler.appendChild(head);
+    scaler.appendChild(body);
+  });
+
+  var gridRowH = null;
+  var overlayRowHFrozen = false;
+  var BG_TOP_PAD = 8;
+  var BG_BOTTOM_PAD = 12;
+
+  function isExpanded(tile) {
+    var state = tile.getAttribute("data-state") || "closed";
+    return state === "open" || state === "background";
+  }
+
+  function measureRowHeight() {
+    var ref = tileGrid.querySelector(".gogl-tile");
+    if (!ref) return 0;
+    var w = ref.offsetWidth;
+    if (w > 0) return Math.round((w * 3) / 5);
+    return ref.offsetHeight || 0;
+  }
+
+  function applyGridRowHeight(force) {
+    if (overlayRowHFrozen && gridRowH && !force) {
+      tileGrid.style.setProperty("--gogl-row-h", gridRowH + "px");
+      return;
+    }
+    if (!force && gridRowH) {
+      tileGrid.style.setProperty("--gogl-row-h", gridRowH + "px");
+      return;
+    }
+    var h = measureRowHeight();
+    if (h > 0) {
+      gridRowH = h;
+      tileGrid.style.setProperty("--gogl-row-h", h + "px");
+    }
+  }
+
+  function freezeGridRowHeight() {
+    if (!gridRowH) applyGridRowHeight(true);
+    overlayRowHFrozen = true;
+  }
+
+  function updateOverlayClass() {
+    var any = tileGrid.querySelector(
+      '.gogl-tile[data-state="open"], .gogl-tile[data-state="background"]'
+    );
+    var active = !!any;
+    tileGrid.classList.toggle("is-tile-overlay-active", active);
+    if (active) freezeGridRowHeight();
+    else applyGridRowHeight();
+  }
+
+  function clearTilePosition(tile) {
+    tile.style.removeProperty("--gogl-tile-shift-y");
+  }
+
+  function getFrameTop() {
+    var dots = root.querySelector(".gogl-program-slider__dots");
+    var frameRect = root.getBoundingClientRect();
+    return dots ? dots.getBoundingClientRect().bottom + BG_TOP_PAD : frameRect.top + 14;
+  }
+
+  function getContainerBottom() {
+    return root.getBoundingClientRect().bottom - BG_BOTTOM_PAD;
+  }
+
+  function clearScalerMaxHeight(scaler) {
+    if (!scaler) return;
+    scaler.style.removeProperty("max-height");
+    scaler.style.removeProperty("overflow-y");
+  }
+
+  function fitBackgroundScaler(scaler, targetTop) {
+    var available = getContainerBottom() - targetTop - BG_TOP_PAD;
+    var maxScalerH = Math.floor(available / 2);
+    if (maxScalerH > 72) {
+      scaler.style.maxHeight = maxScalerH + "px";
+      scaler.style.overflowY = "auto";
+    } else {
+      clearScalerMaxHeight(scaler);
+    }
+  }
+
+  function alignExpandedTile(tile) {
+    if (!isExpanded(tile)) {
+      clearTilePosition(tile);
+      return;
+    }
+
+    var scaler = tile.querySelector(".gogl-tile__scaler");
+    if (!scaler) return;
+
+    if (tile.getAttribute("data-state") !== "background") {
+      clearScalerMaxHeight(scaler);
+      tile.style.setProperty("--gogl-tile-shift-y", "0px");
+      return;
+    }
+
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        tile.style.setProperty("--gogl-tile-shift-y", "0px");
+        requestAnimationFrame(function () {
+          var targetTop = getFrameTop();
+          var scalerTop = scaler.getBoundingClientRect().top;
+          tile.style.setProperty("--gogl-tile-shift-y", Math.round(targetTop - scalerTop) + "px");
+          requestAnimationFrame(function () {
+            fitBackgroundScaler(scaler, targetTop);
+          });
+        });
+      });
+    });
+  }
+
+  function afterExpand(tile) {
+    freezeGridRowHeight();
+    updateOverlayClass();
+    alignExpandedTile(tile);
+    window.setTimeout(function () {
+      alignExpandedTile(tile);
+    }, 50);
+  }
+
+  function scheduleInitialRowHeight() {
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        applyGridRowHeight(true);
+      });
+    });
+  }
+
+  scheduleInitialRowHeight();
+  window.addEventListener("load", function () {
+    applyGridRowHeight(true);
+  });
+
+  var resizeTimer = null;
+  window.addEventListener(
+    "resize",
+    function () {
+      if (resizeTimer) window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(function () {
+        resizeTimer = null;
+        if (!overlayRowHFrozen) {
+          gridRowH = null;
+          applyGridRowHeight(true);
+        }
+        tileGrid.querySelectorAll(".gogl-tile").forEach(function (t) {
+          if (isExpanded(t)) alignExpandedTile(t);
+        });
+      }, 120);
+    },
+    { passive: true }
+  );
+
+  function pauseSlider() {
+    if (window.goglProgramSlider && typeof window.goglProgramSlider.pause === "function") {
+      window.goglProgramSlider.pause();
+    }
+  }
+
+  function closeTile(tile) {
+    tile.setAttribute("data-state", "closed");
+    tile.querySelectorAll("[data-bg-toggle]").forEach(function (b) {
+      b.setAttribute("aria-pressed", "false");
+    });
+    clearScalerMaxHeight(tile.querySelector(".gogl-tile__scaler"));
+    clearTilePosition(tile);
+    updateOverlayClass();
+  }
+
+  function closeAllTiles(except) {
+    tileGrid.querySelectorAll(".gogl-tile").forEach(function (t) {
+      if (except && t === except) return;
+      var state = t.getAttribute("data-state") || "closed";
+      if (state !== "closed") closeTile(t);
+    });
+  }
+
+  tileGrid.addEventListener("click", function (e) {
+    var tile = e.target.closest(".gogl-tile");
+    if (!tile || !tileGrid.contains(tile)) return;
+
+    pauseSlider();
+
+    var isBgBtn = e.target.closest("[data-bg-toggle]");
+    var isMailCta = e.target.closest(".gogl-tile__cta-mail");
+    if (isMailCta) return;
+
+    var state = tile.getAttribute("data-state") || "closed";
+
+    if (isBgBtn) {
+      tileGrid.querySelectorAll(".gogl-tile").forEach(function (t) {
+        if (t !== tile && isExpanded(t)) closeTile(t);
+      });
+
+      var next = state === "background" ? "open" : "background";
+      tile.setAttribute("data-state", next);
+      isBgBtn.setAttribute("aria-pressed", next === "background" ? "true" : "false");
+      afterExpand(tile);
+      return;
+    }
+
+    var isAction = e.target.closest(".gogl-tile__actions");
+    if (isAction && state !== "closed") return;
+
+    if (state === "closed") {
+      closeAllTiles(tile);
+      tile.setAttribute("data-state", "open");
+      afterExpand(tile);
+      return;
+    }
+
+    closeTile(tile);
+  });
+
+  var joschaSlide = root.querySelector('.gogl-program-slider__slide[data-slide="0"]');
+  if (joschaSlide) {
+    joschaSlide.addEventListener("click", function (e) {
+      if (e.target.closest(".gogl-tile")) return;
+      if (e.target.closest("a, button")) return;
+
+      var anyOpen = false;
+      tileGrid.querySelectorAll(".gogl-tile").forEach(function (t) {
+        if (isExpanded(t)) anyOpen = true;
+      });
+      if (!anyOpen) return;
+
+      closeAllTiles();
+      pauseSlider();
+    });
+  }
+})();

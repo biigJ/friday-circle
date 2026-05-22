@@ -11,10 +11,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;1,400;1,500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preload" href="assets/hero.mp4" as="video" type="video/mp4" />
+    <script src="gogogo-joscha-grow.js" defer></script>
+    <script src="gogogo-program-slider.js" defer></script>
     <script>
       (function () {
         try {
@@ -24,7 +27,6 @@
         } catch (e) {}
       })();
     </script>
-    <link rel="preload" href="assets/hero.mp4" as="video" type="video/mp4" />
     <style>
       /* gogogo landing — design tokens (standalone; complements styles.css reset) */
       /* Horizontal rhythm: --page-x / --page-max set on body.gogogo-page */
@@ -44,6 +46,8 @@
         --grey-dark: #999999;
         --font-head: "Helvetica Neue", Helvetica, Arial, sans-serif;
         --font-body: Georgia, "Times New Roman", Times, serif;
+        --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+        --font-sans: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
         color: var(--black);
         background: #f0eee6;
         font-family: var(--font-body);
@@ -76,6 +80,76 @@
       .gogogo-page .nav,
       .gogogo-page .nav .gogogo-landing__header-cta {
         font-family: var(--font-sans);
+      }
+      .gogogo-page .nav {
+        background: var(--cream);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      .gogogo-page .nav {
+        background: var(--cream);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      .gogogo-page .nav {
+        background: var(--cream);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      .gogogo-page .nav {
+        background: var(--cream);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      .gogogo-page .nav {
+        background: var(--cream);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      .gogogo-page .nav {
+        background: var(--cream);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      .gogogo-page .nav {
+        background: var(--cream);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      .gogogo-page .nav {
+        background: var(--cream);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      .gogogo-page .nav {
+        background: var(--cream);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      .gogogo-page .nav {
+        background: var(--cream);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      .gogogo-page .nav {
+        background: var(--cream);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      .gogogo-page .nav {
+        background: var(--cream);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      .gogogo-page .nav {
+        background: var(--cream);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+      .gogogo-page .nav {
+        background: var(--cream);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
       }
       .gogogo-page .gogogo-landing__logo {
         font-family: var(--font-sans);
@@ -123,73 +197,1425 @@
         padding-right: var(--page-x);
         box-sizing: border-box;
       }
-      .gogl-hero {
-        position: relative;
-        /* Platz für Beta-Leiste + Banderole im Viewport; Hero etwas niedriger */
-        min-height: calc(100dvh - 11.5rem);
-        min-height: calc(100vh - 11.5rem);
-        overflow: hidden;
-        background: #1a2a1f;
+      /* Intro: gleicher Abstand zur Beta-Leiste (oben) und Slider-Label (unten) */
+      .gogl-hero-intro {
+        --gogl-hero-space: clamp(30.7px, 5.76vw, 71.7px);
+        padding: var(--gogl-hero-space) 0;
+        background: var(--cream);
+        color: var(--black);
       }
-      .gogl-hero__media {
+      .gogl-hero-intro__inner {
+        max-width: var(--content-max);
+        margin: 0 auto;
+        padding: 0 var(--nav-pad-x);
+        box-sizing: border-box;
+      }
+      .gogl-hero-intro__title {
+        margin: 0;
+        padding-top: 0;
+        font-family: var(--font-head);
+        font-size: clamp(1.85rem, 3.8vw, 3.1rem);
+        line-height: 1.08;
+        letter-spacing: 0.01em;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .gogl-hero-intro__title-strong {
+        font-weight: 900;
+      }
+      .gogl-hero-intro__title-light {
+        display: block;
+        margin-top: clamp(8px, 1.15vw, 14px);
+        font-weight: 400;
+      }
+      .gogl-hero-intro__title .nowrap {
+        white-space: nowrap;
+      }
+      .gogl-hero-intro__lede {
+        margin: clamp(14px, 2.2vw, 22px) 0 0;
+        font-family: var(--font-display);
+        font-style: italic;
+        font-weight: 400;
+        font-size: clamp(1.08rem, 1.42vw, 1.28rem);
+        line-height: 1.55;
+        max-width: 78ch;
+        text-align: left;
+      }
+      .gogl-hero-intro__lede-line {
+        display: inline;
+      }
+      .gogl-hero-intro__lede-line--red {
+        color: #b1403c;
+      }
+      .gogl-hero-intro__lede-line--pink {
+        color: #e8d4ef;
+        background: #0a0a0a;
+        padding: 0.1em 0.28em;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+      }
+      .gogl-hero-intro__lede-line--turquoise {
+        color: #589b8d;
+      }
+
+      /* Showcase: kein dunkler Seitenhintergrund — Video randlos; schwarz nur am Kachel-Block */
+      .gogl-hero-showcase {
+        background: transparent;
+        padding: 0;
+        overflow: visible;
+      }
+      .gogl-joscha-grow-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        margin-top: 0;
+        overflow: visible;
+      }
+      .gogl-showcase-slider-ui {
+        width: 100%;
+        max-width: var(--content-max);
+        margin: 0 auto;
+        padding: 0 var(--nav-pad-x);
+        box-sizing: border-box;
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: clamp(12px, 2vw, 20px);
+        margin-bottom: clamp(8px, 1.2vw, 11px);
+      }
+      .gogl-program-slider-title {
+        flex: 1;
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+        font-family: var(--font-sans);
+        font-size: clamp(0.68rem, 0.95vw, 0.8rem);
+        font-weight: 600;
+        line-height: 1.35;
+        color: #0a0a0a;
+      }
+      .gogl-program-slider-arrows {
+        display: flex;
+        gap: 8px;
+        flex-shrink: 0;
+      }
+      .gogl-program-slider-arrow {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: none;
+        background: #0a0a0a;
+        color: #fff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-family: var(--font-sans);
+        font-size: 1.35rem;
+        line-height: 1;
+        padding: 0 0 2px;
+        transition: background 0.15s ease, transform 0.15s ease, opacity 0.15s ease;
+      }
+      .gogl-program-slider-arrow:hover,
+      .gogl-program-slider-arrow:focus-visible {
+        background: #1a1a1a;
+        transform: translateY(-1px);
+      }
+      .gogl-joscha-grow {
+        position: sticky;
+        top: var(--fc-nav-h, 72px);
+        z-index: 3;
+        flex-shrink: 0;
+        min-height: calc(100vh - var(--fc-nav-h, 72px));
+        min-height: calc(100dvh - var(--fc-nav-h, 72px));
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        background: #0a0a0a;
+        width: auto;
+        max-width: none;
+        margin: 0;
+        border-radius: clamp(10px, 1.2vw, 16px);
+        box-sizing: border-box;
+        overflow: hidden;
+        transition:
+          width 0.1s linear,
+          border-radius 0.1s linear;
+      }
+      .gogl-joscha-grow.is-flush {
+        border-radius: 0;
+      }
+      .gogl-program-slider__dots {
+        position: absolute;
+        z-index: 5;
+        top: clamp(12px, 2vw, 18px);
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        max-width: calc(100% - 2 * var(--nav-pad-x));
+      }
+      .gogl-program-slider__dot {
+        width: 8px;
+        height: 8px;
+        padding: 0;
+        border: 1px solid rgba(240, 238, 230, 0.55);
+        border-radius: 50%;
+        background: transparent;
+        cursor: pointer;
+        transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+      }
+      .gogl-program-slider__dot.is-active,
+      .gogl-program-slider__dot:hover,
+      .gogl-program-slider__dot:focus-visible {
+        background: #f0eee6;
+        border-color: #f0eee6;
+        transform: scale(1.12);
+      }
+      .gogl-program-slider__viewport {
+        position: relative;
+        z-index: 1;
+        flex: 1;
+        width: 100%;
+        min-height: 0;
+        display: flex;
+        align-items: stretch;
+      }
+      .gogl-program-slider__slide {
+        display: none;
+        width: 100%;
+        min-height: 100%;
+      }
+      .gogl-program-slider__slide.is-active {
+        display: block;
+      }
+      .gogl-program-slider__slide.is-active[data-slide="0"] {
+        display: flex;
+        flex-direction: column;
+        min-height: 100%;
+        box-sizing: border-box;
+      }
+      .gogl-program-slider__slide.is-active[data-slide="0"] .gogl-joscha-panel {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        min-height: 0;
+        justify-content: center;
+        box-sizing: border-box;
+      }
+      .gogl-joscha-grow .gogl-joscha-panel {
+        width: 100%;
+      }
+      .gogl-program-slide-card {
+        position: relative;
+        min-height: min(72vh, calc(100dvh - var(--fc-nav-h, 72px) - 120px));
+        overflow: hidden;
+      }
+      .gogl-program-slide-card__bg {
         position: absolute;
         inset: 0;
         z-index: 0;
-        background: #040c0a;
-        overflow: hidden;
       }
-      .gogl-hero__video {
-        position: absolute;
-        inset: 0;
+      .gogl-program-slide-card__bg img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        /* Oberen Bildrand leicht abschneiden → mehr Fußraum sichtbar */
-        object-position: center 68%;
-        /* Dark grade: neutral hues (no hue-rotate — avoids green skin / teal cast) */
-        filter: brightness(0.39) contrast(1.1) saturate(0.5);
+        object-position: center;
+        display: block;
+        filter: saturate(1.05) contrast(1.04) brightness(0.45);
       }
-      .gogl-hero__overlay {
+      .gogl-program-slide-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background:
+          linear-gradient(180deg, rgba(14, 14, 14, 0.35) 0%, rgba(14, 14, 14, 0.12) 42%, rgba(14, 14, 14, 0.72) 100%),
+          linear-gradient(90deg, rgba(14, 14, 14, 0.72) 0%, rgba(14, 14, 14, 0.2) 55%, rgba(14, 14, 14, 0.42) 100%);
+        pointer-events: none;
+      }
+      .gogl-program-slide-card__inner {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        width: auto;
+        max-width: none;
+        margin: 0;
+        padding: 0 var(--nav-pad-x);
+        box-sizing: border-box;
+      }
+      .gogl-program-slide-card__title {
+        margin: 0 0 clamp(18px, 3vw, 28px);
+        max-width: min(40rem, 100%);
+        font-family: var(--font-sans);
+        font-weight: 700;
+        font-size: clamp(1.75rem, 5vw, 3rem);
+        line-height: 1.08;
+        letter-spacing: 0.01em;
+        color: #f0eee6;
+      }
+      .gogl-program-slide-card__cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: min(16rem, 100%);
+        padding: 14px clamp(22px, 4vw, 36px);
+        border-radius: 999px;
+        border: 1px solid transparent;
+        font-family: var(--font-sans);
+        font-size: 0.85rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+      }
+      .gogl-program-slide-card__cta--gosam {
+        background: #3366ff;
+        color: #edf2ff;
+        border-color: #3366ff;
+      }
+      .gogl-program-slide-card__cta--cycle {
+        background: #c52f33;
+        color: #fff0f0;
+        border-color: #c52f33;
+      }
+      .gogl-program-slide-card__cta--light {
+        background: #f0eee6;
+        color: #0a0a0a;
+        border-color: #f0eee6;
+      }
+      .gogl-program-slide-card__cta:hover,
+      .gogl-program-slide-card__cta:focus-visible {
+        transform: translateY(-1px);
+        filter: brightness(1.06);
+      }
+      .gogl-program-slide-card--mobility,
+      .gogl-program-slide-card--upper {
+        min-height: 100%;
+        height: 100%;
+        container-type: size;
+        --gogl-media-w: calc(100cqh * 9 / 16);
+      }
+      .gogl-program-slide-card--mobility,
+      .gogl-program-slide-card--upper {
+        min-height: 100%;
+        height: 100%;
+        container-type: size;
+        --gogl-media-w: calc(100cqh * 9 / 16);
+      }
+      .gogl-program-slide-card--mobility,
+      .gogl-program-slide-card--upper {
+        min-height: 100%;
+        height: 100%;
+        container-type: size;
+        --gogl-media-w: calc(100cqh * 9 / 16);
+      }
+      .gogl-program-slide-card--mobility,
+      .gogl-program-slide-card--upper {
+        min-height: 100%;
+        height: 100%;
+        container-type: size;
+        --gogl-media-w: calc(100cqh * 9 / 16);
+      }
+      .gogl-program-slide-card--mobility,
+      .gogl-program-slide-card--upper {
+        min-height: 100%;
+        height: 100%;
+        container-type: size;
+        --gogl-media-w: calc(100cqh * 9 / 16);
+      }
+      .gogl-program-slide-card--mobility,
+      .gogl-program-slide-card--upper {
+        min-height: 100%;
+        height: 100%;
+        container-type: size;
+        --gogl-media-w: calc(100cqh * 9 / 16);
+      }
+      .gogl-program-slide-card--mobility,
+      .gogl-program-slide-card--upper {
+        min-height: 100%;
+        height: 100%;
+        container-type: size;
+        --gogl-media-w: calc(100cqh * 9 / 16);
+      }
+      .gogl-program-slide-card--mobility,
+      .gogl-program-slide-card--upper {
+        min-height: 100%;
+        height: 100%;
+        container-type: size;
+        --gogl-media-w: calc(100cqh * 9 / 16);
+      }
+      .gogl-program-slide-card--mobility,
+      .gogl-program-slide-card--upper {
+        min-height: 100%;
+        height: 100%;
+        container-type: size;
+        --gogl-media-w: calc(100cqh * 9 / 16);
+      }
+      .gogl-program-slide-card--mobility,
+      .gogl-program-slide-card--upper {
+        min-height: 100%;
+        height: 100%;
+        container-type: size;
+        --gogl-media-w: calc(100cqh * 9 / 16);
+      }
+      .gogl-program-slide-card--mobility,
+      .gogl-program-slide-card--upper {
+        min-height: 100%;
+        height: 100%;
+        container-type: size;
+        --gogl-media-w: calc(100cqh * 9 / 16);
+      }
+      .gogl-program-slide-card--mobility,
+      .gogl-program-slide-card--upper {
+        min-height: 100%;
+        height: 100%;
+        container-type: size;
+        --gogl-media-w: calc(100cqh * 9 / 16);
+      }
+      .gogl-program-slide-card--mobility,
+      .gogl-program-slide-card--upper {
+        min-height: 100%;
+        height: 100%;
+        container-type: size;
+        --gogl-media-w: calc(100cqh * 9 / 16);
+      }
+      .gogl-program-slide-card--mobility,
+      .gogl-program-slide-card--upper {
+        min-height: 100%;
+        height: 100%;
+        container-type: size;
+        --gogl-media-w: calc(100cqh * 9 / 16);
+      }
+      .gogl-program-slide-card--mobility .gogl-program-slide-card__bg,
+      .gogl-program-slide-card--upper .gogl-program-slide-card__bg {
+        background: #0a0a0a;
+      }
+      .gogl-program-slide-card--mobility .gogl-program-slide-card__bg img,
+      .gogl-program-slide-card--upper .gogl-program-slide-card__bg img {
+        display: none;
+      }
+      .gogl-program-slide-card--mobility::after,
+      .gogl-program-slide-card--upper::after {
+        background:
+          linear-gradient(180deg, rgba(14, 14, 14, 0.35) 0%, rgba(14, 14, 14, 0.06) 42%, rgba(14, 14, 14, 0.6) 100%),
+          linear-gradient(90deg, rgba(14, 14, 14, 0.88) 0%, rgba(14, 14, 14, 0.45) 42%, rgba(14, 14, 14, 0.12) 58%, transparent 72%);
+      }
+      .gogl-program-slide-card__media {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        width: var(--gogl-media-w);
+        max-width: 46%;
+        z-index: 2;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        border-radius: 0;
+      }
+      @supports not (width: 1cqh) {
+        .gogl-program-slide-card--mobility,
+        .gogl-program-slide-card--upper {
+          --gogl-media-w: clamp(160px, calc((100dvh - var(--fc-nav-h, 72px)) * 9 / 16), 320px);
+        }
+      }
+      .gogl-program-slide-card__video,
+      .gogl-program-slide-card__media-poster {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+        border-radius: 0;
+        display: block;
+        transform: translate(-50%, -50%) scale(1.2);
+      }
+      .gogl-program-slide-card__video {
+        z-index: 1;
+        display: none;
+        background: #0a0a0a;
+      }
+      .gogl-program-slide-card__media-poster {
+        z-index: 0;
+      }
+      .gogl-program-slide-card__media.is-playing .gogl-program-slide-card__video {
+        display: block;
+      }
+      .gogl-program-slide-card__media.is-playing .gogl-program-slide-card__media-poster {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .gogl-program-slide-card__play {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 3;
+        width: clamp(48px, 8vw, 64px);
+        height: clamp(48px, 8vw, 64px);
+        margin: 0;
+        padding: 0 0 0 4px;
+        border: none;
+        border-radius: 50%;
+        background: #ffffff;
+        color: #0a0a0a;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transform: translate(-50%, -50%);
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+        transition: transform 0.15s ease, background 0.15s ease;
+      }
+      .gogl-program-slide-card__play:hover,
+      .gogl-program-slide-card__play:focus-visible {
+        transform: translate(-50%, -50%) scale(1.05);
+        background: #f0eee6;
+        outline: none;
+      }
+      .gogl-program-slide-card__play-icon {
+        display: block;
+        width: 0;
+        height: 0;
+        margin-left: 3px;
+        border-style: solid;
+        border-width: clamp(8px, 1.4vw, 11px) 0 clamp(8px, 1.4vw, 11px) clamp(13px, 2.2vw, 18px);
+        border-color: transparent transparent transparent currentColor;
+      }
+      .gogl-program-slide-card__media.is-playing .gogl-program-slide-card__play {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .gogl-program-slide-card--mobility .gogl-program-slide-card__inner,
+      .gogl-program-slide-card--upper .gogl-program-slide-card__inner {
+        align-items: flex-start;
+        justify-content: center;
+        padding: 0 calc(var(--gogl-media-w) + var(--nav-pad-x) + clamp(12px, 2vw, 24px)) 0 var(--nav-pad-x);
+      }
+      .gogl-program-slide-card--mobility .gogl-program-slide-card__title,
+      .gogl-program-slide-card--upper .gogl-program-slide-card__title {
+        margin: 0;
+        max-width: min(40rem, 100%);
+      }
+      @media (max-width: 760px) {
+        .gogl-program-slide-card--mobility,
+        .gogl-program-slide-card--upper {
+          --gogl-media-w: clamp(120px, calc((100dvh - var(--fc-nav-h, 72px)) * 9 / 16), 200px);
+        }
+        .gogl-program-slide-card__media {
+          max-width: 52%;
+        }
+      }
+      .gogl-joscha-panel {
+        position: relative;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: clamp(20px, 3vw, 32px) var(--nav-pad-x);
+        box-sizing: border-box;
+        overflow: visible;
+      }
+      .gogl-joscha-grow:has(.gogl-program-slider__slide[data-slide="0"].is-active) .gogl-joscha-panel {
+        padding-bottom: clamp(11px, 1.76vw, 18px);
+      }
+      .gogl-joscha-tiles-wrap {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: clamp(20px, 3vw, 40px);
+        width: 100%;
+        max-width: var(--content-max);
+        margin: 0 auto;
+        flex: 0 1 auto;
+        min-height: 0;
+      }
+      .gogl-joscha-copy {
+        position: static;
+        flex: 0 0 auto;
+        max-width: min(17rem, 38%);
+        z-index: 2;
+        pointer-events: none;
+        text-align: left;
+      }
+      .gogl-tile-grid {
+        --gogl-tile-font-scale: 0.8;
+        --gogl-gap: clamp(8px, 1.15vw, 12px);
+        --gogl-tile-shift: calc((100% - 2 * var(--gogl-gap)) / 6 + var(--gogl-gap) / 2);
+        --gogl-tile-scale: 0.855;
+        --gogl-row-h: auto;
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-rows: repeat(4, var(--gogl-row-h));
+        gap: var(--gogl-gap);
+        flex: 1 1 0;
+        min-width: 0;
+        min-height: 0;
+        max-height: 100%;
+        width: auto;
+        max-width: 100%;
+        margin-left: clamp(14px, 2.2vw, 26px);
+        margin-right: clamp(18px, 2.8vw, 36px);
+        padding-right: 0;
+        box-sizing: border-box;
+        overflow: visible;
+        transform: scale(var(--gogl-tile-scale));
+        transform-origin: 100% 100%;
+      }
+      /* Feste 3×4-Rasterplätze — auch bei geöffneter Kachel bleiben alle 12 Zellen */
+      .gogl-tile-grid > .gogl-tile:nth-child(1) { grid-row: 1; grid-column: 1; }
+      .gogl-tile-grid > .gogl-tile:nth-child(2) { grid-row: 1; grid-column: 2; }
+      .gogl-tile-grid > .gogl-tile:nth-child(3) { grid-row: 1; grid-column: 3; }
+      .gogl-tile-grid > .gogl-tile:nth-child(4) { grid-row: 2; grid-column: 1; }
+      .gogl-tile-grid > .gogl-tile:nth-child(5) { grid-row: 2; grid-column: 2; }
+      .gogl-tile-grid > .gogl-tile:nth-child(6) { grid-row: 2; grid-column: 3; }
+      .gogl-tile-grid > .gogl-tile:nth-child(7) { grid-row: 3; grid-column: 1; }
+      .gogl-tile-grid > .gogl-tile:nth-child(8) { grid-row: 3; grid-column: 2; }
+      .gogl-tile-grid > .gogl-tile:nth-child(9) { grid-row: 3; grid-column: 3; }
+      .gogl-tile-grid > .gogl-tile:nth-child(10) { grid-row: 4; grid-column: 1; }
+      .gogl-tile-grid > .gogl-tile:nth-child(11) { grid-row: 4; grid-column: 2; }
+      .gogl-tile-grid > .gogl-tile:nth-child(12) { grid-row: 4; grid-column: 3; }
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="closed"] {
+        aspect-ratio: 5 / 3;
+      }
+      /* Läuferverband: nur im geschlossenen Zustand */
+      .gogl-tile-grid .gogl-tile[data-state="closed"]:nth-child(6n + 4),
+      .gogl-tile-grid .gogl-tile[data-state="closed"]:nth-child(6n + 5),
+      .gogl-tile-grid .gogl-tile[data-state="closed"]:nth-child(6n + 6) {
+        transform: translateX(var(--gogl-tile-shift));
+      }
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"],
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] {
+        --gogl-tile-shift-y: 0px;
+        position: relative;
+        width: 100%;
+        height: var(--gogl-row-h);
+        min-height: var(--gogl-row-h);
+        max-height: var(--gogl-row-h);
+        overflow: visible;
+        align-self: start;
+        justify-content: flex-start;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+        z-index: 25;
+        cursor: default;
+        transform: none;
+      }
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"]::after,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"]::after {
+        display: none;
+      }
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"]:nth-child(6n + 4),
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"]:nth-child(6n + 5),
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"]:nth-child(6n + 6),
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"]:nth-child(6n + 4),
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"]:nth-child(6n + 5),
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"]:nth-child(6n + 6) {
+        transform: none;
+      }
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] > .gogl-tile__scaler {
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
+        padding: clamp(10px, 1.2vw, 14px) clamp(12px, 1.4vw, 16px) clamp(8px, 0.9vw, 10px);
+        box-sizing: border-box;
+        background: #1a1a1a;
+        border-radius: 14px;
+        box-shadow:
+          inset 1px 1px 0 rgba(255, 255, 255, 0.2),
+          inset -1px -1px 0 rgba(0, 0, 0, 0.35),
+          0 12px 36px rgba(0, 0, 0, 0.5);
+        isolation: isolate;
+        transform: translateY(var(--gogl-tile-shift-y)) scale(2);
         z-index: 1;
-        pointer-events: none;
-        background: rgba(0, 0, 0, 0.35);
       }
-      .gogl-hero__content {
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler {
+        transform-origin: 50% 100%;
+      }
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] > .gogl-tile__scaler {
+        transform-origin: 50% 0%;
+        -webkit-overflow-scrolling: touch;
+      }
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler::after,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] > .gogl-tile__scaler::after {
+        content: "";
         position: absolute;
-        top: 50%;
+        inset: 0;
+        border-radius: inherit;
+        background: transparent;
+        border: 1px solid transparent;
+        border-top-color: rgba(255, 255, 255, 0.18);
+        border-left-color: rgba(255, 255, 255, 0.14);
+        border-bottom-color: rgba(255, 255, 255, 0.04);
+        border-right-color: rgba(255, 255, 255, 0.06);
+        box-sizing: border-box;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler > *,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] > .gogl-tile__scaler > * {
+        position: relative;
+        z-index: 1;
+      }
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"]:nth-child(6n + 4) > .gogl-tile__scaler,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"]:nth-child(6n + 5) > .gogl-tile__scaler,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"]:nth-child(6n + 6) > .gogl-tile__scaler,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"]:nth-child(6n + 4) > .gogl-tile__scaler,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"]:nth-child(6n + 5) > .gogl-tile__scaler,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"]:nth-child(6n + 6) > .gogl-tile__scaler {
         left: 0;
-        right: 0;
-        transform: translateY(-50%);
-        max-width: var(--page-max);
+        transform: translateX(var(--gogl-tile-shift)) translateY(var(--gogl-tile-shift-y)) scale(2);
+      }
+      /* 50 % Schrift + 100 % Breite: wirkt nach scale(2) wie geschlossene Kachel, Text bricht um */
+      .gogl-tile__scaler {
         width: 100%;
-        margin-left: auto;
-        margin-right: auto;
-        z-index: 2;
-        padding-left: var(--page-x);
-        padding-right: var(--page-x);
+        max-width: 100%;
+        min-width: 0;
         box-sizing: border-box;
       }
-      .gogl-hero__title {
-        font-family: var(--font-head);
-        font-weight: 900;
-        font-size: clamp(2.4rem, 5vw, 4.2rem);
-        line-height: 1.1;
-        margin: 0 0 20px;
+      .gogl-tile-grid .gogl-tile[data-state="open"] > .gogl-tile__scaler,
+      .gogl-tile-grid .gogl-tile[data-state="background"] > .gogl-tile__scaler {
+        font-size: 50%;
+        line-height: 1.35;
       }
-      .gogl-hero__body {
+      .gogl-tile-grid:not(.is-tile-overlay-active) .gogl-tile[data-state="open"],
+      .gogl-tile-grid:not(.is-tile-overlay-active) .gogl-tile[data-state="background"] {
+        transform: scale(2);
+        transform-origin: center center;
+        z-index: 25;
+      }
+      .gogl-tile[data-state="open"] .gogl-tile__head,
+      .gogl-tile[data-state="open"] .gogl-tile__body,
+      .gogl-tile[data-state="background"] .gogl-tile__head,
+      .gogl-tile[data-state="background"] .gogl-tile__body {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow-wrap: break-word;
+        word-break: break-word;
+      }
+      .gogl-joscha-copy__heading {
+        margin: 0 0 clamp(12px, 2vw, 18px);
+        font-family: var(--font-sans);
+        font-weight: 700;
+        font-size: clamp(1.75rem, 5vw, 3rem);
+        line-height: 1.08;
+        letter-spacing: 0.01em;
+        color: #f0eee6;
+        max-width: min(40rem, 100%);
+        text-align: left;
+      }
+
+      .gogl-joscha-copy__sub {
+        margin: 0 0 16px;
+        font-family: var(--font-head);
+        font-weight: 400;
+        font-size: clamp(0.8rem, 1.15vw, 0.95rem);
+        line-height: 1.5;
+        color: rgba(255, 255, 255, 0.78);
+        max-width: 40ch;
+        text-align: left;
+      }
+      .gogogo-page main .gogl-joscha-copy__cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: auto;
+        background: #ffffff !important;
+        color: #0a0a0a !important;
+        font-family: var(--font-head);
+        font-weight: 700;
+        font-size: 0.88rem;
+        padding: 12px 22px;
+        border-radius: 999px;
+        text-decoration: none !important;
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        cursor: pointer;
+      }
+      .gogogo-page main .gogl-joscha-copy__cta:hover,
+      .gogogo-page main .gogl-joscha-copy__cta:focus-visible {
+        background: #e8e8e6 !important;
+        color: #0a0a0a !important;
+        outline: 2px solid #2d9e8f;
+        outline-offset: 2px;
+      }
+
+      .gogl-video-stage {
+        position: relative;
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+        margin-top: 0;
+        background: transparent;
+      }
+      .gogl-video-stage::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.78) 0%,
+          rgba(0, 0, 0, 0.38) 32%,
+          transparent 62%
+        );
+      }
+      .gogl-video-frame {
+        position: relative;
+        z-index: 0;
+        width: 100%;
+        border-radius: 0;
+        overflow: hidden;
+        background: #000;
+        aspect-ratio: 16 / 9;
+        box-shadow: none;
+      }
+      .gogl-video-frame video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 68%;
+        filter: brightness(0.39) contrast(1.1) saturate(0.5);
+        display: block;
+      }
+      .gogl-video-frame::after {
+        display: none;
+      }
+      .gogl-video-overlay-footer {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .gogl-video-overlay-footer .gogl-hero-cards {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0;
+        width: min(var(--content-max), calc(100% - 2 * clamp(20px, 4vw, 48px)));
+        max-width: min(var(--content-max), calc(100% - 2 * clamp(20px, 4vw, 48px)));
+        margin: 0;
+        padding: 0;
+        border-top: none;
+        box-sizing: border-box;
+        pointer-events: auto;
+      }
+      .gogl-video-overlay-footer .gogl-bar {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin-top: 0;
+        pointer-events: auto;
+      }
+
+      @media (max-width: 760px) {
+        .gogl-joscha-grow-wrap {
+          margin-top: clamp(20px, 3vw, 32px);
+        }
+        .gogl-joscha-grow {
+          position: relative;
+          top: auto;
+          width: 100vw !important;
+          border-radius: 0;
+        }
+        .gogl-joscha-copy {
+          position: relative;
+          left: auto;
+          top: auto;
+          transform: none;
+          max-width: none;
+          margin: clamp(16px, 3vw, 24px) 0 0;
+          pointer-events: auto;
+        }
+        .gogl-tile-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+
+      /* Kacheln: Keyboard-Key-Look; aufgeklappt Trainings-Kompass-Inhalt */
+      .gogl-tile {
+        width: 100%;
+        max-width: none;
+        aspect-ratio: 5 / 3;
+        border-radius: 14px;
+        border: none;
+        cursor: pointer;
+        font: inherit;
+        position: relative;
+        isolation: isolate;
+        transform-origin: center center;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-end;
+        text-align: left;
+        font-family: var(--font-sans);
+        color: rgba(255, 255, 255, 0.92);
+        padding: clamp(10px, 1.25vw, 16px) clamp(11px, 1.35vw, 15px);
+        box-sizing: border-box;
+        background: #121212;
+        box-shadow:
+          inset 1px 1px 0 rgba(255, 255, 255, 0.16),
+          inset -1px -1px 0 rgba(0, 0, 0, 0.42),
+          0 0 0 1px rgba(255, 255, 255, 0.07);
+        transition: transform 0.35s ease, box-shadow 0.25s ease, background 0.2s ease;
+      }
+      .gogl-tile__head {
+        display: flex;
+        align-items: flex-start;
+        gap: clamp(6px, 0.8vw, 10px);
+        width: 100%;
+        margin-top: auto;
+      }
+      .gogl-tile[data-state="open"] .gogl-tile__head,
+      .gogl-tile[data-state="background"] .gogl-tile__head {
+        margin-top: 0;
+      }
+      .gogl-tile__icon {
+        position: absolute;
+        top: clamp(10px, 1.25vw, 16px);
+        left: clamp(11px, 1.35vw, 15px);
+        width: clamp(26px, 3vw, 34px);
+        height: clamp(26px, 3vw, 34px);
+        color: rgba(255, 255, 255, 0.42);
+        line-height: 0;
+        z-index: 2;
+        pointer-events: none;
+      }
+      .gogl-tile__icon svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 1.35;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__icon,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] > .gogl-tile__icon {
+        display: none;
+      }
+      .gogl-tile__num,
+      .gogl-tile__toggle {
+        display: none !important;
+      }
+      .gogl-tile__title {
+        flex: 1;
+        margin: 0;
+        font-family: var(--font-head);
+        font-size: clamp(
+          calc(1.19rem * var(--gogl-tile-font-scale, 1)),
+          calc(2.01vw * var(--gogl-tile-font-scale, 1)),
+          calc(1.53rem * var(--gogl-tile-font-scale, 1))
+        );
+        font-weight: 400;
+        line-height: 1.22;
+        letter-spacing: 0.01em;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+      }
+      .gogl-tile[data-state="open"] .gogl-tile__title,
+      .gogl-tile[data-state="background"] .gogl-tile__title {
+        font-size: 1em;
+        font-weight: 400;
+        -webkit-line-clamp: unset;
+        display: block;
+      }
+      .gogl-tile__body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease, padding 0.25s ease;
+        padding-top: 0;
+        width: 100%;
+      }
+      .gogl-tile[data-state="open"] .gogl-tile__body,
+      .gogl-tile[data-state="background"] .gogl-tile__body {
+        max-height: 4000px;
+        padding-top: clamp(12px, 1.4vw, 16px);
+      }
+      .gogl-tile__body p {
+        margin: 0;
+        font-size: clamp(0.84rem, 1.12vw, 0.98rem);
+        font-weight: 400;
+        line-height: 1.48;
+        color: rgba(255, 255, 255, 0.82);
+      }
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] .gogl-tile__body p,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] .gogl-tile__body p {
+        font-size: 0.92em;
+        line-height: 1.48;
+      }
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] .gogl-tile__bg h4 {
+        font-size: 0.72em;
+      }
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] .gogl-tile__bg p,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] .gogl-tile__bg li {
+        font-size: 0.88em;
+      }
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] .gogl-tile__bg-btn,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] .gogl-tile__bg-btn {
+        font-size: 0.82em;
+      }
+      .gogl-tile__body p + p {
+        margin-top: 0.65em;
+      }
+      .gogl-tile__actions {
+        margin-top: clamp(10px, 1.2vw, 14px);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+      }
+      .gogl-tile__bg-btn {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        color: rgba(255, 255, 255, 0.88);
+        border-radius: 999px;
+        padding: 7px 14px;
+        font-size: clamp(0.68rem, 0.9vw, 0.78rem);
+        font-weight: 600;
+        cursor: pointer;
+        font-family: inherit;
+      }
+      .gogl-tile__bg-btn:hover,
+      .gogl-tile__bg-btn[aria-pressed="true"] {
+        background: var(--green-signal);
+        color: #0a0a0a;
+        border-color: transparent;
+      }
+      .gogl-tile__cta-mail {
+        display: inline-flex;
+        align-items: center;
+        padding: 7px 14px;
+        border-radius: 999px;
+        background: #ffffff;
+        color: #0a0a0a !important;
+        font-size: clamp(0.68rem, 0.9vw, 0.78rem);
+        font-weight: 700;
+        text-decoration: none !important;
+      }
+      .gogl-tile__bg {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease, padding 0.25s ease, margin 0.25s ease;
+        margin-top: 0;
+        padding-top: 0;
+        border-top: none;
+      }
+      .gogl-tile[data-state="background"] .gogl-tile__bg {
+        max-height: 4000px;
+        margin-top: clamp(14px, 1.6vw, 18px);
+        padding-top: clamp(14px, 1.6vw, 18px);
+        border-top: 1px dashed rgba(255, 255, 255, 0.14);
+      }
+      .gogl-tile__bg h4 {
+        margin: 0 0 8px;
+        font-size: clamp(0.62rem, 0.85vw, 0.72rem);
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .gogl-tile__bg p {
+        margin: 0;
+        font-size: clamp(0.72rem, 0.95vw, 0.84rem);
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.62);
+      }
+      .gogl-tile__bg p + p {
+        margin-top: 0.55em;
+      }
+      .gogl-tile__bg ul {
+        list-style: none;
+        margin: 10px 0 0;
+        padding: 0;
+      }
+      .gogl-tile__bg li {
+        font-size: clamp(0.68rem, 0.88vw, 0.78rem);
+        color: rgba(255, 255, 255, 0.55);
+        padding: 3px 0;
+      }
+      .gogl-tile__bg li::before {
+        content: "→ ";
+        opacity: 0.45;
+      }
+      .gogl-tile__bg a {
+        color: var(--green-signal);
+        text-decoration: none;
+        border-bottom: 1px dotted rgba(45, 158, 143, 0.45);
+      }
+      .gogl-tile__bg a:hover {
+        border-bottom-color: var(--green-signal);
+      }
+
+      .gogl-tile-grid .gogl-tile[data-state="closed"]:hover,
+      .gogl-tile-grid .gogl-tile[data-state="closed"]:focus-visible {
+        color: #fff;
+        background: #a48d47;
+        font-weight: 700;
+      }
+      .gogl-tile-grid .gogl-tile[data-state="closed"]:hover .gogl-tile__title,
+      .gogl-tile-grid .gogl-tile[data-state="closed"]:focus-visible .gogl-tile__title {
+        color: #fff;
+      }
+
+      .gogl-hero-cards {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(220px, 320px));
+        gap: 0;
+        justify-content: center;
+      }
+      @media (max-width: 640px) {
+        .gogl-hero-cards {
+          grid-template-columns: minmax(0, 320px);
+          justify-content: center;
+        }
+        .gogl-video-overlay-footer .gogl-hero-cards {
+          grid-template-columns: 1fr;
+          width: min(var(--content-max), calc(100% - 2 * clamp(16px, 5vw, 32px)));
+          max-width: min(var(--content-max), calc(100% - 2 * clamp(16px, 5vw, 32px)));
+        }
+        .gogl-hero-card--left {
+          border-right: none;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+      }
+
+      .gogl-hero-card {
+        background: rgba(10, 10, 10, 0.72);
+        backdrop-filter: blur(8px);
+        padding: clamp(18px, 2.2vw, 24px) clamp(20px, 2.5vw, 28px) clamp(20px, 2.4vw, 26px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: left;
+      }
+      .gogl-video-overlay-footer .gogl-hero-card {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .gogl-hero-card--left {
+        border-right: none;
+      }
+      .gogl-video-overlay-footer .gogl-hero-card--left {
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .gogl-hero-card__label {
+        font-family: var(--font-head);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--green-signal);
+        margin: 0 0 6px;
+      }
+      .gogl-hero-card__title {
+        font-family: var(--font-head);
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: #fff;
+        margin: 0 0 6px;
+      }
+      .gogl-hero-card__text {
         font-family: var(--font-body);
         font-style: italic;
-        font-size: 1.05rem;
-        color: #cccccc;
-        line-height: 1.6;
-        max-width: 480px;
-        margin: 0 0 32px;
+        font-size: 0.82rem;
+        color: #aaa;
+        margin: 0 0 10px;
+        line-height: 1.4;
       }
+      .gogl-hero-card__link {
+        font-family: var(--font-head);
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--green-signal);
+        text-decoration: none;
+      }
+      .gogl-hero-card__link:hover,
+      .gogl-hero-card__link:focus-visible {
+        text-decoration: underline;
+      }
+
+      .gogl-hero-card {
+        background: rgba(10, 10, 10, 0.72);
+        backdrop-filter: blur(8px);
+        padding: clamp(18px, 2.2vw, 24px) clamp(20px, 2.5vw, 28px) clamp(20px, 2.4vw, 26px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: left;
+      }
+      .gogl-video-overlay-footer .gogl-hero-card {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .gogl-hero-card--left {
+        border-right: none;
+      }
+      .gogl-video-overlay-footer .gogl-hero-card--left {
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .gogl-hero-card__label {
+        font-family: var(--font-head);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--green-signal);
+        margin: 0 0 6px;
+      }
+      .gogl-hero-card__title {
+        font-family: var(--font-head);
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: #fff;
+        margin: 0 0 6px;
+      }
+      .gogl-hero-card__text {
+        font-family: var(--font-body);
+        font-style: italic;
+        font-size: 0.82rem;
+        color: #aaa;
+        margin: 0 0 10px;
+        line-height: 1.4;
+      }
+      .gogl-hero-card__link {
+        font-family: var(--font-head);
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--green-signal);
+        text-decoration: none;
+      }
+      .gogl-hero-card__link:hover,
+      .gogl-hero-card__link:focus-visible {
+        text-decoration: underline;
+      }
+
+      .gogl-hero-card {
+        background: rgba(10, 10, 10, 0.72);
+        backdrop-filter: blur(8px);
+        padding: clamp(18px, 2.2vw, 24px) clamp(20px, 2.5vw, 28px) clamp(20px, 2.4vw, 26px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: left;
+      }
+      .gogl-video-overlay-footer .gogl-hero-card {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .gogl-hero-card--left {
+        border-right: none;
+      }
+      .gogl-video-overlay-footer .gogl-hero-card--left {
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .gogl-hero-card__label {
+        font-family: var(--font-head);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--green-signal);
+        margin: 0 0 6px;
+      }
+      .gogl-hero-card__title {
+        font-family: var(--font-head);
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: #fff;
+        margin: 0 0 6px;
+      }
+      .gogl-hero-card__text {
+        font-family: var(--font-body);
+        font-style: italic;
+        font-size: 0.82rem;
+        color: #aaa;
+        margin: 0 0 10px;
+        line-height: 1.4;
+      }
+      .gogl-hero-card__link {
+        font-family: var(--font-head);
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--green-signal);
+        text-decoration: none;
+      }
+      .gogl-hero-card__link:hover,
+      .gogl-hero-card__link:focus-visible {
+        text-decoration: underline;
+      }
+
+      .gogl-hero-card {
+        background: rgba(10, 10, 10, 0.72);
+        backdrop-filter: blur(8px);
+        padding: clamp(18px, 2.2vw, 24px) clamp(20px, 2.5vw, 28px) clamp(20px, 2.4vw, 26px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: left;
+      }
+      .gogl-video-overlay-footer .gogl-hero-card {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .gogl-hero-card--left {
+        border-right: none;
+      }
+      .gogl-video-overlay-footer .gogl-hero-card--left {
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .gogl-hero-card__label {
+        font-family: var(--font-head);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--green-signal);
+        margin: 0 0 6px;
+      }
+      .gogl-hero-card__title {
+        font-family: var(--font-head);
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: #fff;
+        margin: 0 0 6px;
+      }
+      .gogl-hero-card__text {
+        font-family: var(--font-body);
+        font-style: italic;
+        font-size: 0.82rem;
+        color: #aaa;
+        margin: 0 0 10px;
+        line-height: 1.4;
+      }
+      .gogl-hero-card__link {
+        font-family: var(--font-head);
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--green-signal);
+        text-decoration: none;
+      }
+      .gogl-hero-card__link:hover,
+      .gogl-hero-card__link:focus-visible {
+        text-decoration: underline;
+      }
+
+      .gogl-hero-card {
+        background: rgba(10, 10, 10, 0.72);
+        backdrop-filter: blur(8px);
+        padding: clamp(18px, 2.2vw, 24px) clamp(20px, 2.5vw, 28px) clamp(20px, 2.4vw, 26px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: left;
+      }
+      .gogl-video-overlay-footer .gogl-hero-card {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .gogl-hero-card--left {
+        border-right: none;
+      }
+      .gogl-video-overlay-footer .gogl-hero-card--left {
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .gogl-hero-card__label {
+        font-family: var(--font-head);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--green-signal);
+        margin: 0 0 6px;
+      }
+      .gogl-hero-card__title {
+        font-family: var(--font-head);
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: #fff;
+        margin: 0 0 6px;
+      }
+      .gogl-hero-card__text {
+        font-family: var(--font-body);
+        font-style: italic;
+        font-size: 0.82rem;
+        color: #aaa;
+        margin: 0 0 10px;
+        line-height: 1.4;
+      }
+      .gogl-hero-card__link {
+        font-family: var(--font-head);
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--green-signal);
+        text-decoration: none;
+      }
+      .gogl-hero-card__link:hover,
+      .gogl-hero-card__link:focus-visible {
+        text-decoration: underline;
+      }
+
+      .gogl-hero-card {
+        background: rgba(10, 10, 10, 0.72);
+        backdrop-filter: blur(8px);
+        padding: clamp(18px, 2.2vw, 24px) clamp(20px, 2.5vw, 28px) clamp(20px, 2.4vw, 26px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: left;
+      }
+      .gogl-video-overlay-footer .gogl-hero-card {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .gogl-hero-card--left {
+        border-right: none;
+      }
+      .gogl-video-overlay-footer .gogl-hero-card--left {
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .gogl-hero-card__label {
+        font-family: var(--font-head);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--green-signal);
+        margin: 0 0 6px;
+      }
+      .gogl-hero-card__title {
+        font-family: var(--font-head);
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: #fff;
+        margin: 0 0 6px;
+      }
+      .gogl-hero-card__text {
+        font-family: var(--font-body);
+        font-style: italic;
+        font-size: 0.82rem;
+        color: #aaa;
+        margin: 0 0 10px;
+        line-height: 1.4;
+      }
+      .gogl-hero-card__link {
+        font-family: var(--font-head);
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--green-signal);
+        text-decoration: none;
+      }
+      .gogl-hero-card__link:hover,
+      .gogl-hero-card__link:focus-visible {
+        text-decoration: underline;
+      }
+
       .gogl-hero__cta {
         display: inline-block;
         background: #2d9e8f;
@@ -200,6 +1626,7 @@
         padding: 16px 36px;
         border-radius: 999px;
         border: none;
+        box-shadow: none;
         cursor: pointer;
         text-align: center;
         text-decoration: none;
@@ -211,21 +1638,22 @@
       }
       .gogl-bar {
         width: 100%;
-        background: var(--black);
+        background: var(--green-signal);
         padding: 10px 20px;
         text-align: center;
         box-sizing: border-box;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
       }
       .gogl-bar p {
         font-family: 'Helvetica Neue', sans-serif;
         font-style: normal;
         font-size: 0.8rem;
         letter-spacing: 0.05em;
-        color: var(--white);
+        color: #ffffff;
         line-height: 1.5;
-        max-width: var(--page-max);
+        max-width: var(--content-max);
         margin: 0 auto;
-        padding: 0;
+        padding: 0 var(--nav-pad-x);
         box-sizing: border-box;
       }
       .gogl-section {
@@ -577,13 +2005,7 @@
         letter-spacing: 0.1em;
         display: block;
       }
-      @media (max-width: 640px) {
-        .gogl-hero__content {
-          top: 50%;
-          transform: translateY(-50%);
-        }
-      }
-      /* Persönliche Notiz — zentriert, transluzent, gleicher Rotton; Größe über vw/vh gekoppelt */
+
       .gogl-stoerer {
         --stoerer-signal: #ff2f3a;
         --stoerer-signal-dark: #a4141c;
@@ -835,6 +2257,105 @@
         text-decoration: underline;
       }
 
+      /* Beta-Leiste: gleiches Blau wie „gogogo App“ im FC-Dropdown (.nav__gogogo-item--gosam) */
+      .gogl-beta-bar {
+        width: 100%;
+        box-sizing: border-box;
+        background: #3366ff;
+        color: #edf2ff;
+        padding: 10px 0;
+        font-family: var(--font-sans);
+        letter-spacing: 0.05em;
+        line-height: 1.5;
+        box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 18%, transparent);
+        overflow: hidden;
+      }
+      .gogl-beta-bar__track {
+        display: flex;
+        width: max-content;
+        animation: gogl-beta-marquee 12.5s linear infinite;
+      }
+      .gogl-beta-bar__text {
+        flex-shrink: 0;
+        margin: 0;
+        padding-right: 3rem;
+        font-size: 1.2rem;
+        white-space: nowrap;
+      }
+      @keyframes gogl-beta-marquee {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .gogl-beta-bar__track {
+          animation: none;
+          width: 100%;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+        .gogl-beta-bar__text {
+          white-space: normal;
+          text-align: center;
+          padding: 0 var(--nav-pad-x);
+        }
+        .gogl-beta-bar__text[aria-hidden="true"] {
+          display: none;
+        }
+      }
+
+      .gogl-beta-bar {
+        width: 100%;
+        box-sizing: border-box;
+        background: #3366ff;
+        color: #edf2ff;
+        padding: 10px 0;
+        font-family: var(--font-sans);
+        letter-spacing: 0.05em;
+        line-height: 1.5;
+        box-shadow: inset 0 1px 0 color-mix(in srgb, #fff 18%, transparent);
+        overflow: hidden;
+      }
+      .gogl-beta-bar__track {
+        display: flex;
+        width: max-content;
+        animation: gogl-beta-marquee 12.5s linear infinite;
+      }
+      .gogl-beta-bar__text {
+        flex-shrink: 0;
+        margin: 0;
+        padding-right: 3rem;
+        font-size: 1.2rem;
+        white-space: nowrap;
+      }
+      @keyframes gogl-beta-marquee {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .gogl-beta-bar__track {
+          animation: none;
+          width: 100%;
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+        .gogl-beta-bar__text {
+          white-space: normal;
+          text-align: center;
+          padding: 0 var(--nav-pad-x);
+        }
+        .gogl-beta-bar__text[aria-hidden="true"] {
+          display: none;
+        }
+      }
+
     </style>
   </head>
   <body class="gogogo-page" id="top">
@@ -848,20 +2369,18 @@
       </div>
     </header>
 
-    <div style="
-  width: 100%;
-  background: #0a0a0a;
-  color: #ffffff;
-  text-align: center;
-  padding: 10px 20px;
-  font-family: 'Helvetica Neue', sans-serif;
-  font-size: 0.8rem;
-  letter-spacing: 0.05em;
-">
-  Beta-Version — für Freunde und Freunde von Freunden.
-  Frühbucher erhalten 20% Rabatt. &nbsp;·&nbsp;
-  Wir freuen uns auf dein Feedback.
-</div>
+    <div class="gogl-beta-bar" aria-label="Hinweis">
+      <div class="gogl-beta-bar__track">
+        <p class="gogl-beta-bar__text">
+          Keine Zeit für HYROX? Kein Personal Trainer zur Hand? Dir fehlt aber Bewegung? Hier schließen wir gemeinsam die
+          Lücke zwischen Social Media -Erwartung und Deiner Realität.
+        </p>
+        <p class="gogl-beta-bar__text" aria-hidden="true">
+          Keine Zeit für HYROX? Kein Personal Trainer zur Hand? Dir fehlt aber Bewegung? Hier schließen wir gemeinsam die
+          Lücke zwischen Social Media -Erwartung und Deiner Realität.
+        </p>
+      </div>
+    </div>
 
     <aside
       id="gogl-stoerer"
@@ -899,202 +2418,421 @@
     </aside>
 
     <main>
-      <section class="gogl-hero" aria-labelledby="gogl-hero-title">
-        <div class="gogl-hero__media" aria-hidden="true">
-          <video
-            class="gogl-hero__video"
-            autoplay
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            poster="assets/hero-poster.png"
-          >
-            <source src="assets/hero.mp4" type="video/mp4" />
-          </video>
-          <div class="gogl-hero__overlay"></div>
+      <section class="gogl-hero-intro" aria-labelledby="gogl-hero-title">
+        <div class="gogl-hero-intro__inner">
+          <h1 id="gogl-hero-title" class="gogl-hero-intro__title">
+            <span class="gogl-hero-intro__title-strong nowrap">Du weißt was zu tun wäre.</span>
+            <span class="gogl-hero-intro__title-light">Und trotzdem schiebst du deinen<br />5km-Lauf vor dir her.</span>
+          </h1>
+          <p class="gogl-hero-intro__lede">
+            <span class="gogl-hero-intro__lede-line gogl-hero-intro__lede-line--red">Ich bau Dir eine Brücke zwischen Sofa und täglicher Bewegung.</span><br />
+            <span class="gogl-hero-intro__lede-line gogl-hero-intro__lede-line--pink">Fck Purpose, fck Big Brand Scam, fck 5am Club.</span><br />
+            <span class="gogl-hero-intro__lede-line gogl-hero-intro__lede-line--turquoise">Mein Versprechen: Deine Gesundheit first &amp; real Connections wenn Du willst.</span>
+          </p>
         </div>
-        <!-- HERO CONTENT -->
-        <div style="
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  display: flex;
-  flex-direction: column;
-  z-index: 2;
-  max-width: var(--page-max);
-  margin: 0 auto;
-  width: 100%;
-  padding-left: var(--page-x);
-  padding-right: var(--page-x);
-  box-sizing: border-box;
-  min-height: 0;
-">
-
-  <!-- CENTER: Headline + Body + CTAs (vertical middle between hero top and card row) -->
-  <div style="
-    flex: 1 1 auto;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    box-sizing: border-box;
-    padding-top: 0.5rem;
-  ">
-  <div style="width: 100%; box-sizing: border-box;">
-    <h1 id="gogl-hero-title" style="
-      font-family: 'Helvetica Neue', sans-serif;
-      font-weight: 900;
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      line-height: 1.15;
-      margin: 0 0 16px 0;
-      color: #ffffff;
-    ">Du weißt was zu tun wäre.</h1>
-
-    <h2 style="
-      font-family: 'Helvetica Neue', sans-serif;
-      font-weight: 500;
-      font-size: clamp(2rem, 3.5vw, 3rem);
-      line-height: 1.15;
-      margin: 0 0 20px 0;
-      color: #ffffff;
-    ">Und trotzdem schiebst du deinen<br />5km-Lauf vor dir her.</h2>
-
-    <p style="
-      font-family: Georgia, serif;
-      font-style: italic;
-      font-size: clamp(0.95rem, 1.6vw, 1.1rem);
-      color: #cccccc;
-      line-height: 1.45;
-      max-width: 500px;
-      margin: 0 0 22px 0;
-    ">Kein Willensproblem. Überlastung.<br />Wir stehen zwischen Fitness-App und Personal Trainer.<br />Dein Kontext auf Basis deiner Woche zählt!</p>
-
-    <div style="display: flex; gap: 20px; flex-wrap: wrap; align-items: center;">
-      <a href="start/index.html" style="
-        background: #2d9e8f;
-        color: #ffffff;
-        font-family: 'Helvetica Neue', sans-serif;
-        font-weight: 700;
-        font-size: 1rem;
-        padding: 16px 32px;
-        border-radius: 999px;
-        text-decoration: none;
-        display: inline-block;
-      ">Jetzt registrieren</a>
-
-      <a href="#einstieg" style="
-        background: transparent;
-        color: #ffffff;
-        font-family: 'Helvetica Neue', sans-serif;
-        font-weight: 500;
-        font-size: 1rem;
-        padding: 15px 32px;
-        border-radius: 999px;
-        border: 1.5px solid rgba(255,255,255,0.5);
-        text-decoration: none;
-        display: inline-block;
-      ">Mehr erfahren</a>
-    </div>
-  </div>
-  </div>
-
-  <!-- BOTTOM: Two Cards (niedriger) -->
-  <div style="
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: 100%;
-    padding-bottom: 18px;
-    box-sizing: border-box;
-    flex-shrink: 0;
-  ">
-
-    <!-- Card Left -->
-    <div style="
-      background: rgba(10,10,10,0.60);
-      backdrop-filter: blur(8px);
-      padding: 16px 22px 18px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      border-right: 1px solid rgba(255,255,255,0.1);
-    ">
-      <p style="
-        font-family: 'Helvetica Neue', sans-serif;
-        font-size: 0.7rem;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        color: #2d9e8f;
-        margin: 0 0 6px 0;
-      ">BERLIN · VOR ORT</p>
-      <p style="
-        font-family: 'Helvetica Neue', sans-serif;
-        font-weight: 700;
-        font-size: 0.95rem;
-        color: #ffffff;
-        margin: 0 0 6px 0;
-      ">Training mit Joscha</p>
-      <p style="
-        font-family: Georgia, serif;
-        font-style: italic;
-        font-size: 0.82rem;
-        color: #aaaaaa;
-        margin: 0 0 10px 0;
-        line-height: 1.4;
-      ">Grundlagengespräch · Bewegungsanalyse · Formtraining · Plangestaltung</p>
-      <a href="triff-joscha.html" style="
-        font-family: 'Helvetica Neue', sans-serif;
-        font-size: 0.85rem;
-        font-weight: 600;
-        color: #2d9e8f;
-        text-decoration: none;
-      ">Mehr erfahren →</a>
-    </div>
-
-    <!-- Card Right -->
-    <div style="
-      background: rgba(10,10,10,0.60);
-      backdrop-filter: blur(8px);
-      padding: 16px 22px 18px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-    ">
-      <p style="
-        font-family: 'Helvetica Neue', sans-serif;
-        font-size: 0.7rem;
-        text-transform: uppercase;
-        letter-spacing: 0.12em;
-        color: #2d9e8f;
-        margin: 0 0 6px 0;
-      ">ONLINE · ÜBERALL</p>
-      <p style="
-        font-family: 'Helvetica Neue', sans-serif;
-        font-weight: 700;
-        font-size: 0.95rem;
-        color: #ffffff;
-        margin: 0 0 6px 0;
-      ">Online-Betreuung. Egal wo du bist.</p>
-      <p style="
-        font-family: Georgia, serif;
-        font-style: italic;
-        font-size: 0.82rem;
-        color: #aaaaaa;
-        margin: 0 0 10px 0;
-        line-height: 1.4;
-      ">Wie BetterHelp nur für Bewegung. Kein Social Media. Kein App-Chaos. Dein Trainer. Dein Plan.</p>
-      <a href="register-training/index.html" style="
-        font-family: 'Helvetica Neue', sans-serif;
-        font-size: 0.85rem;
-        font-weight: 600;
-        color: #2d9e8f;
-        text-decoration: none;
-      ">Trainer finden →</a>
-    </div>
-
-  </div>
-</div>
       </section>
 
-      <div class="gogl-bar">
-        <p>168 Stunden hat die Woche. Vier davon verändern alles andere.</p>
-      </div>
+      <section class="gogl-hero-showcase" aria-label="gogogo Einstieg">
+        <div class="gogl-joscha-grow-wrap">
+          <div class="gogl-showcase-slider-ui">
+            <p class="gogl-program-slider-title" id="gogl-program-slider-title" aria-live="polite">Factfulness</p>
+            <div class="gogl-program-slider-arrows">
+              <button type="button" class="gogl-program-slider-arrow gogl-program-slider-arrow--prev" aria-label="Vorheriges Programm"><span aria-hidden="true">‹</span></button>
+              <button type="button" class="gogl-program-slider-arrow gogl-program-slider-arrow--next" aria-label="Nächstes Programm"><span aria-hidden="true">›</span></button>
+            </div>
+          </div>
+          <div id="gogl-joscha-grow" class="gogl-joscha-grow gogl-program-slider">
+                        <div class="gogl-program-slider__dots" role="tablist" aria-label="Folie">
+              <button type="button" class="gogl-program-slider__dot is-active" role="tab" aria-selected="true" aria-label="Factfulness" data-slide-to="0"></button>
+              <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="Aufwärmen mit der Mobility-Routine" data-slide-to="1"></button>
+              <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="Cycle Training" data-slide-to="2"></button>
+              <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="gogogo App" data-slide-to="3"></button>
+              <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="Lohnt sich ein Personal Trainer" data-slide-to="4"></button>
+              <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="Triff Joscha" data-slide-to="5"></button>
+              <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="Upper Body Basics" data-slide-to="6"></button>
+            </div>
+                        <div class="gogl-program-slider__viewport">
+<div class="gogl-program-slider__slide is-active" data-slide="0">
+                <div class="gogl-joscha-panel">
+              <div class="gogl-joscha-tiles-wrap">
+                <div class="gogl-joscha-copy">
+                  <h2 class="gogl-joscha-copy__heading">Factfulness</h2>
+                  <p class="gogl-joscha-copy__sub">Das mit der Bewegung ist einfacher als Influenzer und die Fitnessbranche es uns wissen lassen will.</p>
+                  <a class="gogl-joscha-copy__cta" href="#einstieg">mach mit</a>
+                </div>
+                <div class="gogl-tile-grid" id="gogl-tile-grid">
+                  <article class="gogl-tile" data-state="closed">
+<span class="gogl-tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 5v14M8 8l4-3 4 3M8 16l4 3 4-3M7 12h10"/></svg></span>
+                    <div class="gogl-tile__head">
+<h3 class="gogl-tile__title">360° Körperfunktion</h3>
+</div>
+                    <div class="gogl-tile__body">
+                      <p>Dein Körper steht auf drei Säulen: Kraft, Herz-Lunge und Skills — also Balance, Koordination, Beweglichkeit. Wenn eine schwächelt, hinkt das System. Die gute Nachricht: Du musst nicht alles auf einmal können. Du musst nur wissen, wo Du stehst.</p>
+                      <div class="gogl-tile__actions">
+                        <button type="button" class="gogl-tile__bg-btn" data-bg-toggle>Hintergrund →</button>
+                      </div>
+                      <div class="gogl-tile__bg">
+                        <h4>Wissenschaftlicher Hintergrund</h4>
+                        <p>Die WHO empfiehlt seit 2020 für gesunde Erwachsene <strong>150–300 Minuten moderate Bewegung pro Woche plus zwei Krafteinheiten plus Balance-Training</strong>. Das ist keine sportliche Höchstleistung — das ist die biologische Erhaltungsdosis.</p>
+                        <p>Wer alle drei Säulen bedient, senkt sein Risiko für Herz-Kreislauf-Erkrankungen, Demenz, Diabetes und Stürze signifikant. Wer nur eine bedient (typisch: nur Cardio oder nur Krafttraining), trainiert an seinem Körper vorbei.</p>
+                        <ul>
+                          <li><a href="https://www.who.int/europe/publications/i/item/9789240014886" target="_blank" rel="noopener">WHO Guidelines on Physical Activity 2020</a></li>
+                          <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7719906/" target="_blank" rel="noopener">Bull et al., Br J Sports Med 2020</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="gogl-tile" data-state="closed">
+<span class="gogl-tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 17c4-6 8-6 12 0"/><path d="M6 17c3-4 5-5 7-5"/><path d="M18 17l-4-3"/><path d="M18 17v-6"/></svg></span>
+                    <div class="gogl-tile__head">
+<h3 class="gogl-tile__title">Im Rhytmus der Woche</h3>
+</div>
+                    <div class="gogl-tile__body">
+                      <p>1× lang und locker. 1× intensiv und kurz. 2× Kraft. Der Rest: leichte Bewegung und echte Pause. Genauso hat Dein Körper vor 10.000 Jahren überlebt. Genauso bleibt er heute leistungsfähig.</p>
+                      <div class="gogl-tile__actions">
+                        <button type="button" class="gogl-tile__bg-btn" data-bg-toggle>Hintergrund →</button>
+                      </div>
+                      <div class="gogl-tile__bg">
+                        <h4>Wissenschaftlicher Hintergrund</h4>
+                        <p>Das <strong>80/20-Polarisationsmodell</strong> ist in der Trainingswissenschaft seit zwei Jahrzehnten Konsens: etwa 80 % der Bewegung in niedriger Intensität (Zone 2 — Dauerlauf, Wandern, lockeres Radfahren), 20 % in hoher Intensität (HIIT, Intervalle, Spiel).</p>
+                        <p>Iñigo San Millán, Coach von Tadej Pogačar und Forscher an der University of Colorado, zeigt: genau diese Verteilung maximiert <strong>mitochondriale Dichte und Fettoxidation</strong> — und damit den Stoffwechselmotor, der über Lebenserwartung und Tagesenergie entscheidet. Krafttraining ergänzt, was Zone 2 nicht abdeckt: Knochendichte, Muskelmasse, hormonelle Balance.</p>
+                        <ul>
+                          <li><a href="https://theproof.com/the-science-of-zone-2-cardiovascular-exercise-part-1-inigo-san-millan-phd/" target="_blank" rel="noopener">San Millán Interview, The Proof Podcast</a></li>
+                          <li>Stöggl &amp; Sperlich, Frontiers in Physiology 2014 — polarisiertes Training</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="gogl-tile" data-state="closed">
+<span class="gogl-tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5c-2 1-3 3-3 5a4 4 0 0 0 2 3.5c0 2-1 3.5-2 4.5h10c-1-1-2-2.5-2-4.5A4 4 0 0 0 18 10c0-2-1-4-3-5"/><path d="M12 5v14M10 9h4M10 13h4"/></svg></span>
+                    <div class="gogl-tile__head">
+<h3 class="gogl-tile__title">Bewegung heilt Alles</h3>
+</div>
+                    <div class="gogl-tile__body">
+                      <p>Schon 10–20 Minuten am Tag verändern Deine Baseline. Spaziergang vor dem Bildschirm. Mobility statt Scrollen. Lesen statt Netflix. Du brauchst beides: körperliche Reize und mentale Pausen. Beide kosten Dich keine Stunde.</p>
+                      <div class="gogl-tile__actions">
+                        <button type="button" class="gogl-tile__bg-btn" data-bg-toggle>Hintergrund →</button>
+                      </div>
+                      <div class="gogl-tile__bg">
+                        <h4>Wissenschaftlicher Hintergrund</h4>
+                        <p>Die größte Meta-Analyse zu Bewegung und Depression — Singh et al., <em>BMJ</em> 2024, über 14.000 Teilnehmer:innen — zeigt: strukturierte Bewegung ist bei leichten bis mittelschweren depressiven Symptomen <strong>so wirksam wie Antidepressiva oder Verhaltenstherapie</strong>. Spazierengehen, Joggen, Yoga und Krafttraining zeigten alle signifikante Effekte.</p>
+                        <p>Mechanistisch hängt das an BDNF (Brain-Derived Neurotrophic Factor), Endorphinen, Dopaminregulation und der Verbesserung des Schlafs. „Mentale Bewegung“ — bewusste Atempausen, Lesen, Gespräche ohne Bildschirm — ergänzt das, weil das Nervensystem den <strong>Wechsel zwischen Anspannung und echter Ruhe</strong> braucht. Multitasking liefert weder das eine noch das andere.</p>
+                        <ul>
+                          <li><a href="https://www.bmj.com/content/384/bmj-2023-075847" target="_blank" rel="noopener">Singh et al., BMJ 2024 — Exercise for Depression</a></li>
+                          <li>Kandola et al., Neuroscience &amp; Biobehavioral Reviews 2019 — Bewegung &amp; BDNF</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="gogl-tile" data-state="closed">
+<span class="gogl-tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9v6M6 7v10M18 7v10M21 9v6"/><path d="M6 12h12"/></svg></span>
+                    <div class="gogl-tile__head">
+<h3 class="gogl-tile__title">einfach Krafttraining</h3>
+</div>
+                    <div class="gogl-tile__body">
+                      <p>Kniebeuge, Klimmzug, Kreuzheben, Drücken (Bank oder Liegestütz), Ziehen (Rudern), Schulterdrücken. Das ist alles. Variation entsteht durch Gewicht, Tempo und Wiederholungen — nicht durch komplizierte Geräte.</p>
+                      <div class="gogl-tile__actions">
+                        <button type="button" class="gogl-tile__bg-btn" data-bg-toggle>Hintergrund →</button>
+                      </div>
+                      <div class="gogl-tile__bg">
+                        <h4>Wissenschaftlicher Hintergrund</h4>
+                        <p>Die sechs Grundübungen sind <strong>mehrgelenkige Verbundübungen (Compound Lifts)</strong> — sie aktivieren mehrere Muskelgruppen gleichzeitig und produzieren den größten Trainingsreiz pro Minute.</p>
+                        <p>Sinnvolle Periodisierung läuft über drei bis vier Phasen: (1) <strong>Kraftausdauer</strong> — viele Wiederholungen, kurze Pausen, Technik festigen; (2) <strong>Hypertrophie</strong> — 8–12 Wdh., 60–90 Sek Pause, Muskelmasse wächst; (3) <strong>Maximalkraft</strong> — 3–5 Wdh., <strong>3–5 Minuten Pause</strong>. Das ist der häufigste Fehler: Pausen werden zu kurz, dann ist es keine Maximalkraft mehr; (4) <strong>Kombinationsphasen</strong>.</p>
+                        <p>Die Trainingswissenschaft (Schoenfeld 2024) zeigt: nicht das Timing macht den Unterschied, sondern <strong>Gesamtreiz × Erholung × Konsistenz</strong>.</p>
+                        <ul>
+                          <li>Schoenfeld et al., Sports Medicine 2024 — Training Volume Meta-Analyse</li>
+                          <li>ACSM Position Stand on Resistance Training</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="gogl-tile" data-state="closed">
+<span class="gogl-tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="13" cy="7" r="2"/><path d="M11 9l-2 3 2 2v3M13 9l3 2-2 3v2M7 18h8"/></svg></span>
+                    <div class="gogl-tile__head">
+<h3 class="gogl-tile__title">Die Nr. 1 Übung</h3>
+</div>
+                    <div class="gogl-tile__body">
+                      <p>Wer mit 90 noch ohne Hilfe vom Boden aufsteht, lebt nachweislich länger. Starke Glutes halten Dein Becken in Position, Deine Wirbelsäule aufrecht, Deinen Rücken schmerzfrei. Wir starten Dich mit Spanish Squats — und Du wirst spüren, wo Du stehst.</p>
+                      <div class="gogl-tile__actions">
+                        <button type="button" class="gogl-tile__bg-btn" data-bg-toggle>Hintergrund →</button>
+                      </div>
+                      <div class="gogl-tile__bg">
+                        <h4>Wissenschaftlicher Hintergrund</h4>
+                        <p>Der <strong>Sitting-Rising-Test</strong> (Araújo et al., Update 2025) prüft die Fähigkeit, ohne Hilfe von Händen oder Knien vom Boden aufzustehen. In einer Kohorte über 4.000 Personen, beobachtet über 12 Jahre, hatten Menschen mit einem Score von 0–4 (von 10) ein <strong>6-fach erhöhtes kardiovaskuläres Mortalitätsrisiko</strong> gegenüber denen mit Score 10.</p>
+                        <p>Der Test misst gleichzeitig Kraft, Beweglichkeit, Balance und Körperzusammensetzung — die vier Dinge, die im Alltag verloren gehen, wenn man sich nicht mehr in die volle Hocke bewegt.</p>
+                        <p>Trainingsseitig adressiert die Kniebeuge die <strong>gluteale Kette</strong>: starke Glutes ziehen das Becken in eine neutrale Position, der untere Rücken muss nicht mehr kompensieren, die Schultern hängen entspannt — Haltungsschmerzen verschwinden bei vielen Klient:innen allein dadurch. Der Spanish Squat (Widerstandsband um einen Pfeiler) ist der ideale Einstieg, weil er Knie-Ausrichtung und Gluteus-Aktivierung gleichzeitig schult.</p>
+                        <ul>
+                          <li><a href="https://pubmed.ncbi.nlm.nih.gov/40569873/" target="_blank" rel="noopener">Araújo et al., Update 2025 — Sitting-Rising Test &amp; Mortality</a></li>
+                          <li><a href="https://www.tctmd.com/news/simple-sitting-rising-test-linked-natural-and-cv-mortality" target="_blank" rel="noopener">TCTMD News — Übersicht</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="gogl-tile" data-state="closed">
+<span class="gogl-tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14"/><path d="M12 6v2"/><circle cx="12" cy="11" r="2"/><path d="M10 13l-1 5M14 13l1 5"/></svg></span>
+                    <div class="gogl-tile__head">
+<h3 class="gogl-tile__title">Häng und zieh Dich hoch</h3>
+</div>
+                    <div class="gogl-tile__body">
+                      <p>Klimmzug ist die zweitwichtigste Übung. Schon passives Hängen an der Stange dekomprimiert Wirbelsäule und Schultern. Griffkraft ist einer der stärksten messbaren Lebenserwartungs-Marker, die wir kennen.</p>
+                      <div class="gogl-tile__actions">
+                        <button type="button" class="gogl-tile__bg-btn" data-bg-toggle>Hintergrund →</button>
+                      </div>
+                      <div class="gogl-tile__bg">
+                        <h4>Wissenschaftlicher Hintergrund</h4>
+                        <p>Eine Meta-Analyse von <strong>42 Studien mit über 3 Millionen Teilnehmer:innen</strong> (<em>Scientific Reports</em>, 2024) zeigt: pro 5 kg geringere Griffkraft steigt das Risiko, vorzeitig zu sterben, um <strong>16 %</strong>.</p>
+                        <p>Die Korrelation ist nicht kausal — Griffkraft baut keine Lebenserwartung auf — aber sie ist ein hervorragender Proxy für Gesamtmuskelmasse, neuromuskuläre Integrität und biologisches Alter. Trainingstechnisch ist der Klimmzug der mechanisch sauberste Weg, die hintere Kette (Latissimus, Trapezius, Rhomboiden, Bizeps) gleichzeitig zu adressieren und Schulterstabilität in Dekompression zu trainieren.</p>
+                        <p>Wer keinen Klimmzug schafft: <strong>passives Hängen 30–60 Sekunden</strong> ist bereits ein Trainingsreiz.</p>
+                        <ul>
+                          <li><a href="https://www.nature.com/articles/s41598-024-80487-y" target="_blank" rel="noopener">Sun et al., Scientific Reports 2024 — Grip Strength &amp; Mortality</a></li>
+                          <li><a href="https://onlinelibrary.wiley.com/doi/full/10.1002/jcsm.13619" target="_blank" rel="noopener">Andersen et al., J Cachexia Sarcopenia Muscle 2024 — 28 Länder</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="gogl-tile" data-state="closed">
+<span class="gogl-tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 10c1-2 2-2 3 0s2 2 3 0 2-2 3 0"/><path d="M6 14c0 3 2.5 5 6 5s6-2 6-5H6z"/></svg></span>
+                    <div class="gogl-tile__head">
+<h3 class="gogl-tile__title">Gutes Essen</h3>
+</div>
+                    <div class="gogl-tile__body">
+                      <p>Es gibt nicht <em>die</em> richtige Ernährung. Es gibt Prinzipien, die für die meisten Menschen funktionieren — und Deinen Alltag, der entscheidet, wie sie zu Dir passen. Mein Vorschlag: proteinreiches Frühstück, eine warme Hauptmahlzeit, 4–5 Stunden Mahlzeitenabstand, gerne Quark mit Protein am Abend.</p>
+                      <div class="gogl-tile__actions">
+                        <button type="button" class="gogl-tile__bg-btn" data-bg-toggle>Hintergrund →</button>
+                      </div>
+                      <div class="gogl-tile__bg">
+                        <h4>Wissenschaftlicher Hintergrund</h4>
+                        <p><strong>1. Gesamtprotein schlägt Protein-Timing.</strong> Die populäre Idee vom „anabolen Fenster“ hält neuen Meta-Analysen nicht stand. Was zählt, ist die tägliche Proteinzufuhr (ca. <strong>1,6 g/kg Körpergewicht für Trainierende</strong>), verteilt auf 3–4 Mahlzeiten. Wann genau Du Protein isst, spielt kaum eine Rolle.</p>
+                        <p><strong>2. Time-Restricted Eating wirkt — moderat.</strong> Mehrere 2024er-Meta-Analysen zeigen: ein 8–10-Stunden-Essensfenster führt zu kleinem, aber konsistentem Gewichtsverlust, besserer Insulinsensitivität und niedrigerem HbA1c. Mechanismus: teils Kaloriendefizit, teils zirkadiane Ausrichtung.</p>
+                        <p><strong>3. Zirkadianer Rhythmus ist real, aber nicht heilig.</strong> Schichtarbeiter:innen, Eltern, Reisende können nicht im Lehrbuch-Rhythmus essen. Die Studien zeigen: <strong>frühes Essensfenster (z.B. 8–18 Uhr) wirkt etwas besser als spätes</strong> — wenn es Dir passt. Wenn nicht: das, was Du konsistent durchhältst, schlägt das, was optimal aber unrealistisch ist.</p>
+                        <ul>
+                          <li><a href="https://link.springer.com/article/10.1186/1550-2783-10-53" target="_blank" rel="noopener">Schoenfeld &amp; Aragon — Protein-Timing-Meta</a></li>
+                          <li><a href="https://www.cell.com/iscience/fulltext/S2589-0042(24)00221-9" target="_blank" rel="noopener">Chang et al., iScience 2024 — TRE &amp; Circadian</a></li>
+                          <li><a href="https://link.springer.com/article/10.1007/s11154-023-09853-x" target="_blank" rel="noopener">Pavlou et al., Rev Endocr Metab Disord 2023</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="gogl-tile" data-state="closed">
+<span class="gogl-tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="7" width="14" height="10" rx="2"/><path d="M19 10v4"/><path d="M8 12h6"/></svg></span>
+                    <div class="gogl-tile__head">
+<h3 class="gogl-tile__title">Effizienz des menschlichen Körpers</h3>
+</div>
+                    <div class="gogl-tile__body">
+                      <p>Vier Krafttage pro Woche und nichts passiert mehr? Dann fehlt der andere Reiz. Dein Nervensystem will Variation. Dein Stoffwechsel ist ein Regelkreis, kein Excel-Sheet — er passt seinen Output an Deinen Input an. Das ist nicht persönliches Versagen. Das ist Biologie.</p>
+                      <div class="gogl-tile__actions">
+                        <button type="button" class="gogl-tile__bg-btn" data-bg-toggle>Hintergrund →</button>
+                      </div>
+                      <div class="gogl-tile__bg">
+                        <h4>Wissenschaftlicher Hintergrund</h4>
+                        <p><strong>A) Adaptation des Nervensystems.</strong> Wer monatelang den gleichen Reiz fährt, wird <strong>bewegungseffizienter</strong> — der Körper braucht weniger Energie für dieselbe Arbeit. Was sich anfühlt wie Stagnation, ist Effizienzgewinn. Die Lösung ist Reizvariation: HIIT einbauen, wenn nur Kraft gemacht wurde; Tempo wechseln; neue Bewegungsmuster. Eine 2024er-Meta-Analyse zur Concurrent-Training-Interferenz zeigt, dass HIIT und Krafttraining sich gegenseitig <strong>nicht</strong> behindern, wenn sinnvoll gesetzt — sondern den Trainingseffekt sogar verstärken können.</p>
+                        <p><strong>B) Das Constrained Energy Expenditure Model.</strong> Herman Pontzer (Duke University) zeigte mit doppelt-markiertem Wasser bei den Hadza-Jägern und -Sammlern in Tansania: ein Mensch, der <strong>acht Stunden täglich auf Jagd geht, verbrennt kaum mehr Kalorien als jemand mit Bürojob</strong>. Der Körper regelt seinen Energieverbrauch von oben: was Du in Bewegung mehr verbrauchst, drosselt er in Reparatur-, Immun- und Reproduktionsprozessen herunter. <strong>Kalorienzählen ist ein guter Ansatz — aber kein vollständiges Modell.</strong></p>
+                        <ul>
+                          <li><a href="https://journals.sagepub.com/doi/abs/10.3233/IES-230082" target="_blank" rel="noopener">Chen et al., 2024 — Concurrent HIIT + RT Meta-Analyse</a></li>
+                          <li>Pontzer et al., Current Biology 2012 — Hadza Energy Expenditure</li>
+                          <li>Pontzer, „Burn“ (Penguin 2021)</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="gogl-tile" data-state="closed">
+<span class="gogl-tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="14" cy="6" r="2"/><path d="M14 8v5l-3 6"/><path d="M11 19h6"/><path d="M6 6l4 14"/></svg></span>
+                    <div class="gogl-tile__head">
+<h3 class="gogl-tile__title">Es liegt nicht am Alter</h3>
+</div>
+                    <div class="gogl-tile__body">
+                      <p>Die größte Lüge über das Älterwerden: „Mein Stoffwechsel wird langsamer.“ Wissenschaftlich falsch. Was wirklich passiert: Menschen bewegen sich weniger. Dein Stoffwechsel reagiert auf Deine Aktivität — nicht auf Dein Geburtsjahr.</p>
+                      <div class="gogl-tile__actions">
+                        <button type="button" class="gogl-tile__bg-btn" data-bg-toggle>Hintergrund →</button>
+                      </div>
+                      <div class="gogl-tile__bg">
+                        <h4>Wissenschaftlicher Hintergrund</h4>
+                        <p>Die definitive Antwort gab die Pontzer-Studie 2021 in <em>Science</em>: 6.421 Teilnehmer:innen aus 29 Ländern, alle Altersgruppen, gemessen mit der Goldstandard-Methode (doppelt-markiertes Wasser). Ergebnis: <strong>Der Grundumsatz bleibt zwischen dem 20. und 60. Lebensjahr stabil.</strong> Erst ab ca. 60 sinkt er um etwa 0,7 % pro Jahr — deutlich weniger als die meisten Diätbücher behaupten.</p>
+                        <p>Was sich verändert: die <strong>Bewegungsmenge</strong> (Menschen bewegen sich im Alter weniger) und die <strong>Muskelmasse</strong> (Sarkopenie ab dem 30. Lebensjahr, etwa 1 % pro Jahr Verlust, wenn nicht gegengesteuert wird). Beides ist trainierbar.</p>
+                        <p>VO2max — das Maß für aerobe Fitness — ist einer der stärksten Mortalitätsprädiktoren überhaupt: jede MET (3,5 ml O2/kg/min) mehr senkt das Sterberisiko um etwa <strong>11 %</strong>.</p>
+                        <ul>
+                          <li><a href="https://www.science.org/doi/10.1126/science.abe5017" target="_blank" rel="noopener">Pontzer et al., Science 2021 — Daily Energy Expenditure</a></li>
+                          <li><a href="https://today.duke.edu/2021/08/metabolism-changes-age-just-not-when-you-might-think" target="_blank" rel="noopener">Duke Today — Zusammenfassung</a></li>
+                          <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC11103301/" target="_blank" rel="noopener">CRF &amp; Mortality Meta-Analyse 2024</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="gogl-tile" data-state="closed">
+<span class="gogl-tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v4M20 14v4"/><path d="M4 14h16v-2H8a3 3 0 0 0-4 0z"/><path d="M6 10h3"/></svg></span>
+                    <div class="gogl-tile__head">
+<h3 class="gogl-tile__title">gute Erholung gegen Fett</h3>
+</div>
+                    <div class="gogl-tile__body">
+                      <p>Wenn Du nicht abnimmst, obwohl Du „alles richtig“ machst — schau zuerst auf Deinen Schlaf. Chronischer Stress plus zu wenig Schlaf gleich Speichermodus. Cortisol und Insulin unterdrücken Fettabbau. Das ist nicht Disziplinmangel. Das ist Hormonbiologie.</p>
+                      <div class="gogl-tile__actions">
+                        <button type="button" class="gogl-tile__bg-btn" data-bg-toggle>Hintergrund →</button>
+                      </div>
+                      <div class="gogl-tile__bg">
+                        <h4>Wissenschaftlicher Hintergrund</h4>
+                        <p>Eine kontrollierte Studie (Mayo Clinic, 2022) zeigte: <strong>14 Tage Schlafrestriktion auf 4 Stunden pro Nacht führten zu +9 % Bauchfett und +11 % viszeralem Fett</strong> — bei sonst identischer Kalorienaufnahme.</p>
+                        <p>Mechanismus: Schlafmangel hyperaktiviert die HPA-Achse (Hypothalamus-Hypophyse-Nebenniere). Cortisol bleibt abends erhöht, der zirkadiane Cortisol-Rhythmus flacht ab. Erhöhtes Cortisol treibt Heißhunger auf hochkalorische Lebensmittel, begünstigt die Einlagerung von Fett im Bauchraum (viszeral — gefährlicher als subkutan) und unterdrückt Fettabbau.</p>
+                        <p>Evolutionär ergibt das Sinn: anhaltender Stress wurde vom Körper als „Mangellage“ interpretiert — eine Belagerung, eine Hungersnot. Der Körper antwortet mit Speichermodus. Heute reagiert er auf chronischen Job-Stress oder Schlafmangel mit demselben Mechanismus.</p>
+                        <p><strong>Praktische Konsequenz beim Abnehmen — drei Hebel, nicht einer:</strong> moderates Kaloriendefizit (nicht extrem), Muskelaufbau (höherer Grundumsatz, hormonell günstiger), Erholung (7–8 h Schlaf, Stressmanagement, Pausen).</p>
+                        <ul>
+                          <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9187217/" target="_blank" rel="noopener">Covassin et al., JAMA 2022 — Sleep Restriction &amp; Visceral Fat</a></li>
+                          <li>Clinical Obesity Review 2024 — HPA-Axis &amp; Obesity</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="gogl-tile" data-state="closed">
+<span class="gogl-tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="10" r="3"/><path d="M5 20c0-2.2 1.8-4 4-4s4 1.8 4 4"/><circle cx="17" cy="9" r="2.5"/><path d="M14 20c0-1.7 1.3-3 3-3s3 1.3 3 3"/></svg></span>
+                    <div class="gogl-tile__head">
+<h3 class="gogl-tile__title">Mann oder Frau? Gleiche Übungen, andere Hebel.</h3>
+</div>
+                    <div class="gogl-tile__body">
+                      <p>Wir sind biologisch unterschiedlich. Das heißt aber nicht, dass wir anders trainieren müssen. Die sechs Grundübungen funktionieren bei jedem Menschen. Wer Angst hat, durch Krafttraining „bulky“ zu werden — die ist unbegründet. Und wer den Zyklus berücksichtigen will, kann seine Trainingsspitzen klug darauf legen.</p>
+                      <div class="gogl-tile__actions">
+                        <button type="button" class="gogl-tile__bg-btn" data-bg-toggle>Hintergrund →</button>
+                      </div>
+                      <div class="gogl-tile__bg">
+                        <h4>Wissenschaftlicher Hintergrund</h4>
+                        <p><strong>1. Frauen werden vom Krafttraining nicht „bulky“ — auch nicht aus Versehen.</strong> Männer produzieren etwa <strong>15- bis 20-mal mehr Testosteron</strong> als Frauen. Testosteron ist der primäre Treiber muskulärer Hypertrophie auf hohem Niveau. Was Frauen auf Bildern weiblicher Bodybuilderinnen sehen, entsteht durch jahrelanges, hochspezialisiertes Training, einen anhaltenden Kalorienüberschuss von mehreren hundert Kilokalorien täglich und in vielen Fällen pharmakologische Unterstützung. Mit zwei bis drei Krafteinheiten pro Woche, ausgewogener Ernährung und ohne expliziten Aufbau-Plan ist „bulky“ physiologisch praktisch ausgeschlossen.</p>
+                        <p>Was tatsächlich passiert: <strong>mehr Muskel-Tonus, klarere Definition, bessere Haltung, stabilere Gelenke</strong>. Knochendichte und Stoffwechsel profitieren spürbar — was speziell ab der Perimenopause ein zentraler Hebel gegen Sarkopenie und Osteoporose ist.</p>
+                        <p><strong>2. Die Hypertrophie-Antwort ist gleich — nur das absolute Ausmaß unterscheidet sich.</strong> Die größte aktuelle Bayesian-Meta-Analyse (Refalo et al., <em>PeerJ</em> 2025) zeigt: die <strong>relativen</strong> Hypertrophiezuwächse sind bei Frauen und Männern praktisch identisch. Typ-II-Muskelfasern wachsen bei beiden Geschlechtern gleich. Absolut wachsen Männer im Oberkörper etwas mehr — was an der höheren Ausgangsmasse liegt, nicht an der Trainingsantwort. Heißt: Frauen können denselben Trainingsplan fahren und dieselben relativen Fortschritte erwarten.</p>
+                        <p><strong>3. Der Zyklus beeinflusst die Tagesform — und das darf man nutzen.</strong> Östrogen wirkt anabolisch und neuromuskulär anregend. In der <strong>späten Follikelphase und um den Eisprung</strong> zeigen mehrere Studien Spitzenwerte für Maximalkraft, Sprungkraft und Squat-Leistung. In der <strong>späten Lutealphase</strong> — wenn Progesteron hoch ist — sinkt die Leistung bei vielen Frauen messbar; viele berichten auch subjektiv von höherer Müdigkeit, Wassereinlagerung und höherer Herzfrequenz bei gleicher Belastung.</p>
+                        <p>Daraus folgt <strong>keine Pflicht zur Zyklus-Optimierung</strong> — individuelle Schwankungen sind groß. Aber wer plant: Maximalkraft-Blöcke in die Follikelphase legen, lockere Einheiten und Mobility in die späte Lutealphase. Wer nicht plant, verliert keinen relevanten Trainingseffekt.</p>
+                        <p>Praktisch relevant — unabhängig vom Geschlecht: Beckenboden-Aktivierung als Standard in jeder Squat- und Hinge-Übung; nach Schwangerschaft Wiedereinstieg über Rumpf-Stabilität und Atemmechanik; Eisenstatus (Ferritin) bei menstruierenden Frauen regelmäßig checken — Eisenmangel drückt die Trainingsantwort spürbar.</p>
+                        <ul>
+                          <li><a href="https://peerj.com/articles/19042/" target="_blank" rel="noopener">Refalo et al., PeerJ 2025 — Sex Differences in Hypertrophy</a></li>
+                          <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10818650/" target="_blank" rel="noopener">Carmichael et al., Sports 2024 — Menstrual Cycle &amp; Max. Strength</a></li>
+                          <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11897035/" target="_blank" rel="noopener">McNulty et al., Front Sports Active Living 2025 — Power in the Flow</a></li>
+                          <li><a href="https://onlinelibrary.wiley.com/doi/abs/10.1111/sms.70107" target="_blank" rel="noopener">Hackney, Scand J Med Sci Sports 2025</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </article>
+                  <article class="gogl-tile" data-state="closed">
+<span class="gogl-tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="9" r="3"/><path d="M9 12v6M7 16h4"/><circle cx="16" cy="8" r="3"/><path d="M16 11v7M14 14h4"/></svg></span>
+                    <div class="gogl-tile__head">
+<h3 class="gogl-tile__title">Eine App schaut nicht auf Deinen Tag</h3>
+</div>
+                    <div class="gogl-tile__body">
+                      <p>Eine Fitness-App zählt Sätze. Sie merkt nicht, wenn Du gestresst, müde oder krank bist. Sie korrigiert keine Spanish Squats. Sie sieht nicht, wie Dein Leben gerade läuft. Genau das tue ich. Persönlich. Oder über die <strong>gogogo App</strong> — wenn Du Begleitung statt Coach-Speak suchst.</p>
+                      <div class="gogl-tile__actions">
+                        <a class="gogl-tile__cta-mail" href="mailto:joscha@fridaycircle.club?subject=Erstgespräch%20Trainings-Kompass">Erstgespräch buchen</a>
+                        <button type="button" class="gogl-tile__bg-btn" data-bg-toggle>Hintergrund →</button>
+                      </div>
+                      <div class="gogl-tile__bg">
+                        <h4>Warum Begleitung wirkt</h4>
+                        <p>Die Studienlage zur Accountability in Verhaltensänderung ist klar: Menschen, die mit einer realen Person (nicht nur einer App) verbunden sind, halten Trainingsroutinen <strong>2–3× länger</strong> durch. Der Mechanismus ist nicht Motivation — es ist <strong>Identitätsbindung</strong>: „Ich bin jemand, der mit Joscha trainiert“ wirkt anders als „Ich nutze eine App“.</p>
+                        <p>Die Friday-Circle-Logik: Du bist kein Klient in einem Programm — Du bist Teil einer kleinen Gruppe, in der wir uns gegenseitig sehen. HYROX hat mit 250 Millionen Gym-Sportler:innen weltweit gezeigt, wie ein gemeinsames <strong>Purpose</strong> funktioniert. Wir bieten dasselbe für Menschen, deren Zeit nicht für HYROX-Vorbereitung reicht.</p>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+                </div>
+              </div>
+              </div>
+<div class="gogl-program-slider__slide" data-slide="1">
+                <div class="gogl-program-slide-card gogl-program-slide-card--mobility">
+                  <div class="gogl-program-slide-card__bg" aria-hidden="true"></div>
+                  <div class="gogl-program-slide-card__media" data-video-slot="mobility">
+                    <video
+                      class="gogl-program-slide-card__video"
+                      playsinline
+                      preload="none"
+                      poster="assets/gogogo-mobility-Video-Poster.png"
+                    ></video>
+                    <img
+                      class="gogl-program-slide-card__media-poster"
+                      src="assets/gogogo-mobility-Video-Poster.png"
+                      alt=""
+                      width="720"
+                      height="1280"
+                      decoding="async"
+                    />
+                    <button type="button" class="gogl-program-slide-card__play" aria-label="Mobility-Video abspielen">
+                      <span class="gogl-program-slide-card__play-icon" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                  <div class="gogl-program-slide-card__inner">
+                    <h2 class="gogl-program-slide-card__title">Aufwärmen mit der Mobility-Routine — bevor Du Kraft gibst.</h2>
+                  </div>
+                </div>
+              </div>
+<div class="gogl-program-slider__slide" data-slide="2">
+                <div class="gogl-program-slide-card gogl-program-slide-card--cycle">
+                  <div class="gogl-program-slide-card__bg" aria-hidden="true">
+                    <img src="red-performance-mockup/assets/Hyrox-athlet.webp" alt="" width="1600" height="900" decoding="async" />
+                  </div>
+                  <div class="gogl-program-slide-card__inner">
+                    <h2 class="gogl-program-slide-card__title">Cycle Training — HYROX-Prinzipien, jede Woche.</h2>
+                    <a class="gogl-program-slide-card__cta gogl-program-slide-card__cta--cycle" href="cycle-training.html">Zu Cycle Training →</a>
+                  </div>
+                </div>
+              </div>
+<div class="gogl-program-slider__slide" data-slide="3">
+                <div class="gogl-program-slide-card gogl-program-slide-card--gosam">
+                  <div class="gogl-program-slide-card__bg" aria-hidden="true">
+                    <img src="red-performance-mockup/assets/FiFi-Betreuung.webp" alt="" width="1600" height="900" decoding="async" />
+                  </div>
+                  <div class="gogl-program-slide-card__inner">
+                    <h2 class="gogl-program-slide-card__title">gogogo App — 30 Tage eine Gewohnheit, mit Buddy.</h2>
+                    <a class="gogl-program-slide-card__cta gogl-program-slide-card__cta--gosam" href="go-sam.html">Zur gogogo App →</a>
+                  </div>
+                </div>
+              </div>
+<div class="gogl-program-slider__slide" data-slide="4">
+                <div class="gogl-program-slide-card gogl-program-slide-card--trainer">
+                  <div class="gogl-program-slide-card__bg" aria-hidden="true">
+                    <img src="red-performance-mockup/assets/FiFi-Betreuung.webp" alt="" width="1600" height="900" decoding="async" />
+                  </div>
+                  <div class="gogl-program-slide-card__inner">
+                    <h2 class="gogl-program-slide-card__title">Lohnt sich ein Personal Trainer — wenn Struktur fehlt, nicht Motivation.</h2>
+                    <a class="gogl-program-slide-card__cta gogl-program-slide-card__cta--light" href="#einstieg">Persönlich klären →</a>
+                  </div>
+                </div>
+              </div>
+<div class="gogl-program-slider__slide" data-slide="5">
+                <div class="gogl-program-slide-card gogl-program-slide-card--joscha">
+                  <div class="gogl-program-slide-card__bg" aria-hidden="true">
+                    <img src="assets/triff-joscha-hero-poster.png" alt="" width="1600" height="900" decoding="async" />
+                  </div>
+                  <div class="gogl-program-slide-card__inner">
+                    <h2 class="gogl-program-slide-card__title">Triff Joscha — Training, Story und erste Schritte.</h2>
+                    <a class="gogl-program-slide-card__cta gogl-program-slide-card__cta--light" href="triff-joscha.html">Zu Triff Joscha →</a>
+                  </div>
+                </div>
+              </div>
+<div class="gogl-program-slider__slide" data-slide="6">
+                <div class="gogl-program-slide-card gogl-program-slide-card--upper">
+                  <div class="gogl-program-slide-card__bg" aria-hidden="true"></div>
+                  <div class="gogl-program-slide-card__media" data-video-slot="upper">
+                    <video
+                      class="gogl-program-slide-card__video"
+                      playsinline
+                      preload="none"
+                      poster="assets/gogogo-upperbody-Video-Poster.png"
+                    ></video>
+                    <img
+                      class="gogl-program-slide-card__media-poster"
+                      src="assets/gogogo-upperbody-Video-Poster.png"
+                      alt=""
+                      width="720"
+                      height="1280"
+                      decoding="async"
+                    />
+                    <button type="button" class="gogl-program-slide-card__play" aria-label="Upper-Body-Video abspielen">
+                      <span class="gogl-program-slide-card__play-icon" aria-hidden="true"></span>
+                    </button>
+                  </div>
+                  <div class="gogl-program-slide-card__inner">
+                    <h2 class="gogl-program-slide-card__title">Upper Body Basics — Schultern, Rücken, Griffkraft.</h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
 
 <section style="background: #f0eee6; padding: 80px 0;">
   <div style="max-width: var(--page-max); margin: 0 auto; padding: 0 var(--page-x);">
