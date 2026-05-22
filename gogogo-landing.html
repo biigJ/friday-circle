@@ -691,6 +691,24 @@
         pointer-events: none;
         text-align: left;
       }
+      /* Factfulness-Copy: links verankern, kein Mitwandern beim Grow-Scroll (≥761px) */
+      @media (min-width: 761px) {
+        .gogl-program-slider__slide[data-slide="0"] .gogl-joscha-tiles-wrap {
+          position: relative;
+          margin-left: 0;
+          margin-right: auto;
+          padding-left: calc(min(17rem, 38%) + clamp(20px, 3vw, 40px));
+          box-sizing: border-box;
+        }
+        .gogl-program-slider__slide[data-slide="0"] .gogl-joscha-copy {
+          position: absolute;
+          left: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          flex: none;
+          align-self: auto;
+        }
+      }
       /* Rechte Spalte: Raster horizontal + vertikal mittig, 0,7× nur am ganzen Grid */
       .gogl-tile-grid-stage {
         flex: 1 1 0;
