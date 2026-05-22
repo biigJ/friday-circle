@@ -266,12 +266,29 @@
         padding: 0;
         overflow: visible;
       }
-      .gogl-joscha-grow-wrap {
+      /* Scroll-Pin: Sticky-Slide bleibt am Header, Video erst danach (kein Durchscrollen darunter). */
+      .gogl-showcase-pin {
+        --gogl-showcase-chrome: clamp(48px, 7vh, 64px);
+        --gogl-grow-peek: clamp(18px, 2.5vh, 28px);
+        --gogl-grow-h-pin: calc(100dvh - var(--fc-nav-h, 72px) - var(--gogl-showcase-chrome) - var(--gogl-grow-peek));
+        --gogl-grow-scroll-room: max(0px, calc(72dvh - var(--fc-nav-h, 72px)));
         display: flex;
         flex-direction: column;
         align-items: center;
         width: 100vw;
         margin-left: calc(50% - 50vw);
+        overflow: visible;
+      }
+      @media (min-width: 761px) {
+        .gogl-showcase-pin {
+          min-height: calc(var(--gogl-grow-h-pin) + var(--gogl-showcase-chrome) + var(--gogl-grow-scroll-room));
+        }
+      }
+      .gogl-joscha-grow-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
         margin-top: 0;
         overflow: visible;
       }
@@ -783,12 +800,14 @@
         overflow-x: hidden;
         overflow-y: auto;
       }
-      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler {
+      .gogl-tile-grid.is-tile-overlay-active {
         --gogl-popup-type-size: clamp(
           calc(1.19rem * var(--gogl-tile-font-scale, 1) / var(--gogl-popup-scale)),
           calc(2.01vw * var(--gogl-tile-font-scale, 1) / var(--gogl-popup-scale)),
           calc(1.53rem * var(--gogl-tile-font-scale, 1) / var(--gogl-popup-scale))
         );
+      }
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler {
         aspect-ratio: 5 / 3;
         height: auto;
       }
@@ -870,52 +889,11 @@
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile .gogl-tile__bg {
         transition: none !important;
       }
-      /* Popup-Text nur in geöffneter Kachel (nicht auf geschlossenen Kacheln mit Scaler) */
-      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] > .gogl-tile__scaler .gogl-tile__title {
-        font-size: clamp(
-          calc(1.19rem * var(--gogl-tile-font-scale, 1) / var(--gogl-popup-scale)),
-          calc(2.01vw * var(--gogl-tile-font-scale, 1) / var(--gogl-popup-scale)),
-          calc(1.53rem * var(--gogl-tile-font-scale, 1) / var(--gogl-popup-scale))
-        );
-      }
-      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] > .gogl-tile__scaler .gogl-tile__body p {
-        font-size: clamp(
-          calc(0.84rem / var(--gogl-popup-scale)),
-          calc(1.12vw / var(--gogl-popup-scale)),
-          calc(0.98rem / var(--gogl-popup-scale))
-        );
-      }
-      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler .gogl-tile__bg h4,
-      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] > .gogl-tile__scaler .gogl-tile__bg h4 {
-        font-size: clamp(
-          calc(0.62rem / var(--gogl-popup-scale)),
-          calc(0.85vw / var(--gogl-popup-scale)),
-          calc(0.72rem / var(--gogl-popup-scale))
-        );
-      }
-      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler .gogl-tile__bg p,
-      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] > .gogl-tile__scaler .gogl-tile__bg p {
-        font-size: clamp(
-          calc(0.72rem / var(--gogl-popup-scale)),
-          calc(0.95vw / var(--gogl-popup-scale)),
-          calc(0.84rem / var(--gogl-popup-scale))
-        );
-      }
-      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler .gogl-tile__bg li,
+      /* Popup-Text: gleiche Größe kleines Popup + Wissenschafts-Popup (Stil unverändert) */
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] > .gogl-tile__scaler .gogl-tile__bg h4,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] > .gogl-tile__scaler .gogl-tile__bg p,
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] > .gogl-tile__scaler .gogl-tile__bg li {
-        font-size: clamp(
-          calc(0.68rem / var(--gogl-popup-scale)),
-          calc(0.88vw / var(--gogl-popup-scale)),
-          calc(0.78rem / var(--gogl-popup-scale))
-        );
-      }
-      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] > .gogl-tile__scaler .gogl-tile__bg-btn,
-      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] > .gogl-tile__scaler .gogl-tile__cta-mail {
-        font-size: clamp(
-          calc(0.68rem / var(--gogl-popup-scale)),
-          calc(0.9vw / var(--gogl-popup-scale)),
-          calc(0.78rem / var(--gogl-popup-scale))
-        );
+        font-size: var(--gogl-popup-type-size);
       }
       .gogl-tile[data-state="open"] .gogl-tile__head,
       .gogl-tile[data-state="open"] .gogl-tile__body,
@@ -2456,6 +2434,7 @@
       </section>
 
       <section class="gogl-hero-showcase" aria-label="gogogo Einstieg">
+        <div class="gogl-showcase-pin">
         <div class="gogl-joscha-grow-wrap">
           <div class="gogl-showcase-slider-ui">
             <p class="gogl-program-slider-title" id="gogl-program-slider-title" aria-live="polite">Factfulness</p>
@@ -2854,6 +2833,7 @@
               </div>
             </div>
           </div>
+        </div>
         </div>
 
         <div class="gogl-video-stage">
