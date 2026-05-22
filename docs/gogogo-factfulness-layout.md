@@ -9,7 +9,7 @@ Dieser Stand ist bewusst festgehalten. **Nicht ohne visuellen Test ändern:**
 
 | Element | Verhalten |
 |--------|-----------|
-| Kleine Kacheln | 5:3, visuell **0,7×** (`scale` am ganzen Grid) |
+| Kleine Kacheln | 5:3 (`aspect-ratio` an Zelle), visuell **0,7×** (`scale` am ganzen Grid), Text mit Kachel-Padding |
 | Raster | horizontal + vertikal mittig in der rechten Spalte (`.gogl-tile-grid-stage`) |
 | Läufer | Zeilen 2 + 4 mit `translateX(--gogl-tile-shift)` |
 | Kleines Popup | mittig über angeklickter Kachel, **5:3** (`aspect-ratio` am Scaler) |
@@ -20,8 +20,8 @@ Dieser Stand ist bewusst festgehalten. **Nicht ohne visuellen Test ändern:**
 
 ## Technische Stützen gegen „Springen“
 
-1. **`--gogl-row-h`** — aus Kachelbreite × 3/5, alle 12 Zellen gleich hoch.
-2. **Scaler aus dem Fluss** — `.gogl-tile > .gogl-tile__scaler { position: absolute; inset: 0 }` auch bei geschlossenen Kacheln.
+1. **`aspect-ratio: 5 / 3`** an jeder Zelle, Zeilen `auto` (kein festes `--gogl-row-h`).
+2. **Scaler aus dem Fluss** — `.gogl-tile > .gogl-tile__scaler` absolut mit gleichem Inset wie Kachel-Padding.
 3. **Body/Bg nur mit Overlay** — `max-height`-Expansion nur bei `.is-tile-overlay-active`.
 4. **Klick-Reihenfolge** — zuerst `open` + Overlay-Klasse, dann andere Kacheln schließen.
 5. **Läufer-Platzhalter** — geöffnete Kacheln in Zeile 2/4 behalten `translateX(shift)` am Zell-Element.

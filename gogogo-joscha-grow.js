@@ -63,7 +63,6 @@
     root.classList.remove("is-flush");
     document.documentElement.style.setProperty("--fc-nav-h", navHeight() + "px");
     applyDesktopWidth(scrollProgress());
-    if (tileGrid) syncTileRowHeights();
   }
 
   var tileGrid = document.getElementById("gogl-tile-grid");
@@ -90,18 +89,6 @@
     scaler.appendChild(head);
     scaler.appendChild(body);
   });
-
-  function syncTileRowHeights() {
-    var probe = tileGrid.querySelector(".gogl-tile");
-    if (!probe) return;
-    var rowH = Math.round((probe.offsetWidth * 3) / 5);
-    if (rowH > 0) {
-      tileGrid.style.setProperty("--gogl-row-h", rowH + "px");
-    }
-  }
-
-  syncTileRowHeights();
-  window.addEventListener("resize", syncTileRowHeights, { passive: true });
 
   var BG_TOP_PAD = 8;
   var BG_BOTTOM_PAD = 12;
@@ -277,7 +264,6 @@
   window.addEventListener(
     "resize",
     function () {
-      syncTileRowHeights();
       window.clearTimeout(resizeAlignTimer);
       resizeAlignTimer = window.setTimeout(function () {
         tileGrid.querySelectorAll(".gogl-tile").forEach(function (t) {

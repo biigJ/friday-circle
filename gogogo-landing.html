@@ -685,7 +685,7 @@
         overflow: visible;
       }
       /* LAYOUT FREEZE (2026-05-22): 0,7× am Grid, stage-Zentrierung, Läufer-shift,
-         feste Zeilenhöhe (--gogl-row-h), Scaler immer absolut → kein Reflow bei Popup.
+         Kacheln 5:3 (aspect-ratio), Scaler absolut → kein Reflow bei Popup.
          Siehe docs/gogogo-factfulness-layout.md */
       .gogl-tile-grid {
         --gogl-tile-font-scale: 0.8;
@@ -693,11 +693,10 @@
         --gogl-popup-scale: 2;
         --gogl-gap: clamp(8px, 1.15vw, 12px);
         --gogl-tile-shift: calc((100% - 2 * var(--gogl-gap)) / 6 + var(--gogl-gap) / 2);
-        --gogl-row-h: auto;
         position: relative;
         display: grid;
         grid-template-columns: repeat(3, minmax(0, 1fr));
-        grid-template-rows: repeat(4, var(--gogl-row-h));
+        grid-template-rows: repeat(4, auto);
         gap: var(--gogl-gap);
         width: 100%;
         max-width: 100%;
@@ -722,9 +721,9 @@
       .gogl-tile-grid > .gogl-tile:nth-child(11) { grid-row: 4; grid-column: 2; }
       .gogl-tile-grid > .gogl-tile:nth-child(12) { grid-row: 4; grid-column: 3; }
       .gogl-tile-grid > .gogl-tile {
-        height: var(--gogl-row-h);
-        min-height: var(--gogl-row-h);
-        max-height: var(--gogl-row-h);
+        width: 100%;
+        aspect-ratio: 5 / 3;
+        height: auto;
         align-self: start;
       }
       /* Läuferverband: nur im geschlossenen Zustand */
@@ -762,6 +761,9 @@
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler,
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] > .gogl-tile__scaler {
         position: absolute;
+        top: auto;
+        right: auto;
+        bottom: auto;
         left: 50%;
         width: 100%;
         padding: clamp(10px, 1.2vw, 14px) clamp(12px, 1.4vw, 16px) clamp(8px, 0.9vw, 10px);
@@ -834,15 +836,18 @@
         transform: translateX(-50%) translateY(var(--gogl-tile-shift-y))
           scale(var(--gogl-popup-scale));
       }
-      /* Scaler nie im Grid-Fluss — Zellenhöhe bleibt konstant (geschlossen + Popup) */
+      /* Scaler nie im Grid-Fluss — Zellenhöhe = aspect-ratio 5:3 (geschlossen + Popup) */
       .gogl-tile > .gogl-tile__scaler {
         position: absolute;
-        inset: 0;
+        top: clamp(10px, 1.25vw, 16px);
+        right: clamp(11px, 1.35vw, 15px);
+        bottom: clamp(10px, 1.25vw, 16px);
+        left: clamp(11px, 1.35vw, 15px);
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        width: 100%;
-        max-width: 100%;
+        width: auto;
+        max-width: none;
         min-width: 0;
         box-sizing: border-box;
         z-index: 1;
