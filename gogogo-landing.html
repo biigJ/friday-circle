@@ -326,16 +326,23 @@
         transform: translateY(-1px);
       }
       .gogl-joscha-grow {
+        --gogl-frame-inset-top: clamp(44px, 5.2vh, 52px);
+        --gogl-frame-inset-x: var(--nav-pad-x);
+        --gogl-frame-inset-bottom: clamp(12px, 1.8vw, 18px);
+        --gogl-showcase-chrome: clamp(48px, 7vh, 64px);
+        --gogl-grow-peek: clamp(18px, 2.5vh, 28px);
+        --gogl-grow-h: calc(100dvh - var(--fc-nav-h, 72px) - var(--gogl-showcase-chrome) - var(--gogl-grow-peek));
         position: sticky;
         top: var(--fc-nav-h, 72px);
         z-index: 3;
         flex-shrink: 0;
-        min-height: calc(100vh - var(--fc-nav-h, 72px));
-        min-height: calc(100dvh - var(--fc-nav-h, 72px));
+        height: var(--gogl-grow-h);
+        min-height: var(--gogl-grow-h);
+        max-height: var(--gogl-grow-h);
         display: flex;
         flex-direction: column;
         align-items: stretch;
-        justify-content: center;
+        justify-content: flex-start;
         background: #0a0a0a;
         width: auto;
         max-width: none;
@@ -396,28 +403,31 @@
         min-height: 100%;
       }
       .gogl-program-slider__slide.is-active {
-        display: block;
-      }
-      .gogl-program-slider__slide.is-active[data-slide="0"] {
         display: flex;
         flex-direction: column;
-        min-height: 100%;
+        flex: 1 1 auto;
+        min-height: 0;
+        height: 100%;
+        box-sizing: border-box;
+      }
+      .gogl-program-slider__slide.is-active .gogl-joscha-panel,
+      .gogl-program-slider__slide.is-active .gogl-program-slide-card {
+        flex: 1 1 auto;
+        min-height: 0;
+        height: 100%;
         box-sizing: border-box;
       }
       .gogl-program-slider__slide.is-active[data-slide="0"] .gogl-joscha-panel {
         display: flex;
         flex-direction: column;
-        flex: 1 1 auto;
-        min-height: 0;
         justify-content: center;
-        box-sizing: border-box;
+        min-height: 100%;
       }
       .gogl-joscha-grow .gogl-joscha-panel {
         width: 100%;
       }
       .gogl-program-slide-card {
         position: relative;
-        min-height: min(72vh, calc(100dvh - var(--fc-nav-h, 72px) - 120px));
         overflow: hidden;
       }
       .gogl-program-slide-card__bg {
@@ -450,11 +460,11 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        justify-content: center;
+        justify-content: flex-start;
         width: auto;
         max-width: none;
         margin: 0;
-        padding: 0 var(--nav-pad-x);
+        padding: var(--gogl-frame-inset-top) var(--gogl-frame-inset-x) var(--gogl-frame-inset-bottom);
         box-sizing: border-box;
       }
       .gogl-program-slide-card__title {
@@ -505,99 +515,6 @@
       }
       .gogl-program-slide-card--mobility,
       .gogl-program-slide-card--upper {
-        min-height: 100%;
-        height: 100%;
-        container-type: size;
-        --gogl-media-w: calc(100cqh * 9 / 16);
-      }
-      .gogl-program-slide-card--mobility,
-      .gogl-program-slide-card--upper {
-        min-height: 100%;
-        height: 100%;
-        container-type: size;
-        --gogl-media-w: calc(100cqh * 9 / 16);
-      }
-      .gogl-program-slide-card--mobility,
-      .gogl-program-slide-card--upper {
-        min-height: 100%;
-        height: 100%;
-        container-type: size;
-        --gogl-media-w: calc(100cqh * 9 / 16);
-      }
-      .gogl-program-slide-card--mobility,
-      .gogl-program-slide-card--upper {
-        min-height: 100%;
-        height: 100%;
-        container-type: size;
-        --gogl-media-w: calc(100cqh * 9 / 16);
-      }
-      .gogl-program-slide-card--mobility,
-      .gogl-program-slide-card--upper {
-        min-height: 100%;
-        height: 100%;
-        container-type: size;
-        --gogl-media-w: calc(100cqh * 9 / 16);
-      }
-      .gogl-program-slide-card--mobility,
-      .gogl-program-slide-card--upper {
-        min-height: 100%;
-        height: 100%;
-        container-type: size;
-        --gogl-media-w: calc(100cqh * 9 / 16);
-      }
-      .gogl-program-slide-card--mobility,
-      .gogl-program-slide-card--upper {
-        min-height: 100%;
-        height: 100%;
-        container-type: size;
-        --gogl-media-w: calc(100cqh * 9 / 16);
-      }
-      .gogl-program-slide-card--mobility,
-      .gogl-program-slide-card--upper {
-        min-height: 100%;
-        height: 100%;
-        container-type: size;
-        --gogl-media-w: calc(100cqh * 9 / 16);
-      }
-      .gogl-program-slide-card--mobility,
-      .gogl-program-slide-card--upper {
-        min-height: 100%;
-        height: 100%;
-        container-type: size;
-        --gogl-media-w: calc(100cqh * 9 / 16);
-      }
-      .gogl-program-slide-card--mobility,
-      .gogl-program-slide-card--upper {
-        min-height: 100%;
-        height: 100%;
-        container-type: size;
-        --gogl-media-w: calc(100cqh * 9 / 16);
-      }
-      .gogl-program-slide-card--mobility,
-      .gogl-program-slide-card--upper {
-        min-height: 100%;
-        height: 100%;
-        container-type: size;
-        --gogl-media-w: calc(100cqh * 9 / 16);
-      }
-      .gogl-program-slide-card--mobility,
-      .gogl-program-slide-card--upper {
-        min-height: 100%;
-        height: 100%;
-        container-type: size;
-        --gogl-media-w: calc(100cqh * 9 / 16);
-      }
-      .gogl-program-slide-card--mobility,
-      .gogl-program-slide-card--upper {
-        min-height: 100%;
-        height: 100%;
-        container-type: size;
-        --gogl-media-w: calc(100cqh * 9 / 16);
-      }
-      .gogl-program-slide-card--mobility,
-      .gogl-program-slide-card--upper {
-        min-height: 100%;
-        height: 100%;
         container-type: size;
         --gogl-media-w: calc(100cqh * 9 / 16);
       }
@@ -706,8 +623,11 @@
       .gogl-program-slide-card--mobility .gogl-program-slide-card__inner,
       .gogl-program-slide-card--upper .gogl-program-slide-card__inner {
         align-items: flex-start;
-        justify-content: center;
-        padding: 0 calc(var(--gogl-media-w) + var(--nav-pad-x) + clamp(12px, 2vw, 24px)) 0 var(--nav-pad-x);
+        justify-content: flex-start;
+        padding: var(--gogl-frame-inset-top)
+          calc(var(--gogl-media-w) + var(--gogl-frame-inset-x) + clamp(12px, 2vw, 24px))
+          var(--gogl-frame-inset-bottom)
+          var(--gogl-frame-inset-x);
       }
       .gogl-program-slide-card--mobility .gogl-program-slide-card__title,
       .gogl-program-slide-card--upper .gogl-program-slide-card__title {
@@ -728,57 +648,62 @@
         width: 100%;
         max-width: none;
         margin: 0;
-        padding: clamp(20px, 3vw, 32px) var(--nav-pad-x);
+        padding: var(--gogl-frame-inset-top) var(--gogl-frame-inset-x) var(--gogl-frame-inset-bottom);
         box-sizing: border-box;
         overflow: visible;
-      }
-      .gogl-joscha-grow:has(.gogl-program-slider__slide[data-slide="0"].is-active) .gogl-joscha-panel {
-        padding-bottom: clamp(11px, 1.76vw, 18px);
       }
       .gogl-joscha-tiles-wrap {
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: center;
         gap: clamp(20px, 3vw, 40px);
         width: 100%;
         max-width: var(--content-max);
         margin: 0 auto;
-        flex: 0 1 auto;
+        flex: 1 1 auto;
         min-height: 0;
+        height: 100%;
       }
       .gogl-joscha-copy {
         position: static;
         flex: 0 0 auto;
+        align-self: flex-start;
         max-width: min(17rem, 38%);
         z-index: 2;
         pointer-events: none;
         text-align: left;
       }
-      .gogl-tile-grid {
-        --gogl-tile-font-scale: 0.8;
-        --gogl-gap: clamp(8px, 1.15vw, 12px);
-        --gogl-tile-shift: calc((100% - 2 * var(--gogl-gap)) / 6 + var(--gogl-gap) / 2);
-        --gogl-tile-scale: 0.855;
-        --gogl-row-h: auto;
-        position: relative;
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        grid-template-rows: repeat(4, var(--gogl-row-h));
-        gap: var(--gogl-gap);
+      /* Rechte Spalte: Raster horizontal + vertikal mittig, 0,7× nur am ganzen Grid */
+      .gogl-tile-grid-stage {
         flex: 1 1 0;
         min-width: 0;
         min-height: 0;
-        max-height: 100%;
-        width: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: visible;
+      }
+      .gogl-tile-grid {
+        --gogl-tile-font-scale: 0.8;
+        --gogl-tile-visual-scale: 0.7;
+        /* Grid ist 0,7× → Popup-Scaler 2× = Doppelkachel, Schrift 50 % = gleiche Lesegröße */
+        --gogl-popup-scale: 2;
+        --gogl-gap: clamp(8px, 1.15vw, 12px);
+        --gogl-tile-shift: calc((100% - 2 * var(--gogl-gap)) / 6 + var(--gogl-gap) / 2);
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-rows: repeat(4, auto);
+        gap: var(--gogl-gap);
+        width: 100%;
         max-width: 100%;
-        margin-left: clamp(14px, 2.2vw, 26px);
-        margin-right: clamp(18px, 2.8vw, 36px);
-        padding-right: 0;
+        margin: 0;
         box-sizing: border-box;
         overflow: visible;
-        transform: scale(var(--gogl-tile-scale));
-        transform-origin: 100% 100%;
+        transform: translateX(calc(var(--gogl-tile-shift) * -0.5))
+          scale(var(--gogl-tile-visual-scale));
+        transform-origin: 50% 50%;
       }
       /* Feste 3×4-Rasterplätze — auch bei geöffneter Kachel bleiben alle 12 Zellen */
       .gogl-tile-grid > .gogl-tile:nth-child(1) { grid-row: 1; grid-column: 1; }
@@ -793,8 +718,11 @@
       .gogl-tile-grid > .gogl-tile:nth-child(10) { grid-row: 4; grid-column: 1; }
       .gogl-tile-grid > .gogl-tile:nth-child(11) { grid-row: 4; grid-column: 2; }
       .gogl-tile-grid > .gogl-tile:nth-child(12) { grid-row: 4; grid-column: 3; }
-      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="closed"] {
+      .gogl-tile-grid .gogl-tile[data-state="closed"] {
         aspect-ratio: 5 / 3;
+        width: 100%;
+        height: auto;
+        align-self: start;
       }
       /* Läuferverband: nur im geschlossenen Zustand */
       .gogl-tile-grid .gogl-tile[data-state="closed"]:nth-child(6n + 4),
@@ -807,12 +735,10 @@
         --gogl-tile-shift-y: 0px;
         position: relative;
         width: 100%;
-        height: var(--gogl-row-h);
-        min-height: var(--gogl-row-h);
-        max-height: var(--gogl-row-h);
+        aspect-ratio: 5 / 3;
+        height: auto;
         overflow: visible;
         align-self: start;
-        justify-content: flex-start;
         padding: 0;
         background: transparent;
         box-shadow: none;
@@ -835,8 +761,7 @@
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler,
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] > .gogl-tile__scaler {
         position: absolute;
-        top: 0;
-        left: 0;
+        left: 50%;
         width: 100%;
         padding: clamp(10px, 1.2vw, 14px) clamp(12px, 1.4vw, 16px) clamp(8px, 0.9vw, 10px);
         box-sizing: border-box;
@@ -847,14 +772,17 @@
           inset -1px -1px 0 rgba(0, 0, 0, 0.35),
           0 12px 36px rgba(0, 0, 0, 0.5);
         isolation: isolate;
-        transform: translateY(var(--gogl-tile-shift-y)) scale(2);
         z-index: 1;
       }
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler {
-        transform-origin: 50% 100%;
+        top: 50%;
+        transform: translate(-50%, -50%) scale(var(--gogl-popup-scale));
+        transform-origin: center center;
       }
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] > .gogl-tile__scaler {
-        transform-origin: 50% 0%;
+        top: 0;
+        transform: translateX(-50%) translateY(var(--gogl-tile-shift-y)) scale(var(--gogl-popup-scale));
+        transform-origin: top center;
         -webkit-overflow-scrolling: touch;
       }
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler::after,
@@ -880,14 +808,17 @@
       }
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"]:nth-child(6n + 4) > .gogl-tile__scaler,
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"]:nth-child(6n + 5) > .gogl-tile__scaler,
-      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"]:nth-child(6n + 6) > .gogl-tile__scaler,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"]:nth-child(6n + 6) > .gogl-tile__scaler {
+        transform: translateX(calc(-50% + var(--gogl-tile-shift))) translateY(-50%)
+          scale(var(--gogl-popup-scale));
+      }
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"]:nth-child(6n + 4) > .gogl-tile__scaler,
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"]:nth-child(6n + 5) > .gogl-tile__scaler,
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"]:nth-child(6n + 6) > .gogl-tile__scaler {
-        left: 0;
-        transform: translateX(var(--gogl-tile-shift)) translateY(var(--gogl-tile-shift-y)) scale(2);
+        transform: translateX(calc(-50% + var(--gogl-tile-shift)))
+          translateY(var(--gogl-tile-shift-y)) scale(var(--gogl-popup-scale));
       }
-      /* 50 % Schrift + 100 % Breite: wirkt nach scale(2) wie geschlossene Kachel, Text bricht um */
+      /* 50 % Schrift + 100 % Breite: wirkt nach Popup-Scale wie geschlossene Kachel, Text bricht um */
       .gogl-tile__scaler {
         width: 100%;
         max-width: 100%;
@@ -898,12 +829,6 @@
       .gogl-tile-grid .gogl-tile[data-state="background"] > .gogl-tile__scaler {
         font-size: 50%;
         line-height: 1.35;
-      }
-      .gogl-tile-grid:not(.is-tile-overlay-active) .gogl-tile[data-state="open"],
-      .gogl-tile-grid:not(.is-tile-overlay-active) .gogl-tile[data-state="background"] {
-        transform: scale(2);
-        transform-origin: center center;
-        z-index: 25;
       }
       .gogl-tile[data-state="open"] .gogl-tile__head,
       .gogl-tile[data-state="open"] .gogl-tile__body,
@@ -1052,8 +977,13 @@
           margin: clamp(16px, 3vw, 24px) 0 0;
           pointer-events: auto;
         }
+        .gogl-tile-grid-stage {
+          width: 100%;
+        }
         .gogl-tile-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
+          transform: scale(var(--gogl-tile-visual-scale));
+          transform-origin: 50% 50%;
         }
       }
 
@@ -1084,7 +1014,7 @@
           inset 1px 1px 0 rgba(255, 255, 255, 0.16),
           inset -1px -1px 0 rgba(0, 0, 0, 0.42),
           0 0 0 1px rgba(255, 255, 255, 0.07);
-        transition: transform 0.35s ease, box-shadow 0.25s ease, background 0.2s ease;
+        transition: box-shadow 0.25s ease, background 0.2s ease;
       }
       .gogl-tile__head {
         display: flex;
@@ -2460,6 +2390,7 @@
                   <p class="gogl-joscha-copy__sub">Das mit der Bewegung ist einfacher als Influenzer und die Fitnessbranche es uns wissen lassen will.</p>
                   <a class="gogl-joscha-copy__cta" href="#einstieg">mach mit</a>
                 </div>
+                <div class="gogl-tile-grid-stage">
                 <div class="gogl-tile-grid" id="gogl-tile-grid">
                   <article class="gogl-tile" data-state="closed">
 <span class="gogl-tile__icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 5v14M8 8l4-3 4 3M8 16l4 3 4-3M7 12h10"/></svg></span>
@@ -2828,6 +2759,40 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gogl-video-stage">
+          <div class="gogl-video-frame">
+            <video
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="metadata"
+              poster="assets/hero-poster.png"
+            >
+              <source src="assets/hero.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div class="gogl-video-overlay-footer">
+            <div class="gogl-hero-cards">
+              <div class="gogl-hero-card gogl-hero-card--left">
+                <p class="gogl-hero-card__label">Berlin · vor Ort</p>
+                <p class="gogl-hero-card__title">Training mit Joscha</p>
+                <p class="gogl-hero-card__text">Grundlagengespräch · Bewegungsanalyse · Formtraining · Plangestaltung</p>
+                <a class="gogl-hero-card__link" href="triff-joscha.html">Mehr erfahren →</a>
+              </div>
+              <div class="gogl-hero-card">
+                <p class="gogl-hero-card__label">Online · überall</p>
+                <p class="gogl-hero-card__title">Online-Betreuung. Egal wo du bist.</p>
+                <p class="gogl-hero-card__text">Wie BetterHelp nur für Bewegung. Kein Social Media. Kein App-Chaos. Dein Trainer. Dein Plan.</p>
+                <a class="gogl-hero-card__link" href="register-training/index.html">Trainer finden →</a>
+              </div>
+            </div>
+            <div class="gogl-bar">
+              <p>168 Stunden hat die Woche. Vier davon verändern alles andere.</p>
             </div>
           </div>
         </div>

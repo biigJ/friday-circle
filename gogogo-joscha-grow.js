@@ -89,8 +89,6 @@
     scaler.appendChild(body);
   });
 
-  var gridRowH = null;
-  var overlayRowHFrozen = false;
   var BG_TOP_PAD = 8;
   var BG_BOTTOM_PAD = 12;
 
@@ -99,43 +97,11 @@
     return state === "open" || state === "background";
   }
 
-  function measureRowHeight() {
-    var ref = tileGrid.querySelector(".gogl-tile");
-    if (!ref) return 0;
-    var w = ref.offsetWidth;
-    if (w > 0) return Math.round((w * 3) / 5);
-    return ref.offsetHeight || 0;
-  }
-
-  function applyGridRowHeight(force) {
-    if (overlayRowHFrozen && gridRowH && !force) {
-      tileGrid.style.setProperty("--gogl-row-h", gridRowH + "px");
-      return;
-    }
-    if (!force && gridRowH) {
-      tileGrid.style.setProperty("--gogl-row-h", gridRowH + "px");
-      return;
-    }
-    var h = measureRowHeight();
-    if (h > 0) {
-      gridRowH = h;
-      tileGrid.style.setProperty("--gogl-row-h", h + "px");
-    }
-  }
-
-  function freezeGridRowHeight() {
-    if (!gridRowH) applyGridRowHeight(true);
-    overlayRowHFrozen = true;
-  }
-
   function updateOverlayClass() {
     var any = tileGrid.querySelector(
       '.gogl-tile[data-state="open"], .gogl-tile[data-state="background"]'
     );
-    var active = !!any;
-    tileGrid.classList.toggle("is-tile-overlay-active", active);
-    if (active) freezeGridRowHeight();
-    else applyGridRowHeight();
+    tileGrid.classList.toggle("is-tile-overlay-active", !!any);
   }
 
   function clearTilePosition(tile) {
@@ -180,13 +146,13 @@
 
     if (tile.getAttribute("data-state") !== "background") {
       clearScalerMaxHeight(scaler);
-      tile.style.setProperty("--gogl-tile-shift-y", "0px");
+      clearTilePosition(tile);
       return;
     }
 
     requestAnimationFrame(function () {
       requestAnimationFrame(function () {
-        tile.style.setProperty("--gogl-tile-shift-y", "0px");
+        clearTilePosition(tile);
         requestAnimationFrame(function () {
           var targetTop = getFrameTop();
           var scalerTop = scaler.getBoundingClientRect().top;
@@ -200,45 +166,13 @@
   }
 
   function afterExpand(tile) {
-    freezeGridRowHeight();
     updateOverlayClass();
     alignExpandedTile(tile);
     window.setTimeout(function () {
+      updateOverlayClass();
       alignExpandedTile(tile);
     }, 50);
   }
-
-  function scheduleInitialRowHeight() {
-    requestAnimationFrame(function () {
-      requestAnimationFrame(function () {
-        applyGridRowHeight(true);
-      });
-    });
-  }
-
-  scheduleInitialRowHeight();
-  window.addEventListener("load", function () {
-    applyGridRowHeight(true);
-  });
-
-  var resizeTimer = null;
-  window.addEventListener(
-    "resize",
-    function () {
-      if (resizeTimer) window.clearTimeout(resizeTimer);
-      resizeTimer = window.setTimeout(function () {
-        resizeTimer = null;
-        if (!overlayRowHFrozen) {
-          gridRowH = null;
-          applyGridRowHeight(true);
-        }
-        tileGrid.querySelectorAll(".gogl-tile").forEach(function (t) {
-          if (isExpanded(t)) alignExpandedTile(t);
-        });
-      }, 120);
-    },
-    { passive: true }
-  );
 
   function pauseSlider() {
     if (window.goglProgramSlider && typeof window.goglProgramSlider.pause === "function") {
@@ -283,6 +217,7 @@
 
       var next = state === "background" ? "open" : "background";
       tile.setAttribute("data-state", next);
+      updateOverlayClass();
       isBgBtn.setAttribute("aria-pressed", next === "background" ? "true" : "false");
       afterExpand(tile);
       return;
@@ -294,6 +229,7 @@
     if (state === "closed") {
       closeAllTiles(tile);
       tile.setAttribute("data-state", "open");
+      updateOverlayClass();
       afterExpand(tile);
       return;
     }
@@ -317,4 +253,14 @@
       pauseSlider();
     });
   }
+
+  window.addEventListener(
+    "resize",
+    function () {
+      tileGrid.querySelectorAll(".gogl-tile").forEach(function (t) {
+        if (isExpanded(t)) alignExpandedTile(t);
+      });
+    },
+    { passive: true }
+  );
 })();
