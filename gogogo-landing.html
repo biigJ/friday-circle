@@ -764,6 +764,8 @@
         position: absolute;
         left: 50%;
         width: 100%;
+        aspect-ratio: 5 / 3;
+        height: auto;
         padding: clamp(10px, 1.2vw, 14px) clamp(12px, 1.4vw, 16px) clamp(8px, 0.9vw, 10px);
         box-sizing: border-box;
         background: #1a1a1a;
@@ -774,6 +776,16 @@
           0 12px 36px rgba(0, 0, 0, 0.5);
         isolation: isolate;
         z-index: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] > .gogl-tile__scaler {
+        aspect-ratio: auto;
+        min-height: 100%;
       }
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler {
         top: 50%;
@@ -824,14 +836,16 @@
         inset: 0;
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
         align-items: stretch;
         width: 100%;
         max-width: 100%;
         min-width: 0;
         box-sizing: border-box;
-        overflow: hidden;
         z-index: 1;
+      }
+      .gogl-tile[data-state="closed"] > .gogl-tile__scaler {
+        justify-content: flex-end;
+        overflow: hidden;
       }
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile .gogl-tile__body,
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile .gogl-tile__bg {
@@ -1144,9 +1158,15 @@
       }
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] .gogl-tile__body,
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] .gogl-tile__body {
-        max-height: 4000px;
+        flex: 1 1 auto;
+        min-height: 0;
+        max-height: none;
+        overflow: visible;
         padding-top: clamp(12px, 1.4vw, 16px);
         transition: none;
+      }
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] .gogl-tile__actions {
+        flex-shrink: 0;
       }
       .gogl-tile__body p {
         margin: 0;

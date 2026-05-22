@@ -12,7 +12,8 @@ Dieser Stand ist bewusst festgehalten. **Nicht ohne visuellen Test ändern:**
 | Kleine Kacheln | 5:3, visuell **0,7×** (`scale` am ganzen Grid) |
 | Raster | horizontal + vertikal mittig in der rechten Spalte (`.gogl-tile-grid-stage`) |
 | Läufer | Zeilen 2 + 4 mit `translateX(--gogl-tile-shift)` |
-| Kleines Popup | mittig über angeklickter Kachel |
+| Kleines Popup | mittig über angeklickter Kachel, **5:3** (`aspect-ratio` am Scaler) |
+| Hintergrund-Button | sichtbar in `.gogl-tile__actions` (Popup-Scaler: `flex-start`, kein `overflow:hidden`) |
 | Hintergrund-Popup | horizontal über Kachel, Oberkante unter Slider-Dots |
 | Popup-Text | gleiche Lesegröße wie Kachel-Labels (÷ `--gogl-popup-scale` nur im offenen Scaler) |
 | Kein Sprung | feste `--gogl-row-h`, Scaler **immer** `position: absolute` |
