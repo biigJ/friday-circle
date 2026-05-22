@@ -132,26 +132,39 @@
     return root.getBoundingClientRect().bottom - BG_BOTTOM_PAD;
   }
 
+  function getPopupScale() {
+    var scale = parseFloat(getComputedStyle(tileGrid).getPropertyValue("--gogl-popup-scale"));
+    return scale > 0 ? scale : 2;
+  }
+
   function clearScalerMaxHeight(scaler) {
     if (!scaler) return;
+    scaler.style.removeProperty("height");
+    scaler.style.removeProperty("min-height");
     scaler.style.removeProperty("max-height");
     scaler.style.removeProperty("overflow-y");
   }
 
-  function fitBackgroundScaler(scaler, targetTop) {
-    var available = getContainerBottom() - targetTop - BG_TOP_PAD;
-    var maxScalerH = Math.floor(available / 2);
-    if (maxScalerH > 72) {
-      scaler.style.maxHeight = maxScalerH + "px";
-      scaler.style.overflowY = "auto";
-    } else {
+  function fitBackgroundScaler(tile, scaler, targetTop) {
+    var available = getContainerBottom() - targetTop - BG_BOTTOM_PAD;
+    var h = Math.floor(available / getPopupScale());
+    if (h < 48) {
+      tile.style.removeProperty("--gogl-bg-scaler-h");
       clearScalerMaxHeight(scaler);
+      return;
     }
+    var hPx = h + "px";
+    tile.style.setProperty("--gogl-bg-scaler-h", hPx);
+    scaler.style.height = hPx;
+    scaler.style.minHeight = hPx;
+    scaler.style.maxHeight = hPx;
+    scaler.style.overflowY = "auto";
   }
 
   function alignExpandedTile(tile) {
     if (!isExpanded(tile)) {
       clearTilePosition(tile);
+      tile.style.removeProperty("--gogl-bg-scaler-h");
       return;
     }
 
@@ -161,6 +174,7 @@
     if (tile.getAttribute("data-state") !== "background") {
       clearScalerMaxHeight(scaler);
       clearTilePosition(tile);
+      tile.style.removeProperty("--gogl-bg-scaler-h");
       return;
     }
 
@@ -168,7 +182,9 @@
       var targetTop = getFrameTop();
       var scalerTop = scaler.getBoundingClientRect().top;
       tile.style.setProperty("--gogl-tile-shift-y", Math.round(targetTop - scalerTop) + "px");
-      fitBackgroundScaler(scaler, targetTop);
+      requestAnimationFrame(function () {
+        fitBackgroundScaler(tile, scaler, targetTop);
+      });
     });
   }
 
@@ -189,6 +205,7 @@
     });
     clearScalerMaxHeight(tile.querySelector(".gogl-tile__scaler"));
     clearTilePosition(tile);
+    tile.style.removeProperty("--gogl-bg-scaler-h");
     updateOverlayClass();
   }
 

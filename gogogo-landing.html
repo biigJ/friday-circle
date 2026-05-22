@@ -764,8 +764,6 @@
         position: absolute;
         left: 50%;
         width: 100%;
-        aspect-ratio: 5 / 3;
-        height: auto;
         padding: clamp(10px, 1.2vw, 14px) clamp(12px, 1.4vw, 16px) clamp(8px, 0.9vw, 10px);
         box-sizing: border-box;
         background: #1a1a1a;
@@ -783,9 +781,15 @@
         overflow-x: hidden;
         overflow-y: auto;
       }
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler {
+        aspect-ratio: 5 / 3;
+        height: auto;
+      }
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] > .gogl-tile__scaler {
         aspect-ratio: auto;
-        min-height: 100%;
+        height: var(--gogl-bg-scaler-h, auto);
+        min-height: var(--gogl-bg-scaler-h, auto);
+        max-height: var(--gogl-bg-scaler-h, none);
       }
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler {
         top: 50%;
@@ -1221,11 +1225,28 @@
         padding-top: 0;
         border-top: none;
       }
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] .gogl-tile__head {
+        display: none;
+      }
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] .gogl-tile__body > p,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] .gogl-tile__actions {
+        display: none;
+      }
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] .gogl-tile__body {
+        flex: 1 1 auto;
+        min-height: 0;
+        padding-top: 0;
+        display: flex;
+        flex-direction: column;
+      }
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] .gogl-tile__bg {
-        max-height: 4000px;
-        margin-top: clamp(14px, 1.6vw, 18px);
-        padding-top: clamp(14px, 1.6vw, 18px);
-        border-top: 1px dashed rgba(255, 255, 255, 0.14);
+        flex: 1 1 auto;
+        min-height: 0;
+        max-height: none;
+        margin-top: 0;
+        padding-top: clamp(10px, 1.2vw, 14px);
+        border-top: none;
+        overflow-y: auto;
         transition: none;
       }
       .gogl-tile__bg h4 {

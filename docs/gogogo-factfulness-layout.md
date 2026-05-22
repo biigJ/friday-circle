@@ -14,7 +14,7 @@ Dieser Stand ist bewusst festgehalten. **Nicht ohne visuellen Test ändern:**
 | Läufer | Zeilen 2 + 4 mit `translateX(--gogl-tile-shift)` |
 | Kleines Popup | mittig über angeklickter Kachel, **5:3** (`aspect-ratio` am Scaler) |
 | Hintergrund-Button | sichtbar in `.gogl-tile__actions` (Popup-Scaler: `flex-start`, kein `overflow:hidden`) |
-| Hintergrund-Popup | horizontal über Kachel, Oberkante unter Slider-Dots |
+| Hintergrund-Popup | horizontal über Kachel, Oberkante unter Slider-Dots, Höhe bis kurz vor Container-Unterkante; nur `.gogl-tile__bg` (kein Intro-Text, kein Hintergrund-Button) |
 | Popup-Text | gleiche Lesegröße wie Kachel-Labels (÷ `--gogl-popup-scale` nur im offenen Scaler) |
 | Kein Sprung | feste `--gogl-row-h`, Scaler **immer** `position: absolute` |
 
