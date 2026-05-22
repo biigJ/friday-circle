@@ -227,9 +227,9 @@
     if (isAction && state !== "closed") return;
 
     if (state === "closed") {
-      closeAllTiles(tile);
       tile.setAttribute("data-state", "open");
       updateOverlayClass();
+      closeAllTiles(tile);
       afterExpand(tile);
       return;
     }

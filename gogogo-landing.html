@@ -825,10 +825,35 @@
         min-width: 0;
         box-sizing: border-box;
       }
-      .gogl-tile-grid .gogl-tile[data-state="open"] > .gogl-tile__scaler,
-      .gogl-tile-grid .gogl-tile[data-state="background"] > .gogl-tile__scaler {
-        font-size: 50%;
-        line-height: 1.35;
+      /* Popup-Text: gleiche Lesegröße wie Kachel (÷ popup-scale, Feld bleibt scale(2)) */
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile__scaler .gogl-tile__title {
+        font-size: clamp(
+          calc(1.19rem * var(--gogl-tile-font-scale, 1) / var(--gogl-popup-scale)),
+          calc(2.01vw * var(--gogl-tile-font-scale, 1) / var(--gogl-popup-scale)),
+          calc(1.53rem * var(--gogl-tile-font-scale, 1) / var(--gogl-popup-scale))
+        );
+      }
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile__scaler .gogl-tile__body p {
+        font-size: clamp(
+          calc(0.84rem / var(--gogl-popup-scale)),
+          calc(1.12vw / var(--gogl-popup-scale)),
+          calc(0.98rem / var(--gogl-popup-scale))
+        );
+      }
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile__scaler .gogl-tile__bg h4 {
+        font-size: calc(0.62rem / var(--gogl-popup-scale));
+      }
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile__scaler .gogl-tile__bg p,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile__scaler .gogl-tile__bg li {
+        font-size: clamp(
+          calc(0.78rem / var(--gogl-popup-scale)),
+          calc(1.02vw / var(--gogl-popup-scale)),
+          calc(0.9rem / var(--gogl-popup-scale))
+        );
+      }
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile__scaler .gogl-tile__bg-btn,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile__scaler .gogl-tile__cta-mail {
+        font-size: calc(0.72rem / var(--gogl-popup-scale));
       }
       .gogl-tile[data-state="open"] .gogl-tile__head,
       .gogl-tile[data-state="open"] .gogl-tile__body,
@@ -1023,8 +1048,8 @@
         width: 100%;
         margin-top: auto;
       }
-      .gogl-tile[data-state="open"] .gogl-tile__head,
-      .gogl-tile[data-state="background"] .gogl-tile__head {
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] .gogl-tile__head,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] .gogl-tile__head {
         margin-top: 0;
       }
       .gogl-tile__icon {
@@ -1087,8 +1112,8 @@
         padding-top: 0;
         width: 100%;
       }
-      .gogl-tile[data-state="open"] .gogl-tile__body,
-      .gogl-tile[data-state="background"] .gogl-tile__body {
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] .gogl-tile__body,
+      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] .gogl-tile__body {
         max-height: 4000px;
         padding-top: clamp(12px, 1.4vw, 16px);
       }
@@ -1098,22 +1123,6 @@
         font-weight: 400;
         line-height: 1.48;
         color: rgba(255, 255, 255, 0.82);
-      }
-      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] .gogl-tile__body p,
-      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] .gogl-tile__body p {
-        font-size: 0.92em;
-        line-height: 1.48;
-      }
-      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] .gogl-tile__bg h4 {
-        font-size: 0.72em;
-      }
-      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] .gogl-tile__bg p,
-      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] .gogl-tile__bg li {
-        font-size: 0.88em;
-      }
-      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] .gogl-tile__bg-btn,
-      .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] .gogl-tile__bg-btn {
-        font-size: 0.82em;
       }
       .gogl-tile__body p + p {
         margin-top: 0.65em;
