@@ -1,32 +1,38 @@
-# Factfulness-Slide — Layout-Freeze (2026-05-22)
+# Factfulness-Slide — Layout-Freeze
 
-Dieser Stand ist bewusst festgehalten. **Nicht ohne visuellen Test ändern:**
+**Freigegebener Stand (nicht ändern ohne visuellen Test):** Git-Tag `gogogo-factfulness-v1`, Commit `6a95d1d` (2026-05-22).
 
-- `gogogo-landing.html` — CSS-Block `.gogl-tile-grid` (Kommentar `LAYOUT FREEZE`)
-- `gogogo-joscha-grow.js` — `syncTileRowHeights()`, Popup-Klicks
+## Dateien
+
+| Datei | Rolle |
+|-------|--------|
+| `gogogo-landing.html` | CSS: `.gogl-tile-grid` (Kommentar `LAYOUT FREEZE`) |
+| `gogogo-joscha-grow.js` | Grow-Breite, Kachel-Klicks, Hintergrund-Popup-Höhe |
 
 ## Zielbild
 
 | Element | Verhalten |
 |--------|-----------|
-| Kleine Kacheln | 5:3 (`aspect-ratio` an Zelle), visuell **0,7×** (`scale` am ganzen Grid), Text mit Kachel-Padding |
-| Raster | horizontal + vertikal mittig in der rechten Spalte (`.gogl-tile-grid-stage`) |
-| Läufer | Zeilen 2 + 4 mit `translateX(--gogl-tile-shift)` |
-| Kleines Popup | mittig über angeklickter Kachel, **5:3** (`aspect-ratio` am Scaler) |
-| Hintergrund-Button | sichtbar in `.gogl-tile__actions` (Popup-Scaler: `flex-start`, kein `overflow:hidden`) |
-| Hintergrund-Popup | horizontal über Kachel, Oberkante unter Slider-Dots, Höhe bis kurz vor Container-Unterkante; nur `.gogl-tile__bg` (kein Intro-Text, kein Hintergrund-Button) |
-| Popup-Text | gleiche Lesegröße wie Kachel-Labels (÷ `--gogl-popup-scale` nur im offenen Scaler) |
-| Kein Sprung | feste `--gogl-row-h`, Scaler **immer** `position: absolute` |
+| Kleine Kacheln | **5:3** (`aspect-ratio`), visuell **0,7×** (`scale` am Grid), Text mit Kachel-Padding |
+| Raster | horizontal + vertikal mittig (`.gogl-tile-grid-stage`) |
+| Läufer | Zeilen 2 + 4: `translateX(--gogl-tile-shift)` |
+| Kleines Popup (`open`) | **5:3**, mittig über Kachel; Titel, Fließtext und **„Hintergrund →“** gleiche Schriftgröße (`--gogl-popup-type-size`) |
+| Hintergrund-Popup (`background`) | horizontal über Kachel, Oberkante unter Slider-Dots, Höhe bis kurz vor Container-Unterrand; **nur** `.gogl-tile__bg` (kein Intro, kein Button) |
+| Kein Sprung | Scaler **immer** absolut (auch geschlossen); Zeilen `auto` + `aspect-ratio` |
 
-## Technische Stützen gegen „Springen“
+## Technik (kurz)
 
-1. **`aspect-ratio: 5 / 3`** an jeder Zelle, Zeilen `auto` (kein festes `--gogl-row-h`).
-2. **Scaler aus dem Fluss** — `.gogl-tile > .gogl-tile__scaler` absolut mit gleichem Inset wie Kachel-Padding.
-3. **Body/Bg nur mit Overlay** — `max-height`-Expansion nur bei `.is-tile-overlay-active`.
-4. **Klick-Reihenfolge** — zuerst `open` + Overlay-Klasse, dann andere Kacheln schließen.
-5. **Läufer-Platzhalter** — geöffnete Kacheln in Zeile 2/4 behalten `translateX(shift)` am Zell-Element.
+1. Grid: `scale(0.7)`, `translateX(-0.5 × Läufer-shift)`, `transform-origin: 50% 50%`.
+2. Geschlossen: Scaler mit Tile-Padding-Inset, `justify-content: flex-end`.
+3. Open: Scaler `aspect-ratio 5/3`, `scale(2)` via `--gogl-popup-scale`.
+4. Background: `--gogl-bg-scaler-h` = (Container unten − Dots) ÷ 2; nur Wissenschaftsblock sichtbar.
+5. Klick: `open` → Overlay-Klasse → andere Kacheln schließen (kein Layout-Flash).
 
-## Bekannte Commits
+## Commit-Historie (Factfulness-Layout)
 
-- `959ffd6` — Popup-Schrift + erster Sprung-Fix
-- *(folgender Commit)* — Layout-Freeze + Scaler/Row-Höhe
+- `6a95d1d` — Popup: Body + Hintergrund-Button = Titelgröße
+- `66c72c4` — Kacheln 5:3 + Padding
+- `1e10596` — Hintergrund-Popup volle Höhe, nur `.gogl-tile__bg`
+- `a4f2c0f` — 5:3 Open-Popup, Hintergrund-Button sichtbar
+- `366f6eb` — Layout-Freeze, kein Raster-Sprung
+- `959ffd6` — Popup-Schrift, Zentrierung 0,7×
