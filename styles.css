@@ -459,6 +459,8 @@ a {
 
 /* Header: gogogo-CTA zunächst schwarz, bei Hover/Focus (gesamter Split) gogogo-Grün */
 .nav__cta-primary.cta-pill--gogogo {
+  position: relative;
+  z-index: 6;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   box-shadow: none;
