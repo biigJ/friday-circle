@@ -262,6 +262,7 @@
 
       /* Showcase: kein dunkler Seitenhintergrund — Video randlos; schwarz nur am Kachel-Block */
       .gogl-hero-showcase {
+        --gogl-grow-scroll-room: max(0px, calc(72dvh - var(--fc-nav-h, 72px)));
         background: transparent;
         padding: 0;
         overflow: visible;
@@ -495,6 +496,10 @@
         color: #f0eee6;
       }
       .gogl-program-slide-card__cta {
+        position: absolute;
+        left: var(--gogl-frame-inset-x);
+        top: 50%;
+        transform: translateY(-50%);
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -527,7 +532,7 @@
       }
       .gogl-program-slide-card__cta:hover,
       .gogl-program-slide-card__cta:focus-visible {
-        transform: translateY(-1px);
+        transform: translateY(calc(-50% - 1px));
         filter: brightness(1.06);
       }
       .gogl-program-slide-card--mobility,
@@ -691,22 +696,21 @@
         pointer-events: none;
         text-align: left;
       }
-      /* Factfulness-Copy: links verankern, kein Mitwandern beim Grow-Scroll (≥761px) */
+      /* Factfulness-Copy: horizontal links, vertikal wie Flex-Zeile (align-self: flex-start) */
       @media (min-width: 761px) {
         .gogl-program-slider__slide[data-slide="0"] .gogl-joscha-tiles-wrap {
-          position: relative;
+          display: grid;
+          grid-template-columns: min(17rem, 38%) minmax(0, 1fr);
+          gap: clamp(20px, 3vw, 40px);
+          align-items: center;
           margin-left: 0;
           margin-right: auto;
-          padding-left: calc(min(17rem, 38%) + clamp(20px, 3vw, 40px));
-          box-sizing: border-box;
         }
         .gogl-program-slider__slide[data-slide="0"] .gogl-joscha-copy {
-          position: absolute;
-          left: 0;
-          top: 50%;
-          transform: translateY(-50%);
-          flex: none;
-          align-self: auto;
+          align-self: start;
+        }
+        .gogl-program-slider__slide[data-slide="0"] .gogl-tile-grid-stage {
+          min-width: 0;
         }
       }
       /* Rechte Spalte: Raster horizontal + vertikal mittig, 0,7× nur am ganzen Grid */
@@ -828,6 +832,7 @@
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler {
         aspect-ratio: 5 / 3;
         height: auto;
+        background: color-mix(in srgb, #a48d47 10%, #1a1a1a);
       }
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler .gogl-tile__title,
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler .gogl-tile__body p,
@@ -839,6 +844,7 @@
         height: var(--gogl-bg-scaler-h, auto);
         min-height: var(--gogl-bg-scaler-h, auto);
         max-height: var(--gogl-bg-scaler-h, none);
+        background: color-mix(in srgb, #a48d47 20%, #1a1a1a);
       }
       .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler {
         top: 50%;
@@ -946,6 +952,10 @@
         text-align: left;
       }
       .gogogo-page main .gogl-joscha-copy__cta {
+        position: absolute;
+        left: var(--gogl-frame-inset-x);
+        top: 50%;
+        transform: translateY(-50%);
         display: inline-flex;
         align-items: center;
         justify-content: center;
@@ -975,6 +985,12 @@
         margin-left: calc(50% - 50vw);
         margin-top: 0;
         background: transparent;
+      }
+      @media (min-width: 761px) {
+        /* Scroll-Pin-Runway unsichtbar: Video direkt unter dem Slide-Block */
+        .gogl-hero-showcase > .gogl-video-stage {
+          margin-top: calc(-1 * var(--gogl-grow-scroll-room, 0px));
+        }
       }
       .gogl-video-stage::before {
         content: "";
@@ -1299,7 +1315,7 @@
       .gogl-tile-grid .gogl-tile[data-state="closed"]:hover,
       .gogl-tile-grid .gogl-tile[data-state="closed"]:focus-visible {
         color: #fff;
-        background: #a48d47;
+        background: rgba(164, 141, 71, 0.7);
         font-weight: 700;
       }
       .gogl-tile-grid .gogl-tile[data-state="closed"]:hover .gogl-tile__title,
@@ -1658,22 +1674,27 @@
       .gogl-bar {
         width: 100%;
         background: var(--green-signal);
-        padding: 10px 20px;
-        text-align: center;
+        color: #ffffff;
+        padding: 10px 0;
         box-sizing: border-box;
         box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
-      }
-      .gogl-bar p {
-        font-family: 'Helvetica Neue', sans-serif;
-        font-style: normal;
-        font-size: 0.8rem;
+        overflow: hidden;
+        font-family: var(--font-sans);
         letter-spacing: 0.05em;
-        color: #ffffff;
         line-height: 1.5;
-        max-width: var(--content-max);
-        margin: 0 auto;
-        padding: 0 var(--nav-pad-x);
-        box-sizing: border-box;
+      }
+      .gogl-bar__track {
+        display: flex;
+        width: max-content;
+        animation: gogl-beta-marquee 12.5s linear infinite;
+      }
+      .gogl-bar__text {
+        flex-shrink: 0;
+        margin: 0;
+        padding-right: 3rem;
+        font-size: 1.2rem;
+        white-space: nowrap;
+        color: #ffffff;
       }
       .gogl-section {
         background: transparent;
@@ -2310,18 +2331,21 @@
         }
       }
       @media (prefers-reduced-motion: reduce) {
-        .gogl-beta-bar__track {
+        .gogl-beta-bar__track,
+        .gogl-bar__track {
           animation: none;
           width: 100%;
           justify-content: center;
           flex-wrap: wrap;
         }
-        .gogl-beta-bar__text {
+        .gogl-beta-bar__text,
+        .gogl-bar__text {
           white-space: normal;
           text-align: center;
           padding: 0 var(--nav-pad-x);
         }
-        .gogl-beta-bar__text[aria-hidden="true"] {
+        .gogl-beta-bar__text[aria-hidden="true"],
+        .gogl-bar__text[aria-hidden="true"] {
           display: none;
         }
       }
@@ -2359,18 +2383,21 @@
         }
       }
       @media (prefers-reduced-motion: reduce) {
-        .gogl-beta-bar__track {
+        .gogl-beta-bar__track,
+        .gogl-bar__track {
           animation: none;
           width: 100%;
           justify-content: center;
           flex-wrap: wrap;
         }
-        .gogl-beta-bar__text {
+        .gogl-beta-bar__text,
+        .gogl-bar__text {
           white-space: normal;
           text-align: center;
           padding: 0 var(--nav-pad-x);
         }
-        .gogl-beta-bar__text[aria-hidden="true"] {
+        .gogl-beta-bar__text[aria-hidden="true"],
+        .gogl-bar__text[aria-hidden="true"] {
           display: none;
         }
       }
@@ -2883,8 +2910,15 @@
                 <a class="gogl-hero-card__link" href="register-training/index.html">Trainer finden →</a>
               </div>
             </div>
-            <div class="gogl-bar">
-              <p>168 Stunden hat die Woche. Vier davon verändern alles andere.</p>
+            <div class="gogl-bar" aria-label="Hinweis">
+              <div class="gogl-bar__track">
+                <p class="gogl-bar__text">
+                  168 Stunden hat die Woche. Wie viele genießt Du davon? Beweg Dich jeden Tag mehr als ne Stunde. Und alles wird leichter.
+                </p>
+                <p class="gogl-bar__text" aria-hidden="true">
+                  168 Stunden hat die Woche. Wie viele genießt Du davon? Beweg Dich jeden Tag mehr als ne Stunde. Und alles wird leichter.
+                </p>
+              </div>
             </div>
           </div>
         </div>
