@@ -63,8 +63,10 @@
     root.classList.remove("is-flush");
     document.documentElement.style.setProperty("--fc-nav-h", navHeight() + "px");
     applyDesktopWidth(scrollProgress());
-    syncTileRowHeights();
+    if (tileGrid) syncTileRowHeights();
   }
+
+  var tileGrid = document.getElementById("gogl-tile-grid");
 
   updateHeroWidth();
   window.addEventListener("scroll", updateHeroWidth, { passive: true });
@@ -75,7 +77,6 @@
     mqFlush.addListener(updateHeroWidth);
   }
 
-  var tileGrid = document.getElementById("gogl-tile-grid");
   if (!tileGrid) return;
 
   tileGrid.querySelectorAll(".gogl-tile").forEach(function (tile) {
