@@ -722,6 +722,8 @@
         align-items: center;
         justify-content: center;
         overflow: visible;
+        container-type: inline-size;
+        container-name: gogl-tiles;
       }
       /* LAYOUT FREEZE — Tag: gogogo-factfulness-v1, Commit: 6a95d1d (2026-05-22).
          0,7× Grid, stage-Zentrierung, Läufer, Kacheln 5:3, Popups wie spezifiziert.
@@ -764,6 +766,36 @@
         aspect-ratio: 5 / 3;
         height: auto;
         align-self: start;
+      }
+      /* Enger Kachelbereich: Mindestbreite + mehr Zeilen; ab ~39.5rem Stage-Breite bleibt 3×4 oben */
+      @container gogl-tiles (max-width: 39.4375rem) {
+        .gogl-tile-grid {
+          grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+          grid-template-rows: unset;
+          grid-auto-rows: auto;
+          transform: scale(var(--gogl-tile-visual-scale));
+        }
+        .gogl-tile-grid > .gogl-tile:nth-child(n) {
+          grid-row: auto;
+          grid-column: auto;
+        }
+        .gogl-tile-grid .gogl-tile[data-state="closed"]:nth-child(6n + 4),
+        .gogl-tile-grid .gogl-tile[data-state="closed"]:nth-child(6n + 5),
+        .gogl-tile-grid .gogl-tile[data-state="closed"]:nth-child(6n + 6) {
+          transform: none;
+        }
+        .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"]:nth-child(6n + 4),
+        .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"]:nth-child(6n + 5),
+        .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"]:nth-child(6n + 6),
+        .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"]:nth-child(6n + 4),
+        .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"]:nth-child(6n + 5),
+        .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"]:nth-child(6n + 6) {
+          transform: none;
+        }
+        .gogl-program-slider__slide[data-slide="0"] .gogl-joscha-panel {
+          overflow-y: auto;
+          justify-content: flex-start;
+        }
       }
       /* Läuferverband: nur im geschlossenen Zustand */
       .gogl-tile-grid .gogl-tile[data-state="closed"]:nth-child(6n + 4),
@@ -1080,9 +1112,20 @@
           width: 100%;
         }
         .gogl-tile-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
+          grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+          grid-template-rows: unset;
+          grid-auto-rows: auto;
           transform: scale(var(--gogl-tile-visual-scale));
           transform-origin: 50% 50%;
+        }
+        .gogl-tile-grid > .gogl-tile:nth-child(n) {
+          grid-row: auto;
+          grid-column: auto;
+        }
+        .gogl-tile-grid .gogl-tile[data-state="closed"]:nth-child(6n + 4),
+        .gogl-tile-grid .gogl-tile[data-state="closed"]:nth-child(6n + 5),
+        .gogl-tile-grid .gogl-tile[data-state="closed"]:nth-child(6n + 6) {
+          transform: none;
         }
       }
 
