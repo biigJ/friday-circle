@@ -674,6 +674,45 @@
         box-sizing: border-box;
         overflow: visible;
       }
+      .gogl-program-slider__slide[data-slide="0"] .gogl-joscha-panel {
+        overflow: hidden;
+      }
+      .gogl-joscha-panel__photo {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+      .gogl-joscha-panel__photo img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: min(62%, 52rem);
+        height: 100%;
+        max-width: none;
+        object-fit: cover;
+        object-position: right center;
+        display: block;
+        filter: grayscale(0.42) sepia(0.52) contrast(1.1) brightness(0.5) saturate(0.65);
+      }
+      .gogl-joscha-panel__photo::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom right,
+          rgba(28, 26, 24, 0.08) 0%,
+          rgba(22, 20, 18, 0.22) 38%,
+          color-mix(in srgb, #a48d47 14%, rgba(12, 11, 10, 0.55)) 62%,
+          color-mix(in srgb, #0a0a0a 88%, #6b5c38 12%) 100%
+        );
+        pointer-events: none;
+      }
+      .gogl-program-slider__slide[data-slide="0"] .gogl-joscha-tiles-wrap {
+        position: relative;
+        z-index: 1;
+      }
       .gogl-joscha-tiles-wrap {
         display: flex;
         flex-direction: row;
@@ -2544,6 +2583,9 @@
                         <div class="gogl-program-slider__viewport">
 <div class="gogl-program-slider__slide is-active" data-slide="0">
                 <div class="gogl-joscha-panel">
+              <div class="gogl-joscha-panel__photo" aria-hidden="true">
+                <img src="assets/factfulness.jpeg" alt="" width="1600" height="900" decoding="async" />
+              </div>
               <div class="gogl-joscha-tiles-wrap">
                 <div class="gogl-joscha-copy">
                   <h2 class="gogl-joscha-copy__heading">Factfulness</h2>
