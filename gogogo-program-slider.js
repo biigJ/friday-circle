@@ -7,12 +7,12 @@
 
   var SLIDE_LABELS = [
     "Ein leichter Schritt, Dich täglich ausreichend zu bewegen.",
+    "gogogo App",
     "Den passenden Trainer",
     "Factfulness",
     "Upper Body Basics",
     "Cycle Training",
     "Triff Joscha",
-    "gogogo App",
     "3 Minuten Aufwärm-Routine",
   ];
 
@@ -89,7 +89,7 @@
     pause: stop,
     resume: start,
     isOnJoschaSlide: function () {
-      return index === 2;
+      return index === 3;
     },
   };
 

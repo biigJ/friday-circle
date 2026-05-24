@@ -243,7 +243,7 @@
     closeTile(tile);
   });
 
-  var joschaSlide = root.querySelector('.gogl-program-slider__slide[data-slide="2"]');
+  var joschaSlide = root.querySelector('.gogl-program-slider__slide[data-slide="3"]');
   if (joschaSlide) {
     joschaSlide.addEventListener("click", function (e) {
       if (e.target.closest(".gogl-tile")) return;
