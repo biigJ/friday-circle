@@ -6,6 +6,7 @@
   if (!slides.length) return;
 
   var SLIDE_LABELS = [
+    "Ein leichter Schritt, Dich täglich ausreichend zu bewegen.",
     "Factfulness",
     "Cycle Training",
     "Triff Joscha",
@@ -88,7 +89,7 @@
     pause: stop,
     resume: start,
     isOnJoschaSlide: function () {
-      return index === 0;
+      return index === 1;
     },
   };
 
