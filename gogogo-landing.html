@@ -353,6 +353,7 @@
         position: sticky;
         top: var(--fc-nav-h, 72px);
         z-index: 3;
+        isolation: isolate;
         flex-shrink: 0;
         height: var(--gogl-grow-h);
         min-height: var(--gogl-grow-h);
@@ -374,6 +375,205 @@
       }
       .gogl-joscha-grow.is-flush {
         border-radius: 0;
+      }
+      /* Rechtsbündige Fotos auf Grow-Ebene (volle Kartenhöhe, bündig oben) */
+      .gogl-joscha-grow__photo {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        opacity: 0;
+        visibility: hidden;
+      }
+      .gogl-joscha-grow.is-factfulness-slide .gogl-joscha-grow__photo--factfulness,
+      .gogl-joscha-grow:has(.gogl-program-slider__slide[data-slide="0"].is-active) .gogl-joscha-grow__photo--factfulness {
+        opacity: 1;
+        visibility: visible;
+      }
+      .gogl-joscha-grow:has(.gogl-program-slider__slide[data-slide="2"].is-active) .gogl-joscha-grow__photo--joscha {
+        opacity: 1;
+        visibility: visible;
+      }
+      .gogl-joscha-grow:has(.gogl-program-slider__slide[data-slide="3"].is-active) .gogl-joscha-grow__photo--trainer {
+        opacity: 1;
+        visibility: visible;
+      }
+      .gogl-joscha-grow:has(.gogl-program-slider__slide[data-slide="4"].is-active) {
+        background: linear-gradient(
+          90deg,
+          #8b2e16 0%,
+          #b8431a 38%,
+          #d96b27 100%
+        );
+      }
+      .gogl-joscha-grow:has(.gogl-program-slider__slide[data-slide="4"].is-active) .gogl-joscha-grow__phone--gosam {
+        opacity: 1;
+        visibility: visible;
+      }
+      .gogl-joscha-grow__phone {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        opacity: 0;
+        visibility: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: var(--gogl-frame-inset-top) var(--gogl-frame-inset-x) var(--gogl-frame-inset-bottom);
+        box-sizing: border-box;
+      }
+      .gogl-joscha-grow__phone--gosam {
+        padding-right: 0;
+      }
+      .gogl-joscha-grow__phone--gosam svg {
+        position: absolute;
+        top: 50%;
+        right: calc(-0.5 * min(48%, 28rem));
+        display: block;
+        width: auto;
+        height: auto;
+        max-height: 100%;
+        max-width: min(48%, 28rem);
+        transform: translateY(-50%) scale(2.5);
+        transform-origin: center right;
+        filter:
+          drop-shadow(14px 22px 32px rgba(0, 0, 0, 0.38))
+          drop-shadow(4px 8px 18px rgba(0, 0, 0, 0.22));
+      }
+      .gogl-joscha-grow__photo--factfulness {
+        --gogl-photo-w: 82%;
+        --gogl-photo-shift: 0.15;
+        --gogl-photo-edge: calc(100% - var(--gogl-photo-w) * (1 - var(--gogl-photo-shift)));
+      }
+      .gogl-joscha-grow__photo--factfulness img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: var(--gogl-photo-w);
+        height: 100%;
+        object-fit: cover;
+        object-position: right center;
+        display: block;
+        transform: translateX(calc(var(--gogl-photo-shift) * 100%));
+        filter: grayscale(0.35) sepia(0.48) contrast(1.08) brightness(0.62) saturate(0.7);
+        -webkit-mask-image: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(0, 0, 0, 0.35) 6%,
+          #000 16%
+        );
+        mask-image: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(0, 0, 0, 0.35) 6%,
+          #000 16%
+        );
+      }
+      .gogl-joscha-grow__photo--factfulness::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          90deg,
+          rgba(10, 10, 10, 1) 0%,
+          rgba(10, 10, 10, 1) calc(var(--gogl-photo-edge) - 3%),
+          rgba(10, 10, 10, 0.94) var(--gogl-photo-edge),
+          rgba(10, 10, 10, 0.72) calc(var(--gogl-photo-edge) + 14%),
+          rgba(10, 10, 10, 0.42) calc(var(--gogl-photo-edge) + 28%),
+          rgba(10, 10, 10, 0.16) calc(var(--gogl-photo-edge) + 44%),
+          rgba(10, 10, 10, 0.04) calc(var(--gogl-photo-edge) + 58%),
+          transparent 100%
+        );
+        pointer-events: none;
+      }
+      .gogl-joscha-grow__photo--joscha {
+        --gogl-joscha-hellblau: #a8d4f8;
+        --gogl-joscha-hellblau-deep: #7eb8e8;
+      }
+      .gogl-joscha-grow__photo--joscha img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: auto;
+        display: block;
+        transform: scale(1.43);
+        transform-origin: top right;
+        filter: grayscale(1) brightness(0.78) contrast(1.06);
+        -webkit-mask-image: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(0, 0, 0, 0.45) 10%,
+          #000 22%
+        );
+        mask-image: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(0, 0, 0, 0.45) 10%,
+          #000 22%
+        );
+      }
+      .gogl-joscha-grow__photo--joscha::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        background: linear-gradient(
+          90deg,
+          rgba(10, 10, 10, 1) 0%,
+          rgba(10, 10, 10, 1) 34%,
+          rgba(10, 10, 10, 0.82) 44%,
+          rgba(10, 10, 10, 0.48) 54%,
+          rgba(10, 10, 10, 0.18) 64%,
+          rgba(10, 10, 10, 0.04) 74%,
+          transparent 88%
+        );
+        pointer-events: none;
+      }
+      .gogl-joscha-grow__photo--trainer img {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: auto;
+        display: block;
+        transform: scale(1.43);
+        transform-origin: top right;
+        filter: grayscale(0.35) sepia(0.48) contrast(1.08) brightness(0.62) saturate(0.7);
+        -webkit-mask-image: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(0, 0, 0, 0.45) 10%,
+          #000 22%
+        );
+        mask-image: linear-gradient(
+          90deg,
+          transparent 0%,
+          rgba(0, 0, 0, 0.45) 10%,
+          #000 22%
+        );
+      }
+      .gogl-joscha-grow__photo--trainer::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        background: linear-gradient(
+          90deg,
+          rgba(10, 10, 10, 1) 0%,
+          rgba(10, 10, 10, 1) 34%,
+          rgba(10, 10, 10, 0.82) 44%,
+          rgba(10, 10, 10, 0.48) 54%,
+          rgba(10, 10, 10, 0.18) 64%,
+          rgba(10, 10, 10, 0.04) 74%,
+          transparent 88%
+        );
+        pointer-events: none;
+      }
+      .gogl-joscha-grow .gogl-program-slider__dots {
+        position: absolute;
+        z-index: 5;
       }
       .gogl-program-slider__dots {
         position: absolute;
@@ -525,6 +725,464 @@
         color: #fff0f0;
         border-color: #c52f33;
       }
+      /* Cycle Training — 50/50-Split wie Referenz (schwarz oben, Foto unten) */
+      .gogl-program-slide-card--cycle {
+        container-type: inline-size;
+        container-name: gogl-cycle;
+        display: grid;
+        grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
+        background: #0a0a0a;
+      }
+      .gogl-program-slide-card--joscha {
+        --gogl-joscha-hellblau: #a8d4f8;
+        --gogl-joscha-hellblau-border: #7eb8e8;
+        background: transparent;
+      }
+      .gogl-program-slide-card__inner--joscha {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: clamp(14px, 2vh, 20px);
+        max-width: min(44rem, 58%);
+        overflow-y: auto;
+      }
+      .gogl-program-slide-card--joscha .gogl-program-slide-card__title {
+        margin: 0;
+        max-width: min(22rem, 100%);
+      }
+      .gogl-program-slide-card__lede--joscha {
+        margin: 0;
+        font-family: var(--font-head);
+        font-weight: 400;
+        font-size: clamp(0.78rem, 1.1vw, 0.92rem);
+        line-height: 1.55;
+        color: rgba(255, 255, 255, 0.82);
+        max-width: 48ch;
+      }
+      .gogogo-page main .gogl-program-slide-card--joscha .gogl-program-slide-card__cta {
+        position: static;
+        transform: none;
+        margin-top: clamp(2px, 0.6vh, 6px);
+        min-width: auto;
+        text-transform: none;
+        letter-spacing: 0.02em;
+        background: var(--gogl-joscha-hellblau) !important;
+        color: #0a0a0a !important;
+        border: 1px solid var(--gogl-joscha-hellblau) !important;
+      }
+      .gogogo-page main .gogl-program-slide-card--joscha .gogl-program-slide-card__cta:hover,
+      .gogogo-page main .gogl-program-slide-card--joscha .gogl-program-slide-card__cta:focus-visible {
+        background: #ffffff !important;
+        color: #0a0a0a !important;
+        border: 1px solid var(--gogl-joscha-hellblau-border) !important;
+        transform: translateY(-1px);
+      }
+      .gogl-program-slide-card--joscha::after {
+        display: none;
+      }
+      .gogl-program-slide-card--joscha .gogl-program-slide-card__bg img {
+        display: none;
+      }
+      .gogl-program-slide-card--trainer {
+        container-type: inline-size;
+        container-name: gogl-trainer;
+        --gogl-trainer-cycle-title-size: clamp(2.25rem, 11.5cqw, 5.1rem);
+        --gogl-trainer-cycle-title-lh: 0.9;
+        --gogl-trainer-cycle-small-size: calc(var(--gogl-trainer-cycle-title-size) / 3);
+        background: transparent;
+      }
+      @supports not (width: 1cqw) {
+        .gogl-program-slide-card--trainer {
+          --gogl-trainer-cycle-title-size: clamp(2.25rem, 8.2vw, 5.1rem);
+        }
+      }
+      .gogl-program-slide-card__inner--trainer {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: clamp(14px, 2vh, 20px);
+        max-width: min(44rem, 58%);
+        overflow-y: auto;
+      }
+      .gogl-trainer-head {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: clamp(6px, 1vh, 10px);
+      }
+      .gogl-trainer-head__line--main {
+        margin: 0;
+        max-width: min(28rem, 100%);
+        font-family: var(--font-sans);
+        font-weight: 200;
+        font-size: var(--gogl-trainer-cycle-title-size);
+        line-height: var(--gogl-trainer-cycle-title-lh);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: #f0eee6;
+      }
+      .gogl-trainer-head__line--sub {
+        margin: 0;
+        font-family: var(--font-sans);
+        font-size: var(--gogl-trainer-cycle-small-size);
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(240, 238, 230, 0.9);
+      }
+      .gogl-program-slide-card__lede--trainer {
+        margin: 0;
+        font-family: var(--font-head);
+        font-weight: 400;
+        font-size: clamp(0.78rem, 1.1vw, 0.92rem);
+        line-height: 1.55;
+        color: rgba(255, 255, 255, 0.82);
+        max-width: 48ch;
+      }
+      .gogogo-page main .gogl-program-slide-card--trainer .gogl-program-slide-card__cta {
+        position: static;
+        transform: none;
+        margin-top: clamp(2px, 0.6vh, 6px);
+        min-width: auto;
+        text-transform: none;
+        letter-spacing: 0.02em;
+        background: #f0eee6 !important;
+        color: #0a0a0a !important;
+        border: 1px solid #f0eee6 !important;
+      }
+      .gogogo-page main .gogl-program-slide-card--trainer .gogl-program-slide-card__cta:hover,
+      .gogogo-page main .gogl-program-slide-card--trainer .gogl-program-slide-card__cta:focus-visible {
+        background: #ffffff !important;
+        color: #0a0a0a !important;
+        border: 1px solid #f0eee6 !important;
+        transform: translateY(-1px);
+      }
+      .gogl-program-slide-card--trainer::after {
+        display: none;
+      }
+      .gogl-program-slide-card--trainer .gogl-program-slide-card__bg img {
+        display: none;
+      }
+      /* gogogo App — Verlauf auf Grow-Ebene, iPhone als SVG oben */
+      .gogl-program-slide-card--gosam {
+        background: transparent;
+      }
+      .gogl-program-slide-card--gosam::after {
+        display: none;
+      }
+      .gogl-program-slide-card__inner--gosam {
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: auto minmax(0, 1fr);
+        align-items: center;
+        gap: clamp(12px, 1.8vh, 20px);
+        max-width: min(54%, 44rem);
+        padding: var(--gogl-frame-inset-top) var(--gogl-frame-inset-x) var(--gogl-frame-inset-bottom);
+        box-sizing: border-box;
+      }
+      .gogl-gosam-preface {
+        grid-column: 1 / -1;
+        grid-row: 1;
+        margin: 0;
+        max-width: min(58ch, 92%);
+        font-family: var(--font-display);
+        font-style: italic;
+        font-weight: 400;
+        font-size: clamp(calc(1.08rem * 0.7), calc(1.42vw * 0.7), calc(1.28rem * 0.7));
+        line-height: 1.55;
+        color: rgba(255, 255, 255, 0.92);
+        text-align: left;
+      }
+      .gogl-gosam-copy {
+        grid-column: 1;
+        grid-row: 2;
+        align-self: center;
+        max-width: min(36rem, 100%);
+        min-width: 0;
+      }
+      .gogl-gosam-copy__title {
+        margin: 0 0 clamp(16px, 2.2vh, 24px);
+        font-family: var(--font-sans);
+        font-weight: 700;
+        font-size: clamp(2rem, 5.5vw, 3.5rem);
+        line-height: 1.05;
+        letter-spacing: 0.01em;
+        color: #ffffff;
+      }
+      .gogl-gosam-copy__lede {
+        margin: 0;
+        font-family: var(--font-head);
+        font-weight: 400;
+        font-size: clamp(0.82rem, 1.15vw, 0.98rem);
+        line-height: 1.55;
+        color: rgba(255, 255, 255, 0.94);
+        max-width: 44ch;
+      }
+      @media (max-width: 760px) {
+        .gogl-program-slide-card__inner--gosam {
+          grid-template-rows: auto auto;
+          align-items: start;
+          max-width: none;
+        }
+        .gogl-gosam-preface {
+          max-width: none;
+        }
+        .gogl-joscha-grow__phone--gosam svg {
+          max-width: min(72vw, 18rem);
+          max-height: 42vh;
+          right: calc(-0.5 * min(72vw, 18rem));
+          transform: translateY(-50%) scale(2.5);
+          transform-origin: center right;
+        }
+      }
+      .gogl-program-slide-card--cycle::after {
+        display: none;
+      }
+      .gogl-program-slide-card--cycle .gogl-program-slide-card__bg {
+        position: relative;
+        grid-row: 2;
+        grid-column: 1;
+        inset: auto;
+        z-index: 0;
+        min-height: 0;
+      }
+      .gogl-program-slide-card--cycle .gogl-program-slide-card__bg img {
+        object-fit: cover;
+        object-position: center 42%;
+        filter: saturate(1.04) contrast(1.06) brightness(0.88);
+      }
+      .gogl-program-slide-card--cycle .gogl-program-slide-card__inner--cycle {
+        --gogl-cycle-title-size: clamp(2.25rem, 11.5cqw, 5.1rem);
+        --gogl-cycle-title-lh: 0.9;
+        --gogl-cycle-small-size: calc(var(--gogl-cycle-title-size) / 3);
+        --gogl-cycle-band-bottom: clamp(14px, 2.2vh, 22px);
+        position: relative;
+        grid-row: 1;
+        grid-column: 1;
+        z-index: 2;
+        inset: auto;
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+        background: #0a0a0a;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      @supports not (width: 1cqw) {
+        .gogl-program-slide-card--cycle .gogl-program-slide-card__inner--cycle {
+          --gogl-cycle-title-size: clamp(2.25rem, 8.2vw, 5.1rem);
+        }
+      }
+      .gogl-cycle-head {
+        position: absolute;
+        top: var(--gogl-frame-inset-top);
+        right: var(--gogl-frame-inset-x);
+        left: var(--gogl-frame-inset-x);
+        z-index: 2;
+        display: flex;
+        justify-content: flex-end;
+        width: auto;
+        margin: 0;
+        pointer-events: none;
+      }
+      .gogl-cycle-head__mast {
+        display: inline-grid;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto;
+        column-gap: 0;
+        row-gap: 0;
+        text-align: right;
+        flex-shrink: 0;
+      }
+      .gogl-cycle-head__tag {
+        grid-column: 1 / 3;
+        grid-row: 1;
+        justify-self: end;
+        align-self: end;
+        margin: 0;
+        padding: 0;
+        font-family: var(--font-sans);
+        font-size: var(--gogl-cycle-small-size);
+        font-weight: 400;
+        line-height: 1;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(240, 238, 230, 0.9);
+        white-space: nowrap;
+      }
+      .gogl-cycle-head__title {
+        display: contents;
+        margin: 0;
+        font-family: var(--font-sans);
+        font-weight: 200;
+        font-size: var(--gogl-cycle-title-size);
+        line-height: var(--gogl-cycle-title-lh);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: #f0eee6;
+      }
+      .gogl-cycle-head__title-line--cycle {
+        grid-column: 2 / 4;
+        grid-row: 1;
+        justify-self: end;
+        align-self: end;
+        display: block;
+      }
+      .gogl-cycle-head__title-line--training {
+        grid-row: 2;
+        display: contents;
+      }
+      .gogl-cycle-head__t-tr,
+      .gogl-cycle-head__t-aining {
+        font: inherit;
+        letter-spacing: inherit;
+        text-transform: inherit;
+        color: inherit;
+      }
+      .gogl-cycle-head__t-tr {
+        grid-column: 2;
+        grid-row: 2;
+        justify-self: end;
+      }
+      .gogl-cycle-head__t-aining {
+        grid-column: 3;
+        grid-row: 2;
+        justify-self: start;
+      }
+      .gogl-cycle-body {
+        position: absolute;
+        left: var(--gogl-frame-inset-x);
+        right: var(--gogl-frame-inset-x);
+        bottom: var(--gogl-cycle-band-bottom);
+        z-index: 2;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: clamp(12px, 2.5vw, 28px);
+        width: auto;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .gogl-cycle-body__lines {
+        flex: 0 1 auto;
+        min-width: 0;
+        max-width: min(24rem, 58%);
+        text-align: left;
+      }
+      .gogl-cycle-body__lines p {
+        margin: 0;
+        font-family: var(--font-sans);
+        font-size: var(--gogl-cycle-small-size);
+        font-weight: 400;
+        line-height: 1.38;
+        letter-spacing: 0.02em;
+        color: rgba(240, 238, 230, 0.9);
+      }
+      .gogl-cycle-body__lines p + p {
+        margin-top: 0.12em;
+      }
+      @media (min-width: 761px) {
+        .gogl-cycle-body__lines p {
+          white-space: nowrap;
+        }
+      }
+      .gogl-cycle-body__lines strong {
+        font-weight: 700;
+        color: #f0eee6;
+      }
+      .gogl-cycle-body__actions {
+        flex: 0 0 auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        gap: clamp(10px, 1.4vw, 14px);
+        margin: 0 0 0 auto;
+        pointer-events: auto;
+      }
+      .gogogo-page main .gogl-cycle-body__cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: clamp(6.5rem, 12vw, 8.5rem);
+        padding: 10px clamp(16px, 2.2vw, 22px);
+        border-radius: 999px;
+        border: 1px solid transparent;
+        font-family: var(--font-sans);
+        font-size: clamp(0.72rem, 1.05vw, 0.82rem);
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+      }
+      .gogogo-page main .gogl-cycle-body__cta--join {
+        background: #c52f33;
+        color: #fff0f0;
+        border-color: #c52f33;
+      }
+      .gogogo-page main .gogl-cycle-body__cta--table {
+        background: #0a0a0a;
+        color: #ffffff;
+        border-color: #ffffff;
+      }
+      .gogogo-page main .gogl-cycle-body__cta:hover,
+      .gogogo-page main .gogl-cycle-body__cta:focus-visible {
+        transform: translateY(-1px);
+      }
+      .gogogo-page main .gogl-cycle-body__cta--join:hover,
+      .gogogo-page main .gogl-cycle-body__cta--join:focus-visible {
+        filter: brightness(1.06);
+      }
+      .gogogo-page main .gogl-cycle-body__cta--table:hover,
+      .gogogo-page main .gogl-cycle-body__cta--table:focus-visible {
+        background: #141414;
+        color: #ffffff;
+        border-color: #ffffff;
+      }
+      @media (max-width: 760px) {
+        .gogl-program-slide-card--cycle {
+          grid-template-rows: minmax(0, 0.92fr) minmax(0, 1.08fr);
+        }
+        .gogl-program-slide-card--cycle .gogl-program-slide-card__inner--cycle {
+          --gogl-cycle-title-size: clamp(1.85rem, 14cqw, 2.65rem);
+        }
+        @supports not (width: 1cqw) {
+          .gogl-program-slide-card--cycle .gogl-program-slide-card__inner--cycle {
+            --gogl-cycle-title-size: clamp(1.85rem, 10.5vw, 2.65rem);
+          }
+        }
+        .gogl-cycle-head {
+          left: var(--gogl-frame-inset-x);
+          right: var(--gogl-frame-inset-x);
+        }
+        .gogl-cycle-body {
+          flex-direction: column;
+          align-items: stretch;
+          gap: 10px;
+        }
+        .gogl-cycle-body__lines {
+          max-width: 100%;
+        }
+        .gogl-cycle-body__actions {
+          align-self: flex-end;
+          flex-wrap: wrap;
+        }
+      }
       .gogl-program-slide-card__cta--light {
         background: #f0eee6;
         color: #0a0a0a;
@@ -656,6 +1314,16 @@
         margin: 0;
         max-width: min(40rem, 100%);
       }
+      .gogl-program-slide-card__lede {
+        margin: clamp(14px, 2.2vw, 22px) 0 0;
+        max-width: min(40rem, 42ch);
+        font-family: var(--font-sans);
+        font-weight: 400;
+        font-size: clamp(0.8rem, 1.15vw, 0.95rem);
+        line-height: 1.5;
+        letter-spacing: 0.01em;
+        color: rgba(240, 238, 230, 0.85);
+      }
       @media (max-width: 760px) {
         .gogl-program-slide-card--mobility,
         .gogl-program-slide-card--upper {
@@ -675,39 +1343,7 @@
         overflow: visible;
       }
       .gogl-program-slider__slide[data-slide="0"] .gogl-joscha-panel {
-        overflow: hidden;
-      }
-      .gogl-joscha-panel__photo {
-        position: absolute;
-        inset: 0;
-        z-index: 0;
-        pointer-events: none;
-        overflow: hidden;
-      }
-      .gogl-joscha-panel__photo img {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: min(62%, 52rem);
-        height: 100%;
-        max-width: none;
-        object-fit: cover;
-        object-position: right center;
-        display: block;
-        filter: grayscale(0.42) sepia(0.52) contrast(1.1) brightness(0.5) saturate(0.65);
-      }
-      .gogl-joscha-panel__photo::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          to bottom right,
-          rgba(28, 26, 24, 0.08) 0%,
-          rgba(22, 20, 18, 0.22) 38%,
-          color-mix(in srgb, #a48d47 14%, rgba(12, 11, 10, 0.55)) 62%,
-          color-mix(in srgb, #0a0a0a 88%, #6b5c38 12%) 100%
-        );
-        pointer-events: none;
+        background: transparent;
       }
       .gogl-program-slider__slide[data-slide="0"] .gogl-joscha-tiles-wrap {
         position: relative;
@@ -1039,15 +1675,18 @@
         padding: 12px 22px;
         border-radius: 999px;
         text-decoration: none !important;
-        border: 1px solid rgba(255, 255, 255, 0.35);
+        border: 1.5px solid #a48d47;
+        box-shadow: 0 0 0 1px rgba(164, 141, 71, 0.35);
         cursor: pointer;
       }
       .gogogo-page main .gogl-joscha-copy__cta:hover,
       .gogogo-page main .gogl-joscha-copy__cta:focus-visible {
         background: #e8e8e6 !important;
         color: #0a0a0a !important;
-        outline: 2px solid #2d9e8f;
+        border-color: #a48d47;
+        outline: 2px solid #a48d47;
         outline-offset: 2px;
+        box-shadow: 0 0 0 1px rgba(164, 141, 71, 0.5);
       }
 
       .gogl-video-stage {
@@ -1194,6 +1833,49 @@
           0 0 0 1px rgba(255, 255, 255, 0.07);
         transition: box-shadow 0.25s ease, background 0.2s ease;
       }
+      .gogl-program-slider__slide[data-slide="0"] .gogl-tile[data-state="closed"] {
+        background: rgba(18, 18, 18, 0.86);
+      }
+      .gogl-program-slider__slide[data-slide="0"] .gogl-tile[data-state="closed"] > .gogl-tile__scaler {
+        justify-content: center;
+        align-items: center;
+      }
+      .gogl-program-slider__slide[data-slide="0"] .gogl-tile[data-state="closed"] .gogl-tile__head {
+        margin-top: 0;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        max-width: 100%;
+        padding: 0 clamp(6px, 0.9vw, 10px);
+        box-sizing: border-box;
+      }
+      .gogl-program-slider__slide[data-slide="0"] .gogl-tile[data-state="closed"] .gogl-tile__title {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+        font-family: var(--font-sans);
+        font-weight: 700;
+        font-size: clamp(
+          calc(1.19rem * var(--gogl-tile-font-scale, 1) * 1.1),
+          calc(2.01vw * var(--gogl-tile-font-scale, 1) * 1.1),
+          calc(1.53rem * var(--gogl-tile-font-scale, 1) * 1.1)
+        );
+        line-height: 1.15;
+        letter-spacing: 0.01em;
+        text-align: center;
+        display: block;
+        white-space: normal;
+        overflow-wrap: normal;
+        word-break: normal;
+        hyphens: none;
+        -webkit-hyphens: none;
+        -webkit-line-clamp: unset;
+        overflow: visible;
+      }
+      .gogl-program-slider__slide[data-slide="0"] .gogl-tile__icon {
+        display: none;
+      }
       .gogl-tile__head {
         display: flex;
         align-items: flex-start;
@@ -1307,9 +1989,13 @@
       }
       .gogl-tile__bg-btn:hover,
       .gogl-tile__bg-btn[aria-pressed="true"] {
-        background: var(--green-signal);
+        background: #a48d47;
         color: #0a0a0a;
-        border-color: transparent;
+        border-color: #a48d47;
+      }
+      .gogl-tile__bg-btn:focus-visible {
+        outline: 2px solid #a48d47;
+        outline-offset: 2px;
       }
       .gogl-tile__cta-mail {
         display: inline-flex;
@@ -1386,12 +2072,13 @@
         opacity: 0.45;
       }
       .gogl-tile__bg a {
-        color: var(--green-signal);
+        color: inherit;
         text-decoration: none;
-        border-bottom: 1px dotted rgba(45, 158, 143, 0.45);
+        border-bottom: 1px dotted currentColor;
       }
       .gogl-tile__bg a:hover {
-        border-bottom-color: var(--green-signal);
+        color: inherit;
+        border-bottom-color: currentColor;
       }
 
       .gogl-tile-grid .gogl-tile[data-state="closed"]:hover,
@@ -2571,26 +3258,42 @@
             </div>
           </div>
           <div id="gogl-joscha-grow" class="gogl-joscha-grow gogl-program-slider">
+            <div class="gogl-joscha-grow__photo gogl-joscha-grow__photo--factfulness" aria-hidden="true">
+              <img src="assets/factfulness.jpeg" alt="" width="1600" height="900" decoding="async" />
+            </div>
+            <div class="gogl-joscha-grow__photo gogl-joscha-grow__photo--joscha" aria-hidden="true">
+              <img src="assets/biigJ01.jpg" alt="" width="1626" height="2361" decoding="async" />
+            </div>
+            <div class="gogl-joscha-grow__photo gogl-joscha-grow__photo--trainer" aria-hidden="true">
+              <img src="assets/SledHoodie.png" alt="" width="816" height="1296" decoding="async" />
+            </div>
+            <div class="gogl-joscha-grow__phone gogl-joscha-grow__phone--gosam" aria-hidden="true">
+              <svg viewBox="0 0 2816 1536" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
+                <image xlink:href="assets/gogogoApp-cutout.png" href="assets/gogogoApp-cutout.png" width="2816" height="1536"/>
+                <g class="gogl-gosam-phone__edge" pointer-events="none">
+                  <rect x="1075.5" y="111.5" width="663" height="1349" rx="89" ry="89" fill="none" stroke="rgba(255, 255, 255, 0.07)" stroke-width="2"/>
+                  <rect x="1076.5" y="112.5" width="661" height="1347" rx="88" ry="88" fill="none" stroke="rgba(255, 255, 255, 0.16)" stroke-width="2"/>
+                  <rect x="1074.5" y="110.5" width="665" height="1351" rx="90" ry="90" fill="none" stroke="rgba(0, 0, 0, 0.42)" stroke-width="2"/>
+                </g>
+              </svg>
+            </div>
                         <div class="gogl-program-slider__dots" role="tablist" aria-label="Folie">
               <button type="button" class="gogl-program-slider__dot is-active" role="tab" aria-selected="true" aria-label="Factfulness" data-slide-to="0"></button>
-              <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="Aufwärmen mit der Mobility-Routine" data-slide-to="1"></button>
-              <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="Cycle Training" data-slide-to="2"></button>
-              <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="gogogo App" data-slide-to="3"></button>
-              <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="Lohnt sich ein Personal Trainer" data-slide-to="4"></button>
-              <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="Triff Joscha" data-slide-to="5"></button>
+              <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="Cycle Training" data-slide-to="1"></button>
+              <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="Triff Joscha" data-slide-to="2"></button>
+              <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="Den passenden Trainer" data-slide-to="3"></button>
+              <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="gogogo App" data-slide-to="4"></button>
+              <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="3 Minuten Aufwärm-Routine" data-slide-to="5"></button>
               <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="Upper Body Basics" data-slide-to="6"></button>
             </div>
                         <div class="gogl-program-slider__viewport">
 <div class="gogl-program-slider__slide is-active" data-slide="0">
                 <div class="gogl-joscha-panel">
-              <div class="gogl-joscha-panel__photo" aria-hidden="true">
-                <img src="assets/factfulness.jpeg" alt="" width="1600" height="900" decoding="async" />
-              </div>
               <div class="gogl-joscha-tiles-wrap">
                 <div class="gogl-joscha-copy">
                   <h2 class="gogl-joscha-copy__heading">Factfulness</h2>
-                  <p class="gogl-joscha-copy__sub">Das mit der Bewegung ist einfacher als Influenzer und die Fitnessbranche es uns wissen lassen will.</p>
-                  <a class="gogl-joscha-copy__cta" href="#einstieg">mach mit</a>
+                  <p class="gogl-joscha-copy__sub">Das Thema Bewegung ist viel einfacher als es uns die Fitnessbranche und insbesondere Influencer weiß machen wollen. Hier sind die wichtigsten Inhalte der meisten Kennenlerngespräche aus Trainerterminen. Was fehlt Dir noch im gesamten Bild.</p>
+                  <a class="gogl-joscha-copy__cta" href="#einstieg">Feedback &amp; Fragen</a>
                 </div>
                 <div class="gogl-tile-grid-stage">
                 <div class="gogl-tile-grid" id="gogl-tile-grid">
@@ -2865,6 +3568,75 @@
               </div>
               </div>
 <div class="gogl-program-slider__slide" data-slide="1">
+                <div class="gogl-program-slide-card gogl-program-slide-card--cycle">
+                  <div class="gogl-program-slide-card__bg" aria-hidden="true">
+                    <img src="assets/fridaycycle.jpg" alt="" width="1600" height="900" decoding="async" />
+                  </div>
+                  <div class="gogl-program-slide-card__inner gogl-program-slide-card__inner--cycle">
+                    <div class="gogl-cycle-head">
+                      <div class="gogl-cycle-head__mast">
+                        <p class="gogl-cycle-head__tag">wöchentlich</p>
+                        <h2 class="gogl-cycle-head__title">
+                          <span class="gogl-cycle-head__title-line gogl-cycle-head__title-line--cycle">CYCLE</span>
+                          <span class="gogl-cycle-head__title-line gogl-cycle-head__title-line--training">
+                            <span class="gogl-cycle-head__t-tr">TR</span><span class="gogl-cycle-head__t-aining">AINING</span>
+                          </span>
+                        </h2>
+                      </div>
+                    </div>
+                    <div class="gogl-cycle-body">
+                      <div class="gogl-cycle-body__lines">
+                        <p>Ein hochintensives Gruppentraining als Wochenhighlight</p>
+                        <p>Gezielt mit Kraft-, Ausdauer-, Skilltraining an anderen Tagen.</p>
+                        <p><strong>Verbessere Dein Handycap.</strong></p>
+                      </div>
+                      <div class="gogl-cycle-body__actions">
+                        <a class="gogl-cycle-body__cta gogl-cycle-body__cta--join" href="cycle-training.html">Mitmachen</a>
+                        <a class="gogl-cycle-body__cta gogl-cycle-body__cta--table" href="cycle-training.html">Tabelle</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+<div class="gogl-program-slider__slide" data-slide="2">
+                <div class="gogl-program-slide-card gogl-program-slide-card--joscha">
+                  <div class="gogl-program-slide-card__bg" aria-hidden="true">
+                    <img src="assets/triff-joscha-hero-poster.png" alt="" width="1600" height="900" decoding="async" />
+                  </div>
+                  <div class="gogl-program-slide-card__inner gogl-program-slide-card__inner--joscha">
+                    <h2 class="gogl-program-slide-card__title">In Bewegung kommen.</h2>
+                    <p class="gogl-program-slide-card__lede gogl-program-slide-card__lede--joscha">Ich bin Architekt, habe zwanzig Jahre Räume für andere entworfen – und dabei lange vergessen, meinen eigenen Alltag in Ordnung zu bringen. Als ich anfing als Fitnesstrainer zu arbeiten, habe ich jeden Tag mehr verstanden, wie viel Potenzial an Zufriedenheit wir liegenlassen weil wir uns nicht um uns selbst kümmern. Ich habe mit Freunden, Trainingspartnern und Mitgliedern im Gym erlebt, dass ein ehrliches Gespräch und eine einfache Wochenroutine mehr bewirken als jede App und jedes teure Coaching. gogogo ist der Versuch, genau das zugänglich zu machen – für Menschen die wissen was sie tun müssten, und einfach jemanden brauchen der mit ihnen zusammen dranbleibt.</p>
+                    <a class="gogl-program-slide-card__cta gogl-program-slide-card__cta--joscha" href="triff-joscha.html">Triff Joscha</a>
+                  </div>
+                </div>
+              </div>
+<div class="gogl-program-slider__slide" data-slide="3">
+                <div class="gogl-program-slide-card gogl-program-slide-card--trainer">
+                  <div class="gogl-program-slide-card__bg" aria-hidden="true">
+                    <img src="assets/SledHoodie.png" alt="" width="816" height="1296" decoding="async" />
+                  </div>
+                  <div class="gogl-program-slide-card__inner gogl-program-slide-card__inner--trainer">
+                    <div class="gogl-trainer-head">
+                      <h2 class="gogl-trainer-head__line gogl-trainer-head__line--main">Den passenden Trainer.</h2>
+                      <p class="gogl-trainer-head__line gogl-trainer-head__line--sub">Vor Ort oder online.</p>
+                    </div>
+                    <p class="gogl-program-slide-card__lede gogl-program-slide-card__lede--trainer">In Berlin bekommst Du für alle Themen einen Personal Trainer. Versiert und mit allen Grundlagen – damit Du nicht nur in Bewegung kommst sondern auch richtig trainierst.</p>
+                    <a class="gogl-program-slide-card__cta gogl-program-slide-card__cta--trainer" href="#einstieg">Ich suche einen Trainer</a>
+                  </div>
+                </div>
+              </div>
+<div class="gogl-program-slider__slide" data-slide="4">
+                <div class="gogl-program-slide-card gogl-program-slide-card--gosam">
+                  <div class="gogl-program-slide-card__inner gogl-program-slide-card__inner--gosam">
+                    <p class="gogl-gosam-preface">Apps sind aktuell noch Werkzeuge, die aber langsam vom Smartphone verschwinden werden. Weil alles in Deinem Super-User-Interface vereint wird. Du wirst entscheiden, mit welchen Datenbanken und Menschen Du Dich verbinden willst. Ziel ist frühzeitig eigene Wege zu finden, um in Zukunft freier als heute zu sein.</p>
+                    <div class="gogl-gosam-copy">
+                      <h2 class="gogl-gosam-copy__title">gogogo App</h2>
+                      <p class="gogl-gosam-copy__lede">Ein mini Tool für Dich und Deine zwei Freunde. Ein Safe-Space mit Gamification, Aufgaben-Zuteilungen und vielen Tipps untereinander oder optional von Tipps. Keine Fitness-App sondern low-tech für den Alltagsgebrauch.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+<div class="gogl-program-slider__slide" data-slide="5">
                 <div class="gogl-program-slide-card gogl-program-slide-card--mobility">
                   <div class="gogl-program-slide-card__bg" aria-hidden="true"></div>
                   <div class="gogl-program-slide-card__media" data-video-slot="mobility">
@@ -2887,51 +3659,8 @@
                     </button>
                   </div>
                   <div class="gogl-program-slide-card__inner">
-                    <h2 class="gogl-program-slide-card__title">Aufwärmen mit der Mobility-Routine — bevor Du Kraft gibst.</h2>
-                  </div>
-                </div>
-              </div>
-<div class="gogl-program-slider__slide" data-slide="2">
-                <div class="gogl-program-slide-card gogl-program-slide-card--cycle">
-                  <div class="gogl-program-slide-card__bg" aria-hidden="true">
-                    <img src="red-performance-mockup/assets/Hyrox-athlet.webp" alt="" width="1600" height="900" decoding="async" />
-                  </div>
-                  <div class="gogl-program-slide-card__inner">
-                    <h2 class="gogl-program-slide-card__title">Cycle Training — HYROX-Prinzipien, jede Woche.</h2>
-                    <a class="gogl-program-slide-card__cta gogl-program-slide-card__cta--cycle" href="cycle-training.html">Zu Cycle Training →</a>
-                  </div>
-                </div>
-              </div>
-<div class="gogl-program-slider__slide" data-slide="3">
-                <div class="gogl-program-slide-card gogl-program-slide-card--gosam">
-                  <div class="gogl-program-slide-card__bg" aria-hidden="true">
-                    <img src="red-performance-mockup/assets/FiFi-Betreuung.webp" alt="" width="1600" height="900" decoding="async" />
-                  </div>
-                  <div class="gogl-program-slide-card__inner">
-                    <h2 class="gogl-program-slide-card__title">gogogo App — 30 Tage eine Gewohnheit, mit Buddy.</h2>
-                    <a class="gogl-program-slide-card__cta gogl-program-slide-card__cta--gosam" href="go-sam.html">Zur gogogo App →</a>
-                  </div>
-                </div>
-              </div>
-<div class="gogl-program-slider__slide" data-slide="4">
-                <div class="gogl-program-slide-card gogl-program-slide-card--trainer">
-                  <div class="gogl-program-slide-card__bg" aria-hidden="true">
-                    <img src="red-performance-mockup/assets/FiFi-Betreuung.webp" alt="" width="1600" height="900" decoding="async" />
-                  </div>
-                  <div class="gogl-program-slide-card__inner">
-                    <h2 class="gogl-program-slide-card__title">Lohnt sich ein Personal Trainer — wenn Struktur fehlt, nicht Motivation.</h2>
-                    <a class="gogl-program-slide-card__cta gogl-program-slide-card__cta--light" href="#einstieg">Persönlich klären →</a>
-                  </div>
-                </div>
-              </div>
-<div class="gogl-program-slider__slide" data-slide="5">
-                <div class="gogl-program-slide-card gogl-program-slide-card--joscha">
-                  <div class="gogl-program-slide-card__bg" aria-hidden="true">
-                    <img src="assets/triff-joscha-hero-poster.png" alt="" width="1600" height="900" decoding="async" />
-                  </div>
-                  <div class="gogl-program-slide-card__inner">
-                    <h2 class="gogl-program-slide-card__title">Triff Joscha — Training, Story und erste Schritte.</h2>
-                    <a class="gogl-program-slide-card__cta gogl-program-slide-card__cta--light" href="triff-joscha.html">Zu Triff Joscha →</a>
+                    <h2 class="gogl-program-slide-card__title">3 Minuten Aufwärm-Routine</h2>
+                    <p class="gogl-program-slide-card__lede">Mobilität des Körpers ist nicht einfach Beweglichkeit sondern Gewicht über den weitest möglichen Bewegungsradius halten zu können. Das kannst Du vorm Training mit einer kleinen Routine unterstützen. An einigen Tagen nutzt Du im Krafttraining auch niedrigere Gewichte bei mehr Volumen (mehr Wiederholungen und mehr Sätze), um Bewegungen zu testen. Für athletische Fähigkeiten mach freie, mehrkettige Übungen. Dafür ist es nie zu spät.</p>
                   </div>
                 </div>
               </div>

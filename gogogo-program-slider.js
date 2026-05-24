@@ -7,11 +7,11 @@
 
   var SLIDE_LABELS = [
     "Factfulness",
-    "Aufwärmen mit der Mobility-Routine",
     "Cycle Training",
-    "gogogo App",
-    "Lohnt sich ein Personal Trainer",
     "Triff Joscha",
+    "Den passenden Trainer",
+    "gogogo App",
+    "3 Minuten Aufwärm-Routine",
     "Upper Body Basics",
   ];
 
@@ -22,6 +22,9 @@
 
   var index = 0;
   var timer;
+  var autoEnabled = false;
+  var pausedByHover = false;
+  var hoverRoot = root.closest(".gogl-joscha-grow-wrap") || root;
 
   function show(i) {
     index = (i + slides.length) % slides.length;
@@ -47,17 +50,39 @@
     show(index - 1);
   }
 
-  function start() {
-    stop();
-    timer = window.setInterval(next, 5000);
-  }
-
-  function stop() {
+  function clearTimer() {
     if (timer) {
       window.clearInterval(timer);
       timer = null;
     }
   }
+
+  function restartTimer() {
+    clearTimer();
+    if (autoEnabled && !pausedByHover) {
+      timer = window.setInterval(next, 5000);
+    }
+  }
+
+  function start() {
+    autoEnabled = true;
+    restartTimer();
+  }
+
+  function stop() {
+    autoEnabled = false;
+    clearTimer();
+  }
+
+  hoverRoot.addEventListener("pointerenter", function () {
+    pausedByHover = true;
+    clearTimer();
+  });
+  hoverRoot.addEventListener("pointerleave", function (e) {
+    if (e.relatedTarget && hoverRoot.contains(e.relatedTarget)) return;
+    pausedByHover = false;
+    restartTimer();
+  });
 
   window.goglProgramSlider = {
     pause: stop,
