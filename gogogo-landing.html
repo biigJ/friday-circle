@@ -900,7 +900,7 @@
         font-family: var(--font-display);
         font-style: italic;
         font-weight: 400;
-        font-size: clamp(calc(1.08rem * 0.7), calc(1.42vw * 0.7), calc(1.28rem * 0.7));
+        font-size: clamp(calc(1.08rem * 0.84), calc(1.42vw * 0.84), calc(1.28rem * 0.84));
         line-height: 1.55;
         color: rgba(255, 255, 255, 0.92);
         text-align: left;
@@ -911,6 +911,7 @@
         align-self: center;
         max-width: min(36rem, 100%);
         min-width: 0;
+        margin-top: calc(-1 * 1.55em);
       }
       .gogl-gosam-copy__title {
         margin: 0 0 clamp(16px, 2.2vh, 24px);
@@ -929,6 +930,57 @@
         line-height: 1.55;
         color: rgba(255, 255, 255, 0.94);
         max-width: 44ch;
+      }
+      .gogl-gosam-copy__actions {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-start;
+        gap: clamp(10px, 1.4vw, 14px);
+        margin-top: clamp(16px, 2.2vh, 24px);
+      }
+      .gogogo-page main .gogl-gosam-copy__cta {
+        position: static;
+        transform: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: clamp(6.5rem, 12vw, 8.5rem);
+        padding: 10px clamp(16px, 2.2vw, 22px);
+        border-radius: 999px;
+        border: 1px solid transparent;
+        font-family: var(--font-sans);
+        font-size: clamp(0.72rem, 1.05vw, 0.82rem);
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        text-transform: none;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+      }
+      .gogogo-page main .gogl-gosam-copy__cta--waitlist {
+        background: #3366ff;
+        color: #edf2ff;
+        border-color: #3366ff;
+      }
+      .gogogo-page main .gogl-gosam-copy__cta--info {
+        background: transparent;
+        color: #ffffff;
+        border-color: rgba(255, 255, 255, 0.72);
+      }
+      .gogogo-page main .gogl-gosam-copy__cta:hover,
+      .gogogo-page main .gogl-gosam-copy__cta:focus-visible {
+        transform: translateY(-1px);
+      }
+      .gogogo-page main .gogl-gosam-copy__cta--waitlist:hover,
+      .gogogo-page main .gogl-gosam-copy__cta--waitlist:focus-visible {
+        filter: brightness(1.06);
+      }
+      .gogogo-page main .gogl-gosam-copy__cta--info:hover,
+      .gogogo-page main .gogl-gosam-copy__cta--info:focus-visible {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: #ffffff;
       }
       @media (max-width: 760px) {
         .gogl-program-slide-card__inner--gosam {
@@ -3269,11 +3321,16 @@
             </div>
             <div class="gogl-joscha-grow__phone gogl-joscha-grow__phone--gosam" aria-hidden="true">
               <svg viewBox="0 0 2816 1536" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
+                <defs>
+                  <clipPath id="gogl-gosam-phone-clip">
+                    <rect x="1077" y="113" width="660" height="1346" rx="87" ry="87"/>
+                  </clipPath>
+                </defs>
                 <image xlink:href="assets/gogogoApp-cutout.png" href="assets/gogogoApp-cutout.png" width="2816" height="1536"/>
-                <g class="gogl-gosam-phone__edge" pointer-events="none">
-                  <rect x="1075.5" y="111.5" width="663" height="1349" rx="89" ry="89" fill="none" stroke="rgba(255, 255, 255, 0.07)" stroke-width="2"/>
-                  <rect x="1076.5" y="112.5" width="661" height="1347" rx="88" ry="88" fill="none" stroke="rgba(255, 255, 255, 0.16)" stroke-width="2"/>
-                  <rect x="1074.5" y="110.5" width="665" height="1351" rx="90" ry="90" fill="none" stroke="rgba(0, 0, 0, 0.42)" stroke-width="2"/>
+                <g class="gogl-gosam-phone__edge" pointer-events="none" clip-path="url(#gogl-gosam-phone-clip)">
+                  <rect x="1076" y="112" width="662" height="1348" rx="88" ry="88" fill="none" stroke="rgba(255, 255, 255, 0.07)" stroke-width="1"/>
+                  <rect x="1077" y="113" width="660" height="1346" rx="87" ry="87" fill="none" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1"/>
+                  <rect x="1075" y="111" width="664" height="1350" rx="89" ry="89" fill="none" stroke="rgba(0, 0, 0, 0.42)" stroke-width="1"/>
                 </g>
               </svg>
             </div>
@@ -3628,10 +3685,14 @@
 <div class="gogl-program-slider__slide" data-slide="4">
                 <div class="gogl-program-slide-card gogl-program-slide-card--gosam">
                   <div class="gogl-program-slide-card__inner gogl-program-slide-card__inner--gosam">
-                    <p class="gogl-gosam-preface">Apps sind aktuell noch Werkzeuge, die aber langsam vom Smartphone verschwinden werden. Weil alles in Deinem Super-User-Interface vereint wird. Du wirst entscheiden, mit welchen Datenbanken und Menschen Du Dich verbinden willst. Ziel ist frühzeitig eigene Wege zu finden, um in Zukunft freier als heute zu sein.</p>
+                    <p class="gogl-gosam-preface">Apps sind Werkzeuge auf Deinem Smartphone. In Zukunft verschwinden sie weil sich Technik weiterentwickelt und Du Dein individuelles Interface nutzen wirst. Du wirst entscheiden können, mit welchen Datenbanken und Menschen Du Dich verbinden möchtest. Unser Ziel ist, frühzeitig eigene Wege zu finden, um in Zukunft freier als heute zu sein.</p>
                     <div class="gogl-gosam-copy">
                       <h2 class="gogl-gosam-copy__title">gogogo App</h2>
                       <p class="gogl-gosam-copy__lede">Ein mini Tool für Dich und Deine zwei Freunde. Ein Safe-Space mit Gamification, Aufgaben-Zuteilungen und vielen Tipps untereinander oder optional von Tipps. Keine Fitness-App sondern low-tech für den Alltagsgebrauch.</p>
+                      <div class="gogl-gosam-copy__actions">
+                        <a class="gogl-gosam-copy__cta gogl-gosam-copy__cta--waitlist" href="go-sam.html#waitlist">Warteliste</a>
+                        <a class="gogl-gosam-copy__cta gogl-gosam-copy__cta--info" href="go-sam.html">mehr Infos</a>
+                      </div>
                     </div>
                   </div>
                 </div>
