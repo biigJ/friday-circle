@@ -13,7 +13,7 @@
     "Cycle Training",
     "Triff Joscha",
     "Upper Body Basics",
-    "3 Minuten Aufwärm-Routine",
+    "Mobilitätsroutine",
   ];
 
   var titleEl = document.getElementById("gogl-program-slider-title");
