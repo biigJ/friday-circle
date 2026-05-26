@@ -1902,6 +1902,33 @@
         width: 100%;
         max-width: none;
       }
+      .gogl-program-slide-card--hero .gogl-hero-cards-block__cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: clamp(12px, 1.8vh, 20px);
+        padding: 10px clamp(22px, 3vw, 34px);
+        border-radius: 999px;
+        border: 1.5px solid #589b8d;
+        background: var(--gogl-joscha-hellblau-cta);
+        color: #589b8d;
+        font-family: var(--font-sans);
+        font-size: clamp(0.82rem, 1.1vw, 0.94rem);
+        font-weight: 700;
+        line-height: 1;
+        letter-spacing: 0.02em;
+        text-decoration: none;
+        pointer-events: auto;
+        transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+      }
+      .gogl-program-slide-card--hero .gogl-hero-cards-block__cta:hover,
+      .gogl-program-slide-card--hero .gogl-hero-cards-block__cta:focus-visible {
+        background: #589b8d;
+        border-color: #589b8d;
+        color: #ffffff;
+        transform: translateY(-1px);
+        outline: none;
+      }
       .gogl-program-slide-card--hero .gogl-hero-card {
         padding: clamp(14px, 1.6vw, 20px) clamp(16px, 2vw, 24px);
       }
@@ -3543,6 +3570,7 @@
                           <a class="gogl-hero-card__link" href="register-training/index.html">Mach es einfach →</a>
                         </div>
                       </div>
+                      <a class="gogl-hero-cards-block__cta" href="#einstieg">Erklär&apos;s mir.</a>
                       </div>
                       <div class="gogl-bar" aria-label="Hinweis">
                         <div class="gogl-bar__track">
