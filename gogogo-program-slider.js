@@ -10,9 +10,9 @@
     "gogogo App",
     "Den passenden Trainer",
     "Factfulness",
-    "Upper Body Basics",
     "Cycle Training",
     "Triff Joscha",
+    "Upper Body Basics",
     "3 Minuten Aufwärm-Routine",
   ];
 
