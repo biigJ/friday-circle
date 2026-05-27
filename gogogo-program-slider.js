@@ -7,7 +7,7 @@
 
   var SLIDE_LABELS = [
     "Ein leichter Schritt, Dich täglich ausreichend zu bewegen.",
-    "gogogo App",
+    "Mitglied werden",
     "Den passenden Trainer",
     "Factfulness",
     "Cycle Training",
@@ -117,13 +117,12 @@
     });
   }
 
-  var heroSlideNext = document.querySelector(".gogl-hero-slide-next");
-  if (heroSlideNext) {
+  root.querySelectorAll(".gogl-hero-slide-next").forEach(function (heroSlideNext) {
     heroSlideNext.addEventListener("click", function () {
       next();
       start();
     });
-  }
+  });
 
   var io =
     typeof IntersectionObserver !== "undefined"

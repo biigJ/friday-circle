@@ -414,8 +414,8 @@
         );
       }
       .gogl-joscha-grow:has(.gogl-program-slider__slide[data-slide="1"].is-active) .gogl-joscha-grow__phone--gosam {
-        opacity: 1;
-        visibility: visible;
+        opacity: 0;
+        visibility: hidden;
       }
       .gogl-joscha-grow__phone {
         position: absolute;
@@ -879,12 +879,30 @@
       .gogl-program-slide-card--trainer .gogl-program-slide-card__bg img {
         display: none;
       }
-      /* gogogo App — Verlauf auf Grow-Ebene, iPhone als SVG oben */
+      /* gogogo membership — Verlauf auf Grow-Ebene, Video rechts */
       .gogl-program-slide-card--gosam {
         background: transparent;
       }
       .gogl-program-slide-card--gosam::after {
         display: none;
+      }
+      .gogl-gosam-slide__video {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        z-index: 0;
+        overflow: hidden;
+        pointer-events: none;
+      }
+      .gogl-gosam-slide__video video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        opacity: 0.5;
+        display: block;
       }
       .gogl-program-slide-card__inner--gosam {
         position: absolute;
@@ -892,60 +910,103 @@
         z-index: 3;
         display: grid;
         grid-template-columns: minmax(0, 1fr);
-        grid-template-rows: auto minmax(0, 1fr);
-        align-items: center;
-        gap: clamp(12px, 1.8vh, 20px);
-        max-width: min(54%, 44rem);
+        grid-template-rows: minmax(0, 1fr);
+        align-items: start;
+        justify-items: start;
+        gap: 0;
+        width: 50%;
+        max-width: 50%;
+        min-width: 0;
         padding: var(--gogl-frame-inset-top) var(--gogl-frame-inset-x) var(--gogl-frame-inset-bottom);
         box-sizing: border-box;
+        pointer-events: none;
+      }
+      .gogl-program-slide-card--gosam .gogl-gosam-copy__cta,
+      .gogl-gosam-copy__actions {
+        pointer-events: auto;
+      }
+      .gogl-gosam-intro {
+        grid-column: 1;
+        grid-row: 1;
+        z-index: 2;
+        max-width: min(52ch, 100%);
       }
       .gogl-gosam-preface {
-        grid-column: 1 / -1;
-        grid-row: 1;
         margin: 0;
-        max-width: min(58ch, 92%);
-        font-family: var(--font-display);
-        font-style: italic;
-        font-weight: 400;
         font-size: clamp(calc(1.08rem * 0.84), calc(1.42vw * 0.84), calc(1.28rem * 0.84));
         line-height: 1.55;
         color: rgba(255, 255, 255, 0.92);
         text-align: left;
       }
+      .gogl-gosam-preface--lead {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-weight: 400;
+      }
+      .gogl-gosam-preface--sans {
+        margin-top: 1em;
+        font-family: var(--font-sans);
+        font-style: normal;
+        font-weight: 400;
+      }
       .gogl-gosam-copy {
         grid-column: 1;
-        grid-row: 2;
-        align-self: center;
+        grid-row: 1;
+        position: relative;
+        z-index: 1;
+        align-self: stretch;
+        justify-self: start;
+        width: min(36rem, 100%);
         max-width: min(36rem, 100%);
         min-width: 0;
-        margin-top: calc(-1 * 1.55em);
+        min-height: 100%;
+        pointer-events: none;
       }
       .gogl-gosam-copy__title {
-        margin: 0 0 clamp(16px, 2.2vh, 24px);
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        transform: translateY(-50%);
+        margin: 0;
         font-family: var(--font-sans);
         font-weight: 700;
         font-size: clamp(2rem, 5.5vw, 3.5rem);
         line-height: 1.05;
         letter-spacing: 0.01em;
         color: #ffffff;
-      }
-      .gogl-gosam-copy__lede {
-        margin: 0;
-        font-family: var(--font-head);
-        font-weight: 400;
-        font-size: clamp(0.82rem, 1.15vw, 0.98rem);
-        line-height: 1.55;
-        color: rgba(255, 255, 255, 0.94);
-        max-width: 44ch;
+        text-align: left;
       }
       .gogl-gosam-copy__actions {
+        position: absolute;
+        top: calc(50% + (0.525 * clamp(2rem, 5.5vw, 3.5rem)) + clamp(10px, 1.4vh, 14px));
+        left: 0;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         align-items: center;
         justify-content: flex-start;
-        gap: clamp(10px, 1.4vw, 14px);
-        margin-top: clamp(16px, 2.2vh, 24px);
+        gap: clamp(12px, 1.6vw, 18px);
+        text-align: left;
+      }
+      .gogl-gosam-copy__tagline {
+        margin: 0;
+        flex: 1 1 12rem;
+        min-width: 0;
+        font-family: var(--font-sans);
+        font-weight: 700;
+        font-size: clamp(0.95rem, 1.35vw, 1.15rem);
+        line-height: 1.45;
+        color: #ffffff;
+        max-width: none;
+      }
+      .gogl-gosam-copy__tagline-line {
+        display: block;
       }
       .gogogo-page main .gogl-gosam-copy__cta {
         position: static;
@@ -953,57 +1014,99 @@
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        min-width: clamp(6.5rem, 12vw, 8.5rem);
-        padding: 10px clamp(16px, 2.2vw, 22px);
+        margin: 0;
+        padding: 12px clamp(18px, 2.4vw, 26px);
         border-radius: 999px;
-        border: 1px solid transparent;
+        border: 1.5px solid rgba(255, 255, 255, 0.85);
+        background: #ffffff;
+        color: #0a0a0a;
         font-family: var(--font-sans);
-        font-size: clamp(0.72rem, 1.05vw, 0.82rem);
-        font-weight: 600;
+        font-size: clamp(0.78rem, 1.1vw, 0.9rem);
+        font-weight: 700;
         letter-spacing: 0.02em;
-        text-transform: none;
         text-decoration: none;
         white-space: nowrap;
-        transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
-      }
-      .gogogo-page main .gogl-gosam-copy__cta--waitlist {
-        background: #3366ff;
-        color: #edf2ff;
-        border-color: #3366ff;
-      }
-      .gogogo-page main .gogl-gosam-copy__cta--info {
-        background: transparent;
-        color: #ffffff;
-        border-color: rgba(255, 255, 255, 0.72);
+        transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
       }
       .gogogo-page main .gogl-gosam-copy__cta:hover,
       .gogogo-page main .gogl-gosam-copy__cta:focus-visible {
+        background: #e8e8e6;
         transform: translateY(-1px);
+        outline: none;
       }
-      .gogogo-page main .gogl-gosam-copy__cta--waitlist:hover,
-      .gogogo-page main .gogl-gosam-copy__cta--waitlist:focus-visible {
-        filter: brightness(1.06);
+      .gogl-program-slide-card--gosam .gogl-hero-slide-next {
+        position: absolute;
+        right: clamp(16px, 3vw, 32px);
+        bottom: clamp(14px, 2vh, 22px);
+        z-index: 4;
+        display: inline-flex;
+        align-items: center;
+        gap: clamp(8px, 1.2vw, 12px);
+        margin: 0;
+        padding: 0;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        pointer-events: auto;
+        color: #ffffff;
+        font-family: var(--font-sans);
+        font-size: clamp(0.85rem, 1.6vw, 1.05rem);
+        letter-spacing: 0.05em;
+        line-height: 1.5;
+        font-weight: 400;
+        text-align: right;
+        transform: translateY(-100%);
+        transition: transform 0.15s ease;
+        max-width: min(52%, 22rem);
       }
-      .gogogo-page main .gogl-gosam-copy__cta--info:hover,
-      .gogogo-page main .gogl-gosam-copy__cta--info:focus-visible {
-        background: rgba(255, 255, 255, 0.12);
-        border-color: #ffffff;
+      .gogl-program-slide-card--gosam .gogl-hero-slide-next__label {
+        text-wrap: balance;
+      }
+      .gogl-program-slide-card--gosam .gogl-hero-slide-next:hover .gogl-hero-slide-next__label,
+      .gogl-program-slide-card--gosam .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label {
+        font-weight: 700;
+      }
+      .gogl-program-slide-card--gosam .gogl-hero-slide-next:hover,
+      .gogl-program-slide-card--gosam .gogl-hero-slide-next:focus-visible {
+        transform: translateY(calc(-100% - 1px));
+      }
+      .gogl-program-slide-card--gosam .gogl-hero-slide-next__arrow {
+        flex-shrink: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-sans);
+        font-size: 1.35rem;
+        line-height: 1;
+        padding: 0 0 2px;
+        color: inherit;
+        background: transparent;
+      }
+      .gogl-program-slide-card--gosam .gogl-hero-slide-next:focus-visible {
+        outline: none;
+      }
+      .gogl-program-slide-card--gosam .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label {
+        text-decoration: underline;
+        text-underline-offset: 0.15em;
       }
       @media (max-width: 760px) {
+        .gogl-gosam-slide__video {
+          width: 100%;
+          height: 42%;
+          top: auto;
+          bottom: 0;
+        }
         .gogl-program-slide-card__inner--gosam {
-          grid-template-rows: auto auto;
-          align-items: start;
+          width: 100%;
           max-width: none;
+          height: 58%;
         }
-        .gogl-gosam-preface {
-          max-width: none;
+        .gogl-gosam-copy__actions {
+          flex-wrap: wrap;
+          align-items: flex-start;
         }
-        .gogl-joscha-grow__phone--gosam svg {
-          max-width: min(72vw, 18rem);
-          max-height: 42vh;
-          right: calc(-0.5 * min(72vw, 18rem));
-          transform: translateY(-50%) scale(2.5);
-          transform-origin: center right;
+        .gogl-program-slide-card--gosam .gogl-hero-slide-next {
+          max-width: calc(100% - 2 * clamp(16px, 3vw, 32px));
         }
       }
       .gogl-program-slide-card--cycle::after {
@@ -3599,7 +3702,7 @@
             </div>
                         <div class="gogl-program-slider__dots" role="tablist" aria-label="Folie">
               <button type="button" class="gogl-program-slider__dot is-active" role="tab" aria-selected="true" aria-label="Ein leichter Schritt, Dich täglich ausreichend zu bewegen." data-slide-to="0"></button>
-              <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="gogogo App" data-slide-to="1"></button>
+              <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="Mitglied werden" data-slide-to="1"></button>
               <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="Den passenden Trainer" data-slide-to="2"></button>
               <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="Factfulness" data-slide-to="3"></button>
               <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="Cycle Training" data-slide-to="4"></button>
@@ -3666,17 +3769,37 @@
               </div>
 <div class="gogl-program-slider__slide" data-slide="1">
                 <div class="gogl-program-slide-card gogl-program-slide-card--gosam">
+                  <div class="gogl-gosam-slide__video" aria-hidden="true">
+                    <video autoplay muted loop playsinline preload="metadata">
+                      <source src="assets/gogogo.mp4" type="video/mp4" />
+                    </video>
+                  </div>
                   <div class="gogl-program-slide-card__inner gogl-program-slide-card__inner--gosam">
-                    <p class="gogl-gosam-preface">Apps sind Werkzeuge auf Deinem Smartphone. In Zukunft verschwinden sie weil sich Technik weiterentwickelt und Du Dein individuelles Interface nutzen wirst. Du wirst entscheiden können, mit welchen Datenbanken und Menschen Du Dich verbinden möchtest. Unser Ziel ist, frühzeitig eigene Wege zu finden, um in Zukunft freier als heute zu sein.</p>
+                    <div class="gogl-gosam-intro">
+                      <p class="gogl-gosam-preface gogl-gosam-preface--lead">
+                        Wir sind Bewegungsmenschen. Entweder haben wir das vergessen oder fokussieren uns auf die Teile, die uns
+                        gefallen. Das führt zu einem ungesunden, einseitigen Alltag und häufig Unzufriedenheit.
+                      </p>
+                      <p class="gogl-gosam-preface gogl-gosam-preface--sans">
+                        Ich helfe Dir, Dein Bewegungs-Game umzusetzen. Von Mensch zu Mensch, mit Wissen und einem täglichen Trigger der
+                        zu Dir passt. Gym, App, Trainer findest Du danach ganz von selbst.
+                      </p>
+                    </div>
                     <div class="gogl-gosam-copy">
-                      <h2 class="gogl-gosam-copy__title">gogogo App</h2>
-                      <p class="gogl-gosam-copy__lede">Ein mini Tool für Dich und Deine zwei Freunde. Ein Safe-Space mit Gamification, Aufgaben-Zuteilungen und vielen Tipps untereinander oder optional von Tipps. Keine Fitness-App sondern low-tech für den Alltagsgebrauch.</p>
+                      <h2 class="gogl-gosam-copy__title">Mitglied werden</h2>
                       <div class="gogl-gosam-copy__actions">
-                        <a class="gogl-gosam-copy__cta gogl-gosam-copy__cta--waitlist" href="go-sam.html#waitlist">Warteliste</a>
-                        <a class="gogl-gosam-copy__cta gogl-gosam-copy__cta--info" href="go-sam.html">mehr Infos</a>
+                        <a class="gogl-gosam-copy__cta" href="start/index.html">Join</a>
+                        <p class="gogl-gosam-copy__tagline">
+                          <span class="gogl-gosam-copy__tagline-line">Analyse. Plan. 30 Tage Chat.</span>
+                          <span class="gogl-gosam-copy__tagline-line">Danach bist Du next Level.</span>
+                        </p>
                       </div>
                     </div>
                   </div>
+                  <button type="button" class="gogl-hero-slide-next" aria-label="Nächstes Programm: Personal Training">
+                    <span class="gogl-hero-slide-next__label">Als Member hast Du Zugriff auf Personal Training</span>
+                    <span class="gogl-hero-slide-next__arrow" aria-hidden="true">›</span>
+                  </button>
                 </div>
               </div>
 <div class="gogl-program-slider__slide" data-slide="2">
