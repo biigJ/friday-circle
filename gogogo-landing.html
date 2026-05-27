@@ -414,13 +414,13 @@
         );
       }
       .gogl-joscha-grow:has(.gogl-program-slider__slide[data-slide="1"].is-active) .gogl-joscha-grow__phone--gosam {
-        opacity: 0;
-        visibility: hidden;
+        opacity: 1;
+        visibility: visible;
       }
       .gogl-joscha-grow__phone {
         position: absolute;
         inset: 0;
-        z-index: 1;
+        z-index: 4;
         pointer-events: none;
         opacity: 0;
         visibility: hidden;
@@ -433,7 +433,8 @@
       .gogl-joscha-grow__phone--gosam {
         padding-right: 0;
       }
-      .gogl-joscha-grow__phone--gosam svg {
+      .gogl-joscha-grow__phone--gosam svg,
+      .gogl-joscha-grow__phone--gosam img {
         position: absolute;
         top: 50%;
         right: calc(-0.5 * min(48%, 28rem));
@@ -442,7 +443,7 @@
         height: auto;
         max-height: 100%;
         max-width: min(48%, 28rem);
-        transform: translateY(-50%) scale(2.5);
+        transform: translateY(-50%) translateX(-50%) scale(2.5);
         transform-origin: center right;
         filter:
           drop-shadow(14px 22px 32px rgba(0, 0, 0, 0.38))
@@ -3686,19 +3687,7 @@
               <img src="assets/SledHoodie.png" alt="" width="816" height="1296" decoding="async" />
             </div>
             <div class="gogl-joscha-grow__phone gogl-joscha-grow__phone--gosam" aria-hidden="true">
-              <svg viewBox="0 0 2816 1536" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true">
-                <defs>
-                  <clipPath id="gogl-gosam-phone-clip">
-                    <rect x="1077" y="113" width="660" height="1346" rx="87" ry="87"/>
-                  </clipPath>
-                </defs>
-                <image xlink:href="assets/gogogoApp-cutout.png" href="assets/gogogoApp-cutout.png" width="2816" height="1536"/>
-                <g class="gogl-gosam-phone__edge" pointer-events="none" clip-path="url(#gogl-gosam-phone-clip)">
-                  <rect x="1076" y="112" width="662" height="1348" rx="88" ry="88" fill="none" stroke="rgba(255, 255, 255, 0.07)" stroke-width="1"/>
-                  <rect x="1077" y="113" width="660" height="1346" rx="87" ry="87" fill="none" stroke="rgba(255, 255, 255, 0.16)" stroke-width="1"/>
-                  <rect x="1075" y="111" width="664" height="1350" rx="89" ry="89" fill="none" stroke="rgba(0, 0, 0, 0.42)" stroke-width="1"/>
-                </g>
-              </svg>
+              <img src="assets/Jelena-cutout.png" alt="" decoding="async" />
             </div>
                         <div class="gogl-program-slider__dots" role="tablist" aria-label="Folie">
               <button type="button" class="gogl-program-slider__dot is-active" role="tab" aria-selected="true" aria-label="Ein leichter Schritt, Dich täglich ausreichend zu bewegen." data-slide-to="0"></button>
@@ -3777,8 +3766,8 @@
                   <div class="gogl-program-slide-card__inner gogl-program-slide-card__inner--gosam">
                     <div class="gogl-gosam-intro">
                       <p class="gogl-gosam-preface gogl-gosam-preface--lead">
-                        Wir sind Bewegungsmenschen. Entweder haben wir das vergessen oder fokussieren uns auf die Teile, die uns
-                        gefallen. Das führt zu einem ungesunden, einseitigen Alltag und häufig Unzufriedenheit.
+                        Wir sind Bewegungsmenschen. Entweder haben wir das vergessen oder fokussieren uns nur auf die Bereiche, die uns
+                        persönlich gefallen. Das kann zu einem ungesunden, einseitigen Alltag führen und häufig zu Unzufriedenheit.
                       </p>
                       <p class="gogl-gosam-preface gogl-gosam-preface--sans">
                         Ich helfe Dir, Dein Bewegungs-Game umzusetzen. Von Mensch zu Mensch, mit Wissen und einem täglichen Trigger der
