@@ -55,13 +55,9 @@
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
-        width: min(
-          92vw,
-          calc(100vw - 2 * var(--stoerer-inset)),
-          max(22rem, min(52rem, calc(38vw + 14vh)))
-        );
+        width: min(92vw, calc(100vw - 2 * var(--stoerer-inset)), 42rem);
         max-width: calc(100vw - 2 * var(--stoerer-inset));
-        max-height: min(88vh, calc(100vh - 2 * var(--stoerer-inset)));
+        max-height: min(94vh, calc(100vh - 2 * var(--stoerer-inset)));
         min-height: 0;
         height: auto;
         border-radius: 0;
@@ -101,6 +97,9 @@
       .gogl-stoerer__copy {
         margin: 0;
         text-align: left;
+        font-family: var(--font-serif);
+        font-weight: 400;
+        font-style: normal;
         font-size: clamp(0.84rem, 1.35vw, 0.98rem);
         line-height: 1.58;
       }
@@ -108,39 +107,71 @@
         margin-top: 0.75em;
       }
       .gogl-stoerer__lead {
-        font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
-        font-weight: 500;
+        font-family: var(--font-serif);
+        font-weight: 400;
       }
       .gogl-stoerer__rest {
         font-family: var(--font-serif);
         font-weight: 400;
       }
       .gogl-stoerer__signoff {
-        font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+        font-family: var(--font-serif);
         font-weight: 600;
+      }
+      .gogl-stoerer__square {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        display: grid;
+        grid-template-columns: 1fr 0.62fr;
+        min-height: 0;
+      }
+      .gogl-stoerer__left {
+        min-height: 0;
+        overflow: hidden;
+        padding: clamp(24px, 3.2vw, 34px) clamp(24px, 3.2vw, 34px) clamp(18px, 2.2vw, 24px);
+        display: flex;
+        flex-direction: column;
+        gap: clamp(12px, 1.8vw, 18px);
+        background: #0a0a0a;
+      }
+      .gogl-stoerer__welcome-copy {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        font-size: clamp(0.93rem, 1.49vw, 1.09rem);
+        line-height: 1.58;
+        padding-top: 2.25em;
+      }
+      .gogl-stoerer__photo {
+        min-height: 0;
+        overflow: hidden;
+      }
+      .gogl-stoerer__photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
       }
       .gogl-stoerer__actions {
         flex: 0 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 16px;
-        justify-content: center;
-        align-items: center;
-        padding: 12px 28px calc(18px + env(safe-area-inset-bottom, 0));
-        box-sizing: border-box;
-        border-top: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        border-top: 1px solid rgba(255, 240, 240, 0.38);
+        padding: 0;
+        margin: 0;
         background: transparent;
       }
       .gogl-stoerer__actions a {
-        flex: 0 1 auto;
-        min-width: min(11.5rem, 100%);
         box-sizing: border-box;
         text-align: center;
-        font-family: var(--font-sans);
+        font-family: var(--font-serif);
         font-weight: 600;
-        font-size: 0.9rem;
-        padding: 12px 28px;
-        border-radius: 999px;
+        font-size: 0.95rem;
+        padding: 16px 14px;
+        border-radius: 0;
         text-decoration: none;
         transition: filter 0.2s ease, background 0.2s ease;
         color: inherit;
@@ -148,16 +179,16 @@
       .gogl-stoerer__actions a:first-of-type {
         background: transparent;
         color: #fff0f0;
-        border: 1.5px solid color-mix(in srgb, #fff 45%, var(--stoerer-signal));
+        border-right: 1px solid rgba(255, 240, 240, 0.38);
       }
       .gogl-stoerer__actions a:first-of-type:hover,
       .gogl-stoerer__actions a:first-of-type:focus-visible {
-        background: color-mix(in srgb, #fff 10%, transparent);
+        background: color-mix(in srgb, #fff0f0 12%, transparent);
       }
       .gogl-stoerer__actions a:last-of-type {
         background: #fff0f0;
         color: var(--stoerer-signal-dark);
-        border: 1px solid color-mix(in srgb, #fff 40%, var(--stoerer-signal-dark));
+        border: none;
       }
       .gogl-stoerer__actions a:last-of-type:hover,
       .gogl-stoerer__actions a:last-of-type:focus-visible {
@@ -165,7 +196,7 @@
       }
       .gogl-stoerer__actions a:focus-visible {
         outline: 2px solid #fff0f0;
-        outline-offset: 2px;
+        outline-offset: -2px;
       }
     </style>
   </head>
@@ -182,28 +213,24 @@
     >
       <div class="gogl-stoerer__backdrop" aria-hidden="true"></div>
       <div class="gogl-stoerer__panel">
-        <div class="gogl-stoerer__scroll">
-          <div class="gogl-stoerer__body">
-            <p class="gogl-stoerer__copy gogl-stoerer__lead">
-              Inspiriert von einer kleinen Sportgruppe am Freitagmittag vor meiner Schicht als Fitnesstrainer.
+        <div class="gogl-stoerer__square">
+          <div class="gogl-stoerer__left">
+            <p class="gogl-stoerer__copy gogl-stoerer__welcome-copy">
+              Das Gefühl, ins Wochenende zu starten. Am Freitag zurückschauen und genauso nach vorne. FRIDAY CIRCLE steht für die Werte
+              Gemeinschaft, Routine, Lebensfreude, Bewegung &amp; Alles geben. Eine private Gruppe im Gym ist der Namensgeber. Unter dem Namen möchte
+              ich sukzesiv alles sammeln, was uns hilft, aus dem Alleinsein, aus Desinformation, aus permanenter Ablenkung und aus Dogmen wieder
+              beweglich zu werden.<br />
+              Ich will mit Euch die Welt mit wohlwollendem Interesse anschauen. Sich frei und zufrieden fühlen - frei nach dem Song:
+              &quot;It's Friday ...&quot; Lass uns reden! Herzlichst, Joscha
             </p>
-            <p class="gogl-stoerer__copy gogl-stoerer__rest">
-              Das Gefühl, ins Wochenende zu starten – kennt jeder. Aber der Montag kommt wieder. Immer. Es braucht Anker der
-              Freude.
-            </p>
-            <p class="gogl-stoerer__copy gogl-stoerer__rest">
-              Aber keine, die dich danach tiefer fallen lassen als vorher. Der Freitag gehört dir. Die ganze Woche sollte dir
-              gehören.
-            </p>
-            <p class="gogl-stoerer__copy gogl-stoerer__rest">
-              FRIDAY CIRCLE steht dafür: Programme, die dein Leben zurückholen. Selbstermächtigung statt Grind.
-            </p>
-            <p class="gogl-stoerer__copy gogl-stoerer__signoff">Joscha</p>
+          </div>
+          <div class="gogl-stoerer__photo" aria-hidden="true">
+            <img src="assets/biigJ-Welcome.png" alt="" />
           </div>
         </div>
         <div class="gogl-stoerer__actions">
-          <a href="gogogo-landing.html" class="gogl-stoerer__cta">Es geht mir um Bewegung.</a>
-          <a href="#" class="gogl-stoerer__cta gogl-stoerer__cta--dismiss-only">FRIDAY CIRCLE entdecken.</a>
+          <a href="cycle-training.html" class="gogl-stoerer__cta">Weiter zum Sport</a>
+          <a href="#" class="gogl-stoerer__cta gogl-stoerer__cta--dismiss-only">FRIDAY CIRCLE</a>
         </div>
       </div>
     </aside>
