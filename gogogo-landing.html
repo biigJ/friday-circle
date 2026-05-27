@@ -1890,6 +1890,13 @@
         letter-spacing: 0.01em;
         color: #f0eee6;
         text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+      }
+      .gogl-program-slide-card--hero .gogl-hero-cards-block__headline-line {
+        display: block;
       }
       .gogl-program-slide-card--hero .gogl-hero-cards-block .gogl-hero-cards {
         position: relative;
@@ -1902,33 +1909,76 @@
         width: 100%;
         max-width: none;
       }
-      .gogl-program-slide-card--hero .gogl-hero-cards-block__cta {
+      .gogl-program-slide-card--hero .gogl-hero-cards-block,
+      .gogl-program-slide-card--hero a.gogl-hero-card {
+        pointer-events: auto;
+      }
+      .gogl-program-slide-card--hero a.gogl-hero-card {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        cursor: pointer;
+        transition: background 0.15s ease, border-color 0.15s ease;
+      }
+      .gogl-program-slide-card--hero a.gogl-hero-card:hover,
+      .gogl-program-slide-card--hero a.gogl-hero-card:focus-visible {
+        background: rgba(10, 10, 10, 0.88);
+        outline: none;
+      }
+      .gogl-program-slide-card--hero a.gogl-hero-card:focus-visible {
+        outline: 2px solid var(--green-signal);
+        outline-offset: 2px;
+      }
+      .gogl-program-slide-card--hero .gogl-hero-slide-next {
+        position: absolute;
+        right: clamp(16px, 3vw, 32px);
+        bottom: calc(clamp(38px, 4.8vh, 48px) + clamp(10px, 1.4vh, 14px));
+        z-index: 3;
+        display: inline-flex;
+        align-items: center;
+        gap: clamp(8px, 1.2vw, 12px);
+        margin: 0;
+        padding: 0;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        pointer-events: auto;
+        color: #ffffff;
+        font-family: var(--font-sans);
+        font-size: clamp(0.85rem, 1.6vw, 1.05rem);
+        letter-spacing: 0.05em;
+        line-height: 1.5;
+        font-weight: 400;
+        text-align: right;
+        transform: translateY(-100%);
+        transition: transform 0.15s ease;
+      }
+      .gogl-program-slide-card--hero .gogl-hero-slide-next:hover .gogl-hero-slide-next__label,
+      .gogl-program-slide-card--hero .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label {
+        font-weight: 700;
+      }
+      .gogl-program-slide-card--hero .gogl-hero-slide-next:hover,
+      .gogl-program-slide-card--hero .gogl-hero-slide-next:focus-visible {
+        transform: translateY(calc(-100% - 1px));
+      }
+      .gogl-program-slide-card--hero .gogl-hero-slide-next__arrow {
+        flex-shrink: 0;
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        margin-top: calc(clamp(12px, 1.8vh, 20px) + clamp(47px, 3.9vw, 52px));
-        padding: 10px 24px;
-        border-radius: 999px;
-        border: 1.5px solid transparent;
-        background: var(--gogl-joscha-hellblau-cta);
-        color: #1f6f63;
-        font-family: var(--font-display);
-        font-style: italic;
-        font-size: clamp(1.08rem, 1.42vw, 1.28rem);
-        font-weight: 400;
-        line-height: 1.55;
-        letter-spacing: 0.02em;
-        text-decoration: none;
-        pointer-events: auto;
-        transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+        font-family: var(--font-sans);
+        font-size: 1.35rem;
+        line-height: 1;
+        padding: 0 0 2px;
+        color: inherit;
+        background: transparent;
       }
-      .gogl-program-slide-card--hero .gogl-hero-cards-block__cta:hover,
-      .gogl-program-slide-card--hero .gogl-hero-cards-block__cta:focus-visible {
-        background: #1f6f63;
-        border-color: transparent;
-        color: #ffffff;
-        transform: translateY(-1px);
+      .gogl-program-slide-card--hero .gogl-hero-slide-next:focus-visible {
         outline: none;
+      }
+      .gogl-program-slide-card--hero .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label {
+        text-decoration: underline;
+        text-underline-offset: 0.15em;
       }
       .gogl-program-slide-card--hero .gogl-hero-card {
         padding: clamp(14px, 1.6vw, 20px) clamp(16px, 2vw, 24px);
@@ -3119,13 +3169,9 @@
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
-        width: min(
-          92vw,
-          calc(100vw - 2 * var(--stoerer-inset)),
-          max(22rem, min(52rem, calc(38vw + 14vh)))
-        );
+        width: min(92vw, calc(100vw - 2 * var(--stoerer-inset)), 42rem);
         max-width: calc(100vw - 2 * var(--stoerer-inset));
-        max-height: min(88vh, calc(100vh - 2 * var(--stoerer-inset)));
+        max-height: min(94vh, calc(100vh - 2 * var(--stoerer-inset)));
         min-height: 0;
         height: auto;
         border-radius: 0;
@@ -3165,72 +3211,105 @@
       .gogl-stoerer__copy {
         margin: 0;
         text-align: left;
-        font-size: clamp(0.84rem, 1.35vw, 0.98rem);
+        font-family: var(--font-serif);
+        font-weight: 400;
+        font-style: normal;
+        font-size: clamp(0.93rem, 1.49vw, 1.09rem);
         line-height: 1.58;
       }
       .gogl-stoerer__body > .gogl-stoerer__copy + .gogl-stoerer__copy {
         margin-top: 0.75em;
       }
       .gogl-stoerer__lead {
-        font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-weight: 500;
+        font-family: var(--font-serif);
+        font-weight: 400;
       }
       .gogl-stoerer__rest {
         font-family: Georgia, "Times New Roman", Times, serif;
         font-weight: 400;
       }
       .gogl-stoerer__signoff {
-        font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-family: var(--font-serif);
         font-weight: 600;
+      }
+      .gogl-stoerer__square {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        display: grid;
+        grid-template-columns: 1fr 0.62fr;
+        min-height: 0;
+      }
+      .gogl-stoerer__left {
+        min-height: 0;
+        overflow: hidden;
+        padding: clamp(24px, 3.2vw, 34px) clamp(24px, 3.2vw, 34px) clamp(18px, 2.2vw, 24px);
+        display: flex;
+        flex-direction: column;
+        gap: clamp(12px, 1.8vw, 18px);
+        background: #0a0a0a;
+      }
+      .gogl-stoerer__welcome-copy {
+        flex: 1 1 auto;
+        min-height: 0;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        padding-top: 0.5lh;
+      }
+      .gogl-stoerer__photo {
+        min-height: 0;
+        overflow: hidden;
+      }
+      .gogl-stoerer__photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        filter: grayscale(1);
+        display: block;
       }
       .gogl-stoerer__actions {
         flex: 0 0 auto;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 16px;
-        justify-content: center;
-        align-items: center;
-        padding: 12px 28px calc(18px + env(safe-area-inset-bottom, 0));
-        box-sizing: border-box;
-        border-top: none;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+        border-top: 1px solid rgba(255, 240, 240, 0.38);
+        padding: 0;
+        margin: 0;
         background: transparent;
       }
       .gogl-stoerer__actions a {
-        flex: 0 1 auto;
-        min-width: min(11.5rem, 100%);
         box-sizing: border-box;
         text-align: center;
-        font-family: var(--font-head);
+        font-family: var(--font-serif);
         font-weight: 600;
-        font-size: 0.9rem;
-        padding: 12px 28px;
-        border-radius: 999px;
+        font-size: 0.95rem;
+        padding: 16px 14px;
+        border-radius: 0;
         text-decoration: none;
         transition: filter 0.2s ease, background 0.2s ease;
+        color: inherit;
       }
-      /* Farben getauscht: links Outline, rechts gefüllt */
       .gogl-stoerer__actions a:first-of-type {
         background: transparent;
         color: #fff0f0;
-        border: 1.5px solid color-mix(in srgb, #fff 45%, var(--stoerer-signal));
+        border-right: 1px solid rgba(255, 240, 240, 0.38);
       }
       .gogl-stoerer__actions a:first-of-type:hover,
       .gogl-stoerer__actions a:first-of-type:focus-visible {
-        background: color-mix(in srgb, #fff 10%, transparent);
+        background: color-mix(in srgb, #fff0f0 12%, transparent);
       }
       .gogl-stoerer__actions a:last-of-type {
-        background: #fff0f0;
-        color: var(--stoerer-signal-dark);
-        border: 1px solid color-mix(in srgb, #fff 40%, var(--stoerer-signal-dark));
+        background: var(--gogl-joscha-hellblau-cta);
+        color: #ff2d2d;
+        border: none;
       }
       .gogl-stoerer__actions a:last-of-type:hover,
       .gogl-stoerer__actions a:last-of-type:focus-visible {
-        /* Weiß ~15 % transparenter (85 % deckend) */
-        background: color-mix(in srgb, #fff0f0 85%, transparent);
+        background: color-mix(in srgb, var(--gogl-joscha-hellblau-cta) 85%, transparent);
       }
       .gogl-stoerer__actions a:focus-visible {
         outline: 2px solid #fff0f0;
-        outline-offset: 2px;
+        outline-offset: -2px;
       }
       /* gogogo Blog (WHOOP-inspiriert): Inter unter der Kachel, horizontales Scrollen */
       .gog-blog-viewport {
@@ -3451,27 +3530,19 @@
     >
       <div class="gogl-stoerer__backdrop" aria-hidden="true"></div>
       <div class="gogl-stoerer__panel">
-        <div class="gogl-stoerer__scroll">
-          <div class="gogl-stoerer__body">
-            <p class="gogl-stoerer__copy gogl-stoerer__lead">
-              Diese Seite ist für alle, die ich kenne – und die mich gerade kennenlernen.
+        <div class="gogl-stoerer__square">
+          <div class="gogl-stoerer__left">
+            <p class="gogl-stoerer__copy gogl-stoerer__welcome-copy">
+              Diese Website ist Deinem Leben gewidmet. Du bist nicht zufällig hier denn ich hab Dich gebeten, sie zu besuchen. Du und ich haben kurz gesprochen oder ich schlage hiermit vor, dass wir reden. Es geht darum, in Bewegung zu kommen oder das mit Spaß und Konsistenz zu machen. Ob Du schon lange Fitness machst oder einfach noch nicht weist, was richtig für Dich ist - ich bin gespannt, ob mein Angebot für Dich einen Mehrwert bringt. gogogo soll uns zu natürlichen Bewegungsmenschen machen. Nach First Principle Thinking. Wir brauchen jeden Tag dafür Zeit und einen Trigger. Echte Menschen und das richtige Wissen helfen. Dann kommt, was man Allgemein die Infrastruktur nennt. Gym, App, Trainer... Aber vorher die innere Motivation. Du kannst das alles alleine herausfinden oder mit Menschen. Wie hier. Go!
             </p>
-            <p class="gogl-stoerer__copy gogl-stoerer__rest">
-              Ich baue gerade etwas auf. Einen Service, der zwischen Fitness-App und Personal Trainer sitzt. Für Menschen, die
-              wissen was zu tun wäre – und trotzdem nicht in Bewegung kommen.
-            </p>
-            <p class="gogl-stoerer__copy gogl-stoerer__rest">
-              Nicht weil sie faul sind. Sondern weil der Kontext fehlt.
-            </p>
-            <p class="gogl-stoerer__copy gogl-stoerer__rest">
-              Ich teste das gerade mit echten Menschen. Kostenlos. Wenn du neugierig bist – ich freu mich.
-            </p>
-            <p class="gogl-stoerer__copy gogl-stoerer__signoff">Joscha</p>
+          </div>
+          <div class="gogl-stoerer__photo" aria-hidden="true">
+            <img src="assets/gogogo-upperbody-Video-Poster.png" alt="" />
           </div>
         </div>
         <div class="gogl-stoerer__actions">
-          <a href="triff-joscha.html" class="gogl-stoerer__cta">Wer ist Joscha</a>
-          <a href="#" class="gogl-stoerer__cta gogl-stoerer__cta--dismiss-only">Was ist gogogo</a>
+          <a href="#" class="gogl-stoerer__cta gogl-stoerer__cta--dismiss-only">gogogo</a>
+          <a href="#gogl-hero-intro" class="gogl-stoerer__cta">Mehr lesen</a>
         </div>
       </div>
     </aside>
@@ -3556,23 +3627,29 @@
                     </div>
                     <div class="gogl-video-overlay-footer">
                       <div class="gogl-hero-cards-block">
-                        <p class="gogl-hero-cards-block__headline">Termin in Berlin ab 39€.<br />Noch günstiger auf WhatsApp.</p>
+                        <p class="gogl-hero-cards-block__headline">
+                          <span class="gogl-hero-cards-block__headline-line">Personal Training ab 39€ in Berlin.</span>
+                          <span class="gogl-hero-cards-block__headline-line">Auf WhatsApp noch günstiger.</span>
+                        </p>
                         <div class="gogl-hero-cards">
-                        <div class="gogl-hero-card gogl-hero-card--left">
+                        <a class="gogl-hero-card gogl-hero-card--left" href="register-accountability/index.html">
                           <p class="gogl-hero-card__label">VOR ORT IN BERLIN</p>
                           <p class="gogl-hero-card__title">Training mit Joscha</p>
                           <p class="gogl-hero-card__text">Grundlagengespräch · Bewegungsanalyse · Formtraining · Plangestaltung</p>
-                          <a class="gogl-hero-card__link" href="triff-joscha.html">Mehr erfahren →</a>
-                        </div>
-                        <div class="gogl-hero-card">
+                          <span class="gogl-hero-card__link">Mehr erfahren →</span>
+                        </a>
+                        <a class="gogl-hero-card" href="register-training/index.html">
                           <p class="gogl-hero-card__label">VON ÜBERALL</p>
                           <p class="gogl-hero-card__title">Online-Betreuung</p>
                           <p class="gogl-hero-card__text">Wie vor Ort aber alles entspannt über Web-Call und per WhatsApp.</p>
-                          <a class="gogl-hero-card__link" href="register-training/index.html">Mach es einfach →</a>
-                        </div>
+                          <span class="gogl-hero-card__link">Mach es einfach →</span>
+                        </a>
                       </div>
-                      <a class="gogl-hero-cards-block__cta" href="#einstieg">Erklär&apos;s mir</a>
                       </div>
+                      <button type="button" class="gogl-hero-slide-next" aria-label="Nächstes Programm: Persönliche Betreuung">
+                        <span class="gogl-hero-slide-next__label">Persönliche Betreuung</span>
+                        <span class="gogl-hero-slide-next__arrow" aria-hidden="true">›</span>
+                      </button>
                       <div class="gogl-bar" aria-label="Hinweis">
                         <div class="gogl-bar__track">
                           <p class="gogl-bar__text">

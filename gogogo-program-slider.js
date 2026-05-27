@@ -117,6 +117,14 @@
     });
   }
 
+  var heroSlideNext = document.querySelector(".gogl-hero-slide-next");
+  if (heroSlideNext) {
+    heroSlideNext.addEventListener("click", function () {
+      next();
+      start();
+    });
+  }
+
   var io =
     typeof IntersectionObserver !== "undefined"
       ? new IntersectionObserver(
