@@ -3,3 +3,9 @@ Thumbs.db
 *.log
 .env
 .env.*
+
+# Local-only pages (not published on GitHub)
+about/
+triff-joscha.html
+zusammenarbeit/
+danke-zusammenarbeit/

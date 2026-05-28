@@ -6,14 +6,14 @@
   if (!slides.length) return;
 
   var SLIDE_LABELS = [
-    "Ein leichter Schritt, Dich täglich ausreichend zu bewegen.",
+    "Personal Training ab 39€",
     "Mitglied werden",
     "Den passenden Trainer",
+    "CIRCLE TRAINING",
     "Factfulness",
-    "Cycle Training",
+    "Upper Body",
+    "Mobilityroutine",
     "Triff Joscha",
-    "Upper Body Basics",
-    "Mobilitätsroutine",
   ];
 
   var titleEl = document.getElementById("gogl-program-slider-title");
@@ -26,11 +26,13 @@
   var autoEnabled = false;
   var pausedByHover = false;
   var hoverRoot = root.closest(".gogl-joscha-grow-wrap") || root;
+  var DISPLAY_ORDER = [0, 1, 2, 4, 3, 6, 7, 5];
 
   function show(i) {
     index = (i + slides.length) % slides.length;
+    var activeNodeIndex = DISPLAY_ORDER[index] != null ? DISPLAY_ORDER[index] : index;
     slides.forEach(function (slide, n) {
-      slide.classList.toggle("is-active", n === index);
+      slide.classList.toggle("is-active", n === activeNodeIndex);
     });
     if (titleEl && SLIDE_LABELS[index]) {
       titleEl.textContent = SLIDE_LABELS[index];
@@ -66,8 +68,9 @@
   }
 
   function start() {
-    autoEnabled = true;
-    restartTimer();
+    // Autoplay disabled: slides should only move manually.
+    autoEnabled = false;
+    clearTimer();
   }
 
   function stop() {
