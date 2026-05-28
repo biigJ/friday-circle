@@ -1035,7 +1035,8 @@
         transform: translateY(-1px);
         outline: none;
       }
-      .gogl-program-slide-card--gosam .gogl-hero-slide-next {
+      .gogl-program-slide-card--gosam .gogl-hero-slide-next,
+      .gogl-program-slide-card--trainer .gogl-hero-slide-next {
         position: absolute;
         right: clamp(16px, 3vw, 32px);
         bottom: clamp(14px, 2vh, 22px);
@@ -1060,18 +1061,24 @@
         transition: transform 0.15s ease;
         max-width: min(52%, 22rem);
       }
-      .gogl-program-slide-card--gosam .gogl-hero-slide-next__label {
+      .gogl-program-slide-card--gosam .gogl-hero-slide-next__label,
+      .gogl-program-slide-card--trainer .gogl-hero-slide-next__label {
         text-wrap: balance;
       }
       .gogl-program-slide-card--gosam .gogl-hero-slide-next:hover .gogl-hero-slide-next__label,
-      .gogl-program-slide-card--gosam .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label {
+      .gogl-program-slide-card--gosam .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label,
+      .gogl-program-slide-card--trainer .gogl-hero-slide-next:hover .gogl-hero-slide-next__label,
+      .gogl-program-slide-card--trainer .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label {
         font-weight: 700;
       }
       .gogl-program-slide-card--gosam .gogl-hero-slide-next:hover,
-      .gogl-program-slide-card--gosam .gogl-hero-slide-next:focus-visible {
+      .gogl-program-slide-card--gosam .gogl-hero-slide-next:focus-visible,
+      .gogl-program-slide-card--trainer .gogl-hero-slide-next:hover,
+      .gogl-program-slide-card--trainer .gogl-hero-slide-next:focus-visible {
         transform: translateY(calc(-100% - 1px));
       }
-      .gogl-program-slide-card--gosam .gogl-hero-slide-next__arrow {
+      .gogl-program-slide-card--gosam .gogl-hero-slide-next__arrow,
+      .gogl-program-slide-card--trainer .gogl-hero-slide-next__arrow {
         flex-shrink: 0;
         display: inline-flex;
         align-items: center;
@@ -1083,10 +1090,12 @@
         color: inherit;
         background: transparent;
       }
-      .gogl-program-slide-card--gosam .gogl-hero-slide-next:focus-visible {
+      .gogl-program-slide-card--gosam .gogl-hero-slide-next:focus-visible,
+      .gogl-program-slide-card--trainer .gogl-hero-slide-next:focus-visible {
         outline: none;
       }
-      .gogl-program-slide-card--gosam .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label {
+      .gogl-program-slide-card--gosam .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label,
+      .gogl-program-slide-card--trainer .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label {
         text-decoration: underline;
         text-underline-offset: 0.15em;
       }
@@ -1106,7 +1115,8 @@
           flex-wrap: wrap;
           align-items: flex-start;
         }
-        .gogl-program-slide-card--gosam .gogl-hero-slide-next {
+        .gogl-program-slide-card--gosam .gogl-hero-slide-next,
+        .gogl-program-slide-card--trainer .gogl-hero-slide-next {
           max-width: calc(100% - 2 * clamp(16px, 3vw, 32px));
         }
       }
@@ -3597,6 +3607,55 @@
           display: none;
         }
       }
+      .member-popup[hidden] {
+        display: none !important;
+      }
+      .member-popup {
+        position: fixed;
+        inset: 0;
+        z-index: 12000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: clamp(12px, 2.6vw, 28px);
+      }
+      .member-popup__backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(10, 10, 10, 0.56);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+      }
+      .member-popup__panel {
+        position: relative;
+        z-index: 1;
+        width: min(1360px, 100%);
+        max-height: min(92vh, 980px);
+        overflow: auto;
+        background: #f0eee6;
+        border-radius: 14px;
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+        padding: clamp(20px, 2.8vw, 38px);
+      }
+      .member-popup__close {
+        position: sticky;
+        top: 12px;
+        float: right;
+        margin: 12px 14px 0 0;
+        width: 36px;
+        height: 36px;
+        border: 0;
+        border-radius: 999px;
+        background: rgba(10, 10, 10, 0.7);
+        color: #fff;
+        cursor: pointer;
+        font-size: 1.25rem;
+        line-height: 1;
+      }
+      .member-popup__body {
+        clear: both;
+        padding: clamp(8px, 1vw, 14px);
+      }
 
     </style>
   </head>
@@ -3606,7 +3665,7 @@
         <a href="#top" class="nav__logo gogogo-landing__logo" aria-label="gogogo — zum Seitenanfang">gogogo</a>
         <nav class="nav__links nav__links--empty" aria-hidden="true"></nav>
         <div class="nav__cta-bucket">
-          <a class="gogogo-landing__header-cta" href="start/index.html">Jetzt starten</a>
+          <a class="gogogo-landing__header-cta" href="gogogo-landing.html#member-popup">Jetzt starten</a>
         </div>
       </div>
     </header>
@@ -3787,7 +3846,7 @@
                     </div>
                   </div>
                   <button type="button" class="gogl-hero-slide-next" aria-label="Nächstes Programm: Personal Training">
-                    <span class="gogl-hero-slide-next__label">Als Member hast Du Zugriff auf Personal Training</span>
+                    <span class="gogl-hero-slide-next__label">Als Mitglied Personal Training machen</span>
                     <span class="gogl-hero-slide-next__arrow" aria-hidden="true">›</span>
                   </button>
                 </div>
@@ -3799,12 +3858,16 @@
                   </div>
                   <div class="gogl-program-slide-card__inner gogl-program-slide-card__inner--trainer">
                     <div class="gogl-trainer-head">
-                      <h2 class="gogl-trainer-head__line gogl-trainer-head__line--main">Den passenden Trainer.</h2>
-                      <p class="gogl-trainer-head__line gogl-trainer-head__line--sub">Vor Ort oder online.</p>
+                      <h2 class="gogl-trainer-head__line gogl-trainer-head__line--main">PASSENDES<br />PERSONAL<br />TRAINING</h2>
+                      <p class="gogl-trainer-head__line gogl-trainer-head__line--sub">VOR ORT UND ONLINE</p>
                     </div>
-                    <p class="gogl-program-slide-card__lede gogl-program-slide-card__lede--trainer">In Berlin bekommst Du für alle Themen einen Personal Trainer. Versiert und mit allen Grundlagen – damit Du nicht nur in Bewegung kommst sondern auch richtig trainierst.</p>
-                    <a class="gogl-program-slide-card__cta gogl-program-slide-card__cta--trainer" href="#einstieg">Ich suche einen Trainer</a>
+                    <p class="gogl-program-slide-card__lede gogl-program-slide-card__lede--trainer">Termine mit Joscha oder einem anderen Experten in Berlin. Grundlagen, Analyse, Zielsetzung, tägliche Begleitung, regelmäßige Termine, persönlich zugeschnittene Einheiten.</p>
+                    <a class="gogl-program-slide-card__cta gogl-program-slide-card__cta--trainer" href="register-training/index.html">Optionen</a>
                   </div>
+                  <button type="button" class="gogl-hero-slide-next" aria-label="Nächstes Programm: Wöchentliche Challenge">
+                    <span class="gogl-hero-slide-next__label">Als Mitglied an der wöchentlichen Challenge mitmachen</span>
+                    <span class="gogl-hero-slide-next__arrow" aria-hidden="true">›</span>
+                  </button>
                 </div>
               </div>
 <div class="gogl-program-slider__slide" data-slide="3">
@@ -4196,7 +4259,7 @@
 
       </section>
 
-<section style="background: #f0eee6; padding: 80px 0;">
+<section id="gogl-member-cards-section" style="background: #f0eee6; padding: 80px 0;">
   <div style="max-width: var(--page-max); margin: 0 auto; padding: 0 var(--page-x);">
     
     <h2 class="gogl-section-title" style="
@@ -4210,7 +4273,7 @@
       gap:16px;
     ">
 
-      <!-- Card 1: go Accountability -->
+      <!-- Card 1: gogogo member -->
       <div class="oura-card" id="card-accountability" style="
         position:relative;
         border-radius:16px;
@@ -4220,12 +4283,20 @@
         cursor:default;
         transition:all 0.4s ease;
       ">
-        <!-- Photo placeholder -->
-        <div style="
-          position:absolute;
-          inset:0;
-          background:linear-gradient(135deg,#1a3a2a 0%,#0d1f15 100%);
-        "></div>
+        <img
+          class="card-photo card-photo--collapsed"
+          src="assets/Jelena-smile.png"
+          alt=""
+          decoding="async"
+          style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;display:block;opacity:1;transition:opacity 0.3s ease;"
+        />
+        <img
+          class="card-photo card-photo--expanded"
+          src="assets/JumpRope.png"
+          alt=""
+          decoding="async"
+          style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;display:block;opacity:0;transition:opacity 0.3s ease;"
+        />
         <!-- Overlay -->
         <div style="
           position:absolute;
@@ -4242,7 +4313,7 @@
           padding:6px 14px;
           display:flex;align-items:center;gap:8px;
         ">
-          <span style="font-family:'Helvetica Neue',sans-serif;font-size:0.75rem;color:#ffffff;letter-spacing:0.05em;">go Accountability</span>
+          <span style="font-family:'Helvetica Neue',sans-serif;font-size:0.75rem;color:#ffffff;letter-spacing:0.05em;">gogogo member</span>
         </div>
         <!-- Plus button top right -->
         <button type="button" onclick="toggleCard('card-accountability')" style="
@@ -4262,33 +4333,24 @@
             font-family:'Helvetica Neue',sans-serif;
             font-weight:700;font-size:1.3rem;
             color:#ffffff;margin:0 0 8px 0;line-height:1.2;
-          ">Komm in Bewegung.<br>Mit einem echten Buddy.</h3>
-          <!-- Expanded: gleicher Inhalt wie „Was passt zu dir?“ -->
+          ">Mitglied werden<br><span style="font-size:0.72em;letter-spacing:0.04em;font-weight:500;">Analyse. Plan. 30 Tage Chat.</span></h3>
           <div class="card-expanded" style="
             max-height:0;overflow:hidden;
             transition:max-height 0.4s ease;
           ">
             <p style="
               font-family:'Helvetica Neue',sans-serif;
-              font-size:0.7rem;
-              letter-spacing:0.12em;
-              text-transform:uppercase;
-              color:#2d9e8f;
-              margin:12px 0 10px 0;
-            ">GO ACCOUNTABILITY</p>
-            <p style="
-              font-family:'Helvetica Neue',sans-serif;
               font-size:0.9rem;
               line-height:1.55;
               color:rgba(255,255,255,0.92);
               margin:0 0 12px 0;
-            ">Trainingsplan der zu deiner Woche passt. Täglicher Check-in. Optionale Web-Calls. Du machst es selbst – wir sorgen dafür, dass du dranbleibst.</p>
+            ">Ich helfe Dir, Dein Bewegungs-Game umzusetzen. Von Mensch zu Mensch, mit Wissen und einem täglichen Trigger der zu Dir passt. Gym, App, Trainer findest Du danach ganz von selbst.</p>
             <p style="
               font-family:'Helvetica Neue',sans-serif;
               font-size:0.8rem;
               color:#9a9a9a;
               margin:0 0 14px 0;
-            ">Beta: kostenlos · Danach ab 29 €/Monat</p>
+            ">30 Tage kostenloser Test</p>
             <a href="register-accountability/index.html" style="
               font-family:'Helvetica Neue',sans-serif;
               font-weight:600;font-size:0.85rem;
@@ -4297,12 +4359,12 @@
               background:#2d9e8f;
               border:1.5px solid #2d9e8f;
               padding:10px 20px;border-radius:999px;
-            ">Ich mach es einfach →</a>
+            ">Join</a>
           </div>
         </div>
       </div>
 
-      <!-- Card 2: go Training -->
+      <!-- Card 2: Personal Training -->
       <div class="oura-card" id="card-training" style="
         position:relative;
         border-radius:16px;
@@ -4312,11 +4374,20 @@
         cursor:default;
         transition:all 0.4s ease;
       ">
-        <!-- Photo placeholder -->
-        <div style="
-          position:absolute;inset:0;
-          background:linear-gradient(135deg,#1a1a1a 0%,#0a0a0a 100%);
-        "></div>
+        <img
+          class="card-photo card-photo--collapsed"
+          src="assets/SledHoodie.png"
+          alt=""
+          decoding="async"
+          style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;display:block;opacity:1;transition:opacity 0.3s ease;"
+        />
+        <img
+          class="card-photo card-photo--expanded"
+          src="assets/gogogo-upperbody-Video-Poster.png"
+          alt=""
+          decoding="async"
+          style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;display:block;opacity:0;transition:opacity 0.3s ease;"
+        />
         <!-- Overlay -->
         <div style="
           position:absolute;inset:0;
@@ -4331,7 +4402,7 @@
           padding:6px 14px;
           display:flex;align-items:center;gap:8px;
         ">
-          <span style="font-family:'Helvetica Neue',sans-serif;font-size:0.75rem;color:#ffffff;letter-spacing:0.05em;">go Training</span>
+          <span style="font-family:'Helvetica Neue',sans-serif;font-size:0.75rem;color:#ffffff;letter-spacing:0.05em;">personal training</span>
         </div>
         <!-- Plus button -->
         <button type="button" onclick="toggleCard('card-training')" style="
@@ -4350,33 +4421,24 @@
             font-family:'Helvetica Neue',sans-serif;
             font-weight:700;font-size:1.3rem;
             color:#ffffff;margin:0 0 8px 0;line-height:1.2;
-          ">Den passenden Trainer.<br>Vor Ort oder online.</h3>
-          <!-- Expanded: gleicher Inhalt wie „Was passt zu dir?“ -->
+          ">Passendes Personal Training<br><span style="font-size:0.72em;letter-spacing:0.04em;font-weight:500;">Vor Ort und online</span></h3>
           <div class="card-expanded" style="
             max-height:0;overflow:hidden;
             transition:max-height 0.4s ease;
           ">
             <p style="
               font-family:'Helvetica Neue',sans-serif;
-              font-size:0.7rem;
-              letter-spacing:0.12em;
-              text-transform:uppercase;
-              color:#9a9a9a;
-              margin:12px 0 10px 0;
-            ">GO TRAINING</p>
-            <p style="
-              font-family:'Helvetica Neue',sans-serif;
               font-size:0.9rem;
               line-height:1.55;
               color:rgba(255,255,255,0.92);
               margin:0 0 12px 0;
-            ">Wir finden den Trainer der zu dir passt – nicht umgekehrt. Online, vor Ort in Berlin, oder beides.</p>
+            ">Termine mit Joscha oder einem anderen Experten in Berlin. Grundlagen, Analyse, Zielsetzung, tägliche Begleitung, regelmäßige Termine, persönlich zugeschnittene Einheiten.</p>
             <p style="
               font-family:'Helvetica Neue',sans-serif;
               font-size:0.8rem;
               color:#9a9a9a;
               margin:0 0 14px 0;
-            ">Beta: kostenlos · Danach ab 149 €/Monat</p>
+            ">Kennenlerntermin 39€</p>
             <a href="register-training/index.html" style="
               font-family:'Helvetica Neue',sans-serif;
               font-weight:600;font-size:0.85rem;
@@ -4385,7 +4447,7 @@
               background:transparent;
               border:1.5px solid rgba(255,255,255,0.55);
               padding:10px 20px;border-radius:999px;
-            ">Ich suche einen Trainer →</a>
+            ">Optionen</a>
           </div>
         </div>
       </div>
@@ -4393,6 +4455,14 @@
     </div>
   </div>
 </section>
+
+<aside id="member-popup" class="member-popup" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Mitgliedschaft auswählen">
+  <div class="member-popup__backdrop" data-member-popup-close></div>
+  <div class="member-popup__panel">
+    <button type="button" class="member-popup__close" data-member-popup-close aria-label="Popup schließen">×</button>
+    <div class="member-popup__body" id="member-popup-body"></div>
+  </div>
+</aside>
 
       <section id="einstieg" style="background:#f0eee6; padding:80px 0; overflow:hidden;">
   <div style="max-width:var(--page-max);margin:0 auto;padding:0 var(--page-x);">
@@ -4516,7 +4586,7 @@
               font-size:0.9rem;color:#cccccc;
               line-height:1.75;margin:0 0 20px 0;
             ">Urban Sports gibt dir Zugang. Apps geben dir Pläne. YouTube gibt dir Inspiration. Instagram gibt dir Schuldgefühle. Kein einziges dieser Tools kennt deine Woche – oder bleibt dran wenn sie schiefläuft. Das ist keine Kritik. Das sind Werkzeuge. gogogo ist der Mensch der sie mit dir sinnvoll einsetzt.</p>
-            <a href="start/index.html" style="
+            <a href="gogogo-landing.html#member-popup" style="
               font-family:'Helvetica Neue',sans-serif;
               font-weight:600;font-size:0.85rem;
               color:#2d9e8f;text-decoration:none;
@@ -4572,7 +4642,7 @@
           </div>
           <div style="width:50%;">
             <p style="font-family:Georgia,serif;font-style:italic;font-size:0.9rem;color:#cccccc;line-height:1.75;margin:0 0 20px 0;">Dein Gehirn ist nicht für Vorsätze gebaut – es ist für unmittelbare Belohnungen optimiert. Jede App, jede Benachrichtigung konkurriert mit dem Impuls aufzustehen und zu trainieren. Die meisten Trainingspläne sind für ein ideales Leben gebaut – nicht für deins. Eine Woche mit Overtime, schlechtem Schlaf, vollen Terminen existiert in keinem Programm. In der Realität ist sie der Normalzustand. gogogo baut den Plan um dein Leben. Nicht umgekehrt.</p>
-            <a href="start/index.html" style="font-family:'Helvetica Neue',sans-serif;font-weight:600;font-size:0.85rem;color:#2d9e8f;text-decoration:none;background:rgba(255,255,255,0.1);padding:10px 20px;border-radius:999px;display:inline-block;">Erstgespräch buchen →</a>
+            <a href="gogogo-landing.html#member-popup" style="font-family:'Helvetica Neue',sans-serif;font-weight:600;font-size:0.85rem;color:#2d9e8f;text-decoration:none;background:rgba(255,255,255,0.1);padding:10px 20px;border-radius:999px;display:inline-block;">Erstgespräch buchen →</a>
           </div>
         </div>
       </div>
@@ -4604,7 +4674,7 @@
           </div>
           <div style="width:50%;">
             <p style="font-family:Georgia,serif;font-style:italic;font-size:0.9rem;color:#cccccc;line-height:1.75;margin:0 0 20px 0;">Jedes Erstgespräch endet mit einem konkreten Wochenplan. Kraft, Ausdauer, Balance &amp; Mobilität – vier Bereiche, ein System. Kein Lifestyle, keine Ideologie. Bewegung ist die wirksamste Medizin die du dir verschreiben kannst – als dokumentierte Physiologie, nicht als Versprechen.</p>
-            <a href="start/index.html" style="font-family:'Helvetica Neue',sans-serif;font-weight:600;font-size:0.85rem;color:#2d9e8f;text-decoration:none;background:rgba(255,255,255,0.1);padding:10px 20px;border-radius:999px;display:inline-block;">Erstgespräch buchen →</a>
+            <a href="gogogo-landing.html#member-popup" style="font-family:'Helvetica Neue',sans-serif;font-weight:600;font-size:0.85rem;color:#2d9e8f;text-decoration:none;background:rgba(255,255,255,0.1);padding:10px 20px;border-radius:999px;display:inline-block;">Erstgespräch buchen →</a>
           </div>
         </div>
       </div>
@@ -4636,7 +4706,7 @@
           </div>
           <div style="width:50%;">
             <p style="font-family:Georgia,serif;font-style:italic;font-size:0.9rem;color:#cccccc;line-height:1.75;margin:0 0 20px 0;">Motivation ist ein Wetterbericht. Gewohnheit ist Klima. gogogo kalibriert deinen Plan an echte Wochen – nicht an Urlaubshemd-Phantasien – und bleibt im Gespräch wenn sich dein Job, deine Familie oder dein Schlaf verändert. So wird aus vier Stunden pro Woche ein Rhythmus, den du nicht mehr diskutierst.</p>
-            <a href="start/index.html" style="font-family:'Helvetica Neue',sans-serif;font-weight:600;font-size:0.85rem;color:#2d9e8f;text-decoration:none;background:rgba(255,255,255,0.1);padding:10px 20px;border-radius:999px;display:inline-block;">Erstgespräch buchen →</a>
+            <a href="gogogo-landing.html#member-popup" style="font-family:'Helvetica Neue',sans-serif;font-weight:600;font-size:0.85rem;color:#2d9e8f;text-decoration:none;background:rgba(255,255,255,0.1);padding:10px 20px;border-radius:999px;display:inline-block;">Erstgespräch buchen →</a>
           </div>
         </div>
       </div>
@@ -5332,14 +5402,95 @@ function toggleCard(id) {
   document.querySelectorAll('.oura-card .card-expanded').forEach(el => {
     el.style.maxHeight = '0px';
   });
+  document.querySelectorAll('.oura-card').forEach(c => {
+    const collapsedPhoto = c.querySelector('.card-photo--collapsed');
+    const expandedPhoto = c.querySelector('.card-photo--expanded');
+    if (collapsedPhoto) collapsedPhoto.style.opacity = '1';
+    if (expandedPhoto) expandedPhoto.style.opacity = '0';
+  });
   document.querySelectorAll('.oura-card button').forEach(b => {
     b.textContent = '+';
   });
   if (!isOpen) {
     expanded.style.maxHeight = '560px';
     btn.textContent = '×';
+    const collapsedPhoto = card.querySelector('.card-photo--collapsed');
+    const expandedPhoto = card.querySelector('.card-photo--expanded');
+    if (collapsedPhoto) collapsedPhoto.style.opacity = '0';
+    if (expandedPhoto) expandedPhoto.style.opacity = '1';
   }
 }
+
+(function initMemberPopup() {
+  const popup = document.getElementById('member-popup');
+  const popupBody = document.getElementById('member-popup-body');
+  const sourceSection = document.getElementById('gogl-member-cards-section');
+  if (!popup || !popupBody || !sourceSection) return;
+
+  function syncPopupContent() {
+    const heading = sourceSection.querySelector('.gogl-section-title');
+    const cards = sourceSection.querySelector('.oura-cards');
+    if (!cards) return;
+    popupBody.innerHTML =
+      (heading ? heading.outerHTML : '') +
+      cards.outerHTML;
+
+    const popupCards = popupBody.querySelectorAll('.oura-card');
+    popupCards.forEach((card, idx) => {
+      card.removeAttribute('id');
+      const btn = card.querySelector('button');
+      const expanded = card.querySelector('.card-expanded');
+      if (btn) {
+        btn.removeAttribute('onclick');
+        btn.style.display = 'none';
+      }
+      if (expanded) expanded.style.maxHeight = '560px';
+      const collapsedPhoto = card.querySelector('.card-photo--collapsed');
+      const expandedPhoto = card.querySelector('.card-photo--expanded');
+      if (collapsedPhoto) collapsedPhoto.style.opacity = '0';
+      if (expandedPhoto) expandedPhoto.style.opacity = '1';
+      card.dataset.popupCardIndex = String(idx);
+    });
+  }
+
+  function openPopup() {
+    syncPopupContent();
+    popup.hidden = false;
+    popup.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePopup() {
+    popup.hidden = true;
+    popup.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (window.location.hash === '#member-popup') {
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+  }
+
+  document.querySelectorAll('a[href$=\"gogogo-landing.html#member-popup\"], a[href=\"#member-popup\"]').forEach((link) => {
+    link.addEventListener('click', function (e) {
+      const href = link.getAttribute('href') || '';
+      if (href.includes('gogogo-landing.html#member-popup') || href === '#member-popup') {
+        e.preventDefault();
+        openPopup();
+      }
+    });
+  });
+
+  popup.querySelectorAll('[data-member-popup-close]').forEach((el) => {
+    el.addEventListener('click', closePopup);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !popup.hidden) closePopup();
+  });
+
+  if (window.location.hash === '#member-popup') {
+    openPopup();
+  }
+})();
     </script>
   </body>
 </html>
