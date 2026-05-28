@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Finde deinen Trainer. — go Training | gogogo</title>
+    <title>Mein Trainer. — go Training | gogogo</title>
     <meta name="description" content="Beantworte ein paar Fragen — wir melden uns persönlich bei dir." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../styles.css" />
@@ -19,15 +19,11 @@
         background-color: #f0eee6;
       }
       .gogogo-page {
-        --green-deep: #1a3a2a;
-        --green-signal: #2d9e8f;
-        --cream: #f0eee6;
-        --black: #0a0a0a;
-        --white: #ffffff;
         --font-head: "Helvetica Neue", Helvetica, Arial, sans-serif;
         --font-body: Georgia, "Times New Roman", Times, serif;
+        --font-sans: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
         --logo: #0a0a0a;
-        color: var(--black);
+        color: #0a0a0a;
         background: #f0eee6;
         font-family: var(--font-body);
         line-height: 1.5;
@@ -52,213 +48,297 @@
         visibility: hidden;
         pointer-events: none;
       }
-      .gogogo-landing__header-cta {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border: 1.5px solid var(--text);
-        background: transparent;
-        color: var(--text);
-        font-weight: 500;
-        font-size: 0.9rem;
-        padding: 10px 24px;
-        border-radius: 999px;
-        text-decoration: none;
-        font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
-      }
-      .gogogo-landing__header-cta:hover,
-      .gogogo-landing__header-cta:focus-visible {
-        background: var(--text);
-        color: var(--bg);
-        outline: none;
-      }
-      .gogl-slab {
-        max-width: var(--page-max);
-        margin-left: auto;
-        margin-right: auto;
+      .gogl-form-stage {
+        position: relative;
+        min-height: calc(100vh - 140px);
         width: 100%;
-        padding-left: var(--page-x);
-        padding-right: var(--page-x);
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        align-items: stretch;
+      }
+      .gogl-form-stage__video {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        overflow: hidden;
+        clip-path: inset(0 0 0 40%);
+        background: #1a1614;
+      }
+      .gogl-form-stage__video img {
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: auto;
+        height: auto;
+        max-width: none;
+        max-height: none;
+        transform: translateY(-50%) translateX(12%) scale(0.63);
+        transform-origin: right center;
+        display: block;
+      }
+      .gogl-form-stage__overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        clip-path: inset(0 0 0 40%);
+        pointer-events: none;
+        background: linear-gradient(
+          90deg,
+          #1a1614 0%,
+          #1a1614 52%,
+          rgba(26, 20, 17, 0.96) 58%,
+          rgba(26, 20, 17, 0.82) 66%,
+          rgba(26, 20, 17, 0.58) 76%,
+          rgba(26, 20, 17, 0.32) 86%,
+          rgba(26, 20, 17, 0.1) 94%,
+          transparent 100%
+        );
+      }
+      .gogl-form-stage__benefits {
+        position: absolute;
+        left: 40%;
+        width: 40%;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 3;
+        padding: 0 clamp(18px, 2.8vw, 40px);
         box-sizing: border-box;
+        pointer-events: none;
       }
-      .gogl-form__h1 {
+      .gogl-form-stage__benefits-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
         font-family: var(--font-sans);
-        font-weight: 300;
-        font-size: clamp(2rem, 3.5vw, 3rem);
-        line-height: 1.15;
-        color: var(--black);
-        margin: 0 0 12px;
+        font-weight: 400;
+        font-size: clamp(0.88rem, 1.25vw, 1.02rem);
+        line-height: 1.7;
+        letter-spacing: 0.01em;
+        color: #ffffff;
       }
-      .gogl-form-section {
-        background: transparent;
-        padding: 80px 0;
+      .gogl-form-stage__benefits-list li + li {
+        margin-top: 0.4em;
       }
       .gogl-form-wrap {
-        max-width: 640px;
-        margin: 0 auto;
+        grid-column: 1;
+        position: relative;
+        z-index: 2;
         width: 100%;
-        box-sizing: border-box;
+        min-height: 100%;
+        background: #4f7ea8;
+        padding: clamp(28px, 3.2vw, 42px) clamp(36px, 5.5vw, 64px);
       }
-      .gogl-form-wrap .gogl-form__h1,
-      .gogl-form__sub {
+      .gogl-form__h1 {
+        margin: 0 0 28px;
         text-align: center;
-        display: block;
-      }
-      .gogl-form__sub {
         font-family: var(--font-sans);
-        font-style: normal;
-        font-weight: 400;
-        font-size: 0.9rem;
-        color: #444444;
-        margin: 0 0 48px;
-        line-height: 1.5;
+        font-weight: 200;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        line-height: 1.05;
+        font-size: clamp(1.55rem, 3.1vw, 2.4rem);
+        white-space: nowrap;
+        color: #f0eee6;
       }
-      .gogl-form fieldset {
-        border: none;
-        margin: 0 0 1.5rem;
-        padding: 0;
-      }
-      .gogl-form legend,
-      .gogl-form__q {
-        font-family: var(--font-head);
-        font-weight: 700;
-        font-size: 0.95rem;
-        margin-bottom: 12px;
-        display: block;
-        width: 100%;
-        color: var(--black);
-      }
-      .gogl-radios {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-      .gogl-radio {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-family: var(--font-body);
-        font-size: 0.95rem;
-        cursor: pointer;
-        line-height: 1.4;
-      }
-      .gogl-radio input {
-        position: absolute;
-        opacity: 0;
-        width: 0;
-        height: 0;
-      }
-      .gogl-radio__ui {
-        flex-shrink: 0;
-        width: 20px;
-        height: 20px;
-        border: 1.5px solid #999;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: var(--white);
-      }
-      .gogl-radio input:checked + .gogl-radio__ui {
-        border-color: var(--green-signal);
-        background: var(--white);
-      }
-      .gogl-radio input:checked + .gogl-radio__ui::after {
-        content: "";
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: var(--green-signal);
-        display: block;
-      }
-      .gogl-radio input:focus-visible + .gogl-radio__ui {
-        outline: 2px solid var(--green-signal);
-        outline-offset: 2px;
-      }
-      .gogl-field label {
-        font-family: var(--font-head);
-        font-weight: 600;
-        font-size: 0.9rem;
-        display: block;
-        margin-bottom: 8px;
-        color: var(--black);
+      .gogl-form__grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-bottom: 16px;
       }
       .gogl-field input,
       .gogl-field textarea {
         width: 100%;
-        padding: 14px;
-        border: 1.5px solid #cccccc;
-        border-radius: 4px;
-        background: var(--white);
-        font-family: var(--font-body);
-        font-size: 1rem;
-        color: var(--black);
+        border: 1px solid rgba(240, 238, 230, 0.55);
+        background: transparent;
+        color: #f0eee6;
+        padding: 14px 16px;
+        font-family: var(--font-sans);
+        font-size: 0.9rem;
+        font-weight: 300;
+        letter-spacing: 0.03em;
+      }
+      .gogl-field input::placeholder,
+      .gogl-field textarea::placeholder {
+        color: rgba(240, 238, 230, 0.72);
       }
       .gogl-field textarea {
-        min-height: 8rem;
+        min-height: 96px;
         resize: vertical;
       }
       .gogl-field {
-        margin-bottom: 1.25rem;
+        margin: 0;
       }
-      .gogl-form__submit {
-        width: 100%;
-        background: var(--green-deep);
-        color: var(--white);
-        font-family: var(--font-head);
-        font-weight: 700;
-        font-size: 1rem;
-        padding: 20px;
-        border-radius: 999px;
-        border: none;
-        cursor: pointer;
-        margin-top: 24px;
+      .gogl-motive {
+        border: 0;
+        margin: 8px 0 16px;
+        padding: 0;
       }
-      .gogl-form__submit:hover,
-      .gogl-form__submit:focus-visible {
-        filter: brightness(1.05);
-        outline: none;
+      .gogl-motive__legend {
+        margin: 0 0 10px;
+        font-family: var(--font-sans);
+        font-weight: 300;
+        font-size: 0.855rem;
+        letter-spacing: 0.03em;
+        color: rgba(240, 238, 230, 0.92);
+      }
+      .gogl-motive__grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .gogl-check {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        font-family: var(--font-sans);
+        font-size: 0.855rem;
+        font-weight: 300;
+        letter-spacing: 0.02em;
+        color: rgba(240, 238, 230, 0.92);
+      }
+      .gogl-check input {
+        width: 17px;
+        height: 17px;
+        margin-top: 2px;
       }
       .gogl-consent {
-        margin: 0 0 8px;
+        margin: 16px 0 16px;
+      }
+      .gogl-consent__label + .gogl-consent__label {
+        margin-top: 14px;
       }
       .gogl-consent__label {
         display: flex;
         gap: 10px;
         align-items: flex-start;
-        font-family: var(--font-body);
-        font-size: 0.85rem;
+        font-family: var(--font-sans);
+        font-size: 0.81rem;
+        font-weight: 300;
+        letter-spacing: 0.02em;
         line-height: 1.45;
-        font-weight: 400;
-        cursor: pointer;
-        color: var(--black);
+        color: rgba(240, 238, 230, 0.88);
       }
       .gogl-consent__label input {
-        flex-shrink: 0;
         width: 18px;
         height: 18px;
-        margin: 2px 0 0;
-        accent-color: var(--green-deep);
+        margin-top: 2px;
       }
       .gogl-consent__label a {
-        color: var(--green-deep);
+        color: #f0eee6;
         text-decoration: underline;
         text-underline-offset: 2px;
       }
-      .gogl-consent__label a:hover {
-        color: var(--green-signal);
-      }
-      .gogl-form__fine {
-        font-family: var(--font-head);
-        font-size: 0.8rem;
+      .gogl-form__submit {
+        display: block;
+        width: min(260px, 100%);
+        margin: 24px auto 0;
+        border: 0;
+        padding: 16px 20px;
+        background: #c70039;
+        color: #fff;
+        font-family: var(--font-sans);
+        font-size: 0.95rem;
         font-weight: 400;
-        color: #666666;
-        text-align: center;
-        margin: 16px 0 0;
-        line-height: 1.5;
-        max-width: 32rem;
-        margin-left: auto;
-        margin-right: auto;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+      .gogl-form-below {
+        --gogl-below-headline-size: clamp(4rem, 15vw, 8.4rem);
+        --gogl-below-copy-inset: clamp(22px, 3.5vw, 44px);
+        --gogl-below-copy-gap: clamp(4px, 0.6vh, 8px);
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background: #4f7ea8;
+        min-height: calc(100vh - 140px);
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        align-items: stretch;
+        position: relative;
+      }
+      .gogl-form-below__panel {
+        overflow: hidden;
+        min-height: 100%;
+      }
+      .gogl-form-below__panel img {
+        width: 100%;
+        height: 100%;
+        min-height: calc(100vh - 140px);
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        opacity: 0.8;
+        transform: scale(1.15);
+        transform-origin: center;
+      }
+      .gogl-form-below__copy {
+        position: absolute;
+        z-index: 11;
+      }
+      .gogl-form-below__copy--left {
+        top: var(--gogl-below-copy-inset);
+        left: var(--gogl-below-copy-inset);
+      }
+      .gogl-form-below__copy--right {
+        top: calc(
+          var(--gogl-below-copy-inset) + var(--gogl-below-copy-gap) +
+            1.8 * var(--gogl-below-headline-size)
+        );
+        right: var(--gogl-below-copy-inset);
+        bottom: auto;
+        text-align: right;
+      }
+      .gogl-form-below__headline {
+        margin: 0;
+        font-family: var(--font-sans);
+        font-weight: 200;
+        font-size: var(--gogl-below-headline-size);
+        line-height: 0.9;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: #f0eee6;
+      }
+      @media (max-width: 760px) {
+        .gogl-form-stage {
+          min-height: auto;
+          grid-template-columns: 1fr;
+        }
+        .gogl-form-stage__video,
+        .gogl-form-stage__overlay {
+          clip-path: none;
+        }
+        .gogl-form-stage__benefits {
+          position: relative;
+          left: auto;
+          width: 100%;
+          top: auto;
+          transform: none;
+          padding: 22px clamp(24px, 6vw, 36px);
+          background: #1a1614;
+          pointer-events: auto;
+        }
+        .gogl-form-wrap {
+          padding: 20px clamp(24px, 6vw, 36px) 26px;
+        }
+        .gogl-form-below {
+          grid-template-columns: 1fr;
+          min-height: auto;
+          --gogl-below-headline-size: clamp(3.2rem, 18vw, 4.8rem);
+        }
+        .gogl-form-below__copy--right {
+          top: auto;
+          bottom: clamp(26px, 4vw, 44px);
+        }
+        .gogl-form-below__panel img {
+          min-height: clamp(220px, 42vw, 360px);
+        }
+        .gogl-form__grid,
+        .gogl-motive__grid {
+          grid-template-columns: 1fr;
+        }
       }
     </style>
   </head>
@@ -267,252 +347,93 @@
       <div class="nav__inner">
         <a href="../gogogo-landing.html" class="nav__logo gogogo-landing__logo" aria-label="gogogo Startseite">gogogo</a>
         <nav class="nav__links nav__links--empty" aria-hidden="true"></nav>
-        <div class="nav__cta-bucket">
-          <a class="gogogo-landing__header-cta" href="../gogogo-landing.html#member-popup">Zurück zur Auswahl</a>
-        </div>
       </div>
     </header>
 
-    <div
-      style="
-        width: 100%;
-        background: #0a0a0a;
-        color: #ffffff;
-        text-align: center;
-        padding: 10px 20px;
-        font-family: 'Helvetica Neue', sans-serif;
-        font-size: 0.8rem;
-        letter-spacing: 0.05em;
-      "
-    >
-      Beta-Version — für Freunde und Freunde von Freunden. Frühbucher erhalten 20% Rabatt. · Wir freuen uns auf dein
-      Feedback.
-    </div>
-
     <main>
-      <section id="onboarding" class="gogl-form-section" aria-labelledby="gogl-form-h">
-        <div class="gogl-slab">
-          <div class="gogl-form-wrap">
-            <h1 id="gogl-form-h" class="gogl-form__h1">Finde deinen Trainer.</h1>
-            <p class="gogl-form__sub">Zwei Minuten. Wir antworten persönlich innerhalb von 24 Stunden.</p>
-            <!-- Formspree: DEIN_FORMSPREE_TRAINING und DEINE_URL ersetzen -->
-            <form class="gogl-form" method="POST" action="https://formspree.io/f/DEIN_FORMSPREE_TRAINING">
-              <input type="hidden" name="_subject" value="Neue Anmeldung – go-training" />
-              <input type="hidden" name="_next" value="https://DEINE_URL/danke-training/index.html" />
-              <input type="hidden" name="service" value="go-training" />
-              <input type="hidden" name="source" value="register-training" />
-              <input type="text" name="_gotcha" value="" style="display: none" tabindex="-1" autocomplete="off" aria-hidden="true" />
-              <fieldset>
-                <legend class="gogl-form__q">Wie regelmäßig bewegst du dich gerade?</legend>
-                <div class="gogl-radios">
-                  <label class="gogl-radio">
-                    <input type="radio" name="q1" value="Kaum – weniger als einmal pro Woche" required />
-                    <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Kaum – weniger als einmal pro Woche</span>
-                  </label>
-                  <label class="gogl-radio">
-                    <input type="radio" name="q1" value="Ich hatte mal eine Routine – läuft gerade nicht" />
-                    <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Ich hatte mal eine Routine – läuft gerade nicht</span>
-                  </label>
-                  <label class="gogl-radio">
-                    <input type="radio" name="q1" value="Regelmäßig, aber ohne System oder Fortschritt" />
-                    <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Regelmäßig, aber ohne System oder Fortschritt</span>
-                  </label>
-                </div>
-              </fieldset>
-              <fieldset>
-                <legend class="gogl-form__q">Was treibt dich an – wenn du ehrlich bist?</legend>
-                <div class="gogl-radios">
-                  <label class="gogl-radio">
-                    <input type="radio" name="q2" value="Ich will fitter sein und besser aussehen" required />
-                    <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Ich will fitter sein und besser aussehen</span>
-                  </label>
-                  <label class="gogl-radio">
-                    <input type="radio" name="q2" value="Ich will mehr Energie und Klarheit im Alltag" />
-                    <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Ich will mehr Energie und Klarheit im Alltag</span>
-                  </label>
-                  <label class="gogl-radio">
-                    <input type="radio" name="q2" value="Ich will Stress abbauen und besser schlafen" />
-                    <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Ich will Stress abbauen und besser schlafen</span>
-                  </label>
-                  <label class="gogl-radio">
-                    <input type="radio" name="q2" value="Ich will beweisen, dass ich es durchziehe" />
-                    <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Ich will beweisen, dass ich es durchziehe</span>
-                  </label>
-                  <label class="gogl-radio">
-                    <input type="radio" name="q2" value="Ich weiß es ehrlich gesagt nicht genau" />
-                    <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Ich weiß es ehrlich gesagt nicht genau</span>
-                  </label>
-                </div>
-              </fieldset>
-              <fieldset>
-                <legend class="gogl-form__q">Was hat bisher nicht funktioniert?</legend>
-                <div class="gogl-radios">
-                  <label class="gogl-radio">
-                    <input type="radio" name="q3" value="Fitnessstudio – ich geh kaum hin" required />
-                    <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Fitnessstudio – ich geh kaum hin</span>
-                  </label>
-                  <label class="gogl-radio">
-                    <input type="radio" name="q3" value="Apps und Programme – ich zieh es nicht durch" />
-                    <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Apps und Programme – ich zieh es nicht durch</span>
-                  </label>
-                  <label class="gogl-radio">
-                    <input type="radio" name="q3" value="Personal Training – war zu teuer oder zu unverbindlich" />
-                    <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Personal Training – war zu teuer oder zu unverbindlich</span>
-                  </label>
-                  <label class="gogl-radio">
-                    <input type="radio" name="q3" value="Ich hab noch gar nichts ernsthaft probiert" />
-                    <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Ich hab noch gar nichts ernsthaft probiert</span>
-                  </label>
-                </div>
-              </fieldset>
-              <fieldset>
-                <legend class="gogl-form__q">Was blockiert dich gerade am meisten?</legend>
-                <div class="gogl-radios">
-                  <label class="gogl-radio">
-                    <input type="radio" name="q4" value="Keine Zeit oder zu erschöpft nach der Arbeit" required />
-                    <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Keine Zeit oder zu erschöpft nach der Arbeit</span>
-                  </label>
-                  <label class="gogl-radio">
-                    <input type="radio" name="q4" value="Ich fange an und breche dann wieder ab" />
-                    <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Ich fange an und breche dann wieder ab</span>
-                  </label>
-                  <label class="gogl-radio">
-                    <input type="radio" name="q4" value="Ich weiß nicht, wo ich anfangen soll" />
-                    <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Ich weiß nicht, wo ich anfangen soll</span>
-                  </label>
-                  <label class="gogl-radio">
-                    <input type="radio" name="q4" value="Zu viele Optionen, keine Klarheit" />
-                    <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Zu viele Optionen, keine Klarheit</span>
-                  </label>
-                </div>
-              </fieldset>
-              <fieldset>
-                <legend class="gogl-form__q">Was wäre für dich ein echter Erfolg in acht Wochen?</legend>
-                <div class="gogl-radios">
-                  <label class="gogl-radio">
-                    <input
-                      type="radio"
-                      name="q5"
-                      value="Ich bewege mich mindestens dreimal pro Woche – konsequent"
-                      required
-                    />
-                    <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Ich bewege mich mindestens dreimal pro Woche – konsequent</span>
-                  </label>
-                  <label class="gogl-radio">
-                    <input type="radio" name="q5" value="Ich fühle mich körperlich und mental klarer" />
-                    <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Ich fühle mich körperlich und mental klarer</span>
-                  </label>
-                  <label class="gogl-radio">
-                    <input type="radio" name="q5" value="Ich habe ein System, das zu meinem Leben passt" />
-                    <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Ich habe ein System, das zu meinem Leben passt</span>
-                  </label>
-                  <label class="gogl-radio">
-                    <input type="radio" name="q5" value="Ich habe einen Trainer, der mich kennt und dranbleibt" />
-                    <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Ich habe einen Trainer, der mich kennt und dranbleibt</span>
-                  </label>
-                </div>
-              </fieldset>
-              <fieldset>
-                <legend class="gogl-form__q">Wie willst du begleitet werden?</legend>
-                <div class="gogl-radios">
-                  <label class="gogl-radio">
-                    <input type="radio" name="q6" value="Online – WhatsApp-Check-in und Web-Call reichen mir" required />
-                    <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Online – WhatsApp-Check-in und Web-Call reichen mir</span>
-                  </label>
-                  <label class="gogl-radio">
-                    <input type="radio" name="q6" value="Vor Ort in Berlin – ich will echten Kontakt" />
-                    <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Vor Ort in Berlin – ich will echten Kontakt</span>
-                  </label>
-                  <label class="gogl-radio">
-                    <input type="radio" name="q6" value="Beides – je nach Woche und Situation" />
-                    <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Beides – je nach Woche und Situation</span>
-                  </label>
-                </div>
-              </fieldset>
-              <fieldset>
-                <legend class="gogl-form__q">Wo bist du?</legend>
-                <div class="gogl-radios">
-                  <label class="gogl-radio">
-                    <input type="radio" name="q7" value="Berlin – ich will vor Ort trainieren" required />
-                    <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Berlin – ich will vor Ort trainieren</span>
-                  </label>
-                  <label class="gogl-radio">
-                    <input type="radio" name="q7" value="Online – egal wo ich bin" />
-                    <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Online – egal wo ich bin</span>
-                  </label>
-                  <label class="gogl-radio">
-                    <input type="radio" name="q7" value="Beides ist möglich" />
-                    <span class="gogl-radio__ui" aria-hidden="true"></span>
-                    <span>Beides ist möglich</span>
-                  </label>
-                </div>
-              </fieldset>
+      <section id="onboarding" class="gogl-form-stage" aria-labelledby="gogl-form-h">
+        <div class="gogl-form-stage__video" aria-hidden="true">
+          <img src="../assets/personaltraining.png" alt="" decoding="async" />
+        </div>
+        <div class="gogl-form-stage__overlay" aria-hidden="true"></div>
+        <aside class="gogl-form-stage__benefits" aria-label="Das bekommst du im Personal Training">
+          <ul class="gogl-form-stage__benefits-list">
+            <li>🧭 Persönliche Standortbestimmung</li>
+            <li>🎯 Klare Ziele und Trainingsstrategie</li>
+            <li>📈 Regelmäßige Check-ins und Anpassung</li>
+            <li>🤝 Passende Experten aus Berlin bei Spezialthemen</li>
+            <li>🏋️ Individuelle Einheiten für deinen Alltag</li>
+            <li>📅 Vor Ort oder online - je nach Woche</li>
+          </ul>
+        </aside>
+        <div class="gogl-form-wrap">
+          <h1 id="gogl-form-h" class="gogl-form__h1">PERSONAL TRAINING</h1>
+          <form class="gogl-form" method="POST" action="https://formspree.io/f/DEIN_FORMSPREE_TRAINING">
+            <input type="hidden" name="_subject" value="Neue Anmeldung – go-training" />
+            <input type="hidden" name="_next" value="https://DEINE_URL/danke-training/index.html" />
+            <input type="hidden" name="service" value="go-training" />
+            <input type="hidden" name="source" value="register-training" />
+            <input type="text" name="_gotcha" value="" style="display: none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+            <div class="gogl-form__grid">
               <div class="gogl-field">
-                <label for="gogl-name">Name</label>
-                <input id="gogl-name" name="name" type="text" required placeholder="Dein Name" autocomplete="name" />
+                <input id="gogl-firstname" name="vorname" type="text" required placeholder="Vorname" autocomplete="given-name" />
               </div>
               <div class="gogl-field">
-                <label for="gogl-email">E-Mail</label>
-                <input
-                  id="gogl-email"
-                  name="email"
-                  type="email"
-                  required
-                  placeholder="Deine E-Mail-Adresse"
-                  autocomplete="email"
-                />
+                <input id="gogl-lastname" name="nachname" type="text" required placeholder="Nachname" autocomplete="family-name" />
               </div>
               <div class="gogl-field">
-                <label for="gogl-ta">Was soll sich konkret ändern?</label>
-                <textarea
-                  id="gogl-ta"
-                  name="was_soll_sich_aendern"
-                  rows="5"
-                  placeholder="Schreib einfach was dir in den Kopf kommt."
-                ></textarea>
+                <input id="gogl-email" name="email" type="email" required placeholder="Email" autocomplete="email" />
               </div>
-              <div class="gogl-field gogl-consent">
-                <label class="gogl-consent__label" for="gogl-dsgvo">
-                  <input type="checkbox" id="gogl-dsgvo" name="dsgvo_einverstaendnis" value="ja" required />
-                  <span
-                    >Ich bin einverstanden, dass meine Angaben zur Kontaktaufnahme und Betreuung durch gogogo gespeichert
-                    werden. Keine Weitergabe an Dritte.
-                    <a href="../datenschutz/index.html">Datenschutz</a></span
-                  >
-                </label>
+              <div class="gogl-field">
+                <input id="gogl-phone" name="telefon" type="tel" required placeholder="Telefonnummer" autocomplete="tel" />
               </div>
-              <button type="submit" class="gogl-form__submit">Absenden – wir melden uns in 24h</button>
-              <p class="gogl-form__fine">
-                Nach dem Absenden erhältst du eine Bestätigungs-E-Mail. Erst nach Bestätigung nehmen wir Kontakt auf.
-                Keine Weitergabe deiner Daten. Kein Spam.
-              </p>
-            </form>
-          </div>
+            </div>
+
+            <fieldset class="gogl-motive">
+              <legend class="gogl-motive__legend">Wobei soll ich Dich unterstützen?</legend>
+              <div class="gogl-motive__grid">
+                <label class="gogl-check"><input type="checkbox" name="anliegen[]" value="Ich brauche einen strukturierten Trainingsstart" />Ich brauche einen strukturierten Trainingsstart</label>
+                <label class="gogl-check"><input type="checkbox" name="anliegen[]" value="Ich brauche einen individuell passenden Wochenplan" />Ich brauche einen individuell passenden Wochenplan</label>
+                <label class="gogl-check"><input type="checkbox" name="anliegen[]" value="Ich möchte regelmäßig professionelles Feedback" />Ich möchte regelmäßig professionelles Feedback</label>
+                <label class="gogl-check"><input type="checkbox" name="anliegen[]" value="Ich suche einen spezifischen Trainer. Das Thema schreibe ich in den Freitext unten. Schlag mir einen passenden Trainer in Berlin vor." />Ich suche einen spezifischen Trainer. Das Thema schreibe ich in den Freitext unten. Schlag mir einen passenden Trainer in Berlin vor.</label>
+                <label class="gogl-check"><input type="checkbox" name="anliegen[]" value="Ich will online trainieren und flexibel bleiben" />Ich will online trainieren und flexibel bleiben</label>
+                <label class="gogl-check"><input type="checkbox" name="anliegen[]" value="Ich will vor Ort in Berlin trainieren" />Ich will vor Ort in Berlin trainieren</label>
+              </div>
+            </fieldset>
+
+            <div class="gogl-field">
+              <textarea id="gogl-message" name="message" rows="4" placeholder="Freitext: Thema, Ziel, Wunschtrainer"></textarea>
+            </div>
+
+            <div class="gogl-consent">
+              <label class="gogl-consent__label" for="gogl-dsgvo">
+                <input type="checkbox" id="gogl-dsgvo" name="dsgvo_einverstaendnis" value="ja" required />
+                <span>Ich bin einverstanden, dass meine Angaben zur Kontaktaufnahme und Betreuung gespeichert werden. <a href="../datenschutz/index.html">Datenschutz</a></span>
+              </label>
+              <label class="gogl-consent__label" for="gogl-membership">
+                <input type="checkbox" id="gogl-membership" name="mitgliedschaft_email_einverstaendnis" value="ja" required />
+                <span>ich möchte eine kostenlose Mitgliedschaft bei FRIDAY CIRCLE. Sie ist beidseitig per E-Mail kündbar. Ich kann jederzeit austreten, indem ich einfach auf die Willkommens-Email antworte oder an die Emailadresse <a href="mailto:service@fridaycircle.club">service@fridaycircle.club</a> schreibe. Ich stimme unregelmäßigen Emails mit Informationen zum Thema Bewegung und zu weiteren Services von FRIDAY CIRCLE zu.</span>
+              </label>
+            </div>
+
+            <button type="submit" class="gogl-form__submit">Optionen</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="gogl-form-below" aria-label="Weitere Informationen">
+        <div class="gogl-form-below__panel gogl-form-below__panel--left">
+          <img src="../assets/gogogo-upperbody-Video-Poster.png" alt="" decoding="async" />
+        </div>
+        <div class="gogl-form-below__panel gogl-form-below__panel--right">
+          <img src="../assets/SledHoodie.png" alt="" decoding="async" />
+        </div>
+        <div class="gogl-form-below__copy gogl-form-below__copy--left">
+          <p class="gogl-form-below__headline">ÜBERALL IN BERLIN</p>
+        </div>
+        <div class="gogl-form-below__copy gogl-form-below__copy--right">
+          <p class="gogl-form-below__headline">PASSENDES PERSONAL TRAINING</p>
         </div>
       </section>
     </main>
