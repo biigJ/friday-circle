@@ -2442,7 +2442,7 @@ function renderPanel(year, sqEl) {
     </div>`).join('');
 
   // global
-  const globalIcons=['🇺🇸','🌏','🇷🇺','🌍'];
+  const globalIcons=['🇺🇸','🌏','🇨🇳','🌍'];
   document.getElementById('pGlobal').innerHTML=(d.global||[]).map((txt,i)=>`
     <div class="global-block">
       <div class="global-region">${globalIcons[i]||'🌐'} Perspektive ${i+1}</div>
