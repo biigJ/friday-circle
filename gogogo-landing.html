@@ -18,6 +18,8 @@
     <link rel="preload" href="assets/hero.mp4" as="video" type="video/mp4" />
     <script src="gogogo-joscha-grow.js" defer></script>
     <script src="gogogo-program-slider.js" defer></script>
+    <script src="gogogo-i18n-entries.js"></script>
+    <script src="fc-lang.js" defer></script>
     <script>
       (function () {
         try {
@@ -3631,6 +3633,10 @@
         <a href="#top" class="nav__logo gogogo-landing__logo" aria-label="gogogo — zum Seitenanfang">gogogo</a>
         <nav class="nav__links nav__links--empty" aria-hidden="true"></nav>
         <div class="nav__cta-bucket">
+          <div class="nav__lang" role="group" aria-label="Sprache">
+            <button type="button" class="is-active" data-fc-lang="de">DE</button>
+            <button type="button" data-fc-lang="en">EN</button>
+          </div>
           <a class="gogogo-landing__header-cta" href="gogogo-landing.html#member-popup">Jetzt starten</a>
         </div>
       </div>
@@ -3725,7 +3731,7 @@
               <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="Triff Joscha" data-slide-to="7"></button>
             </div>
                         <div class="gogl-program-slider__viewport">
-<div class="gogl-program-slider__slide is-active" data-slide="0">
+<div class="gogl-program-slider__slide is-active" data-slide="0" id="fc-gogogo-slide-hero-source">
                 <div class="gogl-program-slide-card gogl-program-slide-card--hero">
                   <div class="gogl-hero-slide">
                     <div class="gogl-hero-slide__media">
@@ -3781,7 +3787,7 @@
                   </div>
                 </div>
               </div>
-<div class="gogl-program-slider__slide" data-slide="1">
+<div class="gogl-program-slider__slide" data-slide="1" id="fc-gogogo-slide-source">
                 <div class="gogl-program-slide-card gogl-program-slide-card--gosam">
                   <div class="gogl-gosam-slide__video" aria-hidden="true">
                     <video autoplay muted loop playsinline preload="metadata">

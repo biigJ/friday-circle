@@ -22,6 +22,62 @@ function era(y) {
   return 'FUTURE';
 }
 
+function lerpRgb(a, b, t) {
+  const u = Math.max(0, Math.min(1, t));
+  return [
+    Math.round(a[0] + (b[0] - a[0]) * u),
+    Math.round(a[1] + (b[1] - a[1]) * u),
+    Math.round(a[2] + (b[2] - a[2]) * u),
+  ];
+}
+
+function rgbCss(rgb) {
+  return `rgb(${rgb[0]}, ${rgb[1]}, ${rgb[2]})`;
+}
+
+function textOnRgb(rgb) {
+  const lum = (0.299 * rgb[0] + 0.587 * rgb[1] + 0.114 * rgb[2]) / 255;
+  return lum > 0.58 ? '#1a1a18' : '#f0eee6';
+}
+
+const COLOR_FROM_YEAR = 1969;
+
+/** Ab 1969: Gold → dunkles Gold (2022) → Rotorange (ab 2023). Davor: weiß. */
+function squareColors(year) {
+  const goldLight = [248, 236, 196];
+  const goldMid = [214, 178, 102];
+  const goldDark = [118, 82, 32];
+  const redOrange = [198, 78, 48];
+
+  if (year < COLOR_FROM_YEAR) {
+    return { bg: '#ffffff', fg: '#1a1a18' };
+  }
+  if (year > NOW) {
+    const c = lerpRgb(redOrange, [232, 210, 190], Math.min(1, (year - NOW) / 24));
+    return { bg: rgbCss(c), fg: textOnRgb(c) };
+  }
+  if (year < 1991) {
+    const t = (year - COLOR_FROM_YEAR) / (1990 - COLOR_FROM_YEAR);
+    const c = lerpRgb(goldLight, goldMid, t);
+    return { bg: rgbCss(c), fg: textOnRgb(c) };
+  }
+  if (year <= 2022) {
+    const t = (year - 1991) / (2022 - 1991);
+    const c = lerpRgb(goldMid, goldDark, t);
+    return { bg: rgbCss(c), fg: textOnRgb(c) };
+  }
+  const t = (year - 2023) / (Math.max(NOW, 2023) - 2023);
+  const c = lerpRgb(goldDark, redOrange, t);
+  return { bg: rgbCss(c), fg: textOnRgb(c) };
+}
+
+function setPanelOpen(open) {
+  const panel = document.getElementById('panel');
+  const placeholder = document.getElementById('panelPlaceholder');
+  if (panel) panel.classList.toggle('visible', open);
+  if (placeholder) placeholder.classList.toggle('is-hidden', open);
+}
+
 const YEAR_DATA = {
 
   // ─────────────────────────────────────────────
@@ -2221,7 +2277,7 @@ function getData(year) {
 // ═══════════════════════════════════════════════════════════
 // STATE
 // ═══════════════════════════════════════════════════════════
-let birthYear = 1977;
+let birthYear = 1995;
 let activeSq = null;
 let mode = 'neg'; // neg | pos | global
 let activeTab = 'society';
@@ -2235,7 +2291,7 @@ function init() {
   for (let y=1950; y<=1995; y++) {
     const o=document.createElement('option');
     o.value=y; o.textContent=y;
-    if(y===1977) o.selected=true;
+    if (y === 1995) o.selected = true;
     sel.appendChild(o);
   }
   rebuild();
@@ -2291,15 +2347,19 @@ function renderBanner() {
 function renderGrid() {
   const g = document.getElementById('grid');
   g.innerHTML = '';
-  for (let age=0; age<SPAN; age++) {
-    const year = birthYear+age;
-    const e = era(year);
-    const lived = year<=NOW;
-    const div=document.createElement('div');
-    div.className=`sq ${ERA_DEF[e].cls} ${year>NOW?'sq-future':'sq-lived'}`;
-    div.dataset.year=year;
-    div.innerHTML=`<span class="sq-lbl">${age}</span>`;
-    div.addEventListener('click',()=>{ activeSq=div; renderPanel(year,div); });
+  for (let age = 0; age < SPAN; age++) {
+    const year = birthYear + age;
+    const colors = squareColors(year);
+    const div = document.createElement('div');
+    div.className = `sq sq--gradient ${year > NOW ? 'sq-future' : 'sq-lived'}`;
+    div.dataset.year = year;
+    div.style.background = colors.bg;
+    div.style.color = colors.fg;
+    div.innerHTML = `<span class="sq-year">${year}</span>`;
+    div.addEventListener('click', () => {
+      activeSq = div;
+      renderPanel(year, div);
+    });
     g.appendChild(div);
   }
 }
@@ -2405,10 +2465,8 @@ function renderPanel(year, sqEl) {
   // show correct tab
   switchTab(activeTab);
 
-  // show panel
-  const panel=document.getElementById('panel');
-  panel.classList.add('visible');
-  setTimeout(()=>panel.scrollIntoView({behavior:'smooth',block:'nearest'}),80);
+  setPanelOpen(true);
+  setTimeout(() => document.getElementById('panel').scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 80);
 }
 
 function switchTab(id) {
@@ -2427,9 +2485,9 @@ function switchTab(id) {
 }
 
 function closePanel() {
-  document.getElementById('panel').classList.remove('visible');
-  document.querySelectorAll('.sq').forEach(s=>s.classList.remove('active'));
-  activeSq=null;
+  setPanelOpen(false);
+  document.querySelectorAll('.sq').forEach((s) => s.classList.remove('active'));
+  activeSq = null;
 }
 
 if (document.readyState === "loading") {

@@ -24,6 +24,7 @@
       d.classList.toggle("is-active", n === index);
       d.setAttribute("aria-selected", n === index ? "true" : "false");
     });
+    root.classList.toggle("is-lebensjahre", index === 2);
   }
 
   function next() {

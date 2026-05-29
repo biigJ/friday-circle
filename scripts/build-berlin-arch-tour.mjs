@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { writeFileSync, mkdirSync, existsSync } from "fs";
+import { writeFileSync, mkdirSync, existsSync, copyFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 
@@ -8,15 +8,14 @@ const rootDir = join(__dirname, "..");
 const outPath = join(rootDir, "berlinarchtour.html");
 const imgDir = join(rootDir, "assets", "berlin-arch-tour");
 
-const HERO_REMOTE =
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Berlin_Reichstag_Building_%28Ank_Kumar%29_07.jpg/1280px-Berlin_Reichstag_Building_%28Ank_Kumar%29_07.jpg";
+const HERO_LOCAL_SRC = join(rootDir, "assets", "neuenationalgalerie.jpeg");
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-async function downloadImage(url, destPath) {
-  if (existsSync(destPath)) return;
+async function downloadImage(url, destPath, optional = false) {
+  if (existsSync(destPath)) return true;
   for (let attempt = 0; attempt < 5; attempt++) {
     const res = await fetch(url, {
       headers: { "User-Agent": "FridayCircleBot/1.0 (friday-circle static build)" },
@@ -25,20 +24,25 @@ async function downloadImage(url, destPath) {
     if (res.ok) {
       writeFileSync(destPath, Buffer.from(await res.arrayBuffer()));
       await sleep(1200);
-      return;
+      return true;
     }
     if (res.status === 429 && attempt < 4) {
       await sleep(4000 * (attempt + 1));
       continue;
     }
+    if (optional) return false;
     throw new Error(`Download failed (${res.status}): ${url}`);
   }
+  if (optional) return false;
+  throw new Error(`Download failed: ${url}`);
 }
 
 async function localizeTourImages() {
   mkdirSync(imgDir, { recursive: true });
   const heroPath = join(imgDir, "hero.jpg");
-  await downloadImage(HERO_REMOTE, heroPath);
+  if (existsSync(HERO_LOCAL_SRC)) {
+    copyFileSync(HERO_LOCAL_SRC, heroPath);
+  }
   const heroLocal = "assets/berlin-arch-tour/hero.jpg";
 
   for (const day of DAYS) {
@@ -47,6 +51,13 @@ async function localizeTourImages() {
       const dest = join(imgDir, `${stop.id}.jpg`);
       await downloadImage(stop.photo, dest);
       stop.photo = `assets/berlin-arch-tour/${stop.id}.jpg`;
+    }
+    for (const key of ["lunch", "dinner"]) {
+      const meal = day[key];
+      if (!meal?.photo || meal.photo.startsWith("assets/")) continue;
+      const dest = join(imgDir, `dining-d${day.id}-${key}.jpg`);
+      const ok = await downloadImage(meal.photo, dest, true);
+      if (ok) meal.photo = `assets/berlin-arch-tour/dining-d${day.id}-${key}.jpg`;
     }
   }
   return heroLocal;
@@ -61,10 +72,26 @@ const DAYS = [
     eraEn: "1920–1958",
     routeDe: "Westend → Zehlendorf → Spandau",
     routeEn: "Westend → Zehlendorf → Spandau",
-    lunchDe: "Wirtshaus Schildhorn — Am Schildhorn, Zehlendorf. Historisches Ausflugslokal direkt am Havel-Ufer, seit 1842. Klassische Berliner Küche, Gartenrestaurant.",
-    lunchEn: "Wirtshaus Schildhorn — Am Schildhorn, Zehlendorf. Historic excursion inn on the Havel since 1842. Classic Berlin cuisine, garden restaurant.",
-    dinnerDe: "Café Hardenberg — Hardenbergstraße, Charlottenburg. Günstig, solid, neben der TU Berlin.",
-    dinnerEn: "Café Hardenberg — Hardenbergstraße, Charlottenburg. Affordable, solid, next to TU Berlin.",
+    lunch: {
+      nameDe: "Wirtshaus Schildhorn",
+      nameEn: "Wirtshaus Schildhorn",
+      bodyDe:
+        "Am Schildhorn, Zehlendorf. Historisches Ausflugslokal direkt am Havel-Ufer, seit 1842. Klassische Berliner Küche, Gartenrestaurant.",
+      bodyEn:
+        "Am Schildhorn, Zehlendorf. Historic excursion inn on the Havel since 1842. Classic Berlin cuisine, garden restaurant.",
+      url: "https://www.wirtshaus-schildhorn.de/",
+      photo:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Berlin_-_Havel_-_Schildhorn_%282%29.jpg/1280px-Berlin_-_Havel_-_Schildhorn_%282%29.jpg",
+    },
+    dinner: {
+      nameDe: "Café Hardenberg",
+      nameEn: "Café Hardenberg",
+      bodyDe: "Hardenbergstraße, Charlottenburg. Günstig, solid, neben der TU Berlin.",
+      bodyEn: "Hardenbergstraße, Charlottenburg. Affordable, solid, next to TU Berlin.",
+      url: "https://www.cafe-hardenberg.de/",
+      photo:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Berlin_Charlottenburg_Technische_Universit%C3%A4t_Ehrenhof.jpg/1280px-Berlin_Charlottenburg_Technische_Universit%C3%A4t_Ehrenhof.jpg",
+    },
     stops: [
       {
         id: "d1-hufeisen",
@@ -202,10 +229,24 @@ const DAYS = [
     eraEn: "1945–1968",
     routeDe: "Tiergarten → Kulturforum → Friedrichshain",
     routeEn: "Tiergarten → Kulturforum → Friedrichshain",
-    lunchDe: "Café Moskau — Karl-Marx-Allee 34. Josef Kaiser, 1964. Elegantes DDR-Modernes Gebäude auf der Allee selbst.",
-    lunchEn: "Café Moskau — Karl-Marx-Allee 34. Josef Kaiser, 1964. Elegant GDR modern building on the boulevard.",
-    dinnerDe: "Pauly Saal — Auguststraße 11–13, Mitte. Im ehemaligen Gemeindehaus der Jüdischen Mädchenschule.",
-    dinnerEn: "Pauly Saal — Auguststraße 11–13, Mitte. In the former Jewish girls' school community house.",
+    lunch: {
+      nameDe: "Café Moskau",
+      nameEn: "Café Moskau",
+      bodyDe: "Karl-Marx-Allee 34. Josef Kaiser, 1964. Elegantes DDR-Modernes Gebäude auf der Allee selbst.",
+      bodyEn: "Karl-Marx-Allee 34. Josef Kaiser, 1964. Elegant GDR modern building on the boulevard.",
+      url: "https://www.cafemoskau.com/",
+      photo:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Caf%C3%A9_Moskau_Berlin.jpg/1280px-Caf%C3%A9_Moskau_Berlin.jpg",
+    },
+    dinner: {
+      nameDe: "Pauly Saal",
+      nameEn: "Pauly Saal",
+      bodyDe: "Auguststraße 11–13, Mitte. Im ehemaligen Gemeindehaus der Jüdischen Mädchenschule.",
+      bodyEn: "Auguststraße 11–13, Mitte. In the former Jewish girls' school community house.",
+      url: "https://www.pauly-saal.de/",
+      photo:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Berlin-Mitte_Auguststra%C3%9Fe_J%C3%BCdische_M%C3%A4dchenschule.jpg/1280px-Berlin-Mitte_Auguststra%C3%9Fe_J%C3%BCdische_M%C3%A4dchenschule.jpg",
+    },
     stops: [
       {
         id: "d2-hkw",
@@ -347,10 +388,24 @@ const DAYS = [
     eraEn: "1933–45 in the cityscape",
     routeDe: "Regierungsviertel → Mitte → Kreuzberg",
     routeEn: "Government quarter → Mitte → Kreuzberg",
-    lunchDe: "Sale e Tabacchi — Rudi-Dutschke-Straße 23, Kreuzberg. Klassisch italienisch, nahe allen Projekten des Tages.",
-    lunchEn: "Sale e Tabacchi — Rudi-Dutschke-Straße 23, Kreuzberg. Classic Italian, near all projects of the day.",
-    dinnerDe: "Clärchens Ballhaus — Auguststraße 24, Mitte. Tanzsaal von 1913 - Weimarer Republik, DDR, Wende.",
-    dinnerEn: "Clärchens Ballhaus — Auguststraße 24, Mitte. Dance hall from 1913 - Weimar, GDR, reunification.",
+    lunch: {
+      nameDe: "Sale e Tabacchi",
+      nameEn: "Sale e Tabacchi",
+      bodyDe: "Rudi-Dutschke-Straße 23, Kreuzberg. Klassisch italienisch, nahe allen Projekten des Tages.",
+      bodyEn: "Rudi-Dutschke-Straße 23, Kreuzberg. Classic Italian, near all projects of the day.",
+      url: "https://www.saleetabacchi.de/",
+      photo:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Berlin_Kreuzberg_Rudi-Dutschke-Stra%C3%9Fe.jpg/1280px-Berlin_Kreuzberg_Rudi-Dutschke-Stra%C3%9Fe.jpg",
+    },
+    dinner: {
+      nameDe: "Clärchens Ballhaus",
+      nameEn: "Clärchens Ballhaus",
+      bodyDe: "Auguststraße 24, Mitte. Tanzsaal von 1913. Weimarer Republik, DDR, Wende.",
+      bodyEn: "Auguststraße 24, Mitte. Dance hall from 1913. Weimar, GDR, reunification.",
+      url: "https://www.claerchensballhaus.de/",
+      photo:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Cl%C3%A4rchens_Ballhaus_Berlin.jpg/1280px-Cl%C3%A4rchens_Ballhaus_Berlin.jpg",
+    },
     stops: [
       {
         id: "d3-botschaft",
@@ -468,10 +523,24 @@ const DAYS = [
     eraEn: "1989–2005",
     routeDe: "Potsdamer Platz → Pariser Platz → Unter den Linden",
     routeEn: "Potsdamer Platz → Pariser Platz → Unter den Linden",
-    lunchDe: "Borchardt — Französische Straße 47, Mitte. Historischer Gründerzeit-Saal.",
-    lunchEn: "Borchardt — Französische Straße 47, Mitte. Historic Wilhelmine dining room.",
-    dinnerDe: "Lutter & Wegner — Charlottenstraße 56, Mitte. Weinrestaurant seit 1811.",
-    dinnerEn: "Lutter & Wegner — Charlottenstraße 56, Mitte. Wine restaurant since 1811.",
+    lunch: {
+      nameDe: "Borchardt",
+      nameEn: "Borchardt",
+      bodyDe: "Französische Straße 47, Mitte. Historischer Gründerzeit-Saal.",
+      bodyEn: "Französische Straße 47, Mitte. Historic Wilhelmine dining room.",
+      url: "https://www.borchardt-restaurant.de/",
+      photo:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Borchardt_Berlin.jpg/1280px-Borchardt_Berlin.jpg",
+    },
+    dinner: {
+      nameDe: "Lutter & Wegner",
+      nameEn: "Lutter & Wegner",
+      bodyDe: "Charlottenstraße 56, Mitte. Weinrestaurant seit 1811.",
+      bodyEn: "Charlottenstraße 56, Mitte. Wine restaurant since 1811.",
+      url: "https://www.lutter-wegner.de/",
+      photo:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Lutter_%26_Wegner_Berlin.jpg/1280px-Lutter_%26_Wegner_Berlin.jpg",
+    },
     stops: [
       {
         id: "d4-sony",
@@ -603,10 +672,24 @@ const DAYS = [
     eraEn: "1932 · 1950s · 1990s",
     routeDe: "Hohenschönhausen → Friedrichshain → Mitte",
     routeEn: "Hohenschönhausen → Friedrichshain → Mitte",
-    lunchDe: "Café Moskau — Karl-Marx-Allee 34, Friedrichshain.",
-    lunchEn: "Café Moskau — Karl-Marx-Allee 34, Friedrichshain.",
-    dinnerDe: "Pauly Saal — Auguststraße 11–13, Mitte.",
-    dinnerEn: "Pauly Saal — Auguststraße 11–13, Mitte.",
+    lunch: {
+      nameDe: "Café Moskau",
+      nameEn: "Café Moskau",
+      bodyDe: "Karl-Marx-Allee 34, Friedrichshain.",
+      bodyEn: "Karl-Marx-Allee 34, Friedrichshain.",
+      url: "https://www.cafemoskau.com/",
+      photo:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Caf%C3%A9_Moskau_Berlin.jpg/1280px-Caf%C3%A9_Moskau_Berlin.jpg",
+    },
+    dinner: {
+      nameDe: "Pauly Saal",
+      nameEn: "Pauly Saal",
+      bodyDe: "Auguststraße 11–13, Mitte.",
+      bodyEn: "Auguststraße 11–13, Mitte.",
+      url: "https://www.pauly-saal.de/",
+      photo:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Berlin-Mitte_Auguststra%C3%9Fe_J%C3%BCdische_M%C3%A4dchenschule.jpg/1280px-Berlin-Mitte_Auguststra%C3%9Fe_J%C3%BCdische_M%C3%A4dchenschule.jpg",
+    },
     stops: [
       {
         id: "d5-lemke",
@@ -720,10 +803,24 @@ const DAYS = [
     eraEn: "2000–2024",
     routeDe: "Museumsinsel → Mitte",
     routeEn: "Museum Island → Mitte",
-    lunchDe: "Café im Zeughaus — Unter den Linden 2 (DHM).",
-    lunchEn: "Café im Zeughaus — Unter den Linden 2 (DHM).",
-    dinnerDe: "Lutter & Wegner — Charlottenstraße 56, Mitte.",
-    dinnerEn: "Lutter & Wegner — Charlottenstraße 56, Mitte.",
+    lunch: {
+      nameDe: "Café im Zeughaus",
+      nameEn: "Café im Zeughaus",
+      bodyDe: "Unter den Linden 2 (DHM).",
+      bodyEn: "Unter den Linden 2 (German Historical Museum).",
+      url: "https://www.dhm.de/",
+      photo:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Zeughaus_Berlin.jpg/1280px-Zeughaus_Berlin.jpg",
+    },
+    dinner: {
+      nameDe: "Lutter & Wegner",
+      nameEn: "Lutter & Wegner",
+      bodyDe: "Charlottenstraße 56, Mitte.",
+      bodyEn: "Charlottenstraße 56, Mitte.",
+      url: "https://www.lutter-wegner.de/",
+      photo:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Lutter_%26_Wegner_Berlin.jpg/1280px-Lutter_%26_Wegner_Berlin.jpg",
+    },
     stops: [
       {
         id: "d6-neues",
@@ -859,10 +956,6 @@ body.bat-page.en .de-t,body.bat-page.de .en-t{display:none}
 .bat-shell{box-sizing:border-box;width:100%;max-width:var(--content-max);margin-left:auto;margin-right:auto;padding-left:var(--nav-pad-x);padding-right:var(--nav-pad-x)}
 .bat-hero{position:relative;min-height:min(88vh,720px);display:flex;align-items:flex-end;background:var(--bat-black);color:var(--bat-white);overflow:hidden}
 .bat-hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.22}
-.bat-hero__lang-wrap{position:absolute;top:0;left:0;right:0;z-index:2;display:flex;justify-content:flex-end;padding-top:clamp(14px,2.5vw,22px)}
-.bat-hero__lang-wrap .bat-lang{border-color:rgba(255,255,255,.32)}
-.bat-hero__lang-wrap .bat-lang button{color:rgba(255,255,255,.88)}
-.bat-hero__lang-wrap .bat-lang button.is-active{background:var(--bat-white);color:var(--bat-black)}
 .bat-hero__shell{position:relative;z-index:1;width:100%;padding:clamp(48px,8vw,96px) 0 clamp(32px,5vw,56px)}
 .bat-hero__inner{width:100%;min-width:0}
 .bat-hero__eyebrow{font-size:11px;letter-spacing:.15em;text-transform:uppercase;opacity:.7;margin:0 0 12px}
@@ -902,9 +995,15 @@ body.bat-page .bat-stop__img-wrap img.bat-stop__img{position:absolute;top:0;left
 .bat-stop__teaser{margin:0;font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.68)}
 .bat-dining{padding:0 0 clamp(32px,4vw,48px);display:grid;gap:16px}
 @media(min-width:640px){.bat-dining{grid-template-columns:1fr 1fr;gap:24px}}
-.bat-dining__item{padding:18px 20px;border:1px solid rgba(255,255,255,.12);border-radius:4px}
-.bat-dining__label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--bat-red);margin:0 0 8px}
-.bat-dining__text{margin:0;font-size:13.5px;line-height:1.6;color:rgba(255,255,255,.72)}
+.bat-dining__card{display:flex;flex-direction:row;align-items:stretch;height:192px;min-height:192px;border:1px solid rgba(255,255,255,.12);border-radius:4px;overflow:hidden;background:rgba(255,255,255,.03)}
+.bat-dining__body{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:flex-start;padding:14px 16px 12px}
+.bat-dining__label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--bat-red);margin:0 0 6px}
+.bat-dining__name{margin:0 0 6px;font-size:15px;font-weight:500;line-height:1.25;color:var(--bat-white)}
+.bat-dining__text{margin:0;font-size:13px;line-height:1.5;color:rgba(255,255,255,.72);overflow-wrap:anywhere;word-break:break-word}
+.bat-dining__link{display:inline-block;margin-top:auto;padding-top:10px;font-size:12px;letter-spacing:.04em;color:var(--bat-red);text-decoration:none}
+.bat-dining__link:hover,.bat-dining__link:focus-visible{text-decoration:underline}
+.bat-dining__photo{position:relative;flex:0 0 192px;width:192px;height:192px;background:rgba(255,255,255,.06);overflow:hidden}
+body.bat-page .bat-dining__photo img{position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;object-fit:cover;object-position:center;display:block}
 .bat-interlude{background:var(--bg);color:var(--text);padding:clamp(32px,5vw,48px) var(--nav-pad-x);text-align:center;font-size:13px;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
 .bat-modal{position:fixed;inset:0;z-index:200;display:none;align-items:flex-end;justify-content:center;padding:0}
 .bat-modal.is-open{display:flex}
@@ -932,6 +1031,21 @@ function esc(s) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+function diningCard(meal, labelDe, labelEn) {
+  const photoHtml = meal.photo
+    ? `<img src="${esc(meal.photo)}" alt="" loading="lazy" decoding="async" onerror="this.hidden=true">`
+    : "";
+  return `<article class="bat-dining__card">
+        <div class="bat-dining__body">
+          <p class="bat-dining__label"><span class="de-t">${esc(labelDe)}</span><span class="en-t">${esc(labelEn)}</span></p>
+          <h3 class="bat-dining__name"><span class="de-t">${esc(meal.nameDe)}</span><span class="en-t">${esc(meal.nameEn)}</span></h3>
+          <p class="bat-dining__text"><span class="de-t">${esc(meal.bodyDe)}</span><span class="en-t">${esc(meal.bodyEn)}</span></p>
+          <a class="bat-dining__link" href="${esc(meal.url)}" target="_blank" rel="noopener noreferrer"><span class="de-t">Website des Betreibers</span><span class="en-t">Venue website</span> →</a>
+        </div>
+        <div class="bat-dining__photo">${photoHtml}</div>
+      </article>`;
 }
 
 function imgBlock(photo, name, clsImg, clsPh) {
@@ -973,14 +1087,8 @@ for (const day of DAYS) {
     <div class="bat-shell">
       <div class="bat-stops">${stopsHtml}</div>
       <div class="bat-dining">
-        <div class="bat-dining__item">
-          <p class="bat-dining__label"><span class="de-t">Mittagessen</span><span class="en-t">Lunch</span></p>
-          <p class="bat-dining__text"><span class="de-t">${esc(day.lunchDe)}</span><span class="en-t">${esc(day.lunchEn)}</span></p>
-        </div>
-        <div class="bat-dining__item">
-          <p class="bat-dining__label"><span class="de-t">Abendessen</span><span class="en-t">Dinner</span></p>
-          <p class="bat-dining__text"><span class="de-t">${esc(day.dinnerDe)}</span><span class="en-t">${esc(day.dinnerEn)}</span></p>
-        </div>
+        ${diningCard(day.lunch, "Mittagessen", "Lunch")}
+        ${diningCard(day.dinner, "Abendessen", "Dinner")}
       </div>
     </div>
   </section>`;
@@ -1014,12 +1122,6 @@ return `<!DOCTYPE html>
 
 <section class="bat-hero" aria-labelledby="bat-hero-title">
   <img class="bat-hero__img" src="${heroImg}" alt="" decoding="async">
-  <div class="bat-hero__lang-wrap bat-shell">
-    <div class="bat-lang" role="group" aria-label="Sprache">
-      <button type="button" class="is-active" data-lang="de">DE</button>
-      <button type="button" data-lang="en">EN</button>
-    </div>
-  </div>
   <div class="bat-hero__shell bat-shell">
     <div class="bat-hero__inner">
       <p class="bat-hero__eyebrow"><span class="de-t">Studienreise · Berlin</span><span class="en-t">Study trip · Berlin</span></p>
@@ -1066,7 +1168,7 @@ return `<!DOCTYPE html>
 
 <script>
 const TOUR = ${JSON.stringify(DAYS)};
-let lang = 'de';
+let lang = (function(){try{return localStorage.getItem('fcLang')||'de'}catch(e){return 'de'}})();
 let openId = null;
 
 function findStop(id) {
@@ -1078,15 +1180,15 @@ function findStop(id) {
 }
 
 function setLang(next) {
-  lang = next;
-  document.body.classList.toggle('en', next === 'en');
-  document.body.classList.toggle('de', next === 'de');
-  document.documentElement.lang = next;
-  document.querySelectorAll('.bat-lang button').forEach(btn => {
-    btn.classList.toggle('is-active', btn.dataset.lang === next);
-  });
+  lang = next === 'en' ? 'en' : 'de';
+  document.body.classList.toggle('en', lang === 'en');
+  document.body.classList.toggle('de', lang === 'de');
+  document.documentElement.lang = lang;
+  try { localStorage.setItem('fcLang', lang); } catch (e) {}
   if (openId) renderModal(openId);
 }
+document.addEventListener('fc-lang-change', function (e) { setLang(e.detail.lang); });
+setLang(lang);
 
 function renderModal(id) {
   const s = findStop(id);
@@ -1152,10 +1254,6 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeModal();
 });
 
-document.querySelectorAll('.bat-lang button').forEach(btn => {
-  btn.addEventListener('click', () => setLang(btn.dataset.lang));
-});
-
 const daySections = document.querySelectorAll('.bat-day');
 const dayLinks = document.querySelectorAll('[data-day-link]');
 if ('IntersectionObserver' in window && daySections.length) {
@@ -1173,12 +1271,25 @@ if ('IntersectionObserver' in window && daySections.length) {
 if (location.search.includes('lang=en')) setLang('en');
 </script>
 <script src="nav.js" defer></script>
+<script src="fc-lang.js" defer></script>
 </body>
 </html>`;
 }
 
+function resolveDiningPhotoFallbacks() {
+  for (const day of DAYS) {
+    for (const key of ["lunch", "dinner"]) {
+      const meal = day[key];
+      if (!meal?.photo || meal.photo.startsWith("assets/")) continue;
+      const fallback = day.stops.find((s) => s.photo?.startsWith("assets/"));
+      if (fallback) meal.photo = fallback.photo;
+    }
+  }
+}
+
 async function main() {
   const heroImg = await localizeTourImages();
+  resolveDiningPhotoFallbacks();
   const html = buildHtml(heroImg);
   writeFileSync(outPath, html, "utf8");
   console.log("Wrote", outPath, "(" + html.length + " bytes)");

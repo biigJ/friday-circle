@@ -5,7 +5,7 @@
   var slides = root.querySelectorAll(".gogl-program-slider__slide");
   if (!slides.length) return;
 
-  var SLIDE_LABELS = [
+  var SLIDE_LABELS_DE = [
     "Personal Training ab 39€",
     "Mitglied werden",
     "Den passenden Trainer",
@@ -15,6 +15,26 @@
     "Mobilityroutine",
     "Triff Joscha",
   ];
+  var SLIDE_LABELS_EN = [
+    "Personal training from €39",
+    "Become a member",
+    "Find the right trainer",
+    "CIRCLE TRAINING",
+    "Factfulness",
+    "Upper body",
+    "Mobility routine",
+    "Meet Joscha",
+  ];
+  var SLIDE_DEFAULT_DE = "Ein leichter Schritt, Dich täglich ausreichend zu bewegen.";
+  var SLIDE_DEFAULT_EN = "A light step toward moving enough every day.";
+
+  function currentLang() {
+    return document.body.classList.contains("en") ? "en" : "de";
+  }
+
+  function slideLabels() {
+    return currentLang() === "en" ? SLIDE_LABELS_EN : SLIDE_LABELS_DE;
+  }
 
   var titleEl = document.getElementById("gogl-program-slider-title");
   var dots = root.querySelectorAll(".gogl-program-slider__dot[data-slide-to]");
@@ -34,8 +54,9 @@
     slides.forEach(function (slide, n) {
       slide.classList.toggle("is-active", n === activeNodeIndex);
     });
-    if (titleEl && SLIDE_LABELS[index]) {
-      titleEl.textContent = SLIDE_LABELS[index];
+    if (titleEl) {
+      var labels = slideLabels();
+      titleEl.textContent = labels[index] || (currentLang() === "en" ? SLIDE_DEFAULT_EN : SLIDE_DEFAULT_DE);
     }
     dots.forEach(function (dot) {
       var n = parseInt(dot.getAttribute("data-slide-to"), 10);
@@ -148,6 +169,10 @@
   } else {
     start();
   }
+
+  document.addEventListener("fc-lang-change", function () {
+    show(index);
+  });
 
   show(0);
 })();

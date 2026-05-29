@@ -1,13 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Geschichte · Friday Circle</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Programmierung · Lebensjahre · Friday Circle</title>
+<meta name="description" content="Dein Leben in 90 Jahren parallel zum Internet, plus kuratierter Geschichtskontext." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="fc-life-in-squares.css" />
 <style>
   :root {
     --w-bg: #f0eee6;
@@ -132,85 +134,114 @@
     .hero-title { font-size: 30px; }
   }
 </style>
+<style>
+.programmierung-page .prog-geschichte { background: var(--w-bg, #f0eee6); }
+.programmierung-page .prog-geschichte .wissen-topbar { position: static; }
+</style>
 </head>
-<body>
-  <header class="nav" aria-label="Hauptnavigation">
-    <div class="nav__inner">
-      <a href="index.html" class="nav__logo" aria-label="Friday Circle Startseite">FRIDAY CIRCLE</a>
-      <button type="button" class="nav__burger" aria-expanded="false" aria-controls="primary-nav" aria-label="Menü öffnen">
-        <span class="nav__burger-box">
-          <span class="nav__burger-line" aria-hidden="true"></span>
-          <span class="nav__burger-line" aria-hidden="true"></span>
-          <span class="nav__burger-line" aria-hidden="true"></span>
-        </span>
-      </button>
-      <nav id="primary-nav" class="nav__links" aria-label="Primär">
-        <a href="ziele.html">Ziele</a>
-        <a href="loesungen.html">Lösungen</a>
-        <a href="projekte.html">Projekte</a>
-      </nav>
-      <div class="nav__cta-bucket">
-        <div class="nav__cta-split">
-          <a href="gogogo-landing.html" class="cta-pill cta-pill--gogogo nav__cta-primary">gogogo</a>
-          <div class="nav__cta-arrow">
-            <button
-              type="button"
-              class="nav__cta-toggle"
-              id="nav-gogogo-toggle"
-              aria-expanded="false"
-              aria-haspopup="true"
-              aria-controls="nav-gogogo-dropdown"
-              aria-label="Programme: Menü anzeigen"
-            >
-              <span class="nav__cta-toggle-icon" aria-hidden="true"></span>
-            </button>
-            <div id="nav-gogogo-dropdown" class="nav__gogogo-panel" role="menu" aria-label="Programme">
-              <a role="menuitem" class="nav__gogogo-item nav__gogogo-item--gogogo" href="gogogo-landing.html#onboarding"
-                >gogogo <span class="nav__gogogo-external" aria-hidden="true">↗</span></a
-              >
-              <p class="nav__program-soon" role="presentation">mehr Programme</p>
-              <a role="menuitem" class="nav__gogogo-item nav__gogogo-item--cycle" href="cycle-training.html"
-                >cycle training <span class="nav__gogogo-external" aria-hidden="true">↗</span></a
-              >
-              <a role="menuitem" class="nav__gogogo-item nav__gogogo-item--gosam" href="go-sam.html"
-                >gogogo App <span class="nav__gogogo-external" aria-hidden="true">↗</span></a
-              >
-              <a role="menuitem" class="nav__gogogo-item nav__gogogo-item--haima" href="haima.html"
-                >biig Interior <span class="nav__gogogo-external" aria-hidden="true">↗</span></a
-              >
-              <a role="menuitem" class="nav__gogogo-item nav__gogogo-item--programmierung" href="programmierung/geschichte.html"
-                >Programmierung <span class="nav__gogogo-external" aria-hidden="true">↗</span></a
-              >
-              <a role="menuitem" class="nav__gogogo-item nav__gogogo-item--geschichte" href="programmierung.html"
-                >Geschichte <span class="nav__gogogo-external" aria-hidden="true">↗</span></a
-              >
+<body class="programmierung-page">
+<div id="fc-site-header"></div>
+<main>
+
+      <section class="landing-bridge programmierung-sub__intro" aria-labelledby="fc-life-headline">
+        <hr class="landing-bridge__rule" />
+        <p class="landing-bridge__kicker"><span class="de-t">Lebensjahre · Programmierung</span><span class="en-t">Life years · Programming</span></p>
+      </section>
+
+      <section class="landing-after-video" aria-labelledby="fc-life-headline">
+        <div class="landing-after-video__inner landing-after-video__inner--geschichte">
+          <div class="fc-life-squares-embed" aria-label="Dein Leben in 90 Jahren — interaktive Übersicht">
+            <div class="fc-life-squares">
+              <div class="fc-life-layout">
+                <div class="fc-life-layout__intro">
+                  <h1 id="fc-life-headline" class="headline">
+                    Dein Leben verläuft parallel<br />zum Leben des Internets.
+                  </h1>
+                  <p class="subline">
+                    90 Quadrate — 90 Jahre. Klick auf ein Jahr und sieh, was gerade in der Welt passierte: was es
+                    schwer macht, und was es möglich macht.
+                  </p>
+                  <div class="controls">
+                    <span class="ctrl-label">Geburtsjahr:</span>
+                    <select class="birth-select" id="birthSel" onchange="rebuild()"></select>
+
+                    <div class="age-banner age-banner--intro">
+                      <div class="age-banner-text" id="bannerTxt">—</div>
+                      <div class="age-nums" id="bannerNums"></div>
+                    </div>
+
+                    <div class="legend" id="legend">
+                      <div class="legend-item"><div class="legend-dot"></div>Vor dem Web</div>
+                      <div class="legend-item"><div class="legend-dot legend-dot--early"></div>Frühes Internet</div>
+                      <div class="legend-item"><div class="legend-dot legend-dot--social"></div>Social Media</div>
+                      <div class="legend-item"><div class="legend-dot legend-dot--crisis"></div>Krise</div>
+                      <div class="legend-item"><div class="legend-dot legend-dot--now"></div>Heute</div>
+                      <div class="legend-item"><div class="legend-dot legend-dot--future"></div>Zukunft</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="fc-life-layout__grid">
+                  <div class="squares-grid" id="grid"></div>
+                </div>
+              </div>
+
+              <div class="fc-life-mode-bar">
+                <div class="toggle-group" id="modeToggle">
+                  <button type="button" class="toggle-btn active" data-mode="neg" onclick="setMode('neg',this)">
+                    ↓ Herausforderungen
+                  </button>
+                  <button type="button" class="toggle-btn" data-mode="pos" onclick="setMode('pos',this)">
+                    ↑ Chancen &amp; Wandel
+                  </button>
+                  <button type="button" class="toggle-btn" data-mode="global" onclick="setMode('global',this)">
+                    🌍 Welt außerhalb
+                  </button>
+                </div>
+              </div>
+
+              <div class="detail-panel-placeholder" id="panelPlaceholder">
+                <p class="detail-panel-placeholder__text">klick auf ein Jahr</p>
+              </div>
+
+              <div class="detail-panel" id="panel">
+                <div class="panel-header">
+                  <div class="panel-year" id="pYear">—</div>
+                  <div class="panel-hdr-right">
+                    <div class="panel-era-tag" id="pEra"></div>
+                    <div class="panel-event" id="pEvent"></div>
+                    <div class="panel-event-sub" id="pSub"></div>
+                  </div>
+                  <button type="button" class="panel-close" onclick="closePanel()">×</button>
+                </div>
+
+                <div class="panel-tabs" id="panelTabs"></div>
+
+                <div class="tab-content active" id="tab-society">
+                  <div class="panel-stats" id="pStats"></div>
+                  <div class="insight-grid" id="pInsights"></div>
+                </div>
+
+                <div class="tab-content" id="tab-pos">
+                  <div class="pos-grid" id="pPos"></div>
+                </div>
+
+                <div class="tab-content" id="tab-global">
+                  <div class="global-grid" id="pGlobal"></div>
+                </div>
+
+                <div class="tab-content" id="tab-agency">
+                  <div class="agency-intro" id="pAgencyIntro"></div>
+                  <div class="agency-grid" id="pAgency"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </header>
-
-  <div id="login-screen">
-    <div class="login-box">
-      <div class="login-logo">Friday Circle</div>
-      <h1 class="login-title">Geschichte &amp; Kontext</h1>
-      <p class="login-sub">Eine kuratierte Wissenssammlung. Fakten, Zusammenhänge, keine Verschwörungstheorien.</p>
-      <input class="login-input" type="password" id="pw-input" placeholder="Passwort eingeben" onkeydown="if(event.key==='Enter')checkPW()"/>
-      <button class="login-btn" onclick="checkPW()">Öffnen</button>
-      <div class="login-error" id="pw-error">Falsches Passwort.</div>
-    </div>
-  </div>
-
-  <main id="main">
-    <div class="wissen-topbar">
-      <span class="wissen-topbar-brand">Friday Circle · Geschichte</span>
-      <span class="wissen-topbar-label"
-        >Privat · <a href="programmierung/geschichte.html">Programmierung (90 Jahre)</a></span
-      >
-    </div>
-
-    <div class="hero">
+      </section>
+    
+<section id="geschichte-kontext" class="prog-geschichte" aria-label="Geschichte und Kontext">
+<div class="hero">
       <div class="hero-eyebrow">Kontext · Gesellschaft · Technologie · Macht</div>
       <h1 class="hero-title">Wie unsere Welt<br>wirklich funktioniert.</h1>
       <p class="hero-sub">Faktenbasierter Überblick über die Entwicklung des Internets, sozialer Medien und technologischer Machtstrukturen — und deren Einfluss auf Demokratie, Meinungsbildung und Gesellschaft.</p>
@@ -382,40 +413,17 @@
         Zuletzt aktualisiert: Mai 2026.
       </div>
     </div>
-  </main>
-
-  <footer class="footer" aria-label="Seitenfuß">
-    <div class="footer__inner">
-      <a href="index.html" class="footer__logo">FRIDAY CIRCLE</a>
-      <nav class="footer__links" aria-label="Rechtliches und Über uns">
-        <a href="impressum/index.html">Impressum</a>
-        <a href="datenschutz/index.html">Datenschutz</a>
-        <a href="kontakt/index.html">Kontakt</a>
-      </nav>
-      <p class="footer__copy">© 2026</p>
-    </div>
-  </footer>
-
-  <script src="nav.js" defer></script>
-  <script>
-    const PASSWORD = "fridaycircle";
-    function checkPW() {
-      const val = document.getElementById("pw-input").value;
-      if (val === PASSWORD) {
-        document.getElementById("login-screen").style.display = "none";
-        document.getElementById("main").style.display = "block";
-      } else {
-        const err = document.getElementById("pw-error");
-        err.style.display = "block";
-        document.getElementById("pw-input").value = "";
-        setTimeout(() => { err.style.display = "none"; }, 3000);
-      }
-    }
-    function toggleExpand(btn) {
-      const exp = btn.nextElementSibling;
-      exp.classList.toggle("open");
-      btn.textContent = exp.classList.contains("open") ? "− Weniger" : "+ Mehr Details";
-    }
-  </script>
+</section>
+</main>
+<div id="fc-site-footer"></div>
+<script src="nav.js" defer></script>
+<script src="fc-life-in-squares.js" defer></script>
+<script>
+function toggleExpand(btn) {
+  const exp = btn.nextElementSibling;
+  exp.classList.toggle('open');
+  btn.textContent = exp.classList.contains('open') ? '− Weniger' : '+ Mehr Details';
+}
+</script>
 </body>
 </html>

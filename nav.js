@@ -68,9 +68,34 @@
       });
   }
 
+  function loadScript(name) {
+    if (document.querySelector('script[src*="' + name + '"]')) return;
+    var s = document.createElement("script");
+    s.src = new URL(name, partialBaseHref()).href;
+    s.defer = true;
+    document.head.appendChild(s);
+  }
+
+  function loadFcLang() {
+    loadScript("fc-lang.js");
+  }
+
+  function syncNavLangWidth() {
+    var langEl = document.querySelector(".nav__lang");
+    if (langEl) {
+      document.documentElement.style.setProperty("--nav-lang-width", langEl.offsetWidth + "px");
+    }
+  }
+
   function chromeReady() {
     ensureSiteBase();
+    if (document.body.classList.contains("bat-page")) {
+      var primaryNav = document.getElementById("primary-nav");
+      if (primaryNav) primaryNav.setAttribute("hidden", "");
+    }
+    syncNavLangWidth();
     document.dispatchEvent(new CustomEvent("fc-chrome-ready"));
+    loadFcLang();
   }
 
   function injectSiteChrome() {

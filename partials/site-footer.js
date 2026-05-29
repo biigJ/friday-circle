@@ -1,4 +1,4 @@
 (function (w) {
   w.FC_PARTIAL_HTML = w.FC_PARTIAL_HTML || {};
-  w.FC_PARTIAL_HTML["site-footer"] = '<footer class="footer" aria-label="Seitenfuß"> <div class="footer__inner"> <a href="/index.html" class="footer__logo">FRIDAY CIRCLE</a> <nav class="footer__links" aria-label="Rechtliches und Über uns"> <a href="/impressum/index.html">Impressum</a> <a href="/datenschutz/index.html">Datenschutz</a> <a href="/kontakt/index.html">Kontakt</a> </nav> <p class="footer__copy">© 2026</p> </div> </footer>';
+  w.FC_PARTIAL_HTML["site-footer"] = '<footer class="footer" aria-label="Seitenfuß"> <div class="footer__inner"> <a href="index.html" class="footer__logo">FRIDAY CIRCLE</a> <nav class="footer__links" aria-label="Rechtliches und Über uns"> <a href="impressum/index.html"><span class="de-t">Impressum</span><span class="en-t">Legal notice</span></a> <a href="datenschutz/index.html"><span class="de-t">Datenschutz</span><span class="en-t">Privacy</span></a> <a href="kontakt/index.html"><span class="de-t">Kontakt</span><span class="en-t">Contact</span></a> </nav> <p class="footer__copy">© 2026</p> </div> </footer>';
 })(window);
