@@ -7,17 +7,26 @@ Statische Website für **FRIDAY CIRCLE**. Das Repo ist auf die aktiven Programme
 - `gogogo App`
 - `biig Interior`
 - `Geschichte` (`programmierung.html`, Programmierung unter `programmierung/geschichte.html`)
+- `Berlin Architecture Tour` (`berlinarchtour.html`, Spec in `docs/berlin-arch-tour-spec.md`)
 
 Ausgelagerte Projekte wie Balko, Holyprop und Fitness First Social Club liegen nicht mehr in diesem Repo.
 
 ## Lokal öffnen
 
-Kein Build. `index.html` im Browser öffnen oder:
+Kein Build (außer Berlin Architecture Tour). `index.html` im Browser öffnen oder:
 
 ```bash
 cd friday-circle
 python3 -m http.server 5173
 # → http://localhost:5173
+# → http://localhost:5173/berlinarchtour.html
+```
+
+Berlin Architecture Tour neu generieren (nach Änderungen an `scripts/build-berlin-arch-tour.mjs`):
+
+```bash
+node scripts/build-berlin-arch-tour.mjs
+node scripts/build-partial-js.mjs   # wenn site-header.html geändert wurde
 ```
 
 ## Vercel Deployment
