@@ -2,6 +2,7 @@
 import { writeFileSync, mkdirSync, existsSync, copyFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import { PHOTO_BY_STOP, NEW_STOPS_META, DINING_PHOTOS } from "./berlin-arch-tour-photos.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = join(__dirname, "..");
@@ -37,17 +38,67 @@ async function downloadImage(url, destPath, optional = false) {
   throw new Error(`Download failed: ${url}`);
 }
 
+function assetPath(filename) {
+  return `assets/berlin-arch-tour/${filename}`;
+}
+
+function applyLocalPhotoCatalog() {
+  for (const day of DAYS) {
+    for (const stop of day.stops) {
+      const files = PHOTO_BY_STOP[stop.id];
+      if (!files?.length) continue;
+      stop.photo = assetPath(files[0]);
+      stop.gallery = files.length > 1 ? files.slice(1).map(assetPath) : undefined;
+    }
+    for (const [key, filename] of Object.entries(DINING_PHOTOS)) {
+      const [dayId, mealKey] = key.split("-");
+      const d = DAYS.find((x) => String(x.id) === dayId);
+      if (d?.[mealKey] && filename) d[mealKey].photo = assetPath(filename);
+    }
+  }
+
+  for (const meta of NEW_STOPS_META) {
+    const day = DAYS.find((d) => d.id === meta.dayId);
+    const files = PHOTO_BY_STOP[meta.id];
+    if (!day || !files?.length) continue;
+    day.stops.push({
+      id: meta.id,
+      nameDe: meta.nameDe,
+      nameEn: meta.nameEn,
+      metaDe: meta.metaDe || `${meta.districtDe} · Berlin`,
+      metaEn: meta.metaEn || `${meta.districtDe} · Berlin`,
+      tag: meta.tag,
+      teaserDe: meta.teaserDe,
+      teaserEn: meta.teaserEn,
+      bodyDe: meta.bodyDe || meta.teaserDe,
+      bodyEn: meta.bodyEn || meta.teaserEn,
+      accessDe: meta.accessDe || "Von außen zugänglich, sofern nicht anders angegeben.",
+      accessEn: meta.accessEn || "Accessible from outside unless noted otherwise.",
+      photo: assetPath(files[0]),
+      gallery: files.length > 1 ? files.slice(1).map(assetPath) : undefined,
+    });
+  }
+}
+
 async function localizeTourImages() {
   mkdirSync(imgDir, { recursive: true });
+  applyLocalPhotoCatalog();
   const heroPath = join(imgDir, "hero.jpg");
   if (existsSync(HERO_LOCAL_SRC)) {
     copyFileSync(HERO_LOCAL_SRC, heroPath);
   }
   const heroLocal = "assets/berlin-arch-tour/hero.jpg";
 
+  const skipDownload = process.env.BAT_SKIP_DOWNLOAD === "1";
+
   for (const day of DAYS) {
     for (const stop of day.stops) {
       if (!stop.photo || stop.photo.startsWith("assets/")) continue;
+      if (skipDownload) {
+        const dest = join(imgDir, `${stop.id}.jpg`);
+        if (existsSync(dest)) stop.photo = `assets/berlin-arch-tour/${stop.id}.jpg`;
+        continue;
+      }
       const dest = join(imgDir, `${stop.id}.jpg`);
       await downloadImage(stop.photo, dest);
       stop.photo = `assets/berlin-arch-tour/${stop.id}.jpg`;
@@ -55,6 +106,7 @@ async function localizeTourImages() {
     for (const key of ["lunch", "dinner"]) {
       const meal = day[key];
       if (!meal?.photo || meal.photo.startsWith("assets/")) continue;
+      if (skipDownload) continue;
       const dest = join(imgDir, `dining-d${day.id}-${key}.jpg`);
       const ok = await downloadImage(meal.photo, dest, true);
       if (ok) meal.photo = `assets/berlin-arch-tour/dining-d${day.id}-${key}.jpg`;
@@ -1011,6 +1063,15 @@ body.bat-page .bat-dining__photo img{position:absolute;inset:0;width:100%;height
 .bat-modal__panel{position:relative;z-index:1;width:min(680px,100%);max-height:92vh;overflow-y:auto;background:var(--bat-black);color:var(--bat-white);border-radius:12px 12px 0 0;margin:0}
 @media(min-width:640px){.bat-modal{align-items:center;padding:24px}.bat-modal__panel{border-radius:12px;max-height:88vh}}
 .bat-modal__img{width:100%;height:272px;max-width:none;max-height:none;object-fit:cover;object-position:center;display:block;background:rgba(255,255,255,.08)}
+.bat-modal__gallery{position:relative;background:rgba(255,255,255,.06)}
+.bat-modal__gallery-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.bat-modal__gallery-track::-webkit-scrollbar{display:none}
+.bat-modal__gallery .bat-modal__img{flex:0 0 100%;scroll-snap-align:start}
+.bat-modal__gallery-nav{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:0 8px;pointer-events:none}
+.bat-modal__gallery-nav button{pointer-events:auto;width:40px;height:40px;border:none;border-radius:50%;background:rgba(0,0,0,.55);color:var(--bat-white);font-size:22px;line-height:1;cursor:pointer}
+.bat-modal__gallery-dots{display:flex;justify-content:center;gap:8px;padding:10px 0 4px}
+.bat-modal__gallery-dots button{width:7px;height:7px;padding:0;border:none;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer}
+.bat-modal__gallery-dots button.is-active{background:var(--bat-red)}
 .bat-modal__ph{display:none;height:272px;align-items:center;justify-content:center;font-size:14px;letter-spacing:.1em;text-transform:uppercase;opacity:.45}
 .bat-modal__inner{padding:clamp(20px,4vw,32px)}
 .bat-modal__close{position:absolute;top:12px;right:12px;z-index:2;width:40px;height:40px;border:none;border-radius:50%;background:rgba(0,0,0,.5);color:var(--bat-white);font-size:20px;cursor:pointer}
@@ -1190,23 +1251,106 @@ function setLang(next) {
 document.addEventListener('fc-lang-change', function (e) { setLang(e.detail.lang); });
 setLang(lang);
 
+let modalGalleryIndex = 0;
+
+function getModalPhotos(s) {
+  const all = [s.photo].concat(s.gallery || []).filter(Boolean);
+  if (all.length <= 1) return all;
+  return all.slice(1);
+}
+
+function renderModalMedia(s, name) {
+  const media = document.getElementById('bat-modal-media');
+  const photos = getModalPhotos(s);
+  const safeName = name.replace(/</g, '&lt;');
+  if (!photos.length) {
+    if (s.photo) {
+      media.innerHTML =
+        '<img class="bat-modal__img" src="' +
+        s.photo.replace(/"/g, '&quot;') +
+        '" alt="" onerror="this.hidden=true;this.nextElementSibling.style.display=\\'flex\\'">' +
+        '<div class="bat-modal__ph" aria-hidden="true">' +
+        safeName +
+        '</div>';
+    } else {
+      media.innerHTML = '<div class="bat-modal__ph" style="display:flex" aria-hidden="true">' + safeName + '</div>';
+    }
+    return;
+  }
+  if (photos.length === 1) {
+    media.innerHTML =
+      '<img class="bat-modal__img" src="' +
+      photos[0].replace(/"/g, '&quot;') +
+      '" alt="" onerror="this.hidden=true;this.nextElementSibling.style.display=\\'flex\\'">' +
+      '<div class="bat-modal__ph" aria-hidden="true">' +
+      safeName +
+      '</div>';
+    return;
+  }
+  modalGalleryIndex = 0;
+  const imgs = photos
+    .map(
+      (src) =>
+        '<img class="bat-modal__img" src="' + src.replace(/"/g, '&quot;') + '" alt="" onerror="this.hidden=true">'
+    )
+    .join('');
+  const dots = photos
+    .map(
+      (_, i) =>
+        '<button type="button" data-gallery-dot="' + i + '"' + (i ? '' : ' class="is-active"') + ' aria-label="' + (i + 1) + '/' + photos.length + '"></button>'
+    )
+    .join('');
+  media.innerHTML =
+    '<div class="bat-modal__gallery" data-gallery-count="' +
+    photos.length +
+    '">' +
+    '<div class="bat-modal__gallery-track" id="bat-modal-gallery-track">' +
+    imgs +
+    '</div>' +
+    '<div class="bat-modal__gallery-nav">' +
+    '<button type="button" data-gallery-prev aria-label="Vorheriges Bild">‹</button>' +
+    '<button type="button" data-gallery-next aria-label="Nächstes Bild">›</button>' +
+    '</div>' +
+    '<div class="bat-modal__gallery-dots" id="bat-modal-gallery-dots">' +
+    dots +
+    '</div>' +
+    '<div class="bat-modal__ph" aria-hidden="true">' +
+    safeName +
+    '</div></div>';
+  bindModalGallery(photos.length);
+}
+
+function bindModalGallery(count) {
+  const track = document.getElementById('bat-modal-gallery-track');
+  if (!track) return;
+  const dots = document.querySelectorAll('[data-gallery-dot]');
+  function show(i) {
+    modalGalleryIndex = (i + count) % count;
+    track.scrollTo({ left: track.clientWidth * modalGalleryIndex, behavior: 'smooth' });
+    dots.forEach((dot, idx) => {
+      dot.classList.toggle('is-active', idx === modalGalleryIndex);
+    });
+  }
+  const prev = document.querySelector('[data-gallery-prev]');
+  const next = document.querySelector('[data-gallery-next]');
+  if (prev) prev.onclick = () => show(modalGalleryIndex - 1);
+  if (next) next.onclick = () => show(modalGalleryIndex + 1);
+  dots.forEach((dot) => {
+    dot.onclick = () => show(Number(dot.dataset.galleryDot));
+  });
+}
+
 function renderModal(id) {
   const s = findStop(id);
   if (!s) return;
-  const media = document.getElementById('bat-modal-media');
   const content = document.getElementById('bat-modal-content');
   const name = lang === 'en' ? s.nameEn : s.nameDe;
   const body = lang === 'en' ? s.bodyEn : s.bodyDe;
   const access = lang === 'en' ? s.accessEn : s.accessDe;
   const story = lang === 'en' ? (s.storyEn || '') : (s.storyDe || '');
-  const storyLabel = lang === 'en' ? 'Story' : 'Story';
   const accessLabel = lang === 'en' ? 'Access' : 'Zugang';
 
-  if (s.photo) {
-    media.innerHTML = '<img class="bat-modal__img" src="' + s.photo.replace(/"/g,'&quot;') + '" alt="" onerror="this.hidden=true;this.nextElementSibling.style.display=\\'flex\\'"><div class="bat-modal__ph" aria-hidden="true">' + name.replace(/</g,'&lt;') + '</div>';
-  } else {
-    media.innerHTML = '<div class="bat-modal__ph" style="display:flex" aria-hidden="true">' + name.replace(/</g,'&lt;') + '</div>';
-  }
+  renderModalMedia(s, name);
 
   let storyHtml = '';
   if (story && story.trim()) {
