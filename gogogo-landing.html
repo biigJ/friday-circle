@@ -3358,10 +3358,8 @@
         min-height: 0;
         height: auto;
         border-radius: 0;
-        overflow: hidden;
-        background: color-mix(in srgb, var(--stoerer-signal) 72%, rgba(255, 250, 250, 0.04));
-        backdrop-filter: blur(14px);
-        -webkit-backdrop-filter: blur(14px);
+        overflow: visible;
+        background: var(--stoerer-signal);
         border: none;
         box-shadow: none;
         color: #fff0f0;
@@ -3421,6 +3419,7 @@
         display: grid;
         grid-template-columns: 1fr 0.62fr;
         min-height: 0;
+        overflow: hidden;
       }
       .gogl-stoerer__left {
         min-height: 0;
@@ -3451,48 +3450,53 @@
         display: block;
       }
       .gogl-stoerer__actions {
+        --stoerer-actions-right: var(--gogl-joscha-hellblau-cta);
         flex: 0 0 auto;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0;
-        border-top: 1px solid rgba(255, 240, 240, 0.38);
-        padding: 0;
+        display: flex;
         margin: 0;
-        background: transparent;
+        padding: 0;
+        border: none;
+        background: var(--stoerer-signal);
       }
       .gogl-stoerer__actions a {
+        flex: 1 1 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         box-sizing: border-box;
+        min-width: 0;
         text-align: center;
         font-family: var(--font-serif);
         font-weight: 600;
         font-size: 0.95rem;
         padding: 16px 14px;
+        margin: 0;
+        border: 0;
         border-radius: 0;
+        box-shadow: none;
+        outline: none;
         text-decoration: none;
-        transition: filter 0.2s ease, background 0.2s ease;
-        color: inherit;
+        background: var(--stoerer-signal);
+        filter: none;
+        transition: opacity 0.2s ease;
+        -webkit-tap-highlight-color: transparent;
       }
       .gogl-stoerer__actions a:first-of-type {
-        background: transparent;
         color: #fff0f0;
-        border-right: 1px solid rgba(255, 240, 240, 0.38);
-      }
-      .gogl-stoerer__actions a:first-of-type:hover,
-      .gogl-stoerer__actions a:first-of-type:focus-visible {
-        background: color-mix(in srgb, #fff0f0 12%, transparent);
       }
       .gogl-stoerer__actions a:last-of-type {
-        background: var(--gogl-joscha-hellblau-cta);
+        flex: 1 1 calc(50% + 1px);
+        margin-left: -1px;
+        background: var(--stoerer-actions-right);
         color: #ff2d2d;
-        border: none;
       }
-      .gogl-stoerer__actions a:last-of-type:hover,
-      .gogl-stoerer__actions a:last-of-type:focus-visible {
-        background: color-mix(in srgb, var(--gogl-joscha-hellblau-cta) 85%, transparent);
+      .gogl-stoerer__actions a:hover,
+      .gogl-stoerer__actions a:focus-visible {
+        opacity: 0.92;
       }
       .gogl-stoerer__actions a:focus-visible {
-        outline: 2px solid #fff0f0;
-        outline-offset: -2px;
+        text-decoration: underline;
+        text-underline-offset: 3px;
       }
       /* Beta-Leiste oben: schwarz mit gelber Schrift */
       .gogl-beta-bar {
