@@ -375,6 +375,29 @@ body.bat-page .nav__logo {
   outline-offset: 2px;
 }
 
+.nav__gogogo-item.is-offline,
+.fc-program-hero__cta.is-offline,
+.cta-pill.is-offline {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.72;
+}
+
+.nav__gogogo-item.is-offline:hover,
+.nav__gogogo-item.is-offline:focus-visible {
+  background: transparent;
+  color: var(--text);
+}
+
+.nav__gogogo-offline {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
 .nav__gogogo-item--lebensjahre:focus-visible {
   outline: 2px solid #fff;
   outline-offset: 2px;

@@ -62,7 +62,7 @@
       { s: "#gogogo .product__cta", de: "mehr lesen", en: "read more" },
       { s: "#haima .product__kicker", de: "Platzhalter – Kurzzeile wie beim gogogo-Kicker. Text folgt.", en: "Placeholder — short line like the gogogo kicker. Copy to follow." },
       { s: "#haima .product__tagline", de: "Platzhalter – eine Zeile wie „Komm in Bewegung.“", en: 'Placeholder — one line like "Get moving."' },
-      { s: "#haima .product__cta", de: "mehr lesen", en: "read more" },
+      { s: "#haima .product__cta", de: "offline", en: "offline" },
     ],
     "programmierung.html": [
       { s: ".programmierung-sub__intro .landing-bridge__kicker", de: "Lebensjahre · Programmierung", en: "Life years · Programming" },
