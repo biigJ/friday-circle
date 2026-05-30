@@ -686,6 +686,30 @@ html[lang="de"] .en-t {
   display: none !important;
 }
 
+/* gogogo-Landing: Header-CTA behält DE-Breite in EN */
+.gogogo-page .nav__cta-bucket > .gogogo-landing__header-cta {
+  display: inline-grid;
+  align-items: center;
+  justify-items: center;
+  box-sizing: border-box;
+}
+
+.gogogo-page .nav__cta-bucket > .gogogo-landing__header-cta::before {
+  content: "Jetzt starten";
+  grid-area: 1 / 1;
+  visibility: hidden;
+  white-space: nowrap;
+  font-weight: 500;
+  font-size: 0.9rem;
+  line-height: 1;
+}
+
+.gogogo-page .nav__cta-bucket > .gogogo-landing__header-cta .de-t,
+.gogogo-page .nav__cta-bucket > .gogogo-landing__header-cta .en-t {
+  grid-area: 1 / 1;
+  white-space: nowrap;
+}
+
 /* Programm-Hero-Slider (Landing) */
 .landing-bridge--programs {
   max-width: none;
@@ -695,10 +719,24 @@ html[lang="de"] .en-t {
   overflow: visible;
 }
 
-.fc-program-hero-intro {
+.fc-program-hero-stage {
+  width: 100%;
+}
+
+.fc-program-hero-head {
   width: min(100%, var(--content-max));
-  margin: 0 auto clamp(2px, 0.4vw, 6px);
-  padding: 0.775em var(--nav-pad-x) 0;
+  margin: 0 auto clamp(8px, 1.2vw, 11px);
+  padding: 0 var(--nav-pad-x);
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: clamp(12px, 2vw, 20px);
+}
+
+.fc-program-hero-intro {
+  margin: 0;
+  padding: 0.775em 0 0;
   box-sizing: border-box;
   font-family: var(--font-sans);
   font-size: clamp(0.78rem, 1.05vw, 0.92rem);
@@ -718,11 +756,42 @@ html[lang="de"] .en-t {
 
 .fc-program-hero-wrap {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   width: 100vw;
   margin-left: calc(50% - 50vw);
-  margin-top: clamp(6px, 1vw, 12px);
+  margin-top: 0;
   overflow: visible;
+}
+
+.fc-program-hero-arrows {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.fc-program-hero-arrow {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: #0a0a0a;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 1.35rem;
+  line-height: 1;
+  padding: 0 0 2px;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.fc-program-hero-arrow:hover,
+.fc-program-hero-arrow:focus-visible {
+  background: #1a1a1a;
+  transform: translateY(-1px);
 }
 
 .fc-program-hero {
@@ -759,8 +828,18 @@ html[lang="de"] .en-t {
     padding-bottom: 0;
   }
 
+  .fc-program-hero-head {
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    margin-bottom: clamp(6px, 1vw, 12px);
+  }
+
+  .fc-program-hero-arrows {
+    justify-content: flex-end;
+  }
+
   .fc-program-hero-wrap {
-    margin-top: clamp(6px, 1vw, 12px);
+    margin-top: 0;
   }
 
   .fc-program-hero__lebensjahre-visual {
@@ -1075,7 +1154,34 @@ html[lang="de"] .en-t {
 .fc-program-hero__cta:hover,
 .fc-program-hero__cta:focus-visible {
   transform: translateY(-1px);
-  filter: brightness(1.06);
+}
+
+.fc-program-hero__cta--gogogo:hover,
+.fc-program-hero__cta--gogogo:focus-visible {
+  background: var(--accent);
+  color: var(--surface);
+  border-color: #fff;
+}
+
+.fc-program-hero__cta--haima:hover,
+.fc-program-hero__cta--haima:focus-visible {
+  background: #2a2a2a;
+  color: #fff;
+  border-color: #fff;
+}
+
+.fc-program-hero__cta--lebensjahre:hover,
+.fc-program-hero__cta--lebensjahre:focus-visible {
+  background: #f0eee6;
+  color: #a48d47;
+  border-color: #fff;
+}
+
+.fc-program-hero__cta--arch:hover,
+.fc-program-hero__cta--arch:focus-visible {
+  background: #2a2a2a;
+  color: #fff;
+  border-color: #fff;
 }
 
 .fc-program-hero__dots {
@@ -1117,6 +1223,21 @@ html[lang="de"] .en-t {
 .fc-program-hero__dot:focus-visible {
   outline: 2px solid var(--surface);
   outline-offset: 3px;
+}
+
+.fc-program-hero.is-lebensjahre .fc-program-hero__dot {
+  border-color: rgba(10, 10, 10, 0.42);
+}
+
+.fc-program-hero.is-lebensjahre .fc-program-hero__dot.is-active,
+.fc-program-hero.is-lebensjahre .fc-program-hero__dot:hover,
+.fc-program-hero.is-lebensjahre .fc-program-hero__dot:focus-visible {
+  background: rgba(10, 10, 10, 0.78);
+  border-color: rgba(10, 10, 10, 0.88);
+}
+
+.fc-program-hero.is-lebensjahre .fc-program-hero__dot:focus-visible {
+  outline-color: rgba(10, 10, 10, 0.55);
 }
 
 .landing-after-video__inner--geschichte {

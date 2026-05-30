@@ -2,6 +2,11 @@
   var root = document.getElementById("fc-program-hero");
   if (!root) return;
 
+  var stage = root.closest(".fc-program-hero-stage");
+  var wrap = root.closest(".fc-program-hero-wrap");
+  var hoverRoot = stage || wrap || root;
+  var prevBtn = stage && stage.querySelector(".fc-program-hero-arrow--prev");
+  var nextBtn = stage && stage.querySelector(".fc-program-hero-arrow--next");
   var slides = root.querySelectorAll(".fc-program-hero__slide");
   var panels = root.querySelectorAll(".fc-program-hero__panel");
   var dots = root.querySelectorAll(".fc-program-hero__dot");
@@ -9,6 +14,8 @@
 
   var index = 0;
   var timer;
+  var paused = false;
+  var visible = false;
   var mqFlush = window.matchMedia("(max-width: 760px)");
   var navEl = document.querySelector("header.nav");
 
@@ -31,8 +38,13 @@
     show(index + 1);
   }
 
+  function prev() {
+    show(index - 1);
+  }
+
   function start() {
     stop();
+    if (paused || !visible) return;
     timer = window.setInterval(next, 3000);
   }
 
@@ -50,16 +62,38 @@
     });
   });
 
+  hoverRoot.addEventListener("mouseenter", function () {
+    paused = true;
+    stop();
+  });
+
+  hoverRoot.addEventListener("mouseleave", function () {
+    paused = false;
+    if (visible) start();
+  });
+
+  if (prevBtn) {
+    prevBtn.addEventListener("click", function () {
+      prev();
+      start();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", function () {
+      next();
+      start();
+    });
+  }
+
   var io =
     typeof IntersectionObserver !== "undefined"
       ? new IntersectionObserver(
           function (entries) {
             entries.forEach(function (entry) {
-              if (entry.isIntersecting && entry.intersectionRatio > 0.12) {
-                start();
-              } else {
-                stop();
-              }
+              visible = entry.isIntersecting && entry.intersectionRatio > 0.12;
+              if (visible && !paused) start();
+              else stop();
             });
           },
           { threshold: [0, 0.12, 0.35] }
@@ -69,6 +103,7 @@
   if (io) {
     io.observe(root);
   } else {
+    visible = true;
     start();
   }
 
