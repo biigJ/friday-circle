@@ -353,6 +353,8 @@
         --gogl-frame-inset-top: clamp(44px, 5.2vh, 52px);
         --gogl-frame-inset-x: var(--nav-pad-x);
         --gogl-frame-inset-bottom: clamp(12px, 1.8vw, 18px);
+        --gogl-bar-h: clamp(38px, 4.8vh, 48px);
+        --gogl-slide-next-gap: clamp(10px, 1.4vh, 14px);
         --gogl-showcase-chrome: clamp(48px, 7vh, 64px);
         --gogl-grow-peek: clamp(18px, 2.5vh, 28px);
         --gogl-grow-h: calc(100dvh - var(--fc-nav-h, 72px) - var(--gogl-showcase-chrome) - var(--gogl-grow-peek));
@@ -634,6 +636,7 @@
         min-height: 0;
         height: 100%;
         box-sizing: border-box;
+        position: relative;
       }
       .gogl-program-slider__slide.is-active .gogl-joscha-panel,
       .gogl-program-slider__slide.is-active .gogl-program-slide-card {
@@ -1034,17 +1037,28 @@
         transform: translateY(-1px);
         outline: none;
       }
-      .gogl-program-slide-card--gosam .gogl-hero-slide-next,
-      .gogl-program-slide-card--trainer .gogl-hero-slide-next,
-      .gogl-program-slide-card--cycle .gogl-hero-slide-next,
-      .gogl-program-slide-card--joscha .gogl-hero-slide-next,
-      .gogl-program-slide-card--upper .gogl-hero-slide-next,
-      .gogl-program-slide-card--mobility .gogl-hero-slide-next,
-      .gogl-joscha-panel .gogl-hero-slide-next {
+      .gogl-slide-footer-chrome {
         position: absolute;
-        right: clamp(16px, 3vw, 32px);
-        bottom: clamp(14px, 2vh, 22px);
-        z-index: 4;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 6;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: var(--gogl-slide-next-gap);
+        padding-right: clamp(16px, 3vw, 32px);
+        box-sizing: border-box;
+        pointer-events: none;
+      }
+      .gogl-slide-footer-chrome > * {
+        pointer-events: auto;
+      }
+      .gogl-slide-footer-chrome .gogl-hero-slide-next {
+        position: static;
+        right: auto;
+        bottom: auto;
+        z-index: auto;
         display: inline-flex;
         align-items: center;
         gap: clamp(8px, 1.2vw, 12px);
@@ -1061,58 +1075,22 @@
         line-height: 1.5;
         font-weight: 400;
         text-align: right;
-        transform: translateY(-100%);
+        transform: none;
         transition: transform 0.15s ease;
         max-width: min(52%, 22rem);
       }
-      .gogl-program-slide-card--gosam .gogl-hero-slide-next__label,
-      .gogl-program-slide-card--trainer .gogl-hero-slide-next__label,
-      .gogl-program-slide-card--cycle .gogl-hero-slide-next__label,
-      .gogl-program-slide-card--joscha .gogl-hero-slide-next__label,
-      .gogl-program-slide-card--upper .gogl-hero-slide-next__label,
-      .gogl-program-slide-card--mobility .gogl-hero-slide-next__label,
-      .gogl-joscha-panel .gogl-hero-slide-next__label {
+      .gogl-slide-footer-chrome .gogl-hero-slide-next__label {
         text-wrap: balance;
       }
-      .gogl-program-slide-card--gosam .gogl-hero-slide-next:hover .gogl-hero-slide-next__label,
-      .gogl-program-slide-card--gosam .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label,
-      .gogl-program-slide-card--trainer .gogl-hero-slide-next:hover .gogl-hero-slide-next__label,
-      .gogl-program-slide-card--trainer .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label,
-      .gogl-program-slide-card--cycle .gogl-hero-slide-next:hover .gogl-hero-slide-next__label,
-      .gogl-program-slide-card--cycle .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label,
-      .gogl-program-slide-card--joscha .gogl-hero-slide-next:hover .gogl-hero-slide-next__label,
-      .gogl-program-slide-card--joscha .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label,
-      .gogl-program-slide-card--upper .gogl-hero-slide-next:hover .gogl-hero-slide-next__label,
-      .gogl-program-slide-card--upper .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label,
-      .gogl-program-slide-card--mobility .gogl-hero-slide-next:hover .gogl-hero-slide-next__label,
-      .gogl-program-slide-card--mobility .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label,
-      .gogl-joscha-panel .gogl-hero-slide-next:hover .gogl-hero-slide-next__label,
-      .gogl-joscha-panel .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label {
+      .gogl-slide-footer-chrome .gogl-hero-slide-next:hover .gogl-hero-slide-next__label,
+      .gogl-slide-footer-chrome .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label {
         font-weight: 700;
       }
-      .gogl-program-slide-card--gosam .gogl-hero-slide-next:hover,
-      .gogl-program-slide-card--gosam .gogl-hero-slide-next:focus-visible,
-      .gogl-program-slide-card--trainer .gogl-hero-slide-next:hover,
-      .gogl-program-slide-card--trainer .gogl-hero-slide-next:focus-visible,
-      .gogl-program-slide-card--cycle .gogl-hero-slide-next:hover,
-      .gogl-program-slide-card--cycle .gogl-hero-slide-next:focus-visible,
-      .gogl-program-slide-card--joscha .gogl-hero-slide-next:hover,
-      .gogl-program-slide-card--joscha .gogl-hero-slide-next:focus-visible,
-      .gogl-program-slide-card--upper .gogl-hero-slide-next:hover,
-      .gogl-program-slide-card--upper .gogl-hero-slide-next:focus-visible,
-      .gogl-program-slide-card--mobility .gogl-hero-slide-next:hover,
-      .gogl-program-slide-card--mobility .gogl-hero-slide-next:focus-visible,
-      .gogl-joscha-panel .gogl-hero-slide-next:hover,
-      .gogl-joscha-panel .gogl-hero-slide-next:focus-visible {
-        transform: translateY(calc(-100% - 1px));
+      .gogl-slide-footer-chrome .gogl-hero-slide-next:hover,
+      .gogl-slide-footer-chrome .gogl-hero-slide-next:focus-visible {
+        transform: translateY(-1px);
       }
-      .gogl-program-slide-card--gosam .gogl-hero-slide-next__arrow,
-      .gogl-program-slide-card--trainer .gogl-hero-slide-next__arrow,
-      .gogl-program-slide-card--cycle .gogl-hero-slide-next__arrow,
-      .gogl-program-slide-card--joscha .gogl-hero-slide-next__arrow,
-      .gogl-program-slide-card--upper .gogl-hero-slide-next__arrow,
-      .gogl-program-slide-card--mobility .gogl-hero-slide-next__arrow,
-      .gogl-joscha-panel .gogl-hero-slide-next__arrow {
+      .gogl-slide-footer-chrome .gogl-hero-slide-next__arrow {
         flex-shrink: 0;
         display: inline-flex;
         align-items: center;
@@ -1124,24 +1102,36 @@
         color: inherit;
         background: transparent;
       }
-      .gogl-program-slide-card--gosam .gogl-hero-slide-next:focus-visible,
-      .gogl-program-slide-card--trainer .gogl-hero-slide-next:focus-visible,
-      .gogl-program-slide-card--cycle .gogl-hero-slide-next:focus-visible,
-      .gogl-program-slide-card--joscha .gogl-hero-slide-next:focus-visible,
-      .gogl-program-slide-card--upper .gogl-hero-slide-next:focus-visible,
-      .gogl-program-slide-card--mobility .gogl-hero-slide-next:focus-visible,
-      .gogl-joscha-panel .gogl-hero-slide-next:focus-visible {
+      .gogl-slide-footer-chrome .gogl-hero-slide-next:focus-visible {
         outline: none;
       }
-      .gogl-program-slide-card--gosam .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label,
-      .gogl-program-slide-card--trainer .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label,
-      .gogl-program-slide-card--cycle .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label,
-      .gogl-program-slide-card--joscha .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label,
-      .gogl-program-slide-card--upper .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label,
-      .gogl-program-slide-card--mobility .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label,
-      .gogl-joscha-panel .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label {
+      .gogl-slide-footer-chrome .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label {
         text-decoration: underline;
         text-underline-offset: 0.15em;
+      }
+      .gogl-slide-footer-chrome .gogl-bar {
+        align-self: stretch;
+        width: calc(100% + clamp(16px, 3vw, 32px));
+        margin-right: calc(-1 * clamp(16px, 3vw, 32px));
+        flex: 0 0 auto;
+      }
+      .gogl-slide-footer-chrome--reserve-banderole::after {
+        content: "";
+        display: block;
+        align-self: stretch;
+        width: calc(100% + clamp(16px, 3vw, 32px));
+        margin-right: calc(-1 * clamp(16px, 3vw, 32px));
+        height: var(--gogl-bar-h);
+        flex: 0 0 auto;
+        pointer-events: none;
+      }
+      .gogl-video-overlay-footer .gogl-slide-footer-chrome {
+        position: relative;
+        flex: 0 0 auto;
+        width: 100%;
+      }
+      .gogl-program-slider__slide[data-slide="3"] .gogl-slide-footer-chrome .gogl-hero-slide-next {
+        color: #0a0a0a;
       }
       @media (max-width: 760px) {
         .gogl-gosam-slide__video {
@@ -1159,13 +1149,7 @@
           flex-wrap: wrap;
           align-items: flex-start;
         }
-        .gogl-program-slide-card--gosam .gogl-hero-slide-next,
-        .gogl-program-slide-card--trainer .gogl-hero-slide-next,
-        .gogl-program-slide-card--cycle .gogl-hero-slide-next,
-        .gogl-program-slide-card--joscha .gogl-hero-slide-next,
-        .gogl-program-slide-card--upper .gogl-hero-slide-next,
-        .gogl-program-slide-card--mobility .gogl-hero-slide-next,
-        .gogl-joscha-panel .gogl-hero-slide-next {
+        .gogl-slide-footer-chrome .gogl-hero-slide-next {
           max-width: calc(100% - 2 * clamp(16px, 3vw, 32px));
         }
       }
@@ -1583,23 +1567,6 @@
       }
       .gogl-program-slider__slide[data-slide="3"] .gogl-joscha-panel {
         background: transparent;
-      }
-      .gogl-program-slider__slide[data-slide="3"] .gogl-joscha-panel > .gogl-hero-slide-next {
-        position: absolute !important;
-        right: clamp(16px, 3vw, 32px) !important;
-        bottom: clamp(14px, 2vh, 22px) !important;
-        display: inline-flex !important;
-        align-items: center;
-        gap: clamp(8px, 1.2vw, 12px);
-        padding: 6px 12px;
-        border-radius: 999px;
-        border: 1px solid rgba(10, 10, 10, 0.25);
-        background: rgba(255, 255, 255, 0.92);
-        color: #0a0a0a !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        transform: none !important;
-        z-index: 9999 !important;
       }
       .gogl-program-slider__slide[data-slide="3"] .gogl-joscha-tiles-wrap {
         position: relative;
@@ -2108,57 +2075,6 @@
       .gogl-program-slide-card--hero a.gogl-hero-card:focus-visible {
         outline: 2px solid var(--green-signal);
         outline-offset: 2px;
-      }
-      .gogl-program-slide-card--hero .gogl-hero-slide-next {
-        position: absolute;
-        right: clamp(16px, 3vw, 32px);
-        bottom: calc(clamp(38px, 4.8vh, 48px) + clamp(10px, 1.4vh, 14px));
-        z-index: 3;
-        display: inline-flex;
-        align-items: center;
-        gap: clamp(8px, 1.2vw, 12px);
-        margin: 0;
-        padding: 0;
-        border: none;
-        background: transparent;
-        cursor: pointer;
-        pointer-events: auto;
-        color: #ffffff;
-        font-family: var(--font-sans);
-        font-size: clamp(0.85rem, 1.6vw, 1.05rem);
-        letter-spacing: 0.05em;
-        line-height: 1.5;
-        font-weight: 400;
-        text-align: right;
-        transform: translateY(-100%);
-        transition: transform 0.15s ease;
-      }
-      .gogl-program-slide-card--hero .gogl-hero-slide-next:hover .gogl-hero-slide-next__label,
-      .gogl-program-slide-card--hero .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label {
-        font-weight: 700;
-      }
-      .gogl-program-slide-card--hero .gogl-hero-slide-next:hover,
-      .gogl-program-slide-card--hero .gogl-hero-slide-next:focus-visible {
-        transform: translateY(calc(-100% - 1px));
-      }
-      .gogl-program-slide-card--hero .gogl-hero-slide-next__arrow {
-        flex-shrink: 0;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        font-family: var(--font-sans);
-        font-size: 1.35rem;
-        line-height: 1;
-        padding: 0 0 2px;
-        color: inherit;
-        background: transparent;
-      }
-      .gogl-program-slide-card--hero .gogl-hero-slide-next:focus-visible {
-        outline: none;
-      }
-      .gogl-program-slide-card--hero .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label {
-        text-decoration: underline;
-        text-underline-offset: 0.15em;
       }
       .gogl-program-slide-card--hero .gogl-hero-card {
         padding: clamp(14px, 1.6vw, 20px) clamp(16px, 2vw, 24px);
@@ -3770,11 +3686,12 @@
                         </a>
                       </div>
                       </div>
-                      <button type="button" class="gogl-hero-slide-next" aria-label="Nächstes Programm: Persönliche Betreuung">
-                        <span class="gogl-hero-slide-next__label">Persönliche Betreuung</span>
-                        <span class="gogl-hero-slide-next__arrow" aria-hidden="true">›</span>
-                      </button>
-                      <div class="gogl-bar" aria-label="Hinweis">
+                      <div class="gogl-slide-footer-chrome">
+                        <button type="button" class="gogl-hero-slide-next" aria-label="Nächstes Programm: Persönliche Betreuung">
+                          <span class="gogl-hero-slide-next__label">Persönliche Betreuung</span>
+                          <span class="gogl-hero-slide-next__arrow" aria-hidden="true">›</span>
+                        </button>
+                        <div class="gogl-bar" aria-label="Hinweis">
                         <div class="gogl-bar__track">
                           <p class="gogl-bar__text">
                             168 Stunden hat die Woche. Wie viele genießt Du davon? Beweg Dich jeden Tag mehr als ne Stunde. Und alles wird leichter.
@@ -3783,6 +3700,7 @@
                             168 Stunden hat die Woche. Wie viele genießt Du davon? Beweg Dich jeden Tag mehr als ne Stunde. Und alles wird leichter.
                           </p>
                         </div>
+                      </div>
                       </div>
                     </div>
                   </div>
@@ -3818,10 +3736,12 @@
                       </div>
                     </div>
                   </div>
-                  <button type="button" class="gogl-hero-slide-next" aria-label="Nächstes Programm: Personal Training">
-                    <span class="gogl-hero-slide-next__label">Als Mitglied Personal Training machen</span>
-                    <span class="gogl-hero-slide-next__arrow" aria-hidden="true">›</span>
-                  </button>
+                  <div class="gogl-slide-footer-chrome gogl-slide-footer-chrome--reserve-banderole">
+                    <button type="button" class="gogl-hero-slide-next" aria-label="Nächstes Programm: Personal Training">
+                      <span class="gogl-hero-slide-next__label">Als Mitglied Personal Training machen</span>
+                      <span class="gogl-hero-slide-next__arrow" aria-hidden="true">›</span>
+                    </button>
+                  </div>
                 </div>
               </div>
 <div class="gogl-program-slider__slide" data-slide="2">
@@ -3837,10 +3757,12 @@
                     <p class="gogl-program-slide-card__lede gogl-program-slide-card__lede--trainer">Termine mit Joscha oder einem anderen Experten in Berlin. Grundlagen, Analyse, Zielsetzung, tägliche Begleitung, regelmäßige Termine, persönlich zugeschnittene Einheiten.</p>
                     <a class="gogl-program-slide-card__cta gogl-program-slide-card__cta--trainer" href="register-training/index.html">Optionen</a>
                   </div>
-                  <button type="button" class="gogl-hero-slide-next" aria-label="Nächstes Programm: Wöchentliche Challenge">
-                    <span class="gogl-hero-slide-next__label">Als Mitglied an der wöchentlichen Challenge mitmachen</span>
-                    <span class="gogl-hero-slide-next__arrow" aria-hidden="true">›</span>
-                  </button>
+                  <div class="gogl-slide-footer-chrome gogl-slide-footer-chrome--reserve-banderole">
+                    <button type="button" class="gogl-hero-slide-next" aria-label="Nächstes Programm: Wöchentliche Challenge">
+                      <span class="gogl-hero-slide-next__label">Als Mitglied an der wöchentlichen Challenge mitmachen</span>
+                      <span class="gogl-hero-slide-next__arrow" aria-hidden="true">›</span>
+                    </button>
+                  </div>
                 </div>
               </div>
 <div class="gogl-program-slider__slide" data-slide="3">
@@ -4121,10 +4043,12 @@
                 </div>
                 </div>
               </div>
-              <button type="button" class="gogl-hero-slide-next" aria-label="Nächstes Programm: Upper Body Basics">
-                <span class="gogl-hero-slide-next__label">Upper Body Basics</span>
-                <span class="gogl-hero-slide-next__arrow" aria-hidden="true">›</span>
-              </button>
+              </div>
+              <div class="gogl-slide-footer-chrome gogl-slide-footer-chrome--reserve-banderole">
+                <button type="button" class="gogl-hero-slide-next" aria-label="Nächstes Programm: Upper Body Basics">
+                  <span class="gogl-hero-slide-next__label">Upper Body Basics</span>
+                  <span class="gogl-hero-slide-next__arrow" aria-hidden="true">›</span>
+                </button>
               </div>
               </div>
 <div class="gogl-program-slider__slide" data-slide="4">
@@ -4157,10 +4081,12 @@
                       </div>
                     </div>
                   </div>
-                  <button type="button" class="gogl-hero-slide-next" aria-label="Nächstes Programm: Factfulness">
-                    <span class="gogl-hero-slide-next__label">Erstgespräch Fakten</span>
-                    <span class="gogl-hero-slide-next__arrow" aria-hidden="true">›</span>
-                  </button>
+                  <div class="gogl-slide-footer-chrome gogl-slide-footer-chrome--reserve-banderole">
+                    <button type="button" class="gogl-hero-slide-next" aria-label="Nächstes Programm: Factfulness">
+                      <span class="gogl-hero-slide-next__label">Erstgespräch Fakten</span>
+                      <span class="gogl-hero-slide-next__arrow" aria-hidden="true">›</span>
+                    </button>
+                  </div>
                 </div>
               </div>
 <div class="gogl-program-slider__slide" data-slide="5">
@@ -4173,10 +4099,12 @@
                     <p class="gogl-program-slide-card__lede gogl-program-slide-card__lede--joscha">Ich bin Architekt, habe zwanzig Jahre Räume für andere entworfen – und dabei lange vergessen, meinen eigenen Alltag in Ordnung zu bringen. Als ich anfing als Fitnesstrainer zu arbeiten, habe ich jeden Tag mehr verstanden, wie viel Potenzial an Zufriedenheit wir liegenlassen weil wir uns nicht um uns selbst kümmern. Ich habe mit Freunden, Trainingspartnern und Mitgliedern im Gym erlebt, dass ein ehrliches Gespräch und eine einfache Wochenroutine mehr bewirken als jede App und jedes teure Coaching. gogogo ist der Versuch, genau das zugänglich zu machen – für Menschen die wissen was sie tun müssten, und einfach jemanden brauchen der mit ihnen zusammen dranbleibt.</p>
                     <a class="gogl-program-slide-card__cta gogl-program-slide-card__cta--joscha" href="triff-joscha.html">Triff Joscha</a>
                   </div>
-                  <button type="button" class="gogl-hero-slide-next" aria-label="Nächstes Programm: Personal Training">
-                    <span class="gogl-hero-slide-next__label">Komm in Bewegung</span>
-                    <span class="gogl-hero-slide-next__arrow" aria-hidden="true">›</span>
-                  </button>
+                  <div class="gogl-slide-footer-chrome gogl-slide-footer-chrome--reserve-banderole">
+                    <button type="button" class="gogl-hero-slide-next" aria-label="Nächstes Programm: Personal Training">
+                      <span class="gogl-hero-slide-next__label">Komm in Bewegung</span>
+                      <span class="gogl-hero-slide-next__arrow" aria-hidden="true">›</span>
+                    </button>
+                  </div>
                 </div>
               </div>
 <div class="gogl-program-slider__slide" data-slide="6">
@@ -4205,10 +4133,12 @@
                     <h2 class="gogl-program-slide-card__title">Upper Body Basics</h2>
                     <p class="gogl-program-slide-card__lede">An einem Feierabend für interne Verwendung aufgenommen und auf englisch mit einem cringe Sound vertont. Bis es professionelles Material gibt - hier eine kleine Kostprobe des eigenen Oberkörpertrainings im Juli 2025 mit leichten Gewichten.<br /><br /><strong>Basics für fortgeschrittenes Krafttraining</strong>, das ich grundsätzlich empfehle: Klimmzüge, Pendlay Row, Bench Press, Military Press, Reverse Fly, Core-Rotation mit der Langhantel.<br /><br /><strong>Wenn Du noch kein Krafttraining in Deinen Alltag integriert hast</strong> oder lange Pause gemacht hast: es gibt für jede dieser Übungen auch equivalente Vereinfacherung. Oder wenn Du einfach nur mit <strong>Körpergewicht</strong> trainieren willst, können wir Dir auch Übungen dafür zeigen. Krafttraining ist keine Raketentechnik, super easy und ab 2 Stunden in der Woche erledigt. Starte einfach mit Liegestützen auf den Knien, freie Kniebeugen und Klimmzügen mit Füßen auf den Boden. <a class="gogl-program-slide-card__lede-link" href="#member-popup">Einen mini Plan zur Steigerung und tägliche Erinnerung für mehr Bewegung bekommst Du von uns wenn Du möchtest.</a></p>
                   </div>
-                  <button type="button" class="gogl-hero-slide-next" aria-label="Nächstes Programm: Joscha">
-                    <span class="gogl-hero-slide-next__label">Mobilitätsroutine Video</span>
-                    <span class="gogl-hero-slide-next__arrow" aria-hidden="true">›</span>
-                  </button>
+                  <div class="gogl-slide-footer-chrome gogl-slide-footer-chrome--reserve-banderole">
+                    <button type="button" class="gogl-hero-slide-next" aria-label="Nächstes Programm: Joscha">
+                      <span class="gogl-hero-slide-next__label">Mobilitätsroutine Video</span>
+                      <span class="gogl-hero-slide-next__arrow" aria-hidden="true">›</span>
+                    </button>
+                  </div>
                 </div>
               </div>
 <div class="gogl-program-slider__slide" data-slide="7">
@@ -4237,10 +4167,12 @@
                     <h2 class="gogl-program-slide-card__title">Mobilitätsroutine</h2>
                     <p class="gogl-program-slide-card__lede">Teil 1 des Bewegtbildmaterials vom Juli 2025 für interne Zwecke. Weil es eines meiner Steckenpferde ist, stell ich es online, bis es professionelles Material gibt.<br /><br />Mobilität bedeutet nicht einfach Beweglichkeit sondern den eigenen Körper plus mehr Gewicht über den weitest möglichen Bewegungsradius bewegen zu können. Das kannst Du mit einer dreiminütigen Routine vorm Training aber auch an anderen Tagen verbessern. Was aber auch zur Wahrheit gehört: Beweglichkeit Deines Körpers steigerst Du mit einem abwechslungsreichen Alltag und Training.<br /><br /><a class="gogl-program-slide-card__lede-link" href="#member-popup">Wir bauen an Deiner individuellen Wochenstruktur - passend und nehmen Dir die Überforderung durch Information-Overkill.</a></p>
                   </div>
-                  <button type="button" class="gogl-hero-slide-next" aria-label="Nächstes Programm: Komm in Bewegung">
-                    <span class="gogl-hero-slide-next__label">Joscha</span>
-                    <span class="gogl-hero-slide-next__arrow" aria-hidden="true">›</span>
-                  </button>
+                  <div class="gogl-slide-footer-chrome gogl-slide-footer-chrome--reserve-banderole">
+                    <button type="button" class="gogl-hero-slide-next" aria-label="Nächstes Programm: Komm in Bewegung">
+                      <span class="gogl-hero-slide-next__label">Joscha</span>
+                      <span class="gogl-hero-slide-next__arrow" aria-hidden="true">›</span>
+                    </button>
+                  </div>
     </div>
   </div>
   </div>
