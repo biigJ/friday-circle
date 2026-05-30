@@ -1110,6 +1110,10 @@
         text-underline-offset: 0.15em;
       }
       .gogl-slide-footer-chrome .gogl-bar {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
         align-self: stretch;
         width: calc(100% + clamp(16px, 3vw, 32px));
         margin-right: calc(-1 * clamp(16px, 3vw, 32px));
@@ -1129,6 +1133,13 @@
         position: relative;
         flex: 0 0 auto;
         width: 100%;
+      }
+      .gogl-program-slide-card--hero .gogl-video-overlay-footer .gogl-slide-footer-chrome {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 6;
       }
       .gogl-program-slider__slide[data-slide="3"] .gogl-slide-footer-chrome .gogl-hero-slide-next {
         color: #0a0a0a;
@@ -2162,14 +2173,6 @@
         padding: 0;
         border-top: none;
         box-sizing: border-box;
-        pointer-events: auto;
-      }
-      .gogl-video-overlay-footer .gogl-bar {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin-top: 0;
         pointer-events: auto;
       }
 
