@@ -12,14 +12,57 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="fc-lang.js" defer></script>
     <style>
       body.joschaalstrainer-page {
+        --cream: #f0eee6;
         --tj-filter-portrait: saturate(0.76) contrast(0.93) brightness(1.04);
         background: #ffffff;
       }
 
+      .joschaalstrainer-page .nav,
+      .joschaalstrainer-page .nav .gogogo-landing__header-cta {
+        font-family: var(--font-sans);
+      }
+
       .joschaalstrainer-page .nav {
-        background: color-mix(in srgb, #ffffff 92%, transparent);
+        background: var(--cream);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+      }
+
+      .joschaalstrainer-page .gogogo-landing__logo {
+        font-family: var(--font-sans);
+        font-weight: 600;
+        font-size: clamp(1.05rem, 1.35vw, 1.35rem);
+        letter-spacing: 0.018em;
+        color: var(--logo);
+      }
+
+      .joschaalstrainer-page .nav__links--empty {
+        min-width: 0;
+        min-height: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+
+      .gogogo-landing__header-cta {
+        border: 1.5px solid var(--text);
+        background: transparent;
+        color: var(--text);
+        font-weight: 500;
+        font-size: 0.9rem;
+        padding: 10px 24px;
+        border-radius: 999px;
+        text-decoration: none;
+        font-family: var(--font-sans);
+      }
+
+      .gogogo-landing__header-cta:hover,
+      .gogogo-landing__header-cta:focus-visible {
+        background: var(--text);
+        color: var(--bg);
+        outline: none;
       }
 
       .tj-shell {
@@ -161,8 +204,20 @@
       }
     </style>
   </head>
-  <body class="joschaalstrainer-page">
-    <div id="fc-site-header"></div>
+  <body class="joschaalstrainer-page" id="top">
+    <header class="nav" aria-label="Hauptnavigation">
+      <div class="nav__inner">
+        <a href="gogogo-landing.html" class="nav__logo gogogo-landing__logo" aria-label="gogogo Startseite">gogogo</a>
+        <nav class="nav__links nav__links--empty" aria-hidden="true"></nav>
+        <div class="nav__cta-bucket">
+          <div class="nav__lang" role="group" aria-label="Sprache">
+            <button type="button" class="is-active" data-fc-lang="de">DE</button>
+            <button type="button" data-fc-lang="en">EN</button>
+          </div>
+          <a class="gogogo-landing__header-cta" href="gogogo-landing.html#member-popup"><span class="de-t">Jetzt starten</span><span class="en-t">Start now</span></a>
+        </div>
+      </div>
+    </header>
 
     <main>
       <section class="tj-hero tj-hero--portrait-only" aria-label="Joscha">
