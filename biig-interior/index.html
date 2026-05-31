@@ -3,17 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Triff Joscha — Friday Circle</title>
+    <title>biig Interior — Friday Circle</title>
     <meta
       name="description"
-      content="Lerne Joscha kennen — Architekt, Trainer und Gründer von gogogo bei Friday Circle."
+      content="Mach Deinen Raum passend zum Lebensentwurf — Interiordesign und Architektur von Joscha."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
     <style>
-      body.triff-joscha-page {
+      body.biig-interior-page {
         --bg: #ffffff;
         --tj-filter-portrait: saturate(0.76) contrast(0.93) brightness(1.04);
         /* Etwas gedämpfter für sonnige Render / Architektur-Fotos — wirkt wie echtes Foto, nicht CGI */
@@ -21,7 +21,7 @@
         background: #ffffff;
       }
 
-      .triff-joscha-page .nav {
+      .biig-interior-page .nav {
         background: color-mix(in srgb, #ffffff 92%, transparent);
       }
 
@@ -54,6 +54,63 @@
 
       .tj-prose--title {
         margin-bottom: clamp(14px, 2vw, 22px);
+      }
+
+      .bi-hero {
+        position: relative;
+        min-height: clamp(420px, 62vh, 720px);
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+      }
+
+      .bi-hero__media {
+        position: absolute;
+        inset: 0;
+        background: #1a1a1a center / cover no-repeat;
+      }
+
+      .bi-hero__overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.18) 55%, rgba(0, 0, 0, 0.08) 100%);
+      }
+
+      .bi-hero__shell {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        max-width: var(--content-max);
+        margin: 0 auto;
+        padding: clamp(48px, 8vw, 96px) var(--nav-pad-x);
+        box-sizing: border-box;
+      }
+
+      .bi-hero__title {
+        margin: 0;
+        max-width: min(18ch, 100%);
+        font-family: var(--font-sans);
+        font-size: clamp(2rem, min(11.5vw, 9.2cqw), 4.85rem);
+        font-weight: 200;
+        line-height: 0.92;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+        color: #f0eee6;
+      }
+
+      .bi-brand-logo {
+        font-family: var(--font-sans);
+        font-size: clamp(0.72rem, 1.1vw, 0.85rem);
+        font-weight: 200;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: var(--text);
+      }
+
+      .bi-brand-logo:hover,
+      .bi-brand-logo:focus-visible {
+        opacity: 0.72;
       }
 
       .tj-hero {
@@ -399,117 +456,6 @@
         direction: ltr;
       }
 
-      .tj-section--image-right .tj-section__grid > * {
-        direction: ltr;
-      }
-
-      .tj-joscha-popup[hidden] {
-        display: none !important;
-      }
-
-      .tj-joscha-popup {
-        position: fixed;
-        inset: 0;
-        z-index: 12000;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: clamp(12px, 2.6vw, 28px);
-      }
-
-      .tj-joscha-popup__backdrop {
-        position: absolute;
-        inset: 0;
-        background: rgba(10, 10, 10, 0.56);
-        backdrop-filter: blur(2px);
-        -webkit-backdrop-filter: blur(2px);
-      }
-
-      .tj-joscha-popup__panel {
-        position: relative;
-        z-index: 1;
-        width: min(720px, 100%);
-        background: #f0eee6;
-        border-radius: 14px;
-        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
-        padding: clamp(28px, 4vw, 44px);
-      }
-
-      .tj-joscha-popup__close {
-        position: absolute;
-        top: 14px;
-        right: 14px;
-        width: 36px;
-        height: 36px;
-        border: 0;
-        border-radius: 999px;
-        background: rgba(10, 10, 10, 0.7);
-        color: #fff;
-        cursor: pointer;
-        font-size: 1.25rem;
-        line-height: 1;
-      }
-
-      .tj-joscha-popup__title {
-        margin: 0 0 clamp(24px, 4vw, 36px);
-        font-family: var(--font-sans);
-        font-size: clamp(1.75rem, 4vw, 2.5rem);
-        font-weight: 300;
-        letter-spacing: 0.02em;
-        color: var(--text);
-        text-align: center;
-      }
-
-      .tj-joscha-popup__actions {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: clamp(12px, 2vw, 20px);
-      }
-
-      .tj-joscha-popup__cta {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 52px;
-        padding: 12px 18px;
-        border-radius: 999px;
-        font-family: var(--font-sans);
-        font-size: clamp(0.85rem, 1.4vw, 0.95rem);
-        font-weight: 600;
-        text-decoration: none;
-        text-align: center;
-        transition: background 0.2s ease, color 0.2s ease;
-      }
-
-      .tj-joscha-popup__cta--body {
-        background: #2d9e8f;
-        border: 1.5px solid #2d9e8f;
-        color: #ffffff;
-      }
-
-      .tj-joscha-popup__cta--body:hover,
-      .tj-joscha-popup__cta--body:focus-visible {
-        background: #268a7d;
-        border-color: #268a7d;
-      }
-
-      .tj-joscha-popup__cta--project {
-        background: transparent;
-        border: 1.5px solid rgba(10, 10, 10, 0.55);
-        color: #0a0a0a;
-      }
-
-      .tj-joscha-popup__cta--project:hover,
-      .tj-joscha-popup__cta--project:focus-visible {
-        background: rgba(10, 10, 10, 0.06);
-      }
-
-      @media (max-width: 560px) {
-        .tj-joscha-popup__actions {
-          grid-template-columns: 1fr;
-        }
-      }
-
       @media (max-width: 900px) {
         .tj-hero__grid,
         .tj-section__grid {
@@ -596,49 +542,26 @@
       }
     </style>
   </head>
-  <body class="triff-joscha-page">
-    <div id="fc-site-header"></div>
+  <body class="biig-interior-page">
+    <header class="nav" aria-label="Hauptnavigation">
+      <div class="nav__inner">
+        <a href="index.html" class="nav__logo bi-brand-logo" aria-label="biig Interior Startseite">biig Interior</a>
+        <nav class="nav__links nav__links--empty" aria-hidden="true"></nav>
+        <div class="nav__cta-bucket">
+          <div class="nav__lang" role="group" aria-label="Sprache">
+            <button type="button" class="is-active" data-fc-lang="de">DE</button>
+            <button type="button" data-fc-lang="en">EN</button>
+          </div>
+        </div>
+      </div>
+    </header>
 
     <main class="tj-main">
-      <section class="tj-hero" aria-labelledby="tj-hero-title">
-        <div class="tj-shell">
-          <div class="tj-hero__grid">
-            <div class="tj-hero__copy">
-              <h1
-                id="tj-hero-title"
-                class="tj-hero__title"
-                data-i18n-de="Joscha"
-                data-i18n-en="Joscha"
-              >
-                Joscha
-              </h1>
-              <p
-                class="tj-prose"
-                data-i18n-de="Aufgewachsen im Norden, in Flensburg, zog es ihn zum Studium nach Hamburg – wo er Architektur studierte und das Bauwesen von Grund auf kennenlernte. Es folgten Jahre als freischaffender Architekt, zunächst in Altona, später in Berlin, wo er in der Pandemie als Interiordesigner arbeitete und Räume für Menschen neu dachte. Eine neue Branche wartete: Joscha begleitete seinen Bruder beim Aufbau eines Startups im Bereich E-Mobilität – als Chief of Staff und Projektleiter. Was ihn in dieser Zeit beschäftigte, beschäftigt viele: eine Gesellschaft im Dauerlärm, Social Media als Zerrspiegel, Polarisierung als Normalzustand. Joscha wollte verstehen, wie Menschen trotzdem klar bleiben – und entschied, genau daran zu arbeiten: als Trainer, als Begleiter, als jemand, der den Weg selbst gegangen ist."
-                data-i18n-en="Raised in the north, in Flensburg, he moved to Hamburg for university — where he studied architecture and learned the building trade from the ground up. Years as a freelance architect followed, first in Altona, later in Berlin, where during the pandemic he worked as an interior designer and reimagined spaces for people. A new industry awaited: Joscha supported his brother in building an e-mobility startup — as Chief of Staff and project lead. What occupied him then occupies many people today: a society in permanent noise, social media as a distorting mirror, polarisation as the norm. Joscha wanted to understand how people stay clear-headed anyway — and decided to work on exactly that: as a trainer, as a companion, as someone who has walked the path himself."
-              >
-                Aufgewachsen im Norden, in Flensburg, zog es ihn zum Studium nach Hamburg – wo er Architektur studierte und
-                das Bauwesen von Grund auf kennenlernte. Es folgten Jahre als freischaffender Architekt, zunächst in Altona,
-                später in Berlin, wo er in der Pandemie als Interiordesigner arbeitete und Räume für Menschen neu dachte. Eine
-                neue Branche wartete: Joscha begleitete seinen Bruder beim Aufbau eines Startups im Bereich E-Mobilität – als
-                Chief of Staff und Projektleiter. Was ihn in dieser Zeit beschäftigte, beschäftigt viele: eine Gesellschaft im
-                Dauerlärm, Social Media als Zerrspiegel, Polarisierung als Normalzustand. Joscha wollte verstehen, wie Menschen
-                trotzdem klar bleiben – und entschied, genau daran zu arbeiten: als Trainer, als Begleiter, als jemand, der den
-                Weg selbst gegangen ist.
-              </p>
-            </div>
-            <figure class="tj-figure tj-hero__figure">
-              <div class="tj-figure__frame tj-figure__frame--portrait-crop">
-                <img
-                  src="assets/biigJ-kaffeetasse.png"
-                  alt="Joscha mit Kaffeetasse am Fenster"
-                  width="1200"
-                  height="1600"
-                  decoding="async"
-                />
-              </div>
-            </figure>
-          </div>
+      <section class="bi-hero" aria-labelledby="bi-hero-title">
+        <div class="bi-hero__media" style="background-image: url('../assets/biigJ-33-kitchen.jpeg')" aria-hidden="true"></div>
+        <div class="bi-hero__overlay" aria-hidden="true"></div>
+        <div class="bi-hero__shell">
+          <h1 id="bi-hero-title" class="bi-hero__title">Mach Deinen Raum passend zum Lebensentwurf.</h1>
         </div>
       </section>
 
@@ -647,7 +570,7 @@
           <div class="tj-section__grid">
             <figure class="tj-figure">
               <div class="tj-figure__frame tj-figure__frame--wide tj-figure__frame--shift-left">
-                <img src="assets/tisch-heller.png" alt="Arbeitstisch mit Entwürfen" width="1200" height="1600" decoding="async" />
+                <img src="../assets/tisch-heller.png" alt="Arbeitstisch mit Entwürfen" width="1200" height="1600" decoding="async" />
               </div>
             </figure>
             <div class="tj-section__copy">
@@ -683,7 +606,7 @@
             <figure class="tj-figure">
               <div class="tj-figure__frame tj-figure__frame--wide">
                 <img
-                  src="assets/geisenheim_parallel-Blumen.png"
+                  src="../assets/geisenheim_parallel-Blumen.png"
                   alt="Interiordesign Vinothek Geisenheim"
                   width="1200"
                   height="1600"
@@ -701,7 +624,7 @@
             <figure class="tj-figure">
               <div class="tj-figure__frame tj-figure__frame--klinker">
                 <img
-                  src="assets/Klinkertreppe.png"
+                  src="../assets/Klinkertreppe.png"
                   alt="Klinkertreppe an einem Wohnhaus in Hamburg"
                   width="1200"
                   height="1600"
@@ -729,7 +652,7 @@
             <figure class="tj-figure">
               <div class="tj-figure__frame tj-figure__frame--editorial">
                 <img
-                  src="assets/rene-möbliert-01.png"
+                  src="../assets/rene-möbliert-01.png"
                   alt="Umbauten in Hamburg"
                   width="1200"
                   height="1600"
@@ -765,7 +688,7 @@
             <figure class="tj-figure">
               <div class="tj-figure__frame tj-figure__frame--editorial">
                 <img
-                  src="assets/treppe.png"
+                  src="../assets/treppe.png"
                   alt="Treppe in Hamburg-Blankenese"
                   width="1200"
                   height="1600"
@@ -792,7 +715,7 @@
                 <figure class="tj-figure">
                   <div class="tj-figure__frame tj-figure__frame--editorial tj-figure__frame--editorial-duo">
                     <img
-                      src="assets/Rothestr.png"
+                      src="../assets/Rothestr.png"
                       alt="Neubau 11 Wohnungen in der Rothestraße, Hamburg-Ottensen"
                       width="1200"
                       height="1600"
@@ -814,7 +737,7 @@
                 <figure class="tj-figure">
                   <div class="tj-figure__frame tj-figure__frame--editorial tj-figure__frame--editorial-duo">
                     <img
-                      src="assets/Graefe.png"
+                      src="../assets/Graefe.png"
                       alt="Neubau 2 Wohnungen in der Wrangelstraße, Hamburg-Stellingen"
                       width="1200"
                       height="1600"
@@ -834,7 +757,7 @@
                 <figure class="tj-figure">
                   <div class="tj-figure__frame tj-figure__frame--editorial tj-figure__frame--editorial-duo tj-figure__frame--editorial-duo-destijl">
                     <img
-                      src="assets/destijl.png"
+                      src="../assets/destijl.png"
                       alt="Sanierung einer Fassade in Hamburg"
                       width="1200"
                       height="1600"
@@ -862,7 +785,7 @@
             <figure class="tj-figure">
               <div class="tj-figure__frame tj-figure__frame--editorial tj-figure__frame--editorial-duo">
                 <img
-                  src="assets/Wedel2016.png"
+                  src="../assets/Wedel2016.png"
                   alt="Entwurf eines Wohnhauses mit fünf Wohneinheiten in Wedel"
                   width="1200"
                   height="1600"
@@ -888,7 +811,7 @@
             <figure class="tj-figure">
               <div class="tj-figure__frame tj-figure__frame--editorial-full">
                 <img
-                  src="assets/schleswig.png"
+                  src="../assets/schleswig.png"
                   alt="Wettbewerbsentwurf Wohnbebauung und Ärztehaus in Schleswig"
                   width="1200"
                   height="1600"
@@ -901,66 +824,18 @@
       </section>
     </main>
 
-    <aside
-      id="tj-joscha-popup"
-      class="tj-joscha-popup"
-      hidden
-      aria-hidden="true"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="tj-joscha-popup-title"
-    >
-      <div class="tj-joscha-popup__backdrop" data-tj-joscha-popup-close></div>
-      <div class="tj-joscha-popup__panel">
-        <button type="button" class="tj-joscha-popup__close" data-tj-joscha-popup-close aria-label="Popup schließen">×</button>
-        <h2 id="tj-joscha-popup-title" class="tj-joscha-popup__title">Joscha</h2>
-        <div class="tj-joscha-popup__actions">
-          <a class="tj-joscha-popup__cta tj-joscha-popup__cta--body" href="joschaalstrainer.html">Der Körpermensch</a>
-          <a class="tj-joscha-popup__cta tj-joscha-popup__cta--project" href="triff-joscha.html">Der Projektmensch</a>
-        </div>
+    <footer class="footer" aria-label="Seitenfuß">
+      <div class="footer__inner">
+        <a href="../index.html" class="footer__logo">FRIDAY CIRCLE</a>
+        <nav class="footer__links" aria-label="Rechtliches und Über uns">
+          <a href="../impressum/index.html"><span class="de-t">Impressum</span><span class="en-t">Legal notice</span></a>
+          <a href="../datenschutz/index.html"><span class="de-t">Datenschutz</span><span class="en-t">Privacy</span></a>
+          <a href="../kontakt/index.html"><span class="de-t">Kontakt</span><span class="en-t">Contact</span></a>
+          <a href="../triff-joscha.html#joscha-auswahl"><span class="de-t">Joscha</span><span class="en-t">Joscha</span></a>
+        </nav>
+        <p class="footer__copy">© 2026</p>
       </div>
-    </aside>
-
-    <div id="fc-site-footer"></div>
-    <script src="nav.js" defer></script>
-    <script>
-      (function initTjJoschaPopup() {
-        var popup = document.getElementById("tj-joscha-popup");
-        if (!popup) return;
-
-        function openPopup() {
-          popup.hidden = false;
-          popup.setAttribute("aria-hidden", "false");
-          document.body.style.overflow = "hidden";
-        }
-
-        function closePopup() {
-          popup.hidden = true;
-          popup.setAttribute("aria-hidden", "true");
-          document.body.style.overflow = "";
-          if (window.location.hash === "#joscha-auswahl") {
-            history.replaceState(null, "", window.location.pathname + window.location.search);
-          }
-        }
-
-        function shouldOpenFromHash() {
-          return window.location.hash === "#joscha-auswahl";
-        }
-
-        popup.querySelectorAll("[data-tj-joscha-popup-close]").forEach(function (el) {
-          el.addEventListener("click", closePopup);
-        });
-
-        document.addEventListener("keydown", function (e) {
-          if (e.key === "Escape" && !popup.hidden) closePopup();
-        });
-
-        window.addEventListener("hashchange", function () {
-          if (shouldOpenFromHash()) openPopup();
-        });
-
-        if (shouldOpenFromHash()) openPopup();
-      })();
-    </script>
+    </footer>
+    <script src="../fc-lang.js" defer></script>
   </body>
 </html>
