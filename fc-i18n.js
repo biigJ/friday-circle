@@ -3,6 +3,7 @@
     var path = location.pathname;
     if (/\/register-accountability(\/|$)/.test(path)) return "register-accountability";
     if (/\/register-training(\/|$)/.test(path)) return "register-training";
+    if (/\/biig-interior(\/|$)/.test(path)) return "biig-interior";
     var tail = path.split("/").pop() || "index.html";
     if (!tail || tail === "") return "index.html";
     if (!/\./.test(tail)) return "index.html";
@@ -63,6 +64,14 @@
       { s: "#haima .product__kicker", de: "Platzhalter – Kurzzeile wie beim gogogo-Kicker. Text folgt.", en: "Placeholder — short line like the gogogo kicker. Copy to follow." },
       { s: "#haima .product__tagline", de: "Platzhalter – eine Zeile wie „Komm in Bewegung.“", en: 'Placeholder — one line like "Get moving."' },
       { s: "#haima .product__cta", de: "offline", en: "offline" },
+    ],
+    "biig-interior": [
+      {
+        s: 'meta[name="description"]',
+        attr: "content",
+        de: "Mach Deinen Raum passend zum Lebensentwurf — Interiordesign und Architektur von Joscha.",
+        en: "Make your space fit your life design — interior design and architecture by Joscha.",
+      },
     ],
     "programmierung.html": [
       { s: ".programmierung-sub__intro .landing-bridge__kicker", de: "Lebensjahre · Programmierung", en: "Life years · Programming" },
@@ -435,6 +444,10 @@
     }
     if (PAGE === "register-accountability" || PAGE === "register-training") {
       applyRegisterPage(lang);
+    }
+    if (PAGE === "biig-interior") {
+      document.title =
+        lang === "en" ? "biig Interior — Friday Circle" : "biig Interior — Friday Circle";
     }
     if (PAGE === "programmierung.html") {
       document.querySelectorAll("#geschichte-kontext .expand-btn").forEach(function (btn) {

@@ -15,87 +15,33 @@
     <style>
       body.biig-interior-page {
         --bg: #ffffff;
-        --tj-filter-portrait: saturate(0.76) contrast(0.93) brightness(1.04);
-        /* Etwas gedämpfter für sonnige Render / Architektur-Fotos — wirkt wie echtes Foto, nicht CGI */
-        --tj-filter-story: saturate(0.68) contrast(0.9) brightness(1.02);
+        --bi-hero-head: clamp(2rem, min(11.5vw, 9.2cqw), 4.85rem);
+        --bi-mood-filter: saturate(0.68) sepia(0.24) contrast(0.92) brightness(1.04);
         background: #ffffff;
+      }
+
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
       }
 
       .biig-interior-page .nav {
         background: color-mix(in srgb, #ffffff 92%, transparent);
       }
 
-      .tj-main {
-        background: #ffffff;
-      }
-
-      .tj-shell {
+      .bi-shell {
         max-width: var(--content-max);
         margin: 0 auto;
         padding-left: var(--nav-pad-x);
         padding-right: var(--nav-pad-x);
         box-sizing: border-box;
-      }
-
-      .tj-prose {
-        margin: 0;
-        font-family: var(--font-sans);
-        font-size: clamp(11.25px, 0.99vw, 14.25px);
-        font-weight: 300;
-        letter-spacing: 0.02em;
-        line-height: 1.42;
-        color: color-mix(in srgb, var(--text) 72%, #ffffff);
-        text-align: left;
-      }
-
-      .tj-prose + .tj-prose {
-        margin-top: clamp(14px, 2vw, 22px);
-      }
-
-      .tj-prose--title {
-        margin-bottom: clamp(14px, 2vw, 22px);
-      }
-
-      .bi-hero {
-        position: relative;
-        min-height: clamp(420px, 62vh, 720px);
-        display: flex;
-        align-items: flex-end;
-        overflow: hidden;
-      }
-
-      .bi-hero__media {
-        position: absolute;
-        inset: 0;
-        background: #1a1a1a center / cover no-repeat;
-      }
-
-      .bi-hero__overlay {
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.72) 0%, rgba(0, 0, 0, 0.18) 55%, rgba(0, 0, 0, 0.08) 100%);
-      }
-
-      .bi-hero__shell {
-        position: relative;
-        z-index: 1;
-        width: 100%;
-        max-width: var(--content-max);
-        margin: 0 auto;
-        padding: clamp(48px, 8vw, 96px) var(--nav-pad-x);
-        box-sizing: border-box;
-      }
-
-      .bi-hero__title {
-        margin: 0;
-        max-width: min(18ch, 100%);
-        font-family: var(--font-sans);
-        font-size: clamp(2rem, min(11.5vw, 9.2cqw), 4.85rem);
-        font-weight: 200;
-        line-height: 0.92;
-        letter-spacing: -0.02em;
-        text-transform: uppercase;
-        color: #f0eee6;
       }
 
       .bi-brand-logo {
@@ -113,439 +59,811 @@
         opacity: 0.72;
       }
 
-      .tj-hero {
-        padding: clamp(56px, 9vw, 112px) 0 clamp(22px, 3.3vw, 42px);
+      /* —— Hero —— */
+      .bi-hero {
+        padding: clamp(36px, 5vw, 64px) 0 clamp(48px, 7vw, 88px);
       }
 
-      .tj-hero__grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap: clamp(40px, 8vw, 120px);
-        align-items: start;
-      }
-
-      .tj-hero__title {
-        margin: 0 0 clamp(20px, 3vw, 32px);
+      .bi-hero__intro {
+        margin: 0 0 clamp(28px, 4vw, 48px);
+        max-width: 22ch;
         font-family: var(--font-sans);
-        font-size: clamp(11.25px, 0.99vw, 14.25px);
-        font-weight: 300;
-        letter-spacing: 0.02em;
-        line-height: 1.42;
-        color: color-mix(in srgb, var(--text) 72%, #ffffff);
+        font-size: calc(var(--bi-hero-head) * 0.667);
+        font-weight: 200;
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+        color: var(--text);
       }
 
-      .tj-hero__figure {
-        max-width: 82%;
-        margin-left: auto;
-      }
-
-      .tj-figure {
-        margin: 0;
-        min-width: 0;
-      }
-
-      .tj-figure__frame {
-        overflow: hidden;
-        line-height: 0;
-      }
-
-      .tj-figure__frame img {
-        width: 100%;
-        height: auto;
+      .bi-hero__intro-line {
         display: block;
-        transform: scale(1.15);
-        transform-origin: center center;
       }
 
-      .tj-figure__frame--portrait-crop img {
-        clip-path: inset(4% 0 17% 0);
-        filter: var(--tj-filter-portrait);
+      .bi-hero__intro-line + .bi-hero__intro-line {
+        margin-top: 0.12em;
       }
 
-      .tj-figure__frame--wide {
-        width: 120%;
-        max-width: 120%;
-        transform-origin: left center;
-      }
-
-      .tj-figure__frame--wide img {
-        transform: scale(1.15);
-        transform-origin: left center;
-      }
-
-      .tj-figure__frame--shift-left {
+      .bi-hero__figure {
         position: relative;
-        isolation: isolate;
-      }
-
-      .tj-figure__frame--shift-left::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        background: linear-gradient(
-          to bottom,
-          hsl(0 0% 50% / 0.78) 0%,
-          hsl(0 0% 50% / 0.72) 20%,
-          hsl(0 0% 50% / 0.34) 32%,
-          hsl(0 0% 50% / 0) 45%
-        );
-        mix-blend-mode: saturation;
-        pointer-events: none;
-      }
-
-      .tj-figure__frame--shift-left img {
-        transform: scale(1.15) translateX(-3%);
-        transform-origin: left center;
-        clip-path: inset(3% 0 0 0);
-        filter: saturate(1.32) contrast(1.16) brightness(0.95);
-      }
-
-      .tj-figure__frame--gym {
-        position: relative;
-        isolation: isolate;
-      }
-
-      .tj-figure__frame--gym img {
-        filter: grayscale(0.58) sepia(0.36) saturate(0.18) contrast(1.48) brightness(0.86);
-        transform: scale(1.15);
-        transform-origin: center center;
-      }
-
-      .tj-figure__frame--gym::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        z-index: 1;
-        opacity: 0.4;
-        pointer-events: none;
-        mix-blend-mode: overlay;
-        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-        background-size: 160px 160px;
-      }
-
-      .tj-section {
-        padding: clamp(72px, 11vw, 140px) 0;
-      }
-
-      .tj-section:first-of-type {
-        padding-top: clamp(22px, 3.3vw, 42px);
-      }
-
-      .tj-section__grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
-        gap: clamp(32px, 6vw, 96px);
-        align-items: start;
-      }
-
-      .tj-section--wide-left .tj-section__grid {
-        gap: clamp(40px, 7vw, 112px);
-      }
-
-      .tj-section--wide-left .tj-section__copy {
-        position: relative;
-        z-index: 1;
-        margin-left: clamp(24px, 5vw, 64px);
-        padding-left: clamp(8px, 1.5vw, 16px);
-      }
-
-      .tj-section--vinothek .tj-figure__frame--wide {
-        width: 144%;
-        max-width: 144%;
-        position: relative;
+        margin: 0;
         overflow: hidden;
-        height: 0;
-        padding-top: calc(100% * 1600 / 1200 * 120 / 144);
         line-height: 0;
+        aspect-ratio: 16 / 10;
+        background: #1a1a1a;
       }
 
-      .tj-section--vinothek .tj-figure__frame--wide img {
-        position: absolute;
-        inset: 0;
+      .bi-hero__figure img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        object-position: left center;
-        transform: scale(1.15);
-        transform-origin: left center;
-        filter: saturate(0.34) contrast(1.3) brightness(1.08) hue-rotate(-12deg);
+        object-position: center;
+        display: block;
       }
 
-      .tj-section--vinothek .tj-section__grid {
-        grid-template-columns: minmax(0, 1.32fr) minmax(0, 0.68fr);
-        grid-template-rows: auto auto;
-        row-gap: clamp(12px, 2vw, 24px);
-        column-gap: clamp(48px, 8vw, 120px);
-        align-items: start;
+      .bi-hero__slogan {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: clamp(16px, 3vw, 32px);
+        font-family: var(--font-sans);
+        font-size: clamp(1rem, 2.2vw, 1.65rem);
+        font-weight: 300;
+        line-height: 1.35;
+        letter-spacing: 0.02em;
+        text-align: center;
+        color: #f0eee6;
+        text-shadow: 0 1px 24px rgba(0, 0, 0, 0.45);
+        pointer-events: none;
       }
 
-      .tj-section--vinothek .tj-section__copy {
-        grid-column: 2;
-        grid-row: 1;
-        margin-left: 0;
-        padding-left: 0;
-        position: static;
-        z-index: auto;
-        max-width: 100%;
-        box-sizing: border-box;
+      .bi-hero__figure::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background: rgba(0, 0, 0, 0.22);
+        pointer-events: none;
       }
 
-      .tj-section--vinothek .tj-section__copy .tj-prose--title {
-        margin-bottom: 0;
+      /* —— Portfolio grid —— */
+      .bi-portfolio {
+        padding: clamp(48px, 7vw, 96px) 0 clamp(72px, 10vw, 140px);
       }
 
-      .tj-section--vinothek .tj-figure {
-        grid-column: 1;
-        grid-row: 2;
+      .bi-portfolio__title {
+        margin: 0 0 clamp(20px, 3vw, 32px);
+        font-family: var(--font-sans);
+        font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+        font-weight: 200;
+        letter-spacing: -0.01em;
+        line-height: 1.1;
+        color: var(--text);
       }
 
-      .tj-figure__frame--klinker img {
-        filter: saturate(0.34) contrast(1.3) brightness(1.08) hue-rotate(14deg);
-        transform: scale(1.15);
-        transform-origin: center center;
+      .bi-portfolio__lede {
+        margin: 0 0 clamp(32px, 5vw, 56px);
+        max-width: 72ch;
+        font-family: var(--font-sans);
+        font-size: clamp(0.85rem, 1.15vw, 0.95rem);
+        font-weight: 300;
+        line-height: 1.55;
+        letter-spacing: 0.02em;
+        color: color-mix(in srgb, var(--text) 78%, #ffffff);
       }
 
-      .tj-figure__frame--editorial {
-        width: 130%;
-        max-width: 130%;
-        transform-origin: left center;
+      .bi-grid {
+        container-type: inline-size;
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        --bi-gap: clamp(10px, 1.2vw, 16px);
+        gap: var(--bi-gap);
+        --bi-col: calc((100cqw - 3 * var(--bi-gap)) / 4);
+        --bi-tile-h: calc(var(--bi-col) * 4 / 3);
       }
 
-      .tj-figure__frame--editorial img {
-        clip-path: inset(3% 2% 2% 0);
-        transform: scale(1.15);
-        transform-origin: left center;
-        filter: var(--tj-filter-story);
+      .bi-tile {
+        position: relative;
+        height: var(--bi-tile-h);
+        margin: 0;
+        padding: 0;
+        border: 0;
+        overflow: hidden;
+        background: #e8e6df;
+        text-align: left;
+        font: inherit;
+        color: inherit;
       }
 
-      .tj-figure__frame--editorial-duo {
+      .bi-tile--project {
+        cursor: pointer;
+      }
+
+      .bi-tile--empty {
+        background: #ffffff;
+        border: 1px solid #0a0a0a;
+        pointer-events: none;
+      }
+
+      .bi-tile--span-2 {
+        grid-column: span 2;
+      }
+
+      .bi-tile__media,
+      .bi-hochbau-slider__slide,
+      .bi-slider__slide {
+        position: relative;
         width: 100%;
-        max-width: 100%;
+        height: 100%;
+        overflow: hidden;
+        isolation: isolate;
+        line-height: 0;
       }
 
-      .tj-figure__frame--editorial-duo img {
-        transform-origin: center center;
-        filter: var(--tj-filter-story);
+      .bi-tile--project .bi-tile__media {
+        position: absolute;
+        inset: 0;
       }
 
-      .tj-figure__frame--editorial-duo-destijl {
-        aspect-ratio: 2266 / 1850;
+      .bi-tile__media img,
+      .bi-slider__slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+        transition: transform 0.45s ease;
+      }
+
+      .bi-hochbau-slider__slide img {
+        width: 105%;
+        height: 105%;
+        max-width: none;
+        object-fit: cover;
+        object-position: 52% 26%;
+        display: block;
+        filter: var(--bi-mood-filter);
+        transform: translate(-2%, -10%);
+      }
+
+      .bi-hochbau-slider__slide::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(122, 98, 72, 0.14);
+        mix-blend-mode: multiply;
+        pointer-events: none;
+      }
+
+      .bi-tile--project:hover .bi-tile__media img,
+      .bi-tile--project:focus-visible .bi-tile__media img {
+        transform: scale(1.04);
+      }
+
+      .bi-tile--hochbau {
+        padding: 0;
+        background: #ffffff;
         overflow: hidden;
       }
 
-      .tj-figure__frame--editorial-duo-destijl img {
+      .bi-hochbau-slider {
+        position: relative;
         width: 100%;
-        height: auto;
-        clip-path: inset(3% 2% 2% 0);
-        transform: scale(1.15);
-        transform-origin: center center;
-        filter: var(--tj-filter-story);
+        height: 100%;
+        min-height: 100%;
+        background: #f0eee6;
       }
 
-      .tj-section--rene .tj-section__grid {
-        grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
-        gap: clamp(48px, 8vw, 120px);
+      .bi-hochbau-slider__track {
+        display: flex;
+        height: 100%;
+        transition: transform 0.4s ease;
+        will-change: transform;
+        backface-visibility: hidden;
       }
 
-      .tj-section--rene .tj-section__copy {
+      .bi-hochbau-slider__slide {
+        flex: 0 0 100%;
+        min-width: 0;
+        height: 100%;
+        margin: 0;
+        border: 0;
+        padding: 0;
+        cursor: pointer;
+        background: #f0eee6;
+        overflow: hidden;
+      }
+
+      .bi-hochbau-slider__hover {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.35em;
+        padding: clamp(12px, 2vw, 20px);
+        background: rgba(10, 10, 10, 0.52);
+        color: #ffffff;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.28s ease;
+        pointer-events: none;
+      }
+
+      .bi-hochbau-slider:hover .bi-hochbau-slider__hover,
+      .bi-hochbau-slider:focus-within .bi-hochbau-slider__hover {
+        opacity: 1;
+      }
+
+      .bi-hochbau-slider__zones {
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        display: flex;
+        justify-content: space-between;
+        pointer-events: none;
+      }
+
+      .bi-hochbau-slider__zone {
+        width: 42%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        pointer-events: auto;
+        cursor: pointer;
+        opacity: 0;
+        transition: opacity 0.22s ease;
+        display: flex;
+        align-items: center;
+        color: #f0eee6;
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        line-height: 1;
+        text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
+      }
+
+      .bi-hochbau-slider:hover .bi-hochbau-slider__zone,
+      .bi-hochbau-slider:focus-within .bi-hochbau-slider__zone {
+        opacity: 1;
+      }
+
+      .bi-hochbau-slider__zone--prev {
+        justify-content: flex-start;
+        padding-left: clamp(10px, 1.8vw, 16px);
+      }
+
+      .bi-hochbau-slider__zone--next {
+        justify-content: flex-end;
+        padding-right: clamp(10px, 1.8vw, 16px);
+      }
+
+      .bi-hochbau-slider__zone:hover,
+      .bi-hochbau-slider__zone:focus-visible {
+        opacity: 1;
+        outline: none;
+      }
+
+      .bi-hochbau-slider__dots {
+        position: absolute;
+        z-index: 4;
+        bottom: clamp(10px, 1.6vw, 14px);
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+      }
+
+      .bi-hochbau-slider__dot {
+        width: 8px;
+        height: 8px;
+        padding: 0;
+        border: 1px solid rgba(240, 238, 230, 0.72);
+        border-radius: 50%;
+        background: transparent;
+        cursor: pointer;
+        transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+      }
+
+      .bi-hochbau-slider__dot.is-active,
+      .bi-hochbau-slider__dot:hover,
+      .bi-hochbau-slider__dot:focus-visible {
+        background: #f0eee6;
+        border-color: #f0eee6;
+        transform: scale(1.12);
+        outline: none;
+      }
+
+      .bi-tile__hover {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.35em;
+        padding: clamp(12px, 2vw, 20px);
+        background: rgba(10, 10, 10, 0.52);
+        color: #ffffff;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.28s ease;
+        pointer-events: none;
+      }
+
+      .bi-tile--project:hover .bi-tile__hover,
+      .bi-tile--project:focus-visible .bi-tile__hover {
+        opacity: 1;
+      }
+
+      .bi-tile__keyword {
+        margin: 0;
+        font-family: var(--font-sans);
+        font-size: clamp(0.72rem, 1.1vw, 0.88rem);
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .bi-tile__concrete {
+        margin: 0;
+        font-family: var(--font-sans);
+        font-size: clamp(0.85rem, 1.25vw, 1rem);
+        font-weight: 300;
+        line-height: 1.35;
+        letter-spacing: 0.01em;
+      }
+
+      .bi-tile--offer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(20px, 3vw, 32px);
+        background: transparent;
+        padding: clamp(8px, 1.2vw, 12px) clamp(4px, 0.8vw, 8px);
+      }
+
+      .bi-tile--offer p {
+        margin: 0;
+        width: 100%;
+        font-family: var(--font-sans);
+        font-size: clamp(1.64rem, 2.3vw, 1.9rem);
+        font-weight: 300;
+        line-height: 1.45;
+        letter-spacing: 0.02em;
+        color: color-mix(in srgb, var(--text) 82%, #ffffff);
+      }
+
+      .bi-tile--offer .bi-tile__cta {
+        align-self: center;
+      }
+
+      .bi-tile__actions {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: clamp(10px, 1.6vw, 14px);
+      }
+
+      .bi-tile__more {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        font-family: var(--font-sans);
+        font-size: clamp(0.78rem, 1vw, 0.88rem);
+        font-weight: 400;
+        letter-spacing: 0.06em;
+        text-transform: lowercase;
+        color: color-mix(in srgb, var(--text) 62%, #ffffff);
+        text-decoration: underline;
+        text-underline-offset: 0.18em;
+        cursor: pointer;
+      }
+
+      .bi-tile__more:hover,
+      .bi-tile__more:focus-visible {
+        color: var(--text);
+        outline: none;
+      }
+
+      .bi-offer-popup .bi-popup__title,
+      .bi-offer-popup__body p {
+        margin: 0;
+        font-family: var(--font-sans);
+        font-size: clamp(1.64rem, 2.3vw, 1.9rem);
+        font-weight: 300;
+        line-height: 1.45;
+        letter-spacing: 0.02em;
+        color: color-mix(in srgb, var(--text) 82%, #ffffff);
+      }
+
+      .bi-offer-popup .bi-popup__title {
+        margin-bottom: clamp(16px, 2.4vw, 24px);
+        padding-right: 40px;
+      }
+
+      .bi-offer-popup__body p + p {
+        margin-top: clamp(16px, 2.4vw, 24px);
+      }
+
+      .bi-tile__cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 40px;
+        padding: 8px 20px;
+        border: 1.5px solid var(--text);
+        border-radius: 999px;
+        background: transparent;
+        color: var(--text);
+        font-family: var(--font-sans);
+        font-size: 0.82rem;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        text-decoration: none;
+        transition: background 0.2s ease, color 0.2s ease;
+      }
+
+      .bi-tile__cta:hover,
+      .bi-tile__cta:focus-visible {
+        background: var(--text);
+        color: var(--bg);
+        outline: none;
+      }
+
+      /* —— Project popup —— */
+      .bi-popup[hidden] {
+        display: none !important;
+      }
+
+      .bi-popup {
+        position: fixed;
+        inset: 0;
+        z-index: 12000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: clamp(12px, 2.6vw, 28px);
+      }
+
+      .bi-popup__backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(10, 10, 10, 0.58);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+      }
+
+      .bi-popup__panel {
         position: relative;
         z-index: 1;
-        margin-left: clamp(56px, 11vw, 128px);
-        padding-left: clamp(12px, 2vw, 24px);
+        width: min(920px, 100%);
+        max-height: min(92vh, 900px);
+        overflow: auto;
+        background: #f0eee6;
+        border-radius: 12px;
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+        padding: clamp(24px, 3.5vw, 40px);
       }
 
-      .tj-section__duo-grid {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: clamp(24px, 4vw, 56px);
-        align-items: start;
+      .bi-popup__close {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        width: 36px;
+        height: 36px;
+        border: 0;
+        border-radius: 999px;
+        background: rgba(10, 10, 10, 0.7);
+        color: #fff;
+        cursor: pointer;
+        font-size: 1.25rem;
+        line-height: 1;
       }
 
-      .tj-duo-item {
+      .bi-popup__title {
+        margin: 0 0 clamp(12px, 2vw, 18px);
+        padding-right: 40px;
+        font-family: var(--font-sans);
+        font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+        font-weight: 400;
+        letter-spacing: 0.01em;
+        line-height: 1.25;
+        color: var(--text);
+      }
+
+      .bi-popup__body {
+        margin: 0 0 clamp(20px, 3vw, 28px);
+        font-family: var(--font-sans);
+        font-size: clamp(0.85rem, 1.15vw, 0.95rem);
+        font-weight: 300;
+        line-height: 1.55;
+        letter-spacing: 0.02em;
+        color: color-mix(in srgb, var(--text) 78%, #ffffff);
+      }
+
+      .bi-slider {
+        position: relative;
+        overflow: hidden;
+        border-radius: 6px;
+        background: #e8e6df;
+      }
+
+      .bi-slider__track {
         display: flex;
-        flex-direction: column;
-        gap: clamp(24px, 4vw, 56px);
-        min-width: 0;
+        transition: transform 0.35s ease;
+        will-change: transform;
+        backface-visibility: hidden;
       }
 
-      .tj-duo-block {
+      .bi-slider__slide {
+        flex: 0 0 100%;
+        min-width: 0;
+        margin: 0;
+        aspect-ratio: 4 / 3;
+        background: #e8e6df;
+        overflow: hidden;
+      }
+
+      .bi-slider__slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      .bi-slider__dots {
+        position: absolute;
+        z-index: 5;
+        top: clamp(12px, 2vw, 18px);
+        left: 50%;
+        transform: translateX(-50%);
         display: flex;
-        flex-direction: column;
-        gap: clamp(12px, 2vw, 24px);
-        min-width: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
       }
 
-      .tj-duo-item .tj-prose--title,
-      .tj-duo-block .tj-prose--title,
-      .tj-section__media-stack .tj-prose--title {
-        margin-bottom: 0;
+      .bi-slider__dot {
+        width: 8px;
+        height: 8px;
+        padding: 0;
+        border: 1px solid rgba(10, 10, 10, 0.35);
+        border-radius: 50%;
+        background: transparent;
+        cursor: pointer;
+        transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
       }
 
-      .tj-section__media-stack {
-        display: flex;
-        flex-direction: column;
-        gap: clamp(12px, 2vw, 24px);
-        min-width: 0;
-      }
-
-      .tj-section__media-stack--right {
-        margin-left: auto;
-        width: min(100%, calc(65% + clamp(48px, 8vw, 120px)));
-        align-items: flex-end;
-      }
-
-      .tj-section--treppe .tj-section__media-stack--right {
-        margin-left: auto;
-        margin-right: 0;
-        width: 60%;
-        max-width: 60%;
-        align-items: flex-end;
-      }
-
-      .tj-section--treppe .tj-section__media-stack .tj-prose--title {
-        width: 100%;
-        text-align: right;
-      }
-
-      .tj-section--treppe .tj-figure__frame--editorial {
-        width: 100%;
-        max-width: 100%;
-        margin-left: 0;
-        transform-origin: right center;
-      }
-
-      .tj-section--treppe .tj-figure__frame--editorial img {
-        transform: scale(1.15);
-        transform-origin: right center;
-        filter: var(--tj-filter-story);
-      }
-
-      .tj-section--wedel .tj-section__media-stack {
-        width: min(100%, 65%);
-      }
-
-      .tj-section--schleswig .tj-section__media-stack {
-        width: 100%;
-      }
-
-      .tj-figure__frame--editorial-full {
-        width: 100%;
-        max-width: 100%;
-      }
-
-      .tj-section--schleswig .tj-figure__frame--editorial-full img {
-        clip-path: inset(3% 2% 2% 0);
-        transform: scale(1.15);
-        transform-origin: center center;
-        filter: saturate(0.74) contrast(0.88) brightness(1.07) hue-rotate(5deg);
-      }
-
-      .tj-figure__frame--editorial-full img {
-        clip-path: inset(3% 2% 2% 0);
-        transform: scale(1.15);
-        transform-origin: center center;
-        filter: var(--tj-filter-story);
-      }
-
-      .tj-section--image-right .tj-section__grid {
-        direction: rtl;
-      }
-
-      .tj-section--image-right .tj-section__grid > * {
-        direction: ltr;
+      .bi-slider__dot.is-active,
+      .bi-slider__dot:hover,
+      .bi-slider__dot:focus-visible {
+        background: var(--text);
+        border-color: var(--text);
+        transform: scale(1.12);
+        outline: none;
       }
 
       @media (max-width: 900px) {
-        .tj-hero__grid,
-        .tj-section__grid {
+        .bi-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          --bi-col: calc((100cqw - var(--bi-gap)) / 2);
+        }
+
+        .bi-tile--span-2 {
+          grid-column: span 2;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .bi-grid {
           grid-template-columns: 1fr;
-          gap: clamp(28px, 6vw, 48px);
+          --bi-col: 100cqw;
         }
 
-        .tj-section--image-right .tj-section__grid {
-          direction: ltr;
+        .bi-tile--span-2 {
+          grid-column: span 1;
         }
 
-        .tj-figure__frame--wide {
-          width: 100%;
-          max-width: 100%;
+        .bi-hero__figure {
+          aspect-ratio: 4 / 3;
+        }
+      }
+
+      /* —— Intake vor Footer —— */
+      .bi-intake {
+        container-type: inline-size;
+        --bi-gap: clamp(10px, 1.2vw, 16px);
+        --bi-col: calc((100cqw - 3 * var(--bi-gap)) / 4);
+        --bi-tile-h: calc(var(--bi-col) * 4 / 3);
+        padding: 0 0 clamp(56px, 8vw, 96px);
+      }
+
+      @media (max-width: 900px) {
+        .bi-intake {
+          --bi-col: calc((100cqw - var(--bi-gap)) / 2);
+        }
+      }
+
+      @media (max-width: 520px) {
+        .bi-intake {
+          --bi-col: 100cqw;
+        }
+      }
+
+      .bi-intake__chooser {
+        min-height: var(--bi-tile-h);
+        height: var(--bi-tile-h);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: clamp(14px, 2.2vw, 22px);
+        padding: clamp(14px, 2.2vw, 22px);
+        border: 1px solid color-mix(in srgb, var(--text) 16%, transparent);
+        border-radius: 8px;
+        box-sizing: border-box;
+      }
+
+      .bi-intake__prompt {
+        margin: 0;
+        font-family: var(--font-sans);
+        font-size: clamp(0.95rem, 1.35vw, 1.1rem);
+        font-weight: 400;
+        letter-spacing: 0.02em;
+        color: var(--text);
+      }
+
+      .bi-intake__options {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: clamp(8px, 1.2vw, 12px);
+      }
+
+      .bi-intake__option {
+        min-height: 40px;
+        padding: 8px 10px;
+        border: 1.5px solid var(--text);
+        border-radius: 999px;
+        background: transparent;
+        color: var(--text);
+        font-family: var(--font-sans);
+        font-size: clamp(0.68rem, 0.95vw, 0.82rem);
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        line-height: 1.25;
+        cursor: pointer;
+        transition: background 0.2s ease, color 0.2s ease;
+      }
+
+      .bi-intake__option:hover,
+      .bi-intake__option:focus-visible {
+        background: color-mix(in srgb, var(--text) 8%, transparent);
+        outline: none;
+      }
+
+      .bi-intake__option.is-active {
+        background: var(--text);
+        color: var(--bg);
+      }
+
+      .bi-intake__form {
+        margin-top: clamp(20px, 3vw, 32px);
+      }
+
+      .bi-intake__form[hidden] {
+        display: none !important;
+      }
+
+      .bi-intake__questions {
+        display: grid;
+        gap: clamp(16px, 2.4vw, 22px);
+        margin-bottom: clamp(20px, 3vw, 28px);
+      }
+
+      .bi-intake__field label {
+        display: block;
+        margin-bottom: 6px;
+        font-family: var(--font-sans);
+        font-size: clamp(0.78rem, 1vw, 0.88rem);
+        font-weight: 500;
+        letter-spacing: 0.02em;
+        color: color-mix(in srgb, var(--text) 82%, #ffffff);
+      }
+
+      .bi-intake__field input,
+      .bi-intake__field textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px 12px;
+        border: 1px solid color-mix(in srgb, var(--text) 22%, transparent);
+        border-radius: 6px;
+        background: #ffffff;
+        font-family: var(--font-sans);
+        font-size: clamp(0.82rem, 1.05vw, 0.92rem);
+        font-weight: 300;
+        line-height: 1.45;
+        color: var(--text);
+      }
+
+      .bi-intake__field textarea {
+        min-height: 88px;
+        resize: vertical;
+      }
+
+      .bi-intake__contact {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(12px, 2vw, 18px);
+        margin-bottom: clamp(18px, 2.6vw, 24px);
+      }
+
+      .bi-intake__submit {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 44px;
+        padding: 10px 28px;
+        border: 1.5px solid var(--text);
+        border-radius: 999px;
+        background: var(--text);
+        color: var(--bg);
+        font-family: var(--font-sans);
+        font-size: 0.88rem;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        transition: opacity 0.2s ease;
+      }
+
+      .bi-intake__submit:hover,
+      .bi-intake__submit:focus-visible {
+        opacity: 0.88;
+        outline: none;
+      }
+
+      .bi-intake__fine {
+        margin: clamp(10px, 1.6vw, 14px) 0 0;
+        font-family: var(--font-sans);
+        font-size: clamp(0.75rem, 0.95vw, 0.82rem);
+        font-weight: 300;
+        color: color-mix(in srgb, var(--text) 62%, #ffffff);
+      }
+
+      @media (max-width: 720px) {
+        .bi-intake__options {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
-        .tj-section--wide-left .tj-section__copy {
-          margin-left: 0;
-          padding-left: 0;
-        }
-
-        .tj-section--vinothek .tj-figure__frame--wide {
-          width: 100%;
-          max-width: 100%;
+        .bi-intake__chooser {
           height: auto;
-          padding-top: 0;
+          min-height: var(--bi-tile-h);
         }
 
-        .tj-section--vinothek .tj-figure__frame--wide img {
-          position: static;
-          width: 100%;
-          height: auto;
-          object-fit: initial;
-        }
-
-        .tj-section--vinothek .tj-section__grid {
+        .bi-intake__contact {
           grid-template-columns: 1fr;
-          grid-template-rows: auto auto;
-          gap: clamp(28px, 6vw, 48px);
-        }
-
-        .tj-section--vinothek .tj-section__copy {
-          grid-column: 1;
-          grid-row: 1;
-        }
-
-        .tj-section--vinothek .tj-figure {
-          grid-column: 1;
-          grid-row: 2;
-        }
-
-        .tj-section--rene .tj-section__copy {
-          margin-left: 0;
-          padding-left: 0;
-        }
-
-        .tj-figure__frame--editorial {
-          width: 100%;
-          max-width: 100%;
-          margin-left: 0;
-        }
-
-        .tj-section__duo-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .tj-section__media-stack--right {
-          width: 100%;
-          align-items: flex-start;
-        }
-
-        .tj-section--treppe .tj-section__media-stack--right {
-          width: 100%;
-          max-width: 100%;
-        }
-
-        .tj-section--treppe .tj-section__media-stack .tj-prose--title {
-          text-align: left;
-        }
-
-        .tj-section--wedel .tj-section__media-stack {
-          width: 100%;
         }
       }
     </style>
   </head>
-  <body class="biig-interior-page">
+  <body class="biig-interior-page de">
     <header class="nav" aria-label="Hauptnavigation">
       <div class="nav__inner">
-        <a href="index.html" class="nav__logo bi-brand-logo" aria-label="biig Interior Startseite">biig Interior</a>
+        <a href="index.html" class="nav__logo bi-brand-logo" aria-label="biig Interior Startseite">
+          biig Interior
+        </a>
         <nav class="nav__links nav__links--empty" aria-hidden="true"></nav>
         <div class="nav__cta-bucket">
           <div class="nav__lang" role="group" aria-label="Sprache">
@@ -556,278 +874,306 @@
       </div>
     </header>
 
-    <main class="tj-main">
-      <section class="bi-hero" aria-labelledby="bi-hero-title">
-        <div class="bi-hero__media" style="background-image: url('../assets/biigJ-33-kitchen.jpeg')" aria-hidden="true"></div>
-        <div class="bi-hero__overlay" aria-hidden="true"></div>
-        <div class="bi-hero__shell">
-          <h1 id="bi-hero-title" class="bi-hero__title">Mach Deinen Raum passend zum Lebensentwurf.</h1>
+    <main>
+      <section class="bi-hero" aria-labelledby="bi-hero-intro">
+        <div class="bi-shell">
+          <h1 id="bi-hero-intro" class="bi-hero__intro">
+            <span class="bi-hero__intro-line">
+              <span class="de-t">Ist Dein Space gut?</span>
+              <span class="en-t">Is your space right?</span>
+            </span>
+            <span class="bi-hero__intro-line">
+              <span class="de-t">Pass ihn an Deinen Lebensentwurf an.</span>
+              <span class="en-t">Tailor it to your life design.</span>
+            </span>
+          </h1>
+          <figure class="bi-hero__figure">
+            <img
+              id="bi-hero-image"
+              src="../assets/blauesgemälde.png"
+              alt="Interieur mit blauem Gemälde, Sideboard und Glasobjekten"
+              width="1600"
+              height="1000"
+              decoding="async"
+            />
+            <p class="bi-hero__slogan">
+              <span class="de-t">Einfach gute Mittel. Architektur für Alle. Umsetzungsstark.</span>
+              <span class="en-t">Good tools, simply. Architecture for everyone. Built to deliver.</span>
+            </p>
+          </figure>
         </div>
       </section>
 
-      <section class="tj-section tj-section--image-left tj-section--wide-left" aria-labelledby="tj-section-1">
-        <div class="tj-shell">
-          <div class="tj-section__grid">
-            <figure class="tj-figure">
-              <div class="tj-figure__frame tj-figure__frame--wide tj-figure__frame--shift-left">
-                <img src="../assets/tisch-heller.png" alt="Arbeitstisch mit Entwürfen" width="1200" height="1600" decoding="async" />
-              </div>
-            </figure>
-            <div class="tj-section__copy">
-              <h2
-                id="tj-section-1"
-                class="tj-prose tj-prose--title"
-                data-i18n-de="Möbeldesign 2026"
-                data-i18n-en="Furniture design 2026"
-              >
-                Möbeldesign 2026
-              </h2>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section
-        class="tj-section tj-section--image-left tj-section--wide-left tj-section--vinothek"
-        aria-labelledby="tj-section-vinothek"
-      >
-        <div class="tj-shell">
-          <div class="tj-section__grid">
-            <div class="tj-section__copy">
-              <h2
-                id="tj-section-vinothek"
-                class="tj-prose tj-prose--title"
-                data-i18n-de="Interiordesign Vinothek 2023"
-                data-i18n-en="Interior design wine bar 2023"
-              >
-                Interiordesign Vinothek 2023
-              </h2>
-            </div>
-            <figure class="tj-figure">
-              <div class="tj-figure__frame tj-figure__frame--wide">
-                <img
-                  src="../assets/geisenheim_parallel-Blumen.png"
-                  alt="Interiordesign Vinothek Geisenheim"
-                  width="1200"
-                  height="1600"
-                  decoding="async"
-                />
-              </div>
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      <section class="tj-section tj-section--image-right" aria-labelledby="tj-section-3">
-        <div class="tj-shell">
-          <div class="tj-section__grid">
-            <figure class="tj-figure">
-              <div class="tj-figure__frame tj-figure__frame--klinker">
-                <img
-                  src="../assets/Klinkertreppe.png"
-                  alt="Klinkertreppe an einem Wohnhaus in Hamburg"
-                  width="1200"
-                  height="1600"
-                  decoding="async"
-                />
-              </div>
-            </figure>
-            <div class="tj-section__copy">
-              <h2
-                id="tj-section-3"
-                class="tj-prose tj-prose--title"
-                data-i18n-de="Architektur in Hamburg 2016"
-                data-i18n-en="Architecture in Hamburg 2016"
-              >
-                Architektur in Hamburg 2016
-              </h2>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="tj-section tj-section--image-left tj-section--rene" aria-labelledby="tj-section-rene">
-        <div class="tj-shell">
-          <div class="tj-section__grid">
-            <figure class="tj-figure">
-              <div class="tj-figure__frame tj-figure__frame--editorial">
-                <img
-                  src="../assets/rene-möbliert-01.png"
-                  alt="Umbauten in Hamburg"
-                  width="1200"
-                  height="1600"
-                  decoding="async"
-                />
-              </div>
-            </figure>
-            <div class="tj-section__copy">
-              <h2
-                id="tj-section-rene"
-                class="tj-prose tj-prose--title"
-                data-i18n-de="Umbauten in Hamburg 2015"
-                data-i18n-en="Renovations in Hamburg 2015"
-              >
-                Umbauten in Hamburg 2015
-              </h2>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="tj-section tj-section--treppe" aria-labelledby="tj-section-treppe">
-        <div class="tj-shell">
-          <div class="tj-section__media-stack tj-section__media-stack--right">
-            <h2
-              id="tj-section-treppe"
-              class="tj-prose tj-prose--title"
-              data-i18n-de="Hamburg-Blankenese 2015"
-              data-i18n-en="Hamburg-Blankenese 2015"
+      <section class="bi-portfolio" aria-labelledby="bi-portfolio-title">
+        <div class="bi-shell">
+          <h2 id="bi-portfolio-title" class="bi-portfolio__title">
+            <span class="de-t">Was wir zusammen machen können.</span>
+            <span class="en-t">What we can do together.</span>
+          </h2>
+          <p class="bi-portfolio__lede">
+            <span class="de-t"
+              >Mit Expertise aus 20 Jahren Baubranche und Blickwinkeln aus verschiedenen Positionen, eben auch aus
+              fachfremden, konzentriere ich mich auf Ressourcen, Hindernisse und Ziele. Mit kleinen und bedachten
+              Schritten. Wir verwirklichen zusammen Räume für einen konkreten Lebensentwurf und dazu gehört viel
+              wohlwollendes Interesse mit Euphorie für individuelle Geschichten.</span
             >
-              Hamburg-Blankenese 2015
-            </h2>
-            <figure class="tj-figure">
-              <div class="tj-figure__frame tj-figure__frame--editorial">
-                <img
-                  src="../assets/treppe.png"
-                  alt="Treppe in Hamburg-Blankenese"
-                  width="1200"
-                  height="1600"
-                  decoding="async"
-                />
-              </div>
-            </figure>
-          </div>
-        </div>
-      </section>
-
-      <section class="tj-section tj-section--duo" aria-label="Architektur Hamburg">
-        <div class="tj-shell">
-          <div class="tj-section__duo-grid">
-            <div class="tj-duo-item">
-              <div class="tj-duo-block">
-                <h2
-                  class="tj-prose tj-prose--title"
-                  data-i18n-de="Neubau 11 Wohnungen in der Rothestraße, Hamburg-Ottensen 2015"
-                  data-i18n-en="New construction of 11 apartments on Rothestraße, Hamburg-Ottensen 2015"
-                >
-                  Neubau 11 Wohnungen in der Rothestraße, Hamburg-Ottensen 2015
-                </h2>
-                <figure class="tj-figure">
-                  <div class="tj-figure__frame tj-figure__frame--editorial tj-figure__frame--editorial-duo">
-                    <img
-                      src="../assets/Rothestr.png"
-                      alt="Neubau 11 Wohnungen in der Rothestraße, Hamburg-Ottensen"
-                      width="1200"
-                      height="1600"
-                      decoding="async"
-                    />
-                  </div>
-                </figure>
+            <span class="en-t"
+              >With twenty years in construction and perspectives from many roles — including ones outside the trade — I
+              focus on resources, obstacles, and goals. In small, deliberate steps. Together we shape spaces for a
+              concrete life design — with generous curiosity and enthusiasm for individual stories.</span
+            >
+          </p>
+          <div class="bi-grid">
+            <!-- Zeile 1 -->
+            <div class="bi-tile bi-tile--offer">
+              <p>
+                <span class="de-t">Neues Arrangement mit Plan, Liste, technischen Hinweisen, Fotorealismus.</span>
+                <span class="en-t">A fresh layout with plan, list, technical notes, and photorealistic visuals.</span>
+              </p>
+              <div class="bi-tile__actions">
+                <a class="bi-tile__cta" href="../kontakt/index.html">
+                  <span class="de-t">Anfragen</span>
+                  <span class="en-t">Enquire</span>
+                </a>
+                <button type="button" class="bi-tile__more" data-bi-offer="arrangement">
+                  <span class="de-t">mehr</span>
+                  <span class="en-t">more</span>
+                </button>
               </div>
             </div>
-            <div class="tj-duo-item">
-              <div class="tj-duo-block">
-                <h2
-                  class="tj-prose tj-prose--title"
-                  data-i18n-de="Neubau 2 Wohnungen in der Wrangelstraße, Hamburg-Stellingen 2016"
-                  data-i18n-en="New construction of 2 apartments on Wrangelstraße, Hamburg-Stellingen 2016"
-                >
-                  Neubau 2 Wohnungen in der Wrangelstraße, Hamburg-Stellingen 2016
-                </h2>
-                <figure class="tj-figure">
-                  <div class="tj-figure__frame tj-figure__frame--editorial tj-figure__frame--editorial-duo">
-                    <img
-                      src="../assets/Graefe.png"
-                      alt="Neubau 2 Wohnungen in der Wrangelstraße, Hamburg-Stellingen"
-                      width="1200"
-                      height="1600"
-                      decoding="async"
-                    />
-                  </div>
-                </figure>
-              </div>
-              <div class="tj-duo-block">
-                <h2
-                  class="tj-prose tj-prose--title"
-                  data-i18n-de="Sanierung einer Fassade und Modernisierung eines Wohnhauses, Hamburg 2016"
-                  data-i18n-en="Facade renovation and modernisation of a residential building, Hamburg 2016"
-                >
-                  Sanierung einer Fassade und Modernisierung eines Wohnhauses, Hamburg 2016
-                </h2>
-                <figure class="tj-figure">
-                  <div class="tj-figure__frame tj-figure__frame--editorial tj-figure__frame--editorial-duo tj-figure__frame--editorial-duo-destijl">
-                    <img
-                      src="../assets/destijl.png"
-                      alt="Sanierung einer Fassade in Hamburg"
-                      width="1200"
-                      height="1600"
-                      decoding="async"
-                    />
-                  </div>
-                </figure>
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="moebel">
+              <span class="bi-tile__media">
+                <img src="../assets/tisch-heller.png" alt="" width="800" height="1067" decoding="async" />
+              </span>
+              <span class="bi-tile__hover">
+                <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
+                <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
+              </span>
+            </button>
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="vinothek">
+              <span class="bi-tile__media">
+                <img src="../assets/geisenheim_parallel-Blumen.png" alt="" width="800" height="1067" decoding="async" />
+              </span>
+              <span class="bi-tile__hover">
+                <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
+                <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
+              </span>
+            </button>
+            <div class="bi-tile bi-tile--empty" aria-hidden="true"></div>
+
+            <!-- Zeile 2 -->
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="umbauten">
+              <span class="bi-tile__media">
+                <img src="../assets/rene-möbliert-01.png" alt="" width="800" height="1067" decoding="async" />
+              </span>
+              <span class="bi-tile__hover">
+                <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
+                <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
+              </span>
+            </button>
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="blankenese">
+              <span class="bi-tile__media">
+                <img src="../assets/treppe.png" alt="" width="800" height="1067" decoding="async" />
+              </span>
+              <span class="bi-tile__hover">
+                <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
+                <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
+              </span>
+            </button>
+            <div class="bi-tile bi-tile--offer">
+              <p>
+                <span class="de-t">Hilfe beim Sortieren von Deinen Ideen und Hab &amp; Gut.</span>
+                <span class="en-t">Help sorting your ideas and everything you own.</span>
+              </p>
+              <div class="bi-tile__actions">
+                <a class="bi-tile__cta" href="../kontakt/index.html">
+                  <span class="de-t">Schreib mir</span>
+                  <span class="en-t">Write to me</span>
+                </a>
+                <button type="button" class="bi-tile__more" data-bi-offer="sortieren">
+                  <span class="de-t">mehr</span>
+                  <span class="en-t">more</span>
+                </button>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+            <div class="bi-tile bi-tile--empty" aria-hidden="true"></div>
 
-      <section class="tj-section tj-section--wedel" aria-labelledby="tj-section-wedel">
-        <div class="tj-shell">
-          <div class="tj-section__media-stack">
-            <h2
-              id="tj-section-wedel"
-              class="tj-prose tj-prose--title"
-              data-i18n-de="Entwurf eines Wohnhauses mit 5 WE in Wedel 2016"
-              data-i18n-en="Design for a residential building with 5 units in Wedel 2016"
-            >
-              Entwurf eines Wohnhauses mit 5 WE in Wedel 2016
-            </h2>
-            <figure class="tj-figure">
-              <div class="tj-figure__frame tj-figure__frame--editorial tj-figure__frame--editorial-duo">
-                <img
-                  src="../assets/Wedel2016.png"
-                  alt="Entwurf eines Wohnhauses mit fünf Wohneinheiten in Wedel"
-                  width="1200"
-                  height="1600"
-                  decoding="async"
-                />
+            <!-- Zeile 3 -->
+            <div class="bi-tile bi-tile--empty" aria-hidden="true"></div>
+            <div class="bi-tile bi-tile--offer">
+              <p>
+                <span class="de-t">All Inklusive mit Bauplanung &amp; Handwerk.</span>
+                <span class="en-t">All-inclusive with planning and trades.</span>
+              </p>
+              <div class="bi-tile__actions">
+                <a class="bi-tile__cta" href="../kontakt/index.html">
+                  <span class="de-t">Angebot</span>
+                  <span class="en-t">Quote</span>
+                </a>
+                <button type="button" class="bi-tile__more" data-bi-offer="allinklusive">
+                  <span class="de-t">mehr</span>
+                  <span class="en-t">more</span>
+                </button>
               </div>
-            </figure>
-          </div>
-        </div>
-      </section>
+            </div>
+            <div class="bi-tile bi-tile--empty" aria-hidden="true"></div>
+            <div class="bi-tile bi-tile--empty" aria-hidden="true"></div>
 
-      <section class="tj-section tj-section--schleswig" aria-labelledby="tj-section-schleswig">
-        <div class="tj-shell">
-          <div class="tj-section__media-stack">
-            <h2
-              id="tj-section-schleswig"
-              class="tj-prose tj-prose--title"
-              data-i18n-de="Wettbewerb für eine Wohnbebauung und Ärztehaus in Schleswig an der Waterkant, 2016"
-              data-i18n-en="Competition for residential development and medical centre in Schleswig on the waterfront, 2016"
-            >
-              Wettbewerb für eine Wohnbebauung und Ärztehaus in Schleswig an der Waterkant, 2016
-            </h2>
-            <figure class="tj-figure">
-              <div class="tj-figure__frame tj-figure__frame--editorial-full">
-                <img
-                  src="../assets/schleswig.png"
-                  alt="Wettbewerbsentwurf Wohnbebauung und Ärztehaus in Schleswig"
-                  width="1200"
-                  height="1600"
-                  decoding="async"
-                />
+            <!-- Zeile 4 — Hochbau -->
+            <div class="bi-tile bi-tile--offer bi-tile--span-2">
+              <p>
+                <span class="de-t"
+                  >Hochbau und bauantragsrelevante Projekte setze ich mit einem Partnerbüro um.</span
+                >
+                <span class="en-t"
+                  >Structural and planning-permit projects I deliver with a partner office.</span
+                >
+              </p>
+              <div class="bi-tile__actions">
+                <a class="bi-tile__cta" href="../kontakt/index.html">
+                  <span class="de-t">Anrufen</span>
+                  <span class="en-t">Call</span>
+                </a>
+                <button type="button" class="bi-tile__more" data-bi-offer="hochbau">
+                  <span class="de-t">mehr</span>
+                  <span class="en-t">more</span>
+                </button>
               </div>
-            </figure>
+            </div>
+            <div class="bi-tile bi-tile--hochbau bi-tile--span-2" id="bi-hochbau-slider" aria-label="Hochbauprojekte">
+              <div class="bi-hochbau-slider">
+                <div class="bi-hochbau-slider__track" id="bi-hochbau-track"></div>
+                <div class="bi-hochbau-slider__zones">
+                  <button type="button" class="bi-hochbau-slider__zone bi-hochbau-slider__zone--prev" id="bi-hochbau-prev" aria-label="Vorheriges Bild">‹</button>
+                  <button type="button" class="bi-hochbau-slider__zone bi-hochbau-slider__zone--next" id="bi-hochbau-next" aria-label="Nächstes Bild">›</button>
+                </div>
+                <div class="bi-hochbau-slider__dots" id="bi-hochbau-dots"></div>
+                <div class="bi-hochbau-slider__hover" id="bi-hochbau-hover" aria-hidden="true">
+                  <span class="bi-tile__keyword" id="bi-hochbau-keyword"></span>
+                  <span class="bi-tile__concrete" id="bi-hochbau-concrete"></span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="footer" aria-label="Seitenfuß">
+    <section class="bi-intake" aria-labelledby="bi-intake-title">
+      <div class="bi-shell">
+        <h2 id="bi-intake-title" class="visually-hidden">
+          <span class="de-t">Was hast du vor?</span>
+          <span class="en-t">What are you planning?</span>
+        </h2>
+        <div class="bi-intake__chooser" id="bi-intake-chooser">
+          <p class="bi-intake__prompt">
+            <span class="de-t">Was hast du vor?</span>
+            <span class="en-t">What are you planning?</span>
+          </p>
+          <div class="bi-intake__options" role="tablist" aria-label="Angebot wählen">
+            <button type="button" class="bi-intake__option" role="tab" data-bi-intent="arrangement" aria-selected="false">
+              <span class="de-t">Neues Arrangement</span>
+              <span class="en-t">Fresh layout</span>
+            </button>
+            <button type="button" class="bi-intake__option" role="tab" data-bi-intent="sortieren" aria-selected="false">
+              <span class="de-t">Sortieren</span>
+              <span class="en-t">Sorting</span>
+            </button>
+            <button type="button" class="bi-intake__option" role="tab" data-bi-intent="allinklusive" aria-selected="false">
+              <span class="de-t">All Inklusive</span>
+              <span class="en-t">All-inclusive</span>
+            </button>
+            <button type="button" class="bi-intake__option" role="tab" data-bi-intent="hochbau" aria-selected="false">
+              <span class="de-t">Hochbau</span>
+              <span class="en-t">Structural</span>
+            </button>
+          </div>
+        </div>
+        <form
+          id="bi-intake-form"
+          class="bi-intake__form"
+          hidden
+          method="POST"
+          action="https://formspree.io/f/DEIN_FORMSPREE_BIIG_INTERIOR"
+        >
+          <input type="hidden" name="_subject" value="biig Interior — Anfrage" />
+          <input type="hidden" name="source" value="biig-interior-intake" />
+          <input type="hidden" name="intent" id="bi-intake-intent-field" value="" />
+          <input type="text" name="_gotcha" value="" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none" />
+
+          <div id="bi-intake-questions" class="bi-intake__questions"></div>
+
+          <div class="bi-intake__contact">
+            <div class="bi-intake__field">
+              <label for="bi-intake-name">
+                <span class="de-t">Name</span>
+                <span class="en-t">Name</span>
+              </label>
+              <input id="bi-intake-name" name="name" type="text" autocomplete="name" required />
+            </div>
+            <div class="bi-intake__field">
+              <label for="bi-intake-email">
+                <span class="de-t">E-Mail</span>
+                <span class="en-t">Email</span>
+              </label>
+              <input id="bi-intake-email" name="email" type="email" autocomplete="email" required />
+            </div>
+          </div>
+
+          <button type="submit" class="bi-intake__submit">
+            <span class="de-t">Abschicken</span>
+            <span class="en-t">Send</span>
+          </button>
+          <p class="bi-intake__fine">
+            <span class="de-t">Wir melden uns persönlich — in der Regel innerhalb weniger Arbeitstage.</span>
+            <span class="en-t">We will get back to you personally — usually within a few working days.</span>
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <aside
+      id="bi-project-popup"
+      class="bi-popup"
+      hidden
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="bi-popup-title"
+    >
+      <div class="bi-popup__backdrop" data-bi-popup-close></div>
+      <div class="bi-popup__panel">
+        <button type="button" class="bi-popup__close" data-bi-popup-close id="bi-popup-close" aria-label="Popup schließen">×</button>
+        <h3 id="bi-popup-title" class="bi-popup__title"></h3>
+        <p id="bi-popup-body" class="bi-popup__body"></p>
+        <div class="bi-slider" id="bi-popup-slider">
+          <div class="bi-slider__track" id="bi-slider-track"></div>
+          <div class="bi-slider__dots" id="bi-slider-dots"></div>
+        </div>
+      </div>
+    </aside>
+
+    <aside
+      id="bi-offer-popup"
+      class="bi-popup bi-offer-popup"
+      hidden
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="bi-offer-popup-title"
+    >
+      <div class="bi-popup__backdrop" data-bi-offer-popup-close></div>
+      <div class="bi-popup__panel">
+        <button type="button" class="bi-popup__close" data-bi-offer-popup-close id="bi-offer-popup-close" aria-label="Popup schließen">×</button>
+        <h3 id="bi-offer-popup-title" class="bi-popup__title"></h3>
+        <div id="bi-offer-popup-body" class="bi-offer-popup__body"></div>
+      </div>
+    </aside>
+
+    <footer class="footer" id="bi-site-footer" aria-label="Seitenfuß">
       <div class="footer__inner">
         <a href="../index.html" class="footer__logo">FRIDAY CIRCLE</a>
-        <nav class="footer__links" aria-label="Rechtliches und Über uns">
+        <nav class="footer__links" id="bi-footer-links" aria-label="Rechtliches und Über uns">
           <a href="../impressum/index.html"><span class="de-t">Impressum</span><span class="en-t">Legal notice</span></a>
           <a href="../datenschutz/index.html"><span class="de-t">Datenschutz</span><span class="en-t">Privacy</span></a>
           <a href="../kontakt/index.html"><span class="de-t">Kontakt</span><span class="en-t">Contact</span></a>
@@ -836,6 +1182,674 @@
         <p class="footer__copy">© 2026</p>
       </div>
     </footer>
+
     <script src="../fc-lang.js" defer></script>
+    <script>
+      (function initBiInterior() {
+        var PROJECTS = {
+          moebel: {
+            titleDe: "Möbeldesign 2026",
+            titleEn: "Furniture design 2026",
+            bodyDe:
+              "Entwurf und Planung für einen Arbeitstisch — Möbel als Raumgeber, abgestimmt auf den Alltag und den Lebensentwurf dahinter.",
+            bodyEn:
+              "Design and planning for a work desk — furniture as a spatial anchor, aligned with everyday life and the life design behind it.",
+            keywordDe: "Möbeldesign",
+            keywordEn: "Furniture design",
+            concreteDe: "Arbeitstisch & Entwürfe, 2026",
+            concreteEn: "Work desk & drafts, 2026",
+            images: ["../assets/tisch-heller.png", "../assets/tisch.png"],
+          },
+          vinothek: {
+            titleDe: "Interiordesign Vinothek 2023",
+            titleEn: "Interior design wine bar 2023",
+            bodyDe:
+              "Interiordesign für eine Vinothek in Geisenheim — Atmosphäre, Material und Licht für einen Ort zum Verweilen.",
+            bodyEn:
+              "Interior design for a wine bar in Geisenheim — atmosphere, materials, and light for a place to linger.",
+            keywordDe: "Interiordesign",
+            keywordEn: "Interior design",
+            concreteDe: "Vinothek Geisenheim, 2023",
+            concreteEn: "Wine bar Geisenheim, 2023",
+            images: [
+              "../assets/geisenheim_parallel-Blumen.png",
+              "../assets/geisenheim_parallel.jpeg",
+              "../assets/geisenheim.jpeg",
+            ],
+          },
+          klinker: {
+            titleDe: "Architektur in Hamburg 2016",
+            titleEn: "Architecture in Hamburg 2016",
+            bodyDe:
+              "Klinkertreppe an einem Wohnhaus in Hamburg — Architektur im Bestand, präzise Details und dauerhafte Materialwahl.",
+            bodyEn:
+              "Brick staircase on a residential building in Hamburg — architecture in the existing fabric, precise details, lasting materials.",
+            keywordDe: "Architektur",
+            keywordEn: "Architecture",
+            concreteDe: "Klinkertreppe Hamburg, 2016",
+            concreteEn: "Brick staircase Hamburg, 2016",
+            images: ["../assets/Klinkertreppe.png"],
+            cropPosition: "68% 22%",
+          },
+          umbauten: {
+            titleDe: "Umbauten in Hamburg 2015",
+            titleEn: "Renovations in Hamburg 2015",
+            bodyDe:
+              "Umbau und Einrichtung eines Wohnraums in Hamburg — Raum neu denken, ohne das Gewohnte zu verlieren.",
+            bodyEn: "Renovation and furnishing of a living space in Hamburg — rethinking the room without losing what feels familiar.",
+            keywordDe: "Umbau",
+            keywordEn: "Renovation",
+            concreteDe: "Hamburg, 2015",
+            concreteEn: "Hamburg, 2015",
+            images: ["../assets/rene-möbliert-01.png"],
+          },
+          blankenese: {
+            titleDe: "Hamburg-Blankenese 2015",
+            titleEn: "Hamburg-Blankenese 2015",
+            bodyDe: "Treppenhaus und Wohnraum in Hamburg-Blankenese — klare Linien, Tageslicht und ruhige Proportionen.",
+            bodyEn: "Stairwell and living space in Hamburg-Blankenese — clear lines, daylight, and calm proportions.",
+            keywordDe: "Wohnraum",
+            keywordEn: "Living space",
+            concreteDe: "Hamburg-Blankenese, 2015",
+            concreteEn: "Hamburg-Blankenese, 2015",
+            images: ["../assets/treppe.png"],
+          },
+          rothestr: {
+            titleDe: "Neubau 11 Wohnungen, Rothestraße, Hamburg-Ottensen 2015",
+            titleEn: "New build of 11 apartments, Rothestraße, Hamburg-Ottensen 2015",
+            bodyDe:
+              "Neubau von elf Wohnungen in Hamburg-Ottensen — kompakte Grundrisse, urbaner Kontext, solide Bauweise.",
+            bodyEn: "New construction of eleven apartments in Hamburg-Ottensen — compact layouts, urban context, solid build.",
+            keywordDe: "Neubau",
+            keywordEn: "New build",
+            concreteDe: "11 WE Rothestraße, 2015",
+            concreteEn: "11 units Rothestraße, 2015",
+            images: ["../assets/Rothestr.png", "../assets/Wohnhaus.png"],
+            cropPosition: "58% 24%",
+          },
+          graefe: {
+            titleDe: "Neubau 2 Wohnungen, Wrangelstraße, Hamburg-Stellingen 2016",
+            titleEn: "New build of 2 apartments, Wrangelstraße, Hamburg-Stellingen 2016",
+            bodyDe: "Zwei Wohneinheiten in Hamburg-Stellingen — effiziente Flächen, Tageslicht und klare Fassadenlogik.",
+            bodyEn: "Two residential units in Hamburg-Stellingen — efficient floor plans, daylight, and clear facade logic.",
+            keywordDe: "Neubau",
+            keywordEn: "New build",
+            concreteDe: "2 WE Wrangelstraße, 2016",
+            concreteEn: "2 units Wrangelstraße, 2016",
+            images: ["../assets/Graefe.png"],
+            cropPosition: "60% 22%",
+          },
+          destijl: {
+            titleDe: "Sanierung Fassade & Modernisierung, Hamburg 2016",
+            titleEn: "Facade renovation & modernisation, Hamburg 2016",
+            bodyDe:
+              "Sanierung einer Fassade und Modernisierung eines Wohnhauses in Hamburg — Bestand bewahren, Qualität sichtbar machen.",
+            bodyEn:
+              "Facade renovation and modernisation of a residential building in Hamburg — preserving the existing, making quality visible.",
+            keywordDe: "Sanierung",
+            keywordEn: "Renovation",
+            concreteDe: "Fassade & Modernisierung, 2016",
+            concreteEn: "Facade & modernisation, 2016",
+            images: ["../assets/destijl.png"],
+            cropPosition: "48% 18%",
+          },
+          schleswig: {
+            titleDe: "Wettbewerb Schleswig an der Waterkant, 2016",
+            titleEn: "Competition Schleswig on the waterfront, 2016",
+            bodyDe:
+              "Wettbewerbsentwurf für Wohnbebauung und Ärztehaus in Schleswig — städtebaulicher Kontext an der Waterkant.",
+            bodyEn:
+              "Competition entry for housing and a medical centre in Schleswig — urban design on the waterfront.",
+            keywordDe: "Wettbewerb",
+            keywordEn: "Competition",
+            concreteDe: "Schleswig Waterkant, 2016",
+            concreteEn: "Schleswig waterfront, 2016",
+            images: ["../assets/schleswig.png", "../assets/Wedel2016.png"],
+            cropPosition: "52% 20%",
+          },
+        };
+
+        var OFFERS = {
+          arrangement: {
+            titleDe: "Neues Arrangement",
+            titleEn: "Fresh layout",
+            line1De: "Du bekommst einen klaren Raumplan mit Materialliste und technischen Hinweisen — ohne Baustelle.",
+            line1En: "You get a clear room plan with a material list and technical notes — without a construction site.",
+            line2De: "Fotorealistische Visualisierungen zeigen dir vorher, wie der Raum wirken wird.",
+            line2En: "Photorealistic visuals show you how the space will feel before anything changes.",
+          },
+          sortieren: {
+            titleDe: "Sortieren & Klarheit",
+            titleEn: "Sorting & clarity",
+            line1De: "Wir sortieren gemeinsam Ideen, Möbel und Hab & Gut — was bleibt, was geht, was fehlt.",
+            line1En: "Together we sort ideas, furniture, and what you own — what stays, what goes, what is missing.",
+            line2De: "Am Ende hast du eine belastbare Entscheidungsgrundlage statt visueller Überforderung.",
+            line2En: "In the end you have a solid basis for decisions instead of visual overwhelm.",
+          },
+          allinklusive: {
+            titleDe: "All Inklusive",
+            titleEn: "All-inclusive",
+            line1De: "Von der ersten Skizze bis zur handwerklichen Umsetzung — ein Ansprechpartner, ein Ablauf.",
+            line1En: "From the first sketch to execution on site — one contact, one process.",
+            line2De: "Bauplanung und Koordination der Gewerke sind eingebunden, damit du nicht zwischen Stühlen sitzt.",
+            line2En: "Planning and coordinating trades are included so you are not left between chairs.",
+          },
+          hochbau: {
+            titleDe: "Hochbau",
+            titleEn: "Structural work",
+            line1De: "Für Hochbau und Genehmigungsverfahren arbeite ich mit einem erfahrenen Partnerbüro zusammen.",
+            line1En: "For structural work and permit procedures I collaborate with an experienced partner office.",
+            line2De: "Du behältst einen Ansprechpartner — wir liefern die bauantragstaugliche Qualität.",
+            line2En: "You keep one point of contact — we deliver the permit-ready quality.",
+          },
+        };
+
+        var INTENTS = {
+          arrangement: {
+            questions: [
+              {
+                id: "raum",
+                labelDe: "Welcher Raum soll neu gedacht werden?",
+                labelEn: "Which room should be reimagined?",
+                placeholderDe: "z. B. Wohnzimmer, Arbeitsnische, Küche",
+                placeholderEn: "e.g. living room, work nook, kitchen",
+              },
+              {
+                id: "stoerung",
+                labelDe: "Was stört dich am aktuellen Raum am meisten?",
+                labelEn: "What bothers you most about the current space?",
+                placeholderDe: "Kurz in eigenen Worten",
+                placeholderEn: "Briefly in your own words",
+              },
+              {
+                id: "zeit",
+                labelDe: "Gibt es einen zeitlichen Rahmen?",
+                labelEn: "Is there a timeline?",
+                placeholderDe: "z. B. in den nächsten 4 Wochen",
+                placeholderEn: "e.g. within the next 4 weeks",
+              },
+            ],
+          },
+          sortieren: {
+            questions: [
+              {
+                id: "was",
+                labelDe: "Was möchtest du sortieren?",
+                labelEn: "What do you want to sort through?",
+                placeholderDe: "Raum, Möbel, Ideen, Hab & Gut …",
+                placeholderEn: "Space, furniture, ideas, belongings …",
+              },
+              {
+                id: "blockade",
+                labelDe: "Was hält dich vom Entscheiden ab?",
+                labelEn: "What keeps you from deciding?",
+                placeholderDe: "Optional — was fühlt sich schwer an?",
+                placeholderEn: "Optional — what feels difficult?",
+              },
+              {
+                id: "ziel",
+                labelDe: "Was wäre am Ende ein gutes Ergebnis für dich?",
+                labelEn: "What would a good outcome look like for you?",
+                placeholderDe: "Klarheit, weniger, neuer Plan …",
+                placeholderEn: "Clarity, less clutter, a new plan …",
+              },
+            ],
+          },
+          allinklusive: {
+            questions: [
+              {
+                id: "umfang",
+                labelDe: "Was soll umgesetzt werden?",
+                labelEn: "What should be built or changed?",
+                placeholderDe: "Ein Raum, eine Etage, mehrere Bereiche",
+                placeholderEn: "One room, a floor, several areas",
+              },
+              {
+                id: "handwerk",
+                labelDe: "Sind Handwerker schon involviert?",
+                labelEn: "Are trades already involved?",
+                placeholderDe: "Noch nicht / teilweise / ja",
+                placeholderEn: "Not yet / partly / yes",
+              },
+              {
+                id: "start",
+                labelDe: "Wann soll es starten?",
+                labelEn: "When should it start?",
+                placeholderDe: "Ungefährer Zeitraum",
+                placeholderEn: "Approximate timeframe",
+              },
+            ],
+          },
+          hochbau: {
+            questions: [
+              {
+                id: "projekt",
+                labelDe: "Was ist das Projekt?",
+                labelEn: "What is the project?",
+                placeholderDe: "Neubau, Anbau, Genehmigung, Sanierung …",
+                placeholderEn: "New build, extension, permit, renovation …",
+              },
+              {
+                id: "phase",
+                labelDe: "In welcher Phase bist du?",
+                labelEn: "What stage are you at?",
+                placeholderDe: "Idee, Skizze, bestehende Pläne …",
+                placeholderEn: "Idea, sketch, existing plans …",
+              },
+              {
+                id: "unterlagen",
+                labelDe: "Welche Unterlagen hast du schon?",
+                labelEn: "What documents do you already have?",
+                placeholderDe: "Grundrisse, Fotos, Bauantrag …",
+                placeholderEn: "Floor plans, photos, permit application …",
+              },
+            ],
+          },
+        };
+
+        var ARIA = {
+          navDe: "Hauptnavigation",
+          navEn: "Main navigation",
+          logoDe: "biig Interior Startseite",
+          logoEn: "biig Interior home",
+          langDe: "Sprache",
+          langEn: "Language",
+          footerDe: "Seitenfuß",
+          footerEn: "Site footer",
+          footerLinksDe: "Rechtliches und Über uns",
+          footerLinksEn: "Legal and about",
+          closeDe: "Popup schließen",
+          closeEn: "Close popup",
+          prevDe: "Vorheriges Bild",
+          prevEn: "Previous image",
+          nextDe: "Nächstes Bild",
+          nextEn: "Next image",
+          heroAltDe: "Interieur mit blauem Gemälde, Sideboard und Glasobjekten",
+          heroAltEn: "Interior with blue painting, sideboard, and glass objects",
+          hochbauDe: "Hochbauprojekte",
+          hochbauEn: "Structural projects",
+        };
+
+        var HOCHBAU_IDS = ["klinker", "rothestr", "graefe", "destijl", "schleswig"];
+
+        var popup = document.getElementById("bi-project-popup");
+        var offerPopup = document.getElementById("bi-offer-popup");
+        var offerTitleEl = document.getElementById("bi-offer-popup-title");
+        var offerBodyEl = document.getElementById("bi-offer-popup-body");
+        var offerCloseBtn = document.getElementById("bi-offer-popup-close");
+        var titleEl = document.getElementById("bi-popup-title");
+        var bodyEl = document.getElementById("bi-popup-body");
+        var trackEl = document.getElementById("bi-slider-track");
+        var dotsEl = document.getElementById("bi-slider-dots");
+        var closeBtn = document.getElementById("bi-popup-close");
+        var heroImage = document.getElementById("bi-hero-image");
+        var hochbauTrack = document.getElementById("bi-hochbau-track");
+        var hochbauDots = document.getElementById("bi-hochbau-dots");
+        var hochbauPrev = document.getElementById("bi-hochbau-prev");
+        var hochbauNext = document.getElementById("bi-hochbau-next");
+        var hochbauSliderEl = document.getElementById("bi-hochbau-slider");
+        var hochbauKeywordEl = document.getElementById("bi-hochbau-keyword");
+        var hochbauConcreteEl = document.getElementById("bi-hochbau-concrete");
+        var intakeForm = document.getElementById("bi-intake-form");
+        var intakeQuestions = document.getElementById("bi-intake-questions");
+        var intakeIntentField = document.getElementById("bi-intake-intent-field");
+        var selectedIntent = null;
+        var slideIndex = 0;
+        var slideCount = 0;
+        var hochbauIndex = 0;
+        var openProjectId = null;
+        var openOfferId = null;
+
+        function pickOffer(offer, key) {
+          return getLang() === "en" ? offer[key + "En"] : offer[key + "De"];
+        }
+
+        function openOfferPopup(id) {
+          closePopup();
+          var offer = OFFERS[id];
+          if (!offer || !offerPopup) return;
+          openOfferId = id;
+          offerTitleEl.textContent = pickOffer(offer, "title");
+          offerBodyEl.innerHTML =
+            "<p>" + pickOffer(offer, "line1") + "</p><p>" + pickOffer(offer, "line2") + "</p>";
+          offerPopup.hidden = false;
+          offerPopup.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+        }
+
+        function closeOfferPopup() {
+          if (!offerPopup) return;
+          openOfferId = null;
+          offerPopup.hidden = true;
+          offerPopup.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+        }
+
+        function pickIntent(item, key) {
+          return getLang() === "en" ? item[key + "En"] : item[key + "De"];
+        }
+
+        function renderIntakeQuestions(intentId) {
+          if (!intakeQuestions || !INTENTS[intentId]) return;
+          var lang = getLang();
+          var config = INTENTS[intentId];
+          intakeQuestions.innerHTML = "";
+
+          config.questions.forEach(function (q) {
+            var wrap = document.createElement("div");
+            wrap.className = "bi-intake__field";
+
+            var label = document.createElement("label");
+            label.setAttribute("for", "bi-intake-" + q.id);
+            label.textContent = pickIntent(q, "label");
+
+            var input = document.createElement("textarea");
+            input.id = "bi-intake-" + q.id;
+            input.name = q.id;
+            input.rows = 2;
+            input.required = true;
+            input.placeholder = pickIntent(q, "placeholder");
+
+            wrap.appendChild(label);
+            wrap.appendChild(input);
+            intakeQuestions.appendChild(wrap);
+          });
+
+          if (intakeIntentField) {
+            intakeIntentField.value =
+              intentId +
+              " — " +
+              (lang === "en"
+                ? OFFERS[intentId] ? OFFERS[intentId].titleEn : intentId
+                : OFFERS[intentId] ? OFFERS[intentId].titleDe : intentId);
+          }
+        }
+
+        function selectIntent(intentId) {
+          selectedIntent = intentId;
+          document.querySelectorAll("[data-bi-intent]").forEach(function (btn) {
+            var active = btn.getAttribute("data-bi-intent") === intentId;
+            btn.classList.toggle("is-active", active);
+            btn.setAttribute("aria-selected", active ? "true" : "false");
+          });
+          renderIntakeQuestions(intentId);
+          if (intakeForm) {
+            intakeForm.hidden = false;
+          }
+        }
+
+        function initIntake() {
+          document.querySelectorAll("[data-bi-intent]").forEach(function (btn) {
+            btn.addEventListener("click", function () {
+              selectIntent(btn.getAttribute("data-bi-intent"));
+            });
+          });
+        }
+
+        function getLang() {
+          return document.body.classList.contains("en") || document.documentElement.lang === "en" ? "en" : "de";
+        }
+
+        function pick(project, key) {
+          return getLang() === "en" ? project[key + "En"] : project[key + "De"];
+        }
+
+        function applyAria() {
+          var lang = getLang();
+          var nav = document.querySelector(".nav");
+          var logo = document.querySelector(".nav__logo");
+          var langGroup = document.querySelector(".nav__lang");
+          var footer = document.getElementById("bi-site-footer");
+          var footerLinks = document.getElementById("bi-footer-links");
+          if (nav) nav.setAttribute("aria-label", lang === "en" ? ARIA.navEn : ARIA.navDe);
+          if (logo) logo.setAttribute("aria-label", lang === "en" ? ARIA.logoEn : ARIA.logoDe);
+          if (langGroup) langGroup.setAttribute("aria-label", lang === "en" ? ARIA.langEn : ARIA.langDe);
+          if (footer) footer.setAttribute("aria-label", lang === "en" ? ARIA.footerEn : ARIA.footerDe);
+          if (footerLinks) {
+            footerLinks.setAttribute("aria-label", lang === "en" ? ARIA.footerLinksEn : ARIA.footerLinksDe);
+          }
+          if (closeBtn) closeBtn.setAttribute("aria-label", lang === "en" ? ARIA.closeEn : ARIA.closeDe);
+          if (offerCloseBtn) offerCloseBtn.setAttribute("aria-label", lang === "en" ? ARIA.closeEn : ARIA.closeDe);
+          if (hochbauPrev) hochbauPrev.setAttribute("aria-label", lang === "en" ? ARIA.prevEn : ARIA.prevDe);
+          if (hochbauNext) hochbauNext.setAttribute("aria-label", lang === "en" ? ARIA.nextEn : ARIA.nextDe);
+          if (heroImage) heroImage.alt = lang === "en" ? ARIA.heroAltEn : ARIA.heroAltDe;
+          if (hochbauSliderEl) {
+            hochbauSliderEl.setAttribute("aria-label", lang === "en" ? ARIA.hochbauEn : ARIA.hochbauDe);
+          }
+        }
+
+        function updateHochbauHover() {
+          var project = PROJECTS[HOCHBAU_IDS[hochbauIndex]];
+          if (!project) return;
+          if (hochbauKeywordEl) hochbauKeywordEl.textContent = pick(project, "keyword");
+          if (hochbauConcreteEl) hochbauConcreteEl.textContent = pick(project, "concrete");
+        }
+
+        function setHochbauSlide(index) {
+          if (!hochbauTrack || !HOCHBAU_IDS.length) return;
+          hochbauIndex = (index + HOCHBAU_IDS.length) % HOCHBAU_IDS.length;
+          hochbauTrack.style.transform = "translateX(-" + hochbauIndex * 100 + "%)";
+          if (hochbauDots) {
+            hochbauDots.querySelectorAll(".bi-hochbau-slider__dot").forEach(function (dot, i) {
+              dot.classList.toggle("is-active", i === hochbauIndex);
+            });
+          }
+          updateHochbauHover();
+        }
+
+        function initHochbauSlider() {
+          if (!hochbauTrack) return;
+          var lang = getLang();
+          hochbauTrack.innerHTML = "";
+          if (hochbauDots) hochbauDots.innerHTML = "";
+
+          HOCHBAU_IDS.forEach(function (id, i) {
+            var project = PROJECTS[id];
+            if (!project) return;
+
+            var slide = document.createElement("button");
+            slide.type = "button";
+            slide.className = "bi-hochbau-slider__slide";
+            slide.setAttribute("data-bi-project", id);
+            var img = document.createElement("img");
+            img.src = project.images[0];
+            img.alt = pick(project, "title");
+            img.decoding = "async";
+            img.loading = i === 0 ? "eager" : "lazy";
+            if (project.cropPosition) img.style.objectPosition = project.cropPosition;
+            slide.appendChild(img);
+            slide.addEventListener("click", function () {
+              openPopup(id);
+            });
+            hochbauTrack.appendChild(slide);
+
+            if (hochbauDots) {
+              var dot = document.createElement("button");
+              dot.type = "button";
+              dot.className = "bi-hochbau-slider__dot" + (i === 0 ? " is-active" : "");
+              dot.setAttribute(
+                "aria-label",
+                (lang === "en" ? "Image " : "Bild ") + (i + 1)
+              );
+              dot.addEventListener("click", function () {
+                setHochbauSlide(i);
+              });
+              hochbauDots.appendChild(dot);
+            }
+          });
+
+          if (hochbauDots) hochbauDots.hidden = HOCHBAU_IDS.length <= 1;
+          hochbauIndex = 0;
+          hochbauTrack.style.transform = "translateX(0)";
+          updateHochbauHover();
+
+          HOCHBAU_IDS.forEach(function (id) {
+            var project = PROJECTS[id];
+            if (project && project.images[0]) {
+              var preload = new Image();
+              preload.src = project.images[0];
+            }
+          });
+        }
+
+        function applyTileLabels() {
+          document.querySelectorAll("[data-bi-project]").forEach(function (btn) {
+            var project = PROJECTS[btn.getAttribute("data-bi-project")];
+            if (!project) return;
+            var keywordEl = btn.querySelector('[data-bi-i18n="keyword"]');
+            var concreteEl = btn.querySelector('[data-bi-i18n="concrete"]');
+            if (keywordEl) keywordEl.textContent = pick(project, "keyword");
+            if (concreteEl) concreteEl.textContent = pick(project, "concrete");
+          });
+        }
+
+        function setSlide(index) {
+          if (!slideCount) return;
+          slideIndex = (index + slideCount) % slideCount;
+          trackEl.style.transform = "translateX(-" + slideIndex * 100 + "%)";
+          dotsEl.querySelectorAll(".bi-slider__dot").forEach(function (dot, i) {
+            dot.classList.toggle("is-active", i === slideIndex);
+          });
+        }
+
+        function buildSlider(images, title) {
+          var lang = getLang();
+          trackEl.innerHTML = "";
+          dotsEl.innerHTML = "";
+          slideCount = images.length;
+          slideIndex = 0;
+
+          images.forEach(function (src, i) {
+            var fig = document.createElement("figure");
+            fig.className = "bi-slider__slide";
+            var img = document.createElement("img");
+            img.src = src;
+            img.alt =
+              title +
+              " — " +
+              (lang === "en" ? "Image " : "Bild ") +
+              (i + 1);
+            img.decoding = "async";
+            fig.appendChild(img);
+            trackEl.appendChild(fig);
+
+            if (slideCount > 1) {
+              var dot = document.createElement("button");
+              dot.type = "button";
+              dot.className = "bi-slider__dot" + (i === 0 ? " is-active" : "");
+              dot.setAttribute(
+                "aria-label",
+                (lang === "en" ? "Image " : "Bild ") + (i + 1)
+              );
+              dot.addEventListener("click", function () {
+                setSlide(i);
+              });
+              dotsEl.appendChild(dot);
+            }
+          });
+
+          trackEl.style.transform = "translateX(0)";
+          if (dotsEl) dotsEl.hidden = slideCount <= 1;
+        }
+
+        function openPopup(id) {
+          closeOfferPopup();
+          var project = PROJECTS[id];
+          if (!project || !popup) return;
+          openProjectId = id;
+          titleEl.textContent = pick(project, "title");
+          bodyEl.textContent = pick(project, "body");
+          buildSlider(project.images, pick(project, "title"));
+          popup.hidden = false;
+          popup.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+        }
+
+        function closePopup() {
+          if (!popup) return;
+          openProjectId = null;
+          popup.hidden = true;
+          popup.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+        }
+
+        function applyLang() {
+          applyAria();
+          applyTileLabels();
+          initHochbauSlider();
+          if (selectedIntent) {
+            renderIntakeQuestions(selectedIntent);
+          }
+          if (openOfferId) {
+            openOfferPopup(openOfferId);
+          }
+          if (openProjectId) {
+            var project = PROJECTS[openProjectId];
+            titleEl.textContent = pick(project, "title");
+            bodyEl.textContent = pick(project, "body");
+            buildSlider(project.images, pick(project, "title"));
+          }
+        }
+
+        document.querySelectorAll("[data-bi-offer]").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            openOfferPopup(btn.getAttribute("data-bi-offer"));
+          });
+        });
+
+        document.querySelectorAll("[data-bi-project]").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            openPopup(btn.getAttribute("data-bi-project"));
+          });
+        });
+
+        popup.querySelectorAll("[data-bi-popup-close]").forEach(function (el) {
+          el.addEventListener("click", closePopup);
+        });
+
+        offerPopup.querySelectorAll("[data-bi-offer-popup-close]").forEach(function (el) {
+          el.addEventListener("click", closeOfferPopup);
+        });
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") {
+            if (!offerPopup.hidden) closeOfferPopup();
+            else if (!popup.hidden) closePopup();
+            return;
+          }
+          if (popup.hidden) return;
+          if (e.key === "ArrowLeft") setSlide(slideIndex - 1);
+          if (e.key === "ArrowRight") setSlide(slideIndex + 1);
+        });
+
+        if (hochbauPrev) {
+          hochbauPrev.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            setHochbauSlide(hochbauIndex - 1);
+          });
+        }
+
+        if (hochbauNext) {
+          hochbauNext.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            setHochbauSlide(hochbauIndex + 1);
+          });
+        }
+
+        initIntake();
+
+        document.addEventListener("fc-lang-change", applyLang);
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", function () {
+            applyLang();
+          });
+        } else {
+          applyLang();
+        }
+      })();
+    </script>
   </body>
 </html>
