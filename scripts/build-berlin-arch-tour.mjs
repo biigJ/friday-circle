@@ -12,6 +12,7 @@ import {
   LABELS_BY_ID,
   LABEL_DEFS,
   LABEL_ORDER,
+  withZeitgenoessisch,
   DAY_COLORS,
   DEFAULT_DINING,
   DINING_BY_DAY,
@@ -1257,7 +1258,7 @@ for (const day of DAYS) {
   const stopsHtml = day.stops
     .map(
       (s) => `
-    <button type="button" class="bat-stop" data-stop-id="${esc(s.id)}" data-labels="${esc((s.labels || LABELS_BY_ID[s.id] || []).join(","))}" aria-label="${esc(s.nameDe)}">
+    <button type="button" class="bat-stop" data-stop-id="${esc(s.id)}" data-labels="${esc(withZeitgenoessisch(s.labels || LABELS_BY_ID[s.id] || []).join(","))}" aria-label="${esc(s.nameDe)}">
       <div class="bat-stop__img-wrap">
         ${renderStopLabels(s)}
         ${imgBlock(s.photo, s.nameDe, "bat-stop__img", "bat-stop__ph")}
@@ -1931,7 +1932,7 @@ function flattenAllStops() {
   }
   for (const [id, labels] of Object.entries(LABELS_BY_ID)) {
     if (!map.has(id)) continue;
-    map.set(id, { ...map.get(id), labels: normalizeLabels(labels) });
+    map.set(id, { ...map.get(id), labels: normalizeLabels(withZeitgenoessisch(labels)) });
   }
   return map;
 }
@@ -1964,7 +1965,7 @@ function reorganizeTourDays() {
 }
 
 function renderStopLabels(stop) {
-  const labels = normalizeLabels(stop.labels || LABELS_BY_ID[stop.id] || []);
+  const labels = normalizeLabels(withZeitgenoessisch(stop.labels || LABELS_BY_ID[stop.id] || []));
   if (!labels.length) return "";
   const chips = labels
     .map((key) => {
