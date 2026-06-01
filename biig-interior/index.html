@@ -108,10 +108,28 @@
       }
 
       .bi-hero__slide {
+        position: relative;
         flex: 0 0 100%;
         min-width: 0;
         height: 100%;
         overflow: hidden;
+      }
+
+      .bi-hero__caption {
+        position: absolute;
+        left: clamp(12px, 2vw, 22px);
+        bottom: clamp(12px, 2vw, 20px);
+        z-index: 2;
+        margin: 0;
+        max-width: min(88%, 32rem);
+        font-family: var(--font-sans);
+        font-size: clamp(0.62rem, 1vw, 0.75rem);
+        font-weight: 300;
+        line-height: 1.4;
+        letter-spacing: 0.03em;
+        color: #f0eee6;
+        text-shadow: 0 1px 12px rgba(0, 0, 0, 0.55);
+        pointer-events: none;
       }
 
       .bi-hero__slide img {
@@ -947,8 +965,8 @@
               <div class="bi-hero__dots" id="bi-hero-dots"></div>
             </div>
             <p class="bi-hero__slogan">
-              <span class="de-t">Einfach gute Mittel. Architektur für Alle. Umsetzungsstark.</span>
-              <span class="en-t">Good tools, simply. Architecture for everyone. Built to deliver.</span>
+              <span class="de-t">Richtige Mittel für gute Alltagsarchitektur. Umsetzungsstark.</span>
+              <span class="en-t">The right tools for good everyday architecture. Built to deliver.</span>
             </p>
           </figure>
         </div>
@@ -1525,21 +1543,29 @@
             src: "../assets/blauesgemälde.png",
             altDe: "Interieur mit blauem Gemälde, Sideboard und Glasobjekten",
             altEn: "Interior with blue painting, sideboard, and glass objects",
+            captionDe: "Berlin Kreuzberg - Wohnungsarrengement",
+            captionEn: "Berlin Kreuzberg - apartment layout",
           },
           {
             src: "../assets/rene-möbliert-01.png?v=2",
             altDe: "Möblierter Wohnraum mit durchdachter Einrichtung",
             altEn: "Furnished living space with curated interior",
+            captionDe: "Hamburg Blankenese - Sanierung einer Wohnetage",
+            captionEn: "Hamburg Blankenese - renovation of a residential floor",
           },
           {
             src: "../assets/biigJ-Küche-01.png",
             altDe: "Küche mit klarer Materialität und warmem Licht",
             altEn: "Kitchen with clear materials and warm light",
+            captionDe: "Berlin Kreuzberg - Sanierung Mini-Apartement",
+            captionEn: "Berlin Kreuzberg - mini-apartment renovation",
           },
           {
             src: "../assets/interior/table_bronce.png",
             altDe: "Essbereich mit Holztisch, Stühlen und bronzener Spiegelwand",
             altEn: "Dining area with wood table, chairs, and bronze mirror wall",
+            captionDe: "Berlin - Möbelstudie",
+            captionEn: "Berlin – furniture study",
           },
         ];
 
@@ -1742,6 +1768,19 @@
               img.style.transformOrigin = "center center";
             }
             slideEl.appendChild(img);
+            if (slide.captionDe || slide.captionEn) {
+              var cap = document.createElement("p");
+              cap.className = "bi-hero__caption";
+              var capDe = document.createElement("span");
+              capDe.className = "de-t";
+              capDe.textContent = slide.captionDe || slide.captionEn;
+              var capEn = document.createElement("span");
+              capEn.className = "en-t";
+              capEn.textContent = slide.captionEn || slide.captionDe;
+              cap.appendChild(capDe);
+              cap.appendChild(capEn);
+              slideEl.appendChild(cap);
+            }
             heroTrack.appendChild(slideEl);
 
             if (heroDots) {
