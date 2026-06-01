@@ -240,7 +240,7 @@ export const NEW_STOPS_META = [
     teaserEn: "Lightweight structure at Breitscheidplatz – between Ku'damm and the memorial church.",
   },
   {
-    dayId: 2,
+    dayId: 3,
     id: "d2-shellhaus",
     nameDe: "Shell-Haus",
     nameEn: "Shell-Haus",
@@ -250,7 +250,7 @@ export const NEW_STOPS_META = [
     teaserEn: "Curved facade on the Landwehr Canal – one of the last major office buildings before 1945.",
   },
   {
-    dayId: 4,
+    dayId: 1,
     id: "d2-hamburger-bahnhof",
     nameDe: "Hamburger Bahnhof",
     nameEn: "Hamburger Bahnhof",
@@ -260,7 +260,7 @@ export const NEW_STOPS_META = [
     teaserEn: "Former station as museum – industrial site becomes art architecture.",
   },
   {
-    dayId: 1,
+    dayId: 5,
     id: "d2-babylon",
     nameDe: "Babylon-Kino",
     nameEn: "Babylon cinema",
