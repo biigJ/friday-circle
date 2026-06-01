@@ -548,7 +548,7 @@ export const LABELS_BY_ID = {
   "d5-koenig": ["nach1990", "ausstellung"],
   "d3-berlinische": ["nach1990", "ausstellung"],
   "d6-r50": ["nach1990", "privat"],
-  "d3-krier": ["postmoderne", "privat"],
+  "d3-krier": ["postmoderne", "brd", "privat"],
   "d5-springer": ["nach1990", "dekonstruktivismus", "privat"],
   "d3-taz": ["nach1990", "privat"],
   "d3-lima": ["postmoderne", "brd", "privat"],
