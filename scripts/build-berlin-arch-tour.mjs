@@ -3,6 +3,7 @@ import { writeFileSync, mkdirSync, existsSync, copyFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import { PHOTO_BY_STOP, NEW_STOPS_META, DINING_PHOTOS } from "./berlin-arch-tour-photos.mjs";
+import { COORDS_BY_STOP } from "./berlin-arch-tour-coords.mjs";
 import {
   DAY_LAYOUT,
   EXTRA_STOPS,
@@ -10,6 +11,7 @@ import {
   LABELS_BY_ID,
   LABEL_DEFS,
   LABEL_ORDER,
+  DAY_COLORS,
   DEFAULT_DINING,
   DINING_BY_DAY,
 } from "./berlin-arch-tour-layout.mjs";
@@ -1016,7 +1018,7 @@ const CSS = `/* berlin arch tour — bündig mit .nav__inner / .hero__grid (styl
 body.bat-page{--bat-black:#0d0d0d;--bat-white:#fff;--bat-red:#c8312a}
 body.bat-page.en .de-t,body.bat-page.de .en-t{display:none}
 .bat-shell{box-sizing:border-box;width:100%;max-width:var(--content-max);margin-left:auto;margin-right:auto;padding-left:var(--nav-pad-x);padding-right:var(--nav-pad-x)}
-.bat-hero{position:relative;min-height:min(88vh,720px);display:flex;align-items:flex-end;background:var(--bat-black);color:var(--bat-white);overflow:hidden}
+.bat-hero{position:relative;min-height:min(88vh,720px);display:flex;align-items:flex-end;background:var(--bat-black);color:var(--bat-white);overflow:hidden;border-bottom:1px solid rgba(255,255,255,.14)}
 .bat-hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1}
 .bat-hero__shell{position:relative;z-index:1;width:100%;padding:clamp(48px,8vw,96px) 0 clamp(32px,5vw,56px)}
 .bat-hero__inner{width:100%;min-width:0}
@@ -1026,31 +1028,30 @@ body.bat-page.en .de-t,body.bat-page.de .en-t{display:none}
 .bat-hero__title-line--strong{font-weight:700}
 .bat-hero__sub{margin:20px 0 0;max-width:39.5rem;font-size:clamp(.95rem,1.6vw,1.15rem);line-height:1.5;opacity:.88;text-shadow:0 1px 10px rgba(0,0,0,.5),0 0 1px rgba(0,0,0,.85)}
 .bat-hero__meta{display:flex;flex-wrap:wrap;gap:clamp(16px,3vw,32px);margin-top:28px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.65;text-shadow:0 1px 8px rgba(0,0,0,.5),0 0 1px rgba(0,0,0,.85)}
-.bat-tour-intro{position:sticky;top:var(--bat-sticky-top,72px);z-index:90;width:100%;background:var(--bg);padding-bottom:clamp(16px,2.5vw,24px);border-bottom:1px solid rgba(13,13,13,.06);box-sizing:border-box}
+.bat-tour-intro{position:sticky;top:var(--bat-sticky-top,72px);z-index:90;width:100%;background:var(--bg);padding-bottom:clamp(16px,2.5vw,24px);border-bottom:none;box-sizing:border-box;transform:translateZ(0)}
 .bat-tour-intro__inner{width:100%;max-width:var(--content-max);margin-left:auto;margin-right:auto;padding-left:var(--nav-pad-x);padding-right:var(--nav-pad-x);box-sizing:border-box}
 .bat-day-strip{padding:clamp(18px,3vw,28px) 0 clamp(14px,2vw,18px);background:transparent}
 .bat-day-strip__days{display:flex;flex-wrap:nowrap;gap:clamp(10px,1.4vw,18px);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .bat-day-strip__days::-webkit-scrollbar{display:none}
-.bat-day-strip a{display:block;padding:0;font-size:clamp(8.5px,0.72vw,10px);letter-spacing:.04em;text-transform:none;text-decoration:none;color:var(--text);opacity:1;border-bottom:none;white-space:nowrap;font-weight:400;line-height:1.25;flex-shrink:0}
-.bat-day-strip a:hover,.bat-day-strip a.is-active{font-weight:600}
-.bat-day-strip a.is-active{text-decoration:underline;text-underline-offset:.22em}
+.bat-day-strip a{display:block;padding:4px 8px;border-radius:2px;font-size:clamp(8.5px,0.72vw,10px);letter-spacing:.04em;text-transform:none;text-decoration:none;color:var(--bat-day-color,var(--text));opacity:1;border-bottom:none;white-space:nowrap;font-weight:400;line-height:1.25;flex-shrink:0;transition:background .15s ease,color .15s ease}
+.bat-day-strip a:hover{font-weight:600}
+.bat-day-strip a.is-active{background:var(--bat-day-color,var(--bat-black));color:var(--bat-white);font-weight:600;text-decoration:none}
 .bat-intro{padding:0 0 clamp(10px,1.6vw,14px)}
 .bat-intro p{margin:0;max-width:720px;font-size:13.5px;line-height:1.45;font-weight:300;color:color-mix(in srgb,var(--text) 68%,transparent);letter-spacing:.01em}
 .bat-label-filter{display:flex;justify-content:center;flex-wrap:wrap;gap:clamp(6px,1.2vw,10px);padding:clamp(4px,1vw,8px) 0 0}
-.bat-label-filter__btn{margin:0;padding:5px 10px;border:none;border-radius:2px;font-family:var(--font-sans);font-size:10px;font-weight:400;letter-spacing:.08em;line-height:1.2;cursor:pointer;transition:opacity .2s ease,transform .15s ease}
+.bat-label-filter__btn{margin:0;padding:5px 10px;border:none;border-radius:2px;font-family:var(--font-sans);font-size:10px;font-weight:400;letter-spacing:.08em;line-height:1.2;cursor:pointer;background:var(--bat-black);color:var(--bat-white);transition:opacity .2s ease,transform .15s ease}
 .bat-label-filter__btn.is-on{opacity:1}
 .bat-label-filter__btn.is-off{opacity:.32}
 .bat-label-filter__btn:hover,.bat-label-filter__btn:focus-visible{transform:translateY(-1px);outline:none}
 .bat-label-filter__btn.is-off:hover,.bat-label-filter__btn.is-off:focus-visible{opacity:.5}
-.bat-label-filter__btn--privat.is-off{box-shadow:inset 0 0 0 1px rgba(13,13,13,.22)}
 .bat-stop.is-filter-hidden{display:none!important}
 .bat-lang{display:flex;flex-shrink:0;border:1px solid rgba(13,13,13,.2);border-radius:999px;overflow:hidden}
 .bat-lang button{border:none;background:transparent;padding:6px 12px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:inherit;color:var(--text)}
 .bat-lang button.is-active{background:var(--bat-black);color:var(--bat-white)}
 .bat-day{background:var(--bat-black);color:var(--bat-white);padding:0 0 clamp(40px,6vw,64px);scroll-margin-top:var(--bat-day-scroll-margin,220px)}
-.bat-day__header{padding:clamp(36px,5vw,56px) 0 clamp(24px,3vw,32px);display:grid;gap:12px}
+.bat-day__header{padding:clamp(36px,5vw,56px) 0 clamp(24px,3vw,32px);display:grid;gap:12px;border-top:4px solid var(--bat-day-color,var(--bat-red))}
 @media(min-width:761px){.bat-day__header{grid-template-columns:auto 1fr;gap:24px 40px;align-items:center}}
-.bat-day__num{font-size:clamp(3rem,8vw,5rem);font-weight:200;line-height:1;opacity:.42;color:rgba(255,255,255,.42);margin:0;align-self:center}
+.bat-day__num{font-size:clamp(3rem,8vw,5rem);font-weight:200;line-height:1;margin:0;align-self:center;color:var(--bat-day-color,var(--bat-red));opacity:1}
 .bat-day__title{margin:0;font-size:clamp(2.2rem,5vw,4.4rem);font-weight:200;line-height:1.02;letter-spacing:-.01em;text-transform:uppercase}
 .bat-day__title strong{font-weight:700}
 .bat-day__meta{font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.55;margin:0}
@@ -1063,24 +1064,49 @@ body.bat-page.en .de-t,body.bat-page.de .en-t{display:none}
 body.bat-page .bat-stop__img-wrap img.bat-stop__img{position:absolute;top:0;left:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;border-radius:0;object-fit:cover;object-position:top center;display:block}
 .bat-stop__ph{position:absolute;inset:0;display:none;align-items:center;justify-content:center;padding:20px;text-align:center;font-size:13px;letter-spacing:.08em;text-transform:uppercase;opacity:.45;background:rgba(255,255,255,.06)}
 .bat-stop__labels{position:absolute;top:8px;right:8px;z-index:2;display:flex;flex-direction:column;align-items:flex-end;gap:4px;pointer-events:none}
-.bat-stop__label{display:block;padding:3px 7px;font-size:9px;font-weight:400;letter-spacing:.08em;line-height:1.2;text-transform:none;border-radius:2px;white-space:nowrap}
+.bat-stop__label{display:block;padding:3px 7px;font-size:9px;font-weight:400;letter-spacing:.08em;line-height:1.2;text-transform:none;border-radius:2px;white-space:nowrap;background:var(--bat-black);color:var(--bat-white)}
 .bat-stop__body{padding:16px 18px 20px}
-.bat-stop__tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--bat-red);margin:0 0 8px}
+.bat-stop__tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--bat-day-color,var(--bat-red));margin:0 0 8px}
 .bat-stop__name{margin:0 0 8px;font-size:17px;font-weight:500;color:var(--bat-white)}
 .bat-stop__teaser{margin:0;font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.68)}
 .bat-dining{padding:0 0 clamp(32px,4vw,48px);display:grid;gap:16px}
 @media(min-width:640px){.bat-dining{grid-template-columns:1fr 1fr;gap:24px}}
 .bat-dining__card{display:flex;flex-direction:row;align-items:stretch;height:192px;min-height:192px;border:1px solid rgba(255,255,255,.12);border-radius:4px;overflow:hidden;background:rgba(255,255,255,.03)}
 .bat-dining__body{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:flex-start;padding:14px 16px 12px}
-.bat-dining__label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--bat-red);margin:0 0 6px}
+.bat-dining__label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--bat-day-color,var(--bat-red));margin:0 0 6px}
 .bat-dining__name{margin:0 0 6px;font-size:15px;font-weight:500;line-height:1.25;color:var(--bat-white)}
 .bat-dining__text{margin:0;font-size:13px;line-height:1.5;color:rgba(255,255,255,.72);overflow-wrap:anywhere;word-break:break-word}
-.bat-dining__link{display:inline-block;margin-top:auto;padding-top:10px;font-size:12px;letter-spacing:.04em;color:var(--bat-red);text-decoration:none}
+.bat-dining__link{display:inline-block;margin-top:auto;padding-top:10px;font-size:12px;letter-spacing:.04em;color:var(--bat-day-color,var(--bat-red));text-decoration:none}
 .bat-dining__link:hover,.bat-dining__link:focus-visible{text-decoration:underline}
 .bat-dining__photo{position:relative;flex:0 0 192px;width:192px;height:192px;background:rgba(255,255,255,.06);overflow:hidden}
 body.bat-page .bat-dining__photo img{position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;object-fit:cover;object-position:center;display:block}
 .bat-interlude{background:var(--bg);color:var(--text);padding:clamp(32px,5vw,48px) var(--nav-pad-x);text-align:center;font-size:13px;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
-.bat-modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:clamp(12px,3vw,24px)}
+.bat-map-section{position:relative;z-index:0;width:100%;padding:0;margin:0;background:#ececec;border-top:1px solid rgba(13,13,13,.12);border-bottom:none;overflow:hidden}
+.bat-map__frame{border:none;border-radius:0;overflow:hidden;background:#ececec;position:relative;z-index:0}
+.bat-map__canvas{width:100%;height:min(68vh,560px);min-height:320px;position:relative;z-index:0;background:#ececec}
+.bat-map__canvas.leaflet-container{background:#ececec}
+.bat-map__canvas .leaflet-map-pane{z-index:0}
+.bat-map__canvas .leaflet-map-pane canvas,.bat-map__canvas .leaflet-map-pane svg{z-index:auto}
+.bat-map__canvas .leaflet-tile-pane{z-index:200}
+.bat-map__canvas .leaflet-overlay-pane{z-index:400}
+.bat-map__canvas .leaflet-shadow-pane{z-index:500}
+.bat-map__canvas .leaflet-marker-pane{z-index:600;pointer-events:none}
+.bat-map__canvas .leaflet-marker-pane .leaflet-marker-icon{pointer-events:auto}
+.bat-map__canvas .leaflet-tooltip-pane{z-index:650}
+.bat-map__canvas .leaflet-popup-pane{z-index:700}
+.bat-map__canvas .leaflet-control-container{z-index:800;pointer-events:none}
+.bat-map__canvas .leaflet-top,.bat-map__canvas .leaflet-bottom{z-index:800;pointer-events:none}
+.bat-map__canvas .leaflet-control{z-index:800;pointer-events:auto}
+.bat-map__canvas .leaflet-tile-pane img.leaflet-tile{mix-blend-mode:normal;filter:grayscale(1) contrast(1.06) brightness(1.02)}
+.bat-map__canvas .leaflet-control-zoom a{background:var(--bg);color:var(--text);border-color:rgba(13,13,13,.15)}
+.bat-map__canvas .leaflet-bar{box-shadow:0 1px 4px rgba(0,0,0,.22)}
+main{position:relative;z-index:2}
+.bat-map-marker{background:transparent!important;border:none!important;position:relative!important;z-index:1!important}
+.bat-map-marker span{display:block;width:10px;height:10px;border-radius:50%;box-shadow:0 0 0 2px rgba(255,255,255,.9),0 1px 4px rgba(0,0,0,.35)}
+.bat-map-marker:hover span,.bat-map-marker:focus-visible span{transform:scale(1.15)}
+.leaflet-tooltip.bat-map-tooltip{background:var(--bat-black);color:var(--bat-white);border:none;border-radius:3px;padding:4px 8px;font-size:11px;font-weight:400;letter-spacing:.02em;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.leaflet-tooltip.bat-map-tooltip:before{border-top-color:var(--bat-black)}
+.bat-modal{position:fixed;inset:0;z-index:500;display:none;align-items:center;justify-content:center;padding:clamp(12px,3vw,24px)}
 .bat-modal.is-open{display:flex}
 .bat-modal__backdrop{position:absolute;inset:0;background:rgba(13,13,13,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .bat-modal__panel{position:relative;z-index:1;display:flex;flex-direction:column;width:min(560px,92vw);max-height:min(92vh,100%);overflow:hidden;background:var(--bat-black);color:var(--bat-white);border-radius:12px;margin:0}
@@ -1157,15 +1183,49 @@ function normalizeLabels(labels) {
 function renderLabelFilter() {
   const buttons = LABEL_ORDER
     .filter((k) => LABEL_DEFS[k])
-    .map((k) => {
-      const def = LABEL_DEFS[k];
-      return `<button type="button" class="bat-label-filter__btn is-on bat-label-filter__btn--${k}" data-label-filter="${k}" aria-pressed="true" style="background:${def.bg};color:${def.color}"><span class="de-t">${esc(def.de)}</span><span class="en-t">${esc(def.en)}</span></button>`;
-    })
+    .map(
+      (k) =>
+        `<button type="button" class="bat-label-filter__btn is-on bat-label-filter__btn--${k}" data-label-filter="${k}" aria-pressed="true"><span class="de-t">${esc(LABEL_DEFS[k].de)}</span><span class="en-t">${esc(LABEL_DEFS[k].en)}</span></button>`
+    )
     .join("");
   return `<div class="bat-label-filter" role="group" aria-label="Labels filtern">${buttons}</div>`;
 }
 
+function buildDayColorCss() {
+  return Object.entries(DAY_COLORS)
+    .map(
+      ([id, color]) =>
+        `.bat-day[data-day="${id}"]{--bat-day-color:${color};background:var(--bat-black)}` +
+        `.bat-day-strip a[data-day-link="${id}"]{--bat-day-color:${color}}`
+    )
+    .join("");
+}
+
+function buildMapPins() {
+  const seen = new Set();
+  const pins = [];
+  for (const day of DAYS) {
+    for (const stop of day.stops) {
+      if (seen.has(stop.id)) continue;
+      const coord = COORDS_BY_STOP[stop.id];
+      if (!coord) continue;
+      seen.add(stop.id);
+      pins.push({
+        id: stop.id,
+        dayId: day.id,
+        lat: coord.lat,
+        lng: coord.lng,
+        nameDe: stop.nameDe,
+        nameEn: stop.nameEn,
+      });
+    }
+  }
+  return pins;
+}
+
 function buildHtml(heroImg) {
+const mapPins = buildMapPins();
+const dayColorCss = buildDayColorCss();
 let daysHtml = "";
 for (const day of DAYS) {
   const stopsHtml = day.stops
@@ -1226,7 +1286,8 @@ return `<!DOCTYPE html>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<style>${CSS}</style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<style>${CSS}${dayColorCss}</style>
 </head>
 <body class="de bat-page">
 <div id="fc-site-header"></div>
@@ -1266,6 +1327,12 @@ return `<!DOCTYPE html>
   </div>
 </div>
 
+<section class="bat-map-section" id="bat-map" aria-label="Berlin map with tour project locations">
+  <div class="bat-map__frame">
+    <div id="bat-map-canvas" class="bat-map__canvas"></div>
+  </div>
+</section>
+
 <main>${daysHtml}</main>
 
 <div id="fc-site-footer"></div>
@@ -1281,6 +1348,8 @@ return `<!DOCTYPE html>
 
 <script>
 const TOUR = ${JSON.stringify(DAYS)};
+const MAP_PINS = ${JSON.stringify(mapPins)};
+const DAY_COLORS = ${JSON.stringify(DAY_COLORS)};
 const LABEL_DEFS = ${JSON.stringify(LABEL_DEFS)};
 const LABEL_ORDER = ${JSON.stringify(LABEL_ORDER)};
 let lang = (function(){try{return localStorage.getItem('fcLang')||'de'}catch(e){return 'de'}})();
@@ -1304,7 +1373,7 @@ function renderModalLabelsHtml(s) {
   const chips = labels.map(function (key) {
     const def = LABEL_DEFS[key];
     if (!def) return '';
-    return '<span class="bat-stop__label bat-stop__label--' + key + '" style="background:' + def.bg + ';color:' + def.color + '"><span class="de-t">' + def.de + '</span><span class="en-t">' + def.en + '</span></span>';
+    return '<span class="bat-stop__label bat-stop__label--' + key + '"><span class="de-t">' + def.de + '</span><span class="en-t">' + def.en + '</span></span>';
   }).join('');
   return '<div class="bat-modal__labels">' + chips + '</div>';
 }
@@ -1621,7 +1690,73 @@ if (document.readyState === 'loading') {
 } else {
   initBatStickyTop();
 }
+
+function initBatMap() {
+  var canvas = document.getElementById('bat-map-canvas');
+  if (!canvas || typeof L === 'undefined' || !MAP_PINS.length || canvas.dataset.mapReady === '1') return;
+  var map = L.map(canvas, {
+    scrollWheelZoom: false,
+    zoomControl: true,
+    attributionControl: true,
+    fadeAnimation: false,
+    zoomAnimation: true
+  });
+  canvas.dataset.mapReady = '1';
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    subdomains: 'abcd',
+    maxZoom: 19,
+    updateWhenIdle: true,
+    keepBuffer: 2
+  }).addTo(map);
+  var bounds = [];
+  MAP_PINS.forEach(function (p) {
+    var color = DAY_COLORS[p.dayId] || '#c8312a';
+    var marker = L.marker([p.lat, p.lng], {
+      icon: L.divIcon({
+        className: 'bat-map-marker',
+        html: '<span style="background:' + color + '"></span>',
+        iconSize: [10, 10],
+        iconAnchor: [5, 5]
+      })
+    });
+    marker.bindTooltip(lang === 'en' ? p.nameEn : p.nameDe, {
+      className: 'bat-map-tooltip',
+      direction: 'top',
+      offset: [0, -6]
+    });
+    marker.on('click', function () { openModal(p.id); });
+    marker.addTo(map);
+    bounds.push([p.lat, p.lng]);
+  });
+  function syncMapSize() {
+    map.invalidateSize({ animate: false });
+  }
+  if (bounds.length) {
+    map.fitBounds(bounds, { padding: [36, 36], maxZoom: 12 });
+  }
+  map.whenReady(syncMapSize);
+  map.on('zoomend resize', syncMapSize);
+  window.addEventListener('load', syncMapSize);
+  setTimeout(syncMapSize, 120);
+  setTimeout(syncMapSize, 400);
+}
+
+function initBatMapWhenReady() {
+  if (typeof L === 'undefined') {
+    setTimeout(initBatMapWhenReady, 50);
+    return;
+  }
+  initBatMap();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initBatMapWhenReady);
+} else {
+  initBatMapWhenReady();
+}
 </script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
 <script src="nav.js" defer></script>
 <script src="fc-lang.js" defer></script>
 </body>
@@ -1730,7 +1865,7 @@ function renderStopLabels(stop) {
     .map((key) => {
       const def = LABEL_DEFS[key];
       if (!def) return "";
-      return `<span class="bat-stop__label bat-stop__label--${key}" style="background:${def.bg};color:${def.color}"><span class="de-t">${def.de}</span><span class="en-t">${def.en}</span></span>`;
+      return `<span class="bat-stop__label bat-stop__label--${key}"><span class="de-t">${def.de}</span><span class="en-t">${def.en}</span></span>`;
     })
     .join("");
   return `<div class="bat-stop__labels">${chips}</div>`;

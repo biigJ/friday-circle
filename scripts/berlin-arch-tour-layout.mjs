@@ -284,8 +284,8 @@ export const EXTRA_STOPS = {
     id: "d6-taut-neukoelln",
     nameDe: "Wohnhaus Bruno Taut · Neukölln",
     nameEn: "Bruno Taut housing · Neukölln",
-    metaDe: "Bruno Taut · Neukölln",
-    metaEn: "Bruno Taut · Neukölln",
+    metaDe: "Fuldastraße / Ossastraße · 1927–1928",
+    metaEn: "Fuldastraße / Ossastraße · 1927–1928",
     tag: "Bruno Taut · Neukölln",
     labels: ["moderne", "privat"],
     teaserDe:
@@ -296,8 +296,8 @@ export const EXTRA_STOPS = {
       "Bruno Taut prägte Neukölln und Britz mit farbigem, sozial orientiertem Wohnungsbau. Neben der Hufeisensiedlung finden sich weitere Zeugnisse seiner Haltung: Farbe als Struktur, Würde im Alltag.",
     bodyEn:
       "Bruno Taut shaped Neukölln and Britz with colourful, socially oriented housing. Beyond the Horseshoe Estate, further witnesses to his approach remain: colour as structure, dignity in everyday life.",
-    accessDe: "Wohngebäude. Von außen zugänglich, sofern nicht anders gekennzeichnet. U-Bahn U7 oder U8 Richtung Neukölln/Britz.",
-    accessEn: "Residential building. Viewable from outside unless marked otherwise. U7 or U8 towards Neukölln/Britz.",
+    accessDe: "Fuldastraße / Ecke Ossastraße, Neukölln. Von außen zugänglich. U8 Schönleinstraße.",
+    accessEn: "Fuldastraße / corner Ossastraße, Neukölln. Viewable from outside. U8 Schönleinstraße.",
     photo: "assets/berlin-arch-tour/2024-11-16-Wohnhaus_BrunoTaut-Neukölln.jpg",
   },
   "d1-fischerhuette-106": {
@@ -361,7 +361,7 @@ export const EXTRA_STOPS = {
     nameEn: "SO36",
     metaDe: "Oranienstraße 190 · Kreuzberg",
     metaEn: "Oranienstraße 190 · Kreuzberg",
-    tag: "Kultur · Kreuzberg",
+    tag: "Oranienstraße · Kreuzberg",
     labels: ["brd", "privat"],
     teaserDe: "Legendärer Kreuzberger Kulturort - Nachkriegsgebäude, Subkultur, Stadtgeschichte.",
     teaserEn: "Legendary Kreuzberg venue - post-war building, subculture, urban history.",
@@ -369,8 +369,8 @@ export const EXTRA_STOPS = {
       "Das SO36 in der Oranienstraße ist seit den 1970ern Bühne für Punk, Queer-Kultur und Berliner Nachtleben. Das Gebäude steht für Kreuzbergs Selbstverständnis als Gegenentwurf.",
     bodyEn:
       "SO36 on Oranienstraße has been a stage for punk, queer culture and Berlin nightlife since the 1970s. The building stands for Kreuzberg's counter-identity.",
-    accessDe: "Veranstaltungsbetrieb - Programm auf so36.de. U1 Görlitzer Bahnhof.",
-    accessEn: "Venue - programme at so36.de. U1 Görlitzer Bahnhof.",
+    accessDe: "Oranienstraße 190. Programm auf so36.de. U1 Görlitzer Bahnhof.",
+    accessEn: "Oranienstraße 190. Programme at so36.de. U1 Görlitzer Bahnhof.",
     photo: "assets/berlin-arch-tour/SO36_Oranienstrasse.jpg",
   },
   "d6-ankerklause": {
@@ -569,15 +569,25 @@ export const LABELS_BY_ID = {
   "d3-checkpoint": ["postmoderne", "brd", "privat"],
 };
 
+export const DAY_COLORS = {
+  1: "#c8312a",
+  2: "#2563eb",
+  3: "#059669",
+  4: "#d97706",
+  5: "#9333ea",
+  6: "#db2777",
+  7: "#0891b2",
+};
+
 export const LABEL_DEFS = {
-  moderne: { de: "Moderne", en: "Modern", bg: "#2563eb", color: "#ffffff" },
-  postmoderne: { de: "Postmoderne", en: "Postmodern", bg: "#ea580c", color: "#ffffff" },
-  dekonstruktivismus: { de: "Dekonstruktivismus", en: "Deconstructivism", bg: "#9333ea", color: "#ffffff" },
+  moderne: { de: "Moderne", en: "Modern", bg: "#0d0d0d", color: "#ffffff" },
+  postmoderne: { de: "Postmoderne", en: "Postmodern", bg: "#0d0d0d", color: "#ffffff" },
+  dekonstruktivismus: { de: "Dekonstruktivismus", en: "Deconstructivism", bg: "#0d0d0d", color: "#ffffff" },
   vor1939: { de: "vor 1939", en: "before 1939", bg: "#0d0d0d", color: "#ffffff" },
-  zugaenglich: { de: "zugänglich", en: "accessible", bg: "#ca8a04", color: "#ffffff" },
+  zugaenglich: { de: "zugänglich", en: "accessible", bg: "#0d0d0d", color: "#ffffff" },
   nach1990: { de: "nach 1990", en: "after 1990", bg: "#0d0d0d", color: "#ffffff" },
-  privat: { de: "privat", en: "private", bg: "#ffffff", color: "#0d0d0d" },
-  ausstellung: { de: "Ausstellung", en: "Exhibition", bg: "#ca8a04", color: "#ffffff" },
+  privat: { de: "privat", en: "private", bg: "#0d0d0d", color: "#ffffff" },
+  ausstellung: { de: "Ausstellung", en: "Exhibition", bg: "#0d0d0d", color: "#ffffff" },
   brd: { de: "BRD", en: "FRG", bg: "#0d0d0d", color: "#ffffff" },
   ddr: { de: "DDR", en: "GDR", bg: "#0d0d0d", color: "#ffffff" },
 };
