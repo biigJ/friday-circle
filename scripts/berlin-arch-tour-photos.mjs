@@ -46,10 +46,16 @@ export const PHOTO_BY_STOP = {
 
   "d2-hkw": ["d2-hkw.jpg", "2021-04-01-Haus_der_Kulturen_der_Welt.jpg"],
   "d2-hansa": [
+    "2023-05-20-Oscar_Niemeyer_Haus_05.jpeg",
     "2023-05-20_Hansaviertel_Wohnhaus.jpg",
     "d2-hansa.jpg",
     "Hansaviertel02.JPG",
     "Hansaviertel01.jpeg",
+    "2023-05-20-Oscar_Niemeyer_Haus.jpg",
+    "2023-05-20-Oscar_Niemeyer_Haus_02.jpg",
+    "2023-05-20Oscar_Niemeyer_Haus_03.jpg",
+    "2023-05-20-Oscar_Niemeyer_Haus_03.jpeg",
+    "2023-05-20-Oscar_Niemeyer_Haus_04.jpeg",
   ],
   "d2-niemeyer": [
     "2023-05-20-Oscar_Niemeyer_Haus.jpg",

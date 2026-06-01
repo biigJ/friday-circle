@@ -12,7 +12,6 @@ export const DAY_LAYOUT = [
     routeDe: "",
     routeEn: "",
     stopIds: [
-      "d1-bauhaus-archiv",
       "d2-shellhaus",
       "d4-nl",
       "d1-boros",
@@ -51,10 +50,10 @@ export const DAY_LAYOUT = [
   },
   {
     id: 3,
-    themeDe: "Regierungsviertel",
-    themeEn: "Government quarter",
-    navDe: "Tag 3 · Regierungsviertel",
-    navEn: "Day 3 · Government quarter",
+    themeDe: "Spreebogen & Tiergarten",
+    themeEn: "Spreebogen & Tiergarten",
+    navDe: "Tag 3 · Spreebogen & Tiergarten",
+    navEn: "Day 3 · Spreebogen & Tiergarten",
     eraDe: "",
     eraEn: "",
     routeDe: "",
@@ -68,7 +67,7 @@ export const DAY_LAYOUT = [
       "d2-hkw",
       "d4-siegessaeule",
       "d2-hansa",
-      "d2-niemeyer",
+      "d1-bauhaus-archiv",
     ],
   },
   {
@@ -414,6 +413,19 @@ export const EXTRA_STOPS = {
 
 /** Overrides applied after flattening all stops. */
 export const STOP_OVERRIDES = {
+  "d2-hansa": {
+    nameDe: "Hansaviertel mit u.a. Oskar Niemeyer",
+    nameEn: "Hansaviertel incl. Oscar Niemeyer",
+    tag: "Interbau 1957 · Hansaviertel",
+    teaserDe:
+      "53 internationale Architekten, ein westliches Manifest – mit Oscar Niemeyers geschwungenem Betonvordach im Viertel.",
+    teaserEn:
+      "53 international architects, one western manifesto – including Oscar Niemeyer's curved concrete canopy in the quarter.",
+    bodyDe:
+      "Die Interbau 1957 lud 53 internationale Architekten ein. Alvar Aalto, Walter Gropius und Oscar Niemeyer – das Hansaviertel funktioniert als Gesamtbild, weil die Unterschiede nicht nivelliert wurden. Niemeyers Haus mit dem markanten Vordach ist einer der bekanntesten Einzelbauten.",
+    bodyEn:
+      "Interbau 1957 invited 53 international architects. Aalto, Gropius and Oscar Niemeyer – the quarter works because differences were not flattened. Niemeyer's house with its distinctive canopy is among the best-known individual buildings.",
+  },
   "d1-gropius": {
     nameDe: "Haus Abraham",
     nameEn: "Haus Abraham",
@@ -508,7 +520,6 @@ export const LABELS_BY_ID = {
   "d2-hkw": ["moderne", "brd"],
   "d4-siegessaeule": ["zugaenglich"],
   "d2-hansa": ["moderne", "brd"],
-  "d2-niemeyer": ["moderne", "brd"],
   "d4-icc": ["postmoderne", "privat"],
   "d1-unite": ["moderne", "vor1939"],
   "d1-olympia": ["vor1939"],
