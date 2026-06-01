@@ -1028,7 +1028,7 @@ body.bat-page.en .de-t,body.bat-page.de .en-t{display:none}
 .bat-hero__title-line--strong{font-weight:700}
 .bat-hero__sub{margin:20px 0 0;max-width:39.5rem;font-size:clamp(.95rem,1.6vw,1.15rem);line-height:1.5;opacity:.88;text-shadow:0 1px 10px rgba(0,0,0,.5),0 0 1px rgba(0,0,0,.85)}
 .bat-hero__meta{display:flex;flex-wrap:wrap;gap:clamp(16px,3vw,32px);margin-top:28px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.65;text-shadow:0 1px 8px rgba(0,0,0,.5),0 0 1px rgba(0,0,0,.85)}
-.bat-tour-intro{position:sticky;top:var(--bat-sticky-top,72px);z-index:90;width:100%;background:var(--bg);padding-bottom:clamp(16px,2.5vw,24px);border-bottom:none;box-sizing:border-box;transform:translateZ(0)}
+.bat-tour-intro{position:sticky;top:var(--bat-sticky-top,72px);z-index:90;width:100%;background:var(--bg);padding-bottom:clamp(16px,2.5vw,24px);border-bottom:none;box-sizing:border-box;transform:translateZ(0);scroll-margin-top:var(--bat-sticky-top,72px)}
 .bat-tour-intro__inner{width:100%;max-width:var(--content-max);margin-left:auto;margin-right:auto;padding-left:var(--nav-pad-x);padding-right:var(--nav-pad-x);box-sizing:border-box}
 .bat-day-strip{padding:clamp(18px,3vw,28px) 0 clamp(14px,2vw,18px);background:transparent}
 .bat-day-strip__days{display:flex;flex-wrap:nowrap;gap:clamp(10px,1.4vw,18px);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
@@ -1106,6 +1106,10 @@ main{position:relative;z-index:2}
 .bat-map-marker:hover span,.bat-map-marker:focus-visible span{transform:scale(1.15)}
 .bat-map__canvas .leaflet-tooltip.bat-map-tooltip{background:var(--bat-black);color:var(--bat-white);border:none;border-radius:3px;padding:4px 8px;font-size:11px;font-weight:400;letter-spacing:.02em;box-shadow:0 2px 8px rgba(0,0,0,.25);pointer-events:none;z-index:750}
 .bat-map__canvas .leaflet-tooltip.bat-map-tooltip:before{border-top-color:var(--bat-black)}
+.bat-scroll-top{position:fixed;right:clamp(16px,2.5vw,28px);bottom:clamp(16px,2.5vw,28px);z-index:200;width:44px;height:44px;padding:0;border:1px solid rgba(13,13,13,.14);border-radius:50%;background:var(--bg);color:var(--text);box-shadow:0 4px 18px rgba(0,0,0,.28);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:opacity .2s ease,transform .15s ease,box-shadow .15s ease;pointer-events:auto}
+.bat-scroll-top[hidden]{display:none!important}
+.bat-scroll-top:hover,.bat-scroll-top:focus-visible{transform:translateY(-2px);outline:none;box-shadow:0 6px 22px rgba(0,0,0,.34)}
+.bat-scroll-top svg{display:block;flex-shrink:0}
 .bat-modal{position:fixed;inset:0;z-index:500;display:none;align-items:center;justify-content:center;padding:clamp(12px,3vw,24px)}
 .bat-modal.is-open{display:flex}
 .bat-modal__backdrop{position:absolute;inset:0;background:rgba(13,13,13,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
@@ -1314,7 +1318,7 @@ return `<!DOCTYPE html>
   </div>
 </section>
 
-<div class="bat-tour-intro">
+<div class="bat-tour-intro" id="bat-info">
   <div class="bat-tour-intro__inner">
   <nav class="bat-day-strip" aria-label="Tage">
     <div class="bat-day-strip__days">${dayNavHtml}</div>
@@ -1345,6 +1349,10 @@ return `<!DOCTYPE html>
     <div class="bat-modal__inner" id="bat-modal-content"></div>
   </div>
 </div>
+
+<button type="button" class="bat-scroll-top" id="bat-scroll-top" hidden aria-label="Zur Info">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
 
 <script>
 const TOUR = ${JSON.stringify(DAYS)};
@@ -1410,6 +1418,7 @@ function setLang(next) {
   try { localStorage.setItem('fcLang', lang); } catch (e) {}
   if (openId) renderModal(openId);
   syncMapTooltips();
+  updateBatScrollTopBtn();
 }
 document.addEventListener('fc-lang-change', function (e) { setLang(e.detail.lang); });
 setLang(lang);
@@ -1547,6 +1556,7 @@ function openModal(id) {
   modal.classList.add('is-open');
   modal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
+  updateBatScrollTopBtn();
 }
 
 function closeModal() {
@@ -1555,6 +1565,7 @@ function closeModal() {
   modal.classList.remove('is-open');
   modal.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
+  updateBatScrollTopBtn();
 }
 
 document.querySelectorAll('.bat-stop').forEach(btn => {
@@ -1609,6 +1620,36 @@ function getBatStickyOffset() {
   return navH + (intro ? intro.offsetHeight : 0);
 }
 
+function scrollToBatInfo() {
+  var intro = document.getElementById('bat-info');
+  if (!intro) return;
+  var navH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--bat-sticky-top')) || 72;
+  window.scrollTo({ top: Math.max(0, intro.offsetTop - navH), behavior: 'smooth' });
+}
+
+function updateBatScrollTopBtn() {
+  var btn = document.getElementById('bat-scroll-top');
+  var intro = document.getElementById('bat-info');
+  var modal = document.getElementById('bat-modal');
+  var map = document.getElementById('bat-map');
+  if (!btn || !intro) return;
+  var navH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--bat-sticky-top')) || 72;
+  var threshold = map ? map.offsetTop + 24 : intro.offsetTop;
+  var pastInfo = window.scrollY > threshold - navH;
+  var modalOpen = modal && modal.classList.contains('is-open');
+  btn.hidden = !pastInfo || modalOpen;
+  btn.setAttribute('aria-label', lang === 'en' ? 'Back to info' : 'Zur Info');
+}
+
+function initBatScrollTop() {
+  var btn = document.getElementById('bat-scroll-top');
+  if (!btn) return;
+  btn.addEventListener('click', scrollToBatInfo);
+  window.addEventListener('scroll', updateBatScrollTopBtn, { passive: true });
+  window.addEventListener('resize', updateBatScrollTopBtn);
+  updateBatScrollTopBtn();
+}
+
 function scrollDayIntoView(section) {
   var sticky = getBatStickyOffset();
   var gap = 14;
@@ -1657,6 +1698,7 @@ function syncBatStickyTop() {
   var h = Math.ceil(nav.getBoundingClientRect().height);
   document.documentElement.style.setProperty('--bat-sticky-top', h + 'px');
   document.documentElement.style.setProperty('--bat-day-scroll-margin', (getBatStickyOffset() + 14) + 'px');
+  updateBatScrollTopBtn();
 }
 
 function initBatStickyTop() {
@@ -1695,9 +1737,13 @@ function initBatStickyTop() {
 }
 
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initBatStickyTop);
+  document.addEventListener('DOMContentLoaded', function () {
+    initBatStickyTop();
+    initBatScrollTop();
+  });
 } else {
   initBatStickyTop();
+  initBatScrollTop();
 }
 
 function initBatMap() {
