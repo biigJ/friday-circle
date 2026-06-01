@@ -44,9 +44,9 @@
         box-sizing: border-box;
       }
 
-      .bi-brand-logo {
+      .nav__logo.bi-brand-logo {
         font-family: var(--font-sans);
-        font-size: clamp(0.72rem, 1.1vw, 0.85rem);
+        font-size: clamp(1.44rem, 2.2vw, 1.7rem);
         font-weight: 200;
         letter-spacing: 0.14em;
         text-transform: uppercase;
@@ -93,7 +93,27 @@
         background: #1a1a1a;
       }
 
-      .bi-hero__figure img {
+      .bi-hero__slider {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        overflow: hidden;
+      }
+
+      .bi-hero__track {
+        display: flex;
+        height: 100%;
+        transition: transform 0.45s ease;
+        will-change: transform;
+      }
+
+      .bi-hero__slide {
+        flex: 0 0 100%;
+        min-width: 0;
+        height: 100%;
+      }
+
+      .bi-hero__slide img {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -101,10 +121,43 @@
         display: block;
       }
 
+      .bi-hero__dots {
+        position: absolute;
+        z-index: 3;
+        bottom: clamp(12px, 2vw, 18px);
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        pointer-events: auto;
+      }
+
+      .bi-hero__dot {
+        width: 8px;
+        height: 8px;
+        padding: 0;
+        border: 1px solid rgba(255, 255, 255, 0.65);
+        border-radius: 50%;
+        background: transparent;
+        cursor: pointer;
+        transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+      }
+
+      .bi-hero__dot.is-active,
+      .bi-hero__dot:hover,
+      .bi-hero__dot:focus-visible {
+        background: #ffffff;
+        border-color: #ffffff;
+        transform: scale(1.12);
+        outline: none;
+      }
+
       .bi-hero__slogan {
         position: absolute;
         inset: 0;
-        z-index: 1;
+        z-index: 2;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -125,7 +178,7 @@
         content: "";
         position: absolute;
         inset: 0;
-        z-index: 0;
+        z-index: 1;
         background: rgba(0, 0, 0, 0.22);
         pointer-events: none;
       }
@@ -888,14 +941,10 @@
             </span>
           </h1>
           <figure class="bi-hero__figure">
-            <img
-              id="bi-hero-image"
-              src="../assets/blauesgemälde.png"
-              alt="Interieur mit blauem Gemälde, Sideboard und Glasobjekten"
-              width="1600"
-              height="1000"
-              decoding="async"
-            />
+            <div class="bi-hero__slider" aria-hidden="false">
+              <div class="bi-hero__track" id="bi-hero-track"></div>
+              <div class="bi-hero__dots" id="bi-hero-dots"></div>
+            </div>
             <p class="bi-hero__slogan">
               <span class="de-t">Einfach gute Mittel. Architektur für Alle. Umsetzungsstark.</span>
               <span class="en-t">Good tools, simply. Architecture for everyone. Built to deliver.</span>
@@ -1470,6 +1519,24 @@
           hochbauEn: "Structural projects",
         };
 
+        var HERO_SLIDES = [
+          {
+            src: "../assets/blauesgemälde.png",
+            altDe: "Interieur mit blauem Gemälde, Sideboard und Glasobjekten",
+            altEn: "Interior with blue painting, sideboard, and glass objects",
+          },
+          {
+            src: "../assets/rene-möbliert-01.png",
+            altDe: "Möblierter Wohnraum mit durchdachter Einrichtung",
+            altEn: "Furnished living space with curated interior",
+          },
+          {
+            src: "../assets/biigJ-Küche-01.png",
+            altDe: "Küche mit klarer Materialität und warmem Licht",
+            altEn: "Kitchen with clear materials and warm light",
+          },
+        ];
+
         var HOCHBAU_IDS = ["klinker", "rothestr", "graefe", "destijl", "schleswig"];
 
         var popup = document.getElementById("bi-project-popup");
@@ -1482,7 +1549,8 @@
         var trackEl = document.getElementById("bi-slider-track");
         var dotsEl = document.getElementById("bi-slider-dots");
         var closeBtn = document.getElementById("bi-popup-close");
-        var heroImage = document.getElementById("bi-hero-image");
+        var heroTrack = document.getElementById("bi-hero-track");
+        var heroDots = document.getElementById("bi-hero-dots");
         var hochbauTrack = document.getElementById("bi-hochbau-track");
         var hochbauDots = document.getElementById("bi-hochbau-dots");
         var hochbauPrev = document.getElementById("bi-hochbau-prev");
@@ -1497,6 +1565,9 @@
         var slideIndex = 0;
         var slideCount = 0;
         var hochbauIndex = 0;
+        var heroIndex = 0;
+        var heroTimer = null;
+        var heroSliderReady = false;
         var openProjectId = null;
         var openOfferId = null;
 
@@ -1612,10 +1683,73 @@
           if (offerCloseBtn) offerCloseBtn.setAttribute("aria-label", lang === "en" ? ARIA.closeEn : ARIA.closeDe);
           if (hochbauPrev) hochbauPrev.setAttribute("aria-label", lang === "en" ? ARIA.prevEn : ARIA.prevDe);
           if (hochbauNext) hochbauNext.setAttribute("aria-label", lang === "en" ? ARIA.nextEn : ARIA.nextDe);
-          if (heroImage) heroImage.alt = lang === "en" ? ARIA.heroAltEn : ARIA.heroAltDe;
           if (hochbauSliderEl) {
             hochbauSliderEl.setAttribute("aria-label", lang === "en" ? ARIA.hochbauEn : ARIA.hochbauDe);
           }
+          if (heroTrack) {
+            heroTrack.querySelectorAll(".bi-hero__slide img").forEach(function (img, i) {
+              var slide = HERO_SLIDES[i];
+              if (slide) img.alt = lang === "en" ? slide.altEn : slide.altDe;
+            });
+          }
+        }
+
+        function setHeroSlide(index) {
+          if (!heroTrack || !HERO_SLIDES.length) return;
+          heroIndex = (index + HERO_SLIDES.length) % HERO_SLIDES.length;
+          heroTrack.style.transform = "translateX(-" + heroIndex * 100 + "%)";
+          if (heroDots) {
+            heroDots.querySelectorAll(".bi-hero__dot").forEach(function (dot, i) {
+              dot.classList.toggle("is-active", i === heroIndex);
+            });
+          }
+        }
+
+        function startHeroAutoplay() {
+          if (heroTimer) window.clearInterval(heroTimer);
+          if (HERO_SLIDES.length <= 1) return;
+          heroTimer = window.setInterval(function () {
+            setHeroSlide(heroIndex + 1);
+          }, 6000);
+        }
+
+        function initHeroSlider() {
+          if (!heroTrack || heroSliderReady) return;
+          heroSliderReady = true;
+          var lang = getLang();
+          heroTrack.innerHTML = "";
+          if (heroDots) heroDots.innerHTML = "";
+
+          HERO_SLIDES.forEach(function (slide, i) {
+            var slideEl = document.createElement("div");
+            slideEl.className = "bi-hero__slide";
+            var img = document.createElement("img");
+            img.src = slide.src;
+            img.alt = lang === "en" ? slide.altEn : slide.altDe;
+            img.decoding = "async";
+            img.loading = i === 0 ? "eager" : "lazy";
+            img.width = 1600;
+            img.height = 1000;
+            slideEl.appendChild(img);
+            heroTrack.appendChild(slideEl);
+
+            if (heroDots) {
+              var dot = document.createElement("button");
+              dot.type = "button";
+              dot.className = "bi-hero__dot" + (i === 0 ? " is-active" : "");
+              dot.setAttribute("aria-label", (lang === "en" ? "Hero image " : "Hero-Bild ") + (i + 1));
+              dot.addEventListener("click", function () {
+                setHeroSlide(i);
+                startHeroAutoplay();
+              });
+              heroDots.appendChild(dot);
+            }
+          });
+
+          if (heroDots) heroDots.hidden = HERO_SLIDES.length <= 1;
+          heroIndex = 0;
+          heroTrack.style.transform = "translateX(0)";
+          startHeroAutoplay();
         }
 
         function updateHochbauHover() {
@@ -1776,6 +1910,7 @@
         function applyLang() {
           applyAria();
           applyTileLabels();
+          initHeroSlider();
           initHochbauSlider();
           if (selectedIntent) {
             renderIntakeQuestions(selectedIntent);
