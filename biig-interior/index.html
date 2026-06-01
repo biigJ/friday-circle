@@ -1526,9 +1526,11 @@
             altEn: "Interior with blue painting, sideboard, and glass objects",
           },
           {
-            src: "../assets/rene-möbliert-01.png",
+            src: "../assets/rene-möbliert-01.png?v=2",
             altDe: "Möblierter Wohnraum mit durchdachter Einrichtung",
             altEn: "Furnished living space with curated interior",
+            scale: 0.93,
+            objectPosition: "50% 50%",
           },
           {
             src: "../assets/biigJ-Küche-01.png",
@@ -1730,6 +1732,11 @@
             img.loading = i === 0 ? "eager" : "lazy";
             img.width = 1600;
             img.height = 1000;
+            if (slide.objectPosition) img.style.objectPosition = slide.objectPosition;
+            if (slide.scale) {
+              img.style.transform = "scale(" + slide.scale + ")";
+              img.style.transformOrigin = "center center";
+            }
             slideEl.appendChild(img);
             heroTrack.appendChild(slideEl);
 
