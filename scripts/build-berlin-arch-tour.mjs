@@ -1047,7 +1047,7 @@ body.bat-page.en .de-t,body.bat-page.de .en-t{display:none}
 .bat-lang{display:flex;flex-shrink:0;border:1px solid rgba(13,13,13,.2);border-radius:999px;overflow:hidden}
 .bat-lang button{border:none;background:transparent;padding:6px 12px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:inherit;color:var(--text)}
 .bat-lang button.is-active{background:var(--bat-black);color:var(--bat-white)}
-.bat-day{background:var(--bat-black);color:var(--bat-white);padding:0 0 clamp(40px,6vw,64px);scroll-margin-top:clamp(200px,32vh,320px)}
+.bat-day{background:var(--bat-black);color:var(--bat-white);padding:0 0 clamp(40px,6vw,64px);scroll-margin-top:var(--bat-day-scroll-margin,220px)}
 .bat-day__header{padding:clamp(36px,5vw,56px) 0 clamp(24px,3vw,32px);display:grid;gap:12px}
 @media(min-width:761px){.bat-day__header{grid-template-columns:auto 1fr;gap:24px 40px;align-items:center}}
 .bat-day__num{font-size:clamp(3rem,8vw,5rem);font-weight:200;line-height:1;opacity:.42;color:rgba(255,255,255,.42);margin:0;align-self:center}
@@ -1532,11 +1532,10 @@ function getBatStickyOffset() {
 
 function scrollDayIntoView(section) {
   var sticky = getBatStickyOffset();
-  var anchor = section.querySelector('.bat-day__header') || section;
+  var gap = 14;
+  var anchor = section.querySelector('.bat-day__title') || section.querySelector('.bat-day__header') || section;
   var rect = anchor.getBoundingClientRect();
-  var anchorCenter = window.scrollY + rect.top + rect.height / 2;
-  var visibleCenter = sticky + (window.innerHeight - sticky) / 2;
-  window.scrollTo({ top: Math.max(0, anchorCenter - visibleCenter), behavior: 'smooth' });
+  window.scrollTo({ top: Math.max(0, window.scrollY + rect.top - sticky - gap), behavior: 'smooth' });
 }
 
 dayLinks.forEach(function (link) {
@@ -1578,6 +1577,7 @@ function syncBatStickyTop() {
   if (!nav) return;
   var h = Math.ceil(nav.getBoundingClientRect().height);
   document.documentElement.style.setProperty('--bat-sticky-top', h + 'px');
+  document.documentElement.style.setProperty('--bat-day-scroll-margin', (getBatStickyOffset() + 14) + 'px');
 }
 
 function initBatStickyTop() {
@@ -1585,6 +1585,8 @@ function initBatStickyTop() {
     syncBatStickyTop();
     if (typeof ResizeObserver !== 'undefined') {
       new ResizeObserver(syncBatStickyTop).observe(nav);
+      var intro = document.querySelector('.bat-tour-intro');
+      if (intro) new ResizeObserver(syncBatStickyTop).observe(intro);
     }
   }
 
