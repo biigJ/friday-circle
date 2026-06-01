@@ -109,8 +109,8 @@ export const COORDS_BY_STOP = {
     "lng": 13.3982331
   },
   "d3-bonjour-tristesse": {
-    "lat": 52.50318,
-    "lng": 13.38842
+    "lat": 52.4999144,
+    "lng": 13.4434645
   },
   "d3-botschaft": {
     "lat": 52.50745,
@@ -153,8 +153,8 @@ export const COORDS_BY_STOP = {
     "lng": 13.3841548
   },
   "d3-zanderroth": {
-    "lat": 52.5308,
-    "lng": 13.4012
+    "lat": 52.5044415,
+    "lng": 13.4166273
   },
   "d4-aeg-turbinen": {
     "lat": 52.5285855,
