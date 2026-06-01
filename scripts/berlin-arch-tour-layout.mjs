@@ -570,7 +570,7 @@ export const LABELS_BY_ID = {
 };
 
 export const DAY_COLORS = {
-  1: "#c8312a",
+  1: "#0d0d0d",
   2: "#2563eb",
   3: "#059669",
   4: "#d97706",
