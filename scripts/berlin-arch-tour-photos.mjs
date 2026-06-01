@@ -3,7 +3,9 @@
  * First file = tile; rest = modal (slider if 2+ modal images).
  */
 export const PHOTO_BY_STOP = {
-  "d1-hufeisen": ["2024-11-16-Wohnhaus_BrunoTaut-Neukölln.jpg"],
+  "d1-bauhaus-archiv": ["Bauhaus_Archiv_Berlin.jpg"],
+  "d1-hufeisen": ["d1-hufeisen.jpg"],
+  "d6-taut-neukoelln": ["2024-11-16-Wohnhaus_BrunoTaut-Neukölln.jpg"],
   "d1-onkel": [
     "2018-07-21_Onkel_Tom_Siedlung_03.jpg",
     "2018-07-21_Onkel_Tom_Siedlung_04.jpg",
@@ -12,6 +14,7 @@ export const PHOTO_BY_STOP = {
     "2018-07-21_Onkel_Tom_Siedlung_07.jpg",
   ],
   "d1-olympia": [
+    "d1-olympia.jpg",
     "2019-01-25_Olympiastadion_01.jpg",
     "2019-01-25_Olympiastadion_02.jpg",
     "2019-01-25_Olympiastadion_03.jpg",
@@ -23,25 +26,48 @@ export const PHOTO_BY_STOP = {
     "2023-04-22_Le_Corbusier_Haus_04.jpg",
   ],
   "d1-schorlemer": ["2018-07-21-Versuchssiedlung_Schorlemerallee.jpg"],
-  "d1-villa-duerr": ["2018-07-21-Im Schwarzen_Grund_25_Villa_Dürr-Dahlem.jpg"],
+  "d1-chipperfield-villa": ["Chipperfield_Villa.JPG"],
+  "d1-fischerhuette-106": [
+    "Fischerhüttenstraße106_1.JPG",
+    "Fischerhüttenstraße106_2.JPG",
+  ],
+  "d1-boros": ["BorosBunker.jpeg"],
+  "d5-cafe-moskau": ["d5-kma2.jpg"],
   "d1-u3-krumme": ["2021-07-21_UBahn_Krumme_Lanke.jpg"],
   "d1-strandbad-wannsee": ["2022-08-14_Strandbad_Wannsee.jpg"],
+  "d4-strandbad-ploetzensee": [
+    "2022-08-14_Strandbad_Plötzensee.jpg",
+    "2022-08-14_Strandbad_Plötzensee-2.jpeg",
+  ],
   "d1-lokdepot": ["2018-07-14_Wohnhaus_Am-Lokdepot-Schöneberg.jpg"],
+  "d6-hallesches-ufer": [
+    "Wohnbebauung-Hallesches-Ufer-Berlin-Kreuzberg-Fehling-Gogel.jpeg",
+  ],
 
-  "d2-hkw": ["2021-04-01-Haus_der_Kulturen_der_Welt.jpg"],
-  "d2-hansa": ["2023-05-20_Hansaviertel_Wohnhaus.jpg"],
+  "d2-hkw": ["d2-hkw.jpg", "2021-04-01-Haus_der_Kulturen_der_Welt.jpg"],
+  "d2-hansa": [
+    "2023-05-20_Hansaviertel_Wohnhaus.jpg",
+    "d2-hansa.jpg",
+    "Hansaviertel02.JPG",
+    "Hansaviertel01.jpeg",
+  ],
   "d2-niemeyer": [
     "2023-05-20-Oscar_Niemeyer_Haus.jpg",
     "2023-05-20-Oscar_Niemeyer_Haus_02.jpg",
     "2023-05-20Oscar_Niemeyer_Haus_03.jpg",
+    "2023-05-20-Oscar_Niemeyer_Haus_03.jpeg",
+    "2023-05-20-Oscar_Niemeyer_Haus_04.jpeg",
+    "2023-05-20-Oscar_Niemeyer_Haus_05.jpeg",
   ],
   "d2-pavillon-breitscheid": ["2023-05-20_Pavillon_Breitscheidplatz.jpg"],
   "d2-nng": [
-    "2023-04-18_Neue_Nationalgalerie_Innen.jpg",
+    "d2-nng.jpg",
     "2022-01-22_Neue_Nationalgalerie_Nacht.jpg",
+    "2023-04-18_Neue_Nationalgalerie_Innen.jpg",
     "2022-01-22_Neue_Nationalgalerie_Skulpturengarten.jpg",
     "2023-04-18_Neue_Nationalgalerie_Installation_01.jpg",
   ],
+  "d2-philharmonie": ["d2-philharmonie.jpg", "philharmonie02.JPG", "philharminie_03.JPG"],
   "d2-shellhaus": ["2020-05-14-ShellHaus.jpg"],
   "d2-hamburger-bahnhof": ["2018-12-02-HamburgerBahnhof.jpg"],
   "d2-tiergarten": ["2018-11-18-Tiergarten.jpg"],
@@ -55,14 +81,14 @@ export const PHOTO_BY_STOP = {
     "2020-03-24_Schweizer_Botschaft_01.jpg",
     "2020-03-24_Schweizer_Botschaft_02.jpg",
   ],
-  "d3-holocaust": ["2019-08-27-Holocaust_Mahnmal.jpg"],
+  "d3-holocaust": ["2019-08-27-Holocaust_Mahnmal.jpg", "d3-holocaust.jpg"],
   "d3-jm": ["2020-01-12-Juedisches_Museum.jpg"],
   "d3-taz": [
     "2018-07-21-TAZ_Redaktionsgebäude-Kreuzberg.jpg",
     "2018-10-03-TAZ_Redaktionsgebäude-.jpg",
   ],
   "d3-lima": ["2018-07-21-LiMa_Wohnhof_IBA-Kreuzberg.jpg"],
-  "d3-hejduk": ["2018-07-21-Wohnturm_John_Hejduk-Kreuzberg.jpg"],
+  "d3-hejduk": ["Wohnturm_Hejduk-Platz.JPG", "2018-07-21-Wohnturm_John_Hejduk-Kreuzberg.jpg"],
   "d3-ig-metall": ["2018-07-21_IG_Metall_Haus-Kreuzberg.jpg", "2018-07-21-IG_Metall.jpg"],
   "d3-bonjour-tristesse": ["2023-09-18-Wohnhaus_BonjourTristesse_Álvaro_Siza-Kreuzberg.jpg"],
   "d3-krier": ["2025-03-19-Wohnhaus_RobKrier-IBA-Kreuzberg.jpg"],
@@ -76,7 +102,10 @@ export const PHOTO_BY_STOP = {
 
   "d4-sony": [
     "2015-11-21_Potsdamer_Platz_Hochhaus.jpg",
+    "d4-sony.jpg",
     "2021-04-01-PotsdamerPlatz_RicahrdRogers.jpg",
+    "PotsdamerPlatz-Details.JPG",
+    "PotsdamerPlatz-Bahneingang.JPG",
   ],
   "d4-reichstag": ["2021-04-01_Reichstag.jpg"],
   "d4-band": ["2021-04-01_Bundesministerium_Finanzen.jpg"],
@@ -86,17 +115,26 @@ export const PHOTO_BY_STOP = {
     "2019-01-27-HelmutNewton_Museum_03.jpg",
   ],
   "d4-quartier-schuetzen": [
-    "2019-03-23-Quartier_Schuetzenstrasse.jpg",
     "2020-02-09-Quartier_Schuetzenstrasse.jpg",
+    "2019-03-23-Quartier_Schuetzenstrasse.jpg",
   ],
   "d4-tchoban": ["2018-07-31-Museum_für_Architekturzeichnung_Tchoban-Mitte.jpg"],
   "d4-lafayette": ["2025-06-29_Galeries_Lafayette.jpg"],
-  "d4-siegessaeule": ["2021-04-04_Siegessaeule.jpg"],
+  "d4-siegessaeule": [
+    "2021-04-04_Siegessaeule.jpg",
+    "2018-11-18-Tiergarten.jpg",
+    "Siegessäule_2.JPG",
+    "Neuer See.jpeg",
+    "Siegessäule_3.jpeg",
+  ],
   "d4-frauenhofer": ["2021-04-04-FrauenhoferInstitut_Produktionstechnische Zentrum.jpg"],
   "d4-vws": ["2021-04-04-Versuchsanstalt_für_Wasser_und_Schiffbau.jpg"],
+  "d4-aeg-turbinen": ["AEG_Turbinenhalle_Behrens.jpg"],
+  "d4-icc": ["ICC_Berliner_Messe.jpg"],
 
   "d5-lemke": [
     "2023-05-21-HausLemke_MvdRohe_01.jpg",
+    "d5-lemke.jpg",
     "2023-05-21-HausLemke_MvdRohe_02.jpg",
     "2023-05-21-HausLemke_MvdRohe_03.jpg",
   ],
@@ -111,21 +149,37 @@ export const PHOTO_BY_STOP = {
   "d5-koenig": ["2019-11-03-KönigGalerie.jpg"],
   "d5-times-art": ["2019-11-03-Brunnenstraße9_Times_Art_Center_Berlin-Mitte.jpg"],
   "d5-estrel": ["2021-04-10_Hotel_Estrel.jpg"],
-  "d5-kottbusser-tor": ["2021-04-18KottbusserTor_Wohnbebauung.jpg"],
+  "d5-kottbusser-tor": [
+    "2021-04-18KottbusserTor_Wohnbebauung.jpg",
+    "2018-09-14-Kreuzberg_Nachkriegsbau_Brutalismus.jpg",
+  ],
   "d5-amazon": ["2023-09-18-Amazon_Berlin.jpg"],
   "d5-paul-lincke": ["2023-09-16-Paul-Lincke_Ufer_Kreuzberg.jpg"],
 
-  "d6-neues": ["2018-04-02-Neues_Museum.jpg"],
+  "d5-tacheles": [
+    "tacheles.png",
+    "Fotografiska_Tacheles_Berlin.jpg",
+    "Am_Tacheles_Berlin_2025.jpg",
+  ],
+  "d6-chip-campus": ["d6-chip-campus.jpg"],
+
+  "d6-neues": [
+    "2018-04-02-Neues_Museum.jpg",
+    "NeuesMuseum-Gang.JPG",
+    "NeuesMuseum-Erweiterung.png",
+  ],
   "d6-bastian": ["2018-05-26-Haus_Bastian.jpg"],
   "d6-altes-museum": ["2022-08-27_Altes_Museum_Nacht.jpg"],
   "d6-r50": ["2018-07-29-Wohnhaus_R50-Kreuzbeg.jpg"],
   "d6-reichstag-end": ["2021-04-01_Reichstag.jpg"],
+  "d6-so36": ["SO36_Oranienstrasse.jpg"],
+  "d6-ankerklause": ["2025-07-07-Ankerklause-Kreuzberg.jpg"],
 };
 
 /** New stops: inserted into day.stops (Kreuzberg → day 3, etc.) */
 export const NEW_STOPS_META = [
   {
-    dayId: 1,
+    dayId: 2,
     id: "d1-schorlemer",
     nameDe: "Versuchssiedlung Schorlemerallee",
     nameEn: "Schorlemerallee experimental estate",
@@ -135,17 +189,7 @@ export const NEW_STOPS_META = [
     teaserEn: "Experimental housing on the edge of the city – less famous than the UNESCO estates, but defining for Zehlendorf.",
   },
   {
-    dayId: 1,
-    id: "d1-villa-duerr",
-    nameDe: "Villa Dürr",
-    nameEn: "Villa Dürr",
-    tag: "Dahlem · Villenkolonie",
-    districtDe: "Dahlem",
-    teaserDe: "Im Schwarzen Grund – Villenarchitektur der 1920er im grünen Dahlem.",
-    teaserEn: "Schwarzer Grund – 1920s villa architecture in green Dahlem.",
-  },
-  {
-    dayId: 1,
+    dayId: 2,
     id: "d1-u3-krumme",
     nameDe: "U-Bahnhof Krumme Lanke",
     nameEn: "Krumme Lanke U-Bahn station",
@@ -195,7 +239,7 @@ export const NEW_STOPS_META = [
     teaserEn: "Curved facade on the Landwehr Canal – one of the last major office buildings before 1945.",
   },
   {
-    dayId: 2,
+    dayId: 4,
     id: "d2-hamburger-bahnhof",
     nameDe: "Hamburger Bahnhof",
     nameEn: "Hamburger Bahnhof",
@@ -205,7 +249,7 @@ export const NEW_STOPS_META = [
     teaserEn: "Former station as museum – industrial site becomes art architecture.",
   },
   {
-    dayId: 2,
+    dayId: 1,
     id: "d2-babylon",
     nameDe: "Babylon-Kino",
     nameEn: "Babylon cinema",
@@ -377,8 +421,8 @@ export const NEW_STOPS_META = [
   {
     dayId: 4,
     id: "d4-siegessaeule",
-    nameDe: "Siegessäule",
-    nameEn: "Victory Column",
+    nameDe: "Siegessäule und Tiergarten",
+    nameEn: "Victory Column and Tiergarten",
     tag: "Tiergarten · Denkmal",
     districtDe: "Tiergarten",
     teaserDe: "Monument im Großen Stern – Achse und Symbol im Tiergarten.",
@@ -517,5 +561,14 @@ export const NEW_STOPS_META = [
 ];
 
 export const DINING_PHOTOS = {
-  "3-dinner": "2018-07-21-ClärchensBallhaus.jpg",
+  "1-lunch": "VOLK_Brunnenstrasse.jpg",
+  "1-dinner": "2018-07-21-ClärchensBallhaus.jpg",
+  "2-lunch": "2018-07-21_Restaurant_Der_Kretaner-Zehlendorf.jpg",
+  "2-dinner": "schlachtensee.jpeg",
+  "3-dinner": "CaféAmNeuenSee.jpeg",
+  "4-lunch": "Lon_Mens_Noodle_House.jpg",
+  "4-dinner": "Paris_Bar_Kantstrasse.jpg",
+  "6-lunch": "2025-07-07-GoldiesBurger-Kreuzberg.jpg",
+  "6-dinner": "Il_Casolare_Grimmstrasse.jpg",
+  "7-lunch": "SaleETabacchi.JPG",
 };

@@ -3,6 +3,16 @@ import { writeFileSync, mkdirSync, existsSync, copyFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import { PHOTO_BY_STOP, NEW_STOPS_META, DINING_PHOTOS } from "./berlin-arch-tour-photos.mjs";
+import {
+  DAY_LAYOUT,
+  EXTRA_STOPS,
+  STOP_OVERRIDES,
+  LABELS_BY_ID,
+  LABEL_DEFS,
+  LABEL_ORDER,
+  DEFAULT_DINING,
+  DINING_BY_DAY,
+} from "./berlin-arch-tour-layout.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const rootDir = join(__dirname, "..");
@@ -1007,40 +1017,53 @@ body.bat-page{--bat-black:#0d0d0d;--bat-white:#fff;--bat-red:#c8312a}
 body.bat-page.en .de-t,body.bat-page.de .en-t{display:none}
 .bat-shell{box-sizing:border-box;width:100%;max-width:var(--content-max);margin-left:auto;margin-right:auto;padding-left:var(--nav-pad-x);padding-right:var(--nav-pad-x)}
 .bat-hero{position:relative;min-height:min(88vh,720px);display:flex;align-items:flex-end;background:var(--bat-black);color:var(--bat-white);overflow:hidden}
-.bat-hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.22}
+.bat-hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1}
 .bat-hero__shell{position:relative;z-index:1;width:100%;padding:clamp(48px,8vw,96px) 0 clamp(32px,5vw,56px)}
 .bat-hero__inner{width:100%;min-width:0}
-.bat-hero__eyebrow{font-size:11px;letter-spacing:.15em;text-transform:uppercase;opacity:.7;margin:0 0 12px}
-.bat-hero__title{margin:0;width:100%;max-width:100%;font-size:clamp(2rem,min(11.5vw,9.2cqw),4.85rem);font-weight:200;line-height:.92;letter-spacing:-.02em;text-transform:uppercase}
+.bat-hero__eyebrow{font-size:11px;letter-spacing:.15em;text-transform:uppercase;opacity:.7;margin:0 0 12px;text-shadow:0 1px 10px rgba(0,0,0,.5),0 0 1px rgba(0,0,0,.85)}
+.bat-hero__title{margin:0;width:100%;max-width:100%;font-size:clamp(2rem,min(11.5vw,9.2cqw),4.85rem);font-weight:200;line-height:.92;letter-spacing:-.02em;text-transform:uppercase;text-shadow:0 2px 18px rgba(0,0,0,.55),0 0 2px rgba(0,0,0,.9)}
 .bat-hero__title-line{display:block}
 .bat-hero__title-line--strong{font-weight:700}
-.bat-hero__sub{margin:20px 0 0;max-width:36rem;font-size:clamp(.95rem,1.6vw,1.15rem);line-height:1.5;opacity:.88}
-.bat-hero__meta{display:flex;flex-wrap:wrap;gap:clamp(16px,3vw,32px);margin-top:28px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.65}
-.bat-day-strip{padding:clamp(18px,3vw,28px) 0 clamp(22px,3.5vw,32px);background:var(--bg);border-bottom:1px solid rgba(13,13,13,.08)}
-.bat-day-strip__days{display:flex;flex-wrap:wrap;gap:0;row-gap:4px}
-.bat-day-strip a{display:block;padding:8px 20px 8px 0;font-size:10px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--text);opacity:.5;border-bottom:2px solid transparent;white-space:nowrap}
-.bat-day-strip a:last-child{padding-right:0}
-.bat-day-strip a:hover,.bat-day-strip a.is-active{opacity:1}
-.bat-day-strip a.is-active{border-bottom-color:var(--bat-red);font-weight:600}
-.bat-intro{padding:clamp(36px,6vw,64px) 0 clamp(48px,8vw,80px)}
-.bat-intro p{margin:0 0 1.2em;max-width:720px;font-size:15px;line-height:1.75}
+.bat-hero__sub{margin:20px 0 0;max-width:39.5rem;font-size:clamp(.95rem,1.6vw,1.15rem);line-height:1.5;opacity:.88;text-shadow:0 1px 10px rgba(0,0,0,.5),0 0 1px rgba(0,0,0,.85)}
+.bat-hero__meta{display:flex;flex-wrap:wrap;gap:clamp(16px,3vw,32px);margin-top:28px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.65;text-shadow:0 1px 8px rgba(0,0,0,.5),0 0 1px rgba(0,0,0,.85)}
+.bat-tour-intro{position:sticky;top:var(--bat-sticky-top,72px);z-index:90;width:100%;background:var(--bg);padding-bottom:clamp(16px,2.5vw,24px);border-bottom:1px solid rgba(13,13,13,.06);box-sizing:border-box}
+.bat-tour-intro__inner{width:100%;max-width:var(--content-max);margin-left:auto;margin-right:auto;padding-left:var(--nav-pad-x);padding-right:var(--nav-pad-x);box-sizing:border-box}
+.bat-day-strip{padding:clamp(18px,3vw,28px) 0 clamp(14px,2vw,18px);background:transparent}
+.bat-day-strip__days{display:flex;flex-wrap:nowrap;gap:clamp(10px,1.4vw,18px);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.bat-day-strip__days::-webkit-scrollbar{display:none}
+.bat-day-strip a{display:block;padding:0;font-size:clamp(8.5px,0.72vw,10px);letter-spacing:.04em;text-transform:none;text-decoration:none;color:var(--text);opacity:1;border-bottom:none;white-space:nowrap;font-weight:400;line-height:1.25;flex-shrink:0}
+.bat-day-strip a:hover,.bat-day-strip a.is-active{font-weight:600}
+.bat-day-strip a.is-active{text-decoration:underline;text-underline-offset:.22em}
+.bat-intro{padding:0 0 clamp(10px,1.6vw,14px)}
+.bat-intro p{margin:0;max-width:720px;font-size:13.5px;line-height:1.45;font-weight:300;color:color-mix(in srgb,var(--text) 68%,transparent);letter-spacing:.01em}
+.bat-label-filter{display:flex;justify-content:center;flex-wrap:wrap;gap:clamp(6px,1.2vw,10px);padding:clamp(4px,1vw,8px) 0 0}
+.bat-label-filter__btn{margin:0;padding:5px 10px;border:none;border-radius:2px;font-family:var(--font-sans);font-size:10px;font-weight:400;letter-spacing:.08em;line-height:1.2;cursor:pointer;transition:opacity .2s ease,transform .15s ease}
+.bat-label-filter__btn.is-on{opacity:1}
+.bat-label-filter__btn.is-off{opacity:.32}
+.bat-label-filter__btn:hover,.bat-label-filter__btn:focus-visible{transform:translateY(-1px);outline:none}
+.bat-label-filter__btn.is-off:hover,.bat-label-filter__btn.is-off:focus-visible{opacity:.5}
+.bat-label-filter__btn--privat.is-off{box-shadow:inset 0 0 0 1px rgba(13,13,13,.22)}
+.bat-stop.is-filter-hidden{display:none!important}
 .bat-lang{display:flex;flex-shrink:0;border:1px solid rgba(13,13,13,.2);border-radius:999px;overflow:hidden}
 .bat-lang button{border:none;background:transparent;padding:6px 12px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:inherit;color:var(--text)}
 .bat-lang button.is-active{background:var(--bat-black);color:var(--bat-white)}
-.bat-day{background:var(--bat-black);color:var(--bat-white);padding:0 0 clamp(40px,6vw,64px);scroll-margin-top:5rem}
+.bat-day{background:var(--bat-black);color:var(--bat-white);padding:0 0 clamp(40px,6vw,64px);scroll-margin-top:clamp(200px,32vh,320px)}
 .bat-day__header{padding:clamp(36px,5vw,56px) 0 clamp(24px,3vw,32px);display:grid;gap:12px}
-@media(min-width:761px){.bat-day__header{grid-template-columns:auto 1fr;gap:24px 40px;align-items:end}}
-.bat-day__num{font-size:clamp(3rem,8vw,5rem);font-weight:200;line-height:1;opacity:.35;margin:0}
+@media(min-width:761px){.bat-day__header{grid-template-columns:auto 1fr;gap:24px 40px;align-items:center}}
+.bat-day__num{font-size:clamp(3rem,8vw,5rem);font-weight:200;line-height:1;opacity:.42;color:rgba(255,255,255,.42);margin:0;align-self:center}
 .bat-day__title{margin:0;font-size:clamp(2.2rem,5vw,4.4rem);font-weight:200;line-height:1.02;letter-spacing:-.01em;text-transform:uppercase}
 .bat-day__title strong{font-weight:700}
 .bat-day__meta{font-size:11px;letter-spacing:.1em;text-transform:uppercase;opacity:.55;margin:0}
 .bat-day__route{font-size:13.5px;line-height:1.6;opacity:.68;margin:8px 0 0;max-width:40rem}
-.bat-stops{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:clamp(16px,2.5vw,24px);padding:0 0 clamp(32px,4vw,48px)}
+.bat-stops{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(16px,2.5vw,24px);row-gap:clamp(32px,5vw,48px);padding:0 0 clamp(32px,4vw,48px)}
+@media(max-width:960px){.bat-stops{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .bat-stop{display:flex;flex-direction:column;align-items:stretch;width:100%;border:none;background:rgba(255,255,255,.04);padding:0;margin:0;text-align:left;cursor:pointer;font-family:inherit;color:inherit;border-radius:4px;overflow:hidden;transition:background .15s;-webkit-appearance:none;appearance:none;line-height:1.5}
 .bat-stop:hover,.bat-stop:focus-visible{background:rgba(255,255,255,.08);outline:none}
-.bat-stop__img-wrap{position:relative;display:block;width:100%;height:192px;min-height:192px;margin:0;padding:0;line-height:0;font-size:0;background:rgba(255,255,255,.06);overflow:hidden;flex-shrink:0}
+.bat-stop__img-wrap{position:relative;display:block;width:100%;aspect-ratio:1/1;height:auto;min-height:0;margin:0;padding:0;line-height:0;font-size:0;background:rgba(255,255,255,.06);overflow:hidden;flex-shrink:0}
 body.bat-page .bat-stop__img-wrap img.bat-stop__img{position:absolute;top:0;left:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;border-radius:0;object-fit:cover;object-position:top center;display:block}
 .bat-stop__ph{position:absolute;inset:0;display:none;align-items:center;justify-content:center;padding:20px;text-align:center;font-size:13px;letter-spacing:.08em;text-transform:uppercase;opacity:.45;background:rgba(255,255,255,.06)}
+.bat-stop__labels{position:absolute;top:8px;right:8px;z-index:2;display:flex;flex-direction:column;align-items:flex-end;gap:4px;pointer-events:none}
+.bat-stop__label{display:block;padding:3px 7px;font-size:9px;font-weight:400;letter-spacing:.08em;line-height:1.2;text-transform:none;border-radius:2px;white-space:nowrap}
 .bat-stop__body{padding:16px 18px 20px}
 .bat-stop__tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--bat-red);margin:0 0 8px}
 .bat-stop__name{margin:0 0 8px;font-size:17px;font-weight:500;color:var(--bat-white)}
@@ -1057,32 +1080,35 @@ body.bat-page .bat-stop__img-wrap img.bat-stop__img{position:absolute;top:0;left
 .bat-dining__photo{position:relative;flex:0 0 192px;width:192px;height:192px;background:rgba(255,255,255,.06);overflow:hidden}
 body.bat-page .bat-dining__photo img{position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;object-fit:cover;object-position:center;display:block}
 .bat-interlude{background:var(--bg);color:var(--text);padding:clamp(32px,5vw,48px) var(--nav-pad-x);text-align:center;font-size:13px;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
-.bat-modal{position:fixed;inset:0;z-index:200;display:none;align-items:flex-end;justify-content:center;padding:0}
+.bat-modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:clamp(12px,3vw,24px)}
 .bat-modal.is-open{display:flex}
 .bat-modal__backdrop{position:absolute;inset:0;background:rgba(13,13,13,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
-.bat-modal__panel{position:relative;z-index:1;width:min(680px,100%);max-height:92vh;overflow-y:auto;background:var(--bat-black);color:var(--bat-white);border-radius:12px 12px 0 0;margin:0}
-@media(min-width:640px){.bat-modal{align-items:center;padding:24px}.bat-modal__panel{border-radius:12px;max-height:88vh}}
-.bat-modal__img{width:100%;height:272px;max-width:none;max-height:none;object-fit:cover;object-position:center;display:block;background:rgba(255,255,255,.08)}
-.bat-modal__gallery{position:relative;background:rgba(255,255,255,.06)}
-.bat-modal__gallery-track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.bat-modal__panel{position:relative;z-index:1;display:flex;flex-direction:column;width:min(560px,min(92vw,88vh));aspect-ratio:1/1;max-height:min(92vh,92vw);overflow:hidden;background:var(--bat-black);color:var(--bat-white);border-radius:12px;margin:0}
+#bat-modal-media{flex:0 0 50%;width:100%;min-height:0;display:flex;flex-direction:column;overflow:hidden;background:var(--bat-black)}
+.bat-modal__media-stack{flex:1;min-height:0;display:flex;flex-direction:column;width:100%}
+.bat-modal__frame{position:relative;flex:1;min-height:0;overflow:hidden;background:var(--bat-black)}
+.bat-modal__labels{flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;gap:4px;padding:6px 10px 4px;pointer-events:none}
+.bat-modal__frame>.bat-modal__img{position:absolute;inset:0;width:100%;height:100%;max-width:100%;max-height:100%;object-fit:contain;object-position:center;display:block}
+.bat-modal__gallery{position:absolute;inset:0;display:flex;flex-direction:column;background:transparent}
+.bat-modal__gallery-track{flex:1;min-height:0;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .bat-modal__gallery-track::-webkit-scrollbar{display:none}
-.bat-modal__gallery .bat-modal__img{flex:0 0 100%;scroll-snap-align:start}
-.bat-modal__gallery-nav{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:0 8px;pointer-events:none}
+.bat-modal__gallery .bat-modal__img{flex:0 0 100%;width:100%;height:100%;object-fit:contain;object-position:center;scroll-snap-align:start}
+.bat-modal__gallery-nav{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:0 8px;pointer-events:none;z-index:2}
 .bat-modal__gallery-nav button{pointer-events:auto;width:40px;height:40px;border:none;border-radius:50%;background:rgba(0,0,0,.55);color:var(--bat-white);font-size:22px;line-height:1;cursor:pointer}
-.bat-modal__gallery-dots{display:flex;justify-content:center;gap:8px;padding:10px 0 4px}
+.bat-modal__gallery-dots{position:absolute;z-index:3;bottom:8px;left:50%;transform:translateX(-50%);display:flex;justify-content:center;gap:8px;margin:0;padding:0}
 .bat-modal__gallery-dots button{width:7px;height:7px;padding:0;border:none;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer}
 .bat-modal__gallery-dots button.is-active{background:var(--bat-red)}
-.bat-modal__ph{display:none;height:272px;align-items:center;justify-content:center;font-size:14px;letter-spacing:.1em;text-transform:uppercase;opacity:.45}
-.bat-modal__inner{padding:clamp(20px,4vw,32px)}
-.bat-modal__close{position:absolute;top:12px;right:12px;z-index:2;width:40px;height:40px;border:none;border-radius:50%;background:rgba(0,0,0,.5);color:var(--bat-white);font-size:20px;cursor:pointer}
-.bat-modal__tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--bat-red);margin:0 0 8px}
-.bat-modal__title{margin:0 0 6px;font-size:clamp(1.4rem,3vw,1.8rem);font-weight:500}
-.bat-modal__meta{margin:0 0 20px;font-size:12px;opacity:.55;letter-spacing:.04em}
-.bat-modal__body{margin:0 0 20px;font-size:14.5px;line-height:1.84;color:rgba(255,255,255,.72)}
-.bat-modal__story{margin:0 0 20px;padding:16px 18px;border-left:3px solid var(--bat-red);background:rgba(255,255,255,.04);font-size:14px;line-height:1.7;color:rgba(255,255,255,.88)}
-.bat-modal__story strong{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--bat-red);margin-bottom:8px;font-weight:600}
-.bat-modal__access{margin:0;font-size:13px;line-height:1.65;color:rgba(255,255,255,.55)}
-.bat-modal__access strong{display:block;font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:6px;color:rgba(255,255,255,.75)}
+.bat-modal__ph{position:absolute;inset:0;display:none;align-items:center;justify-content:center;font-size:14px;letter-spacing:.1em;text-transform:uppercase;opacity:.45}
+.bat-modal__inner{flex:1 1 50%;min-height:0;overflow-y:auto;padding:clamp(14px,2.4vw,20px) clamp(16px,3vw,24px);-webkit-overflow-scrolling:touch}
+.bat-modal__close{position:absolute;top:10px;right:10px;z-index:6;width:36px;height:36px;border:none;border-radius:50%;background:rgba(0,0,0,.55);color:var(--bat-white);font-size:20px;cursor:pointer}
+.bat-modal__tag{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--bat-red);margin:0 0 6px}
+.bat-modal__title{margin:0 0 4px;font-size:clamp(1.05rem,2.6vw,1.35rem);font-weight:500;line-height:1.2}
+.bat-modal__meta{margin:0 0 10px;font-size:11px;opacity:.55;letter-spacing:.04em}
+.bat-modal__body{margin:0 0 12px;font-size:13px;line-height:1.65;color:rgba(255,255,255,.72)}
+.bat-modal__story{margin:0 0 12px;padding:12px 14px;border-left:3px solid var(--bat-red);background:rgba(255,255,255,.04);font-size:12.5px;line-height:1.6;color:rgba(255,255,255,.88)}
+.bat-modal__story strong{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--bat-red);margin-bottom:6px;font-weight:600}
+.bat-modal__access{margin:0;font-size:12px;line-height:1.55;color:rgba(255,255,255,.55)}
+.bat-modal__access strong{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;color:rgba(255,255,255,.75)}
 @supports (container-type: inline-size){.bat-hero__inner{container-type:inline-size}}
 @media(max-width:640px){.bat-stops{grid-template-columns:1fr}.bat-hero__title{font-size:clamp(1.85rem,10.5vw,3.1rem)}}`;
 
@@ -1116,14 +1142,37 @@ function imgBlock(photo, name, clsImg, clsPh) {
   return `<div class="${clsPh}" style="display:flex" aria-hidden="true">${esc(name)}</div>`;
 }
 
+function sortLabels(labels) {
+  const order = new Map(LABEL_ORDER.map((k, i) => [k, i]));
+  return [...labels].sort((a, b) => (order.get(a) ?? 999) - (order.get(b) ?? 999));
+}
+
+function normalizeLabels(labels) {
+  const sorted = sortLabels(labels);
+  if (!sorted.includes("brd")) return sorted;
+  return sorted.filter((l) => l !== "vor1939");
+}
+
+function renderLabelFilter() {
+  const buttons = LABEL_ORDER
+    .filter((k) => LABEL_DEFS[k])
+    .map((k) => {
+      const def = LABEL_DEFS[k];
+      return `<button type="button" class="bat-label-filter__btn is-on bat-label-filter__btn--${k}" data-label-filter="${k}" aria-pressed="true" style="background:${def.bg};color:${def.color}"><span class="de-t">${esc(def.de)}</span><span class="en-t">${esc(def.en)}</span></button>`;
+    })
+    .join("");
+  return `<div class="bat-label-filter" role="group" aria-label="Labels filtern">${buttons}</div>`;
+}
+
 function buildHtml(heroImg) {
 let daysHtml = "";
 for (const day of DAYS) {
   const stopsHtml = day.stops
     .map(
       (s) => `
-    <button type="button" class="bat-stop" data-stop-id="${esc(s.id)}" aria-label="${esc(s.nameDe)}">
+    <button type="button" class="bat-stop" data-stop-id="${esc(s.id)}" data-labels="${esc((s.labels || LABELS_BY_ID[s.id] || []).join(","))}" aria-label="${esc(s.nameDe)}">
       <div class="bat-stop__img-wrap">
+        ${renderStopLabels(s)}
         ${imgBlock(s.photo, s.nameDe, "bat-stop__img", "bat-stop__ph")}
       </div>
       <div class="bat-stop__body">
@@ -1141,8 +1190,8 @@ for (const day of DAYS) {
       <p class="bat-day__num">${String(day.id).padStart(2, "0")}</p>
       <div>
         <h2 class="bat-day__title"><span class="de-t">${esc(day.themeDe)}</span><span class="en-t">${esc(day.themeEn)}</span></h2>
-        <p class="bat-day__meta"><span class="de-t">${esc(day.eraDe)}</span><span class="en-t">${esc(day.eraEn)}</span></p>
-        <p class="bat-day__route"><span class="de-t">${esc(day.routeDe)}</span><span class="en-t">${esc(day.routeEn)}</span></p>
+        ${day.eraDe ? `<p class="bat-day__meta"><span class="de-t">${esc(day.eraDe)}</span><span class="en-t">${esc(day.eraEn)}</span></p>` : ""}
+        ${day.routeDe ? `<p class="bat-day__route"><span class="de-t">${esc(day.routeDe)}</span><span class="en-t">${esc(day.routeEn)}</span></p>` : ""}
       </div>
     </header>
     <div class="bat-shell">
@@ -1157,7 +1206,7 @@ for (const day of DAYS) {
 
 const dayNavHtml = DAYS.map(
   (d) =>
-    `<a href="#day-${d.id}" data-day-link="${d.id}"><span class="de-t">Tag ${d.id}</span><span class="en-t">Day ${d.id}</span></a>`
+    `<a href="#day-${d.id}" data-day-link="${d.id}"><span class="de-t">${esc(d.navDe || `Tag ${d.id}`)}</span><span class="en-t">${esc(d.navEn || `Day ${d.id}`)}</span></a>`
 ).join("");
 
 const totalStops = DAYS.reduce((n, d) => n + d.stops.length, 0);
@@ -1168,9 +1217,9 @@ return `<!DOCTYPE html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Berlin Architecture Tour | FRIDAY CIRCLE</title>
-<meta name="description" content="Sechs Tage Architektur durch Berlin - kuratierte Studienreise von Friday Circle. ${totalStops} Projekte, 1920 bis heute.">
+<meta name="description" content="Sieben Tage Architektur durch Berlin - kuratierte Studienreise von Friday Circle. ${totalStops} Projekte, 1920 bis heute.">
 <meta property="og:title" content="Berlin Architecture Tour">
-<meta property="og:description" content="Sechs Tage Architektur durch Berlin. Geografische Route, DE/EN.">
+<meta property="og:description" content="Sieben Tage Architektur durch Berlin. Geografische Route, DE/EN.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1185,17 +1234,17 @@ return `<!DOCTYPE html>
   <img class="bat-hero__img" src="${heroImg}" alt="" decoding="async">
   <div class="bat-hero__shell bat-shell">
     <div class="bat-hero__inner">
-      <p class="bat-hero__eyebrow"><span class="de-t">Studienreise · Berlin</span><span class="en-t">Study trip · Berlin</span></p>
+      <p class="bat-hero__eyebrow"><span class="de-t">Ausflugsziele in der Hauptstadt</span><span class="en-t">Excursions in the capital</span></p>
       <h1 id="bat-hero-title" class="bat-hero__title">
         <span class="bat-hero__title-line">Berlin</span>
         <span class="bat-hero__title-line bat-hero__title-line--strong">Architecture</span>
       </h1>
       <p class="bat-hero__sub">
-        <span class="de-t">Eine Route durch die Stadt nach Geografie, nicht nach Chronologie. Epochen als Kontext, Kontraste als Methode.</span>
-        <span class="en-t">A route through the city by geography, not chronology. Eras as context, contrasts as method.</span>
+        <span class="de-t">Eine Auswahl an gebauten Zeitzeugen des europäischen Zentrums mit Kontextualisierung zur deutschen Geschichte von 1920 bis Heute.</span>
+        <span class="en-t">A selection of built witnesses in Europe's centre, contextualising German history from 1920 to the present.</span>
       </p>
       <div class="bat-hero__meta">
-        <span><span class="de-t">6 Tage</span><span class="en-t">6 days</span></span>
+        <span><span class="de-t">7 Tage</span><span class="en-t">7 days</span></span>
         <span>${totalStops} <span class="de-t">Projekte</span><span class="en-t">projects</span></span>
         <span>1920–2024</span>
       </div>
@@ -1203,16 +1252,18 @@ return `<!DOCTYPE html>
   </div>
 </section>
 
-<nav class="bat-day-strip bat-shell" aria-label="Tage">
-  <div class="bat-day-strip__days">${dayNavHtml}</div>
-</nav>
-
-<section class="bat-intro bat-shell" aria-label="Einleitung">
-  <p class="de-t">Die Tour folgt der Stadt geografisch. Vor- und Rückgriffe zwischen Perioden sind Teil der Logik: Das Olympiastadion und die Unité d'Habitation liegen in Westend nebeneinander und gehören deshalb auf Tag 1, nicht auf einen eigenen Nachkrieg-Tag.</p>
-  <p class="en-t">The tour follows the city geographically. Leaps between periods are part of the logic: the Olympic Stadium and the Unité d'Habitation sit side by side in Westend and belong on Day 1, not on a separate post-war day.</p>
-  <p class="de-t">Jedes Projekt hat einen Teaser, einen Fließtext, optional eine Story und praktische Zugangshinweise. Klick auf eine Karte öffnet das Detail.</p>
-  <p class="en-t">Each project has a teaser, full text, optional story and practical access notes. Click a card to open detail.</p>
-</section>
+<div class="bat-tour-intro">
+  <div class="bat-tour-intro__inner">
+  <nav class="bat-day-strip" aria-label="Tage">
+    <div class="bat-day-strip__days">${dayNavHtml}</div>
+  </nav>
+  <section class="bat-intro" aria-label="Einleitung">
+    <p class="de-t">Die Aufteilung in Tage erfolgt teilweise historisch aber aus praktischen Gründen hauptsächlich geografisch. Jede Projektkarte hat eine Information und praktische Zugangshinweise. Klick auf eine Karte, um die Details zu lesen und ggf. weitere Fotos zu sehen.</p>
+    <p class="en-t">Days are partly historical but mainly geographic for practical reasons. Each project card includes information and practical access notes. Click a card to read details and view additional photos where available.</p>
+  </section>
+  ${renderLabelFilter()}
+  </div>
+</div>
 
 <main>${daysHtml}</main>
 
@@ -1229,8 +1280,41 @@ return `<!DOCTYPE html>
 
 <script>
 const TOUR = ${JSON.stringify(DAYS)};
+const LABEL_DEFS = ${JSON.stringify(LABEL_DEFS)};
+const LABEL_ORDER = ${JSON.stringify(LABEL_ORDER)};
 let lang = (function(){try{return localStorage.getItem('fcLang')||'de'}catch(e){return 'de'}})();
 let openId = null;
+
+function sortLabels(labels) {
+  return labels.slice().sort(function (a, b) {
+    return LABEL_ORDER.indexOf(a) - LABEL_ORDER.indexOf(b);
+  });
+}
+
+function normalizeLabels(labels) {
+  const sorted = sortLabels(labels);
+  if (sorted.indexOf('brd') === -1) return sorted;
+  return sorted.filter(function (l) { return l !== 'vor1939'; });
+}
+
+function renderModalLabelsHtml(s) {
+  const labels = normalizeLabels(s.labels || []);
+  if (!labels.length) return '';
+  const chips = labels.map(function (key) {
+    const def = LABEL_DEFS[key];
+    if (!def) return '';
+    return '<span class="bat-stop__label bat-stop__label--' + key + '" style="background:' + def.bg + ';color:' + def.color + '"><span class="de-t">' + def.de + '</span><span class="en-t">' + def.en + '</span></span>';
+  }).join('');
+  return '<div class="bat-modal__labels">' + chips + '</div>';
+}
+
+function wrapModalFrame(inner) {
+  return '<div class="bat-modal__frame">' + inner + '</div>';
+}
+
+function wrapModalMedia(labelsHtml, inner) {
+  return '<div class="bat-modal__media-stack">' + wrapModalFrame(inner) + labelsHtml + '</div>';
+}
 
 function findStop(id) {
   for (const day of TOUR) {
@@ -1254,37 +1338,43 @@ setLang(lang);
 let modalGalleryIndex = 0;
 
 function getModalPhotos(s) {
-  const all = [s.photo].concat(s.gallery || []).filter(Boolean);
-  if (all.length <= 1) return all;
-  return all.slice(1);
+  return [s.photo].concat(s.gallery || []).filter(Boolean);
 }
 
 function renderModalMedia(s, name) {
   const media = document.getElementById('bat-modal-media');
   const photos = getModalPhotos(s);
   const safeName = name.replace(/</g, '&lt;');
+  const labelsHtml = renderModalLabelsHtml(s);
   if (!photos.length) {
     if (s.photo) {
-      media.innerHTML =
+      media.innerHTML = wrapModalMedia(
+        labelsHtml,
         '<img class="bat-modal__img" src="' +
         s.photo.replace(/"/g, '&quot;') +
         '" alt="" onerror="this.hidden=true;this.nextElementSibling.style.display=\\'flex\\'">' +
         '<div class="bat-modal__ph" aria-hidden="true">' +
         safeName +
-        '</div>';
+        '</div>'
+      );
     } else {
-      media.innerHTML = '<div class="bat-modal__ph" style="display:flex" aria-hidden="true">' + safeName + '</div>';
+      media.innerHTML = wrapModalMedia(
+        labelsHtml,
+        '<div class="bat-modal__ph" style="display:flex" aria-hidden="true">' + safeName + '</div>'
+      );
     }
     return;
   }
   if (photos.length === 1) {
-    media.innerHTML =
+    media.innerHTML = wrapModalMedia(
+      labelsHtml,
       '<img class="bat-modal__img" src="' +
       photos[0].replace(/"/g, '&quot;') +
       '" alt="" onerror="this.hidden=true;this.nextElementSibling.style.display=\\'flex\\'">' +
       '<div class="bat-modal__ph" aria-hidden="true">' +
       safeName +
-      '</div>';
+      '</div>'
+    );
     return;
   }
   modalGalleryIndex = 0;
@@ -1300,7 +1390,8 @@ function renderModalMedia(s, name) {
         '<button type="button" data-gallery-dot="' + i + '"' + (i ? '' : ' class="is-active"') + ' aria-label="' + (i + 1) + '/' + photos.length + '"></button>'
     )
     .join('');
-  media.innerHTML =
+  media.innerHTML = wrapModalMedia(
+    labelsHtml,
     '<div class="bat-modal__gallery" data-gallery-count="' +
     photos.length +
     '">' +
@@ -1316,7 +1407,8 @@ function renderModalMedia(s, name) {
     '</div>' +
     '<div class="bat-modal__ph" aria-hidden="true">' +
     safeName +
-    '</div></div>';
+    '</div></div>'
+  );
   bindModalGallery(photos.length);
 }
 
@@ -1398,6 +1490,37 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeModal();
 });
 
+const activeLabelFilters = new Set(Object.keys(LABEL_DEFS));
+
+function applyLabelFilter() {
+  document.querySelectorAll('.bat-stop').forEach(function (btn) {
+    const raw = btn.getAttribute('data-labels') || '';
+    const labels = raw ? raw.split(',').filter(Boolean) : [];
+    const show = labels.length === 0 || labels.every(function (l) { return activeLabelFilters.has(l); });
+    btn.classList.toggle('is-filter-hidden', !show);
+  });
+}
+
+document.querySelectorAll('[data-label-filter]').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    const key = btn.getAttribute('data-label-filter');
+    if (activeLabelFilters.has(key)) {
+      activeLabelFilters.delete(key);
+      btn.classList.remove('is-on');
+      btn.classList.add('is-off');
+      btn.setAttribute('aria-pressed', 'false');
+    } else {
+      activeLabelFilters.add(key);
+      btn.classList.add('is-on');
+      btn.classList.remove('is-off');
+      btn.setAttribute('aria-pressed', 'true');
+    }
+    applyLabelFilter();
+  });
+});
+
+applyLabelFilter();
+
 const daySections = document.querySelectorAll('.bat-day');
 const dayLinks = document.querySelectorAll('[data-day-link]');
 if ('IntersectionObserver' in window && daySections.length) {
@@ -1413,11 +1536,67 @@ if ('IntersectionObserver' in window && daySections.length) {
 }
 
 if (location.search.includes('lang=en')) setLang('en');
+
+function syncBatStickyTop() {
+  var nav = document.querySelector('.nav');
+  if (!nav) return;
+  var h = Math.ceil(nav.getBoundingClientRect().height);
+  document.documentElement.style.setProperty('--bat-sticky-top', h + 'px');
+}
+
+function initBatStickyTop() {
+  function attach(nav) {
+    syncBatStickyTop();
+    if (typeof ResizeObserver !== 'undefined') {
+      new ResizeObserver(syncBatStickyTop).observe(nav);
+    }
+  }
+
+  function waitForNav() {
+    var nav = document.querySelector('.nav');
+    if (nav) {
+      attach(nav);
+      return;
+    }
+    var host = document.getElementById('fc-site-header');
+    if (host && typeof MutationObserver !== 'undefined') {
+      var mo = new MutationObserver(function () {
+        nav = document.querySelector('.nav');
+        if (nav) {
+          mo.disconnect();
+          attach(nav);
+        }
+      });
+      mo.observe(host, { childList: true, subtree: true });
+    }
+    setTimeout(waitForNav, 120);
+  }
+
+  waitForNav();
+  window.addEventListener('resize', syncBatStickyTop);
+  window.addEventListener('load', syncBatStickyTop);
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initBatStickyTop);
+} else {
+  initBatStickyTop();
+}
 </script>
 <script src="nav.js" defer></script>
 <script src="fc-lang.js" defer></script>
 </body>
 </html>`;
+}
+
+function applyDiningPhotos() {
+  for (const day of DAYS) {
+    for (const [key, filename] of Object.entries(DINING_PHOTOS)) {
+      const [dayId, mealKey] = key.split("-");
+      if (String(day.id) !== dayId || !day[mealKey] || !filename) continue;
+      day[mealKey].photo = assetPath(filename);
+    }
+  }
 }
 
 function resolveDiningPhotoFallbacks() {
@@ -1431,8 +1610,97 @@ function resolveDiningPhotoFallbacks() {
   }
 }
 
+function flattenAllStops() {
+  const map = new Map();
+  for (const day of DAYS) {
+    for (const stop of day.stops) {
+      map.set(stop.id, { ...stop });
+    }
+  }
+  for (const meta of NEW_STOPS_META) {
+    if (map.has(meta.id)) continue;
+    const files = PHOTO_BY_STOP[meta.id];
+    map.set(meta.id, {
+      id: meta.id,
+      nameDe: meta.nameDe,
+      nameEn: meta.nameEn,
+      metaDe: meta.metaDe || `${meta.districtDe} · Berlin`,
+      metaEn: meta.metaEn || `${meta.districtDe} · Berlin`,
+      tag: meta.tag,
+      teaserDe: meta.teaserDe,
+      teaserEn: meta.teaserEn,
+      bodyDe: meta.bodyDe || meta.teaserDe,
+      bodyEn: meta.bodyEn || meta.teaserEn,
+      accessDe: meta.accessDe || "Von außen zugänglich, sofern nicht anders angegeben.",
+      accessEn: meta.accessEn || "Accessible from outside unless noted otherwise.",
+      photo: files?.length ? assetPath(files[0]) : undefined,
+      gallery: files?.length > 1 ? files.slice(1).map(assetPath) : undefined,
+    });
+  }
+  for (const [id, stop] of Object.entries(EXTRA_STOPS)) {
+    const files = PHOTO_BY_STOP[id];
+    const merged = { ...stop };
+    if (files?.length && !merged.photo?.startsWith("assets/")) {
+      merged.photo = assetPath(files[0]);
+      merged.gallery = files.length > 1 ? files.slice(1).map(assetPath) : undefined;
+    }
+    map.set(id, { ...map.get(id), ...merged });
+  }
+  for (const [id, patch] of Object.entries(STOP_OVERRIDES)) {
+    if (!map.has(id)) continue;
+    map.set(id, { ...map.get(id), ...patch });
+  }
+  for (const [id, labels] of Object.entries(LABELS_BY_ID)) {
+    if (!map.has(id)) continue;
+    map.set(id, { ...map.get(id), labels: normalizeLabels(labels) });
+  }
+  return map;
+}
+
+function reorganizeTourDays() {
+  const stopMap = flattenAllStops();
+  const oldById = new Map(DAYS.map((d) => [d.id, d]));
+  DAYS.length = 0;
+  for (const plan of DAY_LAYOUT) {
+    const prev = oldById.get(plan.id);
+    const stops = plan.stopIds
+      .map((id) => stopMap.get(id))
+      .filter(Boolean);
+    const dining = DINING_BY_DAY[plan.id] || {};
+    DAYS.push({
+      id: plan.id,
+      themeDe: plan.themeDe,
+      themeEn: plan.themeEn,
+      navDe: plan.navDe,
+      navEn: plan.navEn,
+      eraDe: plan.eraDe || "",
+      eraEn: plan.eraEn || "",
+      routeDe: plan.routeDe || "",
+      routeEn: plan.routeEn || "",
+      lunch: dining.lunch ? { ...dining.lunch } : { ...DEFAULT_DINING.lunch },
+      dinner: dining.dinner ? { ...dining.dinner } : { ...DEFAULT_DINING.dinner },
+      stops,
+    });
+  }
+}
+
+function renderStopLabels(stop) {
+  const labels = normalizeLabels(stop.labels || LABELS_BY_ID[stop.id] || []);
+  if (!labels.length) return "";
+  const chips = labels
+    .map((key) => {
+      const def = LABEL_DEFS[key];
+      if (!def) return "";
+      return `<span class="bat-stop__label bat-stop__label--${key}" style="background:${def.bg};color:${def.color}"><span class="de-t">${def.de}</span><span class="en-t">${def.en}</span></span>`;
+    })
+    .join("");
+  return `<div class="bat-stop__labels">${chips}</div>`;
+}
+
 async function main() {
   const heroImg = await localizeTourImages();
+  reorganizeTourDays();
+  applyDiningPhotos();
   resolveDiningPhotoFallbacks();
   const html = buildHtml(heroImg);
   writeFileSync(outPath, html, "utf8");
