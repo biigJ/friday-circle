@@ -1017,8 +1017,17 @@ const DAYS = [
 ];
 
 const CSS = `/* berlin arch tour — bündig mit .nav__inner / .hero__grid (styles.css) */
-body.bat-page{--bat-black:#0d0d0d;--bat-white:#fff;--bat-red:#c8312a;--bat-map-bg:#ececec}
+body.bat-page{--bat-black:#0d0d0d;--bat-white:#fff;--bat-red:#c8312a;--bat-map-bg:#fff;--bat-map-canvas-bg:#fff;--bg:#fff;background:#fff;--bat-tile-filter:sepia(0.95) saturate(0.15) hue-rotate(-22deg) contrast(1.05) brightness(0.97)}
+html:has(body.bat-page){background:#fff}
 body.bat-page.en .de-t,body.bat-page.de .en-t{display:none}
+body.bat-page .nav{background-color:#fff;background-image:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+body.bat-page .nav__inner{align-items:flex-end;background:#fff}
+body.bat-page .nav__links--empty{display:none}
+body.bat-page .nav__logo.bat-brand-logo{align-self:flex-end;font-family:var(--font-sans);font-size:clamp(1.44rem,2.2vw,1.7rem);font-weight:200;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--text);line-height:1}
+body.bat-page .nav__cta-bucket{align-self:flex-end}
+body.bat-page .bat-brand-logo__strong{font-weight:700}
+body.bat-page .bat-brand-logo__light{font-weight:200}
+body.bat-page .bat-brand-logo:hover,body.bat-page .bat-brand-logo:focus-visible{opacity:.72}
 .bat-shell{box-sizing:border-box;width:100%;max-width:var(--content-max);margin-left:auto;margin-right:auto;padding-left:var(--nav-pad-x);padding-right:var(--nav-pad-x)}
 .bat-hero{position:relative;min-height:min(88vh,720px);display:flex;align-items:flex-end;background:var(--bat-black);color:var(--bat-white);overflow:hidden;border-bottom:1px solid rgba(255,255,255,.14)}
 .bat-hero__img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1}
@@ -1030,17 +1039,19 @@ body.bat-page.en .de-t,body.bat-page.de .en-t{display:none}
 .bat-hero__title-line--strong{font-weight:700}
 .bat-hero__sub{margin:20px 0 0;max-width:39.5rem;font-size:clamp(.95rem,1.6vw,1.15rem);line-height:1.5;opacity:.88;text-shadow:0 1px 10px rgba(0,0,0,.5),0 0 1px rgba(0,0,0,.85)}
 .bat-hero__meta{display:flex;flex-wrap:wrap;gap:clamp(16px,3vw,32px);margin-top:28px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.65;text-shadow:0 1px 8px rgba(0,0,0,.5),0 0 1px rgba(0,0,0,.85)}
-.bat-tour-intro{position:sticky;top:var(--bat-sticky-top,72px);z-index:90;width:100%;background:var(--bat-map-bg,#ececec);padding-bottom:clamp(16px,2.5vw,24px);border-bottom:none;box-sizing:border-box;transform:translateZ(0);scroll-margin-top:var(--bat-sticky-top,72px)}
-.bat-tour-intro__inner{width:100%;max-width:var(--content-max);margin-left:auto;margin-right:auto;padding-left:var(--nav-pad-x);padding-right:var(--nav-pad-x);box-sizing:border-box}
-.bat-day-strip{padding:clamp(18px,3vw,28px) 0 clamp(14px,2vw,18px);background:transparent}
+.bat-tour-intro{position:sticky;top:var(--bat-sticky-top,72px);z-index:90;width:100%;background:#fff;padding-bottom:0;border-bottom:none;box-sizing:border-box;isolation:isolate;scroll-margin-top:var(--bat-sticky-top,72px)}
+.bat-tour-intro__inner{width:100%;max-width:var(--content-max);margin-left:auto;margin-right:auto;padding-left:var(--nav-pad-x);padding-right:var(--nav-pad-x);box-sizing:border-box;background:#fff}
+.bat-day-strip{padding:clamp(18px,3vw,28px) 0 clamp(14px,2vw,18px);background:#fff}
 .bat-day-strip__days{display:flex;flex-wrap:nowrap;gap:clamp(10px,1.4vw,18px);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .bat-day-strip__days::-webkit-scrollbar{display:none}
 .bat-day-strip a{display:block;padding:4px 8px;border-radius:2px;font-size:clamp(8.5px,0.72vw,10px);letter-spacing:.04em;text-transform:none;text-decoration:none;color:var(--bat-day-color,var(--text));opacity:1;border-bottom:none;white-space:nowrap;font-weight:400;line-height:1.25;flex-shrink:0;transition:background .15s ease,color .15s ease}
 .bat-day-strip a:hover{font-weight:600}
 .bat-day-strip a.is-active{background:var(--bat-day-color,var(--bat-black));color:var(--bat-white);font-weight:600;text-decoration:none}
-.bat-intro{padding:0 0 clamp(10px,1.6vw,14px)}
-.bat-intro p{margin:0;max-width:720px;font-size:13.5px;line-height:1.45;font-weight:300;color:color-mix(in srgb,var(--text) 68%,transparent);letter-spacing:.01em}
-.bat-label-filter{display:flex;justify-content:center;flex-wrap:wrap;gap:clamp(6px,1.2vw,10px);padding:clamp(4px,1vw,8px) 0 0}
+.bat-intro{padding:0 0 clamp(10px,1.6vw,14px);background:#fff}
+.bat-intro p{margin:0;width:100%;max-width:none;font-size:13.5px;line-height:1.45;font-weight:300;color:color-mix(in srgb,var(--text) 68%,transparent);letter-spacing:.01em}
+.bat-label-filter{display:flex;flex-direction:column;align-items:center;gap:clamp(6px,1.2vw,10px);padding:clamp(4px,1vw,8px) 0 clamp(16px,2.5vw,24px);width:100%;background:#fff}
+.bat-label-filter__row{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(6px,1.2vw,10px);width:100%;background:#fff}
+.bat-label-filter__row .bat-label-filter__btn--gap-before{margin-left:calc(2 * clamp(6px,1.2vw,10px))}
 .bat-label-filter__btn{margin:0;padding:5px 10px;border:none;border-radius:2px;font-family:var(--font-sans);font-size:10px;font-weight:400;letter-spacing:.08em;line-height:1.2;cursor:pointer;background:var(--bat-black);color:var(--bat-white);transition:opacity .2s ease,transform .15s ease}
 .bat-label-filter__btn.is-on{opacity:1}
 .bat-label-filter__btn.is-off{opacity:.32}
@@ -1063,7 +1074,7 @@ body.bat-page.en .de-t,body.bat-page.de .en-t{display:none}
 .bat-stop{display:flex;flex-direction:column;align-items:stretch;width:100%;border:none;background:rgba(255,255,255,.04);padding:0;margin:0;text-align:left;cursor:pointer;font-family:inherit;color:inherit;border-radius:4px;overflow:hidden;transition:background .15s;-webkit-appearance:none;appearance:none;line-height:1.5}
 .bat-stop:hover,.bat-stop:focus-visible{background:rgba(255,255,255,.08);outline:none}
 .bat-stop__img-wrap{position:relative;display:block;width:100%;aspect-ratio:1/1;height:auto;min-height:0;margin:0;padding:0;line-height:0;font-size:0;background:rgba(255,255,255,.06);overflow:hidden;flex-shrink:0}
-body.bat-page .bat-stop__img-wrap img.bat-stop__img{position:absolute;top:0;left:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;border-radius:0;object-fit:cover;object-position:top center;display:block}
+body.bat-page .bat-stop__img-wrap img.bat-stop__img{position:absolute;top:0;left:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;border-radius:0;object-fit:cover;object-position:top center;display:block;filter:var(--bat-tile-filter)}
 .bat-stop__ph{position:absolute;inset:0;display:none;align-items:center;justify-content:center;padding:20px;text-align:center;font-size:13px;letter-spacing:.08em;text-transform:uppercase;opacity:.45;background:rgba(255,255,255,.06)}
 .bat-stop__labels{position:absolute;top:8px;right:8px;z-index:2;display:flex;flex-direction:column;align-items:flex-end;gap:4px;pointer-events:none}
 .bat-stop__label{display:block;padding:3px 7px;font-size:9px;font-weight:400;letter-spacing:.08em;line-height:1.2;text-transform:none;border-radius:2px;white-space:nowrap;background:var(--bat-black);color:var(--bat-white)}
@@ -1083,10 +1094,11 @@ body.bat-page .bat-stop__img-wrap img.bat-stop__img{position:absolute;top:0;left
 .bat-dining__photo{position:relative;flex:0 0 192px;width:192px;height:192px;background:rgba(255,255,255,.06);overflow:hidden}
 body.bat-page .bat-dining__photo img{position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;object-fit:cover;object-position:center;display:block}
 .bat-interlude{background:var(--bg);color:var(--text);padding:clamp(32px,5vw,48px) var(--nav-pad-x);text-align:center;font-size:13px;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
-.bat-map-section{position:relative;z-index:0;width:100%;padding:0;margin:0;background:var(--bat-map-bg,#ececec);border-top:none;border-bottom:none;scroll-margin-top:var(--bat-sticky-top,72px)}
-.bat-map__frame{border:none;border-radius:0;overflow:visible;background:var(--bat-map-bg,#ececec);position:relative;z-index:0}
-.bat-map__canvas{width:100%;height:min(68vh,560px);min-height:320px;position:relative;z-index:0;background:var(--bat-map-bg,#ececec)}
-.bat-map__canvas.leaflet-container{background:var(--bat-map-bg,#ececec)}
+.bat-map-ui{background:#fff;width:100%}
+.bat-map-section{position:relative;z-index:0;width:100%;padding:0;margin:0;background:#fff;border-top:none;border-bottom:none;scroll-margin-top:var(--bat-sticky-top,72px)}
+.bat-map__frame{border:none;border-radius:0;overflow:visible;background:#fff;position:relative;z-index:0}
+.bat-map__canvas{width:100%;height:min(68vh,560px);min-height:320px;position:relative;z-index:0;background:#fff}
+.bat-map__canvas.leaflet-container{background:#fff}
 .bat-map__canvas .leaflet-map-pane{z-index:0}
 .bat-map__canvas .leaflet-map-pane canvas,.bat-map__canvas .leaflet-map-pane svg{z-index:auto}
 .bat-map__canvas .leaflet-tile-pane{z-index:200}
@@ -1099,7 +1111,7 @@ body.bat-page .bat-dining__photo img{position:absolute;inset:0;width:100%;height
 .bat-map__canvas .leaflet-control-container{z-index:800;pointer-events:none}
 .bat-map__canvas .leaflet-top,.bat-map__canvas .leaflet-bottom{z-index:800;pointer-events:none}
 .bat-map__canvas .leaflet-control{z-index:800;pointer-events:auto}
-.bat-map__canvas .leaflet-tile-pane img.leaflet-tile{mix-blend-mode:normal;filter:grayscale(1) contrast(1.06) brightness(1.02)}
+.bat-map__canvas .leaflet-tile-pane img.leaflet-tile{mix-blend-mode:normal;filter:grayscale(1) contrast(1.03)}
 .bat-map__canvas .leaflet-control-zoom a{background:var(--bg);color:var(--text);border-color:rgba(13,13,13,.15)}
 .bat-map__canvas .leaflet-bar{box-shadow:0 1px 4px rgba(0,0,0,.22)}
 main{position:relative;z-index:2}
@@ -1188,14 +1200,19 @@ function normalizeLabels(labels) {
 }
 
 function renderLabelFilter() {
-  const buttons = LABEL_ORDER
-    .filter((k) => LABEL_DEFS[k])
-    .map(
-      (k) =>
-        `<button type="button" class="bat-label-filter__btn is-on bat-label-filter__btn--${k}" data-label-filter="${k}" aria-pressed="true"><span class="de-t">${esc(LABEL_DEFS[k].de)}</span><span class="en-t">${esc(LABEL_DEFS[k].en)}</span></button>`
-    )
-    .join("");
-  return `<div class="bat-label-filter" role="group" aria-label="Labels filtern">${buttons}</div>`;
+  const keys = LABEL_ORDER.filter((k) => LABEL_DEFS[k]);
+  const splitAt = keys.indexOf("moderne");
+  const eraKeys = splitAt >= 0 ? keys.slice(0, splitAt) : keys;
+  const styleKeys = splitAt >= 0 ? keys.slice(splitAt) : [];
+  const btn = (k) => {
+    const gapClass = k === "ausstellung" ? " bat-label-filter__btn--gap-before" : "";
+    return `<button type="button" class="bat-label-filter__btn is-on bat-label-filter__btn--${k}${gapClass}" data-label-filter="${k}" aria-pressed="true"><span class="de-t">${esc(LABEL_DEFS[k].de)}</span><span class="en-t">${esc(LABEL_DEFS[k].en)}</span></button>`;
+  };
+  const rows = [
+    `<div class="bat-label-filter__row">${eraKeys.map(btn).join("")}</div>`,
+    styleKeys.length ? `<div class="bat-label-filter__row">${styleKeys.map(btn).join("")}</div>` : "",
+  ].filter(Boolean);
+  return `<div class="bat-label-filter" role="group" aria-label="Labels filtern">${rows.join("")}</div>`;
 }
 
 function buildDayColorCss() {
@@ -1317,7 +1334,18 @@ return `<!DOCTYPE html>
 <style>${CSS}${dayColorCss}</style>
 </head>
 <body class="de bat-page">
-<div id="fc-site-header"></div>
+<header class="nav" aria-label="Hauptnavigation">
+  <div class="nav__inner">
+    <a href="berlinarchtour.html" class="nav__logo bat-brand-logo" aria-label="Berlin Architecture Tour"><span class="bat-brand-logo__strong">Berlin</span> <span class="bat-brand-logo__light">Architecture</span> <span class="bat-brand-logo__strong">Tour</span></a>
+    <nav class="nav__links nav__links--empty" aria-hidden="true"></nav>
+    <div class="nav__cta-bucket">
+      <div class="nav__lang" role="group" aria-label="Sprache">
+        <button type="button" class="is-active" data-fc-lang="de">DE</button>
+        <button type="button" data-fc-lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
 
 <section class="bat-hero" aria-labelledby="bat-hero-title">
   <img class="bat-hero__img" src="${heroImg}" alt="" decoding="async">
@@ -1341,6 +1369,7 @@ return `<!DOCTYPE html>
   </div>
 </section>
 
+<div class="bat-map-ui">
 <div class="bat-tour-intro" id="bat-info">
   <div class="bat-tour-intro__inner">
   <nav class="bat-day-strip" aria-label="Tage">
@@ -1359,6 +1388,7 @@ return `<!DOCTYPE html>
     <div id="bat-map-canvas" class="bat-map__canvas"></div>
   </div>
 </section>
+</div>
 
 <main>${daysHtml}</main>
 

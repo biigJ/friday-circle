@@ -298,6 +298,34 @@ body.bat-page .nav__cta-bucket {
   justify-self: end;
 }
 
+body.bat-page {
+  --bg: #ffffff;
+  background: #ffffff;
+}
+
+body.bat-page .nav,
+body.bat-page .bat-map-ui,
+body.bat-page .bat-tour-intro,
+body.bat-page .bat-tour-intro__inner,
+body.bat-page .bat-map-section,
+body.bat-page .bat-map__frame,
+body.bat-page .bat-map__canvas,
+body.bat-page .bat-map__canvas.leaflet-container {
+  background-color: #ffffff;
+}
+
+body.bat-page .nav {
+  background: #ffffff;
+  background-color: #ffffff;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+body.bat-page .bat-tour-intro,
+body.bat-page .bat-tour-intro__inner {
+  background: #ffffff;
+}
+
 body.bat-page .nav__logo {
   grid-column: 1;
   justify-self: start;
