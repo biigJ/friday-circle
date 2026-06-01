@@ -112,6 +112,7 @@ export const PHOTO_BY_STOP = {
   ],
 
   "d4-sony": [
+    "SonyCenter_oben.jpeg",
     "2015-11-21_Potsdamer_Platz_Hochhaus.jpg",
     "d4-sony.jpg",
     "2021-04-01-PotsdamerPlatz_RicahrdRogers.jpg",
