@@ -82,7 +82,12 @@ export const PHOTO_BY_STOP = {
     "2020-03-24_Schweizer_Botschaft_02.jpg",
   ],
   "d3-holocaust": ["2019-08-27-Holocaust_Mahnmal.jpg", "d3-holocaust.jpg"],
-  "d3-jm": ["2020-01-12-Juedisches_Museum.jpg"],
+  "d3-jm": [
+    "2020-01-12-Juedisches_Museum.jpg",
+    "jüdischesMuseum-Dead.JPG",
+    "jüdischesMuseum-Void.JPG",
+    "jüdischesMuseum-Wall.JPG",
+  ],
   "d3-taz": [
     "2018-07-21-TAZ_Redaktionsgebäude-Kreuzberg.jpg",
     "2018-10-03-TAZ_Redaktionsgebäude-.jpg",
