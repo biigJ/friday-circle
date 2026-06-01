@@ -1104,7 +1104,7 @@ body.bat-page .bat-dining__photo img{position:absolute;inset:0;width:100%;height
 main{position:relative;z-index:2}
 .bat-map-marker{background:transparent!important;border:none!important;position:relative!important;z-index:1!important}
 .bat-map-marker span{display:block;width:10px;height:10px;margin:5px;border-radius:50%;box-shadow:0 0 0 2px rgba(255,255,255,.9),0 1px 4px rgba(0,0,0,.35);pointer-events:none}
-.bat-map-marker--dining span{width:9px;height:9px;margin:5.5px;border-radius:2px}
+.bat-map-marker--dining span{width:10px;height:10px;margin:0;border-radius:2px;display:block}
 .bat-map-marker:hover span,.bat-map-marker:focus-visible span{transform:scale(1.15)}
 .bat-map__canvas .leaflet-tooltip.bat-map-tooltip{background:var(--bat-black);color:var(--bat-white);border:none;border-radius:3px;padding:4px 8px;font-size:11px;font-weight:400;letter-spacing:.02em;box-shadow:0 2px 8px rgba(0,0,0,.25);pointer-events:none;z-index:750}
 .bat-map__canvas .leaflet-tooltip.bat-map-tooltip:before{border-top-color:var(--bat-black)}
@@ -1234,8 +1234,6 @@ function buildMapPins() {
       if (!coord || seen.has(pinId)) continue;
       if (meal.nameDe === DEFAULT_DINING[mealKey]?.nameDe) continue;
       seen.add(pinId);
-      const labelDe = mealKey === "lunch" ? "Mittagessen" : "Abendessen";
-      const labelEn = mealKey === "lunch" ? "Lunch" : "Dinner";
       pins.push({
         id: pinId,
         dayId: day.id,
@@ -1243,8 +1241,8 @@ function buildMapPins() {
         meal: mealKey,
         lat: coord.lat,
         lng: coord.lng,
-        nameDe: `${labelDe} · ${meal.nameDe}`,
-        nameEn: `${labelEn} · ${meal.nameEn}`,
+        nameDe: meal.nameDe,
+        nameEn: meal.nameEn,
       });
     }
   }
@@ -1800,15 +1798,18 @@ function initBatMap() {
         icon: L.divIcon({
           className: 'bat-map-marker bat-map-marker--dining',
           html: '<span style="background:' + color + '"></span>',
-          iconSize: [20, 20],
-          iconAnchor: [10, 10]
+          iconSize: [10, 10],
+          iconAnchor: [5, 5],
+          tooltipAnchor: [0, -5]
         })
       });
-      marker.on('click', function () {
-        var target = document.getElementById('day-' + p.dayId + '-dining');
-        if (!target) return;
-        var sticky = getBatStickyOffset();
-        window.scrollTo({ top: Math.max(0, target.offsetTop - sticky - 14), behavior: 'smooth' });
+      marker.bindTooltip(lang === 'en' ? p.nameEn : p.nameDe, {
+        className: 'bat-map-tooltip',
+        direction: 'top',
+        offset: [0, -5],
+        opacity: 1,
+        sticky: false,
+        interactive: false
       });
     } else {
       marker = L.circleMarker([p.lat, p.lng], {
@@ -1822,15 +1823,15 @@ function initBatMap() {
         riseOffset: 750
       });
       marker.on('click', function () { openModal(p.id); });
+      marker.bindTooltip(lang === 'en' ? p.nameEn : p.nameDe, {
+        className: 'bat-map-tooltip',
+        direction: 'top',
+        offset: [0, -8],
+        opacity: 1,
+        sticky: false,
+        interactive: false
+      });
     }
-    marker.bindTooltip(lang === 'en' ? p.nameEn : p.nameDe, {
-      className: 'bat-map-tooltip',
-      direction: 'top',
-      offset: [0, -8],
-      opacity: 1,
-      sticky: false,
-      interactive: false
-    });
     marker.addTo(map);
     batMapMarkerEntries.push({ marker: marker, pin: p });
     bounds.push([p.lat, p.lng]);
