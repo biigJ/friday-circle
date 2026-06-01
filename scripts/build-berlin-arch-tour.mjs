@@ -1016,7 +1016,7 @@ const DAYS = [
 ];
 
 const CSS = `/* berlin arch tour — bündig mit .nav__inner / .hero__grid (styles.css) */
-body.bat-page{--bat-black:#0d0d0d;--bat-white:#fff;--bat-red:#c8312a}
+body.bat-page{--bat-black:#0d0d0d;--bat-white:#fff;--bat-red:#c8312a;--bat-map-bg:#ececec}
 body.bat-page.en .de-t,body.bat-page.de .en-t{display:none}
 .bat-shell{box-sizing:border-box;width:100%;max-width:var(--content-max);margin-left:auto;margin-right:auto;padding-left:var(--nav-pad-x);padding-right:var(--nav-pad-x)}
 .bat-hero{position:relative;min-height:min(88vh,720px);display:flex;align-items:flex-end;background:var(--bat-black);color:var(--bat-white);overflow:hidden;border-bottom:1px solid rgba(255,255,255,.14)}
@@ -1029,7 +1029,7 @@ body.bat-page.en .de-t,body.bat-page.de .en-t{display:none}
 .bat-hero__title-line--strong{font-weight:700}
 .bat-hero__sub{margin:20px 0 0;max-width:39.5rem;font-size:clamp(.95rem,1.6vw,1.15rem);line-height:1.5;opacity:.88;text-shadow:0 1px 10px rgba(0,0,0,.5),0 0 1px rgba(0,0,0,.85)}
 .bat-hero__meta{display:flex;flex-wrap:wrap;gap:clamp(16px,3vw,32px);margin-top:28px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;opacity:.65;text-shadow:0 1px 8px rgba(0,0,0,.5),0 0 1px rgba(0,0,0,.85)}
-.bat-tour-intro{position:sticky;top:var(--bat-sticky-top,72px);z-index:90;width:100%;background:var(--bg);padding-bottom:clamp(16px,2.5vw,24px);border-bottom:none;box-sizing:border-box;transform:translateZ(0);scroll-margin-top:var(--bat-sticky-top,72px)}
+.bat-tour-intro{position:sticky;top:var(--bat-sticky-top,72px);z-index:90;width:100%;background:var(--bat-map-bg,#ececec);padding-bottom:clamp(16px,2.5vw,24px);border-bottom:none;box-sizing:border-box;transform:translateZ(0);scroll-margin-top:var(--bat-sticky-top,72px)}
 .bat-tour-intro__inner{width:100%;max-width:var(--content-max);margin-left:auto;margin-right:auto;padding-left:var(--nav-pad-x);padding-right:var(--nav-pad-x);box-sizing:border-box}
 .bat-day-strip{padding:clamp(18px,3vw,28px) 0 clamp(14px,2vw,18px);background:transparent}
 .bat-day-strip__days{display:flex;flex-wrap:nowrap;gap:clamp(10px,1.4vw,18px);overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
@@ -1082,10 +1082,10 @@ body.bat-page .bat-stop__img-wrap img.bat-stop__img{position:absolute;top:0;left
 .bat-dining__photo{position:relative;flex:0 0 192px;width:192px;height:192px;background:rgba(255,255,255,.06);overflow:hidden}
 body.bat-page .bat-dining__photo img{position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;object-fit:cover;object-position:center;display:block}
 .bat-interlude{background:var(--bg);color:var(--text);padding:clamp(32px,5vw,48px) var(--nav-pad-x);text-align:center;font-size:13px;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
-.bat-map-section{position:relative;z-index:0;width:100%;padding:0;margin:0;background:#ececec;border-top:1px solid rgba(13,13,13,.12);border-bottom:none}
-.bat-map__frame{border:none;border-radius:0;overflow:visible;background:#ececec;position:relative;z-index:0}
-.bat-map__canvas{width:100%;height:min(68vh,560px);min-height:320px;position:relative;z-index:0;background:#ececec}
-.bat-map__canvas.leaflet-container{background:#ececec}
+.bat-map-section{position:relative;z-index:0;width:100%;padding:0;margin:0;background:var(--bat-map-bg,#ececec);border-top:none;border-bottom:none;scroll-margin-top:var(--bat-sticky-top,72px)}
+.bat-map__frame{border:none;border-radius:0;overflow:visible;background:var(--bat-map-bg,#ececec);position:relative;z-index:0}
+.bat-map__canvas{width:100%;height:min(68vh,560px);min-height:320px;position:relative;z-index:0;background:var(--bat-map-bg,#ececec)}
+.bat-map__canvas.leaflet-container{background:var(--bat-map-bg,#ececec)}
 .bat-map__canvas .leaflet-map-pane{z-index:0}
 .bat-map__canvas .leaflet-map-pane canvas,.bat-map__canvas .leaflet-map-pane svg{z-index:auto}
 .bat-map__canvas .leaflet-tile-pane{z-index:200}
@@ -1372,7 +1372,7 @@ return `<!DOCTYPE html>
   </div>
 </div>
 
-<button type="button" class="bat-scroll-top" id="bat-scroll-top" hidden aria-label="Zur Info">
+<button type="button" class="bat-scroll-top" id="bat-scroll-top" hidden aria-label="Zur Karte">
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
 </button>
 
@@ -1642,31 +1642,29 @@ function getBatStickyOffset() {
   return navH + (intro ? intro.offsetHeight : 0);
 }
 
-function scrollToBatInfo() {
-  var intro = document.getElementById('bat-info');
-  if (!intro) return;
+function scrollToBatMap() {
+  var map = document.getElementById('bat-map');
+  if (!map) return;
   var navH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--bat-sticky-top')) || 72;
-  window.scrollTo({ top: Math.max(0, intro.offsetTop - navH), behavior: 'smooth' });
+  window.scrollTo({ top: Math.max(0, map.offsetTop - navH), behavior: 'smooth' });
 }
 
 function updateBatScrollTopBtn() {
   var btn = document.getElementById('bat-scroll-top');
-  var intro = document.getElementById('bat-info');
-  var modal = document.getElementById('bat-modal');
   var map = document.getElementById('bat-map');
-  if (!btn || !intro) return;
+  var modal = document.getElementById('bat-modal');
+  if (!btn || !map) return;
   var navH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--bat-sticky-top')) || 72;
-  var threshold = map ? map.offsetTop + 24 : intro.offsetTop;
-  var pastInfo = window.scrollY > threshold - navH;
+  var pastMap = window.scrollY > map.offsetTop - navH + 24;
   var modalOpen = modal && modal.classList.contains('is-open');
-  btn.hidden = !pastInfo || modalOpen;
-  btn.setAttribute('aria-label', lang === 'en' ? 'Back to info' : 'Zur Info');
+  btn.hidden = !pastMap || modalOpen;
+  btn.setAttribute('aria-label', lang === 'en' ? 'Back to map' : 'Zur Karte');
 }
 
 function initBatScrollTop() {
   var btn = document.getElementById('bat-scroll-top');
   if (!btn) return;
-  btn.addEventListener('click', scrollToBatInfo);
+  btn.addEventListener('click', scrollToBatMap);
   window.addEventListener('scroll', updateBatScrollTopBtn, { passive: true });
   window.addEventListener('resize', updateBatScrollTopBtn);
   updateBatScrollTopBtn();
