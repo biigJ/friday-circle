@@ -9,16 +9,16 @@ export const COORDS_BY_STOP = {
     "lng": 13.38835
   },
   "d1-chipperfield-villa": {
-    "lat": 52.5034,
-    "lng": 13.2942
+    "lat": 52.437383,
+    "lng": 13.2520761
   },
   "d1-fischerhuette-106": {
     "lat": 52.4452699,
     "lng": 13.2338873
   },
   "d1-gropius": {
-    "lat": 52.4249493,
-    "lng": 13.466183
+    "lat": 52.4445455,
+    "lng": 13.2357765
   },
   "d1-hufeisen": {
     "lat": 52.4482318,
@@ -33,16 +33,16 @@ export const COORDS_BY_STOP = {
     "lng": 13.2398144
   },
   "d1-onkel": {
-    "lat": 52.4486666,
-    "lng": 13.2572531
+    "lat": 52.4498912,
+    "lng": 13.2530752
   },
   "d1-schorlemer": {
-    "lat": 52.4659555,
-    "lng": 13.3064826
+    "lat": 52.4646383,
+    "lng": 13.2969962
   },
   "d1-siemens": {
-    "lat": 52.5384678,
-    "lng": 13.2801959
+    "lat": 52.5397387,
+    "lng": 13.2754719
   },
   "d1-u3-krumme": {
     "lat": 52.4470718,
@@ -65,16 +65,16 @@ export const COORDS_BY_STOP = {
     "lng": 13.3304291
   },
   "d2-gedaechtniskirche": {
-    "lat": 52.5048945,
-    "lng": 13.3346131
+    "lat": 52.5047055,
+    "lng": 13.3350322
   },
   "d2-hamburger-bahnhof": {
     "lat": 52.5286316,
     "lng": 13.3718665
   },
   "d2-hansa": {
-    "lat": 52.5191234,
-    "lng": 13.3418725
+    "lat": 52.518008,
+    "lng": 13.3420365
   },
   "d2-hkw": {
     "lat": 52.5187884,
@@ -85,8 +85,8 @@ export const COORDS_BY_STOP = {
     "lng": 13.423045
   },
   "d2-kma": {
-    "lat": 52.519043,
-    "lng": 13.4265598
+    "lat": 52.5159447,
+    "lng": 13.4491408
   },
   "d2-nng": {
     "lat": 52.5070408,
@@ -185,8 +185,8 @@ export const COORDS_BY_STOP = {
     "lng": 13.3676212
   },
   "d4-quartier-schuetzen": {
-    "lat": 52.50865,
-    "lng": 13.39288
+    "lat": 52.5089405,
+    "lng": 13.3962523
   },
   "d4-reichstag": {
     "lat": 52.5186538,
@@ -225,20 +225,20 @@ export const COORDS_BY_STOP = {
     "lng": 13.4009105
   },
   "d5-kottbusser-tor": {
-    "lat": 52.4989853,
-    "lng": 13.4183107
+    "lat": 52.498942,
+    "lng": 13.4178294
   },
   "d5-lemke": {
-    "lat": 52.5491617,
-    "lng": 13.4905287
+    "lat": 52.5492995,
+    "lng": 13.4908238
   },
   "d5-oberbaum": {
     "lat": 52.5017288,
     "lng": 13.4457312
   },
   "d5-paul-lincke": {
-    "lat": 52.493953,
-    "lng": 13.4284773
+    "lat": 52.495126,
+    "lng": 13.4257077
   },
   "d5-springer": {
     "lat": 52.5085862,
@@ -269,16 +269,16 @@ export const COORDS_BY_STOP = {
     "lng": 13.4205853
   },
   "d6-bastian": {
-    "lat": 52.4538988,
-    "lng": 13.2717015
+    "lat": 52.5192812,
+    "lng": 13.3967674
   },
   "d6-chip-campus": {
     "lat": 52.51755,
     "lng": 13.40115
   },
   "d6-hallesches-ufer": {
-    "lat": 52.4985219,
-    "lng": 13.3879268
+    "lat": 52.5016688,
+    "lng": 13.3776008
   },
   "d6-james": {
     "lat": 52.5198298,

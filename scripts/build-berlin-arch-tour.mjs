@@ -1081,8 +1081,8 @@ body.bat-page .bat-stop__img-wrap img.bat-stop__img{position:absolute;top:0;left
 .bat-dining__photo{position:relative;flex:0 0 192px;width:192px;height:192px;background:rgba(255,255,255,.06);overflow:hidden}
 body.bat-page .bat-dining__photo img{position:absolute;inset:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;object-fit:cover;object-position:center;display:block}
 .bat-interlude{background:var(--bg);color:var(--text);padding:clamp(32px,5vw,48px) var(--nav-pad-x);text-align:center;font-size:13px;letter-spacing:.08em;text-transform:uppercase;opacity:.7}
-.bat-map-section{position:relative;z-index:0;width:100%;padding:0;margin:0;background:#ececec;border-top:1px solid rgba(13,13,13,.12);border-bottom:none;overflow:hidden}
-.bat-map__frame{border:none;border-radius:0;overflow:hidden;background:#ececec;position:relative;z-index:0}
+.bat-map-section{position:relative;z-index:0;width:100%;padding:0;margin:0;background:#ececec;border-top:1px solid rgba(13,13,13,.12);border-bottom:none}
+.bat-map__frame{border:none;border-radius:0;overflow:visible;background:#ececec;position:relative;z-index:0}
 .bat-map__canvas{width:100%;height:min(68vh,560px);min-height:320px;position:relative;z-index:0;background:#ececec}
 .bat-map__canvas.leaflet-container{background:#ececec}
 .bat-map__canvas .leaflet-map-pane{z-index:0}
@@ -1092,7 +1092,7 @@ body.bat-page .bat-dining__photo img{position:absolute;inset:0;width:100%;height
 .bat-map__canvas .leaflet-shadow-pane{z-index:500}
 .bat-map__canvas .leaflet-marker-pane{z-index:600;pointer-events:none}
 .bat-map__canvas .leaflet-marker-pane .leaflet-marker-icon{pointer-events:auto}
-.bat-map__canvas .leaflet-tooltip-pane{z-index:650}
+.bat-map__canvas .leaflet-tooltip-pane{z-index:750;pointer-events:none}
 .bat-map__canvas .leaflet-popup-pane{z-index:700}
 .bat-map__canvas .leaflet-control-container{z-index:800;pointer-events:none}
 .bat-map__canvas .leaflet-top,.bat-map__canvas .leaflet-bottom{z-index:800;pointer-events:none}
@@ -1102,10 +1102,10 @@ body.bat-page .bat-dining__photo img{position:absolute;inset:0;width:100%;height
 .bat-map__canvas .leaflet-bar{box-shadow:0 1px 4px rgba(0,0,0,.22)}
 main{position:relative;z-index:2}
 .bat-map-marker{background:transparent!important;border:none!important;position:relative!important;z-index:1!important}
-.bat-map-marker span{display:block;width:10px;height:10px;border-radius:50%;box-shadow:0 0 0 2px rgba(255,255,255,.9),0 1px 4px rgba(0,0,0,.35)}
+.bat-map-marker span{display:block;width:10px;height:10px;margin:5px;border-radius:50%;box-shadow:0 0 0 2px rgba(255,255,255,.9),0 1px 4px rgba(0,0,0,.35);pointer-events:none}
 .bat-map-marker:hover span,.bat-map-marker:focus-visible span{transform:scale(1.15)}
-.leaflet-tooltip.bat-map-tooltip{background:var(--bat-black);color:var(--bat-white);border:none;border-radius:3px;padding:4px 8px;font-size:11px;font-weight:400;letter-spacing:.02em;box-shadow:0 2px 8px rgba(0,0,0,.25)}
-.leaflet-tooltip.bat-map-tooltip:before{border-top-color:var(--bat-black)}
+.bat-map__canvas .leaflet-tooltip.bat-map-tooltip{background:var(--bat-black);color:var(--bat-white);border:none;border-radius:3px;padding:4px 8px;font-size:11px;font-weight:400;letter-spacing:.02em;box-shadow:0 2px 8px rgba(0,0,0,.25);pointer-events:none;z-index:750}
+.bat-map__canvas .leaflet-tooltip.bat-map-tooltip:before{border-top-color:var(--bat-black)}
 .bat-modal{position:fixed;inset:0;z-index:500;display:none;align-items:center;justify-content:center;padding:clamp(12px,3vw,24px)}
 .bat-modal.is-open{display:flex}
 .bat-modal__backdrop{position:absolute;inset:0;background:rgba(13,13,13,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
@@ -1354,6 +1354,14 @@ const LABEL_DEFS = ${JSON.stringify(LABEL_DEFS)};
 const LABEL_ORDER = ${JSON.stringify(LABEL_ORDER)};
 let lang = (function(){try{return localStorage.getItem('fcLang')||'de'}catch(e){return 'de'}})();
 let openId = null;
+let batMapMarkerEntries = [];
+
+function syncMapTooltips() {
+  if (!batMapMarkerEntries.length) return;
+  batMapMarkerEntries.forEach(function (entry) {
+    entry.marker.setTooltipContent(lang === 'en' ? entry.pin.nameEn : entry.pin.nameDe);
+  });
+}
 
 function sortLabels(labels) {
   return labels.slice().sort(function (a, b) {
@@ -1401,6 +1409,7 @@ function setLang(next) {
   document.documentElement.lang = lang;
   try { localStorage.setItem('fcLang', lang); } catch (e) {}
   if (openId) renderModal(openId);
+  syncMapTooltips();
 }
 document.addEventListener('fc-lang-change', function (e) { setLang(e.detail.lang); });
 setLang(lang);
@@ -1710,23 +1719,30 @@ function initBatMap() {
     keepBuffer: 2
   }).addTo(map);
   var bounds = [];
+  batMapMarkerEntries = [];
   MAP_PINS.forEach(function (p) {
     var color = DAY_COLORS[p.dayId] || '#c8312a';
-    var marker = L.marker([p.lat, p.lng], {
-      icon: L.divIcon({
-        className: 'bat-map-marker',
-        html: '<span style="background:' + color + '"></span>',
-        iconSize: [10, 10],
-        iconAnchor: [5, 5]
-      })
+    var marker = L.circleMarker([p.lat, p.lng], {
+      radius: 5,
+      fillColor: color,
+      color: '#ffffff',
+      weight: 2,
+      opacity: 1,
+      fillOpacity: 1,
+      riseOnHover: true,
+      riseOffset: 750
     });
     marker.bindTooltip(lang === 'en' ? p.nameEn : p.nameDe, {
       className: 'bat-map-tooltip',
       direction: 'top',
-      offset: [0, -6]
+      offset: [0, -8],
+      opacity: 1,
+      sticky: false,
+      interactive: false
     });
     marker.on('click', function () { openModal(p.id); });
     marker.addTo(map);
+    batMapMarkerEntries.push({ marker: marker, pin: p });
     bounds.push([p.lat, p.lng]);
   });
   function syncMapSize() {
