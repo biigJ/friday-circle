@@ -2318,7 +2318,7 @@ function setMode(m, btn) {
   mode = m;
   activeTab = modeToTab(m);
   document.querySelectorAll('#modeToggle .toggle-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
+  if (btn) btn.classList.add('active');
   if (activeSq) {
     const year = parseInt(activeSq.dataset.year);
     renderPanel(year, activeSq);
@@ -2335,8 +2335,11 @@ function rebuild() {
 function renderBanner() {
   const age = NOW - birthYear;
   const pct = Math.round(age/SPAN*100);
+  const webSentence = birthYear >= 1991
+    ? 'Das Web existiert seitdem Du geboren bist.'
+    : `Das Web existiert seit du ${1991-birthYear} Jahre alt warst.`;
   document.getElementById('bannerTxt').textContent =
-    `Du bist ${age} Jahre alt. Du hast ${pct}% deines Lebens hinter dir. Das Web existiert seit du ${1991-birthYear > 0 ? 1991-birthYear : 0} Jahre alt warst.`;
+    `Du bist ${age} Jahre alt. Du hast ${pct}% deines Lebens hinter dir. ${webSentence}`;
   document.getElementById('bannerNums').innerHTML = `
     <div class="age-stat"><div class="age-stat-val">${age}</div><div class="age-stat-label">Gelebte Jahre</div></div>
     <div class="age-stat"><div class="age-stat-val">${pct}%</div><div class="age-stat-label">Deines Lebens</div></div>
@@ -2386,10 +2389,10 @@ function renderPanel(year, sqEl) {
   const tabsEl = document.getElementById('panelTabs');
   const tabs = [
     {id:'society',  label:'Gesellschaft'},
-    {id:'pos',      label:'↑ Chancen'},
-    {id:'global',   label:'🌍 Welt'},
+    {id:'pos',      label:'Chancen'},
+    {id:'global',   label:'Welt'},
   ];
-  if (isFuture && d.agency) tabs.push({id:'agency', label:'Was kann ich tun?'});
+  if (isFuture && d.agency) tabs.push({id:'agency', label:'Was kann ich schon heute tun?'});
 
   tabsEl.innerHTML = tabs.map(t=>
     `<button class="ptab${t.id===activeTab?' active':''}" onclick="switchTab('${t.id}')">${t.label}</button>`
@@ -2402,16 +2405,19 @@ function renderPanel(year, sqEl) {
   // stats
   const statsEl=document.getElementById('pStats');
   const stats=[
-    { label:'Ø Screen Time', val:`${d.screen}h`, desc:'Täglich, Erwachsene',
+    { label:'Screentime', val:`${d.screen}h`, desc:'Std/Tag/Mensch',
       cls: d.screen>20?'bad':d.screen>10?'ok':'good',
       trend: d.screen>20?'↑ kritisch':d.screen>10?'↑ bedenklich':'→ normal' },
-    { label:'Enge Freundschaften', val:d.friends, desc:'Ø Westen',
+    { label:'Freundschaften', val:d.friends, desc:'Echte Freundschaften / Mensch (westl. Gesellschaft)',
       cls: d.friends<5?'bad':d.friends<9?'ok':'good',
       trend: d.friends<5?'↓ Einsamkeits-Krise':d.friends<9?'↓ sinkend':'→ stabil' },
-    { label:'Ø BMI', val:d.bmi, desc:'DE / EU Schnitt',
+    { label:'Freiheit', val:'—', desc:'% freie Gesellschaft weltweit',
+      cls:'ok',
+      trend:'→ Basiseinheit gespeichert' },
+    { label:'BMI', val:d.bmi, desc:'Durchm. BMI weltweit',
       cls: d.bmi>29?'bad':d.bmi>27?'ok':'good',
       trend: d.bmi>29?'↑ Fettleibigkeit':d.bmi>27?'↑ Übergewicht normal':'→ Normalbereich' },
-    { label:'Polarisierung', val:`${d.polar}%`, desc:'Gesellschaftl. Spaltungsindex',
+    { label:'Polarisierung', val:`${d.polar}%`, desc:'% mediale Polarisierung inkl. Social Media weltweit',
       cls: d.polar>65?'bad':d.polar>45?'ok':'good',
       trend: d.polar>65?'↑ histor. Maximum':d.polar>45?'↑ steigend':'→ gemäßigt' },
   ];
@@ -2424,7 +2430,7 @@ function renderPanel(year, sqEl) {
     </div>`).join('');
 
   // neg insights
-  const insTitles=['Gesellschaft & Körper','Medien & Aufmerksamkeit','Bildung & Chancen'];
+  const insTitles=['Hauptthema 1','Hauptthema 2','Hauptthema 3'];
   document.getElementById('pInsights').innerHTML=(d.neg||[]).map((txt,i)=>`
     <div class="insight-block">
       <div class="insight-title">${insTitles[i]||''}</div>
@@ -2432,7 +2438,7 @@ function renderPanel(year, sqEl) {
     </div>`).join('');
 
   // positive
-  const posTitles=['Mental Health & Bewusstsein','Körper & Longevity','Technologie & Chancen','Gemeinschaft & Bewegung'];
+  const posTitles=['Mentales','Körper','Gemeinschaft','Technologie'];
   const posIcons=['🧠','💪','🔬','🤝'];
   document.getElementById('pPos').innerHTML=(d.pos||[]).map((txt,i)=>`
     <div class="pos-block">
@@ -2442,24 +2448,16 @@ function renderPanel(year, sqEl) {
     </div>`).join('');
 
   // global
-  const globalIcons=['🇺🇸','🌏','🇨🇳','🌍'];
+  const globalIcons=['Weltmacht USA','Aufstrebendes China','Alte Welt','Neue Welt'];
   document.getElementById('pGlobal').innerHTML=(d.global||[]).map((txt,i)=>`
     <div class="global-block">
-      <div class="global-region">${globalIcons[i]||'🌐'} Perspektive ${i+1}</div>
+      <div class="global-region">${globalIcons[i]||`Perspektive ${i+1}`}</div>
       <div class="global-text">${txt}</div>
     </div>`).join('');
 
   // agency (future)
   if (d.agency) {
-    document.getElementById('pAgencyIntro').innerHTML=`<strong>Was kann ich heute wählen?</strong><br>${d.agency.intro}`;
-    document.getElementById('pAgency').innerHTML=d.agency.items.map(a=>`
-      <div class="agency-block">
-        <div class="agency-icon">${a.icon}</div>
-        <div class="agency-title">${a.title}</div>
-        <div class="agency-choice">${a.choice}</div>
-        <div class="agency-why">${a.why}</div>
-        <span class="agency-tag">Heute anfangen</span>
-      </div>`).join('');
+    document.getElementById('pAgencyIntro').innerHTML = `${d.agency.intro}`;
   }
 
   // show correct tab

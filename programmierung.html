@@ -137,6 +137,26 @@
 <style>
 .programmierung-page .prog-geschichte { background: var(--w-bg, #f0eee6); }
 .programmierung-page .prog-geschichte .wissen-topbar { position: static; }
+.programmierung-page .landing-bridge__kicker {
+  font-family: Inter, sans-serif;
+  font-size: clamp(0.72rem, 1.1vw, 0.85rem);
+  font-weight: 200;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  color: #fff;
+}
+.programmierung-page .landing-bridge__kicker .landing-bridge__kicker-strong {
+  font-weight: 700;
+}
+.programmierung-page .landing-bridge__subkicker {
+  margin-top: 10px;
+  font-family: Inter, sans-serif;
+  font-size: 12px;
+  line-height: 1.55;
+  color: #fff;
+  max-width: 64ch;
+}
 </style>
 </head>
 <body class="programmierung-page">
@@ -145,7 +165,8 @@
 
       <section class="landing-bridge programmierung-sub__intro" aria-labelledby="fc-life-headline">
         <hr class="landing-bridge__rule" />
-        <p class="landing-bridge__kicker"><span class="de-t">Lebensjahre · Programmierung</span><span class="en-t">Life years · Programming</span></p>
+        <p class="landing-bridge__kicker"><span class="de-t"><span class="landing-bridge__kicker-strong">Positiver Optimismus</span><br />Programmierung</span><span class="en-t"><span class="landing-bridge__kicker-strong">Positive Optimism</span><br />Programming</span></p>
+        <p class="landing-bridge__subkicker"><span class="de-t">Deine Resilienz, auch wenn alles unübersichtlich wirkt und Du nicht nur simple Antworten finden willst. Ordne Dein Leben in den großen Zusammenhang ein.</span><span class="en-t">Your resilience, even when everything feels complex and you do not want simple answers. Place your life in the bigger context.</span></p>
       </section>
 
       <section class="landing-after-video" aria-labelledby="fc-life-headline">
@@ -158,8 +179,7 @@
                     Dein Leben verläuft parallel<br />zum Leben des Internets.
                   </h1>
                   <p class="subline">
-                    90 Quadrate — 90 Jahre. Klick auf ein Jahr und sieh, was gerade in der Welt passierte: was es
-                    schwer macht, und was es möglich macht.
+                    90 Quadrate stellen eine aktuell langes Leben dar. Klick auf ein Jahr und erinnere Dich an was war und was vielleicht sein wird. Unten kannst Du Feedback und Ideen senden.
                   </p>
                   <div class="controls">
                     <span class="ctrl-label">Geburtsjahr:</span>
@@ -170,33 +190,11 @@
                       <div class="age-nums" id="bannerNums"></div>
                     </div>
 
-                    <div class="legend" id="legend">
-                      <div class="legend-item"><div class="legend-dot"></div>Vor dem Web</div>
-                      <div class="legend-item"><div class="legend-dot legend-dot--early"></div>Frühes Internet</div>
-                      <div class="legend-item"><div class="legend-dot legend-dot--social"></div>Social Media</div>
-                      <div class="legend-item"><div class="legend-dot legend-dot--crisis"></div>Krise</div>
-                      <div class="legend-item"><div class="legend-dot legend-dot--now"></div>Heute</div>
-                      <div class="legend-item"><div class="legend-dot legend-dot--future"></div>Zukunft</div>
-                    </div>
                   </div>
                 </div>
 
                 <div class="fc-life-layout__grid">
                   <div class="squares-grid" id="grid"></div>
-                </div>
-              </div>
-
-              <div class="fc-life-mode-bar">
-                <div class="toggle-group" id="modeToggle">
-                  <button type="button" class="toggle-btn active" data-mode="neg" onclick="setMode('neg',this)">
-                    ↓ Herausforderungen
-                  </button>
-                  <button type="button" class="toggle-btn" data-mode="pos" onclick="setMode('pos',this)">
-                    ↑ Chancen &amp; Wandel
-                  </button>
-                  <button type="button" class="toggle-btn" data-mode="global" onclick="setMode('global',this)">
-                    🌍 Welt außerhalb
-                  </button>
                 </div>
               </div>
 
@@ -206,11 +204,12 @@
 
               <div class="detail-panel" id="panel">
                 <div class="panel-header">
-                  <div class="panel-year" id="pYear">—</div>
-                  <div class="panel-hdr-right">
+                  <div class="panel-year-wrap">
+                    <div class="panel-year" id="pYear">—</div>
                     <div class="panel-era-tag" id="pEra"></div>
+                  </div>
+                  <div class="panel-hdr-right">
                     <div class="panel-event" id="pEvent"></div>
-                    <div class="panel-event-sub" id="pSub"></div>
                   </div>
                   <button type="button" class="panel-close" onclick="closePanel()">×</button>
                 </div>
@@ -218,8 +217,8 @@
                 <div class="panel-tabs" id="panelTabs"></div>
 
                 <div class="tab-content active" id="tab-society">
-                  <div class="panel-stats" id="pStats"></div>
                   <div class="insight-grid" id="pInsights"></div>
+                  <div class="panel-stats" id="pStats"></div>
                 </div>
 
                 <div class="tab-content" id="tab-pos">
@@ -232,7 +231,6 @@
 
                 <div class="tab-content" id="tab-agency">
                   <div class="agency-intro" id="pAgencyIntro"></div>
-                  <div class="agency-grid" id="pAgency"></div>
                 </div>
               </div>
             </div>
