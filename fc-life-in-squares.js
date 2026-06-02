@@ -78,6 +78,59 @@ function setPanelOpen(open) {
   if (placeholder) placeholder.classList.toggle('is-hidden', open);
 }
 
+function renderIdlePanel() {
+  const yearEl = document.getElementById('pYear');
+  const eraEl = document.getElementById('pEra');
+  const eventEl = document.getElementById('pEvent');
+  const tabsEl = document.getElementById('panelTabs');
+  if (!yearEl || !tabsEl) return;
+
+  yearEl.textContent = 'klick auf eine Jahreszahl ↑';
+  yearEl.classList.add('panel-year--hint');
+  if (eraEl) eraEl.style.display = 'none';
+  if (eventEl) eventEl.style.display = 'none';
+
+  const tabs = [
+    { id: 'global', label: 'Welt' },
+    { id: 'society', label: 'Gesellschaft' },
+    { id: 'pos', label: 'Chancen' },
+    { id: 'agency', label: 'Was kann ich schon heute tun?' },
+  ];
+  tabsEl.innerHTML = tabs
+    .map(
+      (t) =>
+        `<button class="ptab${t.id === activeTab ? ' active' : ''}" onclick="switchTab('${t.id}')">${t.label}</button>`
+    )
+    .join('');
+
+  document.getElementById('pStats').innerHTML = `
+    <div class="stat-cell"><div class="stat-label">Screentime</div><div class="stat-val">—</div><div class="stat-desc">Std/Tag/Mensch</div><div class="stat-trend">Basiseinheit</div></div>
+    <div class="stat-cell"><div class="stat-label">Freundschaften</div><div class="stat-val">—</div><div class="stat-desc">Echte Freundschaften / Mensch (westl. Gesellschaft)</div><div class="stat-trend">Basiseinheit</div></div>
+    <div class="stat-cell"><div class="stat-label">Freiheit</div><div class="stat-val">—</div><div class="stat-desc">% freie Gesellschaft weltweit</div><div class="stat-trend">Basiseinheit</div></div>
+    <div class="stat-cell"><div class="stat-label">BMI</div><div class="stat-val">—</div><div class="stat-desc">Durchm. BMI weltweit</div><div class="stat-trend">Basiseinheit</div></div>
+    <div class="stat-cell"><div class="stat-label">Polarisierung</div><div class="stat-val">—</div><div class="stat-desc">% mediale Polarisierung inkl. Social Media weltweit</div><div class="stat-trend">Basiseinheit</div></div>
+  `;
+  document.getElementById('pInsights').innerHTML =
+    '<div class="insight-flow"><div class="insight-text">Wähle ein Jahr, um die Hauptthemen zu sehen.</div></div>';
+  document.getElementById('pPos').innerHTML = `
+    <div class="pos-block"><div class="pos-head"><span class="pos-icon">🧠</span><span class="pos-title">Mentales</span></div><div class="pos-text">Kategorie aktiv.</div></div>
+    <div class="pos-block"><div class="pos-head"><span class="pos-icon">💪</span><span class="pos-title">Körper</span></div><div class="pos-text">Kategorie aktiv.</div></div>
+    <div class="pos-block"><div class="pos-head"><span class="pos-icon">🤝</span><span class="pos-title">Gemeinschaft</span></div><div class="pos-text">Kategorie aktiv.</div></div>
+    <div class="pos-block"><div class="pos-head"><span class="pos-icon">🔬</span><span class="pos-title">Technologie</span></div><div class="pos-text">Kategorie aktiv.</div></div>
+  `;
+  document.getElementById('pGlobal').innerHTML = `
+    <div class="global-block"><div class="global-region">Weltmacht USA</div><div class="global-text">Kategorie aktiv.</div></div>
+    <div class="global-block"><div class="global-region">Aufstrebendes China</div><div class="global-text">Kategorie aktiv.</div></div>
+    <div class="global-block"><div class="global-region">Alte Welt</div><div class="global-text">Kategorie aktiv.</div></div>
+    <div class="global-block"><div class="global-region">Neue Welt</div><div class="global-text">Kategorie aktiv.</div></div>
+  `;
+  document.getElementById('pAgencyIntro').innerHTML =
+    'Wähle ein Jahr, um einen alters- und kontextabhängigen Handlungstext zu sehen.';
+
+  switchTab(activeTab);
+  setPanelOpen(true);
+}
+
 const YEAR_DATA = {
 
   // ─────────────────────────────────────────────
@@ -2295,6 +2348,7 @@ function init() {
     sel.appendChild(o);
   }
   rebuild();
+  renderIdlePanel();
 }
 
 function modeToTab(m) {
@@ -2376,21 +2430,26 @@ function renderPanel(year, sqEl) {
 
   const d = getData(year);
   const e = ERA_DEF[era(year)];
+  const sqColors = squareColors(year);
   const isFuture = year>NOW;
 
   // header
+  document.getElementById('pYear').classList.remove('panel-year--hint');
   document.getElementById('pYear').textContent=year;
   const etag=document.getElementById('pEra');
-  etag.textContent=e.label; etag.style.background=e.tag; etag.style.color=e.tagFg;
+  etag.style.display = 'inline-block';
+  etag.textContent = e.label;
+  etag.style.background = sqColors.bg;
+  etag.style.color = sqColors.fg;
   document.getElementById('pEvent').textContent=d.event;
-  document.getElementById('pSub').textContent=d.sub;
+  document.getElementById('pEvent').style.display = 'block';
 
   // build tabs
   const tabsEl = document.getElementById('panelTabs');
   const tabs = [
+    {id:'global',   label:'Welt'},
     {id:'society',  label:'Gesellschaft'},
     {id:'pos',      label:'Chancen'},
-    {id:'global',   label:'Welt'},
   ];
   if (isFuture && d.agency) tabs.push({id:'agency', label:'Was kann ich schon heute tun?'});
 
@@ -2429,21 +2488,18 @@ function renderPanel(year, sqEl) {
       <div class="stat-trend ${s.cls}">${s.trend}</div>
     </div>`).join('');
 
-  // neg insights
-  const insTitles=['Hauptthema 1','Hauptthema 2','Hauptthema 3'];
-  document.getElementById('pInsights').innerHTML=(d.neg||[]).map((txt,i)=>`
-    <div class="insight-block">
-      <div class="insight-title">${insTitles[i]||''}</div>
-      <div class="insight-text">${txt}</div>
-    </div>`).join('');
+  // society top text (plain flow, no tiles/dividers/clickers)
+  const insights = (d.neg || []).filter(Boolean);
+  document.getElementById('pInsights').innerHTML = insights.length
+    ? `<div class="insight-flow"><div class="insight-text">${insights.join(' ')}</div></div>`
+    : '';
 
   // positive
   const posTitles=['Mentales','Körper','Gemeinschaft','Technologie'];
-  const posIcons=['🧠','💪','🔬','🤝'];
+  const posIcons=['🧠','💪','🤝','🔬'];
   document.getElementById('pPos').innerHTML=(d.pos||[]).map((txt,i)=>`
     <div class="pos-block">
-      <div class="pos-icon">${posIcons[i]||'✦'}</div>
-      <div class="pos-title">${posTitles[i]||''}</div>
+      <div class="pos-head"><span class="pos-icon">${posIcons[i]||'✦'}</span><span class="pos-title">${posTitles[i]||''}</span></div>
       <div class="pos-text">${txt}</div>
     </div>`).join('');
 
@@ -2483,9 +2539,10 @@ function switchTab(id) {
 }
 
 function closePanel() {
-  setPanelOpen(false);
   document.querySelectorAll('.sq').forEach((s) => s.classList.remove('active'));
   activeSq = null;
+  activeTab = 'global';
+  renderIdlePanel();
 }
 
 if (document.readyState === "loading") {

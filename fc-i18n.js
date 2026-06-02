@@ -19,7 +19,7 @@
       { s: "#fc-stoerer .gogl-stoerer__cta--dismiss-only", de: "FRIDAY CIRCLE", en: "FRIDAY CIRCLE" },
       { s: "#hero-heading .nowrap:nth-child(1)", de: "Programme für echten Antrieb", en: "Programs for real momentum" },
       { s: "#hero-heading .nowrap:nth-child(2)", de: "im Alltag", en: "in everyday life" },
-      { s: ".hero__lede", de: "Digitale Überstimulierung ist das zentrale Problem unserer Zeit. Friday Circle schafft menschliches Gegengewicht – mit Angeboten für Klarheit und Fokus.", en: "Digital overstimulation is the central problem of our time. Friday Circle creates a human counterweight — with offers for clarity and focus." },
+      { s: ".hero__lede", de: "Digitale Überstimulierung ist das zentrale Problem unserer Zeit. Friday Circle findet menschliche Gegengewichte für Klarheit und Authentizität.", en: "Digital overstimulation is the central problem of our time. Friday Circle finds human counterweights for clarity and authenticity." },
       { s: "#landing-name-heading .nowrap:nth-child(1)", de: "Warum der Name", en: "Why the name" },
       { s: "#landing-name-heading .nowrap:nth-child(2)", de: "FRIDAY CIRCLE?", en: "FRIDAY CIRCLE?" },
       { s: ".landing-name-story__quote", de: "„It's Friday.“", en: '"It\'s Friday."' },
@@ -74,9 +74,9 @@
       },
     ],
     "programmierung.html": [
-      { s: ".programmierung-sub__intro .landing-bridge__kicker", de: "Lebensjahre · Programmierung", en: "Life years · Programming" },
-      { s: "#fc-life-headline", html: true, de: "Dein Leben verläuft parallel<br />zum Leben des Internets.", en: "Your life runs parallel<br />to the life of the internet." },
-      { s: ".fc-life-squares .subline", de: "90 Quadrate — 90 Jahre. Klick auf ein Jahr und sieh, was gerade in der Welt passierte: was es schwer macht, und was es möglich macht.", en: "90 squares — 90 years. Click a year and see what was happening in the world: what made it hard, and what made it possible." },
+      { s: ".programmierung-sub__intro .landing-bridge__kicker", de: "Pragmatischer Optimismus", en: "Pragmatic Optimism" },
+      { s: "#fc-life-headline", html: true, de: "Dein Leben verläuft parallel zum Leben des Internets.", en: "Your life runs parallel to the life of the internet." },
+      { s: ".fc-life-squares .subline", de: "90 Quadrate stellen eine aktuell langes Leben dar. Klick auf ein Jahr und erinnere Dich an was war und was vielleicht sein wird. Unten kannst Du Feedback und Ideen senden.", en: "90 squares represent a currently long life. Click a year and remember what was and what may come. Below you can send feedback and ideas." },
       { s: ".fc-life-squares .ctrl-label", de: "Geburtsjahr:", en: "Birth year:" },
       { s: '.fc-life-squares .toggle-btn[data-mode="neg"]', de: "↓ Herausforderungen", en: "↓ Challenges" },
       { s: '.fc-life-squares .toggle-btn[data-mode="pos"]', de: "↑ Chancen & Wandel", en: "↑ Opportunities & change" },
@@ -215,7 +215,7 @@
       applyEntry(next, { attr: "aria-label", de: "Nächstes Programm", en: "Next program" }, lang);
     }
     var labelsDe = [
-      "Personal Training ab 39€",
+      "Sportsfreunde versammeln",
       "Mitglied werden",
       "Den passenden Trainer",
       "CIRCLE TRAINING",
@@ -225,7 +225,7 @@
       "Triff Joscha",
     ];
     var labelsEn = [
-      "Personal training from €39",
+      "Gather your sports friends",
       "Become a member",
       "Find the right trainer",
       "CIRCLE TRAINING",

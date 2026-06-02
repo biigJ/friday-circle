@@ -661,6 +661,27 @@ body.bat-page .nav__logo {
   margin: 0;
 }
 
+.programmierung-page .landing-bridge__rule {
+  display: none !important;
+  border: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.programmierung-page .landing-bridge hr {
+  display: none !important;
+  border: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.programmierung-page .landing-bridge {
+  border-top: 0 !important;
+  box-shadow: none !important;
+}
+
 .landing-bridge__kicker {
   margin: clamp(16px, 2.5vw, 24px) 0 clamp(12px, 2vw, 20px);
   font-family: var(--font-sans);
@@ -884,6 +905,8 @@ html[lang="de"] .en-t {
     height: 100%;
     max-width: 100%;
     object-position: center;
+    transform: scale(0.7) translateX(-15%);
+    transform-origin: center center;
   }
 
   .fc-program-hero.is-lebensjahre::after {
@@ -966,6 +989,8 @@ html[lang="de"] .en-t {
   object-position: center right;
   display: block;
   filter: none;
+  transform: scale(0.7) translateX(-15%);
+  transform-origin: center right;
 }
 
 .fc-program-hero.is-lebensjahre::after {
@@ -1002,25 +1027,60 @@ html[lang="de"] .en-t {
   filter: brightness(0.68) sepia(0.14) contrast(1.1) saturate(0.5) !important;
 }
 
-.fc-program-hero__panel--gogogo {
-  max-width: min(52rem, 100%);
+.fc-program-hero__content:has(.fc-program-hero__panel--gogogo.is-active) {
+  padding-inline: calc(var(--nav-pad-x) * 1.5);
+}
+
+.fc-program-hero__panel.fc-program-hero__panel--gogogo {
+  max-width: 100%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
 }
 
-.fc-program-hero__title--gogogo {
+.fc-program-hero__title.fc-program-hero__title--gogogo {
   margin-bottom: clamp(22px, 3.5vw, 32px);
-  font-size: clamp(1.75rem, 5vw, 3rem);
-  line-height: 1.08;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: clamp(1.2rem, 3.9vw, 2.25rem);
+  line-height: 1.12;
+  text-align: center;
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
+  overflow-wrap: break-word;
 }
 
 .fc-gogogo-headline__line {
   display: block;
 }
 
-.fc-program-hero__panel--gogogo .fc-program-hero__cta {
+.fc-program-hero__panel.fc-program-hero__panel--interior {
+  max-width: 100%;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.fc-program-hero__title.fc-program-hero__title--interior {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+.fc-program-hero__panel.fc-program-hero__panel--interior .fc-program-hero__cta {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fc-program-hero__title .nowrap {
+  white-space: nowrap;
+}
+
+.fc-program-hero__panel.fc-program-hero__panel--gogogo .fc-program-hero__cta {
   margin-left: auto;
   margin-right: auto;
 }
@@ -1143,9 +1203,9 @@ html[lang="de"] .en-t {
 }
 
 .fc-program-hero__cta--gogogo {
-  background: var(--surface);
-  color: var(--accent);
-  border-color: var(--surface);
+  background: #c52f33;
+  color: #fff0f0;
+  border-color: #c52f33;
 }
 
 .fc-program-hero__cta--cycle {
@@ -1186,8 +1246,8 @@ html[lang="de"] .en-t {
 
 .fc-program-hero__cta--gogogo:hover,
 .fc-program-hero__cta--gogogo:focus-visible {
-  background: var(--accent);
-  color: var(--surface);
+  background: #a82629;
+  color: #fff;
   border-color: #fff;
 }
 
@@ -1270,11 +1330,22 @@ html[lang="de"] .en-t {
 
 .landing-after-video__inner--geschichte {
   max-width: min(90rem, 100%);
-  padding-top: clamp(24px, 4vw, 48px);
+  padding-top: 0;
 }
 
 .programmierung-sub__intro {
   padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.programmierung-page .landing-after-video {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
+}
+
+.programmierung-page .landing-after-video__inner {
+  padding-top: 0 !important;
+  margin-top: 0 !important;
 }
 
 /* Landing: unter dem Video — Linie, Sweet-Spot-Satz, Grafik-Fläche */
@@ -1302,7 +1373,7 @@ html[lang="de"] .en-t {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  max-width: min(72rem, calc(100% - clamp(32px, 8vw, 80px)));
+  max-width: 100%;
 }
 
 .fc-life-squares-embed .fc-life-squares {
@@ -1311,6 +1382,10 @@ html[lang="de"] .en-t {
   border-radius: 0;
   border: 1px solid color-mix(in srgb, var(--landing-graphic-border) 35%, transparent);
   overflow: hidden;
+}
+
+.programmierung-page .fc-life-squares-embed .fc-life-squares {
+  border: none !important;
 }
 
 .landing-program-ctas__intro {

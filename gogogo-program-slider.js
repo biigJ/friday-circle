@@ -6,7 +6,7 @@
   if (!slides.length) return;
 
   var SLIDE_LABELS_DE = [
-    "Personal Training ab 39€",
+    "Sportsfreunde versammeln",
     "Mitglied werden",
     "Den passenden Trainer",
     "CIRCLE TRAINING",
@@ -16,7 +16,7 @@
     "Triff Joscha",
   ];
   var SLIDE_LABELS_EN = [
-    "Personal training from €39",
+    "Gather your sports friends",
     "Become a member",
     "Find the right trainer",
     "CIRCLE TRAINING",
