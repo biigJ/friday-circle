@@ -17,6 +17,7 @@
       <div class="nav__inner">
         <a href="wolfganggrope.html" class="nav__logo" aria-label="Wolfgang Grope Art Startseite">WOLFGANG GROPE ART</a>
         <div class="nav__cta-bucket">
+          <button type="button" class="wga-nav__bio" id="wga-bio-open" aria-haspopup="dialog" aria-controls="wga-bio">bio</button>
           <div class="nav__lang" role="group" aria-label="Sprache">
             <button type="button" class="is-active" data-fc-lang="de">DE</button>
             <button type="button" data-fc-lang="en">EN</button>
@@ -69,8 +70,18 @@
       </div>
     </div>
 
+    <div id="wga-bio" class="wga-bio" role="dialog" aria-modal="true" aria-labelledby="wga-bio-title" hidden>
+      <div class="wga-bio__backdrop" data-wga-bio-close></div>
+      <div class="wga-bio__panel">
+        <button type="button" class="wga-bio__close" data-wga-bio-close aria-label="Schließen">×</button>
+        <h2 id="wga-bio-title" class="wga-bio__title">Lebensdaten</h2>
+        <pre class="wga-bio__text" id="wga-bio-text"></pre>
+      </div>
+    </div>
+
     <div id="fc-site-footer"></div>
     <script src="data/wga-catalog.js"></script>
+    <script src="data/wga-bio.js"></script>
     <script src="nav.js" defer></script>
     <script src="wolfganggrope.js" defer></script>
   </body>

@@ -37,6 +37,32 @@ body.wga-page {
 
 .wga-page .wga-nav .nav__cta-bucket {
   justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2.2vw, 22px);
+}
+
+.wga-page .wga-nav .wga-nav__bio {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: clamp(0.72rem, 1.2vw, 0.82rem);
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: lowercase;
+  color: #f0eee6;
+  cursor: pointer;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
+  transition: color 0.28s ease, opacity 0.2s ease;
+}
+
+.wga-page .wga-nav .wga-nav__bio:hover,
+.wga-page .wga-nav .wga-nav__bio:focus-visible {
+  color: #ffffff;
+  opacity: 1;
+  outline: none;
 }
 
 .wga-page .wga-nav.wga-nav--on-light {
@@ -66,6 +92,17 @@ body.wga-page {
   color: var(--bg);
 }
 
+.wga-page .wga-nav.wga-nav--on-light .wga-nav__bio {
+  color: var(--text);
+  text-shadow: none;
+}
+
+.wga-page .wga-nav.wga-nav--on-light .wga-nav__bio:hover,
+.wga-page .wga-nav.wga-nav--on-light .wga-nav__bio:focus-visible {
+  color: var(--text);
+  opacity: 0.72;
+}
+
 /* Über dem Hero: helles Logo auf dunklem Bild (Standard) */
 .wga-page .wga-nav:not(.wga-nav--on-light).wga-nav--logo-light .nav__logo {
   color: #f0eee6;
@@ -80,6 +117,11 @@ body.wga-page {
 .wga-page .wga-nav:not(.wga-nav--on-light).wga-nav--logo-light .nav__lang button.is-active {
   background: #f0eee6;
   color: #1a1a18;
+}
+
+.wga-page .wga-nav:not(.wga-nav--on-light).wga-nav--logo-light .wga-nav__bio {
+  color: #f0eee6;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
 }
 
 /* Über dem Hero: dunkles Logo auf hellem Bildabschnitt */
@@ -102,6 +144,11 @@ body.wga-page {
 .wga-page .wga-nav:not(.wga-nav--on-light).wga-nav--logo-dark .nav__lang button.is-active {
   background: var(--text);
   color: var(--bg);
+}
+
+.wga-page .wga-nav:not(.wga-nav--on-light).wga-nav--logo-dark .wga-nav__bio {
+  color: var(--text);
+  text-shadow: none;
 }
 
 .wga-page .wga-nav .nav__logo {
@@ -516,6 +563,85 @@ body.wga-page {
   background: #fff;
   border-color: #fff;
   outline: none;
+}
+
+/* —— Bio —— */
+.wga-bio[hidden] {
+  display: none !important;
+}
+
+.wga-bio {
+  position: fixed;
+  inset: 0;
+  z-index: 12500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(12px, 2.5vw, 28px);
+}
+
+.wga-bio__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.72);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.wga-bio__panel {
+  position: relative;
+  z-index: 1;
+  width: min(640px, 100%);
+  max-height: min(88vh, 820px);
+  overflow: auto;
+  background: #f0eee6;
+  padding: clamp(28px, 4vw, 44px) clamp(22px, 3.5vw, 36px);
+  box-sizing: border-box;
+}
+
+.wga-bio__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(10, 10, 10, 0.08);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.wga-bio__close:hover,
+.wga-bio__close:focus-visible {
+  background: rgba(10, 10, 10, 0.14);
+  outline: none;
+}
+
+.wga-bio__title {
+  margin: 0 0 clamp(16px, 2.5vw, 24px);
+  padding-right: 36px;
+  font-family: var(--font-sans);
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.wga-bio__text {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(0.78rem, 1.05vw, 0.88rem);
+  font-weight: 300;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  color: color-mix(in srgb, var(--text) 88%, #fff);
+  white-space: pre;
+  overflow-x: auto;
+  tab-size: 4;
 }
 
 @media (max-width: 900px) {

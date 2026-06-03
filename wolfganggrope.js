@@ -33,6 +33,12 @@
   const sliderTrack = document.getElementById("wga-popup-track");
   const sliderDots = document.getElementById("wga-popup-dots");
 
+  const bioOverlay = document.getElementById("wga-bio");
+  const bioOpen = document.getElementById("wga-bio-open");
+  const bioText = document.getElementById("wga-bio-text");
+  const BIO_URL = "data/wga-bio.txt";
+  let bioLoaded = false;
+
   let heroIndex = 0;
   let heroTimer = null;
   let slideIndex = 0;
@@ -404,7 +410,41 @@
     openWorkId = null;
     popup.hidden = true;
     popup.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
+    if (!bioOverlay || bioOverlay.hidden) document.body.style.overflow = "";
+  }
+
+  async function loadBioText() {
+    if (!bioText || (bioLoaded && bioText.textContent)) return;
+    if (window.__WGA_BIO__) {
+      bioText.textContent = window.__WGA_BIO__;
+      bioLoaded = true;
+      return;
+    }
+    try {
+      const res = await fetch(BIO_URL, { cache: "no-store" });
+      if (res.ok) bioText.textContent = (await res.text()).trim();
+      bioLoaded = true;
+    } catch (err) {
+      console.warn("WGA bio fetch failed:", err.message);
+    }
+  }
+
+  function openBio() {
+    if (!bioOverlay) return;
+    loadBioText();
+    bioOverlay.hidden = false;
+    bioOverlay.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    const closeBtn = bioOverlay.querySelector(".wga-bio__close");
+    if (closeBtn) closeBtn.focus();
+  }
+
+  function closeBio() {
+    if (!bioOverlay) return;
+    bioOverlay.hidden = true;
+    bioOverlay.setAttribute("aria-hidden", "true");
+    if (!popup || popup.hidden) document.body.style.overflow = "";
+    if (bioOpen) bioOpen.focus();
   }
 
   function applyMeta() {
@@ -473,6 +513,7 @@
     initHero();
     renderCatalog();
     initNavOnLight();
+    loadBioText();
   }
 
   if (popup) {
@@ -481,8 +522,20 @@
     });
   }
 
+  if (bioOpen) bioOpen.addEventListener("click", openBio);
+  if (bioOverlay) {
+    bioOverlay.querySelectorAll("[data-wga-bio-close]").forEach(function (el) {
+      el.addEventListener("click", closeBio);
+    });
+  }
+
   document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && popup && !popup.hidden) closePopup();
+    if (e.key === "Escape") {
+      if (bioOverlay && !bioOverlay.hidden) closeBio();
+      else if (popup && !popup.hidden) closePopup();
+      return;
+    }
+    if (bioOverlay && !bioOverlay.hidden) return;
     if (popup && popup.hidden) return;
     if (e.key === "ArrowLeft") setSlide(slideIndex - 1);
     if (e.key === "ArrowRight") setSlide(slideIndex + 1);
