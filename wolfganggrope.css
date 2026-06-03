@@ -427,8 +427,8 @@ body.wga-page {
   left: 0;
   right: 0;
   bottom: 0;
-  padding: clamp(28px, 5vw, 56px) clamp(14px, 2.5vw, 22px) clamp(12px, 2vw, 18px);
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.28) 55%, transparent 100%);
+  padding: clamp(10px, 1.8vw, 14px) clamp(12px, 2vw, 16px);
+  background: transparent;
   pointer-events: none;
 }
 
