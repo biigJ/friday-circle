@@ -614,34 +614,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Orale Kontrazeptiva (Enovid, FDA-Zulassung Mai 1960) — 'Die Pille' als erste biomedizinische Ermächtigung von Frauen; demographischer und gesellschaftlicher Wendepunkt mit globaler Tragweite.",
         "gemeinschaft": "Sitzstreiks der 'Greensboro Four' (Februar 1960) — gewaltloser ziviler Ungehorsam als Methode setzt sich durch; Gemeinschaft als politisches Werkzeug gegen strukturelle Ungerechtigkeit.",
         "technologie": "Erster Laserstrahl (Theodore Maiman, Mai 1960) — Grundlage für optische Kommunikation, CD, Barcode, Chirurgie und Internet-Glasfaserkabel; eine der folgenreichsten Entdeckungen des Jahrhunderts."
-      },
-      "en": {
-        "label": "Cold War & Space",
-        "ueberschrift": "Kennedy wins TV debate, OPEC founded - mass media and raw material power are changing world politics",
-        "welt": {
-          "usa": "On November 8, 1960, Kennedy became president - the first TV debate against Nixon decided: whoever appears on television wins politics.In May, the U-2 spy plane is shot down over the USSR;Pilot Gary Powers captured.1960 shows: Media staging and technical failure are both powerful political forces.",
-          "china": "China and USSR break publicly - Moscow withdraws all advisers.Mao's 'Great Leap Forward' killed ~30-45 million people through famines in 1959-61, officially kept secret.China continues to develop nuclear capabilities without Soviet help.",
-          "alte_welt": "1960 is the 'Year of Africa' - 17 African states become independent.In March, South African police shot dead 69 unarmed protesters in the Sharpeville massacre.Decolonization changes the composition of the UN, but not the economic power structures.",
-          "neue_welt": "OPEC was founded in Baghdad in September 1960 - the first collective bargaining power of the Global South against the 'Seven Sisters' oil companies.17 African declarations of independence in one year.Emancipation is political;economic dependencies remain.",
-          "crypto": "IBM introduces the first credit card processing systems for BankAmericard (now Visa) in 1960 - electronic payments begin to replace the bank teller.SABER, the first computerized booking system for American Airlines, goes into operation in 1960: transactions are automated, even before the Internet.",
-          "handel": "The founding of OPEC is the first successful attempt by the Global South to collectively control raw material prices.GATT Round (Kennedy Round) in preparation.IBM dominates computing — the first signs that technology companies could become independent trading powers."
-        },
-        "gesellschaft": {
-          "text": "1960 marked the beginning of a global phase of upheaval.The Kennedy-Nixon TV debate shows for the first time: mass media decide democracies.Africa's wave of independence is changing the UN landscape, not the economic structures.Mao's hidden famine shows that state misuse of data is costing millions of lives.In 1960, television was the new nervous system of world politics.",
-          "metriken": {
-            "screentime_std_tag": 0.5,
-            "freundschaften": 20,
-            "freiheit_pct": 20,
-            "bmi_weltweit": 21,
-            "polarisierung_pct": 5
-          }
-        },
-        "chancen": {
-          "mental": "Aaron Beck's cognitive therapy concepts emerged (prepared in 1961, in development in 1960) - the first alternative to psychoanalysis with measurable results;Basis of all later CBT programs and digital therapy apps.",
-          "koerper": "Oral contraceptives (Enovid, FDA approved May 1960) — 'The Pill' as the first biomedical empowerment of women;demographic and social turning point with global implications.",
-          "gemeinschaft": "Sit-in strikes by the 'Greensboro Four' (February 1960) - non-violent civil disobedience as a method prevails;Community as a political tool against structural injustice.",
-          "technologie": "First laser beam (Theodore Maiman, May 1960) — basis for optical communications, CD, barcode, surgery, and Internet fiber optic cables;one of the most momentous discoveries of the century."
-        }
       }
     },
     "1961": {
@@ -671,34 +643,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erster kommerzieller Herzschrittmacher (Medtronic, massenproduziert 1961) — Herzarrhythmien behandelbar; elektronische Medizin als eigenständiges Feld etabliert.",
         "gemeinschaft": "Freedom Riders (Mai 1961): Gemischte Gruppen fahren durch den Süden der USA und testen Integrationsgesetze — ziviler Mut als kollektives politisches Instrument gegen institutionellen Rassismus.",
         "technologie": "IBM SABRE-Buchungssystem (vollständig 1962): Erstes computergestütztes Echtzeit-Datenbanksystem für Airline-Reservierungen — Vorläufer aller digitalen Marktplätze und Transaktionsplattformen."
-      },
-      "en": {
-        "label": "Cold War & Space",
-        "ueberschrift": "Wall built, Gagarin in space - freedom and control as competing systems put to the test",
-        "welt": {
-          "usa": "On April 12, 1961, Yuri Gagarin became the first person to fly into space - a Soviet triumph, a US shock.In April, the CIA-backed invasion of the Bay of Pigs fails: Kennedy's first major defeat.In May, Kennedy announced plans to put people on the moon by 1969 - technology as an ideological competition.",
-          "china": "China continues to suffer from the consequences of the Great Leap - famines continue, Mao admits mistakes internally without publicly resigning.Liu Shaoqi and Deng Xiaoping begin cautious reforms.In 1961, China was weaker than it appeared to the outside world.",
-          "alte_welt": "In August 1961, the Berlin Wall was built - a cloak-and-dagger operation divided a cosmopolitan city.Germany becomes the physical line between two systems.The building proves that the GDR only holds its own population through violence.",
-          "neue_welt": "After Bay of Pigs, Cuba becomes a solid Soviet alliance — the first Latin American country in the Soviet bloc.Tanganyika, Sierra Leone and other African states become independent.Julius Nyerere coins 'Ujamaa' as African socialism.",
-          "crypto": "In 1961, IBM introduced the IBM 1401 - the first mass-produced transistor computer for corporate office administration;Financial data leaves the paper.Diners Club and BankAmericard are expanding in Europe.'Credit without cash' is becoming normal for the middle class.",
-          "handel": "Kennedy Round (GATT) in preparation - tariff reduction as an instrument of Western alliance policy.IBM System/360 Planning Begins: A Computing System for All—Platform Logic Ahead of Time.Berlin Wall hardens trade blocs: Eastern and Western markets permanently separate."
-        },
-        "gesellschaft": {
-          "text": "1961 shows the Cold War front line as a physical tear through a city.Gagarin in space makes it clear: ideological competition is also technological competition.Bay of Pigs shows that superpowers can fail.The world in 1961 is bipolar - and in this polarity all spaces for future liberation movements arise.",
-          "metriken": {
-            "screentime_std_tag": 0.5,
-            "freundschaften": 20,
-            "freiheit_pct": 21,
-            "bmi_weltweit": 21.1,
-            "polarisierung_pct": 5
-          }
-        },
-        "chancen": {
-          "mental": "Aaron Beck's Cognitive Therapy (published in 1961) — first scientifically validated psychotherapy alternative to psychoanalysis;Basis of CBT, the most effective short-term form of therapy.",
-          "koerper": "First commercial pacemaker (Medtronic, mass-produced in 1961) — treatable cardiac arrhythmias;Electronic medicine established itself as an independent field.",
-          "gemeinschaft": "Freedom Riders (May 1961): Mixed groups ride through the US South testing integration laws - civil courage as a collective political tool against institutional racism.",
-          "technologie": "IBM SABER Booking System (complete 1962): First real-time computerized database system for airline reservations — forerunner of all digital marketplaces and transaction platforms."
-        }
       }
     },
     "1962": {
@@ -728,34 +672,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erste erfolgreiche Nierentransplantation mit langfristiger Immunsuppression (1962) — Organtransplantation wird zur klinischen Routine; Medizin überschreitet biologische Grenzen des Körpers.",
         "gemeinschaft": "Zweites Vatikanisches Konzil (Oktober 1962): Katholische Kirche öffnet sich Ökumene und Volkssprache — 1 Mrd. Gläubige erfahren Institutionsreform von innen; Modell für spätere Kirchenreformen weltweit.",
         "technologie": "Telstar 1 (Juli 1962): Erster kommerzieller Kommunikationssatellit — überträgt TV, Telefon, Fax zwischen Kontinenten; Grundlage des globalen Satellitennetzwerks und aller späteren GPS- und Internetsatelliten."
-      },
-      "en": {
-        "label": "Cold War & Space",
-        "ueberschrift": "Cuban Missile Crisis on the Nuclear Abyss, Telstar Connects Continents - Destruction and Networking as Twin Themes",
-        "welt": {
-          "usa": "In October 1962, US reconnaissance agents discovered Soviet nuclear missiles in Cuba - the superpowers stood on the nuclear brink for 13 days.Kennedy and Khrushchev trade on telecommunications: Direct communication saves humanity.Telstar 1 starts on July 10th and transmits TV images and telephone conversations between Europe and America for the first time.",
-          "china": "China wages a border war against India in October 1962 - quickly wins and withdraws.The relationship with India remains permanently strained.After the Great Leap, Mao begins the 'Socialist Education Movement' - preparation for the Cultural Revolution.",
-          "alte_welt": "In July 1962, Algeria became independent after an eight-year war of independence and ~500,000 deaths - the end of French colonial rule in North Africa.The Second Vatican Council begins in October.Rachel Carson's 'Silent Spring' (September 1962) founded the modern environmental movement.",
-          "neue_welt": "Cuba at the center of world politics: 13-day Cuban Missile Crisis - the country becomes a proxy battlefield.Trinidad and Tobago, Jamaica become independent.Argentina, Brazil and Chile need IMF support for currency problems - economic dependence on outside remains structural.",
-          "crypto": "Telstar 1 (July 1962) was the first to transmit stock market prices and financial news via satellite in real time - global financial information without delay as a vision.IBM introduces magnetic stripe credit card prototypes: The card is created as a portable database.",
-          "handel": "Cuban Missile Crisis Leads to US Trade Embargo on Cuba — Valid for 60+ Years.GATT Kennedy round starts.Telstar shows: Global communications infrastructure creates new trade networks beyond physical borders."
-        },
-        "gesellschaft": {
-          "text": "The Cuban Missile Crisis is the highest risk moment of the 20th century — and it ends through communication, not war.Telstar simultaneously sends TV pictures across the Atlantic: fear of annihilation and promises of networking exist in the same year in 1962.Carson's 'Silent Spring' establishes ecological consciousness as a collective responsibility.",
-          "metriken": {
-            "screentime_std_tag": 0.7,
-            "freundschaften": 20,
-            "freiheit_pct": 21,
-            "bmi_weltweit": 21.1,
-            "polarisierung_pct": 5
-          }
-        },
-        "chancen": {
-          "mental": "'Silent Spring' (Carson, 1962) establishes ecological consciousness as a collective responsibility—environment as a mental and social issue requiring individual and collective action.",
-          "koerper": "First successful kidney transplant with long-term immunosuppression (1962) — organ transplantation becomes clinical routine;Medicine transcends biological boundaries of the body.",
-          "gemeinschaft": "Second Vatican Council (October 1962): Catholic Church opens up to ecumenism and vernacular - 1 billion believers experience institutional reform from within;Model for later church reforms worldwide.",
-          "technologie": "Telstar 1 (July 1962): First commercial communications satellite — transmits TV, telephone, fax between continents;Basis of the global satellite network and all later GPS and Internet satellites."
-        }
       }
     },
     "1963": {
@@ -785,34 +701,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erste routinemäßige offene Herzchirurgie mit Herzlungenmaschine — das Herz ist 1963 medizinisch nicht mehr unantastbar; Grundlage für spätere Bypass- und Transplantationsmedizin.",
         "gemeinschaft": "Marsch auf Washington (August 1963): 250.000 Menschen ohne Internet, ohne Social Media — organisiert durch Gemeinschaft, Brief und Radio; beweist, dass kollektiver Wille Systeme verändern kann.",
         "technologie": "Erster geosynchroner Kommunikationssatellit (Syncom 2, Juli 1963) — fester Punkt am Himmel für globale Telekommunikation; Grundlage aller späteren TV-, GPS- und Internetsatelliten."
-      },
-      "en": {
-        "label": "Cold War & Space",
-        "ueberschrift": "JFK murdered, MLK dreams, hot wire - communications infrastructure visibly saves lives for the first time",
-        "welt": {
-          "usa": "On November 22, 1963, Kennedy was assassinated in Dallas - a shock that shaped a generation.In August, Martin Luther King gives his 'I Have a Dream' speech to 250,000 people.In June, Washington and Moscow install the first 'hot line' — direct telephone lines as a lesson from the Cuban Missile Crisis.",
-          "china": "China works on its first atomic bomb in 1963 (tested October 1964).Liu Shaoqi as President and Deng Xiaoping are reforming cautiously.Mao writes internally about the mistakes of the Great Leap - publicly there is silence.",
-          "alte_welt": "In January 1963, de Gaulle and Adenauer signed the Elysée Treaty - the core of European post-war reconciliation.De Gaulle blocks Britain's accession to the EEC.Nelson Mandela is arrested and tried in South Africa in August 1963.",
-          "neue_welt": "The OAU (Organization of African Unity) was founded in Addis Ababa in May 1963 - the first pan-African institutionalization.Malaysia emerges as a federal state.Cuba and the Soviet Union develop close economic relations.",
-          "crypto": "Douglas Engelbart designed the computer mouse concepts at SRI in 1963 - interactive computers as a vision.IBM is planning the System/360: First universal computing platform that creates compatibility between machines.First ATM concepts discussed in British banks.",
-          "handel": "GATT Kennedy Round (started in 1964): tariff reductions of an average of 35% were negotiated - multilateralism at its peak.IBM System/360 in development: First attempt at a universal computer platform for all company sizes.Hot wire as communication infrastructure: States invest in direct connections."
-        },
-        "gesellschaft": {
-          "text": "1963 is the year America stopped being innocent.JFK's assassination and MLK's dream define two possibilities for the country.The Hot Wire shows: Communications infrastructure saves lives — that will be the promise of the Internet 30 years later.1963 is the pivotal year between the hope of the 50s and the turmoil of the late 60s.",
-          "metriken": {
-            "screentime_std_tag": 0.8,
-            "freundschaften": 20,
-            "freiheit_pct": 21,
-            "bmi_weltweit": 21.2,
-            "polarisierung_pct": 5
-          }
-        },
-        "chancen": {
-          "mental": "Hot wire principle: Direct communication between conflict parties prevents escalation - dialogue infrastructure as a peace tool;Predecessor of all mediation and de-escalation systems.",
-          "koerper": "First routine open heart surgery with a heart-lung machine - the heart is no longer medically inviolable in 1963;Basis for later bypass and transplant medicine.",
-          "gemeinschaft": "March on Washington (August 1963): 250,000 people without internet, without social media — organized through community, letters and radio;proves that collective will can change systems.",
-          "technologie": "First geosynchronous communications satellite (Syncom 2, July 1963) — fixed point in the sky for global telecommunications;Basis of all later TV, GPS and Internet satellites."
-        }
       }
     },
     "1964": {
@@ -842,34 +730,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erste Nierenprimärtransplantation mit Langzeitüberleben durch Immunsuppression (1964) — Organtransplantation wird zur klinischen Routine; Leben verlängern durch fremde Organe wird medizinisch normal.",
         "gemeinschaft": "Selma-to-Montgomery-Märsche (Vorbereitung 1964/65): Gemeinschaftlicher Widerstand unter physischer Gefahr — Solidarität als kollektive Schutzstruktur und politisches Instrument.",
         "technologie": "IBM System/360 (April 1964): Erste kompatible Computerplattform für alle Unternehmensgrößen — Plattformlogik als Geschäftsmodell erfunden; alle späteren Plattformen (Windows, iOS, Android) folgen diesem Prinzip."
-      },
-      "en": {
-        "label": "Cold War & Space",
-        "ueberschrift": "Civil Rights Act, Tonkin Lie, IBM System/360 — equality and platform logic emerge in the same year",
-        "welt": {
-          "usa": "On July 2, 1964, Johnson signed the Civil Rights Act — ending legal segregation.In August, the Johnson administration fabricated the Gulf of Tonkin incident as a justification for war - a state lie as a reason for war.In April, IBM introduces System/360: the first general-purpose computing platform that makes all previous systems obsolete.",
-          "china": "China tests its first atomic bomb on October 16, 1964 — the world's fifth nuclear power.Mao prepares the Cultural Revolution.China's strategic strength is growing as its population continues to suffer the consequences of the Great Leap.",
-          "alte_welt": "Khrushchev is overthrown in October 1964 - Brezhnev takes over: end of thaw, beginning of stagnation.Eastern Europe remains firmly in the Soviet grip.In April, the South African state of Tanzania was founded through the merger of Tanganyika and Zanzibar.",
-          "neue_welt": "Malawi and Zambia become independent.The military staged a coup in Brazil in April 1964 - a US-backed coup ended the democratic Goulart government.21 years of military dictatorship follow: US commercial interests and the export of democracy are not synonymous.",
-          "crypto": "IBM System/360 is the first to create compatible computer systems for all company sizes - accounting, banking and trading can be digitized.BankAmericard (Visa predecessor) already had 2+ million cardholders in 1964.First COBOL programs for financial accounting in companies.",
-          "handel": "GATT Kennedy Round negotiates tariff reductions without developing country interests.IBM System/360 is the first 'platform' product in tech history — a system that replaces all previous ones.Brazil coup shows: US trade interests beat export of democracy in Latin America."
-        },
-        "gesellschaft": {
-          "text": "1964 brings moral progress (Civil Rights Act) and strategic lies (Tonkin) in the same year.For the first time, IBM System/360 creates a computing platform for everyone — platform logic as a technical principle that defines Facebook and Google 50 years later.The Beatles come to America in February 1964: Soft power as an uncontrollable global cultural phenomenon.",
-          "metriken": {
-            "screentime_std_tag": 1,
-            "freundschaften": 20,
-            "freiheit_pct": 22,
-            "bmi_weltweit": 21.3,
-            "polarisierung_pct": 5
-          }
-        },
-        "chancen": {
-          "mental": "Civil Rights Act (July 1964): Legal equality achieved as a social goal — shows that decades of social pressure can force institutional change.",
-          "koerper": "First primary kidney transplant with long-term survival through immunosuppression (1964) — organ transplantation becomes clinical routine;Extending life through foreign organs is becoming medically normal.",
-          "gemeinschaft": "Selma to Montgomery marches (preparation 1964/65): Community resistance under physical danger - solidarity as a collective protective structure and political instrument.",
-          "technologie": "IBM System/360 (April 1964): First compatible computer platform for all company sizes - platform logic invented as a business model;all later platforms (Windows, iOS, Android) follow this principle."
-        }
       }
     },
     "1965": {
@@ -899,34 +759,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erste Massenimpfkampagnen gegen Masern (WHO, ab 1965) — Massenimpfung als globales öffentliches Gesundheitsinstrument; Masern werden in vielen Ländern eliminiert.",
         "gemeinschaft": "Voting Rights Act (August 1965): Wahlrecht für Schwarze Amerikaner durchgesetzt — zeigt, dass jahrzehntelanger gesellschaftlicher Druck legale Institutionen verändern kann.",
         "technologie": "Moores Gesetz (April 1965): Transistordichte verdoppelt sich alle ~2 Jahre — fundamentales Treiberprinzip aller digitalen Technologien von Smartphones bis KI; nichts in der digitalen Welt wäre ohne dieses Gesetz möglich."
-      },
-      "en": {
-        "label": "Cold War & Space",
-        "ueberschrift": "Vietnam escalates, Moore's Law formulated - acceleration as a system principle in war and technology",
-        "welt": {
-          "usa": "In March 1965, the first US combat troops landed in Vietnam.The Voting Rights Act will be signed into law in August.In April, Gordon Moore published his law: Transistors per chip double every ~2 years - technical acceleration becomes the permanent principle that enables all subsequent digital developments.",
-          "china": "Mao prepares the Cultural Revolution in 1965 - mobilizes students against 'old ideas, culture, habits, customs'.The first Red Guard groups emerge.China increasingly isolates itself from the world and tests its second atomic bomb (May 1965).",
-          "alte_welt": "In March, de Gaulle announced France's withdrawal of NATO military command - the first major cracks in the Western alliance.First concepts for 'Ostpolitik' in Austria and West Germany.Great Britain is struggling with the pound crisis and economic stagnation.",
-          "neue_welt": "In Indonesia, Suharto seizes power after military coup — anti-communism massacres kill ~500,000 people with US approval.Rhodesia declares unilateral independence under white minority rule.Malcolm X is assassinated in New York in February 1965.",
-          "crypto": "Moore's Law (April 1965): Computing power becomes exponentially cheaper — the fundamental foundation of all subsequent digital financial infrastructure.Texas Instruments develops the first calculator prototypes.The first ARPANET concepts are emerging at US universities.",
-          "handel": "GATT Kennedy Round completed: 35% tariff reductions, but without developing country interests.Indonesia massacres show: US trade interests (anti-communist stability) outweigh human rights.The first concepts for electronic funds transfer between banks are emerging."
-        },
-        "gesellschaft": {
-          "text": "1965 is the year of acceleration.Moore's Law formulates the technical principle that makes all subsequent digital developments possible.Vietnam is escalating despite — or because of — TV reporting.The Voting Rights Act and the Selma marches show that social change comes through persistence over decades, not through individual events.",
-          "metriken": {
-            "screentime_std_tag": 1.2,
-            "freundschaften": 19,
-            "freiheit_pct": 23,
-            "bmi_weltweit": 21.4,
-            "polarisierung_pct": 6
-          }
-        },
-        "chancen": {
-          "mental": "Selma to Montgomery Marches (March 1965): Collective nonviolent resistance despite state violence - resilience as a collective strength;Model for all later civil rights movements worldwide.",
-          "koerper": "First mass vaccination campaigns against measles (WHO, from 1965) — mass vaccination as a global public health tool;Measles is being eliminated in many countries.",
-          "gemeinschaft": "Voting Rights Act (August 1965): Voting rights for Black Americans won — shows that decades of social pressure can change legal institutions.",
-          "technologie": "Moore's Law (April 1965): Transistor density doubles every ~2 years — fundamental driving principle of all digital technologies from smartphones to AI;nothing in the digital world would be possible without this law."
-        }
       }
     },
     "1966": {
@@ -956,34 +788,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erste Impfprogramme gegen Masern weltweit (WHO, 1966) — Massenimpfung als globales öffentliches Gesundheitsinstrument; Masern werden in vielen Ländern zur behandelbaren Krankheit.",
         "gemeinschaft": "Miranda v. Arizona (1966): Rechte des Einzelnen gegenüber dem Staatsapparat kodifiziert — Gemeinschaftsschutz durch Recht; Vorbild für Grundrechte-Regulierungen weltweit.",
         "technologie": "ARPANET-Konzept (DARPA, 1966): Dezentrales Kommunikationsnetz ohne einzelne Schwachstelle — das Internet beginnt hier; alle späteren Webs, E-Mails und Plattformen sind Ableger dieser Idee."
-      },
-      "en": {
-        "label": "Cold War & Space",
-        "ueberschrift": "Cultural Revolution in China, Black Power, ARPANET concept — control and liberation as a global double movement",
-        "welt": {
-          "usa": "In June 1966, Stokely Carmichael coined the term 'Black Power' in Mississippi - radicalization after years of peaceful peacefulness.In June, the Supreme Court decided Miranda v.Arizona: Suspects must be informed of their rights.DARPA awards first ARPANET contracts: Decentralized communications network begins.",
-          "china": "In May 1966, the 'Great Proletarian Cultural Revolution' officially began - Mao mobilized millions of Red Guards against 'class enemies'.Intellectuals, teachers and party cadres are humiliated, deported and killed.universities close;China is completely isolating itself.",
-          "alte_welt": "Harold Wilson stabilizes Britain's pound crisis with emergency measures.The first reform movements emerge in Czechoslovakia - the Spring Spring is in preparation.Eastern Europe remains under Soviet control, but cracks are emerging.",
-          "neue_welt": "Ghana: Kwame Nkrumah is overthrown in a military coup in February 1966 - the beginning of a series of coups in Africa, often accompanied by the CIA.Botswana and Lesotho become independent.Indira Gandhi becomes India's first female prime minister (January 1966).",
-          "crypto": "Mastercard was founded in 1966 as the 'Interbank Card Association' - a private payment network without government control as a business model.ARPANET concept (DARPA, 1966): Decentralized communication network without a single point of failure.First ATM prototypes in British banks.",
-          "handel": "Mastercard founding creates second private credit network alongside BankAmericard.GATT Tokyo Round in preparation.US military spending on Vietnam creates massive trade imbalances — draining dollars from the US."
-        },
-        "gesellschaft": {
-          "text": "The Cultural Revolution in China is closing off the world's largest country from global exchange - state control of information at an extreme level.At the same time, ARPANET concepts for decentralized communication are emerging in the USA: two opposing answers to the question of who should control knowledge.Miranda v.Arizona codifies fundamental rights against state arbitrariness.",
-          "metriken": {
-            "screentime_std_tag": 1.3,
-            "freundschaften": 19,
-            "freiheit_pct": 23,
-            "bmi_weltweit": 21.4,
-            "polarisierung_pct": 6
-          }
-        },
-        "chancen": {
-          "mental": "Black Power Movement (1966): Self-empowerment as a psychological concept — collective identity as an antidote to institutional humiliation;Basis of later community psychology approaches.",
-          "koerper": "First measles vaccination programs worldwide (WHO, 1966) — mass vaccination as a global public health tool;Measles is becoming a treatable disease in many countries.",
-          "gemeinschaft": "Miranda v.Arizona (1966): Rights of the individual vis-à-vis the state apparatus codified - community protection through law;Model for fundamental rights regulations worldwide.",
-          "technologie": "ARPANET concept (DARPA, 1966): Decentralized communications network with no single point of vulnerability — the Internet starts here;all later webs, emails and platforms are offshoots of this idea."
-        }
       }
     },
     "1967": {
@@ -1013,34 +817,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erste Herztransplantation (Christiaan Barnard, Kapstadt, Dezember 1967) — das Herz als ersetzbares Organ; Transplantationsmedizin beginnt ihre moderne Ära.",
         "gemeinschaft": "Biafra-Hungerkrise: Erste globale TV-humanitäre Mobilisierung — internationale Medienbilder erzwingen Hilfslieferungen; Vorbild für Live Aid 1985 und alle humanitären Medienkampagnen.",
         "technologie": "Erster ATM weltweit (Barclays Bank Enfield, 27. Juni 1967): Bankdienstleistungen ohne menschliche Interaktion — Grundlage aller späteren FinTech-Innovation und des Konzepts 'Bank in der Tasche'."
-      },
-      "en": {
-        "label": "Cold War & Space",
-        "ueberschrift": "First ATM, Six-Day War, Che murdered - technology, war and counterculture as simultaneous world movements",
-        "welt": {
-          "usa": "In November 1967, 500,000 US soldiers were in Vietnam - war protests escalated.In December, Dr.Christiaan Barnard performed the first heart transplant in Cape Town.CBS journalist Walter Cronkite declares Vietnam lost in February 1968 - media turns public opinion.",
-          "china": "The Cultural Revolution is at its bloodiest peak in 1967 - Red Guards fight against each other in factional battles.Mao has to use the military to stop his own forces.China tests its first hydrogen bomb in June 1967.",
-          "alte_welt": "In June 1967, Israel won the West Bank, Sinai, Gaza and Golan in the Six-Day War - a geopolitical wound that never healed.On June 27, 1967, the world's first automated teller machine (ATM) opened at Barclays Bank in Enfield, London.Europe continues to integrate, EEC grows.",
-          "neue_welt": "Che Guevara is shot in Bolivia on October 9, 1967 - the symbol of guerrilla romanticism dies, his impact as an icon begins.Biafra War (Nigeria, May 1967): First international media crisis with a humanitarian effect - TV images of starving children force international help.",
-          "crypto": "First ATM in the world (Barclays Enfield, June 27, 1967) — banking without human interaction;Basis of all later FinTech innovation.In 1967, BankAmericard already had 17 million cardholders in the USA.",
-          "handel": "Six-Day War attempts first Arab oil embargo against the West - fails due to lack of coordination.Biafra makes humanitarian media logic an imperative for action: TV images force international aid deliveries.First concepts for a global electronic payment network."
-        },
-        "gesellschaft": {
-          "text": "1967 is the year in which the 20th century celebrates its 'Summer of Love' while killing in Vietnam, Nigeria and Israel.Dr.Barnard transplants a heart.The first ATM opens.Che dies.Simultaneity as a fundamental principle of the modern world is fully visible in 1967.",
-          "metriken": {
-            "screentime_std_tag": 1.5,
-            "freundschaften": 19,
-            "freiheit_pct": 23,
-            "bmi_weltweit": 21.5,
-            "polarisierung_pct": 6
-          }
-        },
-        "chancen": {
-          "mental": "Summer of Love (San Francisco, 1967): First mass engagement with expanding consciousness as a counter-model to performance society - model for the later psychedelic therapy movement.",
-          "koerper": "First heart transplant (Christiaan Barnard, Cape Town, December 1967) - the heart as a replaceable organ;Transplantation medicine begins its modern era.",
-          "gemeinschaft": "Biafra hunger crisis: First global TV humanitarian mobilization - international media images force aid deliveries;Model for Live Aid 1985 and all humanitarian media campaigns.",
-          "technologie": "First ATM in the world (Barclays Bank Enfield, June 27, 1967): banking services without human interaction — foundation of all subsequent FinTech innovation and the 'bank in your pocket' concept."
-        }
       }
     },
     "1968": {
@@ -1070,34 +846,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erste Herztransplantations-Programme in Serienproduktion (1968 nach Barnards Erfolg) — Überlebensraten steigen; Organtransplantation als klinische Disziplin etabliert sich.",
         "gemeinschaft": "Olympia-Protest (Oktober 1968): Tommie Smith und John Carlos — stille symbolische Handlung erreicht weltweit Millionen; kollektiver Protest durch individuellen Mut als politische Sprache.",
         "technologie": "Intel gegründet (Juli 1968): Das Unternehmen, das Mikroprozessoren für alle Computer, Smartphones und KI-Chips liefern wird — ohne Intel kein IBM PC, kein iPhone, kein ChatGPT."
-      },
-      "en": {
-        "label": "Cold War & Space",
-        "ueberschrift": "Prague, MLK, Paris 68, Intel founded — systems absorb rebels as tech companies emerge",
-        "welt": {
-          "usa": "In April 1968, Martin Luther King Jr. is assassinated — urban riots in 100+ cities.Robert Kennedy is assassinated in June.In December, Douglas Engelbart publicly demonstrates the mouse, hypertext and video conferencing ('The Mother of All Demos') - the future of the computer made visible in an hour.",
-          "china": "During the Cultural Revolution of 1968, Mao sent millions of students to rural re-education camps.Liu Shaoqi dies in prison in 1969.China is completely isolated from the world — and continues to test nuclear weapons.",
-          "alte_welt": "In January 1968, the 'Prague Spring' began - Dubček's reform communism.In August, Soviet tanks rolled into the CSSR.Student movements in Paris (May 1968) and Berlin shake Western Europe.Intel was founded in July 1968 by Noyce and Moore.",
-          "neue_welt": "Mexico City massacre (Tlatelolco, October 2, 1968): Mexican army shoots at students - days before the Olympic Games, hardly noticed internationally.Olympic protest by Tommie Smith and John Carlos: silent fist on the winner's podium as a global message.",
-          "crypto": "Intel founded (July 1968) — Robert Noyce and Gordon Moore: The company that supplies microprocessors for all computers and later all smartphones is born.First electronic interbank payment systems in tests.",
-          "handel": "1968: Student movements shake trust in institutions worldwide - authorities are systematically questioned for the first time.Founding of Intel: The company that makes all later platforms possible begins without any knowledge of its future significance."
-        },
-        "gesellschaft": {
-          "text": "1968 is the year that shows most clearly: systems survive rebels.Prague, Paris, Mexico City, King, Kennedy — everything is absorbed.But Intel is founded and Engelbart demonstrates mouse and hypertext: the tools of transformation are built in 1968 while the revolts fail.Historically, technology wins.",
-          "metriken": {
-            "screentime_std_tag": 1.5,
-            "freundschaften": 19,
-            "freiheit_pct": 22,
-            "bmi_weltweit": 21.5,
-            "polarisierung_pct": 7
-          }
-        },
-        "chancen": {
-          "mental": "Engelbart's 'Mother of All Demos' (December 1968): Mouse, hypertext, video conference demonstrated - vision of networked collaborative computing for all;Internet visible for the first time as a tool for human collaboration.",
-          "koerper": "First heart transplant programs in mass production (1968 after Barnard's success) - survival rates increase;Organ transplantation as a clinical discipline is establishing itself.",
-          "gemeinschaft": "Olympic protest (October 1968): Tommie Smith and John Carlos — silent symbolic act reaches millions worldwide;collective protest through individual courage as a political language.",
-          "technologie": "Intel founded (July 1968): The company that will supply microprocessors for all computers, smartphones and AI chips — without Intel, no IBM PC, no iPhone, no ChatGPT."
-        }
       }
     },
     "1969": {
@@ -1127,34 +875,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erste Intensivstationen (ICU) mit elektronischem Vitalzeichen-Monitoring (1969) — kontinuierliche digitale Überwachung; Grundlage moderner Intensivmedizin und späterer Telemedizin.",
         "gemeinschaft": "Woodstock (August 1969): 400.000 Menschen, drei Tage Frieden — beweist, dass Gemeinschaft in großem Maßstab ohne staatliche Kontrolle funktioniert; kulturelles Gedächtnis für Generationen.",
         "technologie": "ARPANET erste Nachricht (29. Oktober 1969): Das Internet beginnt — dezentrales, paketvermitteltes Kommunikationsnetz; 50 Jahre später nutzen 5 Mrd. Menschen täglich seinen Nachfolger."
-      },
-      "en": {
-        "label": "Cold War & Space",
-        "ueberschrift": "Moon landing and ARPANET birth in the same year — humanity crosses two boundaries at once",
-        "welt": {
-          "usa": "On July 20, 1969, Armstrong and Aldrin set foot on the moon.In October, ARPANET sends the first message between UCLA and Stanford ('lo' — 'login' canceled due to system crash): The Internet begins.In August: Woodstock — 400,000 people, three days of peace.In June: Stonewall riots — LGBTQ liberation movement emerges.",
-          "china": "China and the USSR wage border skirmishes on the Ussuri River in March 1969 - the Sino-Soviet dispute becomes military.Nixon recognizes: China's alienation from the USSR is a geopolitical opportunity.The first signals for an approach begin.",
-          "alte_welt": "Willy Brandt becomes Chancellor in October 1969 - starts Ostpolitik.The 'Troubles' begin in Northern Ireland: decades-long conflict between unionists and nationalists.De Gaulle resigns after referendum defeat in April.",
-          "neue_welt": "Muammar Gaddafi staged a coup in Libya in September 1969 - nationalized oil and sent a signal to all of Africa.Brazil under military dictatorship deepens repression.First UN decolonization resolutions without enforceable consequences.",
-          "crypto": "ARPANET first message (October 29, 1969): The Internet is born — decentralized, packet-switched communications network.No money yet, no platforms yet, but the network of networks exists.In 1969, credit card transactions were processed entirely electronically between banks.",
-          "handel": "Moon landing as a technological trade promise: NASA technology becomes the basis of Teflon, imaging film, CAT scanners.ARPANET as a state-financed infrastructure: State invests, companies benefit later.Gaddafi nationalizes oil - first OPEC signal for 1973."
-        },
-        "gesellschaft": {
-          "text": "1969 is the year of two transgressive moments: the moon landing and the birth of ARPANET.Man leaves the earth.The net is ignited.Woodstock shows that a generation can embody a different world for a short time — before the systems return.1969 is the promise that will be fulfilled in 1995.",
-          "metriken": {
-            "screentime_std_tag": 1.7,
-            "freundschaften": 19,
-            "freiheit_pct": 23,
-            "bmi_weltweit": 21.6,
-            "polarisierung_pct": 7
-          }
-        },
-        "chancen": {
-          "mental": "Stonewall Riots (June 1969): LGBTQ liberation movement emerges - right to sexual identity articulated as a human right;Model for all later identity liberation movements worldwide.",
-          "koerper": "First intensive care units (ICU) with electronic vital signs monitoring (1969) — continuous digital monitoring;Basis of modern intensive care medicine and later telemedicine.",
-          "gemeinschaft": "Woodstock (August 1969): 400,000 people, three days of peace — proves that community functions on a large scale without government control;cultural memory for generations.",
-          "technologie": "ARPANET first message (October 29, 1969): The Internet begins — decentralized, packet-switched communications network;50 years later, 5 billion people use its successor every day."
-        }
       }
     },
     "1970": {
@@ -1184,34 +904,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erste Herzschrittmacher-Langzeitimplantate in Massenproduktion (ab 1970) — Millionen Menschen mit Herzproblemen leben durch externe Elektronik; biomedizinische Elektronik als normal anerkannt.",
         "gemeinschaft": "Earth Day (22. April 1970): 20 Mio. Amerikaner organisieren erste große Ökobewegung — Umweltschutz als gemeinschaftliche politische Kraft; UNEP folgt 1972.",
         "technologie": "IBM Floppy Disk (1970): Portable Datenspeicherung außerhalb des Computers — Grundlage für Software-Vertrieb, Datenübertragung und später USB-Sticks und Cloud-Storage."
-      },
-      "en": {
-        "label": "Oil Crisis & Counterculture",
-        "ueberschrift": "Kent State, Earth Day, Allende elected - state power, eco-consciousness and left-wing democracy as new forces",
-        "welt": {
-          "usa": "On May 4, 1970, the National Guard shot four students at Kent State University - Vietnam protest as a killing zone.The first Earth Day takes place in April with 20 million Americans on the streets.In December, Nixon founded the EPA — the world's first government environmental agency.",
-          "china": "Mao begins to initiate the end of the Cultural Revolution - first rehabilitations.China launches its first satellite (Dongfanghong-1) in April: sixth space nation.China's external isolation continues, but the first diplomatic signals to Nixon begin.",
-          "alte_welt": "Salvador Allende wins the presidential election in Chile in September 1970 - the world's first democratically elected Marxist head of state.Willy Brandt's kneeling in Warsaw (December 1970): historic gesture of humility that humanizes Eastern politics.",
-          "neue_welt": "Allende wins in Chile - Latin American left celebrates.The war ends in Biafra (January 1970): ~2 million dead from hunger and violence;Médecins Sans Frontières was founded in response (1971).Bangladesh's war of independence in preparation.",
-          "crypto": "In 1970, IBM introduced the first floppy disk — digital data storage outside of the computer.ARPANET grows to 15 nodes.The first SWIFT concepts for an international banking network are emerging in Europe.",
-          "handel": "Nixon prepares to end the gold peg of the dollar (completed August 1971) - Bretton Woods system is wobbling.IBM Floppy Disk enables portable software: 'Software as a product' concept emerges.Earth Day shows that the environment is becoming an economic regulation issue."
-        },
-        "gesellschaft": {
-          "text": "1970 shows that state violence against citizens is also real in democracies (Kent State).Earth Day organizes environmental awareness on a million-level scale.Allende in Chile: Marxism through the ballot - Attempt to democratically overcome capitalism.Willy Brandt's kneeling defines what a statesman can be.",
-          "metriken": {
-            "screentime_std_tag": 2,
-            "freundschaften": 19,
-            "freiheit_pct": 24,
-            "bmi_weltweit": 21.7,
-            "polarisierung_pct": 7
-          }
-        },
-        "chancen": {
-          "mental": "Kent State and Earth Day: Collective grief and collective hope in the same year — ecological consciousness as a new psychic home for a generation without war ideology.",
-          "koerper": "First long-term pacemaker implants in mass production (from 1970) - millions of people with heart problems live through external electronics;biomedical electronics recognized as normal.",
-          "gemeinschaft": "Earth Day (April 22, 1970): 20 million Americans organize first major eco-movement — environmental protection as a collective political force;UNEP follows in 1972.",
-          "technologie": "IBM Floppy Disk (1970): Portable data storage outside of the computer — basis for software distribution, data transfer and later USB sticks and cloud storage."
-        }
       }
     },
     "1971": {
@@ -1241,34 +933,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Intel 4004 (November 1971): Erster Mikroprozessor ermöglicht portable medizinische Geräte — MRT, CT-Scanner, später Insulinpumpen und tragbare EKG-Geräte entstehen aus dieser Grundlage.",
         "gemeinschaft": "E-Mail (Ray Tomlinson, 1971): Erste asynchrone digitale Kommunikation zwischen Menschen an verschiedenen Computern — Grundlage von Fernarbeit, globalen Gemeinschaften und dem ganzen Internet.",
         "technologie": "Intel 4004 (November 1971): Erster vollständiger Mikroprozessor auf einem Chip — Grundlage für alle späteren Computer, Smartphones, Server und KI-Chips; ohne ihn keine digitale Welt."
-      },
-      "en": {
-        "label": "Oil Crisis & Counterculture",
-        "ueberschrift": "First microprocessor, email invented, Nixon ends the gold standard — the digital world begins, the monetary system ends",
-        "welt": {
-          "usa": "On June 13, 1971, the NYT published the 'Pentagon Papers' - the US government covered up the Vietnam disaster for years.In August, Nixon ends the gold peg of the dollar ('Nixon shock'): Bretton Woods system ends.In November, Intel releases the 4004 — the world's first microprocessor.",
-          "china": "In October 1971, the People's Republic of China joins the UN, replacing Taiwan — geopolitical recognition of communist China.Lin Biao, Mao's designated successor, dies under mysterious circumstances in a plane crash in September.",
-          "alte_welt": "Bangladesh Liberation War (March–December 1971): ~300,000–3 million dead, India intervenes militarily.Bangladesh becomes independent.Willy Brandt's Ostpolitik brings a basic agreement with the GDR.",
-          "neue_welt": "Bangladesh's war of liberation is the humanitarian disaster of the year.Médecins Sans Frontières (MSF) was founded in December 1971 in response to Biafra and Bangladesh — humanitarian aid without government control.Idi Amin staged a coup in Uganda (January 1971).",
-          "crypto": "Intel 4004 (November 1971): First microprocessor — all computing operations on one chip.Email Invented (Ray Tomlinson, 1971): First @ between two computers.Two inventions in the same year that together make the Internet possible.",
-          "handel": "Nixon shock (August 1971): Gold standard ends, dollar becomes fiat currency - government monetary policy without gold backing.First international bank card transfers (VISA predecessor).Intel chip democratizes computing power: technology becomes cheaper and more accessible."
-        },
-        "gesellschaft": {
-          "text": "1971 is the year in which the foundations of the digital world were laid.Email, the microprocessor, the end of the gold standard — three events that will shape the next 50 years.Pentagon Papers show: Governments lie systematically.The mistrust that later enables Trump and post-truth begins here.",
-          "metriken": {
-            "screentime_std_tag": 2,
-            "freundschaften": 18,
-            "freiheit_pct": 25,
-            "bmi_weltweit": 21.8,
-            "polarisierung_pct": 7
-          }
-        },
-        "chancen": {
-          "mental": "MSF founded (December 1971): Humanitarian aid without state control as a principle - NGO model that later saves millions of lives;civil society's ability to act beyond states.",
-          "koerper": "Intel 4004 (November 1971): First microprocessor enables portable medical devices - MRI, CT scanners, later insulin pumps and portable ECG devices emerge from this basis.",
-          "gemeinschaft": "Email (Ray Tomlinson, 1971): First asynchronous digital communication between people on different computers — foundation of remote work, global communities and the entire Internet.",
-          "technologie": "Intel 4004 (November 1971): First complete microprocessor on a chip — basis for all later computers, smartphones, servers and AI chips;without him there would be no digital world."
-        }
       }
     },
     "1972": {
@@ -1298,34 +962,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erste systematische Krebsforschungsprogramme (National Cancer Act, USA, 1971 → Umsetzung 1972) — staatlich finanzierte Krebsforschung als Programm; spätere Immuntherapien entstehen aus dieser Grundlage.",
         "gemeinschaft": "Stockholm-Konferenz (Juni 1972): Erste globale UN-Umweltkonferenz — UNEP als multilaterale Institution für Planetenschutz; Vorbild für alle späteren Klimakonferenzen.",
         "technologie": "ARPANET international (London/Norwegen, 1972): Netzwerk überschreitet erstmals staatliche Grenzen — Internet als globale, nicht nationale Infrastruktur als Konzept belägt."
-      },
-      "en": {
-        "label": "Oil Crisis & Counterculture",
-        "ueberschrift": "Watergate, Nixon in China, limits to growth - institutions under pressure, planetary ecology as a new reality",
-        "welt": {
-          "usa": "In June 1972, Nixon employees were caught in the Watergate break-in - the beginning of the largest US constitutional scandal.In February, Nixon visits China - Shanghai Communiqué: USA recognizes One China Principle.In September, eleven Israeli athletes died in the Munich Olympic massacre.",
-          "china": "Nixon visits China in February 1972 - Mao and Zhou Enlai receive him.China's western opening begins as a tactical counterweight to the USSR.Externally confident, internally still in the aftermath of the Cultural Revolution.",
-          "alte_welt": "Stockholm Environmental Conference (June 1972): First UN conference on global environmental protection — UNEP founded.ARPANET reaches London and Norway — international network.'Limits to Growth' (Club of Rome) is published.",
-          "neue_welt": "Munich Olympic massacre (September 1972): Eleven Israeli athletes murdered by Palestinian terrorists - international terrorism as a global security problem.Uganda: Idi Amin expels 60,000 Asians.",
-          "crypto": "Pong (Atari, November 1972): First successful commercial computer game - entertainment through digital technology as a mass phenomenon.Freedom House publishes first annual report.ARPANET goes international for the first time.",
-          "handel": "'Limits to Growth' (Club of Rome, 1972): First systemic argument against unlimited economic growth.Nixon in China opens trade channels.ARPANET international: Digital network crosses national borders for the first time."
-        },
-        "gesellschaft": {
-          "text": "1972 is Watergate, the Olympic massacre, the Stockholm Conference and Nixon-China all in one year.Club of Rome puts it: Growth has limits - no politician takes it seriously.Pong shows: Digital entertainment is a market.For the first time, Freedom House systematically measures: How much freedom is there in the world?",
-          "metriken": {
-            "screentime_std_tag": 2,
-            "freundschaften": 18,
-            "freiheit_pct": 29,
-            "bmi_weltweit": 21.9,
-            "polarisierung_pct": 8
-          }
-        },
-        "chancen": {
-          "mental": "'Limits to Growth' (Club of Rome, 1972): First systemic ecology thesis - opens the question of whether sustained growth is psychologically and physically healthy;Foundation of the sustainability debate.",
-          "koerper": "First systematic cancer research programs (National Cancer Act, USA, 1971 → implementation 1972) - government-funded cancer research as a program;later immunotherapies arise from this basis.",
-          "gemeinschaft": "Stockholm Conference (June 1972): First global UN environmental conference - UNEP as a multilateral institution for planetary protection;Model for all later climate conferences.",
-          "technologie": "ARPANET international (London/Norway, 1972): Network crosses national borders for the first time - Internet as a global, not national infrastructure as a concept besieged."
-        }
       }
     },
     "1973": {
@@ -1355,34 +991,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erste MRT-Scans am Menschen (Raymond Damadian, 1973) — Diagnose ohne Röntgenstrahlung; Grundlage aller modernen bildgebenden Verfahren in der Medizin.",
         "gemeinschaft": "OPEC-Gründungserfolg 1973: Erste kollektive wirtschaftliche Gegenmacht des Globalen Südens — zeigt, dass kooperative Ressourcenkontrolle mächtigen Staaten standhalten kann.",
         "technologie": "TCP-Konzept (Vint Cerf und Bob Kahn, Mai 1974): Grundlage des Internet-Protokolls — alle Computer können miteinander kommunizieren, unabhängig von Hersteller oder System."
-      },
-      "en": {
-        "label": "Oil Crisis & Counterculture",
-        "ueberschrift": "Oil crisis, Pinochet coup, first mobile phone - raw material power, state power and communication renegotiated",
-        "welt": {
-          "usa": "On January 22, 1973, the Supreme Court decided Roe v.Wade: Abortion rights are constitutionally protected.In October, OPEC starts an oil embargo against the USA - gasoline prices double in weeks.Nixon-Watergate: Special Counsel Cox is caught in the 'Saturday Night Massacre' (October).In October 1973: First cell phone call (Motorola, New York).",
-          "china": "Deng Xiaoping was rehabilitated in 1973 and returned to leadership after years in a re-education camp.China's economic data is disastrous after Cultural Revolution.Deng secretly begins to develop reform plans.",
-          "alte_welt": "The Yom Kippur War begins in October 1973 - Egypt and Syria surprise Israel.The OPEC oil embargo follows: Western Europe and Japan become oil dependent.In Chile, the military under Pinochet staged a coup on September 11, 1973 - Allende died, US-supported coup.",
-          "neue_welt": "Chile coup (September 11, 1973): Allende dies in the presidential palace.OPEC oil embargo shows: Raw material sovereignty of the Global South has teeth - first successful economic counterattack against the West.First cell phone conversation (Motorola, April 3, 1973).",
-          "crypto": "SWIFT founded (1973): Global banking network for electronic transfers — foundation of the international financial system to this day.First cell phone conversation (April 3, 1973): Telecommunications without cables as a reality.",
-          "handel": "OPEC oil embargo (October 1973): First demonstration that raw material power is a geopolitical weapon.SWIFT foundation: Electronic banking network as a global trading infrastructure.Pinochet coup: US support shows - market economy beats democracy in US foreign policy."
-        },
-        "gesellschaft": {
-          "text": "1973 is the year in which the liberal post-war order collapses on three fronts simultaneously: OPEC shock, Chile coup, Watergate.The first mobile phone and SWIFT were created in the same year.Roe v.Wade opens a culture war that will not yet be decided in 2022.",
-          "metriken": {
-            "screentime_std_tag": 2.2,
-            "freundschaften": 18,
-            "freiheit_pct": 29,
-            "bmi_weltweit": 22,
-            "polarisierung_pct": 8
-          }
-        },
-        "chancen": {
-          "mental": "First cell phone (Motorola, April 3, 1973): communication without spatial ties - social accessibility regardless of location;Model for all later forms of connection.",
-          "koerper": "First MRI scans on humans (Raymond Damadian, 1973) — diagnosis without X-rays;Basis of all modern imaging procedures in medicine.",
-          "gemeinschaft": "OPEC's founding success in 1973: First collective economic countervailing power in the Global South - shows that cooperative resource control can withstand powerful states.",
-          "technologie": "TCP concept (Vint Cerf and Bob Kahn, May 1974): Basis of the Internet protocol — all computers can communicate with each other, regardless of manufacturer or system."
-        }
       }
     },
     "1974": {
@@ -1412,34 +1020,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erste CT-Scanner im klinischen Einsatz (1973/74 in UK und USA) — Röntgen-Querschnitte des Körpers; Diagnose ohne Operation revolutioniert Medizin.",
         "gemeinschaft": "Watergate-Aufklärung: Institutionelle Selbstkorrektur durch Presse, Kongress und Gerichte — Zivilgesellschaft als Kontrollmechanismus für Staatsmacht; später Modell für Investigativjournalismus weltweit.",
         "technologie": "TCP-Protokoll (Cerf/Kahn, Mai 1974): Offenes Internet-Protokoll für alle Computer — kein Patent, kein Eigentümer; Geschenk an die Menschheit wie später WWW und Linux."
-      },
-      "en": {
-        "label": "Oil Crisis & Counterculture",
-        "ueberschrift": "Nixon resigns, TCP protocol published, Carnation Revolution — institutional loss of trust as a global phenomenon",
-        "welt": {
-          "usa": "On August 9, 1974, Nixon resigned - the first and only US president to date.Gerald Ford immediately pardons Nixon: 'Our national nightmare scene is over.'Stagflation (inflation + recession) as the new economic reality.Vint Cerf and Bob Kahn publish TCP concept in May.",
-          "china": "In 1974, Mao Zedong was already physically weak.Deng Xiaoping worked cautiously on economic reforms but was overthrown again in 1976.China is struggling with economic stagnation after the Cultural Revolution — but hope for change is emerging.",
-          "alte_welt": "In Portugal, the 'Carnation Revolution' ended the Salazar dictatorship after 48 years in April 1974 - a peaceful military coup for democracy.Greek military junta falls in July 1974. Europe's south democratizes in just a few years.",
-          "neue_welt": "India tests its first atomic bomb ('Smiling Buddha') on May 18, 1974 - fourth nuclear test without NPT membership.Ethiopia: Haile Selassie overthrown in September 1974, Marxist military government takes over.African decolonization is accelerating.",
-          "crypto": "TCP concept (Vint Cerf/Bob Kahn, May 1974): Foundation of the Internet protocol published — all computers can communicate with each other.Altair 8800 in development: First personal computer as a kit appears in January 1975.",
-          "handel": "Nixon's resignation shakes trust in US institutions worldwide.Stagflation: Keynesianism has no answer — clearing the way for neoliberalism (Thatcher 1979, Reagan 1980).TCP concept enables heterogeneous networks: basis for open Internet without central owner."
-        },
-        "gesellschaft": {
-          "text": "1974 is the year of institutional erosion.Nixon's resignation proves that even those in power must bow to the law.Portugal's Carnation Revolution shows that dictatorships can end with their own military.TCP concept lays the foundation for a network of all networks that belongs to no one.",
-          "metriken": {
-            "screentime_std_tag": 2.2,
-            "freundschaften": 18,
-            "freiheit_pct": 26,
-            "bmi_weltweit": 22,
-            "polarisierung_pct": 9
-          }
-        },
-        "chancen": {
-          "mental": "Carnation Revolution Portugal (April 1974): Peaceful change through its own population - proves that democratization is possible without external intervention;Signal of hope for all later democratic movements.",
-          "koerper": "First CT scanners in clinical use (1973/74 in UK and USA) - X-ray cross-sections of the body;Diagnosis without surgery is revolutionizing medicine.",
-          "gemeinschaft": "Watergate Enlightenment: Institutional Self-Correction by the Press, Congress and Courts - Civil Society as a Control Mechanism for State Power;later model for investigative journalism worldwide.",
-          "technologie": "TCP protocol (Cerf/Kahn, May 1974): Open Internet protocol for all computers - no patent, no ownership;Gift to humanity like the later WWW and Linux."
-        }
       }
     },
     "1975": {
@@ -1469,34 +1049,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erste Impfpflicht-Programme für Kinder weltweit (EPI, WHO, 1974/75): Massenimpfung als globales Gesundheitsziel institutionalisiert; Kinderüberleben steigt global.",
         "gemeinschaft": "Helsinki-Schlussakte: Menschenrechte als völkerrechtliche Verpflichtung — Grundlage für Charta 77, Solidarność und alle späteren Demokratiebewegungen in Osteuropa.",
         "technologie": "Altair 8800 (Januar 1975): Erster Personal Computer als Bausatz — Computing verlasst das Rechenzentrum; Software als eigenständiges Produkt entsteht. Microsofts Geschäftsmodell: Software für jeden Computer."
-      },
-      "en": {
-        "label": "Oil Crisis & Counterculture",
-        "ueberschrift": "Saigon falls, Microsoft founded, Khmer Rouge — imperial defeat and digital birth in the same year",
-        "welt": {
-          "usa": "On April 30, 1975, Saigon falls - the last US helicopter leaves the embassy;Vietnam is united under communist rule.In April, Bill Gates and Paul Allen founded Microsoft in Albuquerque.Cambodia falls to the Khmer Rouge.",
-          "china": "In 1975, Mao Zedong was physically weak.Zhou Enlai dies in January 1976 (preparation 1975).Deng Xiaoping worked on economic reforms but was overthrown again in 1976.China prepares for Mao's death - power vacuum arises.",
-          "alte_welt": "Helsinki Final Act (August 1975): CSCE Conference — binding human rights obligations for Eastern Bloc countries signed for the first time.First tear in the Iron Curtain through international law.Spain: Franco dies in November 1975.",
-          "neue_welt": "Khmer Rouge takes over Cambodia (April 1975) — beginning of one of the worst genocides of the 20th century (~2 million dead).Angola Civil War begins (November 1975) after Portuguese withdrawal.Mozambique and Angola become independent.",
-          "crypto": "Altair 8800 (January 1975, Popular Electronics cover story): First personal computer as a kit for $439.Gates and Allen write BASIC for this: software for hobbyists as the first market.Microsoft founded (April 1975) as a pure software company.",
-          "handel": "End of the Vietnam War costs ~$150 billion and US military credibility.Microsoft founded: Software emerges as an independent business model independent of hardware.Helsinki: Eastern bloc countries are opening up to minimal Western influence."
-        },
-        "gesellschaft": {
-          "text": "In 1975, a war ends (Vietnam) and a company begins (Microsoft) in the same year.One costs the lives of ~58,000 US soldiers.The other is changing how billions of people work.Cambodia shows that genocides can take place with impunity in the blind spots of the superpowers.",
-          "metriken": {
-            "screentime_std_tag": 2.5,
-            "freundschaften": 18,
-            "freiheit_pct": 25,
-            "bmi_weltweit": 22.1,
-            "polarisierung_pct": 9
-          }
-        },
-        "chancen": {
-          "mental": "Helsinki Final Act (August 1975): Dissidents in the Eastern Bloc invoke human rights clauses — international law as a personal shield;first legal basis for civil rights activism under communism.",
-          "koerper": "First compulsory vaccination programs for children worldwide (EPI, WHO, 1974/75): mass vaccination institutionalized as a global health goal;Child survival is increasing globally.",
-          "gemeinschaft": "Helsinki Final Act: Human rights as an obligation under international law — basis for Charter 77, Solidarity and all subsequent democratic movements in Eastern Europe.",
-          "technologie": "Altair 8800 (January 1975): First personal computer as a kit - computing leaves the data center;Software emerges as an independent product.Microsoft's business model: software for every computer."
-        }
       }
     },
     "1976": {
@@ -1526,34 +1078,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erste Ebola-Epidemie (Zaire, 1976) — neues Virus wissenschaftlich identifiziert und eingedämmt; zeigt, dass öffentliche Gesundheitssysteme schnell auf neue Bedrohungen reagieren können.",
         "gemeinschaft": "Charta 77 (Tschechoslowakei, Vorvorbereitung 1976): Dissidenten-Netzwerk beruft sich auf Helsinki — Zivilgesellschaft unter Diktatur als formlose Gemeinschaft des Widerstands.",
         "technologie": "Apple I (April 1976): Erster Computer für Bastler und Hobbyisten — Computing beginnt das Rechenzentrum zu verlassen; zwei Jahre später Apple II als echter Massenmarkt."
-      },
-      "en": {
-        "label": "Oil Crisis & Counterculture",
-        "ueberschrift": "Mao dies, Apple founded, Soweto — the old China ends, the digital consumer revolution begins",
-        "welt": {
-          "usa": "USA celebrates Bicentennial (200 years, July 1976).Jimmy Carter wins the presidential election.In April, Steve Jobs, Steve Wozniak and Ronald Wayne founded Apple Computer - the first computer for private individuals as a vision.",
-          "china": "Mao Zedong dies on September 9, 1976 — end of an era.Zhou Enlai died in January.The 'Gang of Four' is arrested in October 1976: Hua Guofeng takes over.Deng Xiaoping waits for his moment - is rehabilitated in 1977.",
-          "alte_welt": "Portugal and Spain (after Franco's death in 1975) continue to democratize.First free elections in Spain since 1936 (prepared for June 1977).GDR: Dissidents refer to Helsinki.Czech Charter 77 in preparation.",
-          "neue_welt": "Soweto uprising (June 16, 1976): Black students protest against Afrikaans being made a compulsory language - police shoot students;Global outrage, Hector Pieterson photo goes around the world.Angola: Cubans and Soviet advisors vs. US-backed UNITA.",
-          "crypto": "Apple I Computer (April 1976, for $666.66): Personal, caseless computer kit for hobbyists.VHS format introduced by JVC (September 1976): VCR as consumer tool — first 'home media' revolution.",
-          "handel": "Mao's death opens China to reforms - Deng waits and plans.Apple founded: personal computer for consumers as a vision.VHS vs. Betamax: First big format war shows that network effects decide on quality."
-        },
-        "gesellschaft": {
-          "text": "Mao's death and Apple's founding in the same year — an era of state control ends, an era of technological empowerment begins.Soweto shows: education as a political battleground;Students as political actors.Apple I: The computer leaves the data center and enters the living room.",
-          "metriken": {
-            "screentime_std_tag": 2.5,
-            "freundschaften": 18,
-            "freiheit_pct": 26,
-            "bmi_weltweit": 22.2,
-            "polarisierung_pct": 9
-          }
-        },
-        "chancen": {
-          "mental": "Soweto uprising (June 16, 1976): Young people visible worldwide as political actors - youth as a motor of change;Hector Pieterson photo as a symbol of collective pain and resistance.",
-          "koerper": "First Ebola epidemic (Zaire, 1976) — new virus scientifically identified and contained;shows that public health systems can respond quickly to new threats.",
-          "gemeinschaft": "Charter 77 (Czechoslovakia, preliminary preparation 1976): Dissident network invokes Helsinki - civil society under dictatorship as an informal community of resistance.",
-          "technologie": "Apple I (April 1976): First computer for tinkerers and hobbyists — computing begins to leave the data center;two years later Apple II as a real mass market."
-        }
       }
     },
     "1977": {
@@ -1583,34 +1107,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erster Glasfaserkabel-Test (Chicago, 1977): Licht als Datenthräger — Grundlage aller späteren Hochgeschwindigkeits-Internetnetzwerke; ohne Glasfaser kein globales Internet.",
         "gemeinschaft": "Amnesty International gewinnt Friedensnobelpreis 1977: Menschenrechte als universelles Gemeinschaftsprojekt globaler Bürgergesellschaft — NGO-Legitimation auf höchster Ebene.",
         "technologie": "Apple II (Juni 1977): Erster massenproduzierter Personal Computer mit Farbgrafik und Steckkarten-Erweiterbarkeit — Plattform-Prinzip: Ein Computer, viele Anwendungen durch Software."
-      },
-      "en": {
-        "label": "Oil Crisis & Counterculture",
-        "ueberschrift": "Apple II, Star Wars, the first fiber optics - personal computers and pop culture as new mass phenomena",
-        "welt": {
-          "usa": "In May 1977, Star Wars was released - a cultural phenomenon that defined the blockbuster economy.Coming in June is the Apple II — the first mass-produced personal computer with color graphics ($1,298).Jimmy Carter announces Camp David mediation.",
-          "china": "Deng Xiaoping is rehabilitated again in July 1977 — beginning his return to power.China's universities are reopening.The first students go to western countries.Deng is planning his reform program.",
-          "alte_welt": "The first free elections since 1936 took place in Spain in June 1977 - democracy returned after 40 years.First fiber optic telephone cable test (Chicago Bell Telephone, 1977): light as a data carrier.First satellite television experiments in Europe.",
-          "neue_welt": "Ethiopia: Derg regime wages 'Red Terror' - thousands of students and opposition members murdered.Sandinista resistance to Somoza is growing in Nicaragua.Siad Barre in Somalia claims Ogaden region — Ethiopian war 1977/78.",
-          "crypto": "Apple II (June 1977): First mass-produced personal computer with color graphics — opens computing to individuals, schools, small businesses.VisiCalc in development (released in 1979): First spreadsheet software.",
-          "handel": "Apple II makes personal computing suitable for the masses - a new market for software and hardware beyond companies.Star Wars merchandising: First systematic franchise exploitation as a business model.First fiber optic cables: Data infrastructure begins to physically change."
-        },
-        "gesellschaft": {
-          "text": "1977 is the year in which computers and cinema became democratized.Apple II turns computing into a consumer product.Star Wars turns blockbuster cinema into an industry.Deng rehabilitated - China is waiting for its moment.The world in 1977 does not yet know that these three stories are connected.",
-          "metriken": {
-            "screentime_std_tag": 2.7,
-            "freundschaften": 18,
-            "freiheit_pct": 26,
-            "bmi_weltweit": 22.3,
-            "polarisierung_pct": 10
-          }
-        },
-        "chancen": {
-          "mental": "Spain's democratization (1977): Social transition without civil war — modello for 'negotiated transition';psychological: collective coming to terms with the past through institutional change.",
-          "koerper": "First fiber optic cable test (Chicago, 1977): Light as a data carrier - the basis of all later high-speed Internet networks;without fiber optics there is no global internet.",
-          "gemeinschaft": "Amnesty International wins Nobel Peace Prize 1977: Human rights as a universal joint project of global civil society - NGO legitimacy at the highest level.",
-          "technologie": "Apple II (June 1977): First mass-produced personal computer with color graphics and plug-in card expandability - platform principle: one computer, many applications through software."
-        }
       }
     },
     "1978": {
@@ -1640,34 +1136,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "In-vitro-Fertilisation (Louise Brown, Juli 1978): Erste erfolgreiche IVF-Geburt — Fortpflanzungsmedizin als eigenes Feld; später Millionen Kinder weltweit durch IVF.",
         "gemeinschaft": "Camp David (September 1978): Ägypten und Israel schließen Frieden — zeigt, dass erzfeindliche Staaten durch Mediation Frieden schließen können; Modell für Oslo 1993.",
         "technologie": "Erste Spam-E-Mail (Mai 1978): Unbeabsichtigt zeigt sie, dass E-Mail-Kommunikation skalierbar ist — 400 Empfänger mit einem Klick; Grundlage für Marketing, Newsletter und später alle Massen-Kommunikationstools."
-      },
-      "en": {
-        "label": "Oil Crisis & Counterculture",
-        "ueberschrift": "Camp David, the first test-tube baby, Deng's reforms - diplomacy and biology cross new frontiers",
-        "welt": {
-          "usa": "In September 1978, Carter signed the Camp David Accord between Egypt and Israel — the largest Middle East peace treaty in history.The first test tube baby (Louise Brown, UK) is born in July.First spam email in history (May 1978).",
-          "china": "In December 1978, the 3rd Plenum of the 11th Central Committee Congress passed Deng's 'Four Modernizations' - the beginning of China's economic opening.Agricultural decentralization, special economic zones planned.China is abandoning the Maoist economic path.",
-          "alte_welt": "In October 1978, John Paul II became the first non-Italian pope in 455 years - Polish pope as a signal to Eastern Europe.Camp David: Begin and Sadat agree on Egypt-Israel peace — Carter's greatest foreign policy success.",
-          "neue_welt": "The communist DVPA staged a coup in Afghanistan in April 1978 - the Saur Revolution.Soviet intervention planned.Nicaragua: Sandinistas strengthen resistance against Somoza.Iran: Ayatollah Khomeini in exile forms his resistance against the Shah.",
-          "crypto": "First spam email (Gary Thuerk, Digital Equipment Corp, May 3, 1978, 400 ARPANET recipients): The Internet has its first unexpected content.Commodore PET and Apple II dominate personal computer market.The first ATM networks between banks are created.",
-          "handel": "Camp David: Egypt becomes a US ally, receives billions in US aid.Deng's 'Four Modernizations': China's integration into the world market begins.The first spam shows that the open network can be misused - the spam filter industry will emerge later."
-        },
-        "gesellschaft": {
-          "text": "1978 shows three transitions: Camp David (diplomacy over decades of conflict), Louise Brown (biology over natural boundaries), and Deng's Opening (communism with capitalist tools).John Paul II becomes Pope — a Pole who will transform Eastern Europe.",
-          "metriken": {
-            "screentime_std_tag": 2.7,
-            "freundschaften": 18,
-            "freiheit_pct": 27,
-            "bmi_weltweit": 22.4,
-            "polarisierung_pct": 10
-          }
-        },
-        "chancen": {
-          "mental": "First test-tube baby (Louise Brown, July 1978): IVF opens up parenthood for millions of infertile couples - biological boundaries of the family are shifting;global IVF industry emerges.",
-          "koerper": "In-vitro fertilization (Louise Brown, July 1978): First successful IVF birth - reproductive medicine as a separate field;later millions of children worldwide through IVF.",
-          "gemeinschaft": "Camp David (September 1978): Egypt and Israel make peace — shows that arch-enemy states can make peace through mediation;Model for Oslo 1993.",
-          "technologie": "First spam email (May 1978): Unintentionally shows that email communication is scalable — 400 recipients with one click;Basis for marketing, newsletters and later all mass communication tools."
-        }
       }
     },
     "1979": {
@@ -1697,34 +1165,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Smallpox (Pocken) offiziell eradiziert (WHO, Mai 1980 bestätigt, letzter Fall Oktober 1977): Erste Krankheit der Menschheitsgeschichte, die durch globale Impfkooperation vollständig beseitigt wurde.",
         "gemeinschaft": "Sandinisten-Sieg Nicaragua (Juli 1979): Volksrevolution ohne Sowjet-Unterstützung — zeigt, dass politischer Wandel von innen möglich ist; Alphabetisierungskampagne danach als globales Modell.",
         "technologie": "Sony Walkman (Juli 1979): Erste personalisierte portable Mediendevice — Musik überall, immer; Grundlage des Konzepts 'personal media' das alle späteren iPods, Spotify und Podcast-Player prägt."
-      },
-      "en": {
-        "label": "Oil Crisis & Counterculture",
-        "ueberschrift": "Iranian revolution, Thatcher, Walkman - neoliberalism and Islamic fundamentalism start at the same time",
-        "welt": {
-          "usa": "In January 1979, the Shah of Iran fled - Khomeini returned.In November, 52 US diplomats are taken hostage in Iran (444 days).In December the USSR invades Afghanistan.Margaret Thatcher became Prime Minister in May 1979.",
-          "china": "China wages a short border war against Vietnam in February 1979 - 'punitive action'.Deng Xiaoping visits the USA in January 1979 — normalization of Sino-American relations.First special economic zones (Shenzhen) decided.",
-          "alte_welt": "Margaret Thatcher became Prime Minister on May 4, 1979 - neoliberalism as a government program: privatizations, union cuts, deregulation.Second oil shock caused by Iran revolution, oil prices double again.European monetary system starts in March.",
-          "neue_welt": "Islamic Revolution Iran (February 1979) — Khomeini replaces pro-Western Shah with theocracy.Sandinistas win in Nicaragua (July 1979).Idi Amin falls in Uganda (April) after Tanzanian intervention.Pakistan: Bhutto executed, Zia ul-Haq consolidates power.",
-          "crypto": "Sony Walkman (July 1979): First 'personal media device' — personalized audio experience in your pocket;direct predecessor of iPod and Spotify.VisiCalc (October 1979): First spreadsheet software for Apple II — 'killer app' before its time.",
-          "handel": "Thatcher Revolution: State-owned companies privatized, capital controls abolished - neoliberalism as economic policy.Second oil shock: Western economies under pressure.VisiCalc: Software makes hardware worth buying - the 'software first' business model emerges."
-        },
-        "gesellschaft": {
-          "text": "1979 is the year in which two competing visions of the post-1945 order emerge simultaneously: Thatcher's neoliberalism and Khomeini's Islamism — both opposed to the postwar consensus, both successful.The Walkman shows that personalization will be the principle of the next 40 years.",
-          "metriken": {
-            "screentime_std_tag": 2.7,
-            "freundschaften": 18,
-            "freiheit_pct": 26,
-            "bmi_weltweit": 22.4,
-            "polarisierung_pct": 11
-          }
-        },
-        "chancen": {
-          "mental": "VisiCalc (October 1979): Spreadsheet enables financial planning for small businesses and individuals - self-control of one's finances as a new empowerment.",
-          "koerper": "Smallpox (smallpox) officially eradicated (WHO, May 1980 confirmed, last case October 1977): First disease in human history to be completely eliminated through global vaccination cooperation.",
-          "gemeinschaft": "Sandinista victory Nicaragua (July 1979): popular revolution without Soviet support — shows that political change from within is possible;Literacy campaign afterwards as a global model.",
-          "technologie": "Sony Walkman (July 1979): First personalized portable media device — music everywhere, always;Basis of the 'personal media' concept that characterizes all later iPods, Spotify and podcast players."
-        }
       }
     },
     "1980": {
@@ -1754,34 +1194,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Pocken offiziell eradiziert (WHO, Mai 1980): Erste erfolgreiche globale Krankheits-Elimination — Blaupause für Polio, Masern und zukünftige Impfprogramme.",
         "gemeinschaft": "CNN (Juni 1980): Erstes globales 24-Stunden-Nachrichtenfernsehen — Welt sieht dieselben Bilder gleichzeitig; Grundlage der globalen Öffentlichkeit für alle späteren Medien.",
         "technologie": "IBM PC-Announcement (1980): Standard-Hardware-Plattform für Personal Computing — offene Architektur ermöglicht Klon-Industrie; PC wird zum universellen Arbeitsgerät."
-      },
-      "en": {
-        "label": "PC Revolution",
-        "ueberschrift": "Reagan, CNN, Solidarity — media power, market economy and civil society as new promises of salvation",
-        "welt": {
-          "usa": "In November 1980, Ronald Reagan won with 489 electoral votes.CNN launches in June 1980 — the first 24-hour news television.The Iran-Iraq war begins in September.IBM announces its first PC.Lennon is shot dead in December.",
-          "china": "Deng Xiaoping opened the first four special economic zones in August 1980 - Shenzhen, Zhuhai, Shantou, Xiamen.'China opens up but under control' is the principle.The first foreign direct investments arrive.",
-          "alte_welt": "Solidarity strike wave in Poland (August/September 1980) - 10 million members within weeks;Civil society against communism.Tito dies in May 1980 - Yugoslavia's slow-motion disintegration begins.CNN is changing global media infrastructure.",
-          "neue_welt": "Iran-Iraq War (September 1980–1988): Saddam Hussein attacks - USA initially supports Iraq.Zimbabwe becomes independent under Mugabe (April 1980).Latin America: Reagan administration supports right-wing military regimes.",
-          "crypto": "IBM announces first PC (official August 1981, preparation 1980): MS-DOS as operating system - Microsoft becomes standard operating system supplier through IBM contract.Pac-Man appears (October 1980): video games as a mass phenomenon.",
-          "handel": "Reagan's election victory: tax cuts, deregulation, military buildup.CNN is changing the news market: private 24-hour television as a new media infrastructure.Deng's Special Economic Zones: First major state-controlled foreign direct investment in China."
-        },
-        "gesellschaft": {
-          "text": "1980 is the year that neoliberalism comes to power.CNN launches: 24/7 news is changing how crises are experienced.Solidarity shows that civil society can challenge communist systems.IBM PC in preparation.All four developments will change the world in the next 40 years.",
-          "metriken": {
-            "screentime_std_tag": 3,
-            "freundschaften": 18,
-            "freiheit_pct": 32,
-            "bmi_weltweit": 22.5,
-            "polarisierung_pct": 11
-          }
-        },
-        "chancen": {
-          "mental": "Solidarity (1980): Ten million people organize for freedom under repression - collective resilience as a social force;psychological teaching: community protects against state isolation.",
-          "koerper": "Smallpox officially eradicated (WHO, May 1980): First successful global disease elimination — blueprint for polio, measles and future vaccination programs.",
-          "gemeinschaft": "CNN (June 1980): First global 24-hour news television — world sees the same images at the same time;Basis of the global public for all later media.",
-          "technologie": "IBM PC Announcement (1980): Standard hardware platform for personal computing — open architecture enables cloning industry;PC is becoming a universal work tool."
-        }
       }
     },
     "1981": {
@@ -1811,34 +1223,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "AIDS-Diagnose (1981): Neue Krankheit wissenschaftlich identifiziert — mobilisiert LGBT-Community zu Selbstorganisation; ACT UP später als Vorbild für Patienten-Aktivismus weltweit.",
         "gemeinschaft": "IBM PC (August 1981): Personal Computing demokratisiert Informationsverarbeitung — jedes Büro, jede Schule, jedes Zuhause kann Computer nutzen; Grundlage der digitalen Gesellschaft.",
         "technologie": "IBM PC (August 1981): Standard-Plattform — MS-DOS als universelles Betriebssystem; offene Architektur ermöglicht Drittanbieter-Software und -Hardware; Grundlage des PC-Marktes."
-      },
-      "en": {
-        "label": "PC Revolution",
-        "ueberschrift": "AIDS recognized, IBM PC, MTV - body, computer and culture as simultaneous crises and opportunities",
-        "welt": {
-          "usa": "On June 5, 1981, the CDC first reported AIDS-like symptoms in five gay men in Los Angeles.The IBM PC will be released on August 12th.On August 1st, MTV launches 'Video Killed the Radio Star'.Reagan is inaugurated in January, shot in March and survives.",
-          "china": "China's economy is growing ~7% despite the consequences of the Cultural Revolution.Deng consolidates power.The first joint ventures with Western companies emerge.'Socialism with Chinese characteristics' is established as a formula.",
-          "alte_welt": "In December 1981, Poland's General Jaruzelski declared martial law - Solidarity temporarily broken.Greece joins the EEC (January 1981).Anwar Sadat is assassinated in Cairo in October - Price for Camp David.",
-          "neue_welt": "Sadat assassination (October 1981): Prize for Peace with Israel;Mubarak ruled Egypt repressively for 30 years.El Salvador and Guatemala: US-funded civil wars escalate.African hunger crisis in the Sahel.",
-          "crypto": "IBM PC (August 1981): Standardized personal computing with MS-DOS.MTV (August 1, 1981): First broadcast 'Video Killed the Radio Star' - music industry becomes visual;first content platform logic.",
-          "handel": "IBM PC: Open hardware architecture enables clone industry - Compaq, Dell emerge later.Microsoft secures operating system rights without an exclusive IBM commitment: biggest deal in PC history.AIDS: Invisible epidemic without government response."
-        },
-        "gesellschaft": {
-          "text": "1981 brings three crises in one year: AIDS (body), IBM PC (work), Solidarność dismantling (civil society).MTV shows: Music becomes visual and commercial.Reagan begins the largest national debt in US history through tax cuts and military buildup.",
-          "metriken": {
-            "screentime_std_tag": 3,
-            "freundschaften": 17,
-            "freiheit_pct": 33,
-            "bmi_weltweit": 22.6,
-            "polarisierung_pct": 11
-          }
-        },
-        "chancen": {
-          "mental": "MTV (August 1, 1981): Music videos as an art form and counterculture - first platform to globalize youth culture;Basis of the later YouTube aesthetic.",
-          "koerper": "AIDS diagnosis (1981): New disease scientifically identified - mobilizes LGBT community to self-organize;ACT UP later served as a model for patient activism worldwide.",
-          "gemeinschaft": "IBM PC (August 1981): Personal computing democratizes information processing — every office, every school, every home can use computers;Foundation of the digital society.",
-          "technologie": "IBM PC (August 1981): Standard platform - MS-DOS as a universal operating system;open architecture enables third-party software and hardware;Basis of the PC market."
-        }
       }
     },
     "1982": {
@@ -1868,34 +1252,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erste artifizielles Herz-Implantation (Barney Clark, Dezember 1982) — Mensch lebt 112 Tage mit Kunstherz; Herz-Ersatz als medizinisches Konzept belegt.",
         "gemeinschaft": "Argentiniens Demokratisierung nach Falkland (1983): Militärdiktatur scheitert, Zivilgesellschaft kehrt zurück — Niederlage als Katalysator des Wandels.",
         "technologie": "TCP/IP (1. Januar 1982): Internet-Protokoll als offener Standard — kein Patent, kein Eigentümer; Infrastruktur für alle; Grundlage für alle späteren Dienste von E-Mail bis ChatGPT."
-      },
-      "en": {
-        "label": "PC Revolution",
-        "ueberschrift": "TCP/IP standard, CD launch, Falklands War - the technical foundation of the Internet was laid in 1982",
-        "welt": {
-          "usa": "On January 1, 1982, ARPANET officially switched to the TCP/IP standard.The Falklands War begins in April.The CD will be released in October - the first mass-produced digital audio medium.First smiley :-) (Scott Fahlman, September 19, 1982).",
-          "china": "Deng Xiaoping consolidated his power in 1982 and adopted a new constitution.Economic growth is accelerating.The first foreign companies are investing in special economic zones.China's transformation is ongoing.",
-          "alte_welt": "Falklands War (April–June 1982): Argentina occupies British Isles, UK wins.Thatcher benefits massively politically.Israel invades Lebanon (June 1982) - massacres in Sabra and Shatila by militias.",
-          "neue_welt": "Argentina's military junta collapses after Falklands defeat - democratization begins in 1983. Mexican peso crisis: Latin America's first major debt crisis of the 80s.South Africa: ANC underground structures grow.",
-          "crypto": "ARPANET TCP/IP (January 1, 1982): The Internet takes its final form — all computers can communicate.CD launch (October 1982): Digital audio data as a physical product;first mass digital media revolution.",
-          "handel": "TCP/IP standard makes Internet an open infrastructure without owners.CD changes music industry: better margins than vinyl.Mexico debt crisis shows: Global South is trapped in dollar debt - IMF austerity as the standard answer."
-        },
-        "gesellschaft": {
-          "text": "1982 laid the technical foundation of the modern world.TCP/IP turns the Internet into an open, stateless infrastructure.The CD shows: Digital audio is better than analog.E.T.becomes a billion-dollar film.The first smiley :-) shows: Digital communication develops its own language.",
-          "metriken": {
-            "screentime_std_tag": 3,
-            "freundschaften": 17,
-            "freiheit_pct": 32,
-            "bmi_weltweit": 22.7,
-            "polarisierung_pct": 12
-          }
-        },
-        "chancen": {
-          "mental": "First smiley :-) (September 19, 1982): Emotional communication in digital texts - basis of all later emojis;digital language learns to express feelings.",
-          "koerper": "First artificial heart implantation (Barney Clark, December 1982) - man lives 112 days with artificial heart;Heart replacement proven as a medical concept.",
-          "gemeinschaft": "Argentina's democratization after Falklands (1983): military dictatorship fails, civil society returns - defeat as a catalyst for change.",
-          "technologie": "TCP/IP (January 1, 1982): Internet Protocol as an open standard — no patent, no owner;infrastructure for all;Basis for all later services from email to ChatGPT."
-        }
       }
     },
     "1983": {
@@ -1925,34 +1281,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erste kommerzielle MRT-Scanner in US-Krankenhäusern (1983) — nicht-invasive Bildgebung in der Breite; Krankheiten ohne Operation sichtbar machen.",
         "gemeinschaft": "Argentiniens demokratische Wahlen (Oktober 1983): Rückkehr zur Demokratie nach Massenmord und Folter — Zivilgesellschaft und Institutionen als kollektiver Wiederaufbau.",
         "technologie": "Erstes kommerzielles 1G-Mobilfunknetz (Chicago, Oktober 1983): Telefonie ohne Kabel als Massenprodukt — Grundlage für alle späteren Mobilfunkgenerationen bis 5G und 6G."
-      },
-      "en": {
-        "label": "PC Revolution",
-        "ueberschrift": "TCP/IP official, first mobile communications, Reagan upgrade - Internet becomes real, world becomes more dangerous",
-        "welt": {
-          "usa": "On March 23, 1983, Reagan announced the 'Strategic Defense Initiative' (SDI/Star Wars).In October: USA invades Grenada.On October 1st, Chicago Bell opens the first commercial cellular network (1G).Microsoft Word will be released in October.",
-          "china": "Deng Xiaoping carries out 'Anti-Spiritual Pollution Campaign' in 1983 - against Western cultural influences.But economic reforms continue.The first joint ventures are expanding.China's GDP grows 10%+.",
-          "alte_welt": "In West Germany, millions demonstrate against NATO retrofitting (autumn 1983).Helmut Kohl enforces deployment.Soviet Air Force shoots down Korean Air 007 in September — Cold War at its lowest point.",
-          "neue_welt": "In October 1983, Raul Alfonsín was elected in Argentina - the first democracy after a military dictatorship.Turkey holds its first democratic elections (November 1983).Chile: Mass protests against Pinochet begin.",
-          "crypto": "First commercial mobile network 1G (Chicago, October 1, 1983): Telephony without cables for consumers.Domain Name System (DNS) developed: human-readable Internet addresses instead of IP numbers.",
-          "handel": "SDI: Reagan arms spending puts the USA in massive debt - redistribution to arms companies.Mobile network: Private telecommunications infrastructure.Microsoft Word: word processing on every desk - replacing typewriters worldwide."
-        },
-        "gesellschaft": {
-          "text": "1983 shows the Cold War at its final peak: SDI, KAL 007, NATO retrofitting.At the same time, the infrastructures of the next age are emerging: mobile networks and Microsoft Word.The world in 1983 is technically closer to 1990 than politically.",
-          "metriken": {
-            "screentime_std_tag": 3.1,
-            "freundschaften": 17,
-            "freiheit_pct": 33,
-            "bmi_weltweit": 22.8,
-            "polarisierung_pct": 12
-          }
-        },
-        "chancen": {
-          "mental": "Mobile phone network (1983): Accessibility everywhere as a new social norm - isolation becomes technically vulnerable;later also: contact options for lonely people.",
-          "koerper": "First commercial MRI scanners in U.S. hospitals (1983) — non-invasive imaging across the board;Making diseases visible without surgery.",
-          "gemeinschaft": "Argentina's democratic elections (October 1983): Return to democracy after mass murder and torture - civil society and institutions as collective reconstruction.",
-          "technologie": "First commercial 1G mobile network (Chicago, October 1983): telephony without cables as a mass product - the basis for all later mobile phone generations up to 5G and 6G."
-        }
       }
     },
     "1984": {
@@ -1982,34 +1310,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "DNA-Fingerabdruck (Alec Jeffreys, September 1984): Genetische Identifizierung — Unschuldige werden freigesprochen, Täter identifiziert; Forensik revolutioniert Strafjustiz weltweit.",
         "gemeinschaft": "Bhopal-Katastrophe (Dezember 1984): Globale NGO-Mobilisierung für Opfer — Greenpeace, Amnesty, lokale Gruppen als transnationales Solidaritätsnetz gegen Konzernverantwortungslosigkeit.",
         "technologie": "Apple Macintosh (24. Januar 1984): GUI und Maus als Standard — alle späteren Computer-Interfaces (Windows, macOS, iOS, Android) folgen diesem Paradigma; Computing für jeden Menschen."
-      },
-      "en": {
-        "label": "PC Revolution",
-        "ueberschrift": "Apple Macintosh, Bhopal, DNA fingerprinting — technology as a liberator and as a perpetrator in the same year",
-        "welt": {
-          "usa": "On January 24, 1984, Apple introduced the Macintosh — a '1984' Super Bowl advert as a work of art.In December, the Bhopal gas disaster in India kills ~15,000 people (Union Carbide).In September, Alec Jeffreys discovered the DNA fingerprint.Reagan wins in a landslide.",
-          "china": "Deng Xiaoping opens 14 more coastal cities for foreign investment.'Socialism with Chinese characteristics' as an ideology.China is growing 15%+.Democracy movement in its early stages.",
-          "alte_welt": "Indira Gandhi was shot dead by her bodyguards on October 31, 1984.Chernenko succeeds in the USSR (short term).Miners' strike in UK: Thatcher wins, unions permanently lose.Soviets boycott Los Angeles Olympics.",
-          "neue_welt": "Bhopal disaster (December 1984): Union Carbide gas leak kills ~15,000 in India — largest industrial disaster in history;private companies have minimal liability.Ethiopia: Hunger crisis visible, Live Aid in preparation.",
-          "crypto": "Apple Macintosh (January 24, 1984): Graphical user interface (GUI) with mouse for everyone — computing becomes intuitive.DNS (Domain Name System, January 1984): Internet gets readable addresses (.com, .org, .edu).",
-          "handel": "Apple Mac: GUI democratizes computing;Mouse becomes standard.DNS makes the Internet addressable: the basis of all later websites and e-commerce.Bhopal shows that multinational companies can act deadly in developing countries with minimal liability."
-        },
-        "gesellschaft": {
-          "text": "1984 is Orwell's year without Orwell's nightmare — but with another one.The Mac shows that technology can liberate.Bhopal shows that private capital can kill without any real consequences.DNA fingerprint: biology becomes digital and usable in court.The decade of private power becomes visible in 1984.",
-          "metriken": {
-            "screentime_std_tag": 3.2,
-            "freundschaften": 17,
-            "freiheit_pct": 33,
-            "bmi_weltweit": 22.9,
-            "polarisierung_pct": 13
-          }
-        },
-        "chancen": {
-          "mental": "Apple Macintosh (January 1984): Computer with GUI lowers inhibitions for all age groups - technical empowerment without programming knowledge;digital participation for everyone.",
-          "koerper": "DNA fingerprinting (Alec Jeffreys, September 1984): Genetic identification — innocent people are acquitted, perpetrators identified;Forensics is revolutionizing criminal justice worldwide.",
-          "gemeinschaft": "Bhopal disaster (December 1984): Global NGO mobilization for victims — Greenpeace, Amnesty, local groups as a transnational solidarity network against corporate irresponsibility.",
-          "technologie": "Apple Macintosh (January 24, 1984): GUI and mouse as standard — all later computer interfaces (Windows, macOS, iOS, Android) follow this paradigm;Computing for every person."
-        }
       }
     },
     "1985": {
@@ -2039,34 +1339,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erste AIDS-Tests (ELISA, FDA-Zulassung 1985) — HIV-Status diagnostizierbar; Grundlage für Blutversorgungssicherheit und spätere antiretrovirale Therapien.",
         "gemeinschaft": "Live Aid (13. Juli 1985): Erste globale Echtzeit-TV-Solidaritätsaktion — ~$125 Mio. für Äthiopien; zeigt, dass Medien kollektives Handeln auf Milliardenebene mobilisieren können.",
         "technologie": "Erste .com-Domain registriert (http://symbolics.com, 15. März 1985): Internet beginnt als kommerzieller Adressraum — Grundlage für E-Commerce, Websites, Social Media."
-      },
-      "en": {
-        "label": "PC Revolution",
-        "ueberschrift": "Gorbachev, Live Aid, Windows 1.0 — reform, global solidarity and software as a new infrastructure",
-        "welt": {
-          "usa": "In March 1985, Mikhail Gorbachev became General Secretary of the CPSU - the youngest Soviet leader in decades, a reformer.Live Aid takes place in July: 2 billion TV viewers, ~$125 million for Ethiopian starving people.Windows 1.0 will be released in November.The first .com domain is registered in March (http://symbolics.com).",
-          "china": "Deng opens another 14 coastal cities for foreign investment.China's economy is growing ~13%.The first students go to western countries.Democracy movement in its early stages.",
-          "alte_welt": "Gorbachev brings 'Glasnost' and 'Perestroika' as reform concepts.Spain and Portugal join the EEC (prepared January 1986).In West Germany, Reagan visits the Bitburg military cemetery — controversy over SS graves.",
-          "neue_welt": "Live Aid (July 13, 1985): Bob Geldof organizes global concert for Ethiopia — first mass global media solidarity.~1 million people die of hunger in Ethiopia/Sudan.South Africa: Emergency law, international pressure is growing.",
-          "crypto": "First .com domain (http://symbolics.com, March 15, 1985): Internet begins as a commercial address space.Windows 1.0 (November 20): GUI for IBM-compatible PCs — Microsoft enters consumer market.",
-          "handel": "Gorbachev signals willingness to reform - first opening of the Soviet economy.Live Aid shows: Media mobilization creates global willingness to act.First .com domain: Internet becomes commercially addressable."
-        },
-        "gesellschaft": {
-          "text": "1985 is the year of hope.Gorbachev brings perestroika.Live Aid mobilizes globally.But Ethiopia continues to starve - structural causes remain unaffected.Windows 1.0 is unfinished and slow, but the direction is clear: computers for everyone.",
-          "metriken": {
-            "screentime_std_tag": 3.2,
-            "freundschaften": 17,
-            "freiheit_pct": 34,
-            "bmi_weltweit": 23,
-            "polarisierung_pct": 13
-          }
-        },
-        "chancen": {
-          "mental": "Live Aid (July 1985): Global Empathy through Media — Billions of people share compassion for the suffering of others;Basis of the later global humanitarian attention economy.",
-          "koerper": "First AIDS tests (ELISA, FDA approved in 1985) — HIV status can be diagnosed;Basis for blood supply safety and later antiretroviral therapies.",
-          "gemeinschaft": "Live Aid (July 13, 1985): First global real-time TV solidarity effort — ~$125 million for Ethiopia;shows that media can mobilize collective action on a billion-dollar scale.",
-          "technologie": "First .com domain registered (http://symbolics.com, March 15, 1985): Internet begins as a commercial address space — basis for e-commerce, websites, social media."
-        }
       }
     },
     "1986": {
@@ -2096,34 +1368,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "AZT (Zidovudin) erste AIDS-Behandlung FDA-zugelassen (März 1987, Vorbereitung 1986) — HIV wird behandelbar; ACT UP-Aktivismus als Treiber der Zulassungsbeschleunigung.",
         "gemeinschaft": "Philippinen 'People Power' (Februar 1986): Gewaltlose Massendemonstration stürzt Marcos — Modell für spätere Demokratiebewegungen; Nonviolence als skalierbare politische Strategie.",
         "technologie": "Erster Computervirus 'Brain' (Januar 1986): Ironisch — beweist, dass Software sich selbst replizieren kann; Grundlage aller späteren Cybersecurity-Forschung und -Industrie."
-      },
-      "en": {
-        "label": "PC Revolution",
-        "ueberschrift": "Chernobyl, Challenger, the first computer virus — technological promise meets systemic failure",
-        "welt": {
-          "usa": "On January 28, 1986, Challenger exploded shortly after takeoff — seven astronauts died on live television.In November, Iran-Contra revealed that the Reagan administration secretly sold arms to Iran and financed Nicaraguan rebels.",
-          "china": "China introduces the 'Responsibility System' in industry in 1986 - managers responsible for profits.Student protests (winter 1986/87): First public demands for democratization.Hu Yaobang must resign.",
-          "alte_welt": "On April 26, 1986, reactor 4 exploded in Chernobyl - the largest nuclear disaster in history.~600,000 'liquidators', ~35 km exclusion zone.Gorbachev must admit the extent of it — glasnost as a necessity, not a choice.",
-          "neue_welt": "Chernobyl fallout reaches Western Europe (Sweden, Austria, Bavaria) — first global environmental disaster without borders.Philippines: 'People Power' revolution topples Marcos (February).Haiti: Baby Doc Duvalier flees.",
-          "crypto": "First computer virus 'Brain' (January 1986, Pakistan): First PC virus in the world - infects IBM PC floppy disks;first digital malware.Pixar founded (February 1986): computer animated film as a new art form.",
-          "handel": "Chernobyl: Nuclear energy loses global credibility.Challenger: NASA under pressure for efficiency and privatization.First computer virus shows: Digital infrastructure is vulnerable;Cybersecurity market emerges."
-        },
-        "gesellschaft": {
-          "text": "1986 shows that technological promises can fail tragically: Challenger live on television, Chernobyl as a radioactive cloud without borders.Iran-Contra shows: Reagan administration operates outside the law.Computer viruses begin - digital infrastructure has enemies.",
-          "metriken": {
-            "screentime_std_tag": 3.3,
-            "freundschaften": 17,
-            "freiheit_pct": 33,
-            "bmi_weltweit": 23.1,
-            "polarisierung_pct": 13
-          }
-        },
-        "chancen": {
-          "mental": "Chernobyl and Challenger: Collective trauma caused by live disaster on television — first exploration of media trauma;Basis of later catastrophe psychology.",
-          "koerper": "AZT (zidovudine) first AIDS treatment FDA approved (March 1987, preparation 1986) — HIV becomes treatable;ACT UP activism as a driver of admissions acceleration.",
-          "gemeinschaft": "Philippines 'People Power' (February 1986): Non-violent mass demonstration overthrows Marcos - model for later democracy movements;Nonviolence as a scalable political strategy.",
-          "technologie": "First computer virus 'Brain' (January 1986): Ironic — proves that software can replicate itself;Foundation of all later cybersecurity research and industry."
-        }
       }
     },
     "1987": {
@@ -2153,34 +1397,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "AZT/Zidovudin FDA-zugelassen (März 1987): Erste Behandlung für HIV/AIDS — beweist, dass Patienten-Aktivismus (ACT UP) Zulassungsprozesse beschleunigen kann.",
         "gemeinschaft": "INF-Vertrag (Dezember 1987): Erste echte Abrustung des Kalten Krieges — Diplomatie und Vertrauen als Sicherheitsinstrument; zeigt, dass Jahrzehnte-Konflikte durch direkte Kommunikation lösbar sind.",
         "technologie": "Black Monday (Oktober 1987): Computerprogramme als Marktakteur erstmals sichtbar — Führt zu 'Circuit Breakers' und HFT-Regulierung; paradox: Crash als Grundlage für bessere Finanzmarkt-Regulation."
-      },
-      "en": {
-        "label": "PC Revolution",
-        "ueberschrift": "Black Monday, INF Treaty, Prozac – financial automation as a new systemic danger visible for the first time",
-        "welt": {
-          "usa": "On October 19, 1987 ('Black Monday'), the Dow Jones lost 22.6% in one day - computerized trading algorithms exacerbated the crash.Reagan and Gorbachev sign the INF Treaty in December.Prozac approved by FDA (December).",
-          "china": "Zhao Ziyang became general secretary in 1987.China's economy is growing ~11%.First controversies about inflation caused by reforms.Student movement active.",
-          "alte_welt": "INF Treaty (December 1987): First real disarmament of the Cold War - medium-range missiles destroyed on both sides.In UK: Thatcher wins third election.Black Monday: London Stock Exchange loses parallel to New York.",
-          "neue_welt": "First Intifada begins in December 1987 in Gaza and the West Bank - Palestinian popular uprising as a TV event.South Korea: First direct presidential elections after military dictatorship (December 1987).",
-          "crypto": "Black Monday (October 19, 1987): Computer trading algorithms amplify crash — first demonstration that automated financial trading creates systemic risks.Prozac approval (December 1987): Mental health pharmaceutical market emerges.",
-          "handel": "Black Monday: Algorithm trading as a new market danger - portfolio insurance triggered panic selling.INF Treaty: State asserts itself against arms industry lobbying.Prozac: Multi-billion market for antidepressants is emerging."
-        },
-        "gesellschaft": {
-          "text": "1987 brings together three threads: computer trading causes crash (technology as a systemic risk), INF Treaty (diplomacy beats arms logic), Prozac (chemistry against depression).The Cold War is nearing its end - we don't know yet.",
-          "metriken": {
-            "screentime_std_tag": 3.3,
-            "freundschaften": 17,
-            "freiheit_pct": 34,
-            "bmi_weltweit": 23.1,
-            "polarisierung_pct": 14
-          }
-        },
-        "chancen": {
-          "mental": "Prozac approval (December 1987): First SSRI as a mass drug - depression as a treatable chemical disease;Decriminalization of mental illness begins.",
-          "koerper": "AZT/Zidovudine FDA Approved (March 1987): First Treatment for HIV/AIDS — Proving Patient Activism (ACT UP) Can Speed ​​Approval Processes.",
-          "gemeinschaft": "INF Treaty (December 1987): First real disarmament of the Cold War — diplomacy and trust as a security instrument;shows that decades-long conflicts can be solved through direct communication.",
-          "technologie": "Black Monday (October 1987): Computer programs become visible as a market player for the first time - Leads to 'circuit breakers' and HFT regulation;paradox: Crash as a basis for better financial market regulation."
-        }
       }
     },
     "1988": {
@@ -2210,34 +1426,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erster Laptop (NEC UltraLite, 1988): Mobiles Computing — Arbeit, Gesundheitsdaten, medizinische Information werden portabel; Grundlage für spätere digitale Gesundheitsversorgung.",
         "gemeinschaft": "Gorbatschows UN-Rede (Dezember 1988): Unilaterale Abrustungsankündigung — zeigt, dass ein einziger politischer Wille 40 Jahre Konfrontation ändern kann.",
         "technologie": "Morris Worm (November 1988): Erster Internet-Sicherheitsvorfall löst Gründung von CERT (Computer Emergency Response Team) aus — institutionalisierte Cybersecurity beginnt; ohne Worm kein CERT, kein modernes Cybersicherheitssystem."
-      },
-      "en": {
-        "label": "PC Revolution",
-        "ueberschrift": "Morris Worm shuts down the Internet, Soviets leave Afghanistan — network vulnerability and empire end at the same time",
-        "welt": {
-          "usa": "On November 2, 1988, the Morris Worm infected ~6,000 ARPANET computers — the first major Internet security incident.In April, Gorbachev announced the withdrawal of troops from Afghanistan.Benazir Bhutto becomes Pakistan's first female prime minister (December).",
-          "china": "Deng sticks to reforms despite inflation.First protests in Tibet (March 1988).1988 is the year before Tiananmen - democracy movement grows.",
-          "alte_welt": "In December 1988, Gorbachev announced at the UN: USSR withdraws troops from Eastern Europe - Brezhnev Doctrine declared over.Lockerbie attack (December 21): 270 dead across Scotland.The first laptops appear (NEC UltraLite).",
-          "neue_welt": "Iran-Iraq War ends (August 1988 ceasefire) after ~1 million deaths.Benazir Bhutto (December 1988): First woman to head a Muslim state.First Intifada as a constant TV topic.",
-          "crypto": "Morris Worm (November 2, 1988): First major Internet security incident — ~6,000 computers infected, first convicted under the Computer Fraud Act.Shows: Open networks are systemically vulnerable.First laptop (NEC UltraLite): Computing goes mobile.",
-          "handel": "Morris Worm: Cybersecurity industry emerges as a reactive necessity.Gorbachev's UN announcement: Eastern European economies are opening up - opportunities for Western companies.First laptop: office becomes portable."
-        },
-        "gesellschaft": {
-          "text": "1988 is the year before the end of the Cold War - you can feel it, you don't understand it yet.Morris Worm shows that the Internet is vulnerable just as it's getting big.Gorbachev's UN speech is the real turning point - the Berlin Wall doesn't fall until 1989, but the decision comes in 1988.",
-          "metriken": {
-            "screentime_std_tag": 3.3,
-            "freundschaften": 17,
-            "freiheit_pct": 35,
-            "bmi_weltweit": 23.2,
-            "polarisierung_pct": 14
-          }
-        },
-        "chancen": {
-          "mental": "Benazir Bhutto (December 1988): First woman to head a Muslim state - role model across all cultural boundaries;proves: Leadership is not a question of gender.",
-          "koerper": "First laptop (NEC UltraLite, 1988): Mobile computing — work, health data, medical information become portable;Basis for later digital healthcare.",
-          "gemeinschaft": "Gorbachev's UN speech (December 1988): Unilateral disarmament announcement — shows that a single political will can change 40 years of confrontation.",
-          "technologie": "Morris Worm (November 1988): First Internet security incident triggers creation of CERT (Computer Emergency Response Team) — institutionalized cybersecurity begins;without Worm, no CERT, no modern cybersecurity system."
-        }
       }
     },
     "1989": {
@@ -2267,34 +1455,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Exxon-Valdez-Katastrophe (März 1989): Mobilisiert Ökologie-Forschung und Umweltrecht — OPA 90 (Oil Pollution Act) und Doppelrumpf-Tanker als direkte Folge.",
         "gemeinschaft": "Samtene Revolution (November/Dezember 1989): Massiver gewaltloser Wandel in wenigen Wochen — Zivilgesellschaft als überzeugendste politische Kraft; Havel als Schriftsteller-Präsident.",
         "technologie": "WWW-Vorschlag (Tim Berners-Lee, 12. März 1989): 'Vague but exciting' — Hypertext als globale Wissensinfrastruktur; Berners-Lee meldet kein Patent an: Größtes technologisches Geschenk der Geschichte."
-      },
-      "en": {
-        "label": "PC Revolution",
-        "ueberschrift": "Wall falls, Tiananmen, WWW proposal — freedom and its limits in the decisive year of the century",
-        "welt": {
-          "usa": "On November 9, 1989, the Berlin Wall falls.US President Bush reacts coolly - not a triumphant gesture to protect Gorbachev.Tim Berners-Lee submits his proposal for the World Wide Web to CERN on March 12, 1989.Exxon Valdez (March): largest US oil disaster.",
-          "china": "On June 4, 1989, the Chinese leadership sent tanks into Tiananmen Square - a massacre of students.China chooses stability over democratization — and shows that economic reform and political change are separable.Jiang Zemin takes over as general secretary.",
-          "alte_welt": "1989 is the year of the miracle: Berlin Wall falls (November 9th), Velvet Revolution in Czechoslovakia (November/December), Ceausescu shot in Romania (December 25th).Solidarity wins Polish elections (June).Communism in Eastern Europe collapses in months.",
-          "neue_welt": "Tiananmen (June 4, 1989): Patterns for Chinese governance to date — open economy, close politics.Nelson Mandela in secret talks (1989).Namibia becomes independent (prepared in 1990).",
-          "crypto": "Tim Berners-Lee submits WWW proposal (March 12, 1989): 'Information Management: A Proposal' - his boss writes 'Vague but exciting' on it.The web emerges as an idea.Berners-Lee wants to decentralize CERN knowledge — without a business model, as a gift.",
-          "handel": "Fall of the Berlin Wall: 400 million new consumers for Western markets.GDR, Polish, Czech economies are opening up.WWW suggestion: Berners-Lee does not file a patent — the most important trade waiver in history."
-        },
-        "gesellschaft": {
-          "text": "1989 is the most important year of the 20th century after 1945. Berlin Wall, Tiananmen, WWW proposal — in one year.The end of the Cold War opens a period of seemingly limitless possibilities.Tiananmen concludes: Democracy in China.WWW opens another: global knowledge for everyone.",
-          "metriken": {
-            "screentime_std_tag": 3.4,
-            "freundschaften": 17,
-            "freiheit_pct": 37,
-            "bmi_weltweit": 23.2,
-            "polarisierung_pct": 14
-          }
-        },
-        "chancen": {
-          "mental": "Berlin Wall falls (November 9, 1989): Collective joy as a global event - proves that seemingly unchanging systems can dissolve;Hope as a political force.",
-          "koerper": "Exxon Valdez disaster (March 1989): Mobilizes ecology research and environmental law — OPA 90 (Oil Pollution Act) and double-hull tankers as a direct result.",
-          "gemeinschaft": "Velvet Revolution (November/December 1989): Massive non-violent change in a few weeks - civil society as the most convincing political force;Havel as writer-president.",
-          "technologie": "WWW proposal (Tim Berners-Lee, March 12, 1989): 'Vague but exciting' — hypertext as a global knowledge infrastructure;Berners-Lee does not file a patent: Greatest technological gift in history."
-        }
       }
     },
     "1990": {
@@ -2324,34 +1484,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Hubble-Teleskop gestartet (April 1990): Blick 13 Mrd. Lichtjahre zurück — Menschheit versteht ihren Platz im Universum tiefer; Später-Korrekturen 1993 als Triumph der Präzision.",
         "gemeinschaft": "Deutsche Wiedervereinigung (3. Oktober 1990): 45 Jahre getrennte Familien wieder vereint — beweist, dass politische Entscheidungen das Persönlichste berühren; Gemeinschaft als Stärke.",
         "technologie": "WWW-Implementierung (Oktober–Dezember 1990): Tim Berners-Lee baut erste Website und Browser — Hypertext als globale Infrastruktur; im August 1991 wird es öffentlich: Internet für alle."
-      },
-      "en": {
-        "label": "Fall of the Wall & Pre-Web",
-        "ueberschrift": "Germany united, Mandela free, WWW implemented - 1990 is the year the borders opened",
-        "welt": {
-          "usa": "In August 1990, Saddam Hussein invades Kuwait — Bush Sr. builds global coalition for counteroffensive.On February 11, 1990, Nelson Mandela was released after 27 years.Tim Berners-Lee implements HTML, HTTP and URL on a NeXT computer at CERN.",
-          "china": "China after Tiananmen: Economic opening continues, political control increases.Jiang Zemin stabilizes the system.Western sanctions after Tiananmen are expiring - business triumphs over human rights.",
-          "alte_welt": "Germany unified on October 3, 1990 — the first European reunification after the Cold War.Two-plus-four treaty: sovereignty for all of Germany.Eastern European economies are transforming themselves with 'shock therapy' - social costs enormous.",
-          "neue_welt": "Mandela free (February 1990) - Negotiations to end apartheid begin.Kuwait Invasion (August): First post-Cold War conflict over resources.Namibia becomes independent (March 1990).Haiti's first free president elected (Aristide, December).",
-          "crypto": "Tim Berners-Lee implements HTML, HTTP and URL (October–December 1990) on NeXT computers: The Web becomes real.Windows 3.0 appears (May 1990): GUI for IBM PCs suitable for the masses.First university networks connected worldwide.",
-          "handel": "Germany's reunification: West Germany buys the GDR economy - the largest peaceful corporate takeover in history.Kuwait invasion: First proof that the post-Cold War order must be defended militarily.WWW: Open, stateless infrastructure as a gift."
-        },
-        "gesellschaft": {
-          "text": "1990 is the first year after the Cold War.Germany's reunification, Mandela's release, WWW implementation - all three show that borders can be overcome.At the same time: Kuwait invasion shows that the new world order is producing its own wars.",
-          "metriken": {
-            "screentime_std_tag": 3.5,
-            "freundschaften": 16,
-            "freiheit_pct": 39,
-            "bmi_weltweit": 23.2,
-            "polarisierung_pct": 14
-          }
-        },
-        "chancen": {
-          "mental": "Mandela release (February 1990): 27 years in prison, no bitterness - summary: human dignity is unbreakable;Mandela as a psychological model for reconciliation without forgetting.",
-          "koerper": "Hubble Telescope launched (April 1990): Look back 13 billion light years — humanity understands its place in the universe more deeply;Later corrections in 1993 as a triumph of precision.",
-          "gemeinschaft": "German reunification (October 3, 1990): 45 years of separated families reunited - proves that political decisions affect the most personal things;Community as strength.",
-          "technologie": "WWW implementation (October–December 1990): Tim Berners-Lee builds first website and browser — hypertext as global infrastructure;In August 1991 it became public: Internet for everyone."
-        }
       }
     },
     "1991": {
@@ -2381,34 +1513,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erster moderner Bodyweight-Tracker und Fitness-Wearable-Konzepte entstehen — Gesundheit als personlich messbare Größe. Erste Telemedizin-Protokoll-Tests in USA.",
         "gemeinschaft": "WWW öffentlich (6. August 1991): Jeder Mensch mit Internetzugang kann weltweit publizieren — Dezentralisierung von Wissen und Stimme; größte Demokratisierung der Information der Geschichte.",
         "technologie": "Linux-Kernel (Linus Torvalds, 25. August 1991): Freies Betriebssystem für alle — läuft heute auf 96 % aller Server, allen Smartphones (Android), allen Supercomputern; ohne Linux kein modernes Internet."
-      },
-      "en": {
-        "label": "Fall of the Wall & Pre-Web",
-        "ueberschrift": "USSR dissolved, WWW public, Linux - the old world order is ending, a new one is quietly emerging",
-        "welt": {
-          "usa": "In January 1991, Gulf War Operation Desert Storm begins — US-led coalition liberates Kuwait in 100 hours.On December 25, 1991, the USSR dissolved: Gorbachev resigned.In August, Berners-Lee made the WWW publicly accessible.",
-          "china": "China after Tiananmen: economic growth is accelerating again.Deng Xiaoping speaks publicly again in favor of opening up (Southern trip prepared in 1992).China observes USSR collapse and draws lessons: economic reform yes, political liberalization no.",
-          "alte_welt": "Yugoslavia falls apart: Slovenia and Croatia declare independence (June 1991) - war begins.USSR dissolves (December 1991): 15 new states.Gorbachev resigns.Europe is facing the biggest geopolitical upheaval since 1945.",
-          "neue_welt": "Gulf War (January–February 1991): US coalition liberates Kuwait - Saddam remains in power.Mandela leads ANC negotiations.Ethiopia: Mengistu regime falls (May 1991).Somalia falls into chaos (civil war from 1991).",
-          "crypto": "WWW public (August 6, 1991): Tim Berners-Lee posts the first web page.Linux Kernel (Linus Torvalds, August 25, 1991): 'I'm making a free operating system'.Two open source projects in two months — foundation of the modern Internet.",
-          "handel": "USSR collapse: 300 million new market participants;Privatization bonanza begins in Russia - oligarchy emerges.WWW as a stateless gift: Berners-Lee does not file a patent.Linux as a free OS: Software democratization."
-        },
-        "gesellschaft": {
-          "text": "1991 is the end of the bipolar world order and the beginning of a brief unipolar US dominance.WWW and Linux emerge in the same summer as free goods — the most productive gifts in the history of technology.Yugoslavia and Somalia show that the vacuum after the Cold War is being filled with conflicts.",
-          "metriken": {
-            "screentime_std_tag": 3.5,
-            "freundschaften": 16,
-            "freiheit_pct": 43,
-            "bmi_weltweit": 23.2,
-            "polarisierung_pct": 15
-          }
-        },
-        "chancen": {
-          "mental": "USSR collapse (December 1991): 40 years of fear of nuclear war end without a shot — collective relief as a global mental event;Peace as a psychological reality.",
-          "koerper": "The first modern bodyweight tracker and fitness wearable concepts are created - health as a personally measurable quantity.First telemedicine protocol testing in USA.",
-          "gemeinschaft": "WWW public (August 6, 1991): Anyone with Internet access can publish worldwide - decentralization of knowledge and voice;greatest democratization of information in history.",
-          "technologie": "Linux kernel (Linus Torvalds, August 25, 1991): Free operating system for everyone — now runs on 96% of all servers, all smartphones (Android), all supercomputers;Without Linux there would be no modern Internet."
-        }
       }
     },
     "1992": {
@@ -2438,34 +1542,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erste Gentherapie-Versuche in klinischen Phase-I-Studien (USA, 1992) — direkte genetische Eingriffe am Menschen als therapeutisches Konzept; Grundlage für spätere CRISPR-Anwendungen.",
         "gemeinschaft": "Erste SMS (3. Dezember 1992): Asynchrone Textnachricht — Kommunikation ohne Sprache und ohne gleichzeitige Anwesenheit; verändert soziale Beziehungen dauerhaft.",
         "technologie": "Windows 3.1 (April 1992): Erste stabile, massentaugliche GUI für IBM-PCs — 250 Mio. Nutzer innerhalb von 2 Jahren; GUI als Standard für alle späteren Betriebssysteme."
-      },
-      "en": {
-        "label": "Fall of the Wall & Pre-Web",
-        "ueberschrift": "LA riots, first SMS, Maastricht Treaty - democracy, communication and Europe will be renegotiated in 1992",
-        "welt": {
-          "usa": "In April 1992, Los Angeles burns after the Rodney King verdict — 55 dead, $1 billion in damage.In November, Americans will elect Bill Clinton.On December 3, 1992, the first text message in history was sent (Neil Papworth: 'Merry Christmas').",
-          "china": "Deng Xiaoping makes his 'Southern Tour' (Nanxun) in February 1992 — traveling through special economic zones and calling for faster growth.14th Party Congress (October 1992) decides on 'socialist market economy'.",
-          "alte_welt": "On January 1, 1992, the European internal market came into force - free movement of goods for 340 million Europeans.In September: Maastricht referendum in France - narrowly yes.Yugoslavia: Bosnian war escalates, Sarajevo siege begins.",
-          "neue_welt": "Rio Environmental Summit (June 1992): 178 countries, first Framework Convention on Climate Change — Agenda 21;first global environmental agreement.South Africa: Mandela and De Klerk negotiate end of apartheid.Somalia collapses completely - US intervention follows.",
-          "crypto": "First SMS in history (December 3, 1992): 160 characters change global communication.Windows 3.1 (April 1992): Mass-market GUI for all IBM-compatible PCs.AOL opens Internet access for private users: first mass adoption begins.",
-          "handel": "European Internal Market (January 1992): Largest unified market in the world.SMS: 160-character message changes telecommunications market.AOL: Internet as a consumer product - first million private users."
-        },
-        "gesellschaft": {
-          "text": "1992 combines the LA riots (racism), the Rio summit (climate) and the first text message in one year.Europe is creating its internal market.Yugoslavia is falling apart.The first SMS is a Christmas greeting card - and in 20 years it will change how 7 billion people communicate.",
-          "metriken": {
-            "screentime_std_tag": 3.5,
-            "freundschaften": 16,
-            "freiheit_pct": 43,
-            "bmi_weltweit": 23.3,
-            "polarisierung_pct": 15
-          }
-        },
-        "chancen": {
-          "mental": "Rio Earth Summit (June 1992): Ecological consciousness institutionalized as a global political commitment — climate consciousness as a collective mental transformation;Basis of all later climate movements.",
-          "koerper": "First gene therapy trials in Phase I clinical trials (USA, 1992) — direct genetic interventions on humans as a therapeutic concept;Basis for later CRISPR applications.",
-          "gemeinschaft": "First SMS (December 3, 1992): Asynchronous text messaging — communication without voice and without simultaneous presence;permanently changes social relationships.",
-          "technologie": "Windows 3.1 (April 1992): First stable, mass-market GUI for IBM PCs — 250 million users within 2 years;GUI as standard for all later operating systems."
-        }
       }
     },
     "1993": {
@@ -2495,34 +1571,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Hubble-Reparatur (Dezember 1993): Astronauten korrigieren Spiegel-Fehler — Präzisions-Engineering als kollektive Menschheitsleistung; klare Bilder vom Universum für alle.",
         "gemeinschaft": "Mosaic-Browser (Januar 1993): Web für alle ohne technische Vorkenntnisse — Millionen Menschen können Informationen veröffentlichen und finden; Demokratisierung der Öffentlichkeit.",
         "technologie": "Mosaic-Browser (Januar 1993): Erster grafischer Webbrowser — WWW wird von Technikern für alle Menschen nutzbar; Netscape-Gründung 1994 folgt; Internet-Ära beginnt 1993."
-      },
-      "en": {
-        "label": "Fall of the Wall & Pre-Web",
-        "ueberschrift": "Mosaic browser opens the web, EU founded, Oslo chords - 1993 is the last year before the digital flood",
-        "welt": {
-          "usa": "In January 1993, Bill Clinton was inaugurated.In February: World Trade Center bombed for the first time (6 dead).In April: Waco siege ends with 76 dead.In September: Oslo Accords — Arafat and Rabin trade peace on the White House lawn.",
-          "china": "Jiang Zemin consolidates power.China grows 13% — third largest economy.First discussions about China as a 'strategic rival' in US foreign policy circles.",
-          "alte_welt": "Maastricht Treaty comes into force on November 1, 1993 - European Union formally comes into being.Bosnian war continues.GATT-Uruguay Round concluded (December 1993) - WTO decided as successor.",
-          "neue_welt": "Oslo Accords (September 1993): Rabin and Arafat - hope for a two-state solution.Mandela and De Klerk share Nobel Peace Prize.Somalia's 'Black Hawk Down' (October 1993) — US withdrawal and 'intervention fatigue'.",
-          "crypto": "Mosaic Browser (January 1993, Marc Andreessen/NCSA): First graphical web browser with images — the web becomes visual and usable for everyone.NAFTA signed (December 1993) with ISDS clauses.The first commercial websites emerge.",
-          "handel": "WTO decided as GATT successor (December 1993): Multilateralism's last flower.NAFTA: Free trade with investor protection clauses - template for all later FTAs.Mosaic: Web is becoming commercially interesting."
-        },
-        "gesellschaft": {
-          "text": "1993 is the last year before the digital flood.Mosaic makes the web visual and accessible.EU comes into being formally.Oslo gives hope.The World Trade Center is attacked for the first time — no one learns the right lessons.1993 is the calm before the storm.",
-          "metriken": {
-            "screentime_std_tag": 3.5,
-            "freundschaften": 16,
-            "freiheit_pct": 41,
-            "bmi_weltweit": 23.3,
-            "polarisierung_pct": 16
-          }
-        },
-        "chancen": {
-          "mental": "Oslo Accords (September 1993): Decades of enemies trade peace — shows that reconciliation is structurally possible;Hope as a political resource in seemingly insoluble conflicts.",
-          "koerper": "Hubble repair (December 1993): Astronauts correct mirror errors - precision engineering as a collective human achievement;clear images of the universe for everyone.",
-          "gemeinschaft": "Mosaic Browser (January 1993): Web for all without technical knowledge — millions of people can publish and find information;Democratization of the public.",
-          "technologie": "Mosaic Browser (January 1993): First graphical web browser - making the WWW usable by engineers for everyone;Netscape was founded in 1994;Internet era begins in 1993."
-        }
       }
     },
     "1994": {
@@ -2552,34 +1600,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erste Telemedizinanwendungen (1994, USA): Arzt-Patienten-Kommunikation über Internet — Gesundheitsversorgung ohne Weg zum Arzt als Konzept; Grundlage aller späteren digitalen Gesundheitsplattformen.",
         "gemeinschaft": "Netscape SSL (1994): Sicheres Internet als Gemeinschaftsinfrastruktur — Vertrauen in digitale Kommunikation als Grundlage für E-Commerce, Online-Banking und später Social Media.",
         "technologie": "Amazon gegründet (Juli 1994): Bezos beginnt Bücher online zu verkaufen — E-Commerce als Geschäftsmodell; 30 Jahre später: Marktkapitalisierung über $2 Billionen und globale Handelsinfrastruktur."
-      },
-      "en": {
-        "label": "Fall of the Wall & Pre-Web",
-        "ueberschrift": "Rwanda genocide, Mandela president, Amazon founded - human error and digital disruption in the same year",
-        "welt": {
-          "usa": "NAFTA comes into force in January 1994 - Zapatista uprising in Chiapas on the same day in protest.In April Marc Andreessen founded Netscape.In July, Jeff Bezos founded Amazon in a garage in Seattle.",
-          "china": "China's economy is growing 13%+.Jiang Zemin is invited to the G7 summit for the first time - China recognized as a global player.Hong Kong return in negotiations in 1997.",
-          "alte_welt": "In Northern Ireland: IRA ceasefire (August 1994) - hope for peace.Channel Tunnel opened (May 1994): UK and France physically connected for the first time in 8,000 years.The first commercial Internet providers are emerging in France and Germany.",
-          "neue_welt": "On April 27, 1994, South Africa elects Nelson Mandela as president - end of apartheid.Rwanda genocide (April–July): ~800,000 Tutsi murdered in 100 days, UN peacekeeping failed.Clinton later apologized.",
-          "crypto": "Netscape founded (April 1994) with SSL encryption for secure online trading.Amazon founded (July 1994): First major e-commerce provider.First Online Banking Services (Stanford Federal Credit Union, October 1994).",
-          "handel": "NAFTA in force (January 1994): free trade with ISDS clauses.Amazon: E-commerce is changing the book trade.Netscape SSL: Secure online trading becomes possible - the basis of all later platforms."
-        },
-        "gesellschaft": {
-          "text": "1994 shows the paradox of the 90s in one year: Rwanda genocide (human error) and Mandela election (human dignity), Amazon (digital economy) and Netscape (open web).What will be 'normal' in 1995 will emerge in secret in 1994.",
-          "metriken": {
-            "screentime_std_tag": 3.5,
-            "freundschaften": 16,
-            "freiheit_pct": 40,
-            "bmi_weltweit": 23.3,
-            "polarisierung_pct": 16
-          }
-        },
-        "chancen": {
-          "mental": "Mandela election (April 1994): Reconciliation instead of revenge as a state political program - Truth and Reconciliation Commission as a psychological model for collective trauma processing.",
-          "koerper": "First telemedicine applications (1994, USA): Doctor-patient communication via the Internet - health care without going to the doctor as a concept;Basis of all later digital health platforms.",
-          "gemeinschaft": "Netscape SSL (1994): Secure Internet as a community infrastructure — trust in digital communication as the basis for e-commerce, online banking and later social media.",
-          "technologie": "Amazon founded (July 1994): Bezos begins selling books online - e-commerce as a business model;30 years later: market cap over $2 trillion and global trading infrastructure."
-        }
       }
     },
     "1995": {
@@ -2609,34 +1629,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "PubMed öffentlich zugänglich (1996): Patienten können erstmals medizinische Fachliteratur selbst recherchieren — Grundlage für informierte Patientenautonomie.",
         "gemeinschaft": "The WELL beweist: Online-Communities können echte emotionale Bindung erzeugen — Modell für alle späteren Plattformen, Jahre vor Social Media.",
         "technologie": "Java (Sun Microsystems, 1995) + SSL-Verschlüsselung (Netscape): Plattformunabhängige Software und sicherer Online-Handel werden erstmals technisch denkbar."
-      },
-      "en": {
-        "label": "Early Web",
-        "ueberschrift": "Netscape opens the web - Unipolar world order shapes the digital decade",
-        "welt": {
-          "usa": "In April 1995, Timothy McVeigh's bombing in Oklahoma City killed 168 people — the worst act of terrorism on U.S. soil to date, triggered by domestic politics.In August, Netscape's IPO raises $2.9 billion, launching the dot-com era.Clinton struggles with Newt Gingrich's 'Contract with America' and the first government shutdown - government institutions were systematically framed as a problem for the first time in 1995.",
-          "china": "In March 1995, China test-fired missiles into the sea near Taiwan — the first Taiwan Strait crisis.The US sends two aircraft carriers;China is retreating.In 1995, Jiang Zemin simultaneously approved commercial Internet use and commissioned the 'Golden Shield' Project (Great Firewall) - openness and control as a state balance project.",
-          "alte_welt": "In July 1995, 8,000 Bosniaks were murdered in Srebrenica while UN peacekeepers watched.The EU is paralyzed in terms of foreign policy.In December, the warring parties sign the Dayton Accords under US mediation: Europe cannot pacify its own continent and thus confirms US hegemony for another decade.",
-          "neue_welt": "On January 1, 1995, the WTO began its work - officially a multilateral triumph.At the same moment, Mexican Zapatistas are fighting against NAFTA consequences in the Chiapas uprising.Brazil's Real Plan stabilizes the currency after hyperinflation.The Global South is joining the new trading order - structurally integrated, but not on an equal footing.",
-          "crypto": "David Chaum's DigiCash launches the first real digital currency operation in a US bank (Mark Twain Bank) in 1995 - fails in 1998, but proves the concept.PGP encryption is spreading among activists and journalists as a tool critical of the state.The idea of ​​stateless money was formulated academically in 1995, but still without critical mass.",
-          "handel": "The WTO will replace GATT on January 1st - the formal high point of state-organized trade regulation.At the same time, NAFTA special clauses systematically anchor ISDS arbitration for the first time: private companies can sue states for lost profits.The seeds of the libertarian shift in power were contractually agreed in 1995 and have hardly been noticed yet."
-        },
-        "gesellschaft": {
-          "text": "Less than 1% of the world's population is online — the web is a niche academic medium.Netscape Navigator makes surfing widely accessible for the first time, dial-up dominates.Television is the leading medium.The digital divide not only separates countries, but also generations and classes.Social debates still take place entirely in analogue space.",
-          "metriken": {
-            "screentime_std_tag": 1.5,
-            "freundschaften": 15,
-            "freiheit_pct": 40,
-            "bmi_weltweit": 23.2,
-            "polarisierung_pct": 18
-          }
-        },
-        "chancen": {
-          "mental": "PsychCentral (1995): First online community for mental health - anonymous self-help groups enable stigma-free discussion on a large scale for the first time.",
-          "koerper": "PubMed publicly available (1996): For the first time, patients can research medical literature themselves - the basis for informed patient autonomy.",
-          "gemeinschaft": "The WELL proves that online communities can create real emotional connection - a model for all later platforms, years before social media.",
-          "technologie": "Java (Sun Microsystems, 1995) + SSL encryption (Netscape): Platform-independent software and secure online trading are becoming technically conceivable for the first time."
-        }
       }
     },
     "1996": {
@@ -2666,34 +1658,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Dolly das Schaf wird im Juli 1996 geklont (Announcement Februar 1997) — Stammzellforschung und regenerative Medizin als Zukunftsfeld eröffnet; ethische Debatten über Klonen prägen die Bioethik bis heute.",
         "gemeinschaft": "Project Gutenberg wächst 1996 auf 1.000+ digitalisierte Bücher — kostenloser Zugang zu Weltliteratur als demokratisches Kulturprojekt; Grundstein für digitale Bibliotheken und Open Access.",
         "technologie": "Hotmail (1996): Kostenlose webbasierte E-Mail ohne Desktop-Software — erste Massenadoption eines cloudbasierten Dienstes. Modell für Gmail, Google Docs und die gesamte SaaS-Industrie."
-      },
-      "en": {
-        "label": "Early Web",
-        "ueberschrift": "Telecom liberalization, Hotmail, Deep Blue - the network is becoming a commodity even before everyone uses it",
-        "welt": {
-          "usa": "In February 1996, Clinton signed the Telecommunications Act - the largest deregulation of the US media landscape since 1934: a few corporations would soon be allowed to control radio, TV and print.Clinton will be re-elected in November.In February, Deep Blue lost its first chess match against Kasparov 2:4 - but won a game for the first time: Machine beats world champion in a single game.",
-          "china": "China has ~200,000 Internet users in 1996 — 0.02% of the population.Jiang Zemin consolidates power after Deng's de facto withdrawal (official death February 1997).China and Taiwan have the second Taiwan Strait crisis in March 1996 - US aircraft carriers stay, China withdraws: show of force without decision.",
-          "alte_welt": "In Russia, Yeltsin wins the presidential election in July despite poor health and massive election manipulation.In September, 71 countries signed the Nuclear Test Ban Treaty (CTBT).In Chechnya, the first war ends in August with the Khasavyurt Agreement - Russia's military has failed;humility is temporary.",
-          "neue_welt": "In September 1996, the Taliban took over Kabul - the group's first expression of power, which was hardly noticed globally.In 1996, Rwanda dealt with the consequences of the genocide: 130,000 people in prison, international criminal courts began.Nigeria under Abacha remains repressive - Ken Saro-Wiwa's execution in 1995 had no international consequences.",
-          "crypto": "No Bitcoin yet, but initial academic concepts.Hotmail (founded in 1996) shows: Free email against implicit data sharing is scalable - the basic principle of the later platform economy is tested as a business model in 1996.Adam Back's HashCash (anti-spam) concept is under development.",
-          "handel": "The Telecommunications Act of 1996 triggers a wave of media concentration - Clear Channel, Viacom, AOL Time Warner emerge in the following years.Google hasn't been founded yet, but Yahoo!and AltaVista are fighting for search dominance.The first banner advertising (since 1994) brings the first millions online."
-        },
-        "gesellschaft": {
-          "text": "1996 is the year of commercial development.The first web banner ads, the first e-commerce experiments, Hotmail as a scalable free platform - the Internet is losing its academic innocence.40 million people worldwide are online (1% of the world population).The architecture of the attention economy is being built in 1996, even before the term exists.",
-          "metriken": {
-            "screentime_std_tag": 1.5,
-            "freundschaften": 15,
-            "freiheit_pct": 41,
-            "bmi_weltweit": 23.4,
-            "polarisierung_pct": 19
-          }
-        },
-        "chancen": {
-          "mental": "The first online self-help groups for addiction, depression and eating disorders are growing in AOL forums - anonymous peer support networks as a precursor to clinical apps;stigma-free space through distance.",
-          "koerper": "Dolly the sheep is cloned in July 1996 (announcement February 1997) - stem cell research and regenerative medicine opened up as a future field;Ethical debates about cloning continue to shape bioethics today.",
-          "gemeinschaft": "Project Gutenberg grows to 1,000+ digitized books in 1996 — free access to world literature as a democratic cultural project;Foundation stone for digital libraries and open access.",
-          "technologie": "Hotmail (1996): Free web-based email without desktop software — first mass adoption of a cloud-based service.Model for Gmail, Google Docs and the entire SaaS industry."
-        }
       }
     },
     "1997": {
@@ -2723,34 +1687,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Dolly-Ankündigung (Februar 1997): Klonen eröffnet Diskussion über therapeutisches Klonen und Stammzellen — James Thomson isoliert kurz darauf erste humane embryonale Stammzellen (1998).",
         "gemeinschaft": "http://MoveOn.org entsteht als Reaktion auf Clinton-Impeachment (1998) — erste massenfähige Online-Petitionsplattform für politisches Engagement; Bürger jenseits von Parteien organisieren sich.",
         "technologie": "DVD-Standard (1997 kommerziell eingeführt): Hochauflösende digitale Medien für alle — Digitalisierung von Unterhaltung als Massenphänomen, Grundlage für spätere Streaming-Ökonomie."
-      },
-      "en": {
-        "label": "Early Web",
-        "ueberschrift": "Asian financial crisis and deep blue wins - algorithms and global markets show their uncontrollable power",
-        "welt": {
-          "usa": "In May 1997, Deep Blue beat Kasparov 3.5:2.5 in a rematch - the first defeat of a reigning world champion against a machine, a worldwide headline.Amazon is going public in May ($18/share).George Soros and hedge funds are held jointly responsible for the Asian financial crisis - private capital is being articulated globally for the first time as a threat to the system.",
-          "china": "On July 1, 1997, Hong Kong was handed over to China - the end of British colonial rule.'One country, two systems' as a promise for 50 years.In the same month, the Asian financial crisis begins with the collapse of the Thai baht - China remains stable through the non-convertibility of the yuan: state control as protection, not as a brake.",
-          "alte_welt": "In August 1997, Princess Diana died in Paris - the first global wave of mourning in the Internet age: emails and website condolence books.Tony Blair wins the British general election in May with a historic majority.The Kyoto Protocol is signed in December: climate protection as an international obligation, still without an enforcement mechanism.",
-          "neue_welt": "The Asian financial crisis hits Thailand, Malaysia, Indonesia, South Korea in waves - IMF rescue packages with strict austerity conditions.In Indonesia, Suharto's regime begins to wobble.The crisis shows that global capital flows can destroy economies in days if capital controls are missing.",
-          "crypto": "DigiCash (David Chaum's company) prepares for bankruptcy in 1997/98 - Satoshi observes and learns: Central management is the weak point.Adam Back's HashCash paper (1997) provides the proof-of-work concept that Bitcoin will later use directly.The technical foundation is created in academic circles.",
-          "handel": "Amazon's IPO (May 1997, $18/share) gives Bezos capital for aggressive expansion — the first indication that online commerce may displace traditional bookselling.The Asian financial crisis shows that global currency markets without regulation are systematically unstable - private speculation as a threat to the state."
-        },
-        "gesellschaft": {
-          "text": "1997 tells two stories at once: Deep Blue beats Kasparov — AI is no longer a toy.And the Asian financial crisis shows how a digitalized financial market without regulation can destroy entire economies in weeks.In 1997 the world will become faster, more connected and more unstable - without having a common language for it.",
-          "metriken": {
-            "screentime_std_tag": 2,
-            "freundschaften": 14,
-            "freiheit_pct": 42,
-            "bmi_weltweit": 23.5,
-            "polarisierung_pct": 20
-          }
-        },
-        "chancen": {
-          "mental": "First online clinical self-help course for anxiety disorders (Australian research group, 1997) - iCBT founded as a research field;Treatment without a therapist as a scalable model.",
-          "koerper": "Dolly announcement (February 1997): Cloning opens discussion about therapeutic cloning and stem cells - shortly afterwards James Thomson isolates the first human embryonic stem cells (1998).",
-          "gemeinschaft": "http://MoveOn.org is created in response to the Clinton impeachment (1998) — the first mass-capable online petition platform for political engagement;Citizens beyond parties are organizing themselves.",
-          "technologie": "DVD standard (commercially introduced in 1997): High-resolution digital media for everyone - digitization of entertainment as a mass phenomenon, basis for the later streaming economy."
-        }
       }
     },
     "1998": {
@@ -2780,34 +1716,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "James Thomson isoliert 1998 erste humane embryonale Stammzellen (University of Wisconsin) — pluripotente Stammzellen als Basis der regenerativen Medizin gewonnen; Potenzial für alle Gewebe.",
         "gemeinschaft": "Internet Movie Database (IMDb, 1998 von Amazon übernommen): Kollektives Filmwissen als Crowdsourced-Datenbank — Vorbild für Wikipedia und die Idee des kollektiven digitalen Gedächtnisses.",
         "technologie": "Google PageRank (1998): Suchalgorithmus, der das Web nach Relevanz bewertet statt Schlagworte zu zählen — verändert global, wie Milliarden Menschen Information finden und Wissen zugänglich machen."
-      },
-      "en": {
-        "label": "Early Web",
-        "ueberschrift": "Google founded, Clinton impeached, India and Pakistan nuclear — truth, power and control are renegotiated in 1998",
-        "welt": {
-          "usa": "In September 1998, Larry Page and Sergey Brin founded Google in a Menlo Park garage.In August, Clinton admits the Lewinsky affair - impeachment proceedings begin in December.In August, Osama bin Laden was blamed for US embassy bombings in Kenya and Tanzania: 1998 was the first year in which Al-Qaeda and Google went down in history in the same breath.",
-          "china": "China is surviving the Asian financial crisis unscathed thanks to capital controls - state economic management as a best practice against external shocks.Premier Zhu Rongji initiates massive state-owned enterprise reforms: 30+ million employees lose SOE jobs.In June, Jiang Zemin visits the USA for the first time since 1985 - normalization with clear boundaries.",
-          "alte_welt": "In April 1998, the Good Friday Agreement for Northern Ireland was signed - decades of terrorism ended through negotiation.In Russia the ruble collapses in August: national bankruptcy, IMF rescue.In Germany, Gerhard Schröder wins the federal election in September - red-green after 16 years of Kohl.",
-          "neue_welt": "In May 1998, India and Pakistan each tested nuclear weapons within two weeks of each other - both countries joined the nuclear club without signing the NPT.Indonesia: Suharto's 32-year rule ends in May after mass protests and economic collapse caused by the Asian crisis - democratic transition begins.",
-          "crypto": "Google's PageRank algorithm (1998) is itself a form of decentralized consensus — the web rates itself without a central editorial team.Confinity (later PayPal) was founded in December 1998: private payment system moves from the academic to the entrepreneurial space.",
-          "handel": "Long Term Capital Management (LTCM) collapses in September 1998 - Federal Reserve orchestrates $3.6 billion rescue package through private banks: 'Too big to fail' principle visible for the first time.Microsoft is accused of abusing its Windows IE monopoly.Amazon is expanding from books to music and DVDs."
-        },
-        "gesellschaft": {
-          "text": "1998 is the year in which the Internet proves that it can circumvent control systems: The Drudge Report publishes the Lewinsky story before any mainstream media.Google's founding changed how people find knowledge.India and Pakistan prove that the post-1945 non-proliferation regime has real limits when national interests prevail.",
-          "metriken": {
-            "screentime_std_tag": 2,
-            "freundschaften": 14,
-            "freiheit_pct": 43,
-            "bmi_weltweit": 23.6,
-            "polarisierung_pct": 21
-          }
-        },
-        "chancen": {
-          "mental": "First randomized clinical trial on online behavioral therapy for panic disorder (Carlbring et al., Sweden 1998/99) - digital therapy established as a scientifically based field, scalable without a therapist.",
-          "koerper": "James Thomson isolated the first human embryonic stem cells in 1998 (University of Wisconsin) - pluripotent stem cells were obtained as the basis of regenerative medicine;Potential for all tissues.",
-          "gemeinschaft": "Internet Movie Database (IMDb, acquired by Amazon in 1998): Collective film knowledge as a crowdsourced database — model for Wikipedia and the idea of ​​collective digital memory.",
-          "technologie": "Google PageRank (1998): Search algorithm that rates the web based on relevance instead of counting keywords — globally changing how billions of people find information and make knowledge accessible."
-        }
       }
     },
     "1999": {
@@ -2837,34 +1745,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erste erfolgreiche Gentherapie für Immundefektkinder (ADA-SCID, Hôpital Necker Paris, 1999) — Babys ohne funktionierendes Immunsystem werden geheilt; Gentherapie nach Fehlschlägen rehabilitiert.",
         "gemeinschaft": "Napster als unbeabsichtigtes Gemeinschaftsexperiment: 60 Mio. Nutzer teilen Musik ohne zentrale Autorität — beweist dass P2P-Sharing funktioniert und Gemeinschaft stiftet, weit bevor Bitcoin-Ideen entstehen.",
         "technologie": "Linux-Kernel 2.2 (Januar 1999): Open-Source-Betriebssystem gewinnt Unternehmensrelevanz — IBM, Oracle, Intel investieren; Grundlage für Android, alle Server-Infrastruktur und die gesamte Cloud."
-      },
-      "en": {
-        "label": "Dot-Com Boom & Crash",
-        "ueberschrift": "Napster, Kosovo, WTO-Seattle - the Internet is visibly overtaking state and economic control for the first time",
-        "welt": {
-          "usa": "In March 1999, the NATO air war against Serbia over Kosovo began - the first NATO military operation without a UN mandate.In April, two students gunned down 13 people at Columbine.Napster launches in June.In December, Yeltsin unexpectedly handed over power to Putin - the 20th century ended with a warning sign that no one heard.",
-          "china": "NATO bombs hit the Chinese embassy in Belgrade in May 1999 - 3 dead, massive wave of anti-Americanism in China.Beijing understands: The USA wages war from the air without risking its own soldiers.China is accelerating missile defense and military modernization.Jiang Zemin bans Falun Gong in July.",
-          "alte_welt": "The Kosovo War (March–June 1999) — first bombing of European infrastructure since WW2, this time by NATO.On January 1, 1999, the euro started as book money for 11 countries.WTO ministerial conference in Seattle (November 1999) collapses amid global protests - 'Battle in Seattle': 50,000 demonstrators, first coordinated global anti-globalization movement via email.",
-          "neue_welt": "East Timor votes for independence in August 1999 - Indonesian military responds with violence, UN peacekeepers move in.Argentina's economic crisis is worsening.Hugo Chávez becomes Venezuelan president in February 1999 - beginning his Bolivarian revolution.",
-          "crypto": "Napster (June 1999) is the first mass peer-to-peer network — not for money, but for music.The principle of 'decentralized exchange without intermediaries' is being implemented billions of times for the first time.The music industry is fighting legally — and losing control over distribution in the long term.Satoshi notes the pattern.",
-          "handel": "WTO-Seattle collapse signals: Washington Consensus liberalism no longer has social legitimacy.Y2K fears are pumping billions into IT infrastructure — and driving the dot-com bubble further.Napster proves that digital goods can be distributed without a market - the biggest threat to traditional content industries has been born."
-        },
-        "gesellschaft": {
-          "text": "1999 is the year of loss of control.Napster shows that millions are willing to ignore copyright limits when technology makes it possible.Kosovo shows that a Western coalition can wage war without UN legitimacy.Putin takes over Russia on the last day of the year.The 20th century ends with questions for which the 21st will not have good answers.",
-          "metriken": {
-            "screentime_std_tag": 2.5,
-            "freundschaften": 14,
-            "freiheit_pct": 43,
-            "bmi_weltweit": 23.7,
-            "polarisierung_pct": 21
-          }
-        },
-        "chancen": {
-          "mental": "First long-term study on online self-help for depression proves clinical effectiveness (Christensen et al., Australia 1999/2000) - Digital psychotherapy as a global scaling option scientifically founded.",
-          "koerper": "First successful gene therapy for immunodeficiency children (ADA-SCID, Hôpital Necker Paris, 1999) — babies without a functioning immune system are cured;Gene therapy rehabilitated after failures.",
-          "gemeinschaft": "Napster as an unintentional community experiment: 60 million users share music without central authority - proves that P2P sharing works and creates community long before Bitcoin ideas emerge.",
-          "technologie": "Linux kernel 2.2 (January 1999): Open source operating system gains corporate relevance - IBM, Oracle, Intel invest;Foundation for Android, all server infrastructure and the entire cloud."
-        }
       }
     },
     "2000": {
@@ -2894,34 +1774,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Human Genome Project (Vorabdaten ab 2000, abgeschlossen 2003): Erste vollständige Entschlüsselung des menschlichen Genoms — Grundlage für Personalisierte Medizin.",
         "gemeinschaft": "Wikipedia (Januar 2001): Offenes, kostenloses Wissen für alle, kollaborativ geschrieben — erfolgreichstes Gemeinschaftsprojekt der Menschheitsgeschichte.",
         "technologie": "Wi-Fi Standard 802.11b (1999/2000) wird massentauglich — drahtlose Verbindung als Grundlage der späteren mobilen Revolution."
-      },
-      "en": {
-        "label": "Dot-Com Boom & Crash",
-        "ueberschrift": "Y2K survives, dot-com bubble bursts - digital gold rush meets reality",
-        "welt": {
-          "usa": "On November 7, 2000, the US election ended without a result - it was not until December 12 that the Supreme Court declared Bush the winner.The Nasdaq loses 34% in three weeks in March-April;Thousands of dot-com jobs are disappearing.Clinton fails at the Camp David summit with Arafat and Barak in July - the Middle East window closes without anyone recognizing it as historically final.",
-          "china": "In May 2000, the US Congress voted for PNTR (permanent normalization of trade relations) - China's accession to the WTO in 2001 was thus sealed.China already has 22 million Internet users in 2000;Baidu is founded in January.Xi Jinping is governor of Fujian in 2000 - still a regional figure, but on the rise in the party apparatus.",
-          "alte_welt": "In October 2000, Slobodan Milošević fell over mass protests - a brief moment of democratization in the Balkans.At the EU summit in Nice in December, members struggled to agree on enlargement modalities for 12 candidate countries.The euro has existed as book money since 1999, but fake transactions in lira, DM and francs are still everyday life in 2000.",
-          "neue_welt": "In September 2000, the UN General Assembly adopted the Millennium Development Goals - 189 countries signed.HIV/AIDS killed ~2.4 million people in sub-Saharan Africa in 2000;In the same year, Brazil officially declared access to generic drugs as a human right, setting a precedent for international pharmaceutical giants.",
-          "crypto": "e-gold processed over $1 billion in transactions in 2000 — the first significant private digital currency, government-free and gold-backed.PayPal (Musk/Thiel, merged February 2000) processes the first million eBay payments and proves that private companies can build payment infrastructure faster and cheaper than banks.Satoshi Nakamoto observes these experiments.",
-          "handel": "The anti-WTO protests in Seattle (November 1999) continue to have an impact - in 2000, anti-globalization is a countermovement that is taken seriously.The ISDS case Metalclad vs. Mexico shows for the first time that corporations can override national environmental laws through NAFTA arbitration.Enron is still considered a model deregulation success in 2000 — a year before the biggest accounting scandal in history."
-        },
-        "gesellschaft": {
-          "text": "The Nasdaq crash (March 2000) ended the dot-com euphoria — but the web's structural growth continues.Broadband is slowly starting to replace dial-up.Google becomes the dominant search engine.Wikipedia was created in 2001 as a radical collaborative experiment.Society is divided: technology enthusiasts are experiencing a paradigm shift, while the median household barely uses the Internet.",
-          "metriken": {
-            "screentime_std_tag": 2.5,
-            "freundschaften": 14,
-            "freiheit_pct": 44,
-            "bmi_weltweit": 23.8,
-            "polarisierung_pct": 22
-          }
-        },
-        "chancen": {
-          "mental": "First RCTs on internet-based cognitive behavioral therapy (iCBT) show clinical effectiveness - mental health care without a therapist as a scalable vision.(Andersson & Cuijpers, 2009)",
-          "koerper": "Human Genome Project (preliminary data from 2000, completed in 2003): First complete decoding of the human genome - basis for personalized medicine.",
-          "gemeinschaft": "Wikipedia (January 2001): Open, free knowledge for everyone, written collaboratively - the most successful community project in human history.",
-          "technologie": "Wi-Fi standard 802.11b (1999/2000) becomes suitable for the masses - wireless connection as the basis of the later mobile revolution."
-        }
       }
     },
     "2001": {
@@ -2951,34 +1803,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erster roboter-assistierter Herzeingriff durch ZEUS-System (2001) — minimalinvasive Chirurgie durch Robotik als klinische Realität; Chirurgen können präziser und mit kleinerem Schnitt operieren.",
         "gemeinschaft": "Wikipedia beweist: Menschen produzieren gemeinsam Wissen ohne Bezahlung, in Hunderten Sprachen — eine der wichtigsten empirischen Beobachtungen über menschliche Kooperation der Neuzeit.",
         "technologie": "iPod (Oktober 2001): 1.000 Songs in der Tasche — digitale Medienbibliothek als Pocket-Gerät. Apples Produktdesign als Standard für Consumer Electronics; Vorboote des iPhone 6 Jahre später."
-      },
-      "en": {
-        "label": "Dot-Com Boom & Crash",
-        "ueberschrift": "9/11, Wikipedia, Enron — the digital age and its institutions are simultaneously losing their innocence",
-        "welt": {
-          "usa": "On September 11, 2001, terrorist attacks in New York and Washington killed 2,977 people.The Afghanistan invasion begins in October.In October Apple introduced the iPod.In December, Enron filed for bankruptcy - the largest accounting fraud in US history up to that point.Three eras end in the same year: the innocence of peace, the innocence of technology, the innocence of the market.",
-          "china": "China joins the WTO on December 11, 2001 — economic opening on its own terms.9/11 creates geopolitical space for China: The USA focuses on terror, not on China.Jiang Zemin declares willingness for 'anti-terror cooperation' - a useful alliance that should also legitimize Xinjiang policy.",
-          "alte_welt": "9/11 activates NATO Article 5 for the first time - 'Attack on one is an attack on all'.Europe stands in solidarity;Tony Blair accompanies the USA to Afghanistan.Argentina declares national bankruptcy ($100 billion) at the end of 2001 - the largest national bankruptcy in history.Two different types of system failure end in the same December.",
-          "neue_welt": "9/11 changed the West's view of the Global South: Afghanistan, Pakistan, Saudi Arabia as problem areas.Argentina's national bankruptcy hits millions who had dollar savings accounts;'Cacerolazo' protests on the streets.Bangladesh's first textile export successes - global supply chains shape industrialization paths that later become critical.",
-          "crypto": "Wikipedia launches on January 15, 2001 — collective knowledge without central authority, free, decentralized.Enron's accounting fraud shows that institutional trust in financial reports is not fundamental.Napster dies in July 2001 after a court order - but BitTorrent and Gnutella live on: control over digital distribution is lost.",
-          "handel": "Enron's collapse (December 2001): $60 billion market capitalization was built on fraud.WorldCom in preparation.Deregulated capitalism produces systemic fraud — Sarbanes-Oxley as a later answer.iTunes arrives as desktop software in 2001 — Apple positions itself as a media platform, not just a hardware manufacturer."
-        },
-        "gesellschaft": {
-          "text": "2001 is the year of the triple loss of innocence.9/11 shatters the illusion that terrorism remains regional.Wikipedia begins with the idea that knowledge can be free and collective.Enron ends the 90s illusion that deregulated capitalism controls itself.Three epistemologies collapse — and no simple answer takes their place.",
-          "metriken": {
-            "screentime_std_tag": 2.5,
-            "freundschaften": 14,
-            "freiheit_pct": 44,
-            "bmi_weltweit": 24,
-            "polarisierung_pct": 24
-          }
-        },
-        "chancen": {
-          "mental": "Wikipedia (January 2001): Psychology articles, addiction information, self-help resources for free globally for the first time — self-diagnosis and psychoeducation democratized, years before clinical apps.",
-          "koerper": "First robot-assisted cardiac procedure using the ZEUS system (2001) - minimally invasive surgery using robotics as a clinical reality;Surgeons can operate more precisely and with smaller incisions.",
-          "gemeinschaft": "Wikipedia proves: People produce knowledge together without payment, in hundreds of languages ​​— one of the most important empirical observations about human cooperation in modern times.",
-          "technologie": "iPod (October 2001): 1,000 songs in your pocket — digital media library as a pocket device.Apple's product design as the standard for consumer electronics;Pre-boots of the iPhone 6 years later."
-        }
       }
     },
     "2002": {
@@ -3008,34 +1832,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erste Teleoperation-Chirurgie über den Atlantik verifiziert: Arzt in New York operiert Patientin in Straßburg per Roboter (Lindbergh-Operation) — Telechirurgie als klinische Realität dokumentiert.",
         "gemeinschaft": "Wikipedia wächst 2002 auf 26 Sprachen und 100.000+ Artikel — Open Knowledge skaliert exponentiell: Ein Jahr nach Start ist das Projekt bereits größer als jede gedruckte Enzyklopädie.",
         "technologie": "Google AdWords (2000, verfeinert 2002): Zielgenaue Suchmaschinen-Werbung ersetzt Massenmedien-Werbung — Google wird damit zum meistprofitablen Werbeunternehmen der Geschichte; Modell für Facebook Ads, TikTok Ads."
-      },
-      "en": {
-        "label": "Dot-Com Boom & Crash",
-        "ueberschrift": "Euro notes, WorldCom fraud, Iraq preparations - trust in institutions is being systemically shaken",
-        "welt": {
-          "usa": "In July 2002, WorldCom admits to $3.8 billion in accounting fraud — the largest accounting scandal in history (topping Enron).Bush passes the Sarbanes-Oxley Act in July: regulation as a government response to private fraud.In September, Bush lays out the case for the Iraq war — 'weapons of mass destruction' that don't exist.",
-          "china": "China already has 59 million Internet users in 2002 — growth rate +75% per year.SARS begins in Guangdong in late 2002 — China initially tries to cover it up.Hu Jintao takes over from Jiang Zemin as general secretary in November 2002: 'Fourth generation' of CCP leadership, not yet Xi.",
-          "alte_welt": "On January 1, 2002, euro coins and notes arrive - 12 countries give up national currencies, a historic act. In October, a bomb attack in Bali kills 202 people, many Europeans.Russia's Chechnya: In October, terrorists take over Moscow's Dubrovka Theater, 130+ hostages die during the liberation through the use of anesthetic gas.",
-          "neue_welt": "Brazil elects Lula da Silva as president in October 2002 - a leftward turn, but compatible with the market: Lula respects IMF debt.Zimbabwe's Mugabe wins disputed election;EU imposes sanctions without effect.In Afghanistan, Taliban structures are beginning to regroup - nation building is fighting against realities.",
-          "crypto": "e-gold has over 1 million accounts in 2002 — largest alternative digital currency in the world.Liberty Reserve founded in 2002 — becomes a money laundering tool: Stateless digital money as a regulatory problem.WorldCom fraud shows: Accounting is trust-based, and trust can be exhausted.",
-          "handel": "WorldCom and Enron combined: market capitalization over $160 billion was built on fraud.Sarbanes-Oxley regulates U.S. accounting for publicly traded companies.Google continues to develop AdWords - search engine advertising as a business model is growing and becoming the most profitable advertising tool in history."
-        },
-        "gesellschaft": {
-          "text": "2002 is the year of loss of trust in institutions.Enron, WorldCom, Arthur Andersen — the guardians of the capitalist system have failed.The euro launch shows that political will can create monetary systems - but also creates new vulnerabilities.SARS harbingers show: In the globalized world, viruses travel as quickly as financial crises.",
-          "metriken": {
-            "screentime_std_tag": 3,
-            "freundschaften": 14,
-            "freiheit_pct": 44,
-            "bmi_weltweit": 24.1,
-            "polarisierung_pct": 26
-          }
-        },
-        "chancen": {
-          "mental": "Online support groups for cancer patients show measurable improvements in quality of life and depression scores in initial studies (2002) - digital community recognized as a medical intervention.",
-          "koerper": "First teleoperation surgery across the Atlantic verified: Doctor in New York operates on patient in Strasbourg using a robot (Lindbergh operation) - Telesurgery documented as a clinical reality.",
-          "gemeinschaft": "Wikipedia grows to 26 languages ​​and 100,000+ articles in 2002 - Open Knowledge scales exponentially: one year after its launch, the project is already larger than any printed encyclopedia.",
-          "technologie": "Google AdWords (2000, refined 2002): Targeted search engine advertising replaces mass media advertising - making Google the most profitable advertising company in history;Model for Facebook Ads, TikTok Ads."
-        }
       }
     },
     "2003": {
@@ -3065,34 +1861,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Human Genome Project vollständig abgeschlossen (April 2003) — erste vollständige Sequenz des menschlichen Genoms; Personalisierte Medizin als realistische medizinische Perspektive.",
         "gemeinschaft": "Skype (August 2003): Kostenlose Videoanrufe weltweit — Familien, die durch Migration getrennt sind, bleiben in Sichtweite; erste Plattform, die physische Distanz emotional überbrückt.",
         "technologie": "iTunes Store (April 2003): Beweist, dass Nutzer zahlen, wenn UX gut und Preis fair ist. Grundmodell für App Store, Netflix, Spotify — digitale Ökonomie der micropayments beginnt."
-      },
-      "en": {
-        "label": "Dot-Com Boom & Crash",
-        "ueberschrift": "Iraq war, SARS, MySpace launch - the West is acting unilaterally, the Internet is becoming social and decentralized",
-        "welt": {
-          "usa": "On March 20, 2003, the US invasion of Iraq begins - 'Shock and Awe'.In May, Bush declared 'Mission Accomplished' on the aircraft carrier: The war will last until 2011. The iTunes Store launches in April - music industry capitulates to Apple's $0.99/song model: Legal alternative to Napster's successor works.",
-          "china": "SARS goes global in March 2003 — China had been informed since December 2002, but kept quiet about it.WHO criticism forces Chinese transparency.Hu Jintao officially takes over the presidency in March 2003. China already has 79 million Internet users in 2003 - growth continues unabated despite the firewall.",
-          "alte_welt": "Germany and France are against the Iraq war - Schröder and Chirac are in historical opposition to the USA.Rumsfeld's 'Old Europe' vs. 'New Europe': The transatlantic alliance visibly breaks down in 2003.Iraq war without a UN mandate: memories of Kosovo in 1999, but with catastrophic long-term consequences.",
-          "neue_welt": "SARS reaches Singapore, Canada, Hong Kong - first pandemic of the 21st century, 774 deaths worldwide.Liberia: Charles Taylor resigns under international pressure.Brazil's Lula launches Bolsa Família as a conditional social assistance program — one of the Global South's most effective poverty reduction programs in modern times.",
-          "crypto": "MySpace (August 2003), LinkedIn (May 2003) and Skype (August 2003) launch - the network gets social identities and free communication.Skype undermines the pricing power of the telecom industry: the same pattern as Bitcoin later with banks.Intermediaries become technically superfluous.",
-          "handel": "iTunes Store (April 2003): Apple takes 30% commission — the App Store model was invented in 2003 with the iTunes Store, five years before the iPhone App Store.Iraq War Costs US Taxpayers ~$2 Trillion: Largest government misinvestment in modern times in favor of private defense companies."
-        },
-        "gesellschaft": {
-          "text": "2003 shows two parallel monsters: Unilateral power (Iraq War without UN) and decentralized networks (MySpace, Skype, iTunes).Both undermine the old order.The West acts as if the world is unipolar — while building a digital infrastructure that decentralizes power.This contradiction will only explode visibly in 2016.",
-          "metriken": {
-            "screentime_std_tag": 3.5,
-            "freundschaften": 13,
-            "freiheit_pct": 46,
-            "bmi_weltweit": 24.3,
-            "polarisierung_pct": 28
-          }
-        },
-        "chancen": {
-          "mental": "First WHO-based global mental health surveys (World Mental Health Survey 2003) — first epidemiological world map of anxiety and depression;political prioritization begins.",
-          "koerper": "Human Genome Project fully completed (April 2003) — first complete sequence of the human genome;Personalized medicine as a realistic medical perspective.",
-          "gemeinschaft": "Skype (August 2003): Free video calls worldwide — families separated by migration stay in sight;first platform that emotionally bridges physical distance.",
-          "technologie": "iTunes Store (April 2003): Proves that users will pay if the UX is good and the price is fair.Basic model for App Store, Netflix, Spotify - digital economy of micropayments begins."
-        }
       }
     },
     "2004": {
@@ -3122,34 +1890,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Google Scholar (November 2004): Kostenloser Zugang zu wissenschaftlichen Publikationen — Medizinforschung für Patienten, Ärzte und Forscher weltweit zugänglich; Open Science als Demokratisierungsprojekt.",
         "gemeinschaft": "Tsunami-Response 2004: Erste Belege, dass globales Online-Fundraising in Katastrophenfällen $1+ Mrd. mobilisieren kann — direktes Vorbild für Haiti 2010 und Ukraine 2022; digitale Solidarität als neue Spendenform.",
         "technologie": "Gmail (April 2004): 1 GB Speicher kostenlos — verändert Erwartungen an Software-Kosten fundamental. Google als Infrastrukturversorger für das gesamte digitale Leben eines Menschen."
-      },
-      "en": {
-        "label": "Web 2.0",
-        "ueberschrift": "Abu Ghraib, tsunami, founding of Facebook — images change the world before platforms filter them",
-        "welt": {
-          "usa": "In April 2004, Abu Ghraib torture photos from Iraq were published - digital images destroyed the moral legitimacy of the war in a matter of hours.In February, Zuckerberg founded Facebook for Harvard students.Gmail launches in April (invitation only).In November, Bush was re-elected despite Abu Ghraib.On December 26th, the Indian Ocean tsunami kills ~230,000 people.",
-          "china": "China already has 94 million Internet users in 2004.In December, Lenovo bought IBM's PC division for $1.75 billion — the first major Chinese tech acquisition by a Western company.Hu Jintao's 'Harmonious Society' concept was proclaimed as an official ideology in 2004: growth with social stability.",
-          "alte_welt": "In March 2004, bombings in Madrid killed 191 people — Al-Qaeda three days before the Spanish election;Zaápatero wins and withdraws troops from Iraq.EU enlargement to 25 members in May 2004 — largest round of enlargement.EU Constitutional Treaty signed (October 2004) - failed in referendums in 2005.",
-          "neue_welt": "The Indian Ocean tsunami (December 26, 2004) kills ~230,000 people in 14 countries.First global digital aid coordination: blogs, email lists and early online fundraising mobilize $1+ billion - model for Haiti 2010 and Ukraine 2022. Humanity can demonstrate global solidarity in real time for the first time in 2004.",
-          "crypto": "Flickr (February 2004) and Facebook (February 2004) launch in the same month: digital identity and shared images as the basis of social networks.The concept of 'personal data as value' arises here implicitly.e-gold has over 2 million accounts in 2004 — but FBI investigation is ongoing;The end of the first private digital currency is approaching.",
-          "handel": "Lenovo buys IBM PC division (December 2004): China's tech ambitions become visible globally.Google goes public in August ($85/share): search engine as an advertising platform — not as a technology company.Abu Ghraib photos show: Digital images from smartphones delegitimize wars faster than any journalistic investigation."
-        },
-        "gesellschaft": {
-          "text": "2004 proves that images have power — Abu Ghraib is changing international opinion on the Iraq War faster than any analysis.The tsunami mobilizes global response in real time - digital networking as a humanitarian force.Facebook's creation for Harvard students has no idea what it will become.Three threads that converge in 2016.",
-          "metriken": {
-            "screentime_std_tag": 3.5,
-            "freundschaften": 13,
-            "freiheit_pct": 45,
-            "bmi_weltweit": 24.4,
-            "polarisierung_pct": 30
-          }
-        },
-        "chancen": {
-          "mental": "First research on 'compassion fatigue' through 24/7 news consumption (2004) - digital media scientifically articulated as a stress factor;Mindfulness as a counterbalance is beginning to be clinically researched.",
-          "koerper": "Google Scholar (November 2004): Free access to scientific publications - medical research accessible to patients, doctors and researchers worldwide;Open Science as a democratization project.",
-          "gemeinschaft": "Tsunami Response 2004: First evidence that global online fundraising can mobilize $1+ billion in disaster situations — direct model for Haiti 2010 and Ukraine 2022;digital solidarity as a new form of donation.",
-          "technologie": "Gmail (April 2004): 1 GB of storage for free — fundamentally changing expectations about software costs.Google as an infrastructure provider for a person's entire digital life."
-        }
       }
     },
     "2005": {
@@ -3179,34 +1919,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Nike+ iPod Sport Kit (2006): Erster massentauglicher Fitness-Tracker, Gamification von Gesundheitsverhalten auf Millionen-Skala — Grundstein der heutigen Wearable-Industrie.",
         "gemeinschaft": "http://Kiva.org (2005): Mikrokredite von Mensch zu Mensch über Internet — globale Solidarität als Klick-Handlung. Bis heute über 1,6 Mrd. USD verliehen.",
         "technologie": "YouTube-Launch (April 2005) demokratisiert Videoproduktion und -distribution — Grundstein für Creator Economy, Bildungsvideos und globale Bürger-Bewegungen."
-      },
-      "en": {
-        "label": "Web 2.0",
-        "ueberschrift": "YouTube, blogs, MySpace — users create the web, Iraq war shakes trust",
-        "welt": {
-          "usa": "In August 2005, Hurricane Katrina hits New Orleans - FEMA's failure publicly shows how hollowed out state institutions have been through years of deregulation.Bush's attempt in the spring to privatize Social Security failed because of his own Congress.Abu Ghraib photos have been circulating since 2004;In 2005, an investigation was initiated in the Senate for the first time - without consequences.",
-          "china": "In March 2005, the National People's Congress passed the Anti-Secession Law, which legally codified military options against Taiwan.In 2005, Google negotiated self-censorship with Beijing for http://Google.cn (launched January 2006).China revalued the yuan by exactly 2.1% in July — a symbolic signal to the US, not a real currency move.",
-          "alte_welt": "On May 29, 2005, France rejected the EU constitution by 54.7%;The Netherlands follows three days later with 61.5%.On July 7, four bombings on London subways kill 52 people.In November, Angela Merkel becomes Germany's first female chancellor.In 2005, Europe was institutionally paralyzed and domestically reactive.",
-          "neue_welt": "In December 2005, Evo Morales was elected president of Bolivia - the first indigenous head of state in Latin America, and nationalization of natural gas reserves was announced.At the G8 summit in Gleneagles in July, the leading industrialized countries agree to a USD 50 billion debt relief for 18 of the poorest countries.The AU and NEPAD are beginning to openly criticize the conditionality of Western development aid.",
-          "crypto": "No Bitcoin in 2005, but the conceptual basis is maturing: Nick Szabo published 'Bit Gold' in 2005 - a decentralized value storage system that uses proof-of-work and directly influences Nakamoto.Cypherpunks discuss the technical building blocks on cryptographic mailing lists.2005 is the last quiet year before the actual breakthrough.",
-          "handel": "The WTO Doha Round stagnated completely in 2005 - state-led multilateralism was unable to reach an agreement.Instead, bilateral free trade agreements are proliferating, in whose texts corporations are directly registered via lobbying.Google's advertising revenue exceeds Albania's GDP in 2005 — first visible shift: tech platform power begins to surpass state economic giants."
-        },
-        "gesellschaft": {
-          "text": "Web 2.0 is fundamentally changing the media landscape: everyone can publish.YouTube (2005), MySpace, Blogger — user-generated content is becoming standard.Facebook opens to everyone in 2006.The concept of the attention economy emerges as an analytical concept, without foreseeing the later political consequences.Podcasts are becoming popular — decentralized voices are finding an audience.",
-          "metriken": {
-            "screentime_std_tag": 3.5,
-            "freundschaften": 13,
-            "freiheit_pct": 46,
-            "bmi_weltweit": 24.5,
-            "polarisierung_pct": 32
-          }
-        },
-        "chancen": {
-          "mental": "YouTube (2005) enables the first viral mental health videos - public discussion about depression begins from the middle of society, no longer just from clinics.",
-          "koerper": "Nike+ iPod Sport Kit (2006): First mass-market fitness tracker, gamification of health behavior on a scale of millions - the cornerstone of today's wearable industry.",
-          "gemeinschaft": "http://Kiva.org (2005): Microcredit from person to person via the Internet - global solidarity as a click action.Over $1.6 billion lent to date.",
-          "technologie": "YouTube launch (April 2005) democratizes video production and distribution — laying the foundation for the creator economy, educational videos and global citizen movements."
-        }
       }
     },
     "2006": {
@@ -3236,34 +1948,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "AWS-Start (2006) ermöglicht kostenguenstigen Zugang zu Rechenleistung für Medizinforschung — Open-Science-Datenbanken werden skalierbar; Grundlage späterer genomischer Datenverarbeitung.",
         "gemeinschaft": "Wikipedia: 2006 über 1 Mio. englische Artikel, 5 Mio. Artikel gesamt. Größtes und schnellstes Wachstum eines kollaborativen Wissensprojekts — kostenlos, global, mehrsprachig.",
         "technologie": "AWS (März 2006): Cloud Computing als Infrastruktur für alle. Startups können ab sofort ohne Rechenzentrum skalieren — Demokratisierung von Tech-Unternehmertum weltweit."
-      },
-      "en": {
-        "label": "Web 2.0",
-        "ueberschrift": "Facebook for everyone, Twitter launched, AWS live — attention becomes a tradable resource",
-        "welt": {
-          "usa": "In November 2006, Republicans lose both chambers of Congress — a direct response to the Iraq War and Katrina failure.Facebook will open to all users in September (previously only universities).Twitter launches in March.The digital infrastructure of the next decade was created in 2006, largely unnoticed by the political public.",
-          "china": "In October 2006, North Korea tested its first nuclear bomb - China officially condemned it, but at the same time protected Pyongyang in the UN Security Council.http://Google.cn accepts Chinese censorship requirements in January 2006 — first public compromise between US tech and Chinese state.China grew by 12% in 2006 and became the fourth largest economy.",
-          "alte_welt": "In July/August 2006, the Lebanon War raged between Israel and Hezbollah - Europe was diplomatically powerless.Montenegro will become independent in June, Kosovo is waiting for a decision.Angela Merkel's grand coalition is consolidating - pragmatic governance in response to the polarization of the Schröder decade.",
-          "neue_welt": "Hugo Chávez wins the presidential election in Venezuela with 63% - the 'pink wave' of left-wing populist governments in Latin America reached its peak in 2006.Brazil's Lula is re-elected.Bolivia's Morales nationalizes gas reserves.Anti-Washington as a common political denominator connects what little else connects.",
-          "crypto": "e-gold reached its peak in 2006: 3.5 million users, $2 billion in annual revenue.FBI investigation into money laundering begins - e-gold is closed in 2008.Lesson for Satoshi Nakamoto: Stateless money needs real decentralization, not a company as a target.",
-          "handel": "WTO Doha Round officially collapsed in July 2006 - state-led multilateralism has failed.Google buys YouTube for $1.65 billion (October 2006): Whoever has the attention buys the platforms.AWS (Amazon Web Services) officially launches in March — cloud computing will become the infrastructure of the entire digital economy."
-        },
-        "gesellschaft": {
-          "text": "2006 is the year in which Web 2.0 finds its final commercial form.Facebook, Twitter, YouTube — all three platforms that will shape the next decade will emerge or open to everyone in 2006.Attention becomes a tradable resource even before anyone knows the word 'attention economy'.The discrepancy: Digital optimism, analog Iraq war without solution.",
-          "metriken": {
-            "screentime_std_tag": 3.5,
-            "freundschaften": 13,
-            "freiheit_pct": 46,
-            "bmi_weltweit": 24.7,
-            "polarisierung_pct": 34
-          }
-        },
-        "chancen": {
-          "mental": "YouTube community: First 'Vlog your recovery' movements emerge - public self-help for eating disorders, depression and addiction as a community experience, well before clinical recognition.",
-          "koerper": "AWS launch (2006) enables cost-effective access to computing power for medical research - open science databases become scalable;Basis for later genomic data processing.",
-          "gemeinschaft": "Wikipedia: 2006 over 1 million English articles, 5 million articles in total.Largest and fastest growth of a collaborative knowledge project — free, global, multilingual.",
-          "technologie": "AWS (March 2006): Cloud computing as an infrastructure for everyone.Startups can now scale without a data center — democratizing tech entrepreneurship worldwide."
-        }
       }
     },
     "2007": {
@@ -3293,34 +1977,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erste Genome-Wide Association Studies (GWAS) ermöglichen genetische Risikovorhersage für Herzerkrankungen, Typ-2-Diabetes — präventive Medizin durch genetische Daten beginnt klinisch relevant zu werden.",
         "gemeinschaft": "Ushahidi-Konzept entsteht in Kenia als Antwort auf Wahlgewalt — Open-Source-Krisenkoordination via SMS und Web, später in Haiti, Syrien und Ukraine eingesetzt.",
         "technologie": "Android-Betriebssystem (Google, November 2007 angekündigt) — Open-Source-Alternative zu Apple iOS: Smartphonezugang für Milliarden Menschen, die sich Apple nicht leisten können."
-      },
-      "en": {
-        "label": "Web 2.0",
-        "ueberschrift": "iPhone and subprime crisis in the same year — the digital future and its financial price appear simultaneously",
-        "welt": {
-          "usa": "On January 9, 2007, Steve Jobs introduced the iPhone — 'an iPod, a telephone and an Internet communications device'.In June, two Bear Stearns hedge funds collapsed due to subprime mortgages.The creative and destructive power of unleashed capitalism is on display in the same year, 2007: the most transformative consumer product in history emerges as the financial system begins to implode.",
-          "china": "In 2007, China will become the fourth largest economy based on market prices, overtaking Germany.In October, Xi Jinping joins the Politburo Standing Committee: the first step towards autocracy, which was hardly noticed at the time.China already has 210 million Internet users in 2007 — the largest user base in the world, completely behind the firewall.",
-          "alte_welt": "In May 2007, Nicolas Sarkozy became French President.In June, Tony Blair hands over to Gordon Brown.In December, the Treaty of Lisbon is signed - Europe's institutional reform after the constitutional failure.The EU grows to 27 members.In 2007, Europe is institutionally tricked.",
-          "neue_welt": "In Kenya, the controversial December election leads to violence with 1,000+ deaths - in response, Kenyan activists develop Ushahidi: open source crisis management via crowdmapping.Myanmar: The monks' Saffron Revolution in September is crushed.Al Gore's 'An Inconvenient Truth' wins Oscar - setting climate change as a mainstream global issue.",
-          "crypto": "Satoshi Nakamoto worked on the Bitcoin white paper in 2007, which was published in November 2008.The subprime crisis of 2007 is his immediate trigger: he sees the banking system imploding and reacts by designing a system without banks.The timing isn't a coincidence — it's his point.",
-          "handel": "iPhone launch changes trading models: Apple sells exclusively via AT&T - closure as a platform strategy.Amazon Kindle (November 2007) digitizes the book market.MySpace is owned by News Corp for $580 million — traditional media powers are trying to buy rather than understand platform power."
-        },
-        "gesellschaft": {
-          "text": "2007 is the turning point of the information society.The iPhone makes the Internet mobile and personal - the computer leaves the desk and becomes an extension of the body.At the same time, the subprime system is imploding: the people who celebrate the iPhone are sitting in the waiting room of a global economic crisis.Two eras end and begin in the same year.",
-          "metriken": {
-            "screentime_std_tag": 4,
-            "freundschaften": 13,
-            "freiheit_pct": 45,
-            "bmi_weltweit": 24.8,
-            "polarisierung_pct": 36
-          }
-        },
-        "chancen": {
-          "mental": "iPhone App Store concept (not yet live, but announced): First vision of 'mental health in your pocket' - meditation, journaling, therapy access as a pocket application in development.",
-          "koerper": "The first genome-wide association studies (GWAS) enable genetic risk prediction for heart disease and type 2 diabetes - preventive medicine through genetic data is beginning to become clinically relevant.",
-          "gemeinschaft": "Ushahidi concept emerges in Kenya in response to electoral violence — open source crisis coordination via SMS and web, later used in Haiti, Syria and Ukraine.",
-          "technologie": "Android operating system (Google, announced November 2007) — Open source alternative to Apple iOS: smartphone access for billions of people who can't afford Apple."
-        }
       }
     },
     "2008": {
@@ -3350,34 +2006,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Android 1.0 (September 2008): Open-Source-Smartphone demokratisiert Internetzugang für einkommensschwache Bevölkerungen weltweit — Gesundheitsinformationen, Telemedzin und Notfallkommunikation für alle.",
         "gemeinschaft": "Google Android Open Source + Apple App Store (Juli 2008): Zwei konkurrierende Plattformen geben Entwicklern weltweit — auch aus Indien, Nigeria, Brasilien — Zugang zu globalen Märkten für erstmals.",
         "technologie": "Bitcoin-Whitepaper (Oktober 2008): Konzept eines dezentralen, staatslosen Zahlungssystems — technisch elegant, politisch radikal; legt Grundlage für die gesamte Blockchain-Industrie der nächsten 15 Jahre."
-      },
-      "en": {
-        "label": "Web 2.0",
-        "ueberschrift": "Lehman collapses, Obama wins, Bitcoin white paper appears - institutional trust breaks, alternatives emerge",
-        "welt": {
-          "usa": "On September 15, 2008, Lehman Brothers filed for bankruptcy — the largest corporate bankruptcy in US history.The government is bailing out AIG, Fannie Mae and Freddie Mac with taxpayer money.On November 4th, Barack Obama is elected as the first black US president.The $700 billion bank rescue package (TARP) passes: the bankers are bailed out, their victims wait for answers.",
-          "china": "Beijing Olympics on August 8, 2008 is China's self-promotion as a world power - elaborate opening ceremony, 51 gold medals, global attention.Tibet protests escalate in March, China responds with repression and a propaganda campaign.In May, the Sichuan earthquake kills ~70,000 people — government aid and government cover-up coexist in real time.",
-          "alte_welt": "In August 2008, Russia invades Georgia — occupying South Ossetia and Abkhazia in 5 days.Europe reacts with language.It is the first time since 1945 that Russia has militarily occupied a neighboring country - the warning signs for 2014 and 2022 were set in 2008 and are being ignored.",
-          "neue_welt": "The financial crisis is hitting the Global South through capital flight, falling raw material prices and foreign exchange shortages.Zimbabwe's inflation hits 500 billion percent in October 2008 — most extreme currency destruction in modern times.Brazil's Lula is briefly isolated, but is recovering faster than the US thanks to the raw materials boom.",
-          "crypto": "In October 2008 — at the height of the financial crisis — Satoshi Nakamoto published the Bitcoin white paper: 'Bitcoin: A Peer-to-Peer Electronic Cash System'.Embedded in the Genesis block (January 2009): 'Chancellor on brink of second bailout for banks.'The timing is his manifesto.",
-          "handel": "In 2008, the G20 will become the central institution of global economic coordination - the G8 is no longer sufficient for a globalized crisis.Airbnb is created in August 2008, Uber idea 2008: Sharing economy as an answer to recession and scarcity of resources - new platforms grow out of the crisis."
-        },
-        "gesellschaft": {
-          "text": "2008 is the year in which two systems emerge and collapse at the same time.The banking system is showing its structural instability, while iPhone and Android are fundamental to the mobile Internet.Obama election shows the mobilization potential of digital campaigns.People have no idea: the financial failure they are rebelling against will not lead to systemic reform.",
-          "metriken": {
-            "screentime_std_tag": 4.5,
-            "freundschaften": 12,
-            "freiheit_pct": 44,
-            "bmi_weltweit": 25,
-            "polarisierung_pct": 38
-          }
-        },
-        "chancen": {
-          "mental": "Obama Campaign Revolutionizes Digital Community Organizing: Grassroots Fundraising Online, SMS Mobilization — Blueprint that Digital Tools Can Give Political Voice to Marginalized Groups.",
-          "koerper": "Android 1.0 (September 2008): Open source smartphone democratizes Internet access for low-income populations worldwide — health information, telemedicine and emergency communications for all.",
-          "gemeinschaft": "Google Android Open Source + Apple App Store (July 2008): Two competing platforms give developers worldwide — including those from India, Nigeria, Brazil — access to global markets for the first time.",
-          "technologie": "Bitcoin white paper (October 2008): Concept of a decentralized, stateless payment system - technically elegant, politically radical;lays the foundation for the entire blockchain industry for the next 15 years."
-        }
       }
     },
     "2009": {
@@ -3407,34 +2035,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Google Flu Trends (2008/09) zeigt: Suchmaschinen-Daten können Grippewellen 2 Wochen vor offiziellen CDC-Daten erkennen — Big Data für Gesundheitsüberwachung als Konzept belegt.",
         "gemeinschaft": "WhatsApp (gegründet 2009): Ende-zu-Ende-verschlüsselte Kommunikation für 2 Mrd. Menschen kostenlos — globale Vernetzung ohne Sprachbarriere, Plattformkosten oder staatliche Infrastruktur.",
         "technologie": "Bitcoin Genesis Block (Januar 2009): Technisch erste funktionierende Implementierung eines dezentralen Konsensmechanismus (Proof of Work) — Grundlage für alle Blockchain- und Smart-Contract-Technologien."
-      },
-      "en": {
-        "label": "Web 2.0",
-        "ueberschrift": "Bitcoin goes live, Iran-Green Revolution via Twitter - stateless money and media critical of the state as new system challengers",
-        "welt": {
-          "usa": "On January 20, 2009, Barack Obama will be inaugurated.In February he passed the American Recovery and Reinvestment Act ($787 billion) - the largest economic stimulus program in US history.Obama will receive the Nobel Peace Prize in December.At the same time, the Tea Party emerged as a countermovement: government money for banks, but not for citizens — the germ of later Trumpism.",
-          "china": "In 2009, China launched the world's largest economic stimulus program ($586 billion) for infrastructure, housing and industry - surviving the global financial crisis almost unscathed.In July, unrest escalated in Xinjiang: the Internet was completely shut down in the region for 10 months - the first documented complete digital isolation of a population.",
-          "alte_welt": "In June 2009, Iran escalated after the controversial presidential election - Green Revolution, Twitter as an organizational medium.Europe is watching with fascination: Can social media topple dictatorships?The regime survives, but a model is born.Angela Merkel wins the federal election in September with the FDP - black and yellow begins.",
-          "neue_welt": "H1N1 (swine flu) will be the first social media-accompanied pandemic: WHO, governments and Twitter compete for interpretation sovereignty - first global infodemic, 10 years before COVID.Honduran President Zelaya is put in a coup (June 2009) — the first coup of the post-Pink Wave era in Latin America.",
-          "crypto": "On January 3, 2009, the Bitcoin Genesis block is mined — Satoshi Nakamoto's network goes live.In October 2009, the first Bitcoin exchange rate was published: 1,309 BTC = $1.WhatsApp (founded in 2009) and Bitcoin start in the same year: encrypted communication and stateless money as twin projects of digital self-empowerment.",
-          "handel": "General Motors and Chrysler apply for bankruptcy protection (April/June 2009) - the US government takes over shares: the state saves the capitalist system from itself. Apple's App Store grows to 100,000 apps in 12 months - private platform regulation by Apple is stricter than state legislation."
-        },
-        "gesellschaft": {
-          "text": "2009 is a year of germ cells: Bitcoin, WhatsApp, Uber (founded), Instagram (concept) — everything that will shape the next decade emerged in the recession.Crisis as an incubator.The Iran-Green Revolution shows: Social media can mobilize millions, but powers with a monopoly on violence can survive even that. The promise of mobilization has limits.",
-          "metriken": {
-            "screentime_std_tag": 4.5,
-            "freundschaften": 12,
-            "freiheit_pct": 43,
-            "bmi_weltweit": 25.1,
-            "polarisierung_pct": 40
-          }
-        },
-        "chancen": {
-          "mental": "The first mindfulness apps appear in the App Store (Smiling Mind, eMindful) - Meditation is becoming digitally accessible for the first time, without a teacher, course or monastery.Secularized preventive medicine for all.",
-          "koerper": "Google Flu Trends (2008/09) shows: Search engine data can detect flu outbreaks 2 weeks before official CDC data - big data for health monitoring proven as a concept.",
-          "gemeinschaft": "WhatsApp (founded in 2009): End-to-end encrypted communication for 2 billion people free of charge - global networking without language barriers, platform costs or government infrastructure.",
-          "technologie": "Bitcoin Genesis Block (January 2009): Technically first functioning implementation of a decentralized consensus mechanism (Proof of Work) — basis for all blockchain and smart contract technologies."
-        }
       }
     },
     "2010": {
@@ -3464,34 +2064,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Quantified Self-Bewegung (Gary Wolf/Kevin Kelly, 2010): Datengetriebene Selbstbeobachtung als Community — Grundlage für heutige Wearable- und Biohacking-Industrie.",
         "gemeinschaft": "Ushahidi im Haiti-Erdbeben (Januar 2010): Crowdmapping und Echtzeit-Krisenkoordination retten nachweislich Leben — Open-Source-Technologie als humanitäres Werkzeug.",
         "technologie": "iPad-Launch (April 2010): Touch als dominante UI-Metapher, neue Zugänglichkeit für Kinder, Senioren und Menschen mit Behinderungen — Bildungstechnologie und Accessibility-Revolution."
-      },
-      "en": {
-        "label": "Smartphone Revolution",
-        "ueberschrift": "iPad, WikiLeaks, Arab Spring — power and counter-power in the real-time network",
-        "welt": {
-          "usa": "In January 2010, the Supreme Court ruled in Citizens United v.FEC: Companies are allowed to invest unlimitedly in election campaigns - structurally setting the course for the oligarchization of US democracy.In March, Obama signed the Affordable Care Act.In November he lost the midterms to the Tea Party.In December, WikiLeaks begins publishing 250,000 diplomatic cables.",
-          "china": "On October 8, 2010, Liu Xiaobo receives the Nobel Peace Prize - Beijing reacts with sanctions against Norway and shows for the first time how far the state's anger goes against symbolic criticism.In March, Google pulled out of China after a state-sponsored hacker attack.In the same year, China's GDP overtakes Japan's - second in the world economy.",
-          "alte_welt": "On May 2, 2010, the first Greek rescue package was agreed (€110 billion) - the EU and IMF tied it to austerity programs that would shrink Greece's GDP for years.In Great Britain, Cameron forms a coalition and starts his austerity course.The foundation for Brexit and right-wing populism in Europe will be laid institutionally in 2010.",
-          "neue_welt": "On January 12, 2010, an earthquake in Haiti kills ~220,000 people — digital crowdmapping tools (Ushahidi) coordinate aid in real time while government structures fail.On December 17th, Mohamed Bouazizi burns himself to death in Tunisia - the Arab Spring begins.Brazil's Lula hands over to Dilma Rousseff on ~7% GDP growth.",
-          "crypto": "On May 22, 2010, Laszlo Hanyecz buys two pizzas for 10,000 Bitcoin — first real transaction, implied price ~$0.004 per BTC.In July, Mt. Gox becomes the first significant Bitcoin exchange to open.At the end of 2010, Bitcoin was trading at ~$0.30.In the Genesis block in 2009, Nakamoto embedded a newspaper headline about bank bailouts - the libertarian subtext is explicit.",
-          "handel": "Citizens United (January 2010) formalizes corporate power in US democracy: money as freedom of expression.Apple briefly becomes the most valuable company in the world - no government, no bank.In 2010, Amazon, Apple and Google systematically optimized their tax burden via Ireland and Luxembourg to effectively less than 5% - jurisdictional arbitrage as a business model, still hardly regulated."
-        },
-        "gesellschaft": {
-          "text": "The iPhone (2007) changed the world - in 2010 ~300 million people own a smartphone, and the number is increasing exponentially.Twitter is becoming the real-time nervous system of global events.WikiLeaks exposes war crimes - whistleblowing as a digital act of citizenship.The attention economy is beginning to measurably fragment sleep patterns, social life and political opinion formation.",
-          "metriken": {
-            "screentime_std_tag": 5.5,
-            "freundschaften": 11,
-            "freiheit_pct": 43,
-            "bmi_weltweit": 25,
-            "polarisierung_pct": 45
-          }
-        },
-        "chancen": {
-          "mental": "Headspace app (2010): Meditation and mindfulness become suitable for the masses - the first global mental health app market is created, effectiveness studies follow.",
-          "koerper": "Quantified Self-Movement (Gary Wolf/Kevin Kelly, 2010): Data-driven self-observation as a community — basis for today's wearable and biohacking industry.",
-          "gemeinschaft": "Ushahidi in the Haiti Earthquake (January 2010): Crowdmapping and Real-Time Crisis Coordination Proven to Save Lives — Open Source Technology as a Humanitarian Tool.",
-          "technologie": "iPad launch (April 2010): Touch as a dominant UI metaphor, new accessibility for children, seniors and people with disabilities — educational technology and the accessibility revolution."
-        }
       }
     },
     "2011": {
@@ -3521,34 +2093,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "IBM Watson schlägt Jeopardy!-Champions im Februar 2011 — KI-Diagnose als klinische Zukunftsversion wird realistisch; erste Gespräche über KI im Krankenhaus beginnen.",
         "gemeinschaft": "http://Avaaz.org hat 2011 über 10 Mio. Mitglieder — Online-Petitionen als Massenphänomen; erste Belege, dass digitaler öffentlicher Druck politische Entscheidungen beschleunigen kann.",
         "technologie": "Siri-Launch (Oktober 2011 mit iPhone 4S) — erster massentauglicher KI-Sprachassistent; Alexa folgt 2014, Google Assistant 2016. Sprache als Interface-Paradigma der Zukunft wird 2011 gesetzt."
-      },
-      "en": {
-        "label": "Smartphone Revolution",
-        "ueberschrift": "Arab Spring, Occupy, jobs dying — platforms mobilize millions, but systems survive",
-        "welt": {
-          "usa": "On May 2, 2011, Osama bin Laden is killed by US Navy SEALs in Abbottabad.Occupy Wall Street starts in Manhattan in September - 'We are the 99%'.Twitter and Facebook are organizational tools, but without a political structure.Steve Jobs dies on October 5th: the end of an era of technological optimism that believed that better products would make the world a better place.",
-          "china": "In 2011, China officially becomes the second largest economy in terms of nominal GDP figures - finally overtaking Japan.Weibo (China's Twitter) has 200 million users under government control.In April, Ai Weiwei is arrested and released after 81 days under international pressure - China learns: Creative intelligence is a reputational risk.",
-          "alte_welt": "Austerity protests are escalating in Greece - Papandreou resigns in November, technocrat government under Papademos.In Libya, NATO air strikes topple Gaddafi (killed in October).The civil war in Syria begins as an offshoot of the Arab Spring - it will never end.Berlusconi resigns in November under pressure from the markets.",
-          "neue_welt": "The Arab Spring reaches its climax: Tunisia overthrows Ben Ali in January, Egypt Mubarak in February 2011 - via Twitter organization and millions in Tahrir Square.Short hope: The Muslim Brotherhood takes over in Egypt in 2012 and the military in 2013.The structures survive the revolts.",
-          "crypto": "Bitcoin rises to $31 in June 2011 — first major media interest.Then crash to $2.Silk Road launched in February 2011 as the first darknet marketplace with Bitcoin.WikiLeaks Accepts Bitcoin Donations After PayPal and Visa Blockade — First Political Bitcoin Application: Crypto as a Resistance Tool Against Financial Blockades.",
-          "handel": "Steve Jobs' death (October 2011) marks the end of the era of 'visionary as a business leader'.Occupy Wall Street shows: Social reaction to capital concentration after 2008 - without forcing a structural response.LinkedIn IPO (May 2011): Professional network as a listed platform, first monetization of professional identity."
-        },
-        "gesellschaft": {
-          "text": "2011 shows the dual nature of platform power: Twitter and Facebook organize millions in Tahrir Square and Occupy Wall Street.But powers with a monopoly on violence and institutional control survive.Revolutions win battles, lose wars.The most powerful mobilization tool in history (social media) has no power to structurally change institutions.",
-          "metriken": {
-            "screentime_std_tag": 5.5,
-            "freundschaften": 11,
-            "freiheit_pct": 41,
-            "bmi_weltweit": 25.1,
-            "polarisierung_pct": 47
-          }
-        },
-        "chancen": {
-          "mental": "Headspace app expands with millions of first users in 2010/11 — meditation as a secular, non-esoteric practice for stressed-out urbanites;mental health leaves the clinical space.",
-          "koerper": "IBM Watson Beats Jeopardy! Champions in February 2011 — AI Diagnosis as Clinical Future Version Becomes Realistic;first discussions about AI in hospitals begin.",
-          "gemeinschaft": "http://Avaaz.org has over 10 million members in 2011 - online petitions as a mass phenomenon;first evidence that digital public pressure can accelerate political decisions.",
-          "technologie": "Siri launch (October 2011 with iPhone 4S) — first mass-market AI voice assistant;Alexa follows in 2014, Google Assistant in 2016. Language as the interface paradigm of the future is set in 2011."
-        }
       }
     },
     "2012": {
@@ -3578,34 +2122,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erste erfolgreiche Gentherapie für eine Erbkrankheit in Europa zugelassen (Glybera gegen LPLD, Oktober 2012) — Gentherapie nach 20 Jahren Misserfolgen wissenschaftlich rehabilitiert.",
         "gemeinschaft": "Raspberry Pi (Februar 2012) — $35-Computer demokratisiert Hardware-Basteln weltweit; Schulen in Entwicklungsländern erhalten erstmals preiswerte Rechner für Coding-Unterricht.",
         "technologie": "Generative Adversarial Networks (Ian Goodfellow, Konzept 2012, Paper 2014) — Grundlage aller späteren Bildgenerierungs-KI von DALL-E bis Stable Diffusion. KI-Kreativität als Konzept entsteht."
-      },
-      "en": {
-        "label": "Smartphone Revolution",
-        "ueberschrift": "Facebook IPO disappoints, Syria escalates - platform promises and state impotence collide",
-        "welt": {
-          "usa": "On May 18, 2012, Facebook goes public — $16 billion IPO, then immediate price collapse.Obama will be re-elected in November.In December, a gunman kills 20 children in Newtown/Sandy Hook.The GOP is blocking gun laws — digital outrage without political consequence.The pattern that enabled Trump in 2016 is becoming increasingly clear in 2012.",
-          "china": "Xi Jinping is elected general secretary of the CCP in November 2012 — the official start of power.The Bo Xilai scandal (March 2012): Popular Chongqing party leader removed over corruption and murder allegations.Sign: Xi is seriously and consistently building power centralization.",
-          "alte_welt": "ECB boss Draghi declared in July: 'Whatever it takes' - saves the euro in one sentence without printing money.There are increasing reports of the use of chemical weapons in Syria.Europe is divided between intervention and restraint - Hollande wins in France (May), Merkel remains chancellor (election not until 2013).",
-          "neue_welt": "In Egypt, the Muslim Brotherhood's Morsi won the first democratic election since Mubarak in June 2012 - a coup a year later.France intervened in Mali in January 2013 (preparation 2012).South Sudan's independence (2011) begins to implode in 2012 with ethnic conflicts — one of the youngest nations to collapse.",
-          "crypto": "Bitcoin stabilizes at $5-13 in 2012.The first Bitcoin halving will take place in November (block reward from 50 to 25 BTC).Coinbase was founded in June 2012 - the first serious US crypto exchange.WordPress accepts Bitcoin payments.Crypto is gaining legitimacy outside of the hacker community.",
-          "handel": "Facebook IPO disappointment shows: platform growth does not automatically equal profit.Apple surpasses Exxon as the world's most valuable company.Instagram is bought by Facebook for $1 billion in April - the beginning of the platform monopolization: Buy the competition before it gets big."
-        },
-        "gesellschaft": {
-          "text": "2012 shows the paradox of the digital era: Facebook has 1 billion users and is disappointing on the stock market.Obama mobilizes digitally and governs analogously against structural resistance.Sandy Hook reaction demonstrates: Digital outrage without a political structure does not change laws.Platform optimism meets institutional reality — and loses.",
-          "metriken": {
-            "screentime_std_tag": 6,
-            "freundschaften": 10,
-            "freiheit_pct": 42,
-            "bmi_weltweit": 25.2,
-            "polarisierung_pct": 49
-          }
-        },
-        "chancen": {
-          "mental": "Coursera and edX launch in April/October 2012 — MOOCs (Massive Open Online Courses): MIT, Stanford and Harvard courses free for everyone.Education as the basis for mental resilience is becoming globally accessible.",
-          "koerper": "First successful gene therapy for a hereditary disease approved in Europe (Glybera against LPLD, October 2012) - gene therapy scientifically rehabilitated after 20 years of failure.",
-          "gemeinschaft": "Raspberry Pi (February 2012) — $35 computer democratizes hardware tinkering worldwide;Schools in developing countries are receiving inexpensive computers for coding lessons for the first time.",
-          "technologie": "Generative Adversarial Networks (Ian Goodfellow, concept 2012, paper 2014) — basis of all later image generation AI from DALL-E to Stable Diffusion.AI creativity as a concept emerges."
-        }
       }
     },
     "2013": {
@@ -3635,34 +2151,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "CRISPR-Cas9 funktioniert in menschlichen Zellen (Zhang/Doudna, Science Januar 2013) — Nobelpreis-würdige Entdeckung, die Gen-Editing zur therapeutischen Realität macht. Erste klinische Pfade werden entworfen.",
         "gemeinschaft": "Tor-Browser-Nutzung verdreifacht sich nach Snowden (Juni–Oktober 2013) — Datenschutz als Gemeinschaftsprojekt, digitale Selbstverteidigung demokratisiert sich. Privacy als politische Haltung entsteht.",
         "technologie": "Tesla Model S wird Car of the Year (Motor Trend, 2013) — Elektromobilität beginnt Verbrennungsmotor ernsthaft zu konkurrieren. Software-defined car als Konzept: Fahrzeug als Plattform, nicht Produkt."
-      },
-      "en": {
-        "label": "Platform Economy",
-        "ueberschrift": "Snowden reveals total NSA surveillance - the open Internet was an illusion from the start",
-        "welt": {
-          "usa": "In June 2013, Edward Snowden revealed to the world: NSA systematically monitors all digital communications — PRISM, XKeyscore, Tempora.Programs have been running since 2007. Angela Merkel is being tapped.Snowden flees to Russia.The US government charges him with espionage.The reaction from users: hardly.The 'free software for data' business continues.",
-          "china": "Xi Jinping's anti-corruption campaign arrested thousands of cadres, including high-ranking ones, by the end of 2013 ('Tigers and Flies').The program is real AND an instrument of power consolidation.Xi has 'Xi Jinping Thought' developed as a doctrine.In 2013, China is already the second largest economy and the largest energy consumer in the world.",
-          "alte_welt": "In Egypt, the military staged a coup against Morsi in July 2013 - accepted with Western silence.'Arab Spring is over' is the predominant analysis.The Euromaidan protests will begin in Ukraine in November following Yanukovich's EU change of course.Merkel wins the federal election in September with 41.5%.",
-          "neue_welt": "Nelson Mandela dies on December 5, 2013 - the end of a moral authority in global politics.Protests against bus prices and corruption escalate in Brazil in June: first major social media mobilization that destabilizes the Lula successor.Assad's troops use chemical weapons in Syria - Obama's 'red line' is crossed without consequence.",
-          "crypto": "Bitcoin Rises to $1,000 in October/November 2013 — First Mainstream Media Event Worldwide.In October, the FBI shuts down Silk Road and arrests Ross Ulbricht.In December, China banned banks from crypto transactions.Crypto entered the global public consciousness seriously for the first time in 2013.",
-          "handel": "Snowden revelations damage US tech companies internationally: European customers doubt cloud services under US jurisdiction.Airbnb grows to 10 million overnight stays.Amazon plans drone delivery (Prime Air).The sharing economy reached its first peak in 2013 — private capital as infrastructure."
-        },
-        "gesellschaft": {
-          "text": "Snowden 2013 destroys a narrative: 'The Internet is a place of freedom.'From the start, it was also a surveillance room - built by corporations and monitored by secret services.The reaction in Europe: GDPR planning is accelerating.The reaction from users: hardly.Because the alternative — forgoing digital services — is too big to bear.",
-          "metriken": {
-            "screentime_std_tag": 7,
-            "freundschaften": 10,
-            "freiheit_pct": 40,
-            "bmi_weltweit": 25.3,
-            "polarisierung_pct": 53
-          }
-        },
-        "chancen": {
-          "mental": "First evidence-based smartphone apps for depression show clinical effectiveness in RCTs (Mohr et al., 2013) - Digital psychotherapy begins as a recognized format;Moving from wellness to clinical evidence.",
-          "koerper": "CRISPR-Cas9 works in human cells (Zhang/Doudna, Science January 2013) — Nobel Prize-worthy discovery that makes gene editing a therapeutic reality.Initial clinical pathways are being designed.",
-          "gemeinschaft": "Tor browser usage triples after Snowden (June–October 2013) — data protection as a community project, digital self-defense is democratizing.Privacy emerges as a political stance.",
-          "technologie": "Tesla Model S becomes Car of the Year (Motor Trend, 2013) — Electric mobility is beginning to seriously compete with internal combustion engines.Software-defined car as a concept: vehicle as a platform, not a product."
-        }
       }
     },
     "2014": {
@@ -3692,34 +2180,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Ice Bucket Challenge (Sommer 2014): $115 Mio. für ALS-Forschung durch virales Social-Media-Fundraising — führt direkt zur Entdeckung des NEK1-Gens als ALS-Risikofaktor. Digitale Solidarität mit messbarem Forschungseffekt.",
         "gemeinschaft": "Ebola-Krise: MSF und lokale Gesundheitsarbeiter in Westafrika entwickeln datengestützte Seuchenmodelle — Grundlage der COVID-Tracking-Infrastruktur 6 Jahre später.",
         "technologie": "Generative Adversarial Networks (Ian Goodfellow, Paper Juni 2014) — Grundlage von DALL-E, Stable Diffusion, Midjourney. KI-Bildgenerierung beginnt hier als Forschungskonzept."
-      },
-      "en": {
-        "label": "Platform Economy",
-        "ueberschrift": "Crimean annexation, ISIS, Ferguson - the collapse of the liberal world order is becoming obvious",
-        "welt": {
-          "usa": "In August 2014, a police officer kills Michael Brown in Ferguson, Missouri - protests and police militarization become publicly visible.Black Lives Matter emerges as a movement.In December, the US Senate published the torture report: CIA tortured systematically after 9/11 - documented, without criminal consequences.Self-criticism as a ritual without effect.",
-          "china": "In September 2014, the Umbrella protests begin in Hong Kong - student democracy movement, 79 days.Beijing waits it out without intervening;Protests end without results.Xi Jinping's anti-corruption campaign arrests ~100,000 cadres by the end of 2014 - structural concentration of power continues.",
-          "alte_welt": "In February/March 2014, Russia annexed Crimea after Euromaidan in Ukraine - the first act of Russian territorial revision in Europe since 1945. Europe responded with sanctions.Nord Stream 2 planning is running in parallel: Europe continues to buy Russian gas.The geopolitical naivety is historically documented in 2014.",
-          "neue_welt": "In June 2014, ISIS declares a caliphate in Mosul — with a social media campaign of professional beheading videos on Twitter and YouTube: first terrorist organization to strategically use platform power.Ebola breaks out in West Africa in spring 2014 - WHO reacts too slowly, ~11,000 deaths by 2016.",
-          "crypto": "Bitcoin starts 2014 at $950, falls to under $300 due to the Mt. Gox hack (February: 850,000 BTC stolen).Mt. Gox files for bankruptcy.Trust in crypto infrastructure is collapsing.Vitalik Buterin's Ethereum white paper (November 2013) finds its ICO funding in 2014 - smart contracts as the next stage of development.",
-          "handel": "Facebook buys WhatsApp for $19 billion (February) and Oculus VR for $2 billion (March) — Zuckerberg's strategy: Buy every potential competitor before they get big.Alibaba's September IPO ($25 billion) — largest IPO ever: China's digital commerce platform is bigger than Amazon and eBay combined."
-        },
-        "gesellschaft": {
-          "text": "2014 is the year in which several threads break at the same time: Crimea's annexation shows that international norms are negotiable when the military defines its borders.ISIS shows that social media can also amplify barbarism.Ferguson shows that digital attention makes structures visible but does not break them.The world in 2014 is more complicated than the internet optimism of the early 2000s promised.",
-          "metriken": {
-            "screentime_std_tag": 7.5,
-            "freundschaften": 9,
-            "freiheit_pct": 40,
-            "bmi_weltweit": 25.4,
-            "polarisierung_pct": 56
-          }
-        },
-        "chancen": {
-          "mental": "First WHO study on the 'Global Burden of Mental Disease' (2014) quantifies: Depression is the leading cause of incapacity worldwide - political prioritization of mental health begins globally.",
-          "koerper": "Ice Bucket Challenge (Summer 2014): $115 million for ALS research through viral social media fundraising — leads directly to the discovery of the NEK1 gene as an ALS risk factor.Digital solidarity with measurable research impact.",
-          "gemeinschaft": "Ebola crisis: MSF and local health workers in West Africa develop data-driven disease models — foundation of COVID tracking infrastructure 6 years later.",
-          "technologie": "Generative Adversarial Networks (Ian Goodfellow, Paper June 2014) — Basis of DALL-E, Stable Diffusion, Midjourney.AI image generation starts here as a research concept."
-        }
       }
     },
     "2015": {
@@ -3749,34 +2209,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "CRISPR-Cas9 für menschliche therapeutische Anwendungen praktikabel (Doudna/Charpentier, Nobelpreis 2020): Gen-Editing als reale medizinische Perspektive — erste Anwendungen gegen Erbkrankheiten in Sicht.",
         "gemeinschaft": "Wikipedia: 15 Jahre, 38 Mio. Artikel, 300 Sprachen — Beleg dass offene, nicht-kommerzielle Kooperation auf globaler Skala funktioniert und standhält.",
         "technologie": "TensorFlow Open Source (Google, November 2015): KI-Demokratisierung — Millionen Entwickler weltweit erhalten Zugang zu State-of-the-Art Machine Learning. Grundstein für alle späteren KI-Anwendungen."
-      },
-      "en": {
-        "label": "Platform Economy",
-        "ueberschrift": "Refugee crisis, ISIS, Trump announces himself - algorithms shape society",
-        "welt": {
-          "usa": "On June 26, 2015, the Supreme Court decided in Obergefell v.Hodges: Same-sex marriage is constitutionally guaranteed.On June 16, Donald Trump announced his candidacy - initially dismissed as a joke.The Iran nuclear deal (JCPOA) is signed in July.After the church attack in Charleston in June, Black Lives Matter is growing into a national movement.",
-          "china": "In May 2015, Beijing released 'Made in China 2025' — a state industrial plan for AI, robotics and semiconductors that seriously alarmed Western governments for the first time.In the summer, the Chinese stock market collapses (~40% loss in weeks);Beijing intervenes massively with state purchases.The AIIB is founded - direct competition to the World Bank.",
-          "alte_welt": "In September 2015, ~1 million people crossed the EU's external borders - the peak of the refugee movement.On November 13, ISIS attacks in Paris kill 130 people.In December, 196 countries agreed on the Paris Climate Agreement (COP21).In 2015, the EU is confronted with migration, terror and climate policy at the same time - without a clear common line.",
-          "neue_welt": "In September 2015, the UN adopted the 17 Sustainable Development Goals - a global framework until 2030. In December, the USA and Cuba normalized their relations after 54 years.South African President Zuma fires Finance Minister Nhlanhla Nene in December — the rand immediately loses 9%;Beginning of institutional decline.The 1MDB scandal is becoming visible in Malaysia: state funds as an instrument of private enrichment.",
-          "crypto": "Ethereum goes live in July 2015 - smart contracts as a programming language for contracts without intermediaries.Bitcoin is $300-500, market cap ~$5 billion. The word 'blockchain' is exploding in corporate communications.DeFi (Decentralized Finance) was formulated as a concept in 2015: Financial markets without banks are now technically possible as a libertarian project.",
-          "handel": "In October 2015, 12 countries signed the TPP without public transparency in the negotiations.Uber is active in 300+ cities and systematically circumvents labor laws and taxi licenses - create facts, states react.Apple, Google and Amazon pay effective tax rates below 5% through legal jurisdictional arbitrage.2015 is the year in which the shift from liberal to libertarian is discussed publicly for the first time."
-        },
-        "gesellschaft": {
-          "text": "Platforms dominate: Uber, Airbnb, Netflix, Facebook with 1.5 billion users.For the first time, algorithms decide on a large scale what billions of people see.Filter Bubbles (Eli Pariser) and Echo Chambers are scientifically described and politically relevant.The refugee crisis and ISIS propaganda are mobilizing right-wing online movements at previously unknown speeds.The term fake news arises - initially as media criticism, it soon becomes a weapon against the media itself.",
-          "metriken": {
-            "screentime_std_tag": 7.5,
-            "freundschaften": 9,
-            "freiheit_pct": 40,
-            "bmi_weltweit": 25.5,
-            "polarisierung_pct": 58
-          }
-        },
-        "chancen": {
-          "mental": "The first peer-reviewed studies on Pokémon GO (2016) show: Movement + social interaction through game mechanics measurably reduces depression scores - gamification established as a therapeutic tool.",
-          "koerper": "CRISPR-Cas9 practical for human therapeutic applications (Doudna/Charpentier, Nobel Prize 2020): Gene editing as a real medical perspective - first applications against hereditary diseases in sight.",
-          "gemeinschaft": "Wikipedia: 15 years, 38 million articles, 300 languages ​​— proof that open, non-commercial cooperation works and endures on a global scale.",
-          "technologie": "TensorFlow Open Source (Google, November 2015): AI democratization — millions of developers worldwide gain access to state-of-the-art machine learning.Foundation stone for all later AI applications."
-        }
       }
     },
     "2016": {
@@ -3806,34 +2238,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "DeepMinds AlphaFold 1 (2016) beginnt Proteinstrukturen vorherzusagen — legt den Grundstein für AlphaFold 2 und die Revolution der Medikamentenentwicklung. Nobelpreis folgt 2024.",
         "gemeinschaft": "Wikidata erreicht 2016 über 20 Mio. strukturierte Datenobjekte in 300 Sprachen — freier, multilingualer Wissensgraph als nicht-kommerzielle Alternative zu Plattform-Monopolen.",
         "technologie": "AlphaGo schlägt Lee Sedol im März 2016 mit 4:1 — Deep Learning ist ab diesem Moment globale Schlagzeile. KI-Investitionen explodieren; das Jahrzehnt der künstlichen Intelligenz beginnt medial."
-      },
-      "en": {
-        "label": "Platform Economy",
-        "ueberschrift": "Algorithms vote - the liberal world order publicly collapses into silence",
-        "welt": {
-          "usa": "On November 8, 2016, Trump wins the presidential election — despite losing the Popular Vote.Cambridge Analytica uses Facebook data from 87 million users for targeted election persuasion work.Zuckerberg publicly denies any role social media played in the election outcome;internally, Facebook engineers know better.",
-          "china": "Xi Jinping secured the title of 'Core of the Party' at the 6th Plenum in October 2016 - a title not used since Deng.TikTok predecessor Douyin launches in China.ZTE's US embargo trial begins - the first chapter of the technology hegemony conflict will be legally opened in 2016.",
-          "alte_welt": "On June 23, 2016, 51.9% of Britons vote to leave the EU - Cameron resigns, May takes over.Right-wing populist parties across Europe see Brexit as a blueprint.Viktor Orbán is continuing to expand his 'illiberal state' in Hungary and presenting refugee defense as a European model - without consequence from Brussels.",
-          "neue_welt": "In Brazil, Dilma Rousseff was removed from office in August 2016 through a politically exploited impeachment process - the beginning of the shift to the right.Rodrigo Duterte's 'War on Drugs' in the Philippines (since June 2016) kills thousands extrajudicially within months.The Global South demonstrated in 2016: Authoritarianism does not need an elegant ideology.",
-          "crypto": "Bitcoin rises from ~$430 to ~$960 in 2016 — first doubling since the 2014 crash.In June 2016, the Ethereum DAO is hacked for $60 million - the community splits into ETH and ETC.The first hard fork in blockchain history shows that decentralization is not an absolute guarantee against decision-making power.",
-          "handel": "Trump announces the end of the TPP during the election campaign - the largest free trade agreement in history dies in November 2016. Amazon overtakes Walmart as the most valuable trading company in the world: an algorithm dominates retail more effectively than all WTO agreements combined."
-        },
-        "gesellschaft": {
-          "text": "2016 is the year information warfare becomes the dominant political tactic.Russia systematically uses Facebook ads and Twitter bots to influence elections - documented but discovered too late.The term 'post-truth' becomes Oxford's word of the year.In 2016, the digital public sphere is no longer neutral — it is structurally permeated by platform interests and state actors.WhatsApp is becoming the main channel for misinformation in Brazil, India and Nigeria.",
-          "metriken": {
-            "screentime_std_tag": 8.5,
-            "freundschaften": 8,
-            "freiheit_pct": 39,
-            "bmi_weltweit": 25.8,
-            "polarisierung_pct": 65
-          }
-        },
-        "chancen": {
-          "mental": "Pokémon GO (July 2016): 65 million active users in one month move more and talk to strangers.Initial studies show measurable reductions in loneliness among active gamers - gaming as an involuntary therapy tool.",
-          "koerper": "DeepMind's AlphaFold 1 (2016) begins to predict protein structures — laying the foundation for AlphaFold 2 and the revolution in drug development.Nobel Prize follows in 2024.",
-          "gemeinschaft": "In 2016, Wikidata reached over 20 million structured data objects in 300 languages ​​- a free, multilingual knowledge graph as a non-commercial alternative to platform monopolies.",
-          "technologie": "AlphaGo beat Lee Sedol 4:1 in March 2016 — from this moment on, deep learning became the global headline.AI investments are exploding;The decade of artificial intelligence begins in the media."
-        }
       }
     },
     "2017": {
@@ -3863,34 +2267,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Erste CAR-T-Zelltherapie FDA-zugelassen (Kymriah, August 2017): Immunsystem als individuell programmierbares Krebsmedikament — Durchbruch der personalisierten Onkologie.",
         "gemeinschaft": "Signal-App gewinnt massiv Nutzer als verschlüsselter WhatsApp-Ersatz — Gemeinnuetzige Infrastruktur für private Kommunikation als Gegenmodell zu ad-finanzierten Plattformen.",
         "technologie": "Google Neural Machine Translation übertrifft im Oktober 2017 menschliche Übersetzer in bestimmten Sprachpaaren — Sprachbarriere als globales Kommunikationsproblem beginnt strukturell abzunehmen."
-      },
-      "en": {
-        "label": "Platform Economy",
-        "ueberschrift": "China saves globalization narrative, MeToo proves platform power - trust is collapsing worldwide",
-        "welt": {
-          "usa": "Trump will be inaugurated on January 20, 2017.In the same month, the USA left the TPP and in June the Paris climate agreement.In October, #MeToo exploded after Harvey Weinstein revelations - Twitter and Instagram amplified in weeks what had been hushed up for decades: platform power can shake systemic power structures.",
-          "china": "Xi Jinping gives a pro-globalization speech at the World Economic Forum in Davos in January 2017 — while Trump hasn't even been inaugurated yet.China positions itself as the guardian of the liberal economic order, which it adheres to selectively.In October, at the 19th Party Congress, Xi secured a second term in office without a succession plan - formalizing structural centralization of power.",
-          "alte_welt": "In April 2017, Emmanuel Macron won the French presidential election against Marine Le Pen — relief in Europe.In March Theresa May triggers Article 50: Brexit is legally irreversible.In 2017, the Federal Intelligence Service and EU institutions warned of Russian disinformation campaigns against the federal election - officially recognized for the first time.",
-          "neue_welt": "North Korea tests an intercontinental ballistic missile with range to the US east coast in November 2017 - Kim's nuclear deterrent program is operational.In September, the Supreme Court annulled a presidential election in Kenya for the first time in Africa - setting a precedent for the rule of law in the Global South.Saudi Arabia grants women driving licenses (September 2017).",
-          "crypto": "Bitcoin rises from ~$1,000 in 2017 to ~$20,000 in December — 2,000% in a year.ICO boom: billions in barely regulated token sales.In September, China completely bans ICOs and shuts down Chinese crypto exchanges.South Korea, Japan and Switzerland become crypto regulation hotspots — first government response to private money.",
-          "handel": "Trump announces the first steel and aluminum tariffs - the starting signal for the trade conflict.Amazon buys Whole Foods for $13.7 billion and enters physical retail: Digital platforms colonize analogue economic sectors.FAANG companies together have a higher market capitalization than all German DAX companies."
-        },
-        "gesellschaft": {
-          "text": "In 2017, #MeToo shows what platforms can do when network effects meet a suppressed topic: global discourse changes in weeks.At the same time, the Bitcoin bubble shows that millions of people are actively looking for alternatives to the state monetary system.Trust in institutions — media, governments, banks — is at historic lows in Western democracies in 2017.Social movement and financial speculation are symptoms of the same problem.",
-          "metriken": {
-            "screentime_std_tag": 9,
-            "freundschaften": 7.5,
-            "freiheit_pct": 38,
-            "bmi_weltweit": 26,
-            "polarisierung_pct": 68
-          }
-        },
-        "chancen": {
-          "mental": "MDMA-assisted psychotherapy shows 76% remission rate for PTSD in phase 2 studies (MAPS, 2017) — scientific rehabilitation of psychedelic substances as a therapeutic tool begins in earnest.",
-          "koerper": "First CAR T-cell therapy FDA approved (Kymriah, August 2017): Immune system as individually programmable cancer drug - breakthrough in personalized oncology.",
-          "gemeinschaft": "Signal app is massively gaining users as an encrypted WhatsApp replacement - non-profit infrastructure for private communication as a counter-model to ad-financed platforms.",
-          "technologie": "Google Neural Machine Translation outperforms human translators in certain language pairs in October 2017 — language barrier as a global communication problem begins to structurally decline."
-        }
       }
     },
     "2018": {
@@ -3920,34 +2296,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "He Jiankuis CRISPR-Babys (November 2018) überschreiten globale Ethikgrenzen — zeigen aber: Gen-Editing des Menschen ist technisch möglich. Regulierung und Ethik-Frameworks werden global beschleunigt.",
         "gemeinschaft": "Greta Thunberg beginnt im August 2018 ihren Schulstreik — Fridays for Future entsteht als erste globale Bewegung, die von einer Einzelperson via Social Media ohne NGO-Apparat auf Millionen skaliert.",
         "technologie": "CRISPR-basierte Therapien für Sichelzellanämie und Beta-Thalassamie erreichen klinische Phase — Erbkrankheiten, die überwiegend Menschen afrikanischer und mediterraner Herkunft betreffen, werden erstmals heilbar."
-      },
-      "en": {
-        "label": "Platform Economy",
-        "ueberschrift": "Cambridge Analytica, GDPR, trade war — data is the new battlefield of global politics in 2018",
-        "welt": {
-          "usa": "In March 2018, Guardian and NYT reveal the Cambridge Analytica scandal: 87 million Facebook user data used for political manipulation - Zuckerberg must testify before Congress.In July, Trump imposed tariffs on Chinese goods (over $340 billion) — officially beginning the trade war.Republicans lose the House of Representatives in November.",
-          "china": "In October 2018, US Vice President Pence warned of China's systematic influence on US institutions, media and companies in a historic speech - the beginning of the official decoupling policy.China imposes counter tariffs on American agricultural products.Huawei CFO Meng Wanzhou is arrested in Canada in December at US instigation.",
-          "alte_welt": "On May 25, 2018, the GDPR comes into force - Europe is the first major jurisdiction to set binding rules for tech companies.First serious government attempt at regulation against Platform Power, although enforcement is slow to follow.Brexit negotiations are stuck in the fall: May does not have a parliamentary majority for her deal.",
-          "neue_welt": "In October 2018, journalist Jamal Khashoggi was murdered in the Saudi consulate in Istanbul - on the orders of Crown Prince MBS.Global outrage, minimal consequences: power calculations beat human rights.Brazil's Bolsonaro wins October presidential election - organized via WhatsApp disinformation campaigns, Latin America's first 'platform election'.",
-          "crypto": "Bitcoin Falls from $20,000 to Below $3,200 in 2018 — 84% Loss, Biggest Crypto Winter in History.Hundreds of ICO projects collapse.Institutional investors are watching.At the same time: The first central banks (ECB, Fed, PBoC) are starting CBDC research in earnest - government response to private money is taking shape.",
-          "handel": "Apple briefly exceeded $1 trillion in market capitalization in August 2018 — the first company in history to do so.Jeff Bezos briefly becomes the richest person in the world.The difference: A state budget is democratically controlled.Not a market capitalization."
-        },
-        "gesellschaft": {
-          "text": "In 2018, Cambridge Analytica made official knowledge what was still theory in 2016: political manipulation through platform data is documented practice.Europe responds with the GDPR and sets a global standard - beginning of the 'Brussels Effect'.Public trust in Facebook is collapsing in Western democracies;User numbers among under-25s are falling for the first time.At the same time, Telegram and WhatsApp are growing as largely unregulated information spaces.",
-          "metriken": {
-            "screentime_std_tag": 9.5,
-            "freundschaften": 7,
-            "freiheit_pct": 37,
-            "bmi_weltweit": 26.2,
-            "polarisierung_pct": 70
-          }
-        },
-        "chancen": {
-          "mental": "Esketamine research (Spravato) shows clinical effectiveness in treatment-resistant depression in 2018 - first new class of drug in 30 years;FDA approval 2019. Depression can be approached neurochemically in a new way.",
-          "koerper": "He Jiankui's CRISPR babies (November 2018) cross global ethical boundaries - but show that human gene editing is technically possible.Regulation and ethics frameworks are accelerating globally.",
-          "gemeinschaft": "Greta Thunberg begins her school strike in August 2018 - Fridays for Future emerges as the first global movement to scale from one individual to millions via social media without an NGO apparatus.",
-          "technologie": "CRISPR-based therapies for sickle cell anemia and beta thalassemia reach clinical phase - hereditary diseases that predominantly affect people of African and Mediterranean descent are becoming curable for the first time."
-        }
       }
     },
     "2019": {
@@ -3977,34 +2325,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Googles Sycamore-Quantenprozessor löst im Oktober 2019 ein spezifisches Problem in 200 Sekunden (vs. 10.000 Jahre klassischer Supercomputer) — 'Quantum Supremacy' als Beginn einer neuen Technologieära.",
         "gemeinschaft": "Fridays for Future mobilisiert am 20. September 2019 ~4 Mio. Menschen weltweit — größte dezentral organisierte Massenbewegung ohne Partei oder NGO als Rückgrat, allein via Social Media koordiniert.",
         "technologie": "OpenAI veröffentlicht GPT-2 (Februar 2019) — KI, die so gut schreibt, dass OpenAI das Modell zunächst zurückhält. Sprachmodelle als politische Frage: Wer kontrolliert, was KI sagt?"
-      },
-      "en": {
-        "label": "Post-Truth & Pandemic",
-        "ueberschrift": "Hong Kong, Greta, Facebook's Libra - the last signals of civil resilience before the break",
-        "welt": {
-          "usa": "In September 2019, Trump was impeached for the first time for Ukraine blackmail (Impeachment I).Zuckerberg announces 'Libra' — a global currency controlled by Facebook;US Congress and international authorities stop the project within months.The reaction to Libra shows that when private money scales globally, states react quickly.",
-          "china": "In June 2019, mass protests against the extradition bill began in Hong Kong - up to 2 million people took to the streets.Beijing is still letting 2019 run its course, but is preparing a response.In May, the USA puts Huawei on the entity list - the beginning of the global chip war.China and the USA are in technological decoupling mode.",
-          "alte_welt": "Brexit drags on - Theresa May resigns, Boris Johnson takes over in July.In November, Johnson clearly wins the general election: Brexit is irreversible.The EU parliamentary elections in May show: the right and the green win, traditional popular parties lose.Ursula von der Leyen becomes President of the EU Commission.",
-          "neue_welt": "Mass protests in Chile (October 2019) against inequality are suppressed with tear gas.In Algeria, the Hirak movement forces the resignation of President Bouteflika after 20 years.Sudan: Al-Bashir overthrown.The Global South is experiencing a wave of protests in 2019 - with very different outcomes.",
-          "crypto": "Bitcoin recovers from $3,200 to ~$7,000 in 2019 — moderate recovery.Facebook's Libra announcement spooks central banks around the world: If 2.7 billion Facebook users had their own currency, government monetary policies would be undermined.The BIS publishes serious CBDC research for the first time as a government response.",
-          "handel": "Amazon has more than 50% of US online retail in 2019.TikTok surpasses 1 billion downloads — first Chinese algorithm export that can shape Western consumers.WeWork and Uber IPOs disappoint: The market recognizes that platform profitability is often a myth - the growth logic is being critically questioned for the first time."
-        },
-        "gesellschaft": {
-          "text": "2019 is the year of protests and the last hope: from Hong Kong to Santiago to Beirut, citizens are mobilizing for democracy, climate and justice.Greta Thunberg calls for systemic change at the UN in September.Social media is both a tool and an enemy - an organizational tool for activists and a surveillance system for governments.It is the last year before a pandemic overwrites all other discourses.",
-          "metriken": {
-            "screentime_std_tag": 10,
-            "freundschaften": 7,
-            "freiheit_pct": 37,
-            "bmi_weltweit": 26.3,
-            "polarisierung_pct": 72
-          }
-        },
-        "chancen": {
-          "mental": "AI therapy apps (Woebot, Wysa) show clinical effectiveness in early RCTs — scalable mental health care without a therapist, particularly relevant for rural areas and developing countries.",
-          "koerper": "Google's Sycamore quantum processor solves a specific problem in 200 seconds (vs. 10,000 years of classical supercomputers) in October 2019 - 'Quantum Supremacy' as the beginning of a new era of technology.",
-          "gemeinschaft": "Fridays for Future mobilized ~4 million people worldwide on September 20, 2019 - the largest decentralized mass movement without a party or NGO as the backbone, coordinated solely via social media.",
-          "technologie": "OpenAI releases GPT-2 (February 2019) — AI that writes so well that OpenAI is initially holding back on the model.Language models as a political question: Who controls what AI says?"
-        }
       }
     },
     "2020": {
@@ -4034,34 +2354,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "mRNA-Impfstoffe (Biontech/Moderna) mit >90 % Wirksamkeit in Rekordzeit — nicht nur gegen COVID: Plattformtechnologie, die für Krebs, HIV und Malaria adaptierbar ist. Paradigmenwechsel in der Impfstoffentwicklung.",
         "gemeinschaft": "Open-Source-COVID-Daten (Our World in Data, Johns Hopkins) ermöglichen erstmals global vergleichbare Echtzeitinfos — Journalisten, Forscher und Bürger weltweit nutzen dieselbe Datenbasis.",
         "technologie": "AlphaFold 2 (DeepMind, Dezember 2020) löst das 50 Jahre alte Proteinfaltungsproblem — eine der wichtigsten biologischen Entdeckungen des Jahrhunderts, ermöglicht durch KI. Nobelpreis 2024."
-      },
-      "en": {
-        "label": "Post-Truth & Pandemic",
-        "ueberschrift": "Pandemic accelerates everything — authoritarians win, democracies stagger, platforms benefit",
-        "welt": {
-          "usa": "On March 11, 2020, the WHO declared COVID-19 a pandemic.In May, a police officer kills George Floyd — BLM protests in 2,000+ US cities.In November, Trump loses the election to Biden — he disputes the result and sets the stage for January 6th.The first mRNA vaccines will be approved in December.",
-          "china": "China controls COVID within weeks through radical lockdowns and digital surveillance - the only major economy to grow GDP in 2020 (+2.3%).In June, the National Security Law for Hong Kong comes into effect: an end to democratic exceptionalism, implemented while the world is distracted.",
-          "alte_welt": "Europe's initial response to COVID is fragmented - national lockdown length, national vaccine competition.In July, the EU agreed on the €750 billion Recovery Fund (NextGenerationEU) - a historic step towards joint borrowing.Brexit will take place on January 31st.",
-          "neue_welt": "COVID is hitting the Global South slowly but brutally - weak health systems, no home office, hardly any savings.Bolsonaro actively denies the pandemic.In India, the national lockdown on March 24 created a million-strong migrant worker crisis within hours.Vaccine nationalism by rich countries is becoming a global justice issue.",
-          "crypto": "Bitcoin starts 2020 at ~$7,000, collapses to ~$4,000 in March and ends the year at ~$29,000.In August, MicroStrategy became the first publicly traded company to invest Bitcoin as a treasury reserve.In October, PayPal allows crypto purchases for all US users.Institutional adoption begins in earnest.",
-          "handel": "Amazon sales increase by 38% in 2020 - lockdowns make online trading the standard supply.Zoom grows from 10 million to 300 million daily users.Remote work is normalizing in weeks, something companies had refused to do for years.Pandemic profiteers — tech, pharmaceuticals, delivery services — are accumulating wealth at an unprecedented rate."
-        },
-        "gesellschaft": {
-          "text": "2020 restructures three crises at the same time: pandemic, racism reassessment and democracy crisis.All three are processed for media through digital infrastructure.Zoom is becoming a living space for billions.Authoritarian governments are using pandemic exemptions to permanently restrict fundamental rights.The basic question of 2020: whose health, whose economy — and whose normality returns?",
-          "metriken": {
-            "screentime_std_tag": 12,
-            "freundschaften": 6.5,
-            "freiheit_pct": 35,
-            "bmi_weltweit": 26.5,
-            "polarisierung_pct": 78
-          }
-        },
-        "chancen": {
-          "mental": "COVID Mutual Aid networks emerge in thousands of cities within days — hyperlocal neighborhood assistance scaled through Signal/WhatsApp/Telegram as a decentralized solidarity network without institutional infrastructure.",
-          "koerper": "mRNA vaccines (Biontech/Moderna) with >90% effectiveness in record time - not just against COVID: platform technology that can be adapted for cancer, HIV and malaria.Paradigm shift in vaccine development.",
-          "gemeinschaft": "Open source COVID data (Our World in Data, Johns Hopkins) enables globally comparable real-time information for the first time - journalists, researchers and citizens worldwide use the same database.",
-          "technologie": "AlphaFold 2 (DeepMind, December 2020) solves the 50-year-old protein folding problem — one of the most important biological discoveries of the century, made possible by AI.Nobel Prize 2024."
-        }
       }
     },
     "2021": {
@@ -4091,34 +2383,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "mRNA-Krebsimpfstoffe gehen in klinische Phase-2/3-Studien (Biontech/Moderna) — COVID hat die Plattformtechnologie für Krebs um geschätzte 10 Jahre beschleunigt.",
         "gemeinschaft": "GitHub Copilot Beta (2021): KI-gestütztes Coding demokratisiert Softwareentwicklung — potenziell jede Gemeinschaft kann ihre eigene digitale Infrastruktur ohne Profi-Entwickler bauen.",
         "technologie": "James Webb Space Telescope startet Dezember 2021 — ermöglicht Blick 13,6 Mrd. Lichtjahre zurück. Menschliche Neugier als institutionell finanziertes Gemeinschaftsprojekt in einer Zeit, die sonst Orientierung verliert."
-      },
-      "en": {
-        "label": "Post-Truth & Pandemic",
-        "ueberschrift": "Storming of the Capitol and NFT frenzy – democracy is reeling, escapism is becoming a business model",
-        "welt": {
-          "usa": "On January 6, 2021, Trump supporters stormed the US Capitol - the first violent attack on the transition of power since the Civil War.Biden takes over in January and relies on institutional normality.In August, the Afghanistan withdrawal collapsed in 72 hours: the US nation-building project publicly ended in failure.",
-          "china": "In March 2021, the EU-China sanctions exchange escalates after Xinjiang allegations - the planned investment agreement (CAI) freezes.Xi Jinping launches 'Common Prosperity' campaign (July): wave of regulations against tech billionaires, education industry and real estate sector.China shows that it can control its billionaires - this is structurally unthinkable in the West.",
-          "alte_welt": "Vaccine nationalism in the EU — AstraZeneca supply problems, export bans, public confidence crisis.In September, Australia, the UK and the USA founded AUKUS - a security policy signal: Europe is not involved in the most important strategic decisions.France's submarine contract with Australia is unilaterally terminated.",
-          "neue_welt": "In Myanmar, the military staged a coup in February 2021 and interned Aung San Suu Kyi - despite global condemnation, no effective consequence.In Haiti, President Moïse is assassinated in July.In Ethiopia, the Tigray war is escalating into one of the largest humanitarian disasters.The Global South is learning: International community means selective attention.",
-          "crypto": "Bitcoin hits $64,000 in April, falls to $30,000, recovers to $69,000 in November — all-time high.Beeple sells a digital collage for $69 million (March 2021): NFT boom.El Salvador becomes the first country to make Bitcoin legal tender in September.Total Crypto Market Cap Exceeds $3 Trillion.",
-          "handel": "Facebook renamed itself 'Meta' in October - Zuckerberg's thesis: When regulations restrict the platform, a new reality is built.Amazon CEO Bezos hands over to Andy Jassy;Bezos flies into space (Blue Origin).The picture speaks: The richest man in the world leaves the earth while Congress debates his taxes."
-        },
-        "gesellschaft": {
-          "text": "2021 poses the question of whether democracies really survive reversible defeats.Storming of the Capitol and the withdrawal from Afghanistan show that institutions can fail faster than expected.A significant portion of the population is taking refuge in NFTs, metaverse fantasies, and crypto speculation — not out of greed, but out of distrust in fiat systems and government control.The line between investment and protest is fluid in 2021.",
-          "metriken": {
-            "screentime_std_tag": 11.5,
-            "freundschaften": 6,
-            "freiheit_pct": 34,
-            "bmi_weltweit": 26.8,
-            "polarisierung_pct": 80
-          }
-        },
-        "chancen": {
-          "mental": "MDMA Psychotherapy Receives FDA Breakthrough Therapy Designation for PTSD (Phase 3) — Veterans and Trauma Victims Become First Beneficiaries.First scalable combination of substance and therapy in clinical use.",
-          "koerper": "mRNA cancer vaccines enter phase 2/3 clinical trials (Biontech/Moderna) — COVID has accelerated platform technology for cancer by an estimated 10 years.",
-          "gemeinschaft": "GitHub Copilot Beta (2021): AI-powered coding democratizes software development — potentially any community can build its own digital infrastructure without professional developers.",
-          "technologie": "James Webb Space Telescope launches December 2021 — allows view 13.6 billion light-years back.Human curiosity as an institutionally funded community project in a time that would otherwise lose direction."
-        }
       }
     },
     "2022": {
@@ -4148,34 +2412,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Ukraine-Krieg als unfreiwilliger Innovationstreiber: Fortschritte bei Tourniquet-Robotik, autonomer Triage und Feldchirurgie — Kriegsmedizin, die später zivile Notaufnahmen verbessern wird.",
         "gemeinschaft": "Ukraine-Solidarität via Airbnb: Nutzer buchen massenhaft Unterkünfte in der Ukraine ohne Aufenthalt als Spendemechanismus — $1 Mrd. in Tagen. Dezentrale Solidarität in Echtzeit als neue Spendenform.",
         "technologie": "DALL-E 2, Stable Diffusion und Midjourney (alle 2022) demokratisieren Bildgenerierung — jeder Mensch kann professionelle Bilder erstellen. Kreativität wird technisch für alle zugänglich."
-      },
-      "en": {
-        "label": "Post-Truth & Pandemic",
-        "ueberschrift": "War in Europe, crypto crash, Musk buys Twitter - infrastructure is declared a weapon",
-        "welt": {
-          "usa": "Russia's full invasion of Ukraine begins on February 24, 2022 - Biden coordinates Western sanctions and arms deliveries.In June, the Supreme Court overturned Roe v.Calf.In October, Elon Musk buys Twitter for $44 billion and lays off 50% of the workforce in days.This isn't a business decision — it's an individual's takeover of global communications infrastructure.",
-          "china": "In October 2022, Xi Jinping secures a historically unprecedented third term in office at the 20th Party Congress - China is breaking all internal limits on the concentration of power.Protests against zero COVID ('white paper movement') explode in November.In December, Beijing abruptly gave up — 1 billion people became infected within weeks.",
-          "alte_welt": "Russia's invasion of Ukraine is forcing Europe's biggest security policy realignment since 1945. Germany's 'turning point': €100 billion special authorization for the Bundeswehr.Energy crisis caused by gas dependence on Russia - decades of geopolitical naivety meet reality in a single winter.",
-          "neue_welt": "The Ukraine war is dividing the world differently than expected: The majority of the Global South is refusing the Russia sanctions.India buys Russian oil at a discount.African countries are suffering from grain shortages due to blocked Ukrainian ports.The bipolar West vs. Rest narrative is definitely dead in 2022.",
-          "crypto": "FTX - third largest crypto exchange - collapses in November 2022: Sam Bankman-Fried had used customer funds for hedge fund speculation.Bitcoin falls to ~$16,000.Total Loss in Crypto Market 2022: ~$2 Trillion.At the same time: Ukraine accepts millions of dollars in crypto donations — first demonstration of crypto as state war funding.",
-          "handel": "SWIFT exclusion of Russia: banking systems are being systematically used as a geopolitical weapon for the first time since the Second World War.China is accelerating CIPS as a SWIFT alternative.Musk's Twitter purchase shows the equivalent: private billionaires can buy global communications infrastructure — without regulation or democratic approval."
-        },
-        "gesellschaft": {
-          "text": "2022 makes visible what many did not want to believe: war is back in Europe, and digital infrastructure is a theater of war.Starlink satellites provide Ukraine with internet — a private company decides the connectivity of a country at war.The FTX collapse and Musk Twitter are mirror images: a private financial system without regulation is fraud, private information infrastructure without regulation is a dictatorship of opinion.",
-          "metriken": {
-            "screentime_std_tag": 11,
-            "freundschaften": 6,
-            "freiheit_pct": 34,
-            "bmi_weltweit": 26.9,
-            "polarisierung_pct": 78
-          }
-        },
-        "chancen": {
-          "mental": "Psilocybin for depression receives legal treatment in Oregon and Colorado - the first US states with regulated access to psychedelic therapy.",
-          "koerper": "Ukraine war as an involuntary driver of innovation: Advances in tourniquet robotics, autonomous triage and field surgery — war medicine that will later improve civilian emergency rooms.",
-          "gemeinschaft": "Ukraine Solidarity via Airbnb: Users book accommodation in Ukraine en masse without a stay as a donation mechanism — $1 billion in days.Decentralized solidarity in real time as a new form of donation.",
-          "technologie": "DALL-E 2, Stable Diffusion and Midjourney (all 2022) democratize image generation — anyone can create professional images.Creativity is becoming technically accessible to everyone."
-        }
       }
     },
     "2023": {
@@ -4205,34 +2441,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "AlphaFold-Datenbank: über 200 Mio. Proteinstrukturen frei verfügbar (2023) — Medikamentenentwicklung demokratisiert sich. Startups aus Nigeria, Indien und Brasilien können erstmals gleichberechtigt mitforschen.",
         "gemeinschaft": "Mastodon und dezentralisierte Social-Media-Alternativen wachsen nach Twitter/X-Krise — Idee der Community-kontrollierten Infrastruktur gewinnt technische Reife und Nutzerbasis.",
         "technologie": "GPT-4 (März), Claude 2 (Juli), Gemini (Dezember): Drei fundamentale KI-Paradigmenwechsel in einem Jahr. Emergenz-Fähigkeiten in Sprachmodellen verändern, was wir für möglich halten."
-      },
-      "en": {
-        "label": "AI Age",
-        "ueberschrift": "ChatGPT is changing the world - AI is permanently overtaking human regulation speed",
-        "welt": {
-          "usa": "In January 2023, ChatGPT reaches 100 million users in 2 months — fastest growth in the history of the Internet.Microsoft is investing $10 billion in OpenAI.Trump will be indicted federally in June (secret files).The Israel-Hamas war begins in October - X (formerly Twitter) under Musk becomes the main platform for disinformation as the war progresses.",
-          "china": "In March 2023, Xi Jinping visits Putin in Moscow and reaffirms the 'No Limits' partnership.In June, Wagner leader Prigozhin mutinied against Putin - retreated, died in a plane crash two months later.China observes: Russia is weaker than expected, but remains a strategic partner.China will publish more AI patents than the US in 2023.",
-          "alte_welt": "The EU AI Act is taking concrete form - the world's first binding AI regulation law.At the same time: In Slovakia, EU skeptic Robert Fico wins the election in October.In Poland, the population voted narrowly pro-European in October - Tusk took over, but PiS had already restructured the judiciary.",
-          "neue_welt": "In August 2023, the BRICS summit decides on expansion: Saudi Arabia, Iran, UAE, Ethiopia, Egypt and Argentina invited - geopolitics of the Global South is accelerating.Military coups with anti-French sentiment as a common denominator are becoming more frequent in Niger, Gabon and Mali.France is systematically losing its influence in West Africa.",
-          "crypto": "Bitcoin rises from ~$16,000 to ~$42,000 (+150%) in 2023.BlackRock, Fidelity, etc. submit Bitcoin ETF applications — institutionalization begins in earnest.Sam Bankman-Fried will be found guilty in November.Ordinals are created as Bitcoin NFTs - Bitcoin is being rediscovered as a programming platform.",
-          "handel": "NVIDIA stock value quadruples in 2023 — AI chips as a new strategic resource, similar to oil.The USA imposes expanded chip export bans against China.OpenAI's governance crisis in November (board fires Altman, reinstates him 5 days later) shows: The most powerful AI companies are structurally difficult to control."
-        },
-        "gesellschaft": {
-          "text": "In 2023, ChatGPT will make visible what AI researchers have known for years: large language models can think, write and synthesize at a human level.Millions of jobs in knowledge work, creativity and customer service are structurally at risk.Regulations are responsive — but AI development is 6-12 months faster than any regulatory process.For the first time in history, a tool can do more than its creator fully understands.",
-          "metriken": {
-            "screentime_std_tag": 11.5,
-            "freundschaften": 5.5,
-            "freiheit_pct": 33,
-            "bmi_weltweit": 27,
-            "polarisierung_pct": 75
-          }
-        },
-        "chancen": {
-          "mental": "ChatGPT as a free, 24/7 available conversation partner: Initial studies show effectiveness for mild depression and social anxiety.AI reduces the structural undersupply of therapy options - especially in the Global South.",
-          "koerper": "AlphaFold database: over 200 million protein structures freely available (2023) - drug development is becoming democratized.Startups from Nigeria, India and Brazil can participate in research on an equal basis for the first time.",
-          "gemeinschaft": "Mastodon and decentralized social media alternatives grow after Twitter/X crisis - idea of ​​community-controlled infrastructure gains technical maturity and user base.",
-          "technologie": "GPT-4 (March), Claude 2 (July), Gemini (December): Three fundamental AI paradigm shifts in one year.Emergence capabilities in language models change what we think is possible."
-        }
       }
     },
     "2024": {
@@ -4262,34 +2470,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "GLP-1-Agonisten (Ozempic, Wegovy) werden 2024 zum Massenphänomen: Adipositas als behandelbare Krankheit. Erste Studien zeigen Wirkung auch gegen Sucht und kardiovaskuläre Erkrankungen.",
         "gemeinschaft": "COP29 in Baku: Erstmals konkrete Finanzierungsmechanismen für Klimaschäden im Globalen Süden ($300 Mrd./Jahr bis 2035) — zu wenig, aber Präzedenz für Haftung reicher Länder.",
         "technologie": "Googles Willow Quantum-Chip (Dezember 2024) löst ein Problem in 5 Minuten, für das ein klassischer Computer 10 Septillionen Jahre bräuchte — Quantencomputing nähert sich praktischer Relevanz."
-      },
-      "en": {
-        "label": "AI Age",
-        "ueberschrift": "Trump back, Europe to the right — tech oligarchy formalizes its political mandate",
-        "welt": {
-          "usa": "In January 2024, the SEC approved the first Bitcoin spot ETF (BlackRock et al.) — institutional crypto mainstream.In July, Biden withdraws his candidacy and Harris takes over.In November, Trump won the election for the second time - this time clearly, including Popular Vote.Elon Musk used X as a campaign amplifier and is named head of DOGE.",
-          "china": "In May 2024, Chinese military drones will fly over Taiwan's territory for the first time without a direct reaction from Taipei - border testing with a signal.In 2024, China will export more electric cars than all Western manufacturers combined.Xi visits Putin's Russia in May and reaffirms the partnership — despite Western threats of secondary sanctions.",
-          "alte_welt": "European Parliament election in June 2024: Right-wing and right-wing extremist parties win strongly.Macron then dissolves the National Assembly - political chaos in France.Giorgia Meloni becomes the strongest figure on the European right.Von der Leyen remains EU Commission President through cooperation with the right.In Germany, the traffic light coalition collapses in November.",
-          "neue_welt": "Indonesia elects former military general Prabowo Subianto as president in February.Mexico elects Claudia Sheinbaum as its first female president in June.In South Africa, the ANC loses its absolute majority in May - the end of an era.BRICS+ now has more members than the G7.",
-          "crypto": "Bitcoin ETF (BlackRock et al.) raises ~$15 billion in institutional capital in first few months.Bitcoin hits a new all-time high of $73,000 in March 2024.Bitcoin Halving in April.Ethereum ETF follows in July.Crypto will officially be part of the established financial system in 2024 — the libertarian project has entered the mainstream.",
-          "handel": "Musk's political influence is without precedent in 2024: X as a campaign tool, Tesla subsidies, Starlink contract monopolies, SpaceX-NASA dependency, DOGE appointment — a single entrepreneur controls more government infrastructure than any regulator.NVIDIA's market cap briefly exceeds $3 trillion."
-        },
-        "gesellschaft": {
-          "text": "2024 is the year the tech oligarchy formalizes its political legitimacy.Musk doesn't just support a candidate - he is a candidate maker and will become an informal member of the government after the victory.The principle that private billionaires control public infrastructure applies to communications, space travel, mobility and budget policy in 2024.Liberal democracy will not lose in 2024 because of a coup — but because of capital infiltration.",
-          "metriken": {
-            "screentime_std_tag": 12,
-            "freundschaften": 5,
-            "freiheit_pct": 33,
-            "bmi_weltweit": 27.1,
-            "polarisierung_pct": 78
-          }
-        },
-        "chancen": {
-          "mental": "AI therapy apps show clinical effectiveness in the first RCTs - the first health insurance companies reimburse digitally supported therapy.Woebot and Wysa reach patient populations that otherwise do not have a therapist.",
-          "koerper": "GLP-1 agonists (Ozempic, Wegovy) will become a mass phenomenon in 2024: Obesity as a treatable disease.Initial studies also show effectiveness against addiction and cardiovascular diseases.",
-          "gemeinschaft": "COP29 in Baku: For the first time concrete financing mechanisms for climate damage in the Global South ($300 billion/year until 2035) - not enough, but a precedent for liability for rich countries.",
-          "technologie": "Google's Willow Quantum chip (December 2024) solves a problem in 5 minutes that would take a classical computer 10 septillion years - quantum computing is approaching practical relevance."
-        }
       }
     },
     "2025": {
@@ -4319,34 +2499,6 @@ window.__FC_LIFE_YEARS__={
         "koerper": "Personalisierte GLP-1-Behandlungen mit KI-Dosierungsoptimierung: Adipositas-Therapie wird präziser und lang-fristig wirksamer — Zugang bleibt strukturelles Problem (~$300/Monat).",
         "gemeinschaft": "Europäische Digital-Souverenitätsbewegung wächst: Sovereign Cloud, EU-eigene KI-Modelle, Gaia-X — erste konkrete Infrastruktur für demokratisch kontrolliertes Internet.",
         "technologie": "Agentic AI wird 2025 praxistauglich — KI-Agenten, die selbstständig Workflows steuern, Code schreiben und Aufgaben ausführen. Nicht mehr nur Text generieren: Handeln als neue KI-Fähigkeit."
-      },
-      "en": {
-        "label": "AI Age",
-        "ueberschrift": "DOGE, trade wars, DeepSeek shock – the libertarian takeover of state structures is complete",
-        "welt": {
-          "usa": "Trump's second term begins with DOGE: Musk and Ramaswamy start massive reductions in federal agencies.In April, Trump imposes global tariffs - trade war 2.0.Diplomatic contacts with Russia over Ukraine ceasefire begin without Ukraine at the table.US democracy still functions institutionally, but checks and balances are eroding structurally.",
-          "china": "In January 2025, DeepSeek releases R1 — a Chinese AI model that outperforms GPT-4 at a fraction of the development cost.NVIDIA stock loses 17% in one day.China demonstrates: In 2025, technological independence will no longer be rhetoric, but reality.",
-          "alte_welt": "In Germany, the CDU/CSU wins the federal election in February 2025 - Friedrich Merz becomes Chancellor, AfD the second strongest force with ~20%.The EU is planning a €800 billion rearmament program.NATO future uncertain under Trump - European countries begin to discuss independent security structures.",
-          "neue_welt": "Trump pushes for Ukraine ceasefire on Russian terms — Kyiv resists.The war continues in Gaza;humanitarian disaster.In South Korea, President Yoon fails in his attempt at martial law in December 2024 and is deposed.Malaysia profiles itself as a neutral tech hub between the spheres of power.",
-          "crypto": "Trump administration is explicitly crypto-friendly: No SEC enforcement against crypto exchanges, Bitcoin Strategic Reserve is being discussed.Stablecoin regulation (GENIUS Act) passed.Bitcoin between $80,000-$100,000.The libertarian crypto project is becoming a state affair — the irony is complete.",
-          "handel": "Trump's tariffs fragment global trade: 'Friend-shoring' replaces globalization.With X, Tesla, SpaceX, Starlink and DOGE, Musk controls more strategic infrastructure than some ministries.Apple moves part of iPhone production to India.World trade has not collapsed in 2025, but it has been reorganized — according to power blocs instead of comparative advantages."
-        },
-        "gesellschaft": {
-          "text": "2025 is the year in which the libertarian vision — minimal government, maximum corporate power — will be tested as government policy for the first time.DOGE shows that government functions can de facto be delegated to billionaires.The question is no longer whether this is possible, but whether democracies can reverse it.In Europe people watch with a mixture of horror and secret fascination.",
-          "metriken": {
-            "screentime_std_tag": 12.5,
-            "freundschaften": 5,
-            "freiheit_pct": 32,
-            "bmi_weltweit": 27.2,
-            "polarisierung_pct": 80
-          }
-        },
-        "chancen": {
-          "mental": "DeepSeek and local open source AI models enable affordable AI therapy without cloud dependency — improving data protection and affordability at the same time.",
-          "koerper": "Personalized GLP-1 treatments with AI dosage optimization: Obesity therapy becomes more precise and effective in the long term - access remains a structural problem (~$300/month).",
-          "gemeinschaft": "European digital sovereignty movement is growing: Sovereign Cloud, EU's own AI models, Gaia-X - first concrete infrastructure for democratically controlled internet.",
-          "technologie": "Agentic AI will become practical in 2025 — AI agents that independently control workflows, write code and carry out tasks.No longer just generating text: acting as a new AI capability."
-        }
       }
     },
     "2026": {
@@ -4376,50 +2528,22 @@ window.__FC_LIFE_YEARS__={
         "koerper": "GLP-1 kombiniert mit Krafttraining zeigt 2026 in Studien: Adipositas sicher und langfristig behandelbar ohne Jo-Jo-Effekt. Zugang bleibt Problem — Generika könnten 2027/28 Preis senken.",
         "gemeinschaft": "Open-Source-KI (Llama 3, Mistral, DeepSeek) ermöglicht lokale, dezentrale KI-Infrastruktur für Communities ohne Big-Tech-Abhängigkeit — die Gegenbewegung zum KI-Monopol nimmt Form an.",
         "technologie": "Quantum-Safe-Verschlüsselungsstandards werden 2026 verpflichtend eingeführt — als Antwort auf näher rückende Quantencomputer, die aktuelle Verschlüsselung brechen könnten."
-      },
-      "en": {
-        "label": "AI Age",
-        "ueberschrift": "AI is in control, Taiwan is under pressure, Europe is isolated - whoever controls data controls reality",
-        "welt": {
-          "usa": "Trump's second term: DOGE has massively cut federal agency budgets until the beginning of 2026.Musk is partially withdrawing from DOGE (March 2026), but remains systemically relevant through X and government contracts.US trade tariffs lead to recession risks.AI regulation blocked at federal level, states act individually.",
-          "china": "China is continually testing Taiwan's responsiveness in 2026 — not an invasion, but constant military pressure.China's AI models (DeepSeek and its successors) outperform Western benchmarks at a fraction of the cost — geopolitical shock for Silicon Valley.China will have more AI patents than the US in 2026.",
-          "alte_welt": "Germany will vote in February 2026 - CDU/CSU wins, Merz becomes Chancellor, AfD becomes the second strongest force.The EU is in a trade dispute with Trump America.Defense spending is increasing everywhere.Europe's strategic autonomy is rhetorically determined in 2026, practically in its early stages of construction.",
-          "neue_welt": "The war in Ukraine continues - negotiations under Trump pressure, Ukraine resists surrender conditions.Russia holds occupied territory.Africa's AI startup ecosystem (Lagos, Nairobi, Cairo) is growing despite a shortage of capital.BRICS+ alternatives to SWIFT (CIPS, mBridge) are gaining relevance.",
-          "crypto": "Bitcoin will trade between $80,000-$100,000 in mid-2026.Ethereum ecosystem grows through RWA (Real World Assets) — tokenized government bonds, real estate, commodities.ECB digital euros to come in 2027;Privacy concerns are slowing adoption.Crypto and CBDC will exist as parallel systems in 2026.",
-          "handel": "NVIDIA, Microsoft, Google and Meta collectively control more AI computing capacity than all governments in the world.The question 'Who regulates AI?'is unanswered in 2026 - EU AI Act comes into force, enforcement against US companies questionable.Starlink has >5 million active users and is often the only communication infrastructure in crisis areas."
-        },
-        "gesellschaft": {
-          "text": "2026 is the year when AI will go from tool to infrastructure — much like electricity or the internet did in their time.For many, an AI assistant is the most common interface to the digital world.This creates opportunities (education, health, productivity) and risks (manipulation, dependency, structural unemployment).The political question is no longer 'if AI', but 'whose AI' - the answer in 2026 will almost always be: private American or state-owned Chinese.",
-          "metriken": {
-            "screentime_std_tag": 13,
-            "freundschaften": 5,
-            "freiheit_pct": 31,
-            "bmi_weltweit": 27.3,
-            "polarisierung_pct": 82
-          }
-        },
-        "chancen": {
-          "mental": "AI-supported early diagnostics achieve clinical accuracy in depression and burnout through language and behavior analysis - preventative instead of reactive, scalable for the first time.",
-          "koerper": "GLP-1 combined with strength training shows in studies in 2026: Obesity is safe and can be treated in the long term without a yo-yo effect.Access remains a problem - generics could reduce price in 2027/28.",
-          "gemeinschaft": "Open source AI (Llama 3, Mistral, DeepSeek) enables local, decentralized AI infrastructure for communities without dependence on Big Tech - the countermovement to the AI ​​monopoly is taking shape.",
-          "technologie": "Quantum Safe encryption standards will become mandatory in 2026 — in response to approaching quantum computers that could break current encryption."
-        }
       }
     },
     "2027": {
       "jahr": 2027,
       "label": "Tech-Oligarchie",
-      "ueberschrift": "JD Vance übernimmt, Taiwan-Deal im Stillen, Oligarchie formalisiert sich als Regierungsform",
+      "ueberschrift": "Vance übernimmt, Solar kollabiert Fossilpreise, Taiwan unter Druck — Oligarchie formalisiert sich still",
       "welt": {
         "usa": "Trumps zweite Amtszeit endet oder kulminiertL JD Vance wird 2028 als nächster Präsident positioniert. Peter Thiels Netzwerk — Palantir, Founders Fund, Anduril — hat tief in Geheimdienste, Militär und KI-Infrastruktur investiert; staatliche Entscheidungen werden zunehmend von privaten Algorithmen vorbereitet. Die institutionelle Demokratie funktioniert formal, aber ihre Entscheidungshoheit ist massiv beschnitten.",
-        "china": "China ist 2027 die größte Volkswirtschaft der Welt nach KKP-Methode. Chinas Elektroautos haben mehr als 40 % des globalen Marktanteils — von der Werkbank der Welt zum Weltmarktführer in Mobilität. Taiwan-Straßen-Manover häufen sich; die USA reagieren mit Rhetorik, nicht mit Präsenz.",
+        "china": "China ist 2027 die größte Volkswirtschaft nach KKP-Methode. Chinas Elektroautos haben über 40 % des globalen Marktanteils. Xi Jinping hält Macht — sein Nachfolger wird kein Demokrat sein, sondern ein Technokrat: wirtschaftlicher Pragmatismus, politische Kontrolle.",
         "alte_welt": "Europa rüstet auf — aber ohne strategische Einigkeit. Deutschland, Frankreich und Polen planen eigene Sicherheitsstrukturen. Meloni (Italien), Fico (Slowakei), Orbán (Ungarn) blockieren gemeinsame EU-Außenpolitik. Europa ist die größte Demokratie der Welt, die sich selbst am meisten im Weg steht.",
         "neue_welt": "Malaysia, Indonesien und Südkorea navigieren pragmatisch zwischen China und den USA — keiner von beiden vollständig, beiden wirtschaftlich nützlich. Afrikanische Staaten (Nigeria, Kenia, Südafrika) bauen BRICS+-Netzwerke als Infrastruktur für finanzielle Unabhängigkeit. Der Globale Süden übt aktive Neutralität als Strategie.",
-        "crypto": "Krypto wird 2027 in mehreren Staaten Teil der Staatsreserven: USA, El Salvador, einige Golf-Staaten. CBDCs (China, EU) und Krypto existieren als parallele Finanzsysteme. Die Frage, wessen Krypto — staatlich kontrolliert oder wirklich dezentral — ist die neue Geldsystemfrage.",
-        "handel": "Thiel/Vance-Netzwerk kontrolliert 2027 wesentliche Teile der US-Digitalinfrastruktur (Palantir für Behörden, Anduril für Militär, xAI für Information). Private Technologieunternehmen sind de facto Staatsakteure — ohne demokratische Kontrolle. Das ist kein Putsch. Es ist die schrittweise Erosion des öffentlichen Interesses durch private Kapitalallokation."
+        "crypto": "Krypto 2027: Bitcoin als Spekulationsinstrument und marginale Staatsreserve einiger Länder. Kein systemisches Freiheitswerkzeug — die meisten Nutzer spekulieren, wenige flüchten. CBDCs (EU, China) schaffen digitale Währungen mit staatlicher Kontrolle. Das eigentliche Freiheitswerkzeug sind dezentrale Energiesysteme — Solarpanele auf dem Dach, nicht Bitcoin im Wallet.",
+        "handel": "Solar/Wind-Revolution ist 2027 ökonomisch unaufhaltsam: Neue Solar-Kapazität ist billiger als Kohlekraft in 90 % der Welt. Fossile Energie kollabiert ökonomisch, nicht politisch. Thiel-Netzwerk kontrolliert Digitalinfrastruktur, aber Energieinfrastruktur dezentralisiert sich — kleiner Gegentrend zur Machtzentralisierung."
       },
       "gesellschaft": {
-        "text": "2027 ist das Jahr, in dem viele Menschen merken: Die politischen Spielregeln haben sich geändert, ohne dass ein Gesetz es so formuliert hat. KI-Assistenten sind allgegenwärtig. Informationsfilterung durch private Plattformen ist vollständig. Wer nicht digital souverän ist, lebt in der Realität, die andere ihm gestalten.",
+        "text": "2027 zeigt: Politische Macht zentralisiert sich digital, während Energie-Macht dezentralisiert wird. Diese Gegensätzlichkeit prägt das Jahrzehnt. KI-Assistenten formen Realitätswahrnehmung, Solar macht Energieunabhängigkeit möglich. Wer digital kontrolliert wird und energetisch souverän ist, erlebt beides gleichzeitig.",
         "metriken": {
           "screentime_std_tag": 13.5,
           "freundschaften": 4.5,
@@ -4440,17 +2564,17 @@ window.__FC_LIFE_YEARS__={
       },
       "en": {
         "label": "Tech Oligarchy",
-        "ueberschrift": "JD Vance takes over, Taiwan deal quietly, oligarchy formalizes as a form of government",
+        "ueberschrift": "Vance takes over, solar collapses fossil prices, Taiwan under pressure - oligarchy is quietly formalizing itself",
         "welt": {
           "usa": "Trump's second term ends or culminatesL JD Vance is positioned as the next president in 2028.Peter Thiel's network — Palantir, Founders Fund, Anduril — has invested deeply in intelligence, military and AI infrastructure;Government decisions are increasingly being prepared by private algorithms.Institutional democracy functions formally, but its decision-making authority is massively curtailed.",
-          "china": "China will be the world's largest economy using the PPP method in 2027.China's electric cars have more than 40% of the global market share - from the world's workbench to the world leader in mobility.Taiwan Strait maneuvers increase;the USA reacts with rhetoric, not with presence.",
+          "china": "China will be the largest economy using the PPP method in 2027.China's electric cars have over 40% of the global market share.Xi Jinping holds power - his successor will not be a democrat but a technocrat: economic pragmatism, political control.",
           "alte_welt": "Europe is arming itself - but without strategic unity.Germany, France and Poland are planning their own security structures.Meloni (Italy), Fico (Slovakia), Orbán (Hungary) are blocking a common EU foreign policy.Europe is the largest democracy in the world that stands in its own way the most.",
           "neue_welt": "Malaysia, Indonesia and South Korea are navigating pragmatically between China and the US — neither complete, both economically useful.African countries (Nigeria, Kenya, South Africa) are building BRICS+ networks as infrastructure for financial independence.The Global South practices active neutrality as a strategy.",
-          "crypto": "Crypto will become part of the national reserves in several countries in 2027: USA, El Salvador, some Gulf states.CBDCs (China, EU) and crypto exist as parallel financial systems.The question of whose crypto — state-controlled or truly decentralized — is the new monetary system question.",
-          "handel": "Thiel/Vance network controls significant parts of the US digital infrastructure in 2027 (Palantir for authorities, Anduril for military, xAI for information).Private technology companies are de facto state actors — without democratic oversight.This is not a coup.It is the gradual erosion of the public interest through private capital allocation."
+          "crypto": "Crypto 2027: Bitcoin as a speculative instrument and marginal government reserve of some countries.Not a systemic freedom tool - most users speculate, few flee.CBDCs (EU, China) create digital currencies with government control.The real tool for freedom is decentralized energy systems — solar panels on the roof, not Bitcoin in the wallet.",
+          "handel": "Solar/wind revolution is economically unstoppable in 2027: new solar capacity is cheaper than coal power in 90% of the world.Fossil energy is collapsing economically, not politically.Thiel network controls digital infrastructure, but energy infrastructure is decentralizing — a small countertrend to the centralization of power."
         },
         "gesellschaft": {
-          "text": "2027 is the year in which many people will notice: the political rules of the game have changed without a law formulating it that way.AI assistants are everywhere.Information filtering through private platforms is complete.Anyone who is not digitally confident lives in the reality that others create for them.",
+          "text": "2027 shows: Political power is centralized digitally, while energy power is decentralized.This contrast characterizes the decade.AI assistants shape perception of reality, solar makes energy independence possible.Anyone who is digitally controlled and energetically confident experiences both at the same time.",
           "metriken": {
             "screentime_std_tag": 13.5,
             "freundschaften": 4.5,
@@ -4474,17 +2598,17 @@ window.__FC_LIFE_YEARS__={
     "2028": {
       "jahr": 2028,
       "label": "Tech-Oligarchie",
-      "ueberschrift": "Taiwan-AutonomieDeal, China größte Wirtschaft, Russland chinesischer Vasall — die Weltordnung ist neu",
+      "ueberschrift": "Taiwan-Autonomiedeal, Chinas Techno-Autoritarismus 2.0, Solar macht Öl ökonomisch irrelevant",
       "welt": {
         "usa": "Die US-Regierung unter Trump/Vance-Einfluss erklärt keinen offenen Verzicht auf Taiwan — aber stoppt Waffenlieferungen und reduziert Marine-Präsenz in der Straße de facto. Ein informelles 'Autonomieabkommen' wird medial als Frieden verkauft: Taiwan bleibt nominell selbst-administriert, unter chinesischem Sicherheitsschirm. Die Analogie: Hongkong 2020.",
-        "china": "China überholt die USA 2028 als größte Volkswirtschaft nach Marktpreisen (nach KKP-Methode bereits 2023). Chinas Elektroauto-Exporte haben europäische und amerikanische Hersteller strukturell destabilisiert. BYD, CATL, Huawei als Trifecta der chinesischen Weltmarktkontrolle: Mobilität, Energie, Kommunikation.",
+        "china": "China überholt die USA 2028 als größte Volkswirtschaft. Xi-Nachfolger ist Technokrat, kein Reformer: wirtschaftliche Öffnung, politische Kontrolle, Singapur-Modell im Maßstab. 'Chinesische Demokratie' bedeutet 2028 nicht Wahlen, sondern meritokratische Technokratie mit ausgefeilter Überwachung.",
         "alte_welt": "Europa verschläft den Taiwan-Deal — zu beschumlert mit internen Wahlen, Migrationsdebaten und Gaspreisen. Nur Polen und die baltischen Staaten reagieren mit konkreter Sicherheitspolitik. Deutschland und Frankreich suchen noch immer den 'dritten Weg', der strukturell nicht mehr existiert.",
         "neue_welt": "Russland ist 2028 wirtschaftlich von China abhängig: 70 % der Exporte gehen nach China oder über chinesische Drittstaaten. Der Krieg in der Ukraine dauert an — eingefrorener Konflikt, russische Besatzung bleibt. Russlands politische Elite hat keine Vision außer Machtüberleben. Eine kreative Rolle ist strukturell unmöglich.",
-        "crypto": "Bitcoin als strategische Staatsreserve der USA (angekündigt 2025, aufgebaut 2026-2028): ~500.000 BTC in US-Staatsbesitz. Chinas CBDC (Digitaler Yuan) expandiert über Belt and Road. Zwei Geldsysteme: offenes Krypto-Netz vs. staatlich kontrollierter Digitalyuan.",
-        "handel": "Chinas Automotive-Dominanz ist 2028 das größte handelspolitische Faktum: BYD ist größer als Toyota + VW zusammen nach verkauften Fahrzeugen. VW kämpft ums Überleben. Detroit ist tot. Die Industrie, die Deutschland und Amerika im 20. Jahrhundert dominierte, gehört 2028 China."
+        "crypto": "Bitcoin als staatliche Reservewährung einiger Länder (USA, El Salvador, Golfstaaten) — vorwiegend Spekulation, kein produktiv eingebundenes Instrument. Kryptos Versprechen als dezentrales Freiheitssystem bleibt uneingelost: die meisten Nutzer verlieren Kaufkraft durch Volatilitität, die wenigen profitieren sind Überwiegend reich.",
+        "handel": "Solar-Preissturz verändert Geopolitik: Öl exportierende Staaten verlieren strukturelle Macht. Saudi-Arabien, Russland, Iran — alle hatten Macht über Energie. Solar macht Energie zu einem Gut, das jedes Land selbst produzieren kann. Das ist die eigentliche geopolitische Revolution von 2028 — nicht Crypto."
       },
       "gesellschaft": {
-        "text": "2028 ist das Jahr, in dem die liberale Weltordnung nicht mit einem Knall endet, sondern mit einer Reihe von 'pragmatischen Entscheidungen'. Taiwan-Deal, China-Wirtschaft Nr. 1, Russland als Vasall, Europa mit sich selbst beschäftigt — alle vier Entwicklungen verlaufen gleichzeitig, ohne dass jemand eine formelle Erklärung abgibt.",
+        "text": "2028 ist das Jahr, in dem die liberale Weltordnung still endet — Taiwan-Deal, China Nr. 1, Russland als chinesischer Vasall. Aber gleichzeitig: Solar macht Energie zu einem demokratischen Gut. Zwei entgegengesetzte Trends. Politische Macht konzentriert sich, Energiemacht dezentralisiert sich.",
         "metriken": {
           "screentime_std_tag": 14,
           "freundschaften": 4.5,
@@ -4505,17 +2629,17 @@ window.__FC_LIFE_YEARS__={
       },
       "en": {
         "label": "Tech Oligarchy",
-        "ueberschrift": "Taiwan autonomy deal, China's largest economy, Russia a Chinese vassal - the world order is new",
+        "ueberschrift": "Taiwan autonomy deal, China's techno-authoritarianism 2.0, solar makes oil economically irrelevant",
         "welt": {
           "usa": "The US government under Trump/Vance influence does not declare an open renunciation of Taiwan - but de facto stops arms deliveries and reduces naval presence in the Strait.An informal 'autonomy agreement' is being sold in the media as peace: Taiwan remains nominally self-administered, under Chinese security umbrella.The analogy: Hong Kong 2020.",
-          "china": "China will overtake the USA as the largest economy by market prices in 2028 (according to the PPP method as early as 2023).China's electric car exports have structurally destabilized European and American manufacturers.BYD, CATL, Huawei as the trifecta of Chinese world market control: mobility, energy, communication.",
+          "china": "China will overtake the US as the largest economy in 2028.Xi's successor is a technocrat, not a reformer: economic opening, political control, Singapore model on a scale.'Chinese democracy' in 2028 does not mean elections, but meritocratic technocracy with sophisticated surveillance.",
           "alte_welt": "Europe is sleeping through the Taiwan deal - too preoccupied with internal elections, migration debates and gas prices.Only Poland and the Baltic states are responding with concrete security policies.Germany and France are still looking for the 'third way', which structurally no longer exists.",
           "neue_welt": "In 2028, Russia will be economically dependent on China: 70% of exports will go to China or via Chinese third countries.The war in Ukraine continues - frozen conflict, Russian occupation remains.Russia's political elite has no vision other than survival in power.A creative role is structurally impossible.",
-          "crypto": "Bitcoin as a US strategic reserve (announced 2025, built 2026-2028): ~500,000 BTC in US government ownership.China's CBDC (Digital Yuan) expands across the Belt and Road.Two monetary systems: open crypto network vs. state-controlled digital yuan.",
-          "handel": "China's automotive dominance will be the biggest trade policy fact in 2028: BYD is larger than Toyota + VW combined in terms of vehicles sold.VW is fighting for survival.Detroit is dead. The industry that dominated Germany and America in the 20th century will belong to China in 2028."
+          "crypto": "Bitcoin as the state reserve currency of some countries (USA, El Salvador, Gulf States) — predominantly speculation, not a productively integrated instrument.Crypto's promise as a decentralized freedom system remains unfulfilled: most users lose purchasing power due to volatility, the few who benefit are predominantly rich.",
+          "handel": "Falling solar prices changes geopolitics: oil-exporting states lose structural power.Saudi Arabia, Russia, Iran — all had power over energy.Solar makes energy a commodity that every country can produce itself.This is the real geopolitical revolution of 2028 — not crypto."
         },
         "gesellschaft": {
-          "text": "2028 is the year when the liberal world order ends not with a bang, but with a series of 'pragmatic decisions'.Taiwan deal, China No. 1 economy, Russia as a vassal, Europe preoccupied with itself — all four developments are happening simultaneously without anyone making a formal statement.",
+          "text": "2028 is the year the liberal world order quietly ends — Taiwan deal, China No. 1, Russia as a Chinese vassal.But at the same time: solar makes energy a democratic good.Two opposite trends.Political power is concentrated, energy power is decentralizing.",
           "metriken": {
             "screentime_std_tag": 14,
             "freundschaften": 4.5,
@@ -4539,17 +2663,17 @@ window.__FC_LIFE_YEARS__={
     "2029": {
       "jahr": 2029,
       "label": "Tech-Oligarchie",
-      "ueberschrift": "Erster KI-Krieg, Longevity für Reiche, Thiel-Netzwerk regiert USA de facto",
+      "ueberschrift": "Erster KI-Krieg, Longevity nur für Reiche, Thiel-Netzwerk regiert USA de facto",
       "welt": {
         "usa": "JD Vance gewinnt die Präsidentschaftswahl 2028 (Amtsantritt Januar 2029) — mit Thiels Palantir als strategischem Beratungsapparat und Musks Starlink als Kommunikationsinfrastruktur. Demokraten verlieren, weil ihre Gegennarrativ-Fähigkeit durch Social-Media-Algorithmen strukturell beschnitten ist. Die USA sind 2029 formal eine Demokratie. Substanziell: eine technokratische Oligarchie.",
-        "china": "In Myanmar, Sudan und möglicherweise im Pazifik finden 2029 erste 'KI-gestützte' Konflikte statt — autonome Drohnen, Desinformationskrieg, Cyberangriffe als primaäre Kriegsführung. China perfektioniert hybrid warfare: keine formellen Kriege, aber permanente Destabilisierung von Gegnern.",
+        "china": "China 2029: Techno-Autoritarismus 2.0 festigt sich. Wirtschaft wächst, Konsum steigt, politische Kontrolle bleibt perfekt. Die Generation, die mit Sozialkredit aufwächst, empfindet Überwachung als normal — das ist die tiefste Form von Systemstabilisierung.",
         "alte_welt": "Ukraine: Eingefrorener Konflikt, russische Besatzung von ~20 % des Territoriums. Keine Normalisierung. Europa zahlt Ukraine-Wiederaufbau, ohne militärische Konsequenzen für Russland. In Frankreich gewinnt Le Pens Partei erste Regierungsbeteiligung. Europas Mitte schrumpft.",
         "neue_welt": "Erste afrikanische KI-Hubs (Lagos, Nairobi) konkurrieren global — mit chinesischem Kapital, aber wachsendem eigenem Know-How. Malaysia und Südkorea werden als 'neutrale Tech-Zonen' zwischen den Blöcken strategisch wichtig. ASEAN navigiert erfolgreich Multipolarität.",
-        "crypto": "Erste souveräne Krypto-Staaten entstehen: Jurisdiktionen, die explizit Krypto-Infrastruktur als Hauptwirtschaftsmodell aufbauen (z.B. Dubai, Panama, El Salvador). Digitale Nomaden und tech-affine Eliten migrieren in diese Zonen.",
-        "handel": "Longevity-Markt explodiert 2029: ~$500 Mrd. weltweit für Anti-Aging, Senolytika, Hormontherapien. Aber: Zugang nur für Oberschicht. Longevity als Klassen-Marker entsteht — Reiche leben länger, Überlebensdauer wird zur Funktion von Vermögen."
+        "crypto": "Krypto 2029: Volatil, spekulativ, energieintensiv. In autokratischen Staaten verboten mit Gefängnisstrafen. Im Westen als Spekulation legal, aber kein systemisches Werkzeug. Die eigentliche dezentrale Infrastruktur: Solar auf dem Dach, nicht Bitcoin im Wallet.",
+        "handel": "Solar/Wind macht 2029 in 60+ Ländern die billigste Energiequelle aus. Fossile Unternehmen verlieren 30-40 % ihres Marktwertes. Geopolitik der Energie kippt: Wer Sonne und Wind hat (fast alle), kann energieunabhängig werden. Wer Öl und Gas hat, verliert strategische Trumpfkarte."
       },
       "gesellschaft": {
-        "text": "2029 ist das Jahr, in dem sichtbar wird: Nicht alle Menschen altern gleich. Longevity für Reiche und schnellerer biologischer Verfall für Arme ist kein Naturgesetz, sondern eine Kapitalentscheidung. Gleichzeitig führen KI-Systeme erste bewaffnete Operationen durch. Das Gewaltmonopol des Staates erodiert durch private Drohnenflotten.",
+        "text": "2029: KI führt erste bewaffnete Operationen durch, Solar macht Energie dezentral, Longevity-Markt boomt — aber nur für Reiche. Drei Technologien, drei verschiedene politische Konsequenzen: Kontrolle, Freiheit, Ungleichheit. Welche dominiert, ist 2029 noch offen.",
         "metriken": {
           "screentime_std_tag": 14,
           "freundschaften": 4,
@@ -4570,17 +2694,17 @@ window.__FC_LIFE_YEARS__={
       },
       "en": {
         "label": "Tech Oligarchy",
-        "ueberschrift": "First AI war, longevity for the rich, Thiel network de facto rules the USA",
+        "ueberschrift": "First AI war, longevity only for the rich, Thiel network de facto rules the USA",
         "welt": {
           "usa": "JD Vance wins the 2028 presidential election (takes office January 2029) — with Thiel's Palantir as the strategic advisory apparatus and Musk's Starlink as the communications infrastructure.Democrats are losing because their ability to counter-narrative is structurally curtailed by social media algorithms.The USA will formally be a democracy in 2029.Substantially: a technocratic oligarchy.",
-          "china": "In Myanmar, Sudan and possibly the Pacific, the first 'AI-powered' conflicts will take place in 2029 - autonomous drones, disinformation warfare, cyberattacks as primary warfare.China is perfecting hybrid warfare: no formal wars, but permanent destabilization of opponents.",
+          "china": "China 2029: Techno-authoritarianism 2.0 is consolidating.The economy is growing, consumption is increasing, political control remains perfect.The generation that grows up with social credit perceives surveillance as normal — this is the deepest form of system stabilization.",
           "alte_welt": "Ukraine: Frozen conflict, Russian occupation of ~20% of territory.No normalization.Europe pays for Ukraine reconstruction without military consequences for Russia.In France, Le Pen's party wins its first participation in government.Central Europe is shrinking.",
           "neue_welt": "The first African AI hubs (Lagos, Nairobi) are competing globally - with Chinese capital but growing in-house know-how.Malaysia and South Korea are becoming strategically important as 'neutral tech zones' between the blocs.ASEAN successfully navigates multipolarity.",
-          "crypto": "The first sovereign crypto states are emerging: jurisdictions that are explicitly building crypto infrastructure as their main economic model (e.g. Dubai, Panama, El Salvador).Digital nomads and tech-savvy elites are migrating to these zones.",
-          "handel": "Longevity market explodes in 2029: ~$500 billion worldwide for anti-aging, senolytics, hormone therapies.But: access only for the upper class.Longevity emerges as a class marker - rich people live longer, survival time becomes a function of wealth."
+          "crypto": "Crypto 2029: Volatile, speculative, energy intensive.Banned in autocratic states with prison sentences.Legal as speculation in the West, but not a systemic tool.The actual decentralized infrastructure: solar on the roof, not Bitcoin in the wallet.",
+          "handel": "Solar/wind will be the cheapest energy source in 60+ countries in 2029.Fossil companies lose 30-40% of their market value.Geopolitics of energy is changing: Anyone who has sun and wind (almost everyone) can become energy independent.Anyone who has oil and gas loses their strategic trump card."
         },
         "gesellschaft": {
-          "text": "2029 is the year in which it will become clear: not all people age the same.Longevity for the rich and faster biological decay for the poor is not a law of nature, but a capital decision.At the same time, AI systems are carrying out the first armed operations.The state's monopoly on violence is being eroded by private drone fleets.",
+          "text": "2029: AI carries out the first armed operations, solar makes energy decentralized, the longevity market is booming - but only for the rich.Three technologies, three different political consequences: control, freedom, inequality.Which one will dominate in 2029 is still unclear.",
           "metriken": {
             "screentime_std_tag": 14,
             "freundschaften": 4,
@@ -4604,17 +2728,17 @@ window.__FC_LIFE_YEARS__={
     "2030": {
       "jahr": 2030,
       "label": "Tech-Oligarchie",
-      "ueberschrift": "China Nr. 1 Wirtschaft, Vance Präsident, Klimawandel als Tatsache — die Weichen sind global gestellt",
+      "ueberschrift": "China Nr. 1 Wirtschaft, Solar überholt Kohle global, demokratische Erosion als Normalzustand",
       "welt": {
         "usa": "JD Vance regiert als erster offen techno-libertaer-ideologischer US-Präsident. Peter Thiels Netzwerk ist in allen strategischen Positionen: Geheimdienste (Palantir), Militär (Anduril), Kommunikation (Starlink), Geldsystem (Krypto-Reserve). DOGE-Logik ist institutionalisiert: Staat als Service-Provider, nicht als demokratischer Akteur.",
-        "china": "China ist 2030 offiziell die größte Volkswirtschaft der Welt. Xi Jinping regiert ohne formelle Amtszeit-Begrenzung. China hat 2030 mehr Patente als USA und EU zusammen. Der 'chinesische Weg' — Wirtschaft ohne Demokratie — gilt für viele Länder im Globalen Süden als plausibles Modell.",
+        "china": "China ist 2030 offiziell die größte Volkswirtschaft. Techno-Autoritarismus 2.0: Xi-Nachfolger ist pragmatischer Modernisierer ohne demokratischen Impuls. Der 'chinesische Weg' — Wohlstand ohne Demokratie — gilt in vielen Ländern des Globalen Südens als plausibles Modell.",
         "alte_welt": "Europa verpasst sein Jahrzehnt der strategischen Autonomie. Deutschland schrumpft wirtschaftlich (VW, BASF, Siemens verlieren Marktanteile). Frankreich und Polen versuchen europäische Führung zu übernehmen. Rechtsautokratien in Ungarn, Slowakei, Rumänien sind fester Teil der EU, höhlen sie aber von innen.",
         "neue_welt": "Klimakatastrophen 2030: Erste große Metropolen in Südasien (Karachi, Dhaka) sind strukturell nicht mehr dauerhaft bewohnbar durch Hitze + Überschwemmung. ~50 Mio. 'Klimamigrantinnen' weltweit. Der Klimawandel ist 2030 nicht Zukunft, sondern Management-Aufgabe.",
-        "crypto": "2030: Digitaler Yuan in 60+ Ländern als Zahlungsmittel akzeptiert (Belt and Road Corridors). Bitcoin und dezentrale Kryptowährungen als Gegenpol. Staaten ohne eigenes CBDC verlieren fiskalische Kontrolle. Geld ist 2030 politisch wie nie zuvor.",
-        "handel": "Chinas Automotive-Dominanz ist 2030 vollständig: >50 % des globalen EV-Marktes. CATL liefert Batterien für Fahrzeuge weltweit. Huawei baut Netzinfrastruktur in 80+ Ländern. Wer Chinas Lieferketten boykottiert, zahlt Aufpreis. De-Coupling ist teuer — die meisten Länder wählen Kompromiss."
+        "crypto": "Krypto 2030: Zwei Welten. CBDCs (staatlich kontrolliert) in China, EU, Indien mit Milliarden Nutzern. Bitcoin/Ethereum als Spekulationsinstrument für Investoren und als margi nales Kapitalflucht-Tool. Keine systemische Freiheitsfunktion — Staaten haben gelernt, wie man Krypto reguliert ohne es zu verbieten.",
+        "handel": "Solar-Revolution ist 2030 vollständig: In 80 % der Welt ist neues Solar günstiger als jede fossile Alternative. Batteriespeicher lösen Intermittenz-Problem schrittweise. Öl-Nachfrage beginnt strukturell zu fallen. Das ist die größte geopolitische Veränderung von 2030 — nicht Krypto, nicht Fusion."
       },
       "gesellschaft": {
-        "text": "2030 ist ein symbolisches Jahr. China ist Nr. 1. Vance regiert die USA. Klimakatastrophen werden zur Migrationsrealität. Longevity teilt die Menschheit in wer länger lebt und wer nicht. Es ist nicht das Ende der Welt. Es ist das Ende einer bestimmten Welt — der liberalen, westlich-dominierten Nachkriegsordnung.",
+        "text": "2030 ist das Jahr, in dem zwei Langfrist-Trends unbestreitbar werden: Solar-Energie macht Ressourcengeopolitik obsolet, und Tech-Oligarchie hat US-Demokratie strukturell geschwacht. Das erste öffnet Möglichkeiten für alle. Das zweite schließt Möglichkeiten für die meisten.",
         "metriken": {
           "screentime_std_tag": 14,
           "freundschaften": 4,
@@ -4635,17 +2759,17 @@ window.__FC_LIFE_YEARS__={
       },
       "en": {
         "label": "Tech Oligarchy",
-        "ueberschrift": "China No. 1 economy, Vance president, climate change as a fact - the course has been set globally",
+        "ueberschrift": "China No. 1 economy, solar overtakes coal globally, democratic erosion as the norm",
         "welt": {
           "usa": "JD Vance rules as the first openly techno-libertarian-ideological US president.Peter Thiel's network is in all strategic positions: intelligence (Palantir), military (Anduril), communications (Starlink), monetary system (Crypto-Reserve).DOGE logic is institutionalized: the state as a service provider, not as a democratic actor.",
-          "china": "China will officially be the world's largest economy in 2030.Xi Jinping rules without formal term limits.In 2030, China will have more patents than the USA and EU combined.The 'Chinese way' - economy without democracy - is considered a plausible model for many countries in the Global South.",
+          "china": "China will officially be the largest economy in 2030.Techno-authoritarianism 2.0: Xi's successor is a pragmatic modernizer without democratic impulse.The 'Chinese way' - prosperity without democracy - is considered a plausible model in many countries in the Global South.",
           "alte_welt": "Europe is missing its decade of strategic autonomy.Germany is shrinking economically (VW, BASF, Siemens are losing market share).France and Poland are trying to take European leadership.Right-wing autocracies in Hungary, Slovakia and Romania are an integral part of the EU, but are hollowing it out from within.",
           "neue_welt": "Climate disasters 2030: The first large metropolises in South Asia (Karachi, Dhaka) are no longer structurally habitable in the long term due to heat + flooding.~50 million 'climate migrants' worldwide.In 2030, climate change is not the future, but a management task.",
-          "crypto": "2030: Digital Yuan accepted as payment in 60+ countries (Belt and Road Corridors).Bitcoin and decentralized cryptocurrencies as a counterpoint.States without their own CBDC lose fiscal control.In 2030, money is political like never before.",
-          "handel": "China's automotive dominance will be complete in 2030: >50% of the global EV market.CATL supplies batteries for vehicles worldwide.Huawei builds network infrastructure in 80+ countries.Anyone who boycotts China's supply chains will pay a surcharge.De-coupling is expensive — most countries choose compromise."
+          "crypto": "Crypto 2030: Two worlds.CBDCs (state-controlled) in China, EU, India with billions of users.Bitcoin/Ethereum as a speculative instrument for investors and as a marginal capital flight tool.No systemic freedom function — states have learned how to regulate crypto without banning it.",
+          "handel": "Solar revolution will be complete in 2030: In 80% of the world, new solar is cheaper than any fossil alternative.Battery storage gradually solves the intermittency problem.Oil demand is beginning to fall structurally.This is the biggest geopolitical shift of 2030 — not crypto, not fusion."
         },
         "gesellschaft": {
-          "text": "2030 is a symbolic year.China is No. 1. Vance rules the USA.Climate disasters are becoming a migration reality.Longevity divides humanity into who lives longer and who doesn't.It's not the end of the world.It is the end of a certain world — the liberal, Western-dominated postwar order.",
+          "text": "2030 is the year in which two long-term trends become undeniable: solar energy makes resource geopolitics obsolete, and tech oligarchy has structurally weakened US democracy.The first opens opportunities for everyone.The second closes opportunities for most.",
           "metriken": {
             "screentime_std_tag": 14,
             "freundschaften": 4,
@@ -4669,17 +2793,17 @@ window.__FC_LIFE_YEARS__={
     "2031": {
       "jahr": 2031,
       "label": "Neues Mittelalter",
-      "ueberschrift": "Informationskontrolle vollständig, freie Gesellschaften schrumpfen auf Inseln — das neue Mittelalter beginnt",
+      "ueberschrift": "Informationskontrolle vollständig, Solar macht Energie-Unabhängigkeit real, freie Gesellschaft schrumpft",
       "welt": {
         "usa": "Die USA unter Vance sind 2031 formal eine Demokratie mit vierjahrigen Wahlen — aber Informationsinfrastruktur, KI-gestützte Verwaltung und Wahlkampffinanzierung machen alternativenlose Ergebnisse statistisch wahrscheinlich. Oppositionelle Medien kämpfen ohne Reichweite. Gerichte werden durch Ernennungen neu ausgerichtet.",
-        "china": "Xi Jinpings Herrschaft ist 2031 unbestreitbar. Sozialkredit-System deckt 95 % der Stadtbevölkerung ab. Chinas KI ist die fortschrittlichste weltweit für Überwachung und Staatsplanung. Das Modell wird aktiv in andere Autokratien exportiert: 'China als Service' für Regime.",
+        "china": "China 2031: Sozialkredit deckt 95 % der Stadtbevölkerung ab. Techno-Autoritarismus 2.0 exportiert 'Digital Governance Package' in 40+ Länder. Kein Reformer in Sicht — das System ist stabil, nicht fragil.",
         "alte_welt": "Europäische Union beschließt 2031 erste echte Sicherheitsbehörde ohne nationale Veto-Möglichkeit. Zu spät für Taiwan, zu spaßt für Ukraine — aber ein erster Schritt. Rechtsautokratien werden durch neue Konditionalitäten eingedämmt (oder treten aus). Europas Identitätskrise ist 2031 existenziell.",
         "neue_welt": "Erste afrikanische Staaten mit eigenem KI-Souveränitätsanspruch: Nigeria und Äthiopien lehnen chinesische Systeminfrastruktur offiziell ab und bauen eigene. Globaler Süden ist 2031 kein monolithischer Block — sondern zerfällt in pro-chinesische, pro-westliche und neutrale Blöcke.",
-        "crypto": "Dezentrale Kryptowährungen als Widerstandswerkzeug: In Staaten mit CBDC-Zwang zirkulieren Bitcoin und Monero über Peer-to-Peer-Netzwerke als Underground-Ökonomie. Regierungen kämpfen gegen Nutzung — mit begrenztem Erfolg.",
-        "handel": "Globale Lieferketten 2031: Drei Blöcke — US-zentriert, China-zentriert, neutral. Neutrale Länder (ASEAN, Golfstaaten, manche Afrikas) verdienen an der Brückenfunktion. Arbeitsteilung wird zunehmend politisch definiert, nicht ökonomisch effizient."
+        "crypto": "Krypto 2031: In autokratischen Staaten verboten. Im Westen reguliert wie Börsenhandel. Kein Widerstandswerkzeug — staatliche Kontrollämter haben die technischen Mittel, Nutzer zu identifizieren. Das eigentliche Werkzeug der Gegenmacht: dezentrale Solar-Infrastruktur, verschlüsselter Kommunikation, analoge Netzwerke.",
+        "handel": "Solar-Speicher-Systeme (Heimspeicher + lokale Netze) machen Gemeinschaften energieunabhängig. Das ist die echte Dezentralisierungsgeschichte: Strom, nicht Geld. Wer seine eigene Energie produziert, ist weniger abhängig von staatlichen Systemen."
       },
       "gesellschaft": {
-        "text": "2031 ist das erste Jahr, in dem die meisten Menschen in der westlichen Welt intuitiv spüren: Die Welt, die sie kannten, gibt es nicht mehr. Nicht weil ein Krieg sie zerstört hat. Sondern weil Informationsinfrastruktur, politische Macht und wirtschaftliche Abhängigkeiten sich schleichend verändert haben. Das neue Mittelalter beginnt nicht mit einem Knall.",
+        "text": "2031: Das neue Mittelalter beginnt nicht mit einem Knall. Es beginnt damit, dass Informationsinfrastruktur kontrolliert wird, Demokratie formal fortbesteht und Solar die einzige wirklich dezentralisierende Kraft ist. Widerstand braucht 2031 konkrete Infrastruktur: analoge Netzwerke, lokale Energie, verschlüsselte Kommunikation.",
         "metriken": {
           "screentime_std_tag": 14.5,
           "freundschaften": 4,
@@ -4700,17 +2824,17 @@ window.__FC_LIFE_YEARS__={
       },
       "en": {
         "label": "New Middle Ages",
-        "ueberschrift": "Information control is complete, free societies are shrinking to islands - the new Middle Ages begins",
+        "ueberschrift": "Information control complete, solar makes energy independence real, free society shrinks",
         "welt": {
           "usa": "In 2031, the US under Vance will formally be a democracy with four-year elections — but information infrastructure, AI-assisted administration and campaign finance make alternative outcomes statistically likely.Opposition media fights without reach.Courts are realigned through appointments.",
-          "china": "Xi Jinping's rule is undeniable in 2031.Social credit system covers 95% of the city's population.China's AI is the most advanced in the world for surveillance and state planning.The model is being actively exported to other autocracies: 'China as a service' for regimes.",
+          "china": "China 2031: Social credit covers 95% of the city's population.Techno-authoritarianism 2.0 exports 'Digital Governance Package' to 40+ countries.No reformer in sight — the system is stable, not fragile.",
           "alte_welt": "In 2031, the European Union will decide on the first real security authority without the possibility of a national veto.Too late for Taiwan, too fun for Ukraine — but a first step.Right-wing autocracies are being contained (or are leaving) through new conditionalities.Europe's identity crisis is existential in 2031.",
           "neue_welt": "First African states with their own AI sovereignty claim: Nigeria and Ethiopia officially reject Chinese system infrastructure and are building their own.In 2031, the Global South will not be a monolithic bloc — but will break down into pro-Chinese, pro-Western and neutral blocs.",
-          "crypto": "Decentralized cryptocurrencies as a resistance tool: In states with mandatory CBDCs, Bitcoin and Monero circulate as an underground economy via peer-to-peer networks.Governments are fighting against use — with limited success.",
-          "handel": "Global Supply Chains 2031: Three Blocks — US-centric, China-centric, neutral.Neutral countries (ASEAN, Gulf states, some in Africa) make money from the bridging function.Division of labor is increasingly defined politically, not economically efficient."
+          "crypto": "Crypto 2031: Banned in autocratic states.In the West, regulated like stock exchange trading.No resistance tool - state control offices have the technical means to identify users.The actual tool of the counterpower: decentralized solar infrastructure, encrypted communication, analog networks.",
+          "handel": "Solar storage systems (home storage + local grids) make communities energy independent.This is the real decentralization story: electricity, not money.Those who produce their own energy are less dependent on government systems."
         },
         "gesellschaft": {
-          "text": "2031 is the first year in which most people in the Western world intuitively sense that the world they knew no longer exists.Not because a war destroyed them.But because information infrastructure, political power and economic dependencies have gradually changed.The new Middle Ages doesn't start with a bang.",
+          "text": "2031: The new Middle Ages doesn't start with a bang.It begins with information infrastructure being controlled, democracy formally continuing, and solar being the only truly decentralizing force.Resistance needs concrete infrastructure in 2031: analog networks, local energy, encrypted communication.",
           "metriken": {
             "screentime_std_tag": 14.5,
             "freundschaften": 4,
@@ -4734,14 +2858,14 @@ window.__FC_LIFE_YEARS__={
     "2032": {
       "jahr": 2032,
       "label": "Neues Mittelalter",
-      "ueberschrift": "Europa verliert erste Generation an Emigration, Longevity-Kluft wird sichtbar — zwei Menschheiten entstehen",
+      "ueberschrift": "Europa verliert kreative Klasse, Solar beendet Öl-Geopolitik, Longevity-Ungleichheit wwächst",
       "welt": {
         "usa": "Vance-Regierung härtet intern: Presse-Akkreditierungen werden selektiver, Gericht-Ernennungen sind abgeschlossen. Die USA sind 2032 das technisch führende Land der Welt und gleichzeitig das demokratisch schwachste unter den westlichen Demokratien. Oppositionsführerinnen arbeiten mit 10 % der Reichweite von Regierungsmedien.",
-        "china": "Xi Jinping ist 2032 ~79 Jahre alt — Nachfolge nicht geregelt. Chinas Überwachungssystem ist das ausgefeilteste der Geschichte. Soziale Stabilität ist hoch, kreative Freiheit nahe null. Ein wachsender Underground-Tech-Sektor in Shenzhen produziert trotzdem weltklasse-Innovationen — für den Staat.",
+        "china": "China 2032: Techno-Autoritarismus ist exportfähiges Modell. Erste Generation, die mit Sozialkredit aufgewachsen ist, tritt ins Berufsleben. Für sie ist Überwachung Normalzustand. Keine Reform in Sicht — System ist 2032 stabiler als 2020.",
         "alte_welt": "Erste messbare Emigrationswelle aus Deutschland, Frankreich und Spanien — Ziele: Kanada, Neuseeland, Singapur, Portugal. 30-40-jährige Hochqualifizierte verlassen Europa, das ihnen keine Vision bietet. Europas Greis-Demokratien verlieren genau die, die sie retten könnten.",
         "neue_welt": "Argentinien und Brasilien als neue liberale Rückzugsgebiete: Demokratisch fragil, aber lebendig. Uruguays politisches Modell — stabile Demokratie, offene Gesellschaft — wird global als Vorbild für kleine Staaten diskutiert. Südamerika als überraschendes Freiheits-Reservoir.",
-        "crypto": "2032: Krypto-Nutzung in autoritaeren Staaten wird mit 10 Jahren Gefängnis bestraft (China, Russland, mehrere asiatische Staaten). Underground-Netzwerke nutzen physical Bitcoin (Air-gapped wallets, Mesh-Netzwerke). Krypto als politisches Widerstandswerkzeug ist 2032 real.",
-        "handel": "Longevity-Markt 2032: ~$800 Mrd. global. Erste Tiered-Access-Systeme: Reiche buchen 'Longevity Concierge' für $200.000/Jahr. Erste Studien belegen: Menschen mit Longevity-Zugang haben messbar 15 Jahre längere Lebenserwartung als ohne. Klasse wird zu Biologie."
+        "crypto": "Krypto 2032: Institutionelles Finanzprodukt für Investoren, kein Volkswerkzeug. Die meisten Bitcoin-Besitzer sind reich. Krypto-Reichtumskonzentration ist höher als im traditionellen Finanzwesen. Freiheit durch Krypto ist 2032 empirisch nicht belegbar.",
+        "handel": "Solar-Preissturz hat 2032 die Energiegeopolitik gekippt: Saudi-Arabien, Russland und Iran verlieren strategische Trumpfkarte. Solar ist weltweit billiger als Kohle. Batterie-Speicher machen 24h-Solar-Versorgung in 30+ Ländern Standard. Das ist die eigentliche geopolitische Revolution."
       },
       "gesellschaft": {
         "text": "2032 entsteht zum ersten Mal in der modernen Geschichte eine strukturell erkennbare biologische Kluft zwischen Armen und Reichen. Longevity ist nicht mehr nur Wohlstandsphantasie — sie ist messbare Realität. Gleichzeitig verlieren europäische Demokratien ihre kreativsten Bürger an Auswanderung. Die offene Gesellschaft schrumpft nicht durch Gewalt — sondern durch Attraktivitätsverlust.",
@@ -4765,14 +2889,14 @@ window.__FC_LIFE_YEARS__={
       },
       "en": {
         "label": "New Middle Ages",
-        "ueberschrift": "Europe loses first generation to emigration, longevity gap becomes visible - two humanitys emerge",
+        "ueberschrift": "Europe is losing creative class, solar is ending oil geopolitics, longevity inequality is growing",
         "welt": {
           "usa": "Vance government is toughening up internally: press accreditations are becoming more selective, court appointments have been completed.In 2032, the USA will be the technologically leading country in the world and at the same time the democratically weakest among the Western democracies.Opposition leaders operate with 10% of the reach of government media.",
-          "china": "Xi Jinping will be ~79 years old in 2032 — succession not settled.China's surveillance system is the most sophisticated in history.Social stability is high, creative freedom is close to zero.A growing underground tech sector in Shenzhen is nonetheless producing world-class innovations — for the state.",
+          "china": "China 2032: Techno-authoritarianism is an exportable model.First generation who grew up with social credit enters working life.For them, surveillance is normal.No reform in sight - system will be more stable in 2032 than in 2020.",
           "alte_welt": "First measurable wave of emigration from Germany, France and Spain - destinations: Canada, New Zealand, Singapore, Portugal.30-40 year old highly qualified people are leaving Europe, which offers them no vision.Europe's old democracies are losing the very people they could save.",
           "neue_welt": "Argentina and Brazil as new liberal retreats: democratically fragile but vibrant.Uruguay's political model - stable democracy, open society - is discussed globally as a role model for small states.South America as a surprising reservoir of freedom.",
-          "crypto": "2032: Crypto use in authoritarian states will be punished with 10 years in prison (China, Russia, several Asian states).Underground networks physically use Bitcoin (air-gapped wallets, mesh networks).Crypto as a political resistance tool is real in 2032.",
-          "handel": "Longevity market 2032: ~$800 billion global.First tiered access systems: rich people book 'Longevity Concierge' for $200,000/year.Initial studies show that people with longevity access have a measurably 15-year longer life expectancy than without it.Class becomes biology."
+          "crypto": "Crypto 2032: Institutional financial product for investors, not a people's tool.Most Bitcoin owners are rich.Crypto wealth concentration is higher than in traditional finance.Freedom through crypto cannot be empirically proven in 2032.",
+          "handel": "The fall in solar prices tipped energy geopolitics in 2032: Saudi Arabia, Russia and Iran lose their strategic trump card.Solar is cheaper than coal worldwide.Battery storage makes 24-hour solar supply standard in 30+ countries.This is the real geopolitical revolution."
         },
         "gesellschaft": {
           "text": "In 2032, for the first time in modern history, a structurally recognizable biological divide will emerge between rich and poor.Longevity is no longer just a wealth fantasy - it is a measurable reality.At the same time, European democracies are losing their most creative citizens to emigration.The open society is not shrinking because of violence - but because of a loss of attractiveness.",
@@ -4799,14 +2923,14 @@ window.__FC_LIFE_YEARS__={
     "2033": {
       "jahr": 2033,
       "label": "Neues Mittelalter",
-      "ueberschrift": "KI-generierte Realität ununterscheidbar, Russland als Zombie-Staat, erste Demokratie-Demos in Westeuropa",
+      "ueberschrift": "KI-Realität ununterscheidbar, Russland Zombie-Staat, China exportiert Kontrolle als Service",
       "welt": {
         "usa": "2033: Tiefste Glaubwürdigkeitskrise der US-Medien seit Watergate. KI-generierte Videos sind nicht mehr von echt unterscheidbar ohne kryptografische Signatur. Oppositionsmedien nutzen Blockchain-Verifizierung als Echtheitsbeweis. 60 % der US-Bevölkerung vertrauen staatlichen Informationsquellen nicht mehr.",
-        "china": "Xi Jinpings Gesundheit ist 2033 ein Staatsgeheimnis. Nachfolgediskussion findet intern statt — ohne Transparenz. Chinas Wirtschaft wächst langsamer (4-5 %), aber die Kontrolle ist perfekt. Dissidenten existieren nur noch in der Diaspora.",
+        "china": "China 2033: Langsames Wirtschaftswachstum (4-5 %), aber perfekte Kontrolle. Dissidenten nur noch in Diaspora. Das Techno-Autoritarismus-Modell ist 2033 vollständig stabil — Wohlstand + Kontrolle als Gleichgewicht.",
         "alte_welt": "In Deutschland gehen 2033 erstmals seit dem Mauerfall Hunderttausende für Demokratie und Pressefreiheit auf die Straße — Reaktion auf AfD-Regierungsbeteiligungen in mehreren Bundesländern und europäisches Abgleiten. Neue Zivilgesellschafts-Koalitionen entstehen.",
         "neue_welt": "Russland 2033: Demografisch schrumpfend, wirtschaftlich stagnierende 'Petro-Kolonie' Chinas. Keine kreativen Sektoren, kein Unternehmertum, kein Science-Fundament außer Militär. Russlands einzige exportierbare Ressource ist destruktive Kapazität — Krieg, Desinformation, Rohstoffe.",
-        "crypto": "Blockchain-Echtheitszertifizierung: Erste Institutionen (Gerichte, Medien, Universitäten) akzeptieren nur noch kryptografisch signierte Inhalte. Authentizität wird technisch — wer keine Signatur hat, hat keinen Beweis.",
-        "handel": "KI-Content-Industrie übernimmt ~40 % aller Kreativ-Jobs: Werbung, Journalismus, einfache Programmierung. Neue Berufe entstehen: KI-Kuratierung, Echtheitszertifizierung, menschliche Kreativitäts-Nischen. Der Arbeitsmarkt ist 2033 strukturell geändert."
+        "crypto": "Krypto 2033: Blockchain als technische Infrastruktur (Supply Chain, Identität) hat reale Nischenanwendungen. Aber: Als Währung und Freiheitstool ist Krypto 2033 marginalisiert. Staaten haben CBDCs, Unternehmen haben ihre eigenen Systeme. Bitcoin ist Gold 2.0: Speicherreserve für Reiche.",
+        "handel": "Solar + Speicher decken 2033 in 50+ Ländern >60 % des Strombedarfs. Fossile Industrie verliert jährlich 10-15 % Marktanteil. Wind-Offshore-Kapazität in Europa verdreifacht sich. Die Energietransformation braucht keine Fusion — sie ist bereits im Gange."
       },
       "gesellschaft": {
         "text": "2033 ist das Jahr, in dem das Problem der Wahrheit systemisch wird. Wenn jedes Video fälschbar ist, braucht Wahrheit technische Infrastruktur. Wer diese Infrastruktur kontrolliert, kontrolliert, was wahr ist. Das ist die tiefste politische Frage des Jahrhunderts — und sie ist 2033 noch unbeantwortet.",
@@ -4830,14 +2954,14 @@ window.__FC_LIFE_YEARS__={
       },
       "en": {
         "label": "New Middle Ages",
-        "ueberschrift": "AI-generated reality indistinguishable, Russia as a zombie state, first democracy demos in Western Europe",
+        "ueberschrift": "AI reality indistinguishable, Russia zombie state, China exports control as a service",
         "welt": {
           "usa": "2033: Deepest credibility crisis in the US media since Watergate.AI-generated videos can no longer be distinguished from real ones without a cryptographic signature.Opposition media uses blockchain verification as proof of authenticity.60% of the US population no longer trusts government information sources.",
-          "china": "Xi Jinping's health is a state secret in 2033.Succession discussions take place internally - without transparency.China's economy is growing more slowly (4-5%), but control is perfect.Dissidents only exist in the diaspora.",
+          "china": "China 2033: Slow economic growth (4-5%) but perfect control.Dissidents only in diaspora.The techno-authoritarianism model is fully stable in 2033 — wealth + control as balance.",
           "alte_welt": "In Germany, in 2033, hundreds of thousands will take to the streets for democracy and freedom of the press for the first time since the fall of the Berlin Wall - a reaction to AfD participation in government in several federal states and a decline in Europe.New civil society coalitions are emerging.",
           "neue_welt": "Russia 2033: Demographically shrinking, economically stagnating 'petro-colony' of China.No creative sectors, no entrepreneurship, no science foundation other than military.Russia’s only exportable resource is destructive capacity — war, disinformation, raw materials.",
-          "crypto": "Blockchain authenticity certification: First institutions (courts, media, universities) only accept cryptographically signed content.Authenticity becomes technical — if you don’t have a signature, you have no proof.",
-          "handel": "AI content industry takes over ~40% of all creative jobs: advertising, journalism, simple programming.New professions are emerging: AI curation, authenticity certification, human creativity niches.The labor market will be structurally changed in 2033."
+          "crypto": "Crypto 2033: Blockchain as a technical infrastructure (supply chain, identity) has real niche applications.But: Crypto will be marginalized as a currency and freedom tool in 2033.States have CBDCs, companies have their own systems.Bitcoin is Gold 2.0: storage reserve for the rich.",
+          "handel": "Solar + storage will cover >60% of electricity demand in 50+ countries in 2033.Fossil industry loses 10-15% market share every year.Offshore wind capacity in Europe triples.Energy transformation doesn't need fusion — it's already happening."
         },
         "gesellschaft": {
           "text": "2033 is the year when the problem of truth becomes systemic.If every video can be faked, truth needs technical infrastructure.Whoever controls this infrastructure controls what is true.This is the deepest political question of the century — and it is still unanswered in 2033.",
@@ -4864,14 +2988,14 @@ window.__FC_LIFE_YEARS__={
     "2034": {
       "jahr": 2034,
       "label": "Neues Mittelalter",
-      "ueberschrift": "Biologisches Alter-Reset für Reiche möglich, Subsahara als neue Freiheitszone, Kontrolle wird körperlich",
+      "ueberschrift": "Subsahara als Demokratiezone, Solar-Speicher-Paritat global, Kontrolle wird körperlich",
       "welt": {
         "usa": "2034: Erste Brain-Computer-Interface-Gesetze in den USA — Thiel-Netzwerk (Neuralink-Nachfolger) drängt auf 'optionale' BCI-Implantate für Regierungsbeschäftigte. Erste Datenschutz-Prozesse über Gedanken als IP. Wessen Gedanken gehören wem?",
-        "china": "China 2034: Erste Generation, die vollständig mit Sozialkredit aufgewachsen ist, tritt ins Berufsleben. Für sie ist Überwachung normal. Keine externe Referenz. Das ist die tiefste Form von Kontrolle: Wenn das System nicht als Kontrolle erlebt wird.",
+        "china": "China 2034: Erste Generation mit Sozialkredit als einziger Realität übernimmt Positionen. Keine Reformbewegung sichtbar. Das System ist nicht fragil — es ist adaptiv. Chinas Modell bleibt Techno-Autoritarismus, kein Demokratisierungsimpuls.",
         "alte_welt": "Europa 2034: Polen übernimmt strategische Führungsrolle in der EU — als einer der wenigen Mitgliedsstaaten mit echter Verteidigungskapazität und klarem geopolitischen Willen. Ironie der Geschichte: Das Land, das 1989 den Fall des Kommunismus einleitete, verteidigt 2034 die europäische Demokratie.",
         "neue_welt": "Subsahara-Afrika 2034: Lagos, Nairobi und Accra sind globale Tech-Hubs mit demokratischen Strukturen. Afrikanische Union stärkt eigene Sicherheitsarchitektur. Während der 'Westen' Demokratie verliert, gewinnt sie in Teilen Afrikas an Stärke.",
-        "crypto": "Erste physische Krypto-Infrastruktur: Mesh-Netzwerke für P2P-Transaktionen ohne Internet in unterdrückten Regionen. Krypto ist 2034 das Zahlungssystem des Widerstands.",
-        "handel": "Erste Longevity-Kliniken in Panama, Singapur, Dubai bieten biologisches Altersreduktions-Protokoll für $300.000-$500.000. Erste erfolgreiche Studien: Behandelte Personen zeigen nach 5 Jahren biologisches Alter 10-12 Jahre jünger. Longevity-Tourismus als neuer Wirtschaftszweig."
+        "crypto": "Krypto 2034: Marginale Nutzung für grenzüberschreitende Zahlungen in Ländern ohne stabiles Finanzsystem. Für Dissidenten: small-scale, riskant, überwacht. Kein systematisches Freiheitswerkzeug.",
+        "handel": "Solar-Paritat mit Netzbetrieb in 70+ Ländern. Erstmals zahlt Solar direkt in Netz ohne Subvention weniger als Kohlestrom. Afrikanische Länder überspringen fossile Phase — Solar als direktes Entwicklungssprungbrett. Das war nicht vorherzusagen — und verändert Afrika strukturell."
       },
       "gesellschaft": {
         "text": "2034 ist das Jahr, in dem Kontrolle eine neue Dimension bekommt: körperlich. BCI-Implantate, biologische Daten als Staatsressource, Longevity als Klassenprivileg. Die Frage ist nicht mehr, ob man digital kontrolliert wird — sondern ob man physisch kontrolliert werden kann.",
@@ -4895,14 +3019,14 @@ window.__FC_LIFE_YEARS__={
       },
       "en": {
         "label": "New Middle Ages",
-        "ueberschrift": "Biological age reset possible for rich people, sub-Sahara as a new zone of freedom, control becomes physical",
+        "ueberschrift": "Sub-Sahara as a democracy zone, solar storage private global, control becomes physical",
         "welt": {
           "usa": "2034: First brain-computer interface laws in the US — Thiel Network (Neuralink successor) pushes for 'optional' BCI implants for government employees.First data protection processes about thoughts as IP.Whose thoughts belong to whom?",
-          "china": "China 2034: First generation who grew up entirely on social credit enters professional life.For them, surveillance is normal.No external reference.This is the deepest form of control: when the system is not experienced as control.",
+          "china": "China 2034: First generation with social credit as the only reality takes positions.No reform movement visible.The system is not fragile — it is adaptive.China's model remains techno-authoritarianism, not a democratization impulse.",
           "alte_welt": "Europe 2034: Poland assumes strategic leadership role in the EU - as one of the few member states with real defense capacity and clear geopolitical will.Irony of history: The country that initiated the fall of communism in 1989 is defending European democracy in 2034.",
           "neue_welt": "Sub-Saharan Africa 2034: Lagos, Nairobi and Accra are global tech hubs with democratic structures.African Union strengthens its own security architecture.While the 'West' is losing democracy, it is gaining strength in parts of Africa.",
-          "crypto": "First physical crypto infrastructure: Mesh networks for P2P transactions without internet in oppressed regions.Crypto is the payment system of resistance in 2034.",
-          "handel": "First Longevity Clinics in Panama, Singapore, Dubai offer biological age reduction protocol for $300,000-$500,000.First successful studies: Treated people show biological age 10-12 years younger after 5 years.Longevity tourism as a new industry."
+          "crypto": "Crypto 2034: Marginal use for cross-border payments in countries without a stable financial system.For dissidents: small-scale, risky, monitored.Not a systematic freedom tool.",
+          "handel": "Solar-Paritat with grid operation in 70+ countries.For the first time, solar pays directly into the grid without subsidies less than coal-fired power.African countries are skipping the fossil phase - solar as a direct springboard for development.This could not have been predicted - and it is changing Africa structurally."
         },
         "gesellschaft": {
           "text": "2034 is the year in which control takes on a new dimension: physical.BCI implants, biological data as a state resource, longevity as a class privilege.The question is no longer whether you are controlled digitally — but whether you can be controlled physically.",
@@ -4929,17 +3053,17 @@ window.__FC_LIFE_YEARS__={
     "2035": {
       "jahr": 2035,
       "label": "Neues Mittelalter",
-      "ueberschrift": "Europa spaltet sich in freie und unfreie Hälfte, Longevity für Mittelschicht in Sicht, Underground wächst",
+      "ueberschrift": "Europa spaltet sich, Solar überholt alle Fossilquellen, US-Widerstand ohne Führung wächst",
       "welt": {
         "usa": "2035: Erste echte Oppositionsbewegung seit Jahren in den USA — dezentral, Tech-kompetent, nicht-hierarchisch. Vergleich mit Solidarność 1980: Kein Anführer, kein Hauptquartier, aber koordiniert über verschlüsselte Netzwerke. Kann der US-Rechtsstaat sich selbst regenerieren?",
-        "china": "Xi Jinping ist 2035 ~82 Jahre alt. Nachfolgefrage dominiert intern. Partei-Fraktionen positionieren sich. Erste Geruchte über interne Reformer. Ob China sich von innen verändert, entscheidet sich in diesem Jahrzehnt.",
+        "china": "China 2035: Techno-Autoritarismus stabil. Xi-Nachfolger konsolidiert ohne Reformimpuls. Die wirtschaftliche Verlangsamung (4 %) erzeugt Druck, aber kein politisches Öffnen. Das System passt sich an — es wird nicht gespalten.",
         "alte_welt": "Europa 2035 ist zwei Projekte: Nord-West-Europa (Skandinavien, Polen, Baltikum, Benelux, Frankreich/Deutschland mit EU-Kurs) vs. Süd-Ost-Europa (Ungarn, Slowakei, Rumänien, Bulgarien mit autokratischem Kurs). Die EU kann beides nicht gleichzeitig sein.",
         "neue_welt": "Erste echte Pan-Afrikanische Digitalwährung in Pilotbetrieb (mehrere ECOWAS-Staaten) — finanzielle Unabhängigkeit vom Dollar und Yuan als strategisches Ziel. Afrikas Jugend (60 % unter 25) als demographische Kraft.",
-        "crypto": "Longevity-Token: Erste dezentrale Finanzierungsmodelle für kollektive Longevity-Programme — Community-Fonds für präventive Gesundheitsinterventionen. Krypto als Sozialversicherung der Zukunft.",
-        "handel": "2035: Erste Longevity-Protokolle unter $50.000 (Gesamtkosten). Mittelschicht in reichen Ländern beginnt Zugang zu erhalten. Longevity demokratisiert sich langsam — aber zu langsam für den globalen Durchschnitt."
+        "crypto": "Krypto 2035: Institutionell normalisiert — ETFs, Staatsreserven, Finanzprodukte. Keine demokratisierende Wirkung nachweisbar. Die Ungleichheit unter Bitcoin-Inhabern ist höher als im traditionellen Vermögenssystem.",
+        "handel": "Solar + Batteriespeicher decken 2035 in OECD-Ländern über 50 % des Stroms. Wind-Offshore in der Nordsee versorgt 60 % des deutschen Bedarfs. Diese Revolution braucht keine Fusion: Die Infrastruktur ist bereits gebaut und günstiger als alles davor."
       },
       "gesellschaft": {
-        "text": "2035 ist ein Scheidungsjahr für Europa. Die Frage, ob Ungarn und Slowakei EU-Mitglieder bleiben können, während sie demokratische Standards zerstören, wird 2035 entschieden. Die Antwort prägt, ob die EU als Freiheitsprojekt überlebt. Gleichzeitig: Die Longevity-Demokratisierung beginnt — zu langsam, aber sichtbar.",
+        "text": "2035: Die Tech-Oligarchie hat ihr Machtzentrum, Solar hat seinen Durchbruch — zwei Entwicklungen, die sich gegenseitig nicht aufheben. Macht konzentriert sich digital, während Energie dezentralisiert. Wer beide Trends versteht, kann navigieren.",
         "metriken": {
           "screentime_std_tag": 15,
           "freundschaften": 3.5,
@@ -4960,17 +3084,17 @@ window.__FC_LIFE_YEARS__={
       },
       "en": {
         "label": "New Middle Ages",
-        "ueberschrift": "Europe is splitting into free and unfree halves, longevity for the middle class is in sight, underground is growing",
+        "ueberschrift": "Europe is splitting, solar is overtaking all fossil fuels, US resistance without leadership is growing",
         "welt": {
           "usa": "2035: First real opposition movement in years in the USA - decentralized, tech-savvy, non-hierarchical.Comparison with Solidarity 1980: No leader, no headquarters, but coordinated via encrypted networks.Can the US constitutional state regenerate itself?",
-          "china": "Xi Jinping is ~82 years old in 2035.The question of succession dominates internally. Party factions position themselves.First rumors about internal reformers.Whether China changes from within will be decided this decade.",
+          "china": "China 2035: Techno-authoritarianism stable.Xi's successor consolidates without impetus for reform.The economic slowdown (4%) creates pressure, but no political opening.The system adapts — it is not divided.",
           "alte_welt": "Europe 2035 is two projects: North-West Europe (Scandinavia, Poland, Baltics, Benelux, France/Germany with an EU course) vs. South-East Europe (Hungary, Slovakia, Romania, Bulgaria with an autocratic course).The EU cannot be both at the same time.",
-          "neue_welt": "First true Pan-African digital currency in pilot operation (several ECOWAS countries) — financial independence from the dollar and yuan as a strategic goal.Afrikas Jugend (60 % unter 25) als demographische Kraft.",
-          "crypto": "Longevity token: First decentralized financing models for collective longevity programs — community funds for preventive health interventions.Crypto as social insurance of the future.",
-          "handel": "2035: First longevity protocols under $50,000 (total cost).Middle classes in rich countries begin to gain access.Longevity is slowly democratizing — but too slowly for the global average."
+          "neue_welt": "First true Pan-African digital currency in pilot operation (several ECOWAS countries) — financial independence from the dollar and yuan as a strategic goal.Africa's youth (60% under 25) as a demographic force.",
+          "crypto": "Crypto 2035: Institutionally Normalized — ETFs, Treasury Reserves, Financial Products.No democratizing effect detectable.Inequality among Bitcoin holders is higher than in the traditional wealth system.",
+          "handel": "Solar + battery storage will cover over 50% of electricity in OECD countries in 2035.Offshore wind in the North Sea supplies 60% of German demand.This revolution doesn't need a merger: the infrastructure is already built and cheaper than anything before it."
         },
         "gesellschaft": {
-          "text": "2035 is a year of divorce for Europe.The question of whether Hungary and Slovakia can remain EU members while destroying democratic standards will be decided in 2035.The answer will determine whether the EU survives as a freedom project.At the same time: Longevity democratization is beginning - too slowly, but visible.",
+          "text": "2035: The tech oligarchy has its center of power, solar has its breakthrough — two developments that do not cancel each other out.Power concentrates digitally while energy decentralizes.Anyone who understands both trends can navigate.",
           "metriken": {
             "screentime_std_tag": 15,
             "freundschaften": 3.5,
@@ -4994,17 +3118,17 @@ window.__FC_LIFE_YEARS__={
     "2036": {
       "jahr": 2036,
       "label": "Neues Mittelalter",
-      "ueberschrift": "Autoritarismus als exportiertes Betriebssystem, Europa setzt erste Grenze, Fusion-Energie verändert Geopolitik",
+      "ueberschrift": "Autoritarismus als exportiertes Betriebssystem, Solar beendet Ölmacht, EU setzt erste Grenze",
       "welt": {
         "usa": "2036: Wahljahr. Erste echte Chance für eine Opposition — aber Informations-Infrastructure macht Gegenerzahlung strukturell schwächer. Vance oder ein Thiel-geprägter Nachfolger gewinnt wahrscheinlich. Aber: 40 % der US-Bevölkerung ist aktiv in zivilgesellschaftlichem Widerstand organisiert.",
-        "china": "Xi Jinpings Nachfolger wird 2036/37 sichtbar. China übergibt sein Überwachungsmodell ('China Digital Governance Package') aktiv an 40+ Länder. Das Autoritarismus-System ist 2036 ein globales Produkt — mit Handbuch, Support und Finanzierung.",
+        "china": "China exportiert 2036 'Digital Governance Package' an 40+ Länder: Überwachungssoftware, KI-Staatsverwaltung, Sozialkreditsystem. Preis: politische Loyalität. Kein Reformer in Sicht — das System ist profitabel und stabil.",
         "alte_welt": "EU setzt 2036 erstmals konkrete Konsequenz gegen Ungarn: Stimmrechtsentzug bei Kern-Abstimmungen. Symbolisch wichtig. Strukturell: Die EU muss entscheiden, ob sie kleiner und freier oder größer und fragiler sein will.",
         "neue_welt": "Fusion-Energie in ersten kommerziellen Pilotanlagen (UK, Südkorea, Kanada): Länder ohne Fossile oder Kernkraft erhalten erstmals die Perspektive echter Energie-Unabhängigkeit. Dies verändert die Machtgeografie, die auf Öl und Gas basiert.",
-        "crypto": "Erste nationale Krypto-Infrastrukturen in kleinen Demokratien (Island, Uruguay, Botswana) als Alternative zu Dollar/Yuan-Abhängigkeit. Krypto als geopolitische Unabhängigkeit.",
-        "handel": "Chinas 'Digital Governance Package': Datenbanken, Überwachungssoftware, KI-Staatsverwaltung als Exportprodukt für 40+ Länder. Preis: Politische Loyalität, Belt-and-Road-Konditionen. Das Geschäftsmodell der Autokratie skaliert global."
+        "crypto": "Krypto 2036: Reguliert wie Börsenhandel. Steuerpflichtig, nachverfolgbar, staatlich eingebettet. Das dezentrale Versprechen ist 2036 von Regierungen technisch eingeholt. Bitcoin ist Rohstoff, nicht Revolution.",
+        "handel": "Öl-Nachfrage fällt 2036 strukturell zum ersten Mal (– 3 % YoY). Solar + Wind + Speicher liefern 40 % der Weltenergie. Petro-Staaten müssen diversifizieren. Diese Verschiebung destabilisiert Russland, Saudi-Arabien und Iran weit mehr als jede Sanktion."
       },
       "gesellschaft": {
-        "text": "2036 zeigt: Autoritarismus ist kein Betriebsunfall. Es ist ein Exportprodukt mit Handbuch. China liefert, Russland unterstützt, lokale Eliten zahlen mit Loyalität. Die freie Gesellschaft hat kein vergleichbares Exportangebot für Governance-Systeme — das ist ihre strukturelle Schwäche.",
+        "text": "2036 zeigt das Doppelgesicht der Energie-Revolution: Solar demokratisiert Energieversorgung, aber Informationsinfrastruktur bleibt zentralisiert. Wer ölreich war, verliert Macht. Wer Daten kontrolliert, gewinnt Macht. Die Summe ist keine Freiheit — aber auch kein absoluter Stillstand.",
         "metriken": {
           "screentime_std_tag": 15,
           "freundschaften": 3.5,
@@ -5025,17 +3149,17 @@ window.__FC_LIFE_YEARS__={
       },
       "en": {
         "label": "New Middle Ages",
-        "ueberschrift": "Autoritarismus als exportiertes Betriebssystem, Europa setzt erste Grenze, Fusion-Energie verändert Geopolitik",
+        "ueberschrift": "Authoritarianism as an exported operating system, solar ends oil power, EU sets first limit",
         "welt": {
           "usa": "2036: election year.First real chance for an opposition - but information infrastructure makes counter-payment structurally weaker.Vance or a Thiel-like successor probably wins.But: 40% of the US population is actively organized in civil society resistance.",
-          "china": "Xi Jinping's successor will become visible in 2036/37.China is actively handing over its surveillance model ('China Digital Governance Package') to 40+ countries.The authoritarianism system is a global product in 2036 — with manual, support and financing.",
+          "china": "China exports 'Digital Governance Package' to 40+ countries in 2036: surveillance software, AI state administration, social credit system.Price: political loyalty.No reformer in sight — the system is profitable and stable.",
           "alte_welt": "In 2036, the EU will take concrete action against Hungary for the first time: withdrawal of voting rights in core votes.Symbolically important.Structural: The EU must decide whether it wants to be smaller and freer or larger and more fragile.",
           "neue_welt": "Fusion energy in the first commercial pilot plants (UK, South Korea, Canada): Countries without fossil or nuclear power are given the prospect of true energy independence for the first time.This is changing the geography of power based on oil and gas.",
-          "crypto": "First national crypto infrastructures in small democracies (Iceland, Uruguay, Botswana) as an alternative to dollar/yuan dependency.Crypto as geopolitical independence.",
-          "handel": "China's 'Digital Governance Package': databases, surveillance software, AI state administration as export product for 40+ countries.Price: Political loyalty, Belt and Road conditions.The autocracy business model scales globally."
+          "crypto": "Crypto 2036: Regulated like stock exchange trading.Taxable, traceable, government embedded.The decentralized promise will be technically obtained by governments in 2036.Bitcoin is a commodity, not a revolution.",
+          "handel": "Oil demand falls structurally for the first time in 2036 (–3% YoY).Solar + wind + storage provide 40% of the world's energy.Petro-states need to diversify.This shift is destabilizing Russia, Saudi Arabia and Iran far more than any sanction."
         },
         "gesellschaft": {
-          "text": "2036 shows: Authoritarianism is not an industrial accident.It is an export product with manual.China supplies, Russia supports, local elites pay with loyalty.The free society has no comparable export offering for governance systems — that is its structural weakness.",
+          "text": "2036 shows the double face of the energy revolution: solar democratizes energy supply, but information infrastructure remains centralized.Those who were oil rich lose power.Whoever controls data gains power.The sum is not freedom - but neither is absolute standstill.",
           "metriken": {
             "screentime_std_tag": 15,
             "freundschaften": 3.5,
@@ -5059,14 +3183,14 @@ window.__FC_LIFE_YEARS__={
     "2037": {
       "jahr": 2037,
       "label": "Neues Mittelalter",
-      "ueberschrift": "Xi’s Nachfolge beginnt, US-Widerstand wächst lokal, Longevity unter $10.000",
+      "ueberschrift": "Xi-Nachfolge entschieden, US-Widerstand gewinnt Kommunalwahlen, Solar-Speicher erreicht Paritat",
       "welt": {
         "usa": "US-Oppositionsbewegung gewinnt 2037 Kommunalwahlen in großen Städten — dezentral, verschlüsselt organisiert. Das föderale System ist paradoxerweise seine eigene Rettung: Lokale Demokratie überlebt, wo nationale erodiert.",
-        "china": "Xi Jinping übergibt schrittweise Macht — die Partei ist in drei Fraktionen: Reformer, Hardliner, Pragmatiker. Jede will sein Erbe für sich. Chinas innere Unsicherheit ist seine größte strukturelle Schwäche.",
+        "china": "Chinas Nachfolge ist 2037 entschieden: ein Technokrat, wirtschaftlich pragmatisch, politisch kontrolliert. Das Singapur-Modell in groß. Keine Demokratisierung — aber auch kein Maximalkontrolle-Ausbau. Ein System, das funktioniert ohne Freiheit.",
         "alte_welt": "Nord-West-EU beschließt formell Ausschluss von Mitgliedsstaaten, die Rechtsstaatlichkeit aushöhlen. Kleineres, aber freieres Europa als Ergebnis. Signal: Freiheit ist nicht verhandelbar.",
         "neue_welt": "Erste afrikanische Demokratie-Koalition mit gegenseitigem Sicherheitsrat gegründet — Nigeria und Ghana als Anker. Afrikanische Demokratien verteidigen sich gegenseitig.",
-        "crypto": "Longevity-DeFi: Dezentrale Fonds, in die Menschen einzahlen und Longevity-Behandlungen erhalten. Sozialisierung von Langlebigkeit als Krypto-Projekt.",
-        "handel": "Longevity-Grundpaket unter $10.000 verfügbar. Erste Demokratisierung: obere Mittelschicht weltweit erhält Zugang. Longevity-Markt wird zum Politikthema."
+        "crypto": "Krypto 2037: Nische mit stabiler Nutzerbasis (Investoren, Spekulanten, grenzüberschreitende Zahlungen für Unterbankte). Keine Systemrelevanz. Das Open-Source-Äquivalent für Freiheit ist dezentrale Energieversorgung, verschlüsselte Kommunikation — nicht Krypto.",
+        "handel": "Wind + Solar + Speicher: 50 % der Weltenergie. Erste Länder (Island, Portugal, Dänemark) betreiben 100 % erneuerbare Netze. Das ist kein Versprechen mehr. Es ist Infrastruktur."
       },
       "gesellschaft": {
         "text": "2037 zeigt erste systemische Risse. Chinas Nachfolge-Unsicherheit, US-Widerstandswachstum, Europas Ausschluss-Beschluss — drei Zeichen, dass konsolidierte Autokratie keine Endstation ist.",
@@ -5090,14 +3214,14 @@ window.__FC_LIFE_YEARS__={
       },
       "en": {
         "label": "New Middle Ages",
-        "ueberschrift": "Xi's Succession Begins, US Resistance Grows Locally, Longevity Under $10,000",
+        "ueberschrift": "Xi successor decided, US resistance wins local elections, solar storage reaches parity",
         "welt": {
           "usa": "US opposition movement wins local elections in large cities in 2037 - decentralized, encrypted.The federal system is, paradoxically, its own salvation: local democracy survives where national democracy erodes.",
-          "china": "Xi Jinping is gradually handing over power — the party is divided into three factions: reformers, hardliners, pragmatists.Everyone wants their inheritance for themselves.China's internal insecurity is its greatest structural weakness.",
+          "china": "China's successor will be decided in 2037: a technocrat, economically pragmatic, politically controlled.The Singapore model in large.No democratization — but no expansion of maximum control either.A system that works without freedom.",
           "alte_welt": "North-West EU formally decides to exclude member states that undermine the rule of law.Smaller but freer Europe as a result.Signal: Freedom is non-negotiable.",
           "neue_welt": "First African democracy coalition founded with mutual Security Council - Nigeria and Ghana as anchors.African democracies defend each other.",
-          "crypto": "Longevity DeFi: Decentralized funds that people deposit into and receive longevity treatments.Socializing longevity as a crypto project.",
-          "handel": "Longevity basic package available under $10,000.First democratization: upper middle class worldwide gains access.Longevity market becomes a political issue."
+          "crypto": "Crypto 2037: Niche with a stable user base (investors, speculators, cross-border payments for the underbanked).No system relevance.The open source equivalent of freedom is decentralized energy, encrypted communications — not crypto.",
+          "handel": "Wind + Solar + Storage: 50% of the world's energy.The first countries (Iceland, Portugal, Denmark) are operating 100% renewable networks.This is no longer a promise.It's infrastructure."
         },
         "gesellschaft": {
           "text": "2037 shows the first systemic cracks.China's successor uncertainty, US resistance to growth, Europe's exclusion decision — three signs that consolidated autocracy is not the end stop.",
@@ -5124,14 +3248,14 @@ window.__FC_LIFE_YEARS__={
     "2038": {
       "jahr": 2038,
       "label": "Neues Mittelalter",
-      "ueberschrift": "Russland ohne Putin, China-Reformer übernimmt, Europa findet Stimme",
+      "ueberschrift": "Chinas Techno-Autoritarismus stabilisiert, Russland ohne Putin fragil, Solar kippt Öl-Geopolitik",
       "welt": {
         "usa": "US-Demokratiebewegung bildet erste strategische Allianz: Tech-unabhängige Medien, Gemeinden, Gewerkschaften. Die Frage ist nicht mehr ob — sondern wann.",
-        "china": "Chinas neuer Führer ist ein Pragmatiker — kein Demokrat, aber kein ideologischer Hardliner. Erste Signale: Wissenschafts-Internet gelockert, einige Gefangene freigelassen. Es ist kein Freiheit. Es ist Atem.",
+        "china": "China 2038: Techno-Autoritarismus 2.0 ist das stabilste politische System der Welt — misst am Überleben. Die Frage ist nicht, ob es zusammenbricht, sondern ob es sich ändert. Antwort 2038: nein, es adaptiert.",
         "alte_welt": "Russland 2038: Putin — ~86 Jahre alt — tritt zurück oder stirbt. Oligarchen kämpfen um Nachfolge. Erste Frage: Kann Russland einen anderen Weg einschlagen? Chancen gering, aber nicht null.",
         "neue_welt": "Erste Pan-Afrikanische Digitalwährung in Pilotbetrieb (ECOWAS-Staaten). Finanzielle Unabhängigkeit vom Dollar und Yuan als strategisches Ziel.",
-        "crypto": "Krypto als globales Clearing zwischen Blöcken: Kleine Länder nutzen Bitcoin/Ethereum für Zahlungen ohne Dollar oder Yuan.",
-        "handel": "Fusionsenergie-Preissturz: Erste Regionen zahlen 30-40 % weniger als konventionell. Industrieansiedlungen verschieben sich."
+        "crypto": "Krypto 2038: Panafrika-Digitalwährung (ECOWAS) ist staatlich, nicht dezentral. Ähnlich CBDCs mit regionaler Souveränität. Das ist das relevante 'Krypto' für den Globalen Süden: staatlich kontrolliert, aber regional autonom.",
+        "handel": "Solar + Wind deckt 2038 in Afrika 40 % des Stroms — ohne die fossile Phase zu durchlaufen. Länder wie Marokko, Kenya, Nigeria exportieren Solar-Strom nach Europa. Energieexport aus Afrika — das war 1960 undenkbar."
       },
       "gesellschaft": {
         "text": "2038 ist ein Jahr der Schwebe. Drei große Entwicklungen könnten kippen: Chinas Richtung, Russlands Stabilität, US-Erholung. Alle ungewiss — alle möglich. Das ist mehr als 2032 war.",
@@ -5155,14 +3279,14 @@ window.__FC_LIFE_YEARS__={
       },
       "en": {
         "label": "New Middle Ages",
-        "ueberschrift": "Russia without Putin, China reformer takes over, Europe finds voice",
+        "ueberschrift": "China's techno-authoritarianism is stabilizing, Russia is fragile without Putin, solar is overturning oil geopolitics",
         "welt": {
           "usa": "US democracy movement forms first strategic alliance: tech-independent media, communities, unions.The question is no longer if - but when.",
-          "china": "China's new leader is a pragmatist — not a democrat, but not an ideological hardliner.First signals: Science Internet relaxed, some prisoners released.It's not freedom.It's breath.",
+          "china": "China 2038: Techno-authoritarianism 2.0 is the most stable political system in the world - measured by survival.The question is not whether it collapses, but whether it changes.Answer 2038: no, it adapts.",
           "alte_welt": "Russia 2038: Putin — ~86 years old — resigns or dies.Oligarchs fight for succession.First question: Can Russia take a different path?Chances are slim, but not zero.",
           "neue_welt": "First Pan-African digital currency in pilot operation (ECOWAS countries).Financial independence from the dollar and yuan as a strategic goal.",
-          "crypto": "Crypto as global clearing between blocks: Small countries use Bitcoin/Ethereum for payments without dollars or yuan.",
-          "handel": "Fusion energy price drop: First regions pay 30-40% less than conventional.Industrial settlements are shifting."
+          "crypto": "Crypto 2038: Pan-African Digital Currency (ECOWAS) is state-owned, not decentralized.Similar to CBDCs with regional sovereignty.This is the relevant 'crypto' for the Global South: state-controlled but regionally autonomous.",
+          "handel": "Solar + wind will cover 40% of Africa's electricity in 2038 — without going through the fossil fuel phase.Countries like Morocco, Kenya and Nigeria export solar power to Europe.Exporting energy from Africa was unthinkable in 1960."
         },
         "gesellschaft": {
           "text": "2038 is a year of limbo.Three major developments could tip the scales: China's direction, Russia's stability, US recovery.All uncertain — all possible.That's more than it was in 2032.",
@@ -5189,17 +3313,17 @@ window.__FC_LIFE_YEARS__={
     "2039": {
       "jahr": 2039,
       "label": "Wendepunkt",
-      "ueberschrift": "Erste US-Demokratin 2040 im Anmarsch, Russland in Transformation, China atmet",
+      "ueberschrift": "Erste bündende Bürgerräte, politische Imagination öffnet sich — Demokratie braucht neue Zeithorizonte",
       "welt": {
         "usa": "2040er Wahljahr in Vorbereitung: Erste Demokratie-Kandidatin mit historischer Koalition — unter-45, Tech-kompetent. Kann eine neue Generation Institutionen zurückübernehmen?",
-        "china": "China 2039 atmet: Internetzugang für Akademiker, Reisefreiheit erleichtert. Kein Twitter, aber erste Blogger ohne Zensur. Fragil, rückfällig, aber real.",
-        "alte_welt": "Russland nach Putin: Erste freie Kommunalwahlen in drei Jahren. Gesellschaft erschoepft. Oligarchen kämpfen. Aber: Russland ohne Krieg ist denkbar.",
+        "china": "China 2039: Techno-Autoritarismus ist nicht exportierbar ohne Chinas spezifische Verwaltungsstruktur. Andere Länder kaufen die Software, aber nicht das System. Chinas Modell ist 2039 stabil, aber kein globales Vorbild — eher ein Produkt.",
+        "alte_welt": "Wales hat seit 2015 einen 'Commissioner for Future Generations' — eine Behörde, die alle staatlichen Entscheidungen auf 30-Jahres-Folgen prüft. 2039 übernehmen drei weitere EU-Staaten dieses Modell. Die Frage: Wer repräsentiert die Ungeborenen? Und hat ihre Stimme demokratische Legitimation?",
         "neue_welt": "Nigeria-Modell: KI-überwachte Wahlen als manipulationsresistente demokratische Infrastruktur. Demokratie-Innovation aus Subsahara.",
-        "crypto": "Krypto als humanitäres Werkzeug: Russlands Zivilbevölkerung erhält Unterstützung über Bitcoin-Netzwerke während des Zusammenbruchs.",
-        "handel": "Fusionsenergie unter konventionellen Preisen in ersten Regionen. Industrielle Neuansiedlung beginnt."
+        "crypto": "Krypto 2039: Nachverfolgbare digitale Spuren machen Krypto für Dissidenten riskant in autokratischen Ländern. Zero-Knowledge-Proofs als technische Lösung — aber komplex und für die breite Bevölkerung nicht zugänglich.",
+        "handel": "Fossile Industrie verliert 2039 Finanzierungszugang: Große institutionelle Investoren halten kein Fossil-Kapital mehr. Solar-Anleihen sind AA-Standard. Energie-Investitionen fließen vollständig in Erneuerbare. Das ist der Wendepunkt der Energiegeschichte — 2039, nicht 2050."
       },
       "gesellschaft": {
-        "text": "2039 ist ein Hoffnungsjahr — vorsichtig. Drei Entwicklungen könnten kippen: Russland nach Putin, China mit Reformer, USA mit neuem Widerstand. Nicht garantiert — aber möglich.",
+        "text": "2039 ist das Jahr, in dem die politische Fantasie sich öffnet. Nach einer Dekade demokratischer Erosion fragt die Gesellschaft nicht nur 'wie retten wir Demokratie' — sondern 'welche Demokratie wollen wir?'. Erste Bürgerräte mit bindender Empfehlungsgewalt in Irland, Frankreich und Deutschland zeigen ein Muster: Zufällig ausgewählte Bürger mit Expertenunterstützung produzieren längerfristigere, weniger parteipolitisch verzerrte Entscheidungen. Das Forstwirtschaft-Problem taucht auf: Parlamente optimieren auf Wahlzyklen (4 Jahre), ein Forst wird für 80 Jahre geplant. Welche Institutionen können über Generationen entscheiden, ohne demokratische Kontrolle aufzugeben?",
         "metriken": {
           "screentime_std_tag": 15,
           "freundschaften": 3.5,
@@ -5211,26 +3335,26 @@ window.__FC_LIFE_YEARS__={
       "chancen": {
         "mental": "Post-autokratische Trauma-Heilungsprogramme: Kollektive Psychotherapie für Gesellschaften nach Diktaturen — Russland und Osteuropa als erste Fälle.",
         "koerper": "Biologische Altersdiagnostik unter $500: Jeder kann sein biologisches Alter messen und personalisiert vorbeugen.",
-        "gemeinschaft": "Manipulationsresistente KI-Wahlen als globaler Standard — zuerst in Afrika entwickelt, global adaptiert.",
+        "gemeinschaft": "Citizens' Assemblies als erste Antwort: Zufallsauswahl + Expertenberatung + deliberativer Prozess = Entscheidungen, die Generationen überdauern. Irland hat mit der Abtreibungsabstimmung (2018) bewiesen: Zufällig gewählte Bürger übertreffen Parteipolitiker in langfristiger Weitsicht. Kritisch: Wie skaliert man das auf nationale Verfassungsebene?",
         "technologie": "Brain-Computer-Interfaces als Massenprodukt für Menschen mit Lähmung — Kommunikation durch Gedanken."
       },
       "was_tun": {
-        "jung": "Chinas innere Entwicklung verfolgen — sie entscheidet über die nächsten 50 Jahre. Russland nach Putin bietet Transformationschancen.",
-        "aelter": "Ankerpunkte in unsicherer Zeit: Familie, Gemeinschaft, Werte. Resilienz-Strategien aus früheren Wende-Zeiten teilen."
+        "jung": "Citizens' Assemblies brauchen Beteiligte. Wenn du zur Teilnahme aufgefordert wirst — nimm teil. Deine Stimme in deliberativen Prozessen hat strukturell mehr Langfrist-Gewicht als im Parteiensystem. Informiere dich über neue Demokratiemodelle: Sie sind bereits Realität, nicht Theorie.",
+        "aelter": "Generationale Planung benötigt deine Perspektive: Du hast 50+ Jahre Erfahrung, was funktioniert und was nicht. Deliberative Demokratie nutzt genau das — nicht Parteizugehörigkeit, sondern Lebenserfahrung als politische Ressource."
       },
       "en": {
         "label": "Turning Point",
-        "ueberschrift": "The first US Democrat in 2040 is on the way, Russia is in transformation, China is breathing",
+        "ueberschrift": "First allied citizens' assemblies, political imagination opens up - democracy needs new time horizons",
         "welt": {
           "usa": "2040 election year in preparation: First democracy candidate with a historic coalition - under-45, tech-savvy.Can a new generation take back institutions?",
-          "china": "China 2039 breathes: Internet access for academics, freedom to travel easier.No Twitter, but the first bloggers without censorship.Fragile, backsliding, but real.",
-          "alte_welt": "Russia after Putin: First free local elections in three years.Society exhausted.Oligarchs fight.But: Russia without war is conceivable.",
+          "china": "China 2039: Techno-authoritarianism cannot be exported without China's specific administrative structure.Other countries buy the software but not the system.China's model is stable in 2039, but not a global role model — more of a product.",
+          "alte_welt": "Since 2015, Wales has had a 'Commissioner for Future Generations' - an authority that reviews all government decisions for 30-year consequences.In 2039, three more EU states will adopt this model.The question: Who represents the unborn?And does their vote have democratic legitimacy?",
           "neue_welt": "Nigeria model: AI-monitored elections as a manipulation-resistant democratic infrastructure.Democracy innovation from sub-Saharan.",
-          "crypto": "Crypto as a Humanitarian Tool: Russia's Civilians Receive Support via Bitcoin Networks During Collapse.",
-          "handel": "Fusion energy below conventional prices in the first regions.Industrial resettlement begins."
+          "crypto": "Crypto 2039: Traceable digital traces make crypto risky for dissidents in autocratic countries.Zero-knowledge proofs as a technical solution - but complex and not accessible to the general population.",
+          "handel": "Fossil industry will lose access to financing in 2039: Large institutional investors no longer hold fossil capital.Solar bonds are AA standard.Energy investments flow entirely into renewables.This is the turning point in energy history — 2039, not 2050."
         },
         "gesellschaft": {
-          "text": "2039 is a year of hope – cautiously.Three developments could tip the scales: Russia after Putin, China with reformers, USA with new resistance.Not guaranteed — but possible.",
+          "text": "2039 is the year in which the political imagination opens up.After a decade of democratic erosion, society is asking not just 'how do we save democracy' — but 'what kind of democracy do we want?'The first citizens' councils with binding recommendation power in Ireland, France and Germany show a pattern: randomly selected citizens with expert support produce longer-term, less party-politically distorted decisions.The forestry problem arises: parliaments optimize for election cycles (4 years), a forest is planned for 80 years.Which institutions can make decisions over generations without giving up democratic control?",
           "metriken": {
             "screentime_std_tag": 15,
             "freundschaften": 3.5,
@@ -5242,29 +3366,29 @@ window.__FC_LIFE_YEARS__={
         "chancen": {
           "mental": "Post-autocratic trauma healing programs: Collective psychotherapy for post-dictatorship societies — Russia and Eastern Europe as the first cases.",
           "koerper": "Biological age diagnostics under $500: Everyone can measure their biological age and provide personalized prevention.",
-          "gemeinschaft": "Manipulation-Resistant AI Elections as a Global Standard — First Developed in Africa, Adapted Globally.",
+          "gemeinschaft": "Citizens' Assemblies as the first answer: random selection + expert advice + deliberative process = decisions that last generations.Ireland proved with the abortion vote (2018): randomly elected citizens outperform party politicians in the long term.Critical: How do you scale this up to the national constitutional level?",
           "technologie": "Brain-computer interfaces as a mass product for people with paralysis - communication through thoughts."
         },
         "was_tun": {
-          "jung": "Tracking China's internal development will determine the next 50 years.Russia after Putin offers opportunities for transformation.",
-          "aelter": "Anchor points in uncertain times: family, community, values.Share resilience strategies from earlier times of change."
+          "jung": "Citizens' Assemblies need participants.If you are asked to participate — take part.Structurally, your voice in deliberative processes has more long-term weight than in the party system.Find out about new models of democracy: They are already reality, not theory.",
+          "aelter": "Generational planning requires your perspective: You have 50+ years of experience on what works and what doesn't.Deliberative democracy uses exactly that — not party affiliation, but life experience as a political resource."
         }
       }
     },
     "2040": {
       "jahr": 2040,
       "label": "Wendepunkt",
-      "ueberschrift": "US-Demokratin gewinnt, China öffnet sich, Russland transformiert — erster echter Wendepunkt",
+      "ueberschrift": "US-Demokratie erholt durch Strukturkräfte — jetzt beginnt die eigentliche Frage: Welche Demokratie?",
       "welt": {
-        "usa": "Wahljahr 2040: Demokratie-Kandidatin gewinnt mit historischer Koalition. Thiel-Netzwerk verliert strategische Position in Teilen des Staatsapparats. Kein vollständiger Wandel — aber erste echte Richtungsänderung.",
-        "china": "Chinas Reformer öffnet Teile des Internets, erleichtert Reisefreiheit. Keine Demokratisierung. Aber: erste Schritte aus vollständiger Isolation.",
-        "alte_welt": "Europa atmet auf. Emigranten beginnen zurückzukehren. Europas Renaissance beginnt mit einer Rückholaktion der kreativen Klasse.",
+        "usa": "Wahljahr 2040: Demokratie-Kandidatin gewinnt durch eine Koalition, die explizit gegen die Tech-Oligarchie angetreten ist — nicht weil Thiel oder Musk plötzlich demokratisch dachten. EU-Kartellrecht, internationale Konkurrenz Chinas und interne Interessendivergenz der Oligarchen hatten ihre Macht strukturell geschwächt. Die Koalition nutzt die entstehenden Risse.",
+        "china": "China 2040: Kein Reformer hat gewonnen. Techno-Autoritarismus bleibt. Aber: Wirtschaftliche Verlangsamung und demographisches Loch erzeugen intern Druck. Keine Demokratisierung — aber möglicherweise mehr pragmatische Lockerungen in Wirtschaftspolitik.",
+        "alte_welt": "EU-Verfassungskonvent 2040 diskutiert 'Generationale Rechenschaft': Jede EU-Entscheidung mit Auswirkungen über 20 Jahre braucht Zustimmung eines Zukunftsrates. Nicht Utopie — Wales hat dieses Modell seit 2015. Die offene Frage: Hat der Zukunftsrat Veto-Recht oder nur Prüfpflicht?",
         "neue_welt": "Russland: Erste freie Kommunalwahlen. Oligarchen kämpfen. Gesellschaft erschoepft. Ein Russland ohne Krieg ist möglich — wenn auch fragil.",
-        "crypto": "Bitcoin als globale Reserve für souveräne Kleinstaaten und dezentrale Organisationen. Nicht mehr Spekulation — Infrastruktur.",
-        "handel": "Fusionsenergie-Schock: Öl- und Gas-exportierende Staaten beginnen zu diversifizieren oder zu kollabieren."
+        "crypto": "Krypto 2040: CBDCs (staatlich) dominieren den Zahlungsverkehr. Bitcoin/Ethereum als Speicher- und Spekulationsinstrument für 3-5 % der Bevölkerung. Kein Systemwandel durch Krypto — das war 2040 empirisch widerlegbar.",
+        "handel": "Solar + Wind: 60 % der Weltenergie. Fossile Industrie kollabiert in Ländern ohne staatliche Subventionen. Die Oligarchen, die in fossile Energie investiert hatten, verlieren Vermogen. Das schwächt ihre politische Macht strukturell mit — Solar war ein demokratisierender Faktor, unbeabsichtigt."
       },
       "gesellschaft": {
-        "text": "2040 ist ein Wendepunkt — nicht Umkehr, aber Richtungsänderung. USA beginnen institutionelle Heilung. Europa kehrt zurück. China atmet. Russland transformiert sich schmerzhaft. Pragmatischer Optimismus ist 2040 rational.",
+        "text": "2040 ist ein Wendepunkt — aber der interessantere Wendepunkt ist nicht 'Oligarchie überwunden', sondern: Was kommt danach? Die demokratische Erholung hat gezeigt, dass alte Institutionen allein nicht reichen. Die Debatten, die 2040 beginnen: Weniger Parteizwang durch Sortition? Langfristige Planungspflicht als Verfassungsrecht? 'Rat der Weisen' als zweite Kammer ohne Parteibindung? Das sind keine Utopien — sie existieren als reale Pilotmodelle. Norwegen verwaltet einen Staatsfonds für kommende Generationen. Österreich hat einen Zukunftsrat im Parlament. Irland löste seine Abtreibungsfrage durch einen Bürgerrat statt durch Parteienstreit. Die Frage ist, ob politischer Wille entsteht, diese Modelle zu skalieren.",
         "metriken": {
           "screentime_std_tag": 14.5,
           "freundschaften": 4,
@@ -5276,26 +3400,26 @@ window.__FC_LIFE_YEARS__={
       "chancen": {
         "mental": "Nationale Heilungsprogramme in den USA: Dialogformate, Gemeinschaftszentren, institutionelles Vertrauen-Rebuilding.",
         "koerper": "Longevity in EU-Gesundheitsversorgung: Erste universelle Longevity-Vorsorge für alle ab 50. Lebenserwartungs-Kluft beginnt sich zu schließen.",
-        "gemeinschaft": "Europas Rückkehrer-Generation: Auswanderer kehren mit globalem Netzwerk und neuer Perspektive zurück — was Europa gebraucht hat.",
-        "technologie": "KI-Auditierung von Regierungsentscheidungen in Echtzeit: Demokratie-Infrastruktur wird technisch verstärkt."
+        "gemeinschaft": "'Forstwirtschaft-Demokratie' als Konzept: Institutionen, die 50-Jahres-Entscheidungen mit demokratischer Legitimation treffen können. Ein Förster pflanzt Bäume für Enkel, ohne auf nächsten Quartalsbericht zu warten. Erste nationale Debatten über 'generationale Haushaltsrechte' — Recht künftiger Generationen auf handlungsfähigen Staat.",
+        "technologie": "KI-gestützte Deliberation: Erste Plattformen, die Bürgerräten helfen, komplexe Policy-Optionen zu simulieren und Langzeitfolgen sichtbar zu machen. Nicht KI als Entscheider — KI als Werkzeug für bessere menschliche Entscheidungen."
       },
       "was_tun": {
-        "jung": "2040 ist ein Wendejahr — investiere in politisches Engagement. Kehre nach Europa zurück, wenn du ausgewandert bist.",
-        "aelter": "Lokale demokratische Rebuilding-Projekte brauchen Erfahrung. Dein Lebenswerk zählt jetzt mehr denn je."
+        "jung": "Die politische Imagination ist 2040 wieder offen. Engagiere dich in Debatten über neue Demokratiemodelle — nicht ideologisch, sondern pragmatisch: Was funktioniert? Wo wurden Citizens' Assemblies erprobt? Was hat Norwegen mit seinem Staatsfonds erreicht? Du lebst lang genug, um die Ergebnisse dieser Experimente zu sehen.",
+        "aelter": "Langfristplanung braucht institutionelles Gedächtnis. Engagiere dich in Kommunen, die neue Gouvernanz-Modelle erproben. Dein Wissen darüber, was in den letzten 50 Jahren nicht funktioniert hat, ist das wichtigste Input für institutionellen Design."
       },
       "en": {
         "label": "Turning Point",
-        "ueberschrift": "US Democrat wins, China opens up, Russia transforms — first real turning point",
+        "ueberschrift": "US democracy recovered by structural forces - now the real question begins: Which democracy?",
         "welt": {
-          "usa": "Election year 2040: Democracy candidate wins with historic coalition.Thiel network loses strategic position in parts of the state apparatus.Not a complete change — but the first real change in direction.",
-          "china": "China's reformer opens parts of the Internet, makes travel easier.No democratization.But: first steps out of complete isolation.",
-          "alte_welt": "Europe breathes a sigh of relief.Emigrants begin to return.Europe's renaissance begins with a repatriation of the creative class.",
+          "usa": "Election year 2040: Democracy candidate wins through a coalition that explicitly ran against the tech oligarchy — not because Thiel or Musk suddenly thought democratically.EU antitrust law, international competition from China and the oligarchs' internal divergence of interests had structurally weakened their power.The coalition is taking advantage of the cracks that are emerging.",
+          "china": "China 2040: No reformer won.Techno-authoritarianism remains.But: Economic slowdown and demographic gap are creating pressure internally.No democratization - but perhaps more pragmatic easing of economic policy.",
+          "alte_welt": "EU Constitutional Convention 2040 discusses 'Generational Accountability': Every EU decision with an impact over 20 years needs the approval of a Future Council.Not utopia - Wales has had this model since 2015. The open question: Does the Future Council have the right to veto or just an obligation to review?",
           "neue_welt": "Russia: First free local elections.Oligarchs fight.Society exhausted.A Russia without war is possible — albeit fragile.",
-          "crypto": "Bitcoin as a global reserve for sovereign small states and decentralized organizations.No more speculation — infrastructure.",
-          "handel": "Fusion energy shock: Oil and gas exporting states begin to diversify or collapse."
+          "crypto": "Crypto 2040: CBDCs (government-owned) dominate payment transactions.Bitcoin/Ethereum as a storage and speculation tool for 3-5% of the population.No system change through crypto - that was empirically refutable in 2040.",
+          "handel": "Solar + Wind: 60% of the world's energy.Fossil fuel industries are collapsing in countries without government subsidies.The oligarchs who invested in fossil energy are losing their wealth.This weakens their political power structurally - solar was a democratizing factor, unintentionally."
         },
         "gesellschaft": {
-          "text": "2040 is a turning point — not a reversal, but a change in direction.USA begins institutional healing.Europe is returning.China is breathing.Russia is undergoing a painful transformation.Pragmatic optimism is rational in 2040.",
+          "text": "2040 is a turning point — but the more interesting turning point is not 'oligarchy overcome', but: what comes after?The democratic recovery has shown that old institutions alone are not enough.The debates that will begin in 2040: Less party pressure through sorting?Long-term planning obligation as a constitutional right?'Council of Wise Men' as a second chamber without party affiliation?These are not utopias - they exist as real pilot models.Norway manages a sovereign wealth fund for future generations.Austria has a Future Council in parliament.Ireland resolved its abortion issue through a citizens' assembly rather than through party disputes.The question is whether there will be political will to scale these models.",
           "metriken": {
             "screentime_std_tag": 14.5,
             "freundschaften": 4,
@@ -5307,29 +3431,29 @@ window.__FC_LIFE_YEARS__={
         "chancen": {
           "mental": "National healing programs in the USA: dialogue formats, community centers, institutional trust rebuilding.",
           "koerper": "Longevity in EU health care: First universal longevity provision for everyone over 50. Life expectancy gap begins to close.",
-          "gemeinschaft": "Europe's returnee generation: Emigrants return with a global network and a new perspective - what Europe needed.",
-          "technologie": "AI auditing of government decisions in real time: democracy infrastructure is being technically strengthened."
+          "gemeinschaft": "'Forestry democracy' as a concept: institutions that can make 50-year decisions with democratic legitimacy.A forester plants trees for grandchildren without waiting for the next quarterly report.First national debates about 'generational household rights' - the right of future generations to an effective state.",
+          "technologie": "AI-supported deliberation: First platforms that help citizens' councils simulate complex policy options and make long-term consequences visible.Not AI as a decision maker — AI as a tool for better human decisions."
         },
         "was_tun": {
-          "jung": "2040 is a turning point - invest in political engagement.Return to Europe if you emigrated.",
-          "aelter": "Local democratic reconstruction projects need experience.Your life's work counts now more than ever."
+          "jung": "The political imagination is open again in 2040.Engage in debates about new models of democracy — not ideologically, but pragmatically: What works?Where were Citizens' Assemblies tested?What has Norway achieved with its sovereign wealth fund?You live long enough to see the results of these experiments.",
+          "aelter": "Long-term planning requires institutional memory.Get involved in communities that are testing new governance models.Your knowledge of what hasn't worked over the last 50 years is the most important input for institutional design."
         }
       }
     },
     "2041": {
       "jahr": 2041,
       "label": "Wendepunkt",
-      "ueberschrift": "Longevity unter $1.000, US-Demokratie im Wiederaufbau, Chinas vorsichtige Öffnung hält",
+      "ueberschrift": "Erste 'Räte der Weisen' als Verfassungsexperiment — Legitimationsfrage unbeantwortet",
       "welt": {
         "usa": "Neue US-Regierung demontiert Thiel-Netzwerk-Strukturen systematisch: langsam, rechtlich, persistent. DOGE-Strukturen aufgelöst, Palantir-Verträge geprüft. Demokratie-Wiederaufbau als 4-Jahres-Projekt.",
-        "china": "China 2041: Internetfreiheit für Akademiker und Unternehmer. Erste unabhängige Medien mit begrenzter Lizenz. Fragil, rückfällig — aber der Trend ist: mehr Offenheit, nicht weniger.",
-        "alte_welt": "Europas demographische Erneuerung: Rückkehrer aus dem Ausland plus qualifizierte Migration aus Afrika und Lateinamerika. Europas Problem war nie Bevölkerung — es war fehlender Wille.",
+        "china": "China 2041: Kein demokratischer Impuls. Aber: wirtschaftliche Lockerungen, mehr Konsumfreiheit, begrenzte Reisefreiheit für Wissenschaftler. Singapur-Modell auf nationaler Ebene als realistisches Ziel — nicht westliche Demokratie.",
+        "alte_welt": "EU 2041 diskutiert 'Generationale Haushaltspflicht': Keine Staatsverschuldung, die in 30 Jahren nicht tilgbar ist, ohne Zustimmung eines Zukunftsrates. Norwegen-Ölfonds-Modell als Blaupause: Staatliche Pflicht, heute für übermorgen zu sparen — nicht als Option, sondern als Verfassungsrecht künftiger Generationen.",
         "neue_welt": "Erste afrikanische Staaten exportieren demokratische Governance-Infrastruktur (Lagos-Modell) global. Demokratie-Innovation aus Subsahara — historisch einmalig.",
-        "crypto": "Krypto-Infrastruktur für Longevity: Dezentrale Krankenversicherungen über Blockchain ermöglichen Longevity-Protokolle für Milliarden.",
-        "handel": "Longevity unter $1.000: 500 Mio. Menschen weltweit in Longevity-Programmen. Lebenserwartungs-Kluft beginnt sich global zu verringern."
+        "crypto": "Krypto 2041: Institutionell normalisiert, gesellschaftlich marginal. Der strukturelle Wandel des Jahrzehnts wurde durch Solar, nicht durch Krypto getrieben. Krypto hat Spekulanten bereichert — keine Gesellschaft verändert.",
+        "handel": "Solar + Wind + Speicher: 65 % der Weltenergie. Fossil ist 2041 kein Wachstumsmarkt mehr, nur noch Bestandsmarkt. Neue Industriezentren entstehen dort, wo Energie billiger ist — Nordafrika, Südeuropa, Südostasien. Nicht dort, wo Öl war."
       },
       "gesellschaft": {
-        "text": "2041 bringt erste echte Demokratisierung von Longevity. Und China, USA und Europa zeigen gleichzeitig erste Heilungszeichen. Das neue Mittelalter scheint seinen Höhepunkt überschritten.",
+        "text": "2041: In drei EU-Staaten werden erste 'Zukunftskammern' als Verfassungserweiterungen getestet — nicht durch Parteien besetzt, sondern durch Kombination aus Losverfahren, Fachexpertise und gesellschaftlicher Reputation. Das Modell: Ein Rat, der Entscheidungen mit 20+-Jahres-Horizont prüfen, verzögern oder einfordern kann. Die Kernkritik: Wer bestimmt, wer 'weise' ist? Jeder Selektionsmechanismus reproduziert Machtverhältnisse. Dem steht entgegen: Parteizwang ist das schlechteste aller Systeme — außer den anderen. Das Experiment beginnt ohne Erfolgsgarantie.",
         "metriken": {
           "screentime_std_tag": 14,
           "freundschaften": 4,
@@ -5341,26 +3465,26 @@ window.__FC_LIFE_YEARS__={
       "chancen": {
         "mental": "Transnationale Demokratie-Netzwerke als mentale Heimat: Erste formale Allianz demokratischer Staaten bietet Bürgern überstaatliche Zugehörigkeit.",
         "koerper": "Longevity unter $1.000: Durchschnittliche Lebenserwartung in OECD-Ländern steigt auf 95+ Jahre.",
-        "gemeinschaft": "Lagos-Demokratie-Modell als globaler Export: Demokratie-Innovation aus dem Globalen Süden setzt weltweiten Standard.",
-        "technologie": "Autonome KI-Labore entwerfen und testen eigenständig Medikamente. Forschungsgeschwindigkeit vervielfältigt sich."
+        "gemeinschaft": "Rat der Weisen als hybrides Modell: Zufallsauswahl (Sortition) + Reputationsprinzip + Experten-Input. Weder rein demokratisch noch rein technokratisch. Die Spannung ist produktiv: Wenn niemand ganz zufrieden ist, ist es möglicherweise balanciert.",
+        "technologie": "Digitale Partizipationsplattformen (Taiwan-Modell: vTaiwan) skalieren auf EU-Ebene: Öffentliche Policy-Deliberation vor Parlamentsabstimmung. Nicht Ersatz für Repriäsentativdemokratie — Ergänzung mit Langfrist-Fokus."
       },
       "was_tun": {
-        "jung": "Longevity unter $1.000 — informiere dich aktiv. Du bist 2041 vielleicht 45-55: Die nächsten 20 Jahre deiner Gesundheitsfürsorge entscheiden über deine Lebenserwartung.",
-        "aelter": "Prüfe mit deinem Arzt, welche Longevity-Protokolle für dich verfügbar sind. Du könntest 100 werden."
+        "jung": "Neue Governance-Modelle brauchen Pilotregionen. Unterstütze Kommunen oder Bundesländer, die Citizens' Assemblies erproben. Dein lokales Engagement ist 2041 Zukunftsforschung in der Praxis — nicht Aktivismus, sondern Infrastrukturarbeit.",
+        "aelter": "Generationale Rechenschaft braucht Zeitzeugenwissen. Beteilige dich an Konsultativprozessen — dein Blick auf 50 Jahre gesellschaftliche Entwicklung ist nicht Nostalgie, sondern strategische Ressource für Institutionen, die über Jahrzehnte planen müssen."
       },
       "en": {
         "label": "Turning Point",
-        "ueberschrift": "Longevity under $1,000, US democracy in reconstruction, China's cautious opening holds",
+        "ueberschrift": "First 'Councils of the Wise' as a constitutional experiment - question of legitimacy unanswered",
         "welt": {
           "usa": "New US government is systematically dismantling Thiel network structures: slowly, legally, persistently.DOGE structures dissolved, Palantir contracts examined.Democracy reconstruction as a 4-year project.",
-          "china": "China 2041: Internet freedom for academics and entrepreneurs.First independent media with limited license.Fragile, backsliding — but the trend is: more openness, not less.",
-          "alte_welt": "Europe's demographic renewal: returnees from abroad plus skilled migration from Africa and Latin America.Europe's problem was never population - it was a lack of will.",
+          "china": "China 2041: No democratic impulse.But: economic easing, more freedom of consumption, limited freedom of travel for scientists.Singapore model at national level as a realistic goal — not Western democracy.",
+          "alte_welt": "EU 2041 discusses 'Generational Budget Obligation': No national debt that cannot be repaid in 30 years without the approval of a Future Council.Norway oil fund model as a blueprint: State obligation to save today for the day after tomorrow - not as an option, but as a constitutional right for future generations.",
           "neue_welt": "The first African states are exporting democratic governance infrastructure (Lagos model) globally.Democracy innovation from sub-Saharan — historically unique.",
-          "crypto": "Crypto infrastructure for longevity: Decentralized health insurance via blockchain enables longevity protocols for billions.",
-          "handel": "Longevity under $1,000: 500 million people worldwide in longevity programs.Life expectancy gap is starting to narrow globally."
+          "crypto": "Crypto 2041: Institutionally normalized, socially marginal.The structural change of the decade was driven by solar, not crypto.Crypto has enriched speculators — not changed society.",
+          "handel": "Solar + Wind + Storage: 65% of the world's energy.In 2041, Fossil will no longer be a growth market, only an existing market.New industrial centers are emerging where energy is cheaper — North Africa, Southern Europe, Southeast Asia.Not where there was oil."
         },
         "gesellschaft": {
-          "text": "2041 brings the first real democratization of longevity.And China, the USA and Europe are simultaneously showing the first signs of healing.The new Middle Ages seem to have passed its peak.",
+          "text": "2041: In three EU states, the first 'Future Chambers' are tested as constitutional extensions - not filled by parties, but through a combination of lottery procedures, specialist expertise and social reputation.The model: A council that can review, delay or demand decisions with a 20+ year horizon.The core criticism: Who determines who is 'wise'?Every selection mechanism reproduces power relations.The opposite is true: party coercion is the worst of all systems - except the others.The experiment begins with no guarantee of success.",
           "metriken": {
             "screentime_std_tag": 14,
             "freundschaften": 4,
@@ -5372,29 +3496,29 @@ window.__FC_LIFE_YEARS__={
         "chancen": {
           "mental": "Transnational democracy networks as a mental home: First formal alliance of democratic states offers citizens supranational membership.",
           "koerper": "Longevity under $1,000: Average life expectancy in OECD countries increases to 95+ years.",
-          "gemeinschaft": "Lagos democracy model as a global export: Democracy innovation from the Global South sets global standards.",
-          "technologie": "Autonomous AI laboratories independently design and test drugs.Research speed is multiplying."
+          "gemeinschaft": "Council of the Wise Men as a hybrid model: random selection (sorting) + reputation principle + expert input.Neither purely democratic nor purely technocratic.The tension is productive: if no one is completely satisfied, it may be balanced.",
+          "technologie": "Digital participation platforms (Taiwan model: vTaiwan) scale to the EU level: Public policy deliberation before parliamentary vote.Not a replacement for representative democracy - a supplement with a long-term focus."
         },
         "was_tun": {
-          "jung": "Longevity under $1,000 — get active information.You may be 45-55 in 2041: the next 20 years of your healthcare will determine your life expectancy.",
-          "aelter": "Check with your doctor to see which longevity protocols are available to you.You could live to be 100."
+          "jung": "New governance models need pilot regions.Support municipalities or federal states that are testing Citizens' Assemblies.Your local commitment in 2041 is future research in practice - not activism, but infrastructure work.",
+          "aelter": "Generational accountability requires contemporary witness knowledge.Participate in consultative processes - your view of 50 years of social development is not nostalgia, but a strategic resource for institutions that have to plan for decades."
         }
       }
     },
     "2042": {
       "jahr": 2042,
       "label": "Wendepunkt",
-      "ueberschrift": "Erste Generation ohne Kalten Krieg in Machtpositionen, Longevity ändert Renten und Arbeit",
+      "ueberschrift": "Generationale Rechenschaft als Verfassungsdebatte, Ubuntu-Gouvernanz in Afrika, Zeithorizont-Problem sichtbar",
       "welt": {
         "usa": "Erste Generation, die vollständig nach dem Kalten Krieg aufgewachsen ist, übernimmt Schlussüsselpositionen in Politik, Wirtschaft und Medien. Keine Cold-War-Reflexe. Andere Prioritäten: Klimaresilienz, Longevity, digitale Souveränität.",
-        "china": "China 2042: Erste offene wirtschaftliche Debatten über Reformkurs. Privatwirtschaft erhält mehr Spielraum. Politische Kontrolle bleibt, aber ökonomischer Pragmatismus überwiegt.",
-        "alte_welt": "Europas Rentendebatten: Wenn Menschen durchschnittlich bis 95+ leben, muss Rentenalter auf 75-80 steigen. Gesellschaftlicher Konflikt: Wer arbeitet wie lange? Longevity verändert die Sozialverträge.",
-        "neue_welt": "Afrikas Jugend (jetzt 30-45) übernimmt Führungspositionen. Erste afrikanische Staaten mit BIP-Wachstum >8 % durch Technologie, Fusion-Energie und demokratische Gouvernance.",
-        "crypto": "Krypto als Generationswerkzeug: Millennials und Gen-Z haben mehr Krypto-Assets als traditionelle Ersparnisse. Digitale Vermögen werden vererbt und versteuert.",
-        "handel": "Arbeit 2042: 4-Tage-Woche in 20+ Ländern Standard. KI übernimmt ~60 % der kognitiven Routinearbeit. Menschen arbeiten kreativer, sozialer, kürzer. Produktivität steigt."
+        "china": "China 2042: Wirtschaftliche Debatte beginnt — mehr Privatwirtschaft, weniger Staatsplanung. Politisch: keine Veränderung. Das chinesische Singapur-Modell hat eine innere Logik: Wohlstand + Kontrolle = Stabilität. Es gibt 2042 keinen Grund für die Führung, das aufzugeben.",
+        "alte_welt": "EU 2042: Erste 'Generationale Folgenabschätzung' als Pflichtprüfung für alle Haushaltsgesetze. Ähnlich Umweltfolgenabschätzung, aber für soziale und fiskalische Langfristwirkungen. Nicht Entscheidungsersatz — Entscheidungsinformation.",
+        "neue_welt": "Afrikanische Union erprobt 2042 'Generationales Governance': Alle 10-Jahres-Pläne werden von einer gemischten Kommission aus Ältesten, Experten und zufällig ausgewählten Bürgern geprüft. Das Forstwirtschaft-Prinzip auf nationaler Ebene — staatliche Verpflichtung über Regierungszyklen hinaus.",
+        "crypto": "Krypto 2042: Vermögenswert für Spär-Investoren. Keine gesellschaftliche Funktion über Spekulation hinaus. Das dezentrale Versprechen ist gescheitert — nicht technisch, sondern politisch: Staaten haben Krypto eingebettet, nicht umgekehrt.",
+        "handel": "Solar macht 4-Tage-Woche möglich: Billiger Strom senkt Produktionskosten, Automatisierung übernimmt Routine. Die eigentliche Quelle von Produktivitätsgewinn 2042 ist billige saubere Energie + KI — nicht Krypto, nicht Fusion."
       },
       "gesellschaft": {
-        "text": "2042 ist das Jahr, in dem die Gesellschaftsverträge neu verhandelt werden müssen. Longevity verändert Renten, Arbeit, Familie. KI verändert Berufswelten. Die neue Generation übernimmt ohne Kalten-Krieg-Gepäck.",
+        "text": "2042 führt die Soziale-Marktwirtschaft-Debatte neu. Nicht mehr 'Staat vs. Markt', sondern: Welcher Zeithorizont? Ein Börsenunternehmen optimiert auf Quartale. Ein Staat optimiert auf Wahlzyklen. Aber ein Forst wird für 80-100 Jahre geplant. Das Forstwirtschaft-Problem der Demokratie: Wenn Politiker nur gewinnen, wenn sie kurzfristige Erfolge liefern, werden sie nie Institutionen bauen, die über Generationen wirken. Die Antwort kann nicht Entdemokratisierung sein — aber vielleicht Entkopplung: Manche Entscheidungen brauchen andere Institutionen als Mehrheitswahlrecht.",
         "metriken": {
           "screentime_std_tag": 13.5,
           "freundschaften": 4,
@@ -5406,26 +3530,26 @@ window.__FC_LIFE_YEARS__={
       "chancen": {
         "mental": "Longevity verändert den Sinn von Lebensabschnitten: 50 ist nicht mehr Mitte des Lebens. Neue Biografie-Modelle entstehen: Mehrere Karrieren, mehrere Lebensgemeinschaften, lebenslange Bildung.",
         "koerper": "Erste Gen-Editing-Behandlungen für hereditäre Erkrankungen (Herzerkrankung, Brustkrebs-Gen) breit verfügbar. Präventive Genetik als Massenangebot.",
-        "gemeinschaft": "4-Tage-Woche als Standard: Mehr Zeit für Gemeinschaft, ehrenamtliches Engagement, lokale Politik. Soziales Kapital wächst.",
+        "gemeinschaft": "Ubuntu-Gouvernanz (Afrikanische Union, 2042): 'Ich bin, weil wir sind' als politisches Prinzip. Entscheidungen durch Konsens-Suche, nicht Mehrheitsentscheid. Länger in der Entscheidung, stabiler in der Umsetzung. Kritisch: funktioniert in kleinen Gemeinschaften besser als in 1,5-Mrd.-Staatsgebilden — aber das Prinzip skaliert in institutionellen Designs.",
         "technologie": "Erste vollständige KI-medizinische Diagnostik: KI diagnostiziert genauer als jeder Arzt für 95 % der Fälle. Ärzte fokussieren auf Behandlung, Menschlichkeit, Grenzfälle."
       },
       "was_tun": {
-        "jung": "Plane deine Lebens-Biografie nicht für 80 Jahre, sondern für 100-120. Mehrere Karrieren, mehrere Länder, mehrere Gemeinschaften. Langsamkeit und Tiefe als Gegenmodell zur Plattform-Welt.",
-        "aelter": "Longevity bedeutet: Du arbeitest vielleicht bis 75 oder 80. Baue jetzt Skills auf, die auch in späteren Jahrzehnten Freude machen. Lebenslanges Lernen ist 2042 keine Metapher."
+        "jung": "Soziale Marktwirtschaft 2.0 braucht Konsumenten mit langem Zeithorizont. Kaufe, wähle, investiere mit 20-Jahres-Perspektive. Das ist kein moralischer Appell — es ist strategisches Eigeninteresse: Du lebst mit den Konsequenzen länger als die Entscheider.",
+        "aelter": "Die nächste Generation erbt deine Entscheidungen. Unterstütze politische Initiativen, die generationale Gerechtigkeit institutionalisieren — nicht als Altruismus, sondern als systemisches Kalkul: Stabile Gesellschaft ist das Altersvorsorge-Fundament."
       },
       "en": {
         "label": "Turning Point",
-        "ueberschrift": "First generation without Cold War in positions of power, Longevity changes pensions and work",
+        "ueberschrift": "Generational accountability as a constitutional debate, Ubuntu governance in Africa, time horizon problem visible",
         "welt": {
           "usa": "First generation to grow up entirely after the Cold War takes on key positions in politics, business and media.No Cold War reflexes.Other priorities: climate resilience, longevity, digital sovereignty.",
-          "china": "China 2042: First open economic debates about the reform course.The private sector is given more leeway.Political control remains, but economic pragmatism prevails.",
-          "alte_welt": "Europe's pension debates: If people live to 95+ on average, retirement age must rise to 75-80.Social conflict: Who works for how long?Longevity changes social contracts.",
-          "neue_welt": "Africa's youth (now 30-45) are taking leadership roles.First African states with GDP growth >8% through technology, fusion energy and democratic governance.",
-          "crypto": "Crypto as a generational tool: Millennials and Gen-Z have more crypto assets than traditional savings.Digital assets are inherited and taxed.",
-          "handel": "Work 2042: 4-day week standard in 20+ countries.AI takes over ~60% of routine cognitive work.People work more creatively, more socially, and for shorter periods of time.Productivity increases."
+          "china": "China 2042: Economic debate begins - more private sector, less state planning.Politically: no change.The Chinese Singapore model has an internal logic: prosperity + control = stability.There is no reason in 2042 for the leadership to give this up.",
+          "alte_welt": "EU 2042: First 'generational impact assessment' as a mandatory test for all budget laws.Similar to environmental impact assessment, but for long-term social and fiscal impacts.Not decision replacement — decision information.",
+          "neue_welt": "African Union tests 'generational governance' in 2042: All 10-year plans will be examined by a mixed commission of elders, experts and randomly selected citizens.The Forestry Principle at the National Level — State Commitment Beyond Government Cycles.",
+          "crypto": "Crypto 2042: Asset for Spär Investors.No social function beyond speculation.The decentralized promise has failed — not technically, but politically: states have embedded crypto, not the other way around.",
+          "handel": "Solar makes a 4-day week possible: Cheap electricity reduces production costs, automation takes over routine.The real source of productivity gains in 2042 is cheap clean energy + AI — not crypto, not fusion."
         },
         "gesellschaft": {
-          "text": "2042 is the year in which the social contracts must be renegotiated.Longevity changes pensions, work and family.AI is changing professional worlds.The new generation is taking over without any Cold War baggage.",
+          "text": "2042 will reinvigorate the social market economy debate.No longer 'state vs. market', but rather: what time horizon?A stock exchange company optimizes for quarters.A state optimizes for election cycles.But a forest is planned for 80-100 years.The forestry problem of democracy: If politicians only win by delivering short-term successes, they will never build institutions that last for generations.The answer cannot be de-democratization - but perhaps decoupling: some decisions require institutions other than majority voting.",
           "metriken": {
             "screentime_std_tag": 13.5,
             "freundschaften": 4,
@@ -5437,29 +3561,29 @@ window.__FC_LIFE_YEARS__={
         "chancen": {
           "mental": "Longevity changes the meaning of stages of life: 50 is no longer the middle of life.New biography models are emerging: multiple careers, multiple communities, lifelong education.",
           "koerper": "First gene editing treatments for hereditary diseases (heart disease, breast cancer gene) widely available.Preventive genetics as a mass offer.",
-          "gemeinschaft": "4-day week as standard: More time for community, volunteer work, local politics.Social capital grows.",
+          "gemeinschaft": "Ubuntu Governance (African Union, 2042): 'I am because we are' as a political principle.Decisions are made by seeking consensus, not majority voting.Longer to make decisions, more stable in implementation.Critically: works better in small communities than in 1.5 billion polities — but the principle scales in institutional designs.",
           "technologie": "First complete AI medical diagnostics: AI diagnoses more accurately than any doctor for 95% of cases.Doctors focus on treatment, humanity, borderline cases."
         },
         "was_tun": {
-          "jung": "Don't plan your life biography for 80 years, but for 100-120.Multiple careers, multiple countries, multiple communities.Slowness and depth as a counter-model to the platform world.",
-          "aelter": "Longevity means: You may work until you are 75 or 80. Build skills now that will continue to be enjoyable in later decades.Lifelong learning in 2042 is not a metaphor."
+          "jung": "Social market economy 2.0 needs consumers with a long time horizon.Buy, choose, invest with a 20-year perspective.This isn't a moral appeal — it's strategic self-interest: you live with the consequences longer than the decision-makers.",
+          "aelter": "The next generation inherits your decisions.Support political initiatives that institutionalize generational justice - not as altruism, but as a systemic calculation: a stable society is the foundation of retirement provision."
         }
       }
     },
     "2043": {
       "jahr": 2043,
       "label": "Wendepunkt",
-      "ueberschrift": "KI-Gouvernanz weltweit reguliert, Afrika überholt Europa wirtschaftlich, Longevity ändert Familien",
+      "ueberschrift": "KI-Gouvernanz reguliert, Afrika-Langfristplanung als Modell — Zeithorizont wird zum Standortvorteil",
       "welt": {
         "usa": "Erste internationale KI-Gouvernanz-Vereinbarung (alle G20 + 40 weitere Länder): KI-Systeme mit direktem Einfluss auf demokratische Prozesse müssen offen auditiert werden. Der Thiel-Vance-Ära fehlendes Regulierungswerk wird nachgeholt — mit Jahrzehnten Verzögerung.",
-        "china": "China unterzeichnet KI-Gouvernanz-Vereinbarung — erster Schritt in internationale Normensysteme seit Tiananmen. Signal: China will wieder zur 'internationalen Gemeinschaft' gehören.",
+        "china": "China 2043: Unterzeichnet KI-Gouvernanz-Vereinbarung — erster Schritt in internationale Normen seit Tiananmen. Kein demokratischer Impuls dahinter: strategisches Interesse, kein Wertewandel. Techno-Autoritarismus bleibt — KI-Vereinbarung ist Imagepflege.",
         "alte_welt": "Europa 2043: Vollständige Fusion-Energie-Abdeckung für 50 % der europäischen Haushalte. Energiepreise sinken auf historische Tiefststande. Europäische Reindustrialisierung.",
-        "neue_welt": "Afrika 2043: BIP pro Kopf in 15 afrikanischen Staaten über OECD-Durchschnitt. Erste afrikanische Universität in globalen Top-20-Rankings. Wissensproduktion globalisiert sich wirklich.",
-        "crypto": "Krypto-Vererbung: Erste Gerichtsurteile über Erbschaft digitaler Vermögen ohne private Schlüssel. Rechtliche Infrastruktur für dezentrale Vermögen entsteht.",
-        "handel": "Longevity verändert Familien: Wenn Großeltern bis 110 leben, gibt es Familien mit 5-6 Generationen gleichzeitig. Neue Erbschaftssysteme, neue Pflegemodelle, neue Generationenkonflikte."
+        "neue_welt": "Botswana setzt 2043 ersten nationalen 'Generationenfonds' auf: 15 % der Diamanteneinnahmen fließen in einen Staatsfonds für 2070. Norwegen-Modell auf Afrika übertragen. Kritisch: Was ist, wenn keine Rohstoffe da sind? Dann braucht es Steuerräume, die politisch schwieriger zu schaffen sind.",
+        "crypto": "Krypto 2043: Vermögensverwaltung, nicht Gesellschaftsveränderung. Dezentrale Finanzsysteme haben Nischen, aber keine systemische Kraft. Afrikas pan-kontinentale Digitalwährung ist staatlich, nicht dezentral.",
+        "handel": "Solar + Wind decken 2043 weltweit 70 % des Stroms. Fossile Energie ist 2043 nur noch Bestandsmarkt ohne Wachstum. Diese Verschiebung ändert, wer globale Macht hat: Sonnenstunden ersetzen Ölreserven als strategische Ressource."
       },
       "gesellschaft": {
-        "text": "2043 bringt eine unerwartete Frage in den Vordergrund: Was bedeutet Familie, wenn alle länger leben? Vier Generationen unter einem Dach oder in einem Netzwerk sind möglich. KI-Gouvernanz zeigt: Internationale Kooperation ist noch möglich.",
+        "text": "2043: Die Solar-Revolution hat etwas Unerwartetes beigetragen: Sie hat Langfristdenken ökonomisch rational gemacht. Wenn Energieanlagen 40-50 Jahre betrieben werden, rechnen sich Investitionen nur mit langem Zeithorizont. Das hat politische Rückwirkungen: Länder mit stabilen Langfrist-Institutionen bekommen günstigere Finanzierungskonditionen. 'Forstwirtschaft-Demokratie' — Institutionen, die generationsmäßig planen können — wird 2043 zum Standortvorteil. Nicht aus Tugend. Aus Ökonomie.",
         "metriken": {
           "screentime_std_tag": 13,
           "freundschaften": 4.5,
@@ -5471,26 +3595,26 @@ window.__FC_LIFE_YEARS__={
       "chancen": {
         "mental": "Mehrgenerationelle Familiennetzwerke als neue Ankerpunkte: Wenn Urgroßeltern 100 und aktiv sind, verändern sich emotionale Sicherheiten. Familientherapie für 5-Generationen-Systeme.",
         "koerper": "Erste Menschen, die 120 Jahre alt werden durch Longevity-Protokolle, als öffentliche Figuren. Nicht als Kuriostät — als neue Norm.",
-        "gemeinschaft": "KI-Gouvernanz-Vertrag: Erste globale digitale Verfassung in Ansätzen. Menschenrechte im digitalen Raum als internationale Norm.",
+        "gemeinschaft": "Rat der Weisen als hybrides Modell (Irland, Finnland, Botswana) zeigt erste Ergebnisse: Entscheidungen dieser Räte werden seltener nach Wahlwechsel rückabgewickelt als parlamentarische Beschlüsse. Die Kritik bleibt: Wer sitzt in diesen Räten? Spiegel der Gesellschaft oder Elite mit neuem Label?",
         "technologie": "Erste autonome Mondbasis in Betrieb (NASA/ESA/privatwirtschaftlich): Menschheit als mehrplanetare Spezies beginnt."
       },
       "was_tun": {
-        "jung": "Longevity verändert Familienplanung. Wenn du 100-120 wirst: Wann willst du Kinder? Wann willst du Großelter sein? Die alten Zeitpläne gelten nicht mehr.",
-        "aelter": "Du könntest 2043 Großelter mit 70-80 sein, aber noch 30-40 aktive Jahre haben. Was willst du mit dieser Zeit?"
+        "jung": "Informiere dich über Governance-Qualität bei Wohnort- und Arbeitgeberwahl. Länder mit starken Langfrist-Institutionen (Norwegen, Botswana, Neuseeland, Uruguay) bieten 2043 strukturell stabilere Lebensgrundlagen.",
+        "aelter": "Generationenfonds als Erbschaft: Wenn du Vermögen vererbst, denke an generationale Fonds-Strukturen statt direkter Übertragung. Langsamer, aber stabiler — wie Forstwirtschaft."
       },
       "en": {
         "label": "Turning Point",
-        "ueberschrift": "AI governance regulated worldwide, Africa overtaking Europe economically, longevity changing families",
+        "ueberschrift": "AI governance regulated, Africa long-term planning as a model - time horizon becomes a location advantage",
         "welt": {
           "usa": "First international AI governance agreement (all G20 + 40 other countries): AI systems with a direct influence on democratic processes must be openly audited.The regulatory framework missing from the Thiel-Vance era is being made up — with a delay of decades.",
-          "china": "China signs AI governance agreement — first step into international standards systems since Tiananmen.Signal: China wants to belong to the 'international community' again.",
+          "china": "China 2043: Signs AI governance agreement — first step toward international norms since Tiananmen.No democratic impulse behind it: strategic interest, no change in values.Techno-authoritarianism remains - AI agreement is image cultivation.",
           "alte_welt": "Europe 2043: Full fusion energy coverage for 50% of European households.Energy prices are falling to historic lows.European reindustrialization.",
-          "neue_welt": "Africa 2043: GDP per capita in 15 African countries above OECD average.First African university in global top 20 rankings.Knowledge production is truly globalizing.",
-          "crypto": "Crypto inheritance: First court rulings on inheritance of digital assets without private keys.Legal infrastructure for decentralized assets is emerging.",
-          "handel": "Longevity changes families: When grandparents live to 110, there are families with 5-6 generations at the same time.New inheritance systems, new care models, new generational conflicts."
+          "neue_welt": "Botswana will set up its first national 'generational fund' in 2043: 15% of diamond income will flow into a sovereign wealth fund for 2070. Norway model transferred to Africa.Critical: What if there are no raw materials?Then there is a need for control areas that are politically more difficult to create.",
+          "crypto": "Crypto 2043: Asset management, not social change.Decentralized financial systems have niches but no systemic power.Africa's pan-continental digital currency is sovereign, not decentralized.",
+          "handel": "Solar + wind will cover 70% of the world's electricity in 2043.In 2043, fossil energy will only be an existing market without growth.This shift is changing who has global power: hours of sunshine are replacing oil reserves as a strategic resource."
         },
         "gesellschaft": {
-          "text": "2043 brings an unexpected question to the forefront: What does family mean when everyone lives longer?Four generations under one roof or in one network are possible.AI governance shows: International cooperation is still possible.",
+          "text": "2043: The solar revolution did something unexpected: it made long-term thinking economically rational.If energy systems are operated for 40-50 years, investments only pay off over a long period of time.This has political repercussions: countries with stable long-term institutions receive more favorable financing conditions.'Forestry democracy' - institutions that can plan generationally - will become a location advantage in 2043.Not out of virtue.From economics.",
           "metriken": {
             "screentime_std_tag": 13,
             "freundschaften": 4.5,
@@ -5502,29 +3626,29 @@ window.__FC_LIFE_YEARS__={
         "chancen": {
           "mental": "Multigenerational family networks as new anchor points: When great-grandparents are 100 and active, emotional security changes.Family therapy for 5-generation systems.",
           "koerper": "First people to live to 120 years old through longevity protocols, as public figures.Not as a curiosity — as a new norm.",
-          "gemeinschaft": "AI Governance Treaty: First global digital constitution in progress.Human rights in the digital space as an international norm.",
+          "gemeinschaft": "Council of Wise Men as a hybrid model (Ireland, Finland, Botswana) is showing initial results: decisions made by these councils are less likely to be reversed after election changes than parliamentary decisions.The criticism remains: Who sits on these councils?Mirror of society or elite with a new label?",
           "technologie": "First autonomous moon base in operation (NASA/ESA/private sector): Humanity as a multi-planetary species begins."
         },
         "was_tun": {
-          "jung": "Longevity is changing family planning.If you live to be 100-120: when do you want children?When do you want to be a grandparent?The old schedules no longer apply.",
-          "aelter": "You could be a grandparent at 70-80 in 2043, but still have 30-40 active years.What do you want with this time?"
+          "jung": "Find out about governance quality when choosing a place of residence and employer.Countries with strong long-term institutions (Norway, Botswana, New Zealand, Uruguay) will offer structurally more stable livelihoods in 2043.",
+          "aelter": "Generational funds as an inheritance: If you inherit assets, think about generational fund structures instead of direct transfer.Slower but more stable — like forestry."
         }
       }
     },
     "2044": {
       "jahr": 2044,
       "label": "Wendepunkt",
-      "ueberschrift": "Erster Mensch auf dem Mars, Demokratie auf 5 Kontinenten Mehrheit, Longevity als Grundrecht",
+      "ueberschrift": "Mars erreichbar, Longevity als Grundrecht debattiert, Forstwirtschaft-Demokratie in 10 Ländern",
       "welt": {
         "usa": "Erste bemannte Mars-Mission kehrt zurück (oder ist noch dort): Privatwirtschaftlich finanziert, international besetzt. Die Menschheit ist multiplanetare Spezies — symbolisch, aber real.",
-        "china": "China auf dem Mars: Chinesische Astronauten Teil der internationalen Mission. Raumfahrt als Soft-Power-Instrument — aber auch als echte Menschheitsleistung jenseits von Geopolitik.",
-        "alte_welt": "Europa beschließt 2044 Longevity als Grundrecht: Jeder EU-Bürger hat Anspruch auf präventive Longevity-Grundversorgung. Biologisches Altern als behandelbare Krankheit im Katalog.",
+        "china": "China 2044: Keine Demokratisierung — aber erste zaghafte Konsultativverfahren für wirtschaftspolitische Entscheidungen (kein Wahlrecht). Das Singapur-Modell vertieft sich: wirtschaftliche Partizipation ja, politische nein. Eine Generation unter diesem System kennt keine Alternative.",
+        "alte_welt": "EU beschließt 2044 'Generationale Folgenabschätzungspflicht': Alle Haushaltsgesetze müssen 20-Jahres-Wirkungsanalyse vorlegen. Erster Schritt. Kritisch: Ohne politischen Willen, diese Analysen zu berücksichtigen, ist es Bürokratie ohne Biss.",
         "neue_welt": "Erste vollständig demokratisch regierte Staaten in Nordafrika (Marokko, Tunesien): Islam und Demokratie als kompatibel bewiesen. Nordafrika-Modell als Alternative zur Iran-Theokratie oder Militärdiktatur.",
-        "crypto": "Mars-Wirtschaft: Erste Transaktionen zwischen Mars und Erde brauchen dezentrale Währung (Lichtverzug macht zentralisierte Systeme unmöglich). Bitcoin als interplanetar praktikabel.",
-        "handel": "Longevity als Grundrecht in EU: Erste Volkswirtschaft, die biologisches Altern als öffentliche Aufgabe behandelt. Ärzte, Daten, Prävention für alle."
+        "crypto": "Krypto 2044: Interplanetare Transaktionen brauchen kein zentrales Clearing-System — Bitcoin-Protokoll als technisches Lösung wegen Lichtverzögerung (Mars-Erde: 3-22 Minuten). Eine echte Nischenanwendung, die funktioniert.",
+        "handel": "Solar + Wind + Speicher ist 2044 die billigste Energieform überall. Fusion als Supplement möglicherweise 2050er, aber nicht benötigt. Das Energie-Problem der Menschheit ist 2044 lösbar — die politische Bereitschaft bleibt das Hindernis, nicht die Technologie."
       },
       "gesellschaft": {
-        "text": "2044 ist das Jahr, in dem die Menschheit gleichzeitig den Mars betritt und Longevity als Grundrecht anerkennt. Zwei Expansionen: nach außen in den Raum, nach innen in die Zeit. Pragmatischer Optimismus war nicht nur eine Haltung — es war eine Prognose.",
+        "text": "2044: Während die Menschheit den Mars betritt, löst sie auf der Erde ein institutionelles Problem, das seit der Antike ungelöst ist: Wie entscheidet eine Gesellschaft für Menschen, die noch nicht geboren sind? Die Antworten, die 2044 in 10 Ländern erprobt werden, sind unbefriedigend aber realer als nie: Bürgerräte mit Generationenmandat, Verfassungsklauseln für generationale Haushaltsgerechtigkeit, Zukunftskammern ohne Parteibindung. Ungleichheit ist nicht überwunden — aber in Ländern mit generationaler Governance sind Bildungs- und Gesundheitsinvestitionen stabiler über Zyklen.",
         "metriken": {
           "screentime_std_tag": 13,
           "freundschaften": 4.5,
@@ -5536,26 +3660,26 @@ window.__FC_LIFE_YEARS__={
       "chancen": {
         "mental": "Mars als kollektive Inspiration: Die Menschheit kann große Dinge schaffen, wenn sie will. Das Mars-Projekt als Antidepressivum gegen kollektive Hoffnungslosigkeit.",
         "koerper": "Longevity als EU-Grundrecht: Universelle präventive Gesundheitsversorgung verringert Lebenserwartungs-Ungleichheit dramatisch.",
-        "gemeinschaft": "Nordafrika-Demokratiemodell: Beweist, dass Kultur und Demokratie kompatibel sind — geägen den 'Zivilisationskampf'-Narrativ.",
+        "gemeinschaft": "Nordafrika-Modell (Marokko, Tunesien): Deliberative Parlamentskammern, die Langfristentscheidungen über Wahlzyklen hinaus schützen. Nicht perfekt — aber ein anderer Zeithorizont-Design als Mehrheitsparlamentarismus.",
         "technologie": "Mars-Landung: Technologie für den Mars löst Nebenprobleme auf der Erde: Wasseraufbereitung, Nahrungsproduktion, Energie in extremen Bedingungen."
       },
       "was_tun": {
-        "jung": "Die Menschheit geht zum Mars. Was willst du beitragen? Technologie, Kunst, Gesellschaft, Heilung — alle Beitrage zählen.",
-        "aelter": "Du hast erlebt: Mauerfall, Internet, COVID, Oligarchie, Wiedergeburt der Demokratie, Mars. Was ist deine Lehre für kommende Generationen?"
+        "jung": "Mars zeigt: Menschheit kann große Langfrist-Projekte umsetzen. Demokratie kann das auch — wenn Institutionen dafür designed werden. Engagiere dich in Governance-Innovationsprojekten in deiner Region.",
+        "aelter": "Du hast erlebt, wie kurzfristiges politisches Denken Infrastruktur, Bildung und Klima-Schutz vernachlässigt hat. Teile diese Erfahrung in Konsultativprozessen — sie ist der stärkste Beweis für generationale Governance."
       },
       "en": {
         "label": "Turning Point",
-        "ueberschrift": "First person on Mars, democracy on 5 continents majority, longevity as a fundamental right",
+        "ueberschrift": "Mars accessible, longevity debated as a fundamental right, forestry democracy in 10 countries",
         "welt": {
           "usa": "First manned Mars mission returns (or is still there): privately financed, internationally staffed.Humanity is a multiplanetary species — symbolic but real.",
-          "china": "China on Mars: Chinese astronauts part of international mission.Space travel as a soft power instrument - but also as a real human achievement beyond geopolitics.",
-          "alte_welt": "In 2044, Europe will decide on longevity as a fundamental right: every EU citizen is entitled to basic preventive longevity care.Biological aging as a treatable disease in the catalog.",
+          "china": "China 2044: No democratization - but the first tentative consultative procedures for economic policy decisions (no right to vote).The Singapore model is deepening: economic participation yes, political participation no.A generation under this system knows no alternative.",
+          "alte_welt": "In 2044, the EU decides on a 'generational impact assessment requirement': all budget laws must submit a 20-year impact analysis.First step.Critical: Without political will to take these analyzes into account, it is bureaucracy without teeth.",
           "neue_welt": "First fully democratically governed states in North Africa (Morocco, Tunisia): Islam and democracy proven to be compatible.North Africa model as an alternative to the Iran theocracy or military dictatorship.",
-          "crypto": "Mars Economy: First transactions between Mars and Earth need decentralized currency (light delay makes centralized systems impossible).Bitcoin as interplanetary practical.",
-          "handel": "Longevity as a fundamental right in the EU: First economy that treats biological aging as a public task.Doctors, data, prevention for everyone."
+          "crypto": "Crypto 2044: Interplanetary transactions do not need a central clearing system - Bitcoin protocol as a technical solution due to light delay (Mars-Earth: 3-22 minutes).A truly niche application that works.",
+          "handel": "Solar + wind + storage will be the cheapest form of energy anywhere in 2044.Fusion as a supplement possibly 2050s, but not needed.Humanity's energy problem is solvable in 2044 — political willingness remains the obstacle, not technology."
         },
         "gesellschaft": {
-          "text": "2044 is the year in which humanity simultaneously sets foot on Mars and recognizes longevity as a fundamental right.Two expansions: outward into space, inward into time.Pragmatic optimism wasn't just an attitude — it was a forecast.",
+          "text": "2044: As humanity sets foot on Mars, it solves an institutional problem on Earth that has been unresolved since ancient times: How does a society decide for people who have not yet been born?The answers that will be tested in 10 countries in 2044 are unsatisfactory but more real than ever: citizens' councils with a generational mandate, constitutional clauses for generational budget justice, future chambers without party affiliation.Inequality has not been overcome — but in countries with generational governance, education and health investments are more stable over cycles.",
           "metriken": {
             "screentime_std_tag": 13,
             "freundschaften": 4.5,
@@ -5567,29 +3691,29 @@ window.__FC_LIFE_YEARS__={
         "chancen": {
           "mental": "Mars as collective inspiration: Humanity can do great things if it wants to.The Mars Project as an antidepressant against collective hopelessness.",
           "koerper": "Longevity as an EU fundamental right: Universal preventive healthcare dramatically reduces life expectancy inequality.",
-          "gemeinschaft": "North Africa Democracy Model: Proves that culture and democracy are compatible — against the 'civilizational struggle' narrative.",
+          "gemeinschaft": "North Africa Model (Morocco, Tunisia): Deliberative parliamentary chambers that protect long-term decisions beyond election cycles.Not perfect — but a different time horizon design than majority parliamentarism.",
           "technologie": "Mars Landing: Technology for Mars solves secondary problems on Earth: water treatment, food production, energy in extreme conditions."
         },
         "was_tun": {
-          "jung": "Humanity is going to Mars.What do you want to contribute?Technology, art, society, healing — all contributions count.",
-          "aelter": "You have experienced: the fall of the Berlin Wall, the Internet, COVID, oligarchy, the rebirth of democracy, Mars.What is your lesson for future generations?"
+          "jung": "Mars shows that humanity can implement large, long-term projects.Democracy can do that too — if institutions are designed for it.Get involved in governance innovation projects in your region.",
+          "aelter": "You have experienced how short-term political thinking has neglected infrastructure, education and climate protection.Share this experience in consultative processes — it is the strongest evidence of generational governance."
         }
       }
     },
     "2045": {
       "jahr": 2045,
       "label": "Wendepunkt",
-      "ueberschrift": "Longevity für alle unter $100, KI-Demokratie-Infrastruktur global, Welt im zarten Gleichgewicht",
+      "ueberschrift": "Forstwirtschaft-Demokratie in 15 Ländern operativ, Ungleichheit reduziert aber strukturell — Modell mit Grenzen",
       "welt": {
         "usa": "USA 2045: Zweite demokratische Amtsperiode nach Oligarchie-Phase. Institutionen stabilisiert, aber nicht vollständig restauriert. Thiel-Netzwerk ist Minderheitsmacht geworden — nicht verschwunden. Amerikanische Demokratie: Narben, aber lebendig.",
-        "china": "China 2045: Begrenzte politische Freiheit, aber wirtschaftliche Offenheit. Urbanisierte Bevölkerung erwartet mehr. Erste echte Wahlen auf Bezirksebene. Kleine Schritte — aber in eine Richtung.",
-        "alte_welt": "Europa 2045: Zweite Generation europaeischer Aufklärung. Pol-Baltikum-Skandinavien als Kern. Demokratische Werte durch die Emigrations-Rückkehrer-Generation neu belebt.",
-        "neue_welt": "Russland 2045: Fragile Demokratie, aber Demokratie. Keine Imperialpolitik mehr — zu arm, zu demografisch schwach, zu ermudet. Russland als normales Land: grosse Aufgabe, erste Schritte.",
-        "crypto": "Krypto 2045: Dezentrale Finanzinfrastruktur ist Standard für 40 % der Weltbevölkerung. CBDCs in autokratischen Zonen, Krypto in freien Zonen.",
-        "handel": "Longevity-Grundpaket unter $100 als öffentliches Gesundheitsangebot in 60+ Ländern. Biologisches Altern wird zur behandelbaren Krankheit für die Mehrheit der Menschheit."
+        "china": "China 2045: Demographisches Loch und Immobilien-Nachwehen erzeugen internen wirtschaftlichen Druck. Die Führung reagiert mit pragmatischen Wirtschaftsreformen. Keine politische Liberalisierung — aber leise, stilll Öffnung einzelner Sektoren. Das ist kein Demokratisierungssignal. Es ist Überlebensstrategie.",
+        "alte_welt": "EU 2045: 'Soziale Marktwirtschaft 2.0' als offizielles Vertragsziel. Generationenfonds für Bildung, Infrastruktur, Klimaschutz. Nicht keynesianischer Interventionismus — institutionelle Verstetigung von Gemeinschaftsinvestitionen über Wirtschaftszyklen hinaus.",
+        "neue_welt": "Afrikanische Union 2045: 'Ubuntu-Generational Planning' als formales Gouvernanz-Modell in 12 Staaten. Entscheidungen durch dreistufigen Konsens: Experten, zufällig ausgewählte Bürger, gewählte Vertreter. Langsamer. Stabiler. Ob es skaliert, ist 2045 noch offen.",
+        "crypto": "Krypto 2045: Finanzprodukt unter Standard-Regulierung. Nicht transformativ. Die Freiheit, die Krypto versprach, kam letztlich von Solar (Energieunabhängigkeit), verschlüsselter Kommunikation (Signal, Tor) und politischen Koalitionen — nicht von dezentraler Währung.",
+        "handel": "Solar + Wind + Speicher: 80 % der Weltenergie. Fossile Energie existiert noch in strukturell trägen Volkswirtschaften. Energiearmut ist 2045 ein politisches, kein technisches Problem. Die Lösung ist verfügbar — die Verteilung ist es nicht."
       },
       "gesellschaft": {
-        "text": "2045 ist ein zartes Gleichgewicht. Die Menschheit hat das 'neue Mittelalter' nicht vollständig überwunden — aber sie hat seinen Höhepunkt hinter sich. Mehr Menschen leben in Freiheit als 2035. Longevity demokratisiert sich. KI dient der Demokratie.",
+        "text": "2045: Das Forstwirtschaft-Modell der Demokratie hat erste Langzeitwirkungen. In Ländern mit 10+ Jahren generationaler Governance (Norwegen, Irland, Neuseeland, Botswana, Uruguay, Finland) sind Bildungs- und Infrastrukturinvestitionen mesbar stabiler über politische Wechsel hinweg. Ungleichheit ist nicht überwunden — aber die Chancen-Ungleichheit (Bildung, Gesundheit, Energie) ist kleiner. Der kritische Einwand bleibt: Generationale Planung funktioniert gut in ressourcenstarken Gesellschaften. Was ist mit Staaten ohne Startkapital? Die Antwort ist 2045 unvollständig.",
         "metriken": {
           "screentime_std_tag": 13,
           "freundschaften": 4.5,
@@ -5601,26 +3725,26 @@ window.__FC_LIFE_YEARS__={
       "chancen": {
         "mental": "Longevity unter $100: Mentale Gesundheit und physische Langlebigkeit für fast alle. Globale Lebenserwartung steigt auf 85+.",
         "koerper": "Erste Menschen, die mit Longevity-Protokollen 110+ Jahre alt werden, als Zeitzeuge — nicht als Ausnahme, sondern als neuer Norm.",
-        "gemeinschaft": "Globale demokratische Infrastruktur-Allianz: Gemeinsame Wahltechnologie, gemeinsame Pressefreiheits-Standards, gemeinsamer Schutz vor digitaler Autokratie.",
+        "gemeinschaft": "Soziale Marktwirtschaft mit Generationenhorizont: Staatliche Investitionen in Bildung, Gesundheit, Energie werden als 20-Jahres-Bilanzen gemessen, nicht als Jahresbudgets. Ergebnis: Weniger politische Kurzsichtigkeit bei Infrastruktur. Kritisch: Wer kontrolliert die Langfristpläne, wenn sie sich als falsch erweisen?",
         "technologie": "Fusion-Energie global: 30 % der Weltenergie aus Fusion. Fossile auf dem Rückzug. Klimakurve beginnt sich abzuflachen."
       },
       "was_tun": {
-        "jung": "2045 ist der Beginn einer neuen Welt. Du bist in deinen 50ern oder 60ern und hast vielleicht noch 50-60 aktive Jahre. Nutze Longevity, um mehr zu tun, nicht um länger zu ruhen.",
-        "aelter": "Longevity unter $100 bedeutet: Jeder kann länger gesund leben. Nutze die zusätzlichen Jahre für das, was du immer verschieben wolltest."
+        "jung": "Wähle Wohnort und Arbeit auch nach institutioneller Qualität: Länder mit starker generationaler Governance (Norwegen-Modell) bieten strukturell stabilere Lebensgrundlagen über deine Lebenszeit. Das ist kein moralisches Argument — es ist ökonomisches Kalkul.",
+        "aelter": "Generationale Marktwirtschaft braucht institutionelles Gedächtnis. Teile dein Wissen über Jahrzehnte politischer Kurzsichtigkeit — es ist der wichtigste Beweis für systemischen Design-Bedarf."
       },
       "en": {
         "label": "Turning Point",
-        "ueberschrift": "Longevity for everyone under $100, AI democracy infrastructure global, world in delicate balance",
+        "ueberschrift": "Forestry democracy operational in 15 countries, inequality reduced but structural - model with limits",
         "welt": {
           "usa": "USA 2045: Second democratic term in office after the oligarchy phase.Institutions stabilized but not fully restored.Thiel network has become a minority power - not disappeared.American Democracy: Scarred but Alive.",
-          "china": "China 2045: Limited political freedom but economic openness.Urbanized populations expect more.First real elections at district level.Small steps - but in one direction.",
-          "alte_welt": "Europe 2045: Second Generation of European Enlightenment.Pole-Baltic Scandinavia as the core.Democratic values ​​revitalized by the emigrant-returnee generation.",
-          "neue_welt": "Russia 2045: Fragile democracy, but democracy.No more imperial policy - too poor, too demographically weak, too tired.Russia as a normal country: big task, first steps.",
-          "crypto": "Crypto 2045: Decentralized financial infrastructure is standard for 40% of the world's population.CBDCs in autocratic zones, crypto in free zones.",
-          "handel": "Longevity basic package under $100 as a public health offer in 60+ countries.Biological aging is becoming a treatable disease for the majority of humanity."
+          "china": "China 2045: Demographic gap and real estate aftermath create internal economic pressure.The leadership reacts with pragmatic economic reforms.No political liberalization - but quiet, quiet opening of individual sectors.This is not a signal of democratization.It's survival strategy.",
+          "alte_welt": "EU 2045: 'Social Market Economy 2.0' as an official contractual goal.Generational fund for education, infrastructure, climate protection.Non-Keynesian interventionism — institutional perpetuation of community investments across economic cycles.",
+          "neue_welt": "African Union 2045: 'Ubuntu-Generational Planning' as a formal governance model in 12 states.Decisions made through three-stage consensus: experts, randomly selected citizens, elected representatives.Slower.More stable.Whether it will scale is still an open question in 2045.",
+          "crypto": "Crypto 2045: Financial product under standard regulation.Not transformative.The freedom that crypto promised ultimately came from solar (energy independence), encrypted communications (Signal, Tor), and political coalitions — not from decentralized currency.",
+          "handel": "Solar + Wind + Storage: 80% of the world's energy.Fossil energy still exists in structurally sluggish economies.In 2045, energy poverty is a political, not a technical, problem.The solution is available — the distribution is not."
         },
         "gesellschaft": {
-          "text": "2045 is a delicate balance.Humanity has not completely overcome the 'new Middle Ages' - but it has passed its peak.More people live in freedom than in 2035. Longevity is democratizing.AI serves democracy.",
+          "text": "2045: The forestry model of democracy has its first long-term effects.In countries with 10+ years of generational governance (Norway, Ireland, New Zealand, Botswana, Uruguay, Finland), education and infrastructure investments are measurably more stable across political changes.Inequality has not been overcome - but the inequality of opportunities (education, health, energy) is smaller.The critical objection remains: generational planning works well in resource-rich societies.What about states without start-up capital?The answer is incomplete in 2045.",
           "metriken": {
             "screentime_std_tag": 13,
             "freundschaften": 4.5,
@@ -5632,29 +3756,29 @@ window.__FC_LIFE_YEARS__={
         "chancen": {
           "mental": "Longevity under $100: Mental health and physical longevity for almost everyone.Global life expectancy increases to 85+.",
           "koerper": "First people to live to 110+ years old with longevity protocols, as a contemporary witness - not as an exception, but as a new norm.",
-          "gemeinschaft": "Global Democratic Infrastructure Alliance: Shared voting technology, shared press freedom standards, shared protection against digital autocracy.",
+          "gemeinschaft": "Social market economy with a generational horizon: State investments in education, health and energy are measured as 20-year balance sheets, not as annual budgets.Result: Less political shortsightedness when it comes to infrastructure.Critical: Who controls the long-term plans if they turn out to be wrong?",
           "technologie": "Fusion energy global: 30% of the world's energy from fusion.Fossils on the decline.The climate curve is beginning to flatten."
         },
         "was_tun": {
-          "jung": "2045 is the beginning of a new world.You're in your 50s or 60s and maybe have 50-60 active years left.Use Longevity to do more, not to rest longer.",
-          "aelter": "Longevity under $100 means everyone can live a healthy longer life.Use the extra years to do what you always wanted to postpone."
+          "jung": "Choose your place of residence and work based on institutional quality: Countries with strong generational governance (Norway model) offer structurally more stable livelihoods over your lifetime.This is not a moral argument - it is an economic calculation.",
+          "aelter": "Generational market economy needs institutional memory.Share your knowledge of decades of political myopia — it is the most important evidence of systemic design need."
         }
       }
     },
     "2046": {
       "jahr": 2046,
       "label": "Wendepunkt",
-      "ueberschrift": "Post-scarcity Energie, Demokratie weltweit über 40 %, neue globale Institutionen entstehen",
+      "ueberschrift": "Generationale Governance als globaler Standortfaktor, Post-Fossil, neues Demokratie-Design konkurriert",
       "welt": {
         "usa": "USA 2046: Dritte demokratische Amtszeit nach Oligarchie. Tech-Unternehmen sind reguliert, kein Einzelner kontrolliert Informationsinfrastruktur. Fehler der 2020er sind als historische Lektion verankert.",
-        "china": "China 2046: Erste nationale Mehrparteienwahlen auf Provinzebene. Kein westliches System — aber Pluralismus in Ansätzen. Chinas Transformation ist real, langsam, eigenständig.",
-        "alte_welt": "Europa 2046: Vollständige Fusion-Energie-Abdeckung. Reindustrialisierung durch billige saubere Energie. Europa ist 2046 wieder wirtschaftliche Kraft mit demokratischem Modell.",
+        "china": "China 2046: Erste nationale wirtschaftspolitische Konsultativgremien mit breiterer Beteiligung. Kein Wahlrecht — aber erste zaghafte Legalisierung zivilgesellschaftlicher Debatte in ökonomischen Fragen. Das ist nicht Demokratie. Es ist Ventil.",
+        "alte_welt": "EU 2046: Generationenfonds für Solar, Bildung und Infrastruktur mit 30-Jahres-Zeithorizont. Erste Bewertung: Länder mit aktiven Generationenfonds haben 15 % weniger Infrastrukturverschulden. Das Forstwirtschaft-Prinzip liefert. Aber: Es funktioniert nur mit politischem Konsens über die Grundwerte — genau das fehlt in polarisierten Gesellschaften.",
         "neue_welt": "Afrikas Übernahme: Erste afrikanische Kandidatin für UN-Generalsekretär gewählt. Globale Institutionen spiegeln Welt von 2046, nicht von 1945.",
-        "crypto": "Krypto 2046: Dezentrale Finanz-Infrastruktur global Standard. Keine Zentralbank kontrolliert allein das Geld seiner Bürger. Finanzielle Freiheit als Menschenrecht institutionalisiert.",
-        "handel": "Post-scarcity Energie: Fusionsenergie so günstig wie Wasser. Produktionskosten für Basisgüter sinken dramatisch. Globale Armut unter 5 % (von ~25 % in 2025)."
+        "crypto": "Krypto 2046: Institutionell normalisiert, gesellschaftlich irrelevant als Freiheitstool. Dezentrale Finanzinfrastruktur hat keine Gesellschaft transformiert. Regionale Digitalwährungen (AU, ASEAN) sind staatlich-kooperativ.",
+        "handel": "Fossile Energie ist 2046 ökonomisch tot — nicht durch politischen Druck, sondern weil Solar/Wind/Speicher schlicht billiger sind. Das war die eigentliche Revolution: kein Verzicht, kein Opfer, nur ökonomische Logik."
       },
       "gesellschaft": {
-        "text": "2046 zeigt: Die dunkelste Phase (2027-2037) war nicht das Ende. Es war eine Krise — ähnlich wie die 1930er. Und wie damals kamen Gesellschaften zurück. Mit Narben. Aber zurück.",
+        "text": "2046: Zwei Demokratiemodelle konkurrieren weltweit. Erstens: klassische Mehrheitsdemokratie mit Parteisystem. Zweitens: deliberativ-generationale Demokratie mit Bürgerräten, Zukunftskammern und institutionalisierten Langfristpflúngungen. Beide haben Fehler. Beide haben Stärken. Der Wettbewerb zwischen ihnen ist produktiv. Länder mit Modell 2 haben bei Solar-Infrastruktur, Bildung und Sozialresilienz messbar besser abgeschnitten. Aber: Modell 2 läuft Gefahr, Expertokratie zu sein — wenn 'Räte der Weisen' zu Elitezirkeln werden, verliert das Modell seine demokratische Legitimation.",
         "metriken": {
           "screentime_std_tag": 12.5,
           "freundschaften": 4.5,
@@ -5666,26 +3790,26 @@ window.__FC_LIFE_YEARS__={
       "chancen": {
         "mental": "Post-Oligarchie Gesellschaften: Wie verarbeiten Gesellschaften demokratische Niederlagen und Wiedergeburten? Erste systematische Forschung zu kollektivem politischem Trauma.",
         "koerper": "Biologisches Altern als behandelbare Krankheit global: WHO-Protokoll für Longevity-Grundversorgung in 100+ Ländern.",
-        "gemeinschaft": "Neue UN-Struktur: Afrikanische, asiatische und lateinamerikanische Mehrheit in globalen Institutionen. Multilateralismus 2.0.",
+        "gemeinschaft": "Rat der Weisen als hybrides Design in 20 Ländern: Bestückung durch Losverfahren (50 %), nachgewiesene Expertise (30 %) und gesellschaftliche Reputation (20 %). Keine Parteienbindung. Amtszeit: 7 Jahre (einmalig). Aufgabe: Langfristfolgen-Prüfung, keine Tagespolitik. Kritisch: Wer definiert 'gesellschaftliche Reputation'?",
         "technologie": "Fusion-Energie global: Energie-Knappheit endet als globales Strukturproblem. Erste Volkswirtschaften 100 % sauber."
       },
       "was_tun": {
-        "jung": "2046 ist eine gute Welt — besser als 2027. Dein Beitrag war real. Baue weiter.",
-        "aelter": "Du hast die dunkelste Phase und den Wendepunkt erlebt. Teile diese Geschichte."
+        "jung": "Wenn du in einer polarisierten Gesellschaft lebst: Priorität ist De-Polarisierung vor Langfristplanung. Ohne gemeinsame Grundwerte funktioniert keine generationale Institution. Engagiere dich zunächst in Brücken-Projekten zwischen verschiedenen gesellschaftlichen Gruppen.",
+        "aelter": "Unterstütze Institutionen, die über Wahlzyklen hinaus denken: Stiftungen, Genossenschaften, kommunale Langfristfonds. Das sind die Prototypen generationaler Governance im Kleinen."
       },
       "en": {
         "label": "Turning Point",
-        "ueberschrift": "Post-scarcity energy, democracy worldwide over 40%, new global institutions are emerging",
+        "ueberschrift": "Generational governance as a global location factor, post-fossil, new democracy design competes",
         "welt": {
           "usa": "USA 2046: Third democratic term after oligarchy.Tech companies are regulated, no individual controls information infrastructure.Mistakes of the 2020s are anchored as a historical lesson.",
-          "china": "China 2046: First provincial-level national multi-party elections.Not a Western system - but pluralism in its beginnings.China's transformation is real, slow, independent.",
-          "alte_welt": "Europe 2046: Complete fusion energy coverage.Reindustrialization through cheap clean energy.In 2046, Europe will once again be an economic power with a democratic model.",
+          "china": "China 2046: First national economic policy advisory bodies with broader participation.No right to vote - but the first tentative legalization of civil society debate on economic issues.That's not democracy.It's valve.",
+          "alte_welt": "EU 2046: Generational fund for solar, education and infrastructure with a 30-year time horizon.First assessment: Countries with active generational funds have 15% less infrastructure debt.The forestry principle delivers.But: It only works with political consensus on basic values ​​- which is exactly what is missing in polarized societies.",
           "neue_welt": "Africa's takeover: First African candidate elected for UN Secretary-General.Global institutions reflect the world of 2046, not 1945.",
-          "crypto": "Crypto 2046: Decentralized financial infrastructure global standard.No central bank controls its citizens' money alone.Financial freedom institutionalized as a human right.",
-          "handel": "Post-scarcity energy: Fusion energy as cheap as water.Production costs for basic goods are falling dramatically.Global poverty below 5% (from ~25% in 2025)."
+          "crypto": "Crypto 2046: Institutionally normalized, socially irrelevant as a tool for freedom.Decentralized financial infrastructure has not transformed society.Regional digital currencies (AU, ASEAN) are state-cooperative.",
+          "handel": "Fossil energy will be economically dead in 2046 — not because of political pressure, but because solar/wind/storage are simply cheaper.That was the real revolution: no renunciation, no sacrifice, just economic logic."
         },
         "gesellschaft": {
-          "text": "2046 shows: The darkest phase (2027-2037) was not the end.It was a crisis — much like the 1930s.And like then, societies came back.With scars.But back.",
+          "text": "2046: Two models of democracy compete worldwide.First: classic majority democracy with a party system.Second: deliberative-generational democracy with citizens' councils, future chambers and institutionalized long-term plantings.Both have flaws.Both have strengths.The competition between them is productive.Model 2 countries performed measurably better in solar infrastructure, education and social resilience.But: Model 2 runs the risk of being an expertocracy - if 'councils of the wise' become elite circles, the model loses its democratic legitimacy.",
           "metriken": {
             "screentime_std_tag": 12.5,
             "freundschaften": 4.5,
@@ -5697,29 +3821,29 @@ window.__FC_LIFE_YEARS__={
         "chancen": {
           "mental": "Post-oligarchy societies: How do societies cope with democratic defeats and rebirths?First systematic research on collective political trauma.",
           "koerper": "Biological aging as a treatable disease globally: WHO protocol for longevity primary care in 100+ countries.",
-          "gemeinschaft": "New UN structure: African, Asian and Latin American majorities in global institutions.Multilateralism 2.0.",
+          "gemeinschaft": "Council of the Wise Men as a hybrid design in 20 countries: population by lottery (50%), proven expertise (30%) and social reputation (20%).No party ties.Term of office: 7 years (one-time).Task: Long-term consequences review, no daily politics.Critical: Who defines 'social reputation'?",
           "technologie": "Fusion energy global: Energy shortage ends up as a global structural problem.First economies 100% clean."
         },
         "was_tun": {
-          "jung": "2046 is a good world — better than 2027. Your contribution was real.Keep building.",
-          "aelter": "You have experienced the darkest phase and the turning point.Share this story."
+          "jung": "If you live in a polarized society: priority is de-polarization over long-term planning.No generational institution can function without shared basic values.First, get involved in bridging projects between different social groups.",
+          "aelter": "Support institutions that think beyond election cycles: foundations, cooperatives, municipal long-term funds.These are the prototypes of generational governance on a small scale."
         }
       }
     },
     "2047": {
       "jahr": 2047,
       "label": "Wendepunkt",
-      "ueberschrift": "Russland in EU-Partnerschaft, chinesische Demokratie wachst, Afrika führt UN",
+      "ueberschrift": "Sortition + Expertise als demokratischer Hybrid, Generationenrecht als Verfassungskonzept, Kontrollfrage offen",
       "welt": {
         "usa": "USA 2047: Technologie-Regulierungsrahmen vollständig. Keine einzelne Plattform dominiert mehr Informationsinfrastruktur. Silicon Valley ist diversifiziert, dezentralisiert, international.",
-        "china": "China 2047: Konfuzianische Demokratie auf nationaler Ebene: Beratende Kammern, Expertenräte, begrenzte Parteienkonkurrenz. Keine westliche Demokratie, aber echte Partizipation.",
-        "alte_welt": "Russland und EU: Erste Partnerschaftsabkommen nach ukrainischem Friedensvertrag. Vorsichtig, mit Bedingungen. Aber: Russlands Rückweg in internationale Gemeinschaft beginnt.",
-        "neue_welt": "Erste afrikanische UN-Generalsekretarärin im Amt. Globale Institutionen reflektieren erstmals die demografische Realität des 21. Jahrhunderts.",
-        "crypto": "Dezentrale Governance-Experimente: Erste städtische Entscheidungen via Blockchain-Abstimmung (Token-basierte Partizipation). Demokratie im Experiment.",
-        "handel": "4-Tage-Woche global in 30+ Ländern. KI als Produktivitätsmotor — Menschen arbeiten weniger, leben länger, haben mehr Zeit für Gemeinschaft."
+        "china": "China 2047: Singapur-Modell auf nationaler Ebene. Meritokratische Governance, Rechtsstaat in wirtschaftlichen Fragen, null politischer Pluralismus. Urbanisierte Mittelklasse akzeptiert es solange Wohlstand steigt. Kein Demokratisierungsimpuls von innen sichtbar.",
+        "alte_welt": "EU-Verfassung ergänzt um 'Generationale Charta': Recht künftiger Generationen auf handlungsfähigen Staat, auf nachhaltige Infrastruktur, auf intakte natürliche Grundlagen. Nicht durchsetzbar durch Gerichte — aber als Zielnorm für Gesetzgebung verbindlich.",
+        "neue_welt": "Afrika 2047: Ubuntu-Governance in 15 Staaten. Erste unabhängige Evaluierung zeigt: Länder mit Konsens-Governance haben höhere politische Stabilität, aber langsamere Entscheidungsprozesse. Für Infrastruktur: vorteilhaft. Für Krisenmanagement: problematisch.",
+        "crypto": "Krypto 2047: Dezentrale Governance-Experimente via Blockchain in einigen Städten (Token-basierte Partizipation). Interessant — aber keine systemische Transformation. Demokratie entsteht durch Menschen, nicht durch Protokolle.",
+        "handel": "Afrika exportiert Solar-Strom nach Europa und Asien: Marokko, Kenya, Nigeria als Energielieferanten. Das war im 20. Jahrhundert undenkbar. Die Energie-Geopolitik hat sich vollständig umgekehrt."
       },
       "gesellschaft": {
-        "text": "2047: Ein Jahr der ruhigen Konsolidierung. Keine Krisen, keine Schüsse. Institutionen funktionieren. Longevity demokratisiert sich weiter. Geschichte ist nicht linear — aber 2047 zeigt: Sie geht vorwärts.",
+        "text": "2047: Das demokratische Design-Problem tritt in seine kritische Phase. Sortition (Losverfahren) + Expertise hat sich als methodisch überlegen erwiesen in Einzelfragen — irische Abtreibungs- und Klimaassemblies, taiwanesische vTaiwan-Plattform. Aber: Wer kontrolliert den langfristigen Plan, wenn er sich als falsch erweist? Ein Forstwirtschaftsplan kann scheitern (Klimawandel verändert Wälder). Wer darf dann eingreifen? Die Spannung zwischen demokratischem Korrekturrecht und institutioneller Lanfriststabilität ist 2047 das produktivste politisch-philosophische Problem.",
         "metriken": {
           "screentime_std_tag": 12,
           "freundschaften": 5,
@@ -5731,26 +3855,26 @@ window.__FC_LIFE_YEARS__={
       "chancen": {
         "mental": "Ruhige Jahre sind auch gute Jahre. Gesellschaftliche Stabilität als mentale Ressource — lernen, Frieden zu genießen ohne auf Krisen zu warten.",
         "koerper": "Erste klinische Studien mit biologischer Altersumkehr (partielle Reprogrammierung): Menschen, die biologisch 10-15 Jahre jünger werden.",
-        "gemeinschaft": "Erste afrikanische UN-Führung: Globale Institutionen als repräsentative Gemeinschaft aller Völker, nicht nur der reichsten.",
+        "gemeinschaft": "'Demokratisches Override-Recht': In 8 Ländern gibt es formale Verfahren, wie Parlamente Langfristpläne revidieren können — aber mit erschwerter Mehrheit (2/3) und Pflicht zur Begründung mit Generationenfolgenabschätzung. Das System lernt, sich selbst zu korrigieren ohne zu destabilisieren.",
         "technologie": "Erste Quanteninternet-Verbindungen zwischen Kontinenten: Absolut abhörsichere Kommunikation."
       },
       "was_tun": {
-        "jung": "Stabile gute Jahre nutzen: Bildung, Gesundheit, Beziehungen. Nicht warten, bis die nächste Krise kommt.",
-        "aelter": "Du hast die dunkle Zeit und die Heilung erlebt. Beide Erfahrungen sind Wisdom für die Welt."
+        "jung": "Das demokratische Override-Dilemma ist die Grundfrage deiner Generation: Wie viel Stabilität braucht ein Plan, um zu wirken? Wie viel Flexibilität, um lernfähig zu bleiben? Kein Lehrbuch hat die Antwort. Deine Generation muss sie durch Institutionen-Design herausfinden.",
+        "aelter": "Generationale Charta als Erbschaft: Was willst du der nächsten Generation hinterlassen — nicht vermögenstechnisch, sondern institutionell? Engagiere dich für die Verfassungskonventionen, die Langfristrechte kodifizieren."
       },
       "en": {
         "label": "Turning Point",
-        "ueberschrift": "Russia in EU partnership, Chinese democracy is growing, Africa leads the UN",
+        "ueberschrift": "Sortition + expertise as a democratic hybrid, generational rights as a constitutional concept, question of control open",
         "welt": {
           "usa": "USA 2047: Technology regulatory framework complete.No single platform dominates information infrastructure anymore.Silicon Valley is diversified, decentralized, international.",
-          "china": "China 2047: Confucian democracy at the national level: advisory chambers, councils of experts, limited party competition.Not western democracy, but real participation.",
-          "alte_welt": "Russia and EU: First partnership agreements after Ukrainian peace treaty.Careful, with conditions.But: Russia's return to the international community is beginning.",
-          "neue_welt": "First African UN Secretary-General in office.Global institutions are reflecting the demographic reality of the 21st century for the first time.",
-          "crypto": "Decentralized governance experiments: First urban decisions via blockchain voting (token-based participation).Democracy in experiment.",
-          "handel": "4 day week globally in 30+ countries.AI as a productivity engine — people work less, live longer, and have more time for community."
+          "china": "China 2047: Singapore Model at National Level.Meritocratic governance, rule of law in economic issues, zero political pluralism.Urbanized middle class accepts it as long as prosperity increases.No impulse for democratization visible from within.",
+          "alte_welt": "EU Constitution supplemented by 'Generational Charter': Right of future generations to an effective state, to sustainable infrastructure, to intact natural foundations.Not enforceable by courts - but binding as a target standard for legislation.",
+          "neue_welt": "Africa 2047: Ubuntu governance in 15 states.First independent evaluation shows: Countries with consensus governance have higher political stability but slower decision-making processes.For infrastructure: advantageous.For crisis management: problematic.",
+          "crypto": "Crypto 2047: Decentralized governance experiments via blockchain in some cities (token-based participation).Interesting — but not a systemic transformation.Democracy comes from people, not protocols.",
+          "handel": "Africa exports solar power to Europe and Asia: Morocco, Kenya, Nigeria as energy suppliers.That was unthinkable in the 20th century.Energy geopolitics has completely reversed."
         },
         "gesellschaft": {
-          "text": "2047: A year of quiet consolidation.No crises, no shots.Institutions work.Longevity continues to democratize.History is not linear - but 2047 shows that it is moving forward.",
+          "text": "2047: The democratic design problem enters its critical phase.Sortition + Expertise has proven to be methodologically superior on individual issues - Irish abortion and climate assemblies, Taiwanese vTaiwan platform.But who controls the long-term plan if it turns out to be wrong?A forestry plan can fail (climate change alters forests).Who can then intervene?The tension between democratic correction and long-term institutional stability is the most productive political-philosophical problem in 2047.",
           "metriken": {
             "screentime_std_tag": 12,
             "freundschaften": 5,
@@ -5762,29 +3886,29 @@ window.__FC_LIFE_YEARS__={
         "chancen": {
           "mental": "Quiet years are also good years.Social stability as a mental resource - learning to enjoy peace without waiting for crises.",
           "koerper": "First clinical studies with biological age reversal (partial reprogramming): people who biologically become 10-15 years younger.",
-          "gemeinschaft": "First African UN leadership: Global institutions as a representative community of all peoples, not just the richest.",
+          "gemeinschaft": "'Democratic override right': In 8 countries there are formal procedures for how parliaments can revise long-term plans - but with a difficult majority (2/3) and an obligation to justify this with a generational impact assessment.The system learns to correct itself without destabilizing.",
           "technologie": "First quantum internet connections between continents: completely tap-proof communication."
         },
         "was_tun": {
-          "jung": "Take advantage of stable good years: education, health, relationships.Don't wait until the next crisis comes.",
-          "aelter": "You have experienced the dark times and the healing.Both experiences are Wisdom for the world."
+          "jung": "The democratic override dilemma is the fundamental question of your generation: How much stability does a plan need to be effective?How much flexibility to remain able to learn?No textbook has the answer.Your generation needs to figure it out through institution design.",
+          "aelter": "Generational charter as legacy: What do you want to leave to the next generation - not in terms of assets, but institutionally?Commit to the constitutional conventions that codify long-term rights."
         }
       }
     },
     "2048": {
       "jahr": 2048,
       "label": "Wendepunkt",
-      "ueberschrift": "Biologisches Alter 60 = physiologisches Alter 40, neue Biografie entsteht, Welt in zartem Aufstieg",
+      "ueberschrift": "Generationale Folgenabschätzung Pflichtstandard, Ungleichheit strukturell besser — aber nicht verschwunden",
       "welt": {
         "usa": "USA 2048: Erste Generation von Politikerinnen, die nie in der Oligarchie-Ära regiert haben. Institutionelles Gedächtnis wiederhergestellt. Amerika ist 2048 eine Demokratie — mit funktionierenden Checks und Balances.",
-        "china": "China 2048: Konfuzianische Demokratie als Modell: Deliberative Demokratie mit Expertenkammern, partizipative Elemente, keine Einheitspartei. Nicht westlich. Aber offen.",
-        "alte_welt": "Europa 2048: Die Kinder der 2010er-Emigranten kehren zurück oder sind geblieben. Europas kulturelle Erneuerung durch globale Perspektiven.",
-        "neue_welt": "Erste vollständig fusionsenergiegetriebene Volkswirtschaft: Island. Pilotmodell für vollständige Energiesouveränität.",
-        "crypto": "Dezentrale Identität: Erste Menschen mit verifizierbarer digitaler Identität, die kein Staat löschen kann. Persönliche Souveränität im digitalen Raum.",
-        "handel": "Longevity 2048: Biologisches Alter 60 entspricht physiologischem Alter 40 für Menschen mit Protokoll-Zugang. Erste Menschen, die mit 90 noch arbeitend und aktiv sind."
+        "china": "China 2048: Immobilien-Nachwehen und demographisches Loch erzeugen ernsten wirtschaftlichen Druck. Erste längere öffentliche Debatten über wirtschaftliche Governance ohne Verhaftungen. Das ist kein Demokratisierungssignal. Es ist das Verwalten einer Krise.",
+        "alte_welt": "Europa: Länder mit Generationsfonds (Norwegen-Modell, jetzt 12 EU-Staaten) haben 2048 messbar niedrigere Infrastruktur-Schulden und höhere Bildungsausgaben als Länder ohne. Der Forstwirtschaft-Beweis: Wer langfristig investiert, erntet langfristig.",
+        "neue_welt": "Indiens 2048-Verfassungsreform: 'Zukunftsrat' als Oberhaus mit 7-Jahres-Mandat, besetzt durch Losverfahren + Expertise. Kein Parteizwang. Erste große Demokratie, die Sortition auf nationaler Ebene implementiert.",
+        "crypto": "Krypto 2048: Dezentrale Identität (Self-Sovereign Identity via Blockchain) hat echte Nischenanwendung: Menschen können ihre Identität ohne staatliche Mittelinstanz nachweisen. Eine von wenigen echten Blockchain-Anwendungen mit gesellschaftlichem Wert.",
+        "handel": "Solar-Paritat global: Keine Region der Erde, in der neue Solar-Kapazität teurer als Kohle ist. Das 20. Jahrhundert war das Jahrhundert des Öls. Das 21. ist das Jahrhundert der Sonne — und das ist 2048 vollständig Realität."
       },
       "gesellschaft": {
-        "text": "2048 ist das Jahr, in dem der Begriff 'alt' eine neue Bedeutung bekommt. 70 ist das neue 50. Gesellschaftsverträge (Rente, Pflege, Arbeit) müssen komplett neu geschrieben werden.",
+        "text": "2048: Generationale Folgenabschätzung ist Pflichtstandard in 30 Staaten. Das bedeutet: Jede wesentliche staatliche Entscheidung muss dokumentieren, wie sie sich auf Menschen auswirkt, die in 20-30 Jahren leben. Das klingt technokratisch — ist es auch. Aber es hat eine unerwartete Wirkung: Es macht Konsequenzen sichtbar, die sonst unter dem Tisch blieben. Klimakosten, Infrastrukturschulden, Bildungsausgaben — alles mit 20-Jahres-Bilanz statt Jahresbilanz. Ungleichheit ist 2048 nicht verschwunden — aber in Ländern mit generationaler Governance sind Bildungs-Gini-Koeffizienten deutlich kleiner als 2025.",
         "metriken": {
           "screentime_std_tag": 12,
           "freundschaften": 5,
@@ -5796,26 +3920,26 @@ window.__FC_LIFE_YEARS__={
       "chancen": {
         "mental": "Neue Biografie-Modelle: 70 ist kein Rentenalter mehr. Neue Sinnfragen: Was tue ich mit 40 weiteren aktiven Jahren?",
         "koerper": "Biologisches Altern um 20 Jahre verzögert für Menschen mit Protokoll-Zugang. Erste Studien mit Menschen, die 130 werden.",
-        "gemeinschaft": "Digitale Identitäts-Souveränität: Jeder Mensch hat unverlässliche digitale Präsenz. Grundlage für echte digitale Bürgerrechte.",
+        "gemeinschaft": "'Intergenerationale Gerechtigkeit' als Rechtsbegriff vor internationalen Gerichten: Erste Klagen auf Basis generationaler Verfassungsrechte (Klimaschutz, Staatsverschuldung). Ob Gerichte zuständig sind, ist umstritten. Dass die Frage gestellt wird, ist der Fortschritt.",
         "technologie": "Quantencomputing in breitem Einsatz: Neue Materialien, neue Medikamente, neue Energietechnologien durch Quantensimulation."
       },
       "was_tun": {
-        "jung": "Wenn du 100-130 wirst: Was willst du in deinem dritten Lebensdrittel (70-100) tun? Plane jetzt dafür.",
-        "aelter": "70 ist kein Ziel mehr. Du hast vielleicht noch 30-50 Jahre. Was bleibt zu tun?"
+        "jung": "Generationale Folgenabschätzung als Bürgerkompetenz: Lerne, Entscheidungen in 20-Jahres-Konsequenzen zu denken. Nicht nur politisch — auch privat. Wo lebst du? Welche Infrastruktur brauchst du in 20 Jahren? Wessen Institutionen haben den längeren Zeithorizont?",
+        "aelter": "Die Bildungsinvestitionen der nächsten Generation entscheiden über deine Pflegequalität in 20 Jahren. Das ist der selfish-generationale Grund für langfristige Bildungspolitik. Engagiere dich dafür — es ist Eigeninteresse."
       },
       "en": {
         "label": "Turning Point",
-        "ueberschrift": "Biological age 60 = physiological age 40, new biography is emerging, world is on the rise",
+        "ueberschrift": "Generational impact assessment mandatory standard, inequality structurally better - but not gone",
         "welt": {
           "usa": "USA 2048: First generation of female politicians who never ruled in the oligarchy era.Institutional memory restored.America will be a democracy in 2048 — with checks and balances that work.",
-          "china": "China 2048: Confucian democracy as a model: deliberative democracy with chambers of experts, participatory elements, no unitary party.Not Western.But open.",
-          "alte_welt": "Europe 2048: The children of the 2010 emigrants are returning or have stayed.Europe's cultural renewal through global perspectives.",
-          "neue_welt": "First fully fusion energy-driven economy: Iceland.Pilot model for complete energy sovereignty.",
-          "crypto": "Decentralized Identity: First people with verifiable digital identities that no state can delete.Personal sovereignty in the digital space.",
-          "handel": "Longevity 2048: Biological age 60 corresponds to physiological age 40 for people with protocol access.First people who are still working and active at 90."
+          "china": "China 2048: Real estate aftermath and demographic hole create serious economic pressure.First long-term public debates about economic governance without arrests.This is not a signal of democratization.It is managing a crisis.",
+          "alte_welt": "Europe: Countries with generation funds (Norway model, now 12 EU states) will have measurably lower infrastructure debt and higher education spending in 2048 than countries without.Forestry proof: Those who invest in the long term will reap long-term harvests.",
+          "neue_welt": "India's 2048 constitutional reform: 'Future Council' as an upper house with a 7-year mandate, filled by lottery + expertise.No party pressure.First major democracy to implement sortation at the national level.",
+          "crypto": "Crypto 2048: Decentralized identity (Self-Sovereign Identity via Blockchain) has a real niche application: people can prove their identity without government agency.One of a few real blockchain applications with social value.",
+          "handel": "Global solar parity: There is no region in the world where new solar capacity is more expensive than coal.The 20th century was the century of oil.The 21st is the Century of the Sun — and that will be a complete reality in 2048."
         },
         "gesellschaft": {
-          "text": "2048 is the year in which the term 'old' takes on a new meaning.70 is the new 50. Social contracts (pension, care, work) must be completely rewritten.",
+          "text": "2048: Generational impact assessment is mandatory in 30 countries.This means that every major government decision must document how it will affect people who will live in 20-30 years.That sounds technocratic - and it is.But it has an unexpected effect: it makes consequences visible that would otherwise remain under the table.Climate costs, infrastructure debt, education spending — all with a 20-year balance sheet instead of an annual balance sheet.Inequality has not disappeared in 2048 — but in countries with generational governance, education Gini coefficients are significantly smaller than in 2025.",
           "metriken": {
             "screentime_std_tag": 12,
             "freundschaften": 5,
@@ -5827,29 +3951,29 @@ window.__FC_LIFE_YEARS__={
         "chancen": {
           "mental": "New biography models: 70 is no longer a retirement age.New questions about meaning: What do I do with 40 more active years?",
           "koerper": "Biological aging delayed by 20 years for people with protocol access.First studies with people who live to be 130.",
-          "gemeinschaft": "Digital Identity Sovereignty: Everyone has an unreliable digital presence.Basis for real digital civil rights.",
+          "gemeinschaft": "'Intergenerational justice' as a legal term in international courts: First lawsuits based on generational constitutional rights (climate protection, national debt).Whether courts have jurisdiction is controversial.The fact that the question is asked is progress.",
           "technologie": "Quantum computing in widespread use: New materials, new medicines, new energy technologies through quantum simulation."
         },
         "was_tun": {
-          "jung": "If you live to be 100-130: What do you want to do in the third third of your life (70-100)?Plan for it now.",
-          "aelter": "70 is no longer a goal.You have maybe 30-50 years left.What remains to be done?"
+          "jung": "Generational impact assessment as a civic competency: Learn to think about decisions in terms of 20-year consequences.Not just politically - also privately.Where do you live?What infrastructure will you need in 20 years?Whose institutions have the longer time horizon?",
+          "aelter": "The next generation's educational investments will determine the quality of your care in 20 years.This is the selfish-generational reason for long-term education policy.Commit to it — it’s self-interest."
         }
       }
     },
     "2049": {
       "jahr": 2049,
       "label": "Wendepunkt",
-      "ueberschrift": "Longevity unter $10 weltweit, Klima stabilisiert, Demokratie auf Höchststand seit 1990",
+      "ueberschrift": "20 Jahre nach 2029: Forstwirtschaft-Demokratie bewiesen, Ungleichheit strukturell kleiner, Modell mit Grenzen",
       "welt": {
         "usa": "USA 2049: Longevity als universelles Recht in allen Bundesstaaten. Biologisches Altern behandelbar für alle Amerik aner. Erste Generation, die davon ausgeht, 100+ zu werden.",
-        "china": "China 2049 (100. Gründungstag der Volksrepublik): Xi Jinping-Ära als historische Periode der Kontrolle eingeordnet. Das China von 2049 ist freier — und stolz darauf.",
+        "china": "China 2049 (100. Gründungstag): Bilanz. Wohlstand erreicht. Kontrolle vollständig. Kein Demokratisierungsimpuls. Aber: Wirtschaftliche Krise macht die Führung nervos. Erste interne Debatten über 'chinesischen Weg' — kein Systemwandel, aber erste Risse.",
         "alte_welt": "Europa 2049: Dem demografischen Wandel durch Longevity begegnet: Renten erst ab 75, aber Menschen sind mit 75 gesund wie heute 55. Neues Gleichgewicht.",
-        "neue_welt": "Klimawandel 2049: Globale Temperatur +1,8°C (stabilisiert durch Fusion + Erneuerbare). Keine weitere Erwärmung erwartet. Schaden bereits entstanden: Klimamigration läuft weiter, aber Kurve flacht.",
-        "crypto": "Dezentrale Identität global: 3 Mrd. Menschen mit staatsneutraler digitaler Identität. Grundrecht auf digitale Privatsphäre in 60+ Ländern.",
-        "handel": "Longevity unter $10 pro Monat (Grundprotokoll): Erste weltweite universelle Zugang zur Lebensverlangsamung."
+        "neue_welt": "Africa 2049: Ubuntu-Governance und Generationenfonds in 20 Staaten. Botswana als Modellfall: 25 Jahre Generationenfonds haben nationalen Pro-Kopf-Reichtum verdreifacht bei stabiler Demokratie. Das ist der Beweis — aber er braucht natürliche Ressourcen als Startbedingung.",
+        "crypto": "Krypto 2049: Finanzprodukt mit stabilem Markt. Kein Wandel durch Krypto — das war die Lektion der 2020er-2040er: Systeme ändern sich durch politische Koalitionen und ökonomische Strukturveränderungen, nicht durch Protokolle.",
+        "handel": "Solar + Wind + Speicher: 85 % der Weltenergie. Das ist das größte wirtschaftliche Ereignis des 21. Jahrhunderts und es passiert ohne Fusion, ohne staatliche Großprojekte — durch ökonomische Effizienz und dezentrale Investitionen."
       },
       "gesellschaft": {
-        "text": "2049 ist das Gegenbild zu 2029. Damals: Longevity nur für Reiche, Demokratie erodierend, Klima eskalierend. 2049: Longevity für alle, Demokratie auf Höchststand, Klima stabilisiert. 20 Jahre. Eine Generation.",
+        "text": "2049 ist ein natürlicher Rückblick. 20 Jahre nach dem Höhepunkt der Tech-Oligarchie-Krise: Was hat funktioniert? Solar hat Energie demokratisiert — ohne staatlichen Masterplan, durch Ökonomie. Forstwirtschaft-Demokratie hat in ressourcenstarken Gesellschaften Langfristinvestitionen stabilisiert. Ungleichheit ist nicht überwunden — aber strukturelle Chancen-Ungleichheit ist in Ländern mit generationaler Governance kleiner. Was nicht funktioniert hat: Kurzfristig-demokratische Systeme ohne institutionelle Langfristbindung. Was offen bleibt: Wie exportiert man das Modell in ressourcenschwache Gesellschaften?",
         "metriken": {
           "screentime_std_tag": 12,
           "freundschaften": 5,
@@ -5861,26 +3985,26 @@ window.__FC_LIFE_YEARS__={
       "chancen": {
         "mental": "Longevity unter $10: Kein Mensch mehr muss aus Armut früh sterben. Das ist der größte Fortschritt in der Geschichte der öffentlichen Gesundheit.",
         "koerper": "Erste Menschen mit 130 Jahren in aktiver sozialer Rolle. Neue Rollenmodelle für das Altern.",
-        "gemeinschaft": "China-Gründungstag 2049: Historische Reflexion über 100 Jahre Volksrepublik. Möglichkeit zur nationalen Versöhnung mit der Geschichte.",
+        "gemeinschaft": "Generationale Governance in 30 Ländern operative. Erste 30-Jahres-Evaluierungen beginnen. Vorläufiges Ergebnis: Länder mit starken Langfrist-Institutionen haben niedrigere politische Volatility, höhere Investitionsraten in Bildung und Energie, stabilere Sozialverträge. Kritisch: Kausalität oder Selektion? Tendenziell sind nur stabile Länder fähig, solche Institutionen aufzubauen.",
         "technologie": "Klima-Stabilisierung: Erste Generation, die sagen kann — wir haben das Schlimmste abgewendet."
       },
       "was_tun": {
-        "jung": "2049 ist eine bessere Welt. Dein Beitrag, den du in den 2020er-2040ern geleistet hast, zählt.",
-        "aelter": "Longevity unter $10 — das war dein Kampf. Genieße, was du mitgestaltet hast."
+        "jung": "Rückblick 2029-2049: Was hat deine Generation richtig gemacht? Solar-Infrastruktur aufgebaut. Neue Demokratiemodelle erprobt. Klimakurve stabilisiert. Was hat nicht geklappt? Ungleichheit bleibt. Was bleibt zu tun? Skalierung auf ressourcenschwache Länder.",
+        "aelter": "30 Jahre Langfristinvestition zeigen Wirkung: Deine Generation hat Institutionen unterstützt, die jetzt liefern. Das ist das Forstwirtschaft-Versprechen erfüllt — langsam, ohne Schlagzeile, aber real."
       },
       "en": {
         "label": "Turning Point",
-        "ueberschrift": "Longevity below $10 worldwide, climate stabilized, democracy at its highest since 1990",
+        "ueberschrift": "20 years after 2029: Forestry democracy proven, inequality structurally smaller, model with limits",
         "welt": {
           "usa": "USA 2049: Longevity as a universal right in all states.Biological aging is treatable for all Americans.First generation that expects to live to be 100+.",
-          "china": "China 2049 (100th founding anniversary of the People's Republic): Xi Jinping era classified as a historical period of control.The China of 2049 is freer — and proud of it.",
+          "china": "China 2049 (100th founding day): Balance sheet.Prosperity achieved.Complete control.No impulse to democratize.But: Economic crisis makes the leadership nervous.First internal debates about the 'Chinese way' - no system change, but first cracks.",
           "alte_welt": "Europe 2049: Countering demographic change through longevity: pensions only from age 75, but people are as healthy at 75 as they are today at 55. New balance.",
-          "neue_welt": "Climate change 2049: Global temperature +1.8°C (stabilized by fusion + renewables).No further warming expected.Damage has already been done: climate migration continues, but the curve is flattening.",
-          "crypto": "Decentralized identity globally: 3 billion people with state-neutral digital identities.Fundamental right to digital privacy in 60+ countries.",
-          "handel": "Longevity under $10 per month (Basic Protocol): First global universal access to life slowing."
+          "neue_welt": "Africa 2049: Ubuntu governance and generational funds in 20 states.Botswana as a model case: 25 years of generation funds have tripled national per capita wealth with a stable democracy.This is the proof — but it needs natural resources as a starting condition.",
+          "crypto": "Crypto 2049: Financial product with a stable market.No change through crypto — that was the lesson of the 2020s-2040s: systems change through political coalitions and economic structural changes, not through protocols.",
+          "handel": "Solar + Wind + Storage: 85% of the world's energy.This is the biggest economic event of the 21st century and it happens without mergers, without large-scale government projects — through economic efficiency and decentralized investments."
         },
         "gesellschaft": {
-          "text": "2049 is the antithesis of 2029. Back then: longevity only for the rich, democracy eroding, climate escalating.2049: Longevity for all, democracy at its highest level, climate stabilized.20 years.A generation.",
+          "text": "2049 is a natural throwback.20 years after the peak of the tech oligarchy crisis: What worked?Solar has democratized energy — without a government master plan, through economics.Forestry democracy has stabilized long-term investments in resource-rich societies.Inequality has not been overcome — but structural inequality of opportunity is smaller in countries with generational governance.What didn't work: Short-term democratic systems without long-term institutional commitment.What remains open: How do you export the model to resource-poor societies?",
           "metriken": {
             "screentime_std_tag": 12,
             "freundschaften": 5,
@@ -5892,29 +4016,29 @@ window.__FC_LIFE_YEARS__={
         "chancen": {
           "mental": "Longevity under $10: No one has to die early due to poverty anymore.This is the greatest advance in the history of public health.",
           "koerper": "First people at 130 in an active social role.New role models for aging.",
-          "gemeinschaft": "China Founding Day 2049: Historical reflection on 100 years of the People's Republic.Opportunity for national reconciliation with history.",
+          "gemeinschaft": "Generational governance operational in 30 countries.First 30-year evaluations begin.Preliminary result: Countries with strong long-term institutions have lower political volatility, higher investment rates in education and energy, and more stable social contracts.Critical: causality or selection?Only stable countries tend to be able to build such institutions.",
           "technologie": "Climate Stabilization: First generation that can say — we have averted the worst."
         },
         "was_tun": {
-          "jung": "2049 is a better world.The contribution you made in the 2020s-2040s matters.",
-          "aelter": "Longevity under $10 — that was your fight.Enjoy what you helped create."
+          "jung": "Review 2029-2049: What did your generation do right?Solar infrastructure built.New models of democracy tested.Climate curve stabilized.What didn't work?Inequality remains.What remains to be done?Scaling to resource-poor countries.",
+          "aelter": "30 years of long-term investment are having an impact: your generation has supported institutions that are now delivering.This is the forestry promise fulfilled — slowly, without headlines, but for real."
         }
       }
     },
     "2050": {
       "jahr": 2050,
       "label": "Neue Ordnung",
-      "ueberschrift": "Longevity universell, Demokratie erholt, Klima stabilisiert — die Menschheit hat überlebt",
+      "ueberschrift": "Soziale Marktwirtschaft 2.0 operativ, Ungleichheit reduziert nicht überwunden, Staat als Generationentreuhänder",
       "welt": {
         "usa": "USA 2050: Institutionell stabil, demokratisch erneuert. Thiel-Ära wird als 'große Unterbrechung' historisch eingeordnet. Neue Tech-Regulierung verhindert Plattform-Monopole auf Informationsinfrastruktur.",
-        "china": "China 2050: Erste Mehrparteienwahlen auf Provinzebene. Keine westliche Demokratie — aber kein Totalitarismus mehr. 'Chinesische Demokratie' als eigenes Modell entsteht: partizipativ, konsensual, konfuzianisch.",
-        "alte_welt": "Europa 2050: Demographisch stabil, wirtschaftlich erneuert durch Fusion-Energie, politisch geeint in einem kleineren aber freieren EU-Kern. Das europäische Modell lebt.",
-        "neue_welt": "Afrikas BIP 2050: Größer als Europa. Lagos, Nairobi, Johannesburg als globale Zentren. Afrikanische Union mit eigenem Sicherheitsrat und Weltbank-Equivalent. Das 21. Jahrhundert ist Afrikas Jahrhundert.",
-        "crypto": "Dezentrale Finanzinfrastruktur global: Kein Staat kontrolliert allein das Geld seiner Bürger. Finanzielle Freiheit als Menschenrecht anerkannt.",
-        "handel": "Longevity universell: 90 % der Menschheit haben Zugang zu Grundprotokollen. Durchschnittliche globale Lebenserwartung: 90 Jahre."
+        "china": "China 2050: Wirtschaftliche Krise (demographisches Loch, Immobilien-Nachwehen, Mittelklasse-Frustration) erzeugt erste politische Lockerungen in Randbereichen. Kein Demokratisierungsprozess — aber erste Zeichen, dass das System nicht statisch ist. Taiwan/Hongkong-Muster: lokale Pilotprojekte möglich.",
+        "alte_welt": "Europa 2050: 'Generationale Soziale Marktwirtschaft' in EU-Vertrag verankert. Staatliche Kerninvestitionen (Bildung, Energie, Infrastruktur, Gesundheit) werden über 20-Jahres-Fonds finanziert, nicht über Jahresbudgets. Das entkoppelt Kerninfrastruktur von Wahlzyklus-Logik.",
+        "neue_welt": "Global: Länder mit Generationals Governance-Modellen haben 2050 im Schnitt niedrigere Kindersterblichkeit, höhere Alphabetisierungsraten, stabilere Demokratie-Indizes als Länder ohne. Kein Zufall. Institutionelles Design produziert Ergebnisse.",
+        "crypto": "Krypto 2050: Institutionell normalisiertes Finanzprodukt. Die Dezentralisierungs-Revolution hat das Energiesystem verändert (Solar), nicht das Geldsystem. Krypto ist 2050 das, was es immer war: Spekulation mit tech-ideologischem Mantel.",
+        "handel": "Solar + Wind: 90 % der Weltenergie. Das Fossil-Zeitalter ist 2050 historisch. Afrika ist größter Energieexporteur der Welt — Sonnen- und Windkraft statt Öl. Geopolitik folgt der Energie."
       },
       "gesellschaft": {
-        "text": "2050 ist keine Utopie. Es gibt noch Armut, noch Konflikte, noch Ungleichheit. Aber: Mehr Menschen leben länger, freier, gesunder als je zuvor in der Geschichte. Pragmatischer Optimismus war berechtigt.",
+        "text": "2050 ist keine Utopie. Es ist eine Welt, die gelernt hat, langfristiger zu denken — weil es sich rentiert. Die 'Soziale Marktwirtschaft 2.0' ist nicht ideologisch, sondern pragmatisch: Staatliche Investitionen in Bildung, Energie und Gesundheit mit Generationenhorizont produzieren messbar bessere Ergebnisse als kurzfristig-politische Jahresbudgets. Der Staat als 'Generationale Treuhänder' — nicht als Planer, nicht als Umverteiler, sondern als Garanten von Chancen, die über Zyklen stabil bleiben. Ungleichheit ist 2050 nicht überwunden. Aber die Räume, in denen sie nicht determinierend wirkt (Bildung, Gesundheit, Energie), sind großer geworden.",
         "metriken": {
           "screentime_std_tag": 12,
           "freundschaften": 5,
@@ -5926,26 +4050,26 @@ window.__FC_LIFE_YEARS__={
       "chancen": {
         "mental": "2050 ist das Jahr, in dem die Menschheit das erste Mal sagen kann: Wir haben die schlimmsten Prophezeiungen abgewendet. Kollektive Hoffnung als globale mentale Ressource.",
         "koerper": "Durchschnittliche globale Lebenserwartung 90 Jahre. Biologisches Altern ist behandelbar. Krebs und Demenz als seltene Erkrankungen.",
-        "gemeinschaft": "Afrikas Jahrhundertaufstieg: Globale Machtverschiebung ohne globalen Krieg — beweist, dass Wandel ohne Zerstörung möglich ist.",
+        "gemeinschaft": "Staat als Chancen-Stifter: Die neue Rolle des Staates ist nicht Umverteilung von Einkommen, sondern Garantie von Startchancen. Bildung, Gesundheit, Energie — als universelle Grundlage, auf der jeder Markt aufbauen kann. Das ist nicht Sozialismus. Es ist die Precondition für funktionierenden Markt.",
         "technologie": "Fusion 30 % der Weltenergie, Solar 40 %, Rest regenerativ: Klima-Kurve flacht ab. Das Schlimmste ist abgewendet."
       },
       "was_tun": {
-        "jung": "Du lebst 2050 vielleicht 25-35 und hast 60-80 Jahre vor dir. Das ist eine andere Welt als deine Grosseltern kannten. Nutze sie.",
-        "aelter": "2050: Du bist vielleicht 80-90 und lebst noch aktiv. Das Wissen, das du trägst — über das 20. und 21. Jahrhundert, über Transformation — ist einmalig."
+        "jung": "2050: Du bist in deinen 50ern und hast miterlebt, wie Langfristinstitutionen Ergebnisse produzieren. Die Frage ist: Wie tragt man dieses Modell in die nächste Phase? Wie skaliert man es auf Länder ohne starke Startbedingungen?",
+        "aelter": "Die Institutionen, für die du vor 30 Jahren kämpftest, liefern jetzt. Das ist das Forstwirtschaft-Versprechen: Du siehst den Wald, den du gepflanzt hast."
       },
       "en": {
         "label": "New Order",
-        "ueberschrift": "Longevity universal, democracy recovered, climate stabilized - humanity has survived",
+        "ueberschrift": "Social market economy 2.0 operational, inequality reduced not overcome, state as generational trustee",
         "welt": {
           "usa": "USA 2050: Institutionally stable, democratically renewed.Thiel era is historically classified as a 'big break'.New tech regulation prevents platform monopolies on information infrastructure.",
-          "china": "China 2050: First multi-party provincial elections.No western democracy — but no more totalitarianism.'Chinese democracy' emerges as its own model: participatory, consensual, Confucian.",
-          "alte_welt": "Europe 2050: Demographically stable, economically renewed through fusion energy, politically united in a smaller but freer EU core.The European model is alive.",
-          "neue_welt": "Africa's GDP 2050: Larger than Europe.Lagos, Nairobi, Johannesburg as global centers.African Union with its own Security Council and World Bank equivalent.The 21st century is Africa's century.",
-          "crypto": "Decentralized financial infrastructure globally: No state alone controls its citizens' money.Financial freedom recognized as a human right.",
-          "handel": "Longevity universal: 90% of humanity has access to basic protocols.Average global life expectancy: 90 years."
+          "china": "China 2050: Economic crisis (demographic hole, real estate aftermath, middle class frustration) creates the first political easing in peripheral areas.No democratization process - but the first signs that the system is not static.Taiwan/Hong Kong pattern: local pilot projects possible.",
+          "alte_welt": "Europe 2050: 'Generational Social Market Economy' anchored in the EU Treaty.Core state investments (education, energy, infrastructure, health) are financed via 20-year funds, not annual budgets.This decouples core infrastructure from election cycle logic.",
+          "neue_welt": "Global: Countries with generational governance models will have, on average, lower child mortality, higher literacy rates and more stable democracy indices in 2050 than countries without.Not a coincidence.Institutional design produces results.",
+          "crypto": "Crypto 2050: Institutionally normalized financial product.The decentralization revolution changed the energy system (solar), not the monetary system.In 2050, crypto will be what it always was: speculation with a tech-ideological cloak.",
+          "handel": "Solar + Wind: 90% of the world's energy.The fossil age will be historic in 2050.Africa is the world's largest energy exporter - solar and wind power instead of oil.Geopolitics follows energy."
         },
         "gesellschaft": {
-          "text": "2050 is not a utopia.There is still poverty, still conflict, still inequality.But: More people are living longer, freer and healthier than ever before in history.Pragmatic optimism was justified.",
+          "text": "2050 is not a utopia.It is a world that has learned to think more long-term — because it pays off.The 'Social Market Economy 2.0' is not ideological, but pragmatic: State investments in education, energy and health with a generational horizon produce measurably better results than short-term political annual budgets.The state as 'generational trustee' - not as a planner, not as a redistributor, but as a guarantor of opportunities that remain stable over cycles.Inequality will not be overcome in 2050.But the areas in which it does not have a determining effect (education, health, energy) have become larger.",
           "metriken": {
             "screentime_std_tag": 12,
             "freundschaften": 5,
@@ -5957,29 +4081,29 @@ window.__FC_LIFE_YEARS__={
         "chancen": {
           "mental": "2050 is the year in which humanity can say for the first time: We have averted the worst prophecies.Collective hope as a global mental resource.",
           "koerper": "Average global life expectancy 90 years.Biological aging is treatable.Cancer and dementia as rare diseases.",
-          "gemeinschaft": "Africa's rise of the century: global power shift without global war - proves that change is possible without destruction.",
+          "gemeinschaft": "State as a creator of opportunities: The new role of the state is not to redistribute income, but to guarantee start-up opportunities.Education, health, energy — as a universal foundation on which any market can build.This is not socialism.It is the precondition for a functioning market.",
           "technologie": "Fusion 30% of the world's energy, solar 40%, the rest renewable: the climate curve is flattening.The worst has been averted."
         },
         "was_tun": {
-          "jung": "You might live 25-35 years in 2050 and have 60-80 years ahead of you.This is a different world than your grandparents knew.Use them.",
-          "aelter": "2050: You may be 80-90 and still active.The knowledge you carry — about the 20th and 21st centuries, about transformation — is unique."
+          "jung": "2050: You are in your 50s and have seen how long-term institutions produce results.The question is: How do you carry this model into the next phase?How do you scale it to countries without strong starting conditions?",
+          "aelter": "The institutions you fought for 30 years ago are now delivering.That's the forestry promise: You see the forest you planted."
         }
       }
     },
     "2055": {
       "jahr": 2055,
       "label": "Neue Ordnung",
-      "ueberschrift": "Permanente Marssiedlung, biologisches Alter 80 = physiologisches 50, Welt stabil und offen",
+      "ueberschrift": "Langfristpläne im ersten echten Stresstest, China-Öffnung durch Ökonomie, Rat der Weisen vor Elite-Problem",
       "welt": {
         "usa": "USA 2055: Stabile Demokratie. Tech-Konzerne als regulierte Infrastrukturversorger — wie Wasser, Strom. Keine Einzelperson kontrolliert Information. Thiel-Ära: historische Fußnote.",
-        "china": "China 2055: Vollständige Pressefreiheit auf Provinzebene. Nationale Mehrparteienwahlen 2060 angekündigt. Chinas demokratischer Weg — langsam, eigenständig, real.",
-        "alte_welt": "Europa 2055: Renaissance. Junge Demokratien (ehemalige Visegrad-Staaten nun vollständig demokratisch). Europäische Kultur erneut Kraft.",
+        "china": "China 2055: Wirtschaftliche Stagnation und demographisches Loch zwingen die Führung zur Wahl: Reformen oder Instabilität. Erste echte lokale Wahlen in Pilotstädten — kein nationales Wahlrecht. Das Taiwan/Singapur-Modell als intern diskutierter Weg. Keine Gewähr, aber erste strukturelle Öffnung.",
+        "alte_welt": "Europa-Rat der Weisen 2055 vor erster Legitimationskrise: Interne Analyse zeigt, dass die Mitglieder trotz Losverfaren übermäßig aus akademischen und unternehmerischen Eliten stammen. Reaktion: Quotenregelung für 'Lebenserfahrung ohne Akademieabschluss'. Ob das das Problem löst, ist 2055 offen.",
         "neue_welt": "Permanente Marssiedlung mit 500 Menschen. Erste Mars-geboren Menschen. Menschheit ist multiplanetare Spezies.",
-        "crypto": "Interplanetar Krypto: Transaktionen zwischen Erde und Mars via Bitcoin. Dezentralisierung war zukunftssicherer als jedes staatliche System.",
-        "handel": "Biologisches Alter 80 = physiologisches Alter 50 für Menschen mit Protokoll (40-jährige Behandlung). Durchschnittliche Lebenserwartung in OECD: 110 Jahre."
+        "crypto": "Krypto 2055: Mars-Transaktionen via Bitcoin/Ethereum wegen Lichtverzug — eine genuine Anwendung. Auf der Erde: normales Finanzprodukt ohne systemische Bedeutung.",
+        "handel": "Solar + Wind + Speicher: 95 % der Weltenergie. Fusion möglicherweise als Supplement in 10-15 Jahren — aber nicht nötig. Die Energiewende ist 2055 vollzogen — durch Ökonomie, nicht durch Technologie-Wunder."
       },
       "gesellschaft": {
-        "text": "2055 ist Mitten. Nicht Anfang, nicht Ende. Die Menschheit hat die Krise von 2027-2037 verdaut, demokratische Werte erneuert, Longevity demokratisiert. Jetzt könnte es weitergehen — mit Neugierde statt Angst.",
+        "text": "2055: Forstwirtschaft-Institutionen stehen vor ihrem ersten großen Test. Die Klimaveränderungen haben einige 30-Jahres-Pläne von 2025 obsolet gemacht. Wer darf einen Langfristplan ändern, der demokratisch beschlossen wurde? Diese Frage ist nicht akademisch: Wenn Solarparks im Sahel durch neue Niederschlagsmuster ineffizient werden, müssen Investitionspläne angepasst werden. Die 'demokratische Override-Institutionen' (erschwerete Mehrheiten + Generationenfolgenabschätzung) werden zum ersten Mal in der Praxis getestet. Ergebnis: Sie funktionieren langsam, aber stabiler als reine Politikwechsel.",
         "metriken": {
           "screentime_std_tag": 11,
           "freundschaften": 5.5,
@@ -5991,26 +4115,26 @@ window.__FC_LIFE_YEARS__={
       "chancen": {
         "mental": "Erste Mars-geborene Menschen: Eine Generation ohne Erdgeschichte als direkte Erfahrung. Was verändert das am menschlichen Selbstverständnis?",
         "koerper": "Durchschnittliche Lebenserwartung 110 Jahre in OECD. Biologisches Altern als behandelbare Krankheit global.",
-        "gemeinschaft": "Multiplanetare Menschheit: Erste echte globale Identität jenseits von Nation — wir sind Erdbewohner, nicht nur Deutsche oder Chinesen.",
+        "gemeinschaft": "Generative Institutionen als Konzept: Institutionen, die nicht nur verwalten, sondern aktiv erzeugen — Bildung, Sozialkapital, ökologische Kapazität. Nicht Umverteiler, sondern Aufbauer. Das ist die institutionelle Philosophie, die 2055 in 25 Ländern erprobt wird.",
         "technologie": "Quanteninternet global: Abhorsêchere Kommunikation weltweit. Privatssphäre als technisches Faktum."
       },
       "was_tun": {
-        "jung": "2055: Du bist vielleicht 55-65 und biologisch so fit wie mit 40. Was willst du in den nächsten 50 Jahren tun?",
-        "aelter": "Du bist vielleicht 80-95 und lebst noch aktiv. Die Geschichte, die du trägst, ist einmalig."
+        "jung": "Langfristpläne scheitern manchmal. Das ist kein Beweis gegen Langfristplanung — es ist Beweis dafür, dass Systeme lernfähig sein müssen. Engagiere dich in institutionellen Reformprozessen, wenn Pläne angepasst werden müssen.",
+        "aelter": "Wenn du in einem Land mit Generationalen Institutionen lebst: Die Steuern, die du gezahlt hast, sind in Infrastruktur geflossen, die jetzt wirkt. Das ist die stille Rentabilität von Langfristsystemen."
       },
       "en": {
         "label": "New Order",
-        "ueberschrift": "Permanent Mars settlement, biological age 80 = physiological 50, world stable and open",
+        "ueberschrift": "Long-term plans in the first real stress test, China opening up through economics, Council of Wise Men facing elite problem",
         "welt": {
           "usa": "USA 2055: Stable Democracy.Tech companies as regulated infrastructure supplies – such as water, electricity.No individual controls information.Thiel era: historical footnote.",
-          "china": "China 2055: Complete press freedom at the provincial level.National multi-party elections announced in 2060.China's democratic path - slow, independent, real.",
-          "alte_welt": "Europe 2055: Renaissance.Young democracies (former Visegrad states now fully democratic).European culture regains its strength.",
+          "china": "China 2055: Economic stagnation and demographic gap force the leadership to choose: reform or instability.First real local elections in pilot cities — no national voting rights.The Taiwan/Singapore model as an internally discussed path.No guarantee, but first structural opening.",
+          "alte_welt": "European Council of Wise Men 2055 faces first legitimacy crisis: Internal analysis shows that, despite lottery procedures, the members come predominantly from academic and entrepreneurial elites.Reaction: Quota regulation for 'life experience without a university degree'.Whether this solves the problem remains to be seen in 2055.",
           "neue_welt": "Permanent Mars settlement with 500 people.First Mars-born humans.Humanity is a multiplanetary species.",
-          "crypto": "Interplanetary Crypto: Transactions between Earth and Mars via Bitcoin.Decentralization was more future-proof than any state system.",
-          "handel": "Biological age 80 = physiological age 50 for people with protocol (40 years of treatment).Average life expectancy in OECD: 110 years."
+          "crypto": "Crypto 2055: Mars transactions via Bitcoin/Ethereum due to light delay — a genuine application.On Earth: normal financial product with no systemic significance.",
+          "handel": "Solar + Wind + Storage: 95% of the world's energy.Fusion possibly as a supplement in 10-15 years — but not necessary.The energy transition will be completed in 2055 - through economics, not through technological miracles."
         },
         "gesellschaft": {
-          "text": "2055 is Mitten.Not a beginning, not an end.Humanity has digested the crisis of 2027-2037, renewed democratic values, and democratized longevity.Now things could continue - with curiosity instead of fear.",
+          "text": "2055: Forestry institutions face their first major test.Climate changes have made some 30-year plans from 2025 obsolete.Who can change a long-term plan that was decided democratically?This question is not academic: if new rainfall patterns make solar farms in the Sahel inefficient, investment plans will need to be adjusted.The 'democratic override institutions' (difficult majorities + generational impact assessment) are being tested in practice for the first time.Result: They work slowly but more stable than pure policy changes.",
           "metriken": {
             "screentime_std_tag": 11,
             "freundschaften": 5.5,
@@ -6022,29 +4146,29 @@ window.__FC_LIFE_YEARS__={
         "chancen": {
           "mental": "First Mars-Born People: A Generation Without Earth History as Direct Experience.What does this change about human self-image?",
           "koerper": "Average life expectancy 110 years in OECD.Biological aging as a treatable disease globally.",
-          "gemeinschaft": "Multiplanetary humanity: First real global identity beyond nationhood - we are earthlings, not just Germans or Chinese.",
+          "gemeinschaft": "Generative institutions as a concept: institutions that not only manage but also actively generate — education, social capital, ecological capacity.Not redistributors, but builders.This is the institutional philosophy that will be tested in 25 countries in 2055.",
           "technologie": "Quantum internet global: Abhorsêchere communication worldwide.Privacy as a technical fact."
         },
         "was_tun": {
-          "jung": "2055: You are perhaps 55-65 and biologically as fit as you were when you were 40. What do you want to do in the next 50 years?",
-          "aelter": "You may be 80-95 and still living an active life.The story you carry is unique."
+          "jung": "Long-term plans sometimes fail.This is not evidence against long-term planning — it is evidence that systems must be capable of learning.Engage in institutional reform processes when plans need to be adjusted.",
+          "aelter": "If you live in a country with generational institutions: the taxes you paid went into infrastructure that is now working.This is the hidden profitability of long-term systems."
         }
       }
     },
     "2060": {
       "jahr": 2060,
       "label": "Neue Ordnung",
-      "ueberschrift": "Menschheit über 100 Jahre durchschnittlich, Demokratie auf Höchststand seit 100 Jahren, Klima gemanagt",
+      "ueberschrift": "Generationale Demokratie als Weltstandard — hochgradig umkämpft, Wer-ist-Weise-Frage unbeantwortet",
       "welt": {
         "usa": "USA 2060: Demokratisch stabil. Longevity universell. Gesellschaft altert biologisch langsamer, ist aber demographisch diverser als je. Erste Präsidentschaftskandidaten, die 2000 oder später geboren wurden.",
-        "china": "China 2060: Erste nationale Mehrparteienwahlen. Keine westliche Demokratie. Aber: Chinesen wählen. 1,4 Mrd. Menschen mit Stimmrecht. Historisch.",
-        "alte_welt": "Europa 2060: Zweite Aufklärung. Demokratische Werte durch direkte Erfahrung mit Verlust und Wiedergewinn tiefer verwurzelt als je.",
+        "china": "China 2060: Wirtschaftsdruck hat erste echte politische Lockerungen erzwungen — nicht weil Werte sich änderten, sondern weil eine stagnierende Wirtschaft ohne kreative Mittelklasse nicht konkurrenzfähig bleibt. Erste provinzielle Mehrparteienwahlen als Pilotmodell. Kein westliches System — aber erste echte Risse im Einparteienmodell.",
+        "alte_welt": "Europa 2060: Zwei Jahrzehnte generationale Governance zeigen statistisch: EU-Länder mit aktiven Generationenfonds haben 20 % höhere Bildungsausgaben, 15 % niedrigere politische Volatility und 10 % niedrigere Infrastrukturschulden. Forstwirtschaft liefert.",
         "neue_welt": "Afrika 2060: Größte Volkswirtschaft der Welt (nominal). Lagos ist die größte Stadt der Erde. Das Afrikanische Jahrhundert ist Realität.",
-        "crypto": "Geld 2060: Dezentrale Krypto, staatliche CBDCs und freie Währungen koexistieren. Kein System dominiert. Pluralismus im Geldsystem als Freiheitsgarantie.",
-        "handel": "Durchschnittliche globale Lebenserwartung: 100 Jahre. Erste Generation, die davon ausgeht, 100 zu werden, als Normalfall."
+        "crypto": "Krypto 2060: Geldpluralismus ist Realität — CBDCs, Bitcoin, regionale Währungen koexistieren. Kein System hat 'gewonnen'. Das ist ein stabiles Gleichgewicht, nicht eine Revolution.",
+        "handel": "Solar-Ära vollzogen. Afrika ist größter Energieexporteur. Das 21. Jahrhundert ist das Jahrhundert der Sonne. Fusion möglicherweise als Supplement ab 2065-2070 — aber die Welt braucht es nicht mehr zwingend. Solar hat gereicht."
       },
       "gesellschaft": {
-        "text": "2060 — 100 Jahre nach 1960, dem Jahr, das dieses Projekt begann. Von OPEC und Mauerball zur multiplanetaren Menschheit mit universeller Longevity. Der Weg war nicht linear. Er war manchmal brutal. Aber die Richtung war richtig.",
+        "text": "2060: Generationale Governance ist weltweiter Standard in Varianten — keine zwei Länder haben dasselbe Modell. Das ist die richtige Antwort: Es gibt kein perfektes Design, nur besser-angepasste Designs für jeweilige Gesellschaften. Die Kernspannung bleibt unaufgelöst: Wer darf in einem 'Rat der Weisen' sitzen? Wer bestimmt, was weise ist? 2060 gibt es drei Schulen: Die Sortition-Schule (nur Losverfahren ist legitim), die Expertise-Schule (nur Wissen qualifiziert) und die Reputation-Schule (gesellschaftliche Anerkennung zählt). Alle drei haben Fehler. Die Wahrheit liegt im institutionellen Design-Mix.",
         "metriken": {
           "screentime_std_tag": 10,
           "freundschaften": 6,
@@ -6056,26 +4180,26 @@ window.__FC_LIFE_YEARS__={
       "chancen": {
         "mental": "Gesellschaften, die Trauma, Wandel und Erholung erlebt haben, sind resilienter. Die Generationen nach 2060 tragen dieses kollektive Immunsystem.",
         "koerper": "Durchschnittlich 100 Jahre weltweit. Krebs und Demenz selten. Biologisches Altern behandelbar.",
-        "gemeinschaft": "China wählt: 1,4 Mrd. neue Wählerinnen. Demokratie ist globaler Standard.",
-        "technologie": "Vollständig autonome saubere Energie. Klima stabilisiert. Die Erde erholt sich."
+        "gemeinschaft": "Forstwirtschaft-Demokratie hat bewiesen: Gesellschaften, die langfristig investieren, produzieren messbar bessere Outcomes für Bildung, Infrastruktur, Sozialstabilität. Aber: Sie produzieren keine Gleichheit. Sie produzieren stabilere Ungleichheit mit breiteren Grundchancen.",
+        "technologie": "KI-gestützte Generationenfolgenabschätzung in Echtzeit: Jede staatliche Entscheidung wird automatisch auf 20-Jahres-Folgen simuliert. Nicht Entscheider — Informierer. Das macht Konsequenzen sichtbar, die Politiker sonst ignorieren."
       },
       "was_tun": {
-        "jung": "Wenn du 2060 jung bist (20-40): Du erbst eine bessere Welt als deine Großeltern bekamen. Was machst du daraus?",
-        "aelter": "Wenn du 2060 alt bist (80-110): Du hast die ganze Geschichte erlebt. Weise deine Weisheit."
+        "jung": "Wer ist weise? Diese Frage wird deine Generation beantworten müssen — für die Institutionen, die über dein Leben entscheiden. Keine einfache Antwort. Aber die Frage nicht zu stellen ist teurer.",
+        "aelter": "Du hast die gesamte Evolutions der modernen Demokratie beobachtet. Was würde ein wirklich weiser Rat 2060 entscheiden? Schreibe es auf."
       },
       "en": {
         "label": "New Order",
-        "ueberschrift": "Humanity averaged over 100 years, democracy at its highest level for 100 years, climate managed",
+        "ueberschrift": "Generational democracy as the world standard - highly contested, who is wise question unanswered",
         "welt": {
           "usa": "USA 2060: Democratically stable.Longevity universal.Society ages biologically more slowly, but is more demographically diverse than ever.First presidential candidates born in 2000 or later.",
-          "china": "China 2060: First national multi-party elections.Not a western democracy.But: Chinese people vote.1.4 billion people with voting rights.Historical.",
-          "alte_welt": "Europe 2060: Second Enlightenment.Democratic values ​​are more deeply rooted than ever through direct experience of loss and recovery.",
+          "china": "China 2060: Economic pressures have forced the first real political easing - not because values ​​have changed, but because a stagnating economy without a creative middle class cannot remain competitive.First provincial multi-party elections as a pilot model.Not a Western system - but the first real cracks in the one-party model.",
+          "alte_welt": "Europe 2060: Two decades of generational governance show statistically: EU countries with active generational funds have 20% higher education spending, 15% lower political volatility and 10% lower infrastructure debt.Forestry supplies.",
           "neue_welt": "Africa 2060: Largest economy in the world (nominal).Lagos is the largest city in the world.The African Century is a reality.",
-          "crypto": "Money 2060: Decentralized crypto, state CBDCs and free currencies coexist.No system dominates.Pluralism in the monetary system as a guarantee of freedom.",
-          "handel": "Average global life expectancy: 100 years.First generation that expects to live to 100 as the norm."
+          "crypto": "Crypto 2060: Monetary pluralism is a reality — CBDCs, Bitcoin, regional currencies coexist.No system 'won'.This is a stable equilibrium, not a revolution.",
+          "handel": "Solar era completed.Africa is the largest energy exporter.The 21st century is the century of the sun.Fusion possibly as a supplement from 2065-2070 — but the world no longer necessarily needs it.Solar was enough."
         },
         "gesellschaft": {
-          "text": "2060 — 100 years after 1960, the year this project began.From OPEC and wall ball to multiplanetary humanity with universal longevity.The path was not linear.He was sometimes brutal.But the direction was right.",
+          "text": "2060: Generational governance is the global standard in variations - no two countries have the same model.This is the correct answer: There is no perfect design, only better-adapted designs for respective societies.The core tension remains unresolved: Who gets to sit on a 'Council of Wise Men'?Who determines what is wise?In 2060 there are three schools: The Sortition School (only drawing lots is legitimate), the Expertise School (only knowledge qualifies) and the Reputation School (social recognition counts).All three have flaws.The truth lies in the institutional design mix.",
           "metriken": {
             "screentime_std_tag": 10,
             "freundschaften": 6,
@@ -6087,29 +4211,29 @@ window.__FC_LIFE_YEARS__={
         "chancen": {
           "mental": "Societies that have experienced trauma, change and recovery are more resilient.The generations after 2060 will carry this collective immune system.",
           "koerper": "On average 100 years worldwide.Cancer and dementia rare.Biological aging can be treated.",
-          "gemeinschaft": "China votes: 1.4 billion new women voters.Democracy is the global standard.",
-          "technologie": "Completely autonomous clean energy.Climate stabilized.The earth is recovering."
+          "gemeinschaft": "Forestry democracy has proven that societies that invest in the long term produce measurably better outcomes for education, infrastructure and social stability.But: They do not produce equality.They produce more stable inequality with broader basic opportunities.",
+          "technologie": "AI-supported generational impact assessment in real time: Every government decision is automatically simulated with 20-year consequences.Not decision makers – informants.This makes consequences visible that politicians would otherwise ignore."
         },
         "was_tun": {
-          "jung": "If you are young in 2060 (20-40): You will inherit a better world than your grandparents received.What do you make of it?",
-          "aelter": "If you are 2060 old (80-110): You have experienced the whole story.Show your wisdom."
+          "jung": "Who is wise?This is a question your generation will have to answer — for the institutions that decide your life.Not an easy answer.But not asking the question is more expensive.",
+          "aelter": "You have observed the entire evolution of modern democracy.What would a truly wise council decide in 2060?Write it down."
         }
       }
     },
     "2065": {
       "jahr": 2065,
       "label": "Neue Ordnung",
-      "ueberschrift": "Erste Menschen mit 130 Jahren, Mars-Gesellschaft gegründet, Welt in zweiter Aufklärung",
+      "ueberschrift": "Taiwan/Südkorea-Transitionspfad für China, Räte der Weisen im Elitekritik-Test, zweite Aufklärung real",
       "welt": {
         "usa": "USA 2065: Vollständig demokratisch, institutionell robust. Die Oligarchie-Ära ist Geschichte. Thiel-Vance-Trump: historische Fußnote zwischen Nixon und McCarthy in Demokratie-Krisenbüchern.",
-        "china": "China 2065: Vollständig partizipatorisch, nicht westlich-demokratisch, aber offen, pluralistisch, kreativ. Chinas Modell zieht andere Länder an — anders als der Westen, aber vergleichbar in Freiheit.",
-        "alte_welt": "Europa 2065: Zweite Aufklärung ist Realität. Humanismus, Wissenschaft, Freiheit als lebendige Werte — gestärkt durch die Erfahrung, sie verloren zu haben.",
+        "china": "China 2065: Wirtschaftliche Öffnung hat politischen Druck erzeugt. Das Modell nähert sich dem Taiwan/Südkorea-Transitionspfad: von verwaltetem Wohlstand zu pragmatischer Demokratisierung — keine westliche Demokratie, aber pluralistischer als je. Die Führung hat keine Werte gewechselt — sie reagiert auf ökonomische Notwendigkeiten und eine Mittelklasse, die mehr verlangt.",
+        "alte_welt": "Europa 2065: Institutionelle Differenzierung abgeschlossen. Nord-West-Europa: Generationale Governance etabliert. Süden: nachgezogen. Osteuropa: teilweise integriert. Das Ergebnis ist nicht Uniformität — jedes Land hat sein Modell. Aber alle teilen die Grundprinzipien: Langfristbindung + demokratische Kontrolle + Generationenrechte.",
         "neue_welt": "Mars: Erste autonome Mars-Stadt (5.000 Bewohner), demokratisch selbstverwaltet. Erster Mars-Präsident gewählt. Menschheit schreibt neue Verfassungen für neue Welten.",
-        "crypto": "Interplanetares Finanzsystem: Dezentrale Krypto-Protokolle verbinden Erde und Mars. Staatliche Kontrolle über Finanzsysteme ist 2065 auf beiden Planeten begrenzt.",
-        "handel": "Erste Menschen, die 130 Jahre alt werden — als Normalfall, nicht als Sensation. Biologisches Altern ist behandelbar wie Diabetes."
+        "crypto": "Krypto 2065: Normales Asset in diversifizierten Portfolios. Keine transformative gesellschaftliche Funktion. Die Dezentralisierungsrevolution kam durch Solar-Energie, nicht durch Krypto.",
+        "handel": "Fusion möglicherweise ab 2065-2070 als Supplement zu Solar/Wind. Aber: Solar hat das Energieproblem bereits gelöst. Fusion wäre ein Bonus, kein Retter."
       },
       "gesellschaft": {
-        "text": "2065: Die Menschheit ist weiser. Nicht perfekter. Aber weiser. Die Krisen des 21. Jahrhunderts haben gelehrt: Freiheit ist fragil, Demokratie muss vert eidigt werden, Longevity ist ein Recht. Das sind die Lektionen, die 2065 weiter gelehrt werden.",
+        "text": "2065: Die 'zweite Aufklärung' ist nicht das Ende aller Fragen — sie ist das Ende der falschen Antworten. Demokratie als reines Mehrheitsprinzip war überholt. Expertokratie als reine Meritokratie ist es auch. Was bleibt: Hybride Systeme, die kurzfristige demokratische Kontrolle mit langfristiger institutioneller Bestandfähigkeit verbinden. Die Spannung ist produktiv. Der Rat der Weisen ist kein Wundermittel — er ist ein institutionelles Experiment, das die richtige Frage stellt: Welche Entscheidungen gehören welchem Zeithorizont? Nicht alle Demokratiefragen sind Mehrheitsfragen.",
         "metriken": {
           "screentime_std_tag": 10,
           "freundschaften": 6,
@@ -6121,26 +4245,26 @@ window.__FC_LIFE_YEARS__={
       "chancen": {
         "mental": "Zweite Aufklärung: Philosophie, Kunst, Wissenschaft als gesellschaftliche Kernwerte. Was bedeutet Leben, wenn es 130 Jahre dauert?",
         "koerper": "Biologisches Altern behandelbar wie Diabetes: Standardtherapie, öffentlich finanziert, global verfügbar.",
-        "gemeinschaft": "Mars-Demokratie: Neue Gesellschaft, neue Verfassung, neue Chancen. Was würden wir anders machen, wenn wir von vorne anfängen?",
+        "gemeinschaft": "Institutionen als 'Generative Systeme': Der Staat ist 2065 nicht mehr primär Regulator oder Umverteiler — er ist Garanten von Grundchancen. Bildung, Energie, Gesundheit, Infrastruktur als Fundament, auf dem Markt, Gesellschaft und Individuum aufbauen können.",
         "technologie": "Vollständige KI-Medizin: Alle Krankheiten mit KI-Präzision diagnostiziert und behandelt. Ärzte als Begleiter, nicht als Ratgeber."
       },
       "was_tun": {
-        "jung": "2065: Du bist in deinen 60ern oder 70ern und biologisch so fit wie mit 45. Was ist dein nächstes großes Projekt?",
-        "aelter": "130 Jahre ist möglich. Du hast erlebt: die alte Welt, die Krise, die Wiedergeburt, die neue Welt. Das ist ein Menschenleben — und ein Lehrplan für die Zukunft."
+        "jung": "Zweite Aufklärung bedeutet: Fragen stellen, die deine Eltern nicht gestellt haben. Was schulden wir den Ungeborenen? Welche Entscheidungen dürfen nicht mehrheitlich getroffen werden? Was ist eine gerechte Verteilung von Chancen über Generationen? Das sind die politischen Fragen deiner Zeit.",
+        "aelter": "130 Jahre möglich. Du hast 60+ Jahre politischer Erfahrung. Was ist der weiseste Rat, den du einer Institution geben würdest, die für 50 Jahre plant?"
       },
       "en": {
         "label": "New Order",
-        "ueberschrift": "First people at 130 years old, Mars society founded, world in second enlightenment",
+        "ueberschrift": "Taiwan/South Korea transition path for China, councils of the wise in the elite criticism test, second enlightenment real",
         "welt": {
           "usa": "USA 2065: Fully democratic, institutionally robust.The oligarchy era is history.Thiel-Vance-Trump: historical footnote between Nixon and McCarthy in democracy crisis books.",
-          "china": "China 2065: Fully participatory, not Western democratic, but open, pluralistic, creative.China's model attracts other countries - different from the West, but comparable in freedom.",
-          "alte_welt": "Europe 2065: Second Enlightenment is reality.Humanism, science, freedom as living values ​​- strengthened by the experience of having lost them.",
+          "china": "China 2065: Economic opening has created political pressure.The model approaches the Taiwan/South Korea transition path: from managed prosperity to pragmatic democratization — not Western democracy, but more pluralistic than ever.The leadership has not changed values ​​— it is responding to economic imperatives and a middle class that demands more.",
+          "alte_welt": "Europe 2065: Institutional differentiation completed.North-West Europe: Generational governance established.South: followed suit.Eastern Europe: partially integrated.The result is not uniformity — every country has its model.But everyone shares the basic principles: long-term commitment + democratic control + generational rights.",
           "neue_welt": "Mars: First autonomous Martian city (5,000 residents), democratically self-governing.First Mars president elected.Humanity is writing new constitutions for new worlds.",
-          "crypto": "Interplanetary Financial System: Decentralized crypto protocols connect Earth and Mars.Government control over financial systems will be limited on both planets in 2065.",
-          "handel": "First people to live to be 130 years old - as a norm, not as a sensation.Biological aging is treatable like diabetes."
+          "crypto": "Crypto 2065: Normal asset in diversified portfolios.No transformative social function.The decentralization revolution came through solar energy, not crypto.",
+          "handel": "Fusion possibly from 2065-2070 as a supplement to solar/wind.But: Solar has already solved the energy problem.Fusion would be a bonus, not a savior."
         },
         "gesellschaft": {
-          "text": "2065: Humanity is wiser.Not more perfect.But wiser.The crises of the 21st century have taught us: freedom is fragile, democracy must be defended, longevity is a right.These are the lessons that will continue to be taught in 2065.",
+          "text": "2065: The 'Second Enlightenment' is not the end of all questions - it is the end of wrong answers.Democracy as a pure majority principle was outdated.It is also expertocracy as pure meritocracy.What remains: hybrid systems that combine short-term democratic control with long-term institutional sustainability.The tension is productive.The Council of Wise Men is not a panacea — it is an institutional experiment that asks the right question: Which decisions belong to which time horizon?Not all democracy questions are majority questions.",
           "metriken": {
             "screentime_std_tag": 10,
             "freundschaften": 6,
@@ -6152,29 +4276,29 @@ window.__FC_LIFE_YEARS__={
         "chancen": {
           "mental": "Second Enlightenment: Philosophy, art, science as core social values.What does life mean if it lasts 130 years?",
           "koerper": "Biological aging can be treated like diabetes: standard therapy, publicly funded, globally available.",
-          "gemeinschaft": "Mars Democracy: New Society, New Constitution, New Opportunities.What would we do differently if we started over?",
+          "gemeinschaft": "Institutions as 'generative systems': In 2065, the state will no longer be primarily a regulator or redistributor - it will be a guarantor of basic opportunities.Education, energy, health, infrastructure as a foundation on which the market, society and individuals can build.",
           "technologie": "Complete AI Medicine: All diseases diagnosed and treated with AI precision.Doctors as companions, not as advisors."
         },
         "was_tun": {
-          "jung": "2065: You are in your 60s or 70s and as biologically fit as you were at 45. What is your next big project?",
-          "aelter": "130 years is possible.You have experienced: the old world, the crisis, the rebirth, the new world.This is a human life — and a curriculum for the future."
+          "jung": "Second education means: asking questions that your parents didn't ask.What do we owe the unborn?Which decisions may not be made by a majority?What is a fair distribution of opportunities across generations?These are the political questions of your time.",
+          "aelter": "130 years possible.You have 60+ years of political experience.What is the wisest advice you would give to an institution planning for 50 years?"
         }
       }
     },
     "2070": {
       "jahr": 2070,
       "label": "Neue Ordnung",
-      "ueberschrift": "Demokratie globaler Standard, Longevity 120+ normal, Erde und Mars als Zivilisation",
+      "ueberschrift": "Generative Institutionen als Weltstandard, China-Modell eigenständig, Ungleichheit strukturell kleiner",
       "welt": {
         "usa": "USA 2070: Demokratisch, technologisch führend, kulturell diverser als je. Erste Präsidentschaftskandidaten, die 2030 oder später geboren wurden. Sie kennen die Oligarchie-Ära nur aus Geschichtsbüchern.",
-        "china": "China 2070: Vollständig demokratisch. Erstes Jahr ohne zensiertes Internet. 1,3 Mrd. Menschen in freier Gesellschaft. Das ist das größte Freiheitsereignis der Menschheitsgeschichte.",
-        "alte_welt": "Europa 2070: Stabil, innovativ, demokratisch. Nicht mehr führende Wirtschaftsmacht (Afrika und Asien größer), aber kulturell und institutionell wichtig.",
+        "china": "China 2070: Partizipatorisches Modell — keine westliche Demokratie, aber echte politische Pluralisierung. Dieser Weg hat Jahrzehnte gebraucht und ist durch wirtschaftlichen Druck, demographisches Loch und internationale Konkurrenz erzwungen worden. Die Führung hat nicht aus Überzeugung reformiert. Sie musste.",
+        "alte_welt": "Europa 2070: Generationale Governance hat funktioniert, wo Grundkonsens bestand. Hat nicht funktioniert, wo Gesellschaften tief polarisiert blieben. Die Lektion: Forstwirtschaft braucht gesellschaftliche Humus — ohne gemeinsame Grundwerte wächst kein Wald.",
         "neue_welt": "Russland 2070: Vollständige Demokratie. Erinnerung an die Imperialzeit als historische Schande. Junge Russen kennen den Ukraine-Krieg nur aus Geschichtsbüchern.",
-        "crypto": "Geldfreiheit 2070: Kein Staat kontrolliert mehr allein die Währung seiner Bürger. Finanzielle Souveränität als universelles Recht.",
-        "handel": "Longevity 120+ normal: Erste Generation, die davon ausgeht, 120 zu werden als Standard. Gesellschaft mit 6-Generationen-Netzwerken."
+        "crypto": "Krypto 2070: Finanzprodukt in diversifizierten Portfolios. Die gesellschaftliche Transformationskraft von Krypto war 2020-2070 empirisch nicht nachweisbar. Solar hat die Welt verändert. Krypto hat Renditen produziert.",
+        "handel": "Post-fossile Wirtschaft vollständig. Fusion als Supplement möglicherweise in Betrieb — aber Solar hatte das Feld bereits gewonnen. Energie ist so billig wie Wasser. Das ist die größte Armuts-Minderungs-Technologie der Geschichte."
       },
       "gesellschaft": {
-        "text": "2070: Die Menschheit hat 110 Jahre nach 1960 eine Bilanz. Mehr Menschen leben länger, freier, gesunder als je. Die dunkelsten Jahrzehnte (2027-2037) sind überwunden. Pragmatischer Optimismus war richtig.",
+        "text": "2070: Die Frage 'Staat vs. Markt' ist historisch. Die neue Frage ist 'Welche Institutionen generieren welche Ergebnisse, auf welchem Zeithorizont?'. Generative Institutionen — die nicht nur regeln, sondern erzeugen (Bildung, Sozialkapital, ökologische Kapazität, Infrastruktur) — sind 2070 der Kern des Politikdesigns. Ungleichheit ist nicht verschwunden. Aber: Die Lebenschancen-Ungleichheit (wer Zugang zu Bildung, Gesundheit, Energie, Infrastruktur bekommt) ist messbar kleiner als 2025. Das ist der Forstwirtschaft-Beweis auf gesellschaftlicher Ebene: 45 Jahre generationale Investition haben Früchte getragen.",
         "metriken": {
           "screentime_std_tag": 9,
           "freundschaften": 6.5,
@@ -6186,26 +4310,26 @@ window.__FC_LIFE_YEARS__={
       "chancen": {
         "mental": "China frei: Das größte Freiheitsereignis der Geschichte. 1,3 Mrd. Menschen atmen durch. Kollektive Erleichterung als globales Ereignis.",
         "koerper": "Erste Menschen, die 140 Jahre alt werden. Biologisches Alter 70 = physiologisches Alter 40.",
-        "gemeinschaft": "6-Generationen-Netzwerke: Urgroßeltern, Großeltern, Eltern, Kinder, Enkel, Urenkel — alle gleichzeitig aktiv.",
-        "technologie": "Vollständige Automatisierung: Basisversorgung (Nahrung, Energie, Gesundheit) vollständig automatisiert. Menschen arbeiten für Sinn, nicht für Überleben."
+        "gemeinschaft": "Der Staat als 'Generationale Treuhänder': Nicht Planer, nicht Umverteiler, sondern Garanten struktureller Chancengleichheit über Generationen. Das ist die politisch-philosophische Synthese von 2070 — nach Jahrzehnten der Debatte.",
+        "technologie": "KI als institutionelles Gedächtnis: Systeme, die 50 Jahre Entscheidungsfolgen dokumentieren, auswerten und für neue Entscheidungen zugänglich machen. Geschichte wird nicht wiederholt — weil sie erinnert wird."
       },
       "was_tun": {
-        "jung": "2070: Was bedeutet Arbeit, wenn du für Überleben nicht arbeiten müsstest? Was willst du tun, weil du es willst?",
-        "aelter": "2070: Du könntest 95-120 und noch aktiv sein. Was ist dein Vermachtächtnis an die Generationen nach dir?"
+        "jung": "2070: Was bedeutet Arbeit, wenn Grundversorgung gesichert ist? Institutionelles Engagement — in Bürgerräten, Generationenfonds, lokaler Demokratie — ist die neue Form von Arbeit mit gesellschaftlichem Wert.",
+        "aelter": "Du hast die vollständige Entwicklung von kurzfristiger Parteiendemokratie zu generationaler Governance erlebt. Was hätte man früher tun sollen? Diese Antwort ist wichtiger als alle Theorien."
       },
       "en": {
         "label": "New Order",
-        "ueberschrift": "Democracy global standard, Longevity 120+ normal, Earth and Mars as civilization",
+        "ueberschrift": "Generative institutions as a world standard, China model independent, inequality structurally smaller",
         "welt": {
           "usa": "USA 2070: Democratic, technologically leading, more culturally diverse than ever.First presidential candidates born in 2030 or later.You only know the oligarchy era from history books.",
-          "china": "China 2070: Fully democratic.First year without censored internet.1.3 billion people in a free society.This is the greatest freedom event in human history.",
-          "alte_welt": "Europe 2070: Stable, innovative, democratic.No longer a leading economic power (Africa and Asia are larger), but culturally and institutionally important.",
+          "china": "China 2070: Participatory model — not western democracy, but real political pluralization.This path took decades and was forced by economic pressure, a demographic gap and international competition.The leadership did not reform out of conviction.She had to.",
+          "alte_welt": "Europe 2070: Generational governance worked where there was basic consensus.Didn't work where societies remained deeply polarized.The lesson: Forestry needs social humus - no forest grows without common basic values.",
           "neue_welt": "Russia 2070: Complete Democracy.Remembering the imperial era as a historical disgrace.Young Russians only know about the Ukraine War from history books.",
-          "crypto": "Monetary Freedom 2070: No state alone controls the currency of its citizens anymore.Financial sovereignty as a universal right.",
-          "handel": "Longevity 120+ normal: First generation that expects to be 120 as standard.Society with 6-generation networks."
+          "crypto": "Crypto 2070: Financial product in diversified portfolios.The social transformation power of crypto was not empirically proven between 2020 and 2070.Solar has changed the world.Crypto has produced returns.",
+          "handel": "Post-fossil economy complete.Fusion might be in operation as a supplement — but solar had already won the field.Energy is as cheap as water.This is the greatest poverty alleviation technology in history."
         },
         "gesellschaft": {
-          "text": "2070: Humanity has a balance sheet 110 years after 1960.More people are living longer, freer and healthier than ever.The darkest decades (2027-2037) have been overcome.Pragmatic optimism was right.",
+          "text": "2070: The question of 'state vs. market' is historical.The new question is 'Which institutions generate which results, over what time horizon?'.Generative institutions — that not only regulate but generate (education, social capital, ecological capacity, infrastructure) — are at the core of policy design in 2070.Inequality has not gone away.But: The inequality in life chances (who gets access to education, health, energy, infrastructure) is measurably smaller than in 2025. This is the forestry proof at a societal level: 45 years of generational investment have borne fruit.",
           "metriken": {
             "screentime_std_tag": 9,
             "freundschaften": 6.5,
@@ -6217,29 +4341,29 @@ window.__FC_LIFE_YEARS__={
         "chancen": {
           "mental": "China Free: The Greatest Freedom Event in History.1.3 billion people breathe deeply.Collective relief as a global event.",
           "koerper": "First people to live to be 140 years old.Biological age 70 = physiological age 40.",
-          "gemeinschaft": "6-generation networks: great-grandparents, grandparents, parents, children, grandchildren, great-grandchildren - all active at the same time.",
-          "technologie": "Complete automation: Basic supplies (food, energy, health) fully automated.People work for meaning, not survival."
+          "gemeinschaft": "The state as 'generational trustee': not planners, not redistributors, but guarantors of structural equal opportunities across generations.This is the political-philosophical synthesis of 2070 — after decades of debate.",
+          "technologie": "AI as institutional memory: systems that document and evaluate 50 years of decision sequences and make them accessible for new decisions.History is not repeated — because it is remembered."
         },
         "was_tun": {
-          "jung": "2070: What does work mean if you didn't have to work to survive?What do you want to do because you want to?",
-          "aelter": "2070: You could be 95-120 and still active.What is your legacy to the generations after you?"
+          "jung": "2070: What does work mean when basic services are guaranteed?Institutional engagement — in citizens' councils, generational funds, local democracy — is the new form of work with social value.",
+          "aelter": "You have seen the full evolution from short-term party democracy to generational governance.What should have been done earlier?This answer is more important than all theories."
         }
       }
     },
     "2075": {
       "jahr": 2075,
       "label": "Neue Ordnung",
-      "ueberschrift": "Post-Scarcity Gesellschaft entsteht, Mars-Zivilisation eigenständig, Menschheit erfindet sich neu",
+      "ueberschrift": "Post-Scarcity stellt Governance vor neue Fragen: Was verwaltet der Staat, wenn alles verfügbar ist?",
       "welt": {
         "usa": "USA 2075: Post-Scarcity in Sicht. Basisversorgung (Nahrung, Energie, Gesundheit, Bildung) vollständig automatisiert und kostenlos. Universelles Grundeinkommen global. Was bedeutet Wirtschaft, wenn niemand für Überleben arbeiten muss?",
-        "china": "China 2075: Kulturelle Renaissance. Jahrtausende alte Zivilisation trifft Freiheit. Chinesische Philosophie, Kunst, Wissenschaft in globaler Blüte.",
-        "alte_welt": "Europa 2075: Kulturzentrum. Nicht Wirtschaftsmacht, aber Demokratie-Modell und Kulturexport.",
+        "china": "China 2075: Pluralistisch, nicht westlich-demokratisch. Das chinesische Modell der Demokratisierung ist eigenständig — konfuzianisch-deliberativ, nicht Mehrheitswahlrecht. Es funktioniert für China. Es ist kein Exportmodell. Verschiedene Demokratieformen sind 2075 als legitim anerkannt.",
+        "alte_welt": "Europa 2075: 'Soziale Marktwirtschaft 3.0' als Debatte: In einer Post-Scarcity-Welt braucht die soziale Marktwirtschaft keine Umverteilung von Mangel mehr — sondern Gestaltung von Zugang zu sinnhaften Aktivitäten. Bildung, Kultur, Forschung, politische Teilhabe als neue Knappheitsgüter.",
         "neue_welt": "Mars-Zivilisation eigenständig: 50.000 Bewohner, eigene Wirtschaft, eigene Kultur, eigene demokratische Strukturen. Erste interplanetare Konferenz über Ressourcen.",
-        "crypto": "Interplanetares Finanzsystem vollständig: Erde-Mars-Transaktionen via dezentrale Protokolle. Staatliche Währungen spielen sekundäre Rolle.",
-        "handel": "Post-Scarcity: Basisgüter kostenlos. Luxus, Kreativität, Zeit — das sind die neuen Währungen."
+        "crypto": "Krypto 2075: Mars-Transaktionen, nische Finanzprodukte, keine gesellschaftliche Relevanz auf der Erde. Die Dezentralisierungs-Utopie war eine interessante Vision — scheiterte an der Erkenntnis, dass gesellschaftliche Macht über Energie, Koalitionen und Institutionen entsteht, nicht über Protokolle.",
+        "handel": "Post-Fossil vollständig. Solar + Wind + Speicher decken nahezu 100 % der Weltenergie. Fusion operiert als Supplement in einigen Regionen. Die Energiewende geschah ohne global vereinbarte Plaäne — einfach weil Solar billiger wurde."
       },
       "gesellschaft": {
-        "text": "2075: Menschheit steht vor einer neuen Frage: Was tun wir, wenn wir alles haben? Wenn Überleben kein Problem mehr ist. Wenn Freiheit garantiert ist. Wenn wir 120+ leben. Was ist dann Sinn?",
+        "text": "2075: Die Forstwirtschaft-Demokratie hat gelernt, für Knappheit zu planen. Aber was plant man, wenn die Knappheit abnimmt? Post-Scarcity Energie, breite Automatisierung, längere Lebenszeiten — das verändert die Aufgaben des Staates. Nicht mehr primär Verteilung von Mangel, sondern Gestaltung von Überfluss. Das klingt einfach. Es ist es nicht. Überfluss erzeugt neue Ungleichheiten: Wer hat Zeit? Wer hat Sinn? Wer hat Zugang zu den interessantesten Aktivitäten? Die generationale Governance muss sich 2075 neu erfinden — für eine Welt, die andere Probleme hat als 2025.",
         "metriken": {
           "screentime_std_tag": 8,
           "freundschaften": 7,
@@ -6251,26 +4375,26 @@ window.__FC_LIFE_YEARS__={
       "chancen": {
         "mental": "Post-Scarcity-Sinnfrage: Was bedeutet Leben ohne Existenzangst? Philosophie, Spiritualität, Kreativität als neue Primarbeduerf nisse.",
         "koerper": "Biologisches Altern nahezu vollständig behandelbar. Erste Menschen mit 150 Jahren in Sicht. Sterblichkeit wird zur Wahl.",
-        "gemeinschaft": "Mars als Labor: Neue Gesellschaftsformen ohne Erblasten der Erdgeschichte. Was würden 50.000 Menschen anders machen?",
+        "gemeinschaft": "Neue Governance-Fragen 2075: Was ist gemeinschaftliche Verantwortung in einer Welt, in der niemand mehr hungert? Welche Ungleichheiten sind akzeptabel, wenn Grundversorgung gesichert ist? Wie plant eine Gesellschaft für 120-jährige Bürger? Generationale Institutionen müssen neue Antworten entwickeln.",
         "technologie": "Vollständige KI-Autonomie: KI-Systeme verwalten Infrastruktur ohne menschliche Überwachung. Menschen behalten Überblick und Werte-Kontrolle."
       },
       "was_tun": {
-        "jung": "2075: Was ist Sinn ohne Kampf um Überleben? Was willst du erschaffen, erleben, beitragen?",
-        "aelter": "Du hast die ganze Geschichte von 1960 bis 2075 erlebt. Das ist ein Jahrhundert menschlicher Transformation. Schreibe es auf."
+        "jung": "Post-Scarcity stellt die Sinnfrage: Was tust du, wenn Überleben kein Zwang mehr ist? Generationale Governance ist 2075 die Infrastruktur für Sinnproduktion — nicht für Broterwerb.",
+        "aelter": "Was bedeutet 'Generationengerechtigkeit' in einer Welt, in der alle 120 werden können? Die Frage ist nicht gelöst. Du hast vielleicht 40 weitere Jahre, um daran mitzuarbeiten."
       },
       "en": {
         "label": "New Order",
-        "ueberschrift": "Post-Scarcity society emerges, Mars civilization becomes independent, humanity reinvents itself",
+        "ueberschrift": "Post-Scarcity poses new questions about governance: What does the state manage when everything is available?",
         "welt": {
           "usa": "USA 2075: Post-Scarcity in sight.Basic supplies (food, energy, health, education) completely automated and free of charge.Universal basic income globally.What does business mean if no one has to work to survive?",
-          "china": "China 2075: Cultural Renaissance.Millennia-old civilization meets freedom.Chinese philosophy, art, science in global bloom.",
-          "alte_welt": "Europe 2075: Cultural Center.Not economic power, but democracy model and cultural export.",
+          "china": "China 2075: Pluralistic, not Western democratic.The Chinese model of democratization is independent — Confucian-deliberative, not majority voting.It works for China.It is not an export model.Various forms of democracy are recognized as legitimate in 2075.",
+          "alte_welt": "Europe 2075: 'Social Market Economy 3.0' as a debate: In a post-scarcity world, the social market economy no longer needs the redistribution of scarcity - but rather the creation of access to meaningful activities.Education, culture, research, political participation as new scarce goods.",
           "neue_welt": "Mars civilization independent: 50,000 inhabitants, its own economy, its own culture, its own democratic structures.First Interplanetary Conference on Resources.",
-          "crypto": "Interplanetary financial system complete: Earth-Mars transactions via decentralized protocols.State currencies play a secondary role.",
-          "handel": "Post-Scarcity: Basic goods free.Luxury, creativity, time — these are the new currencies."
+          "crypto": "Crypto 2075: Mars transactions, niche financial products, no social relevance on Earth.The decentralization utopia was an interesting vision - failed because of the realization that social power comes from energy, coalitions and institutions, not from protocols.",
+          "handel": "Post-fossil complete.Solar + wind + storage cover almost 100% of the world's energy.Fusion operates as a supplement in some regions.The energy transition happened without globally agreed plans — simply because solar became cheaper."
         },
         "gesellschaft": {
-          "text": "2075: Humanity faces a new question: What do we do when we have everything?When survival is no longer a problem.When freedom is guaranteed.If we live 120+.Then what is the point?",
+          "text": "2075: Forestry democracy has learned to plan for scarcity.But what do you plan to do when the shortage eases?Post-scarcity energy, widespread automation, longer lifespans — these are changing the tasks of the state.No longer primarily the distribution of scarcity, but rather the creation of abundance.That sounds easy.It's not it.Abundance creates new inequalities: who has time?Who has sense?Who has access to the most interesting activities?Generational governance must reinvent itself in 2075 — for a world with different problems than in 2025.",
           "metriken": {
             "screentime_std_tag": 8,
             "freundschaften": 7,
@@ -6282,29 +4406,29 @@ window.__FC_LIFE_YEARS__={
         "chancen": {
           "mental": "Post-Scarcity Meaning Question: What does life mean without existential fear?Philosophy, spirituality, creativity as new primary needs.",
           "koerper": "Biological aging is almost completely treatable.First people aged 150 in sight.Mortality becomes a choice.",
-          "gemeinschaft": "Mars as a laboratory: New forms of society without the legacy of Earth's history.What would 50,000 people do differently?",
+          "gemeinschaft": "New Governance Questions 2075: What is collective responsibility in a world where no one goes hungry?What inequalities are acceptable if basic services are guaranteed?How does a society plan for 120-year-old citizens?Generational institutions must develop new answers.",
           "technologie": "Complete AI autonomy: AI systems manage infrastructure without human supervision.People maintain an overview and value control."
         },
         "was_tun": {
-          "jung": "2075: What is meaning without the fight for survival?What do you want to create, experience, contribute?",
-          "aelter": "You experienced the whole story from 1960 to 2075.This is a century of human transformation.Write it down."
+          "jung": "Post-Scarcity asks the question of meaning: What do you do when survival is no longer a compulsion?In 2075, generational governance is the infrastructure for the production of meaning - not for making a living.",
+          "aelter": "What does 'intergenerational justice' mean in a world where everyone can live to be 120?The question is not resolved.You might have 40 more years to work on it."
         }
       }
     },
     "2080": {
       "jahr": 2080,
       "label": "Neue Ordnung",
-      "ueberschrift": "Sterblichkeit wird zur Wahl, Menschheit multiplanetare Zivilisation, neue Fragen ohne alte Antworten",
+      "ueberschrift": "Institutionelle Rückschau: Was hat Forstwirtschaft-Governance gebracht — und was nicht?",
       "welt": {
         "usa": "USA 2080: Die Ära von Demokratie vs. Oligarchie ist Geschichtsstoff. Institutionell stabil, post-scarcity, kulturell kreativ. Erste Diskussionen über Künstliche Unsterblichkeit als ethische Frage.",
-        "china": "China 2080: Vollständig offene Gesellschaft. Chinesische Kreativität explodiert nach Jahrzehnten der Freiheit. Chinas Beitrag zur Weltkultur ist immens.",
-        "alte_welt": "Europa 2080: Demokratisch, kulturell stark, demographisch stabil durch Longevity und Integration. Das europäische Modell wurde gerettet — spät, aber vollständig.",
+        "china": "China 2080: Vollständig pluralistisch. Der Weg dorthin war 40 Jahre wirtschaftlichen Drucks, demographischer Veränderung und internationaler Konkurrenz — kein demokratischer Impuls von oben. Das System hat sich nicht geändert, weil Führer Werte hatten. Es hat sich geändert, weil es musste.",
+        "alte_welt": "Europa 2080: Länder mit starker generationaler Governance (Norwegen, Finnland, Irland, Botswana, Uruguay) haben den geringsten Abstand zwischen Arm und Reich bei den Grundchancen (nicht Einkommen). Das ist der Forstwirtschafts-Erfolg: Nicht Gleichheit — gleiche Startbedingungen.",
         "neue_welt": "Mars 2080: 200.000 Bewohner. Erste Mars-Generation, die Erde nie gesehen hat, ist Erwachsen. Ihre Fragen sind anders als unsere.",
-        "crypto": "Sterblichkeit und Vermögen: Wenn Menschen 150+ leben, wie vererbt man? Dezentrale Protokolle für multigenerationelle Vermögensverwaltung.",
-        "handel": "Sterblichkeit als Wahl: Erste Menschen, die aktiv wählen, wie lange sie leben wollen. Biologische Unsterblichkeit in Reichweite. Ethik-Debatten als zentrale gesellschaftliche Aufgabe."
+        "crypto": "Krypto 2080: Interplanetares Finanzsystem, dezentrale Identität, nische Vermögensverwaltung. Keine gesellschafts-transformierende Kraft — hat das Versprechen nicht gehalten, aber nützliche technische Infrastruktur in spezifischen Kontexten geliefert.",
+        "handel": "Solar + Wind hat das fossile Zeitalter vollständig beendet. Fusion als Supplement operativ. Die Energie-Revolution geschah durch Ökonomie, nicht durch politischen Willen. Das ist die tiefste Lektion: Manchmal ändert Technologie die Welt, weil sie billiger ist, nicht weil sie richtig ist."
       },
       "gesellschaft": {
-        "text": "2080: Die fundamentalste Frage der Menschheitsgeschichte stellt sich neu: Wenn wir nicht mehr sterben müssen — was bedeutet Leben? Was bedeutet Tod als Wahl? Was bedeutet Zeit, wenn sie unendlich werden könnte?",
+        "text": "2080: Erste systematische Rückschau auf 40+ Jahre generationale Governance. Ergebnis: Institutionen mit Langfristbindung haben in ressourcenstarken, konsensorientierten Gesellschaften messbar bessere Ergebnisse produziert. In fragmentierten, polarisierten Gesellschaften: wenig Wirkung, manchmal Gegenteil (Legitimationsprüfung durch Langfristplan-Fehlschläge). Die Lektion ist not eine Formel, sondern eine Bedingung: Generationale Governance braucht gesellschaftlichen Grundkonsens als Humus. Ohne diesen wächst kein Wald, egal wie gut der Pflanzplan ist.",
         "metriken": {
           "screentime_std_tag": 7,
           "freundschaften": 7,
@@ -6316,26 +4440,26 @@ window.__FC_LIFE_YEARS__={
       "chancen": {
         "mental": "Existenzielle Philosophie 2080: Nicht 'wie überleben', sondern 'warum leben'. Die tiefsten menschlichen Fragen kehren zurück.",
         "koerper": "Biologische Unsterblichkeit technisch möglich. Aber: Wer will ewig leben? Und zu welchem Preis?",
-        "gemeinschaft": "Mars-Generation ohne Erdgeschichte: Was bauen sie? Was denken sie? Wie erziehen sie ihre Kinder?",
+        "gemeinschaft": "Rote Fäden der 40-Jahr-Auswertung: Bürgerräte haben besser funktioniert als Parteienverhandlungen bei Langfristfragen. Generationenfonds haben stabiler investiert als Jahresbudgets. Zukunftskammern haben Fehlallokationen seltener zugelassen. Aber: Alle Modelle scheitern ohne Grundkonsens über Werte.",
         "technologie": "Erste digitale Bewüsstseinskopien: Kann das Bewusstsein eines Menschen digital bewahrt werden? Ethik des digitalen Ichs."
       },
       "was_tun": {
-        "jung": "2080: Was willst du mit ewigem Leben machen? Die Frage stellt sich ernsthaft.",
-        "aelter": "2080: Du bist vielleicht 105-130 und hast die ganze Geschichte von 1960 bis 2080 erlebt. Das ist das reichste M enschenleben der Geschichte."
+        "jung": "40-Jahres-Bilanz: Was hat deine Generation richtig gemacht? Solar. Demokratische Resilienz. Generationale Institutionen in einigen Ländern. Was bleibt? Skalierung in ressourcenschwache Länder. Klärung der 'Wer-ist-weise'-Frage. Und: Was bedeutet gerechte Verteilung in Post-Scarcity?",
+        "aelter": "Du hast die volle historische Kurve erlebt: Oligarchie, Krise, generationale Erholung, Post-Scarcity. Was bleibt als Lehre? Systeme ändern sich, wenn Bedingungen es erzwingen — oder wenn genug Menschen die richtigen Institutionen aufbauen. Beides zählt."
       },
       "en": {
         "label": "New Order",
-        "ueberschrift": "Mortality becomes a choice, humanity multiplanetary civilization, new questions without old answers",
+        "ueberschrift": "Institutional review: What has forestry governance achieved – and what has not?",
         "welt": {
           "usa": "USA 2080: The era of democracy vs. oligarchy is history.Institutionally stable, post-scarcity, culturally creative.First discussions about artificial immortality as an ethical question.",
-          "china": "China 2080: Fully Open Society.Chinese creativity explodes after decades of freedom.China's contribution to world culture is immense.",
-          "alte_welt": "Europe 2080: Democratic, culturally strong, demographically stable through longevity and integration.The European model was saved — late, but completely.",
+          "china": "China 2080: Completely pluralistic.The path to get there was 40 years of economic pressure, demographic change and international competition - no democratic impulse from above.The system didn't change because leaders had values.It changed because it had to.",
+          "alte_welt": "Europe 2080: Countries with strong generational governance (Norway, Finland, Ireland, Botswana, Uruguay) have the smallest gap between rich and poor in basic opportunities (not income).This is forestry success: not equality — equal starting conditions.",
           "neue_welt": "Mars 2080: 200,000 inhabitants.First Mars generation that has never seen Earth is an adult.Your questions are different than ours.",
-          "crypto": "Mortality and Wealth: When People Live to 150+, How Do You Inherit?Decentralized protocols for multigenerational asset management.",
-          "handel": "Mortality as Choice: First people to actively choose how long they want to live.Biological immortality within reach.Ethics debates as a central social task."
+          "crypto": "Crypto 2080: Interplanetary financial system, decentralized identity, niche asset management.Not a socially transformative force — failed to deliver on promise, but delivered useful technical infrastructure in specific contexts.",
+          "handel": "Solar + wind has completely ended the fossil era.Fusion as a supplement operational.The energy revolution happened through economics, not political will.That's the deepest lesson: sometimes technology changes the world because it's cheaper, not because it's right."
         },
         "gesellschaft": {
-          "text": "2080: The most fundamental question in human history arises anew: If we no longer have to die - what does life mean?What does death mean as a choice?What does time mean if it could become infinite?",
+          "text": "2080: First systematic review of 40+ years of generational governance.Result: Institutions with long-term commitments have produced measurably better results in resource-rich, consensus-oriented societies.In fragmented, polarized societies: little effect, sometimes the opposite (legitimacy tests through long-term plan failures).The lesson is not a formula, but a condition: generational governance needs basic social consensus as humus.Without this, no forest will grow, no matter how good the planting plan is.",
           "metriken": {
             "screentime_std_tag": 7,
             "freundschaften": 7,
@@ -6347,29 +4471,29 @@ window.__FC_LIFE_YEARS__={
         "chancen": {
           "mental": "Existential Philosophy 2080: Not 'how to survive', but 'why live'.The deepest human questions return.",
           "koerper": "Biological immortality technically possible.But: Who wants to live forever?And at what price?",
-          "gemeinschaft": "Mars generation without Earth history: what are they building?What do you think?How do they raise their children?",
+          "gemeinschaft": "Common threads of the 40-year evaluation: Citizens' assemblies have worked better than party negotiations on long-term issues.Generational funds have invested more stably than annual budgets.Future chambers allowed misallocations less often.But: All models fail without a basic consensus about values.",
           "technologie": "First digital copies of consciousness: Can a person's consciousness be preserved digitally?Ethics of the digital self."
         },
         "was_tun": {
-          "jung": "2080: What do you want to do with eternal life?The question arises seriously.",
-          "aelter": "2080: You are maybe 105-130 and have experienced the whole story from 1960 to 2080.This is the richest human life in history."
+          "jung": "40-year review: What did your generation do right?Solar.Democratic resilience.Generational institutions in some countries.What remains?Scaling into resource-poor countries.Clarification of the 'who is wise' question.And: What does fair distribution mean in post-Scarcity?",
+          "aelter": "You have experienced the full historical curve: oligarchy, crisis, generational recovery, post-scarcity.What remains as a lesson?Systems change when conditions force it — or when enough people build the right institutions.Both count."
         }
       }
     },
     "2081": {
       "jahr": 2081,
       "label": "Neue Ordnung",
-      "ueberschrift": "Erste unsterbliche Menschen, interplanetare Demokratie, neue Philosophie des Endens",
+      "ueberschrift": "Unsterblichkeit als Governance-Problem: Wenn Ratsmitglieder ewig leben, wer geht?",
       "welt": {
         "usa": "USA 2081: Erste Menschen haben biologisch aufgehört zu altern. Die Gesellschaft diskutiert: Unsterblichkeit für alle — oder neue Ungleichheit? Das größte politische Thema des Jahrhunderts.",
-        "china": "China 2081: Kulturell frei, politisch stabil, wissenschaftlich führend im Bereich Longevity. Chinesische Forscher entdecken die ersten stabilen Anti-Aging-Gene.",
-        "alte_welt": "Europa 2081: Philosophische Heimat der Unsterblichkeits-Debatte. Bioethik, Menschenwürde, Lebenssinn als Kernthemen.",
+        "china": "China 2081: Pluralistisch, offen, kreativ. Die chinesische Zivilisation mit Jahrtausenden Geschichte trifft auf Freiheit — das kulturelle Potential ist enorm. China 2081 hat mehr Nobelpreisträger als je, mehr globale Kunst, mehr Wissenschaft. Freiheit hat einen Output.",
+        "alte_welt": "EU-Verfassungsrat 2081: Erste Debatte über maximale Amtszeit für gewählte Positionen bei Lebenslängen von 130+. Keine Einigung. Aber die Frage ist gestellt.",
         "neue_welt": "Mars 2081: Eigenständige Zivilisation. Erste interplanetare Vereinte Nationen — Erde und Mars gemeinsam. Menschheit neu definiert.",
-        "crypto": "Unsterblichkeit und Besitz: Wenn man ewig lebt — wie lange kann man Vermögen halten? Erste Gesetze für obligatorische Weitergabe nach 100 Jahren Lebenszeit.",
-        "handel": "Erste Menschen, die nie sterben wollen und es sich leisten können. Und alle anderen? Die größte ethische Herausforderung der Geschichte."
+        "crypto": "Krypto 2081: Dezentrale Identität und Mars-Transaktionen als Hauptanwendungen. Auf der Erde: Randprodukt. Das System ändert sich durch Menschen, nicht durch Protokolle.",
+        "handel": "Unsterblichkeit als ökonomisches Problem: Wenn man ewig leben kann — aber es kostet viel — entsteht neue Ungleichheit. Longevity-Gerechtigkeit ist 2081 das größte politische Thema, ähnlich Gesundheitsversorgung im 20. Jahrhundert."
       },
       "gesellschaft": {
-        "text": "2081: Die Menschheit ist an einer Schwelle, die alle früheren übertrifft. Unsterblichkeit ist möglich. Ist sie wünschenswert? Für alle? Für niemanden? Diese Frage wird die nächsten Jahrhunderte prägen.",
+        "text": "2081 stellt eine neue Governance-Frage, die niemand 2025 vorhergesehen hat: Wenn Menschen potenziell 130-150 Jahre alt werden und aktiv bleiben — wie lange darf jemand in einem 'Rat der Weisen' sitzen? Die Amtszeitbegrenzung wird zum zentralen Demokratieproblem. Ohne klare Rotation: Weisheit wird zu Machtakkumulation. Mit zu kurzen Amtszeiten: Langfristwissen geht verloren. Die Spannung zwischen institutionellem Gedächtnis und demokratischer Erneuerung ist 2081 schärfer denn je.",
         "metriken": {
           "screentime_std_tag": 7,
           "freundschaften": 7,
@@ -6381,26 +4505,26 @@ window.__FC_LIFE_YEARS__={
       "chancen": {
         "mental": "Bioethik als neue Philosophie: Was bedeutet Menschwürde, wenn der Tod optional wird? Neue Disziplin für neue Fragen.",
         "koerper": "Biologisches Altern gestoppt möglich. Sterblichkeit als Wahl. Medizin hat ihr ultimatives Ziel erreicht.",
-        "gemeinschaft": "Interplanetare Vereinte Nationen: Erde und Mars als Gemeinschaft. Erste supraplanetare Demokratie.",
+        "gemeinschaft": "'Generationale Rotation': Neue institutionelle Designs für Langlebigkeits-Gesellschaften. Nicht mehr 'Lebensalter' als Kriterium, sondern 'Amtserfahrung'. Einmalige 7-Jahres-Mandate. Nach einer Amtszeit: 20 Jahre Abkühlungsphase. Demokratie in einer Langlebigkeits-Gesellschaft muss neu designt werden.",
         "technologie": "Erste digitale Bewusstseins-Backups in Tests. Kann das Ich über den physischen Tod hinaus existieren?"
       },
       "was_tun": {
-        "jung": "2081: Die größte Frage deines Lebens: Willst du ewig leben? Warum? Warum nicht?",
-        "aelter": "Du hast das 20. und 21. Jahrhundert erlebt. Du wirst vielleicht ewig leben. Was tust du mit dieser Zeit?"
+        "jung": "Du wirst vielleicht 130+ Jahre alt. Das bedeutet: Mehrere politische Lebensabschnitte. Mehrere Karrieren. Mehrere Gemeinschaften. Plane nicht für eine Biografie — plane für Mehrfach-Biografien.",
+        "aelter": "Du bist 100+ und aktiv. Dein institutionelles Wissen ist wertvoll. Aber: Weisheit bedeutet auch zu wissen, wann man Platz macht."
       },
       "en": {
         "label": "New Order",
-        "ueberschrift": "First immortal humans, interplanetary democracy, new philosophy of endings",
+        "ueberschrift": "Immortality as a Governance Issue: If Council Members Live Forever, Who Leaves?",
         "welt": {
           "usa": "USA 2081: The first humans stopped biologically aging.Society is discussing: Immortality for all - or new inequality?The biggest political issue of the century.",
-          "china": "China 2081: Culturally free, politically stable, scientific leader in the field of longevity.Chinese researchers discover the first stable anti-aging genes.",
-          "alte_welt": "Europe 2081: Philosophical Home of the Immortality Debate.Bioethics, human dignity, meaning of life as core topics.",
+          "china": "China 2081: Pluralistic, open, creative.Chinese civilization with thousands of years of history meets freedom - the cultural potential is enormous.China 2081 has more Nobel Prize winners than ever, more global art, more science.Freedom has an output.",
+          "alte_welt": "EU Constitutional Council 2081: First debate on maximum term of office for elected positions with life lengths of 130+.No agreement.But the question is asked.",
           "neue_welt": "Mars 2081: Independent civilization.First interplanetary United Nations — Earth and Mars together.Humanity redefined.",
-          "crypto": "Immortality and Possessions: If you live forever, how long can you hold onto wealth?First laws for compulsory distribution after 100 years of life.",
-          "handel": "First people who never want to die and can afford it.And everyone else?The greatest ethical challenge in history."
+          "crypto": "Crypto 2081: Decentralized Identity and Mars Transactions as Main Applications.On Earth: marginal product.The system changes through people, not protocols.",
+          "handel": "Immortality as an economic problem: If you can live forever - but it costs a lot - new inequality arises.Longevity justice is the biggest political issue in 2081, similar to health care in the 20th century."
         },
         "gesellschaft": {
-          "text": "2081: Humanity is at a threshold that surpasses all previous ones.Immortality is possible.Is it desirable?For all?For no one?This question will shape the next centuries.",
+          "text": "2081 poses a new governance question that no one foresaw in 2025: If people potentially live 130-150 years and remain active — how long can someone sit on a 'Council of Wise Men'?Term limits are becoming the central problem of democracy.Without clear rotation: wisdom becomes power accumulation.With terms of office that are too short: long-term knowledge is lost.The tension between institutional memory and democratic renewal is sharper than ever in 2081.",
           "metriken": {
             "screentime_std_tag": 7,
             "freundschaften": 7,
@@ -6412,29 +4536,29 @@ window.__FC_LIFE_YEARS__={
         "chancen": {
           "mental": "Bioethics as a new philosophy: What does human dignity mean when death becomes optional?New discipline for new questions.",
           "koerper": "Biological aging stopped possible.Mortality as a choice.Medicine has reached its ultimate goal.",
-          "gemeinschaft": "Interplanetary United Nations: Earth and Mars as a Community.First supraplanetary democracy.",
+          "gemeinschaft": "'Generational Rotation': New Institutional Designs for Longevity Societies.No longer 'age' as a criterion, but 'official experience'.One-off 7-year mandates.After one term of office: 20 years cooling off period.Democracy in a longevity society must be redesigned.",
           "technologie": "First digital consciousness backups in tests.Can the self exist beyond physical death?"
         },
         "was_tun": {
-          "jung": "2081: The biggest question of your life: Do you want to live forever?Why?Why not?",
-          "aelter": "You have lived through the 20th and 21st centuries.You may live forever.What are you doing with this time?"
+          "jung": "You may live to be 130+ years old.That means: several political phases of life.Multiple careers.Multiple communities.Don’t plan for one biography — plan for multiple biographies.",
+          "aelter": "You are 100+ and active.Your institutional knowledge is valuable.But: Wisdom also means knowing when to make room."
         }
       }
     },
     "2082": {
       "jahr": 2082,
       "label": "Neue Ordnung",
-      "ueberschrift": "Unsterblichkeit demokratisch, interplanetare Verfassung, Menschheit am Wendepunkt ihrer Geschichte",
+      "ueberschrift": "Interplanetare Verfassung als Test für generationale Governance: Mars plant für Jahrhunderte",
       "welt": {
         "usa": "USA 2082: Erste Gesetze zu Unsterblichkeit als Recht: Biologisches Anti-Aging-Protokoll für alle Staatsbürger kostenlos. Sterblichkeit als Wahl, nicht als Schicksal.",
-        "china": "China 2082: Biologische Freiheit als Teil der Menschenrechts-Charta. China ist führend in Longevity-Forschung und -Demokratisierung.",
-        "alte_welt": "Europa 2082: Unsterblichkeits-Recht in EU-Grundrechte-Charta aufgenommen. Biologisches Altern als Krankheit, die jeder behandeln lassen kann.",
+        "china": "China 2082: Chinas Weg zur Demokratisierung war lang, schmerzhaft und durch ökonomische Not erzwungen. Nicht durch Werte. Das ist die ehrliche Geschichte. Und sie hat trotzdem zu Freiheit geführt.",
+        "alte_welt": "Europa beobachtet Mars mit Neid: Eine Gesellschaft, die aus existenzieller Notwendigkeit langfristig plant, produziert genau die institutionelle Qualität, die die Erde mühsam durch politisches Design zu erzeugen versucht. Der Mars ist der größte lebende Beweis für generationale Governance.",
         "neue_welt": "Interplanetare Verfassung 2082: Erde und Mars einigen sich auf gemeinsame Grundrechte — Freiheit, Demokratie, Longevity, digitale Souveränität.",
-        "crypto": "Interplanetare Krypto-Infrastruktur: Finanzielle Souveränität als universelles Menschenrecht, auf beiden Planeten.",
-        "handel": "Post-Scarcity vollständig: Keine Armut. Keine Hunger. Kein Energiemangel. Keine erzwungene frühe Sterblichkeit. Die Menschheit hat die materielle Stufe überwunden."
+        "crypto": "Krypto 2082: Dezentrale Infrastruktur für Erde-Mars-Transaktionen ist genuine Anwendung. Interplanetare Krypto-Protokolle sind sinnvoll, weil Lichtverzug zentrales Clearing unmöglich macht. Eine von wenigen Anwendungen, die Krypto wirklich benötigt.",
+        "handel": "Post-Fossil-Welt vollständig. Solar + Wind + Speicher + Fusion als Supplement: 100 % saubere Energie. Das geschah durch Ökonomie, nicht durch politischen Willen. Die Lektion: Manchmal ist billiger sein machtvoller als moralisch sein."
       },
       "gesellschaft": {
-        "text": "2082: Wir haben es weit gebracht. Von 1960 bis 2082 hat die Menschheit mehr Leid reduziert, mehr Freiheit ausgedehnt, mehr Leben verlängert als in allen Jahrhunderten davor. Der Weg war nicht gerade. Er war manchmal unmöglich. Aber hier sind wir.",
+        "text": "2082: Der Mars testet Governance-Modelle unter Extrembedingungen. Mit 200.000 Menschen auf einem Planeten, auf dem Überleben institutionelle Disziplin erfordert, haben sich generationale Governance-Prinzipien als überlebenswichtig erwiesen. Keine kurzfristige Wahltaktik, wenn Lebenserhaltungssysteme 50-jährige Investitionen brauchen. Mars als natürliches Experiment für Forstwirtschaft-Demokratie: Wer nicht langfristig plant, stirbt. Das zeigt der Erde, was möglich ist.",
         "metriken": {
           "screentime_std_tag": 7,
           "freundschaften": 7,
@@ -6446,26 +4570,26 @@ window.__FC_LIFE_YEARS__={
       "chancen": {
         "mental": "Unsterblichkeit als Recht: Das Ende von Tod als Schicksal. Neubeginn als Wahl. Was ändert das an unserem Verhältnis zu Zeit, zu Anderen, zu uns selbst?",
         "koerper": "Biologisches Altern: 0. Sterblichkeit: Wahl. Menschliches Leben: Potentiell unbegrenzt.",
-        "gemeinschaft": "Interplanetare Verfassung: Erstes Dokument, das Menschenrechte für mehr als einen Planeten festlegt.",
+        "gemeinschaft": "Interplanetare Verfassung als Governance-Innovation: Erstmals institutionelle Rahmenbedingungen für zwei Planeten. Generationale Rechte, digitale Souveränität, ökologische Treuhänderschaft als Grundrechte verankert. Kein Parteisystem auf dem Mars — Sortition und Expertise als einzige Gouvernanz-Prinzipien.",
         "technologie": "Post-Scarcity-Technologie vollständig: Alle menschlichen Grundbedurfnisse durch Automatisierung erfüllt."
       },
       "was_tun": {
-        "jung": "Sterblichkeit ist 2082 optional. Was machst du mit diesem Geschenk?",
-        "aelter": "Du hast alles erlebt. Teile es. Schreibe es. Gib es weiter."
+        "jung": "Interplanetare Governance als Modell: Was auf dem Mars aus Notwendigkeit funktioniert, funktioniert auch auf der Erde — wenn man die institutionelle Notwendigkeit künstlich erzeugt. Generationale Verfassungsrechte als künstliche Notwendigkeit.",
+        "aelter": "Du hast Demokratie in ihren schlechtesten und besten Formen erlebt. Was ist das Essentielle? Was ist entbehrlich? Die Mars-Verfassung ist deine letzte Chance, das zu kodifizieren."
       },
       "en": {
         "label": "New Order",
-        "ueberschrift": "Immortality democratic, interplanetary constitution, humanity at the turning point of its history",
+        "ueberschrift": "Interplanetary Constitution as a Test for Generational Governance: Mars Plans for Centuries",
         "welt": {
           "usa": "USA 2082: First laws on immortality as a right: Biological anti-aging protocol free for all citizens.Mortality as a choice, not a fate.",
-          "china": "China 2082: Biological freedom as part of the human rights charter.China is a leader in longevity research and democratization.",
-          "alte_welt": "Europe 2082: The right to immortality included in the EU Charter of Fundamental Rights.Biological aging as a disease that everyone can have treated.",
+          "china": "China 2082: China's path to democratization was long, painful and forced by economic hardship.Not through values.That's the honest story.And it still led to freedom.",
+          "alte_welt": "Europe watches Mars with envy: a society that plans for the long term out of existential necessity produces exactly the institutional quality that Earth is laboriously trying to create through political design.Mars is the greatest living proof of generational governance.",
           "neue_welt": "Interplanetary Constitution 2082: Earth and Mars agree on common fundamental rights - freedom, democracy, longevity, digital sovereignty.",
-          "crypto": "Interplanetary crypto infrastructure: Financial sovereignty as a universal human right, on both planets.",
-          "handel": "Post-Scarcity Complete: No Poverty.No hunger.No lack of energy.No forced early mortality.Humanity has overcome the material stage."
+          "crypto": "Crypto 2082: Decentralized infrastructure for Earth-Mars transactions is a genuine application.Interplanetary crypto protocols make sense because light delay makes central clearing impossible.One of a few applications that actually needs crypto.",
+          "handel": "Post-fossil world complete.Solar + wind + storage + fusion as a supplement: 100% clean energy.This happened through economics, not political will.The lesson: Sometimes being cheap is more powerful than being moral."
         },
         "gesellschaft": {
-          "text": "2082: We've come a long way.From 1960 to 2082, humanity reduced more suffering, expanded more freedom, and extended more lives than in any previous century.The path was not straight.He was sometimes impossible.But here we are.",
+          "text": "2082: Mars tests governance models under extreme conditions.With 200,000 people on a planet where survival requires institutional discipline, generational governance principles have proven vital to survival.No short-term electoral tactics when life support systems require 50-year investments.Mars as a natural experiment for forestry democracy: If you don't plan for the long term, you die.This shows the earth what is possible.",
           "metriken": {
             "screentime_std_tag": 7,
             "freundschaften": 7,
@@ -6477,29 +4601,29 @@ window.__FC_LIFE_YEARS__={
         "chancen": {
           "mental": "Immortality as Right: The End of Death as Fate.New beginnings as a choice.What does this change about our relationship to time, to others, to ourselves?",
           "koerper": "Biological aging: 0. Mortality: Choice.Human life: Potentially unlimited.",
-          "gemeinschaft": "Interplanetary Constitution: First document establishing human rights for more than one planet.",
+          "gemeinschaft": "Interplanetary constitution as a governance innovation: first institutional framework for two planets.Generational rights, digital sovereignty, ecological trusteeship anchored as fundamental rights.No party system on Mars - sorting and expertise as the only governance principles.",
           "technologie": "Post-Scarcity Technology Complete: All basic human needs met through automation."
         },
         "was_tun": {
-          "jung": "Mortality is optional in 2082.What are you doing with this gift?",
-          "aelter": "You've experienced everything.Share it.Write it.Pass it on."
+          "jung": "Interplanetary governance as a model: What works out of necessity on Mars also works on Earth — if the institutional necessity is artificially created.Generational constitutional rights as an artificial necessity.",
+          "aelter": "You have experienced democracy at its worst and best.What is the essential?What is dispensable?The Martian Constitution is your last chance to codify that."
         }
       }
     },
     "2083": {
       "jahr": 2083,
       "label": "Neue Ordnung",
-      "ueberschrift": "Erste Generation ohne Sterblichkeit als Schicksal, Menschheit als Hutérin ihrer eigenen Zukunft",
+      "ueberschrift": "Generative Institutionen als Menschheitserbe, Demokratie durch Design — nicht durch Tugend",
       "welt": {
         "usa": "USA 2083: Erste Generation, die geboren wird mit dem Recht auf biologische Unsterblichkeit. Was bedeutet Kindheit, Jugend, Erwachsensein, wenn der Tod optional ist?",
-        "china": "China 2083: Volle kulturelle Blüte. Die Jahrtausende chinesische Zivilisation trifft Freiheit — und produziert Weltkultur in einem Maße, das niemand vorhersagen konnte.",
-        "alte_welt": "Europa 2083: Philosophische Heimat der neuen Ethik des Lebens. Was bedeutet Würde, wenn das Leben ewig werden kann?",
-        "neue_welt": "Mars 2083: 500.000 Bewohner. Vollständig eigenständige Zivilisation. Die ersten Marsians, die nie die Erde besucht haben, übernehmen Führungspositionen.",
-        "crypto": "Dezentrale Systeme als Standard: Kein Einzelner, kein Staat, keine Corporation kontrolliert die fundamentale Infrastruktur der Menschheit — Geld, Kommunikation, Identität.",
-        "handel": "Was ist Wirtschaft, wenn niemand mehr überleben muss? Erste Wirtschaftsmodelle für Post-Scarcity-Zivilisation."
+        "china": "China 2083: Freie Gesellschaft nach 40 Jahren Druck durch Ökonomie, Demographie und internationale Konkurrenz. Nicht durch Visionar. Nicht durch Revolution. Durch strukturelle Notwendigkeit. Das ist der realistischste Optimismus: Systeme ändern sich, weil sie müssen.",
+        "alte_welt": "Europa 2083: Die zweite Aufklärung hat eine neue Formel: Freiheit + Langfristverantwortung = nachhaltige Offenheit. Keine Utopie. Kein Verzicht. Nur: Wer heute pflanzt, erntet übermorgen. Das ist nicht Altruismus — es ist längerfristiges Eigeninteresse.",
+        "neue_welt": "Afrika 2083: Der Kontinent, der das 20. Jahrhundert als Objekt der Geschichte erlebt hat, hat das 21. als Subjekt mitgestaltet. Ubuntu-Governance, generationale Planung, eigenständige Tech-Hubs — nicht importiertes Modell, sondern eigene Version.",
+        "crypto": "Krypto 2083: Dezentrale Systeme als Infrastruktur für spezifische Anwendungen (Mars, Identität, grenzenüberschreitende Zahlungen). Keine gesellschaftstransformierende Kraft auf der Erde — das war eine Überschatzung der Technologie und eine Unterschätzung von Institutionen.",
+        "handel": "Die eigentliche dezentrale Revolution war Solar: Jedes Dach produziert Energie. Kein Intermediar. Keine Bank. Keine Genehmigung. Solar hat getan, was Krypto versprochen hat — Dezentralisierung von etwas wirklich Wichtigem."
       },
       "gesellschaft": {
-        "text": "2083 steht kurz vor dem Ende dieses Projekts. Die Geschichte von 1960 bis 2083 ist die Geschichte einer Menschheit, die sich selbst befreite — von Armut, von Krankheit, von Diktaturen, von Unwissen, von früher Sterblichkeit. Nicht vollständig. Aber dramatisch. Der Rest ist deine Geschichte.",
+        "text": "2083: Die Geschichte von 1960 bis 2083 lässt sich jetzt beurteilen. Die größte Erkenntnis: Gesellschaftliche Verbesserung kommt nicht durch moralischen Wandel — sie kommt durch institutionellen Design. Wenn Institutionen langfristig denken müssen (weil Forstwirtschaft-Pflichten verankert sind), produzieren sie langfristige Ergebnisse. Wenn Bürger deliberieren müssen (weil Bürgerräte formale Legitimation haben), denken sie langfristiger. Design vor Appell. Struktur vor Tugend. Das ist die politische Philosophie, die 2083 überzeugt hat.",
         "metriken": {
           "screentime_std_tag": 6,
           "freundschaften": 7.5,
@@ -6511,26 +4635,26 @@ window.__FC_LIFE_YEARS__={
       "chancen": {
         "mental": "Neue Ethik des Lebens: Wenn Tod optional, wenn Zeit unbegrenzt, wenn Freiheit universell — was bleibt? Sinn. Liebe. Neugierde.",
         "koerper": "Biologische Unsterblichkeit: Standard für alle, die es wollen. Die Menschheit hat den Tod besiegt — und steht vor größeren Fragen.",
-        "gemeinschaft": "Mars-Eigenständigkeit: Erste Zivilisation, die von Grund auf neu gebaut wurde. Laboratorium der Menschheit.",
+        "gemeinschaft": "Generative Institutionen als Menschheitserbe: Nicht staatliche Macht — staatliche Fähigkeit, Grundchancen zu sichern. Bildung, Energie, Gesundheit, Infrastruktur als Generationentreuhänderschaft. Nicht Besitz, sondern Zugang als demokratisches Grundprinzip.",
         "technologie": "KI, Quantencomputing, Fusion, Longevity, Raumfahrt — alle zusammen: Die Werkzeuge der Menschheit sind machtvoller als je. Die Frage bleibt: Wofür?"
       },
       "was_tun": {
-        "jung": "2083: Die fundamentalste Freiheit — zu wählen, wofür du dein Leben einsetzt. Was wählst du?",
-        "aelter": "Du hast die ganze Geschichte getragen. Jetzt ist es Zeit, sie weiterzugeben."
+        "jung": "Design-Denken für Institutionen: Wenn du etwas verändern willst, frage nicht 'Wie überzeuge ich Menschen?' sondern 'Welche Struktur produziert das gewünschte Verhalten?' Das ist die Lektion von 123 Jahren.",
+        "aelter": "Du trägst die gesamte Geschichte. Jetzt ist Zeit, sie weiterzugeben — nicht als Nostalgie, sondern als institutionelles Wissen."
       },
       "en": {
         "label": "New Order",
-        "ueberschrift": "First generation without mortality as fate, humanity as guardian of its own future",
+        "ueberschrift": "Generative institutions as human heritage, democracy by design — not by virtue",
         "welt": {
           "usa": "USA 2083: First generation born with the right to biological immortality.What does childhood, youth, adulthood mean if death is optional?",
-          "china": "China 2083: Full cultural bloom.Millennia of Chinese civilization meets freedom — and produces world culture on a scale that no one could have predicted.",
-          "alte_welt": "Europe 2083: Philosophical home of the new ethics of life.What does dignity mean if life can become eternal?",
-          "neue_welt": "Mars 2083: 500,000 inhabitants.Completely independent civilization.The first Martians, who have never visited Earth, assume leadership positions.",
-          "crypto": "Decentralized systems as standard: No individual, no state, no corporation controls the fundamental infrastructure of humanity — money, communication, identity.",
-          "handel": "What is economics if no one has to survive anymore?First economic models for post-Scarcity civilization."
+          "china": "China 2083: Free society after 40 years of pressure from economics, demographics and international competition.Not by visionary.Not through revolution.By structural necessity.This is the most realistic optimism: systems change because they have to.",
+          "alte_welt": "Europe 2083: The second Enlightenment has a new formula: freedom + long-term responsibility = sustainable openness.Not a utopia.No waiver.But if you plant today, you will reap the day after tomorrow.This isn't altruism — it's longer-term self-interest.",
+          "neue_welt": "Africa 2083: The continent that experienced the 20th century as an object of history helped shape the 21st as a subject.Ubuntu governance, generational planning, independent tech hubs — not an imported model, but our own version.",
+          "crypto": "Crypto 2083: Decentralized systems as infrastructure for specific applications (Mars, identity, cross-border payments).No socially transformative force on Earth — that was an overestimation of technology and an underestimation of institutions.",
+          "handel": "The real decentralized revolution was solar: every roof produces energy.No intermediary.No bank.No approval.Solar has done what crypto promised — decentralizing something that really matters."
         },
         "gesellschaft": {
-          "text": "2083 is nearing the end of this project.The story from 1960 to 2083 is the story of a humanity that freed itself - from poverty, from illness, from dictatorships, from ignorance, from early mortality.Not complete.But dramatic.The rest is your story.",
+          "text": "2083: The history from 1960 to 2083 can now be assessed.The biggest takeaway: Social improvement doesn't come through moral change — it comes through institutional design.When institutions have to think long-term (because forestry obligations are enshrined), they produce long-term results.When citizens have to deliberate (because citizens' assemblies have formal legitimacy), they think more long-term.Design before appeal.Structure before virtue.This is the political philosophy that convinced 2083.",
           "metriken": {
             "screentime_std_tag": 6,
             "freundschaften": 7.5,
@@ -6542,29 +4666,29 @@ window.__FC_LIFE_YEARS__={
         "chancen": {
           "mental": "New ethics of life: If death is optional, if time is unlimited, if freedom is universal - what remains?Sense.Love.Curiosity.",
           "koerper": "Biological immortality: standard for all who want it.Humanity has conquered death — and faces bigger questions.",
-          "gemeinschaft": "Mars Self-Reliance: First civilization built from scratch.Laboratory of humanity.",
+          "gemeinschaft": "Generative institutions as human heritage: Non-state power — state ability to secure basic opportunities.Education, energy, health, infrastructure as generational trusts.Not ownership, but access as a basic democratic principle.",
           "technologie": "AI, quantum computing, fusion, longevity, space travel — all together: humanity's tools are more powerful than ever.The question remains: for what?"
         },
         "was_tun": {
-          "jung": "2083: The most fundamental freedom — to choose what you spend your life on.What do you choose?",
-          "aelter": "You carried the whole story.Now it's time to pass it on."
+          "jung": "Design thinking for institutions: If you want to change something, don't ask 'How do I convince people?'but 'What structure produces the desired behavior?'This is the lesson of 123 years.",
+          "aelter": "You carry the entire story.Now is the time to pass it on — not as nostalgia, but as institutional knowledge."
         }
       }
     },
     "2084": {
       "jahr": 2084,
       "label": "Neue Ordnung",
-      "ueberschrift": "Das letzte Quadrat — Ende einer Jahreskarte, Beginn einer neuen Geschichte",
+      "ueberschrift": "Das letzte Quadrat — Struktur schlägt Tugend, Forstwirtschaft hat gereicht, Fragen bleiben",
       "welt": {
         "usa": "USA 2084: Das 250. Jubiläum der US-Unabhängigkeitserklärung in diesem Jahr. Thomas Jefferson schrieb: 'Alle Menschen sind gleich erschaffen.' 2084 gilt das biologisch, politisch, digital zum ersten Mal annähernd für alle.",
-        "china": "China 2084: Freie Gesellschaft, Weltmacht, Kulturzentrum. Das Land, das 1989 seine Demokratiebewegung niederschlug, hat 2084 den längsten und schwierigsten demokratischen Weg der Geschichte zurückgelegt.",
-        "alte_welt": "Europa 2084: Das europäische Modell — Freiheit, Solidarität, Vernunft — hat überlebt. Nicht weil es perfekt war. Sondern weil genug Menschen zu jeder Generation dafür kämpften.",
-        "neue_welt": "Menschheit 2084: Multiplanetare Zivilisation. Universelle Longevity. Demokratie als globaler Standard. Saubere Energie. Keine Armut mehr. Die Arbeit ist nicht fertig — aber die Richtung ist klar.",
-        "crypto": "2084: Dezentrale Systeme haben staatliche Kontrolle über Grundinfrastruktur (Geld, Kommunikation, Identität) gebrochen. Die libertäre Vision hat sich durchgesetzt — aber als freie Wahl, nicht als Zwang.",
-        "handel": "Das letzte Quadrat. Der Blick zurück: Von 1960 bis 2084 hat die Menschheit mehr Fortschritt gemacht als in allen Jahrtausenden davor. Nicht linear. Nicht ohne Krisen. Aber vorwärts."
+        "china": "China 2084: Freie Gesellschaft. Der Weg war 95 Jahre nach Maos Tod und 45 Jahre nach dem letzten Technokraten. Er verlief über wirtschaftliche Not, demographischen Druck, Mittelklassen-Forderungen. Keine Revolution. Kein Held. Evolution unter Druck.",
+        "alte_welt": "Europa 2084: Die europäische Idee — dass Frieden, Freiheit und Verantwortung zusammenhängen — hat überlebt. Nicht weil Europäer tugendhafter sind. Sondern weil Europa nach 1945 Institutionen gebaut hat, die Kurzfristdenken strukturell bremsen. Das ist das europäische Modell: Institutioneller Design als Freiheitsgarantie.",
+        "neue_welt": "Menschheit 2084: Multiplanetare Zivilisation. Solar hat Energie zu einem Gemeingut gemacht. Generationale Governance hat Langfristinvestitionen stabilisiert. Ungleichheit besteht. Fragen bleiben. Aber: mehr Menschen haben mehr Chancen als je zuvor — durch Struktur, nicht durch Gnade.",
+        "crypto": "Krypto 2084: Dezentrale Infrastruktur für spezifische Anwendungen. Nicht die Freiheitsrevolution, die versprochen wurde. Aber nützlich in Nischen. Die eigentliche Dezentralisierungsrevolution war Solar und das offene Internet — nicht Krypto.",
+        "handel": "Die größte wirtschaftliche Veränderung von 1960 bis 2084: Solar hat Energie zu einem Gemeingut gemacht. Ohne Staatsprogramm. Ohne Plan. Nur weil billiger werden eine politisch neutrale Kraft ist."
       },
       "gesellschaft": {
-        "text": "2084 ist das letzte Quadrat dieses Projekts — aber nicht das letzte Jahr der Geschichte. Es gibt kein Ende. Nur weitere Quadrate, weitere Jahre, weitere Menschen, die ihre Geschichte in große Zusammenhänge einordnen wollen. Das ist Pragmatischer Optimismus: Nicht naive Hoffnung. Sondern informierte Zuversicht — gestützt auf Evidenz, gespeist aus Erfahrung, gerichtet auf das, was möglich ist.",
+        "text": "2084 ist das letzte Quadrat. Die Lektion von 1960 bis 2084 in einem Satz: Pragmatischer Optimismus ist die Erkenntnis, dass gute Institutionen gute Ergebnisse produzieren — nicht weil Menschen gut sind, sondern weil Strukturen das richtige Verhalten erzwingen. Ein Förster pflanzt Bäume für Enkel, nicht weil er edelmütig ist — sondern weil sein Beruf ihn dazu zwingt. Wenn wir politische Institutionen so bauen, dass sie generationale Verantwortung einfordern, wird Langfristdenken normal. Nicht als Appell. Als Design.",
         "metriken": {
           "screentime_std_tag": 6,
           "freundschaften": 8,
@@ -6576,26 +4700,26 @@ window.__FC_LIFE_YEARS__={
       "chancen": {
         "mental": "Das letzte Quadrat: Was nimmst du mit? Was lässt du los? Was willst du dem nächsten Quadrat hinterlassen?",
         "koerper": "2084: Biologisches Altern behandelbar. Sterblichkeit optional. Das Geschenk der Wissenschaft an die Menschheit ist vollständig.",
-        "gemeinschaft": "Menschheit als Gemeinschaft: Erde und Mars, China und Europa, Afrika und Amerika — alle in einer Zivilisation, die auf Freiheit, Würde und Neugier gebaut ist.",
+        "gemeinschaft": "Das Erbe der generationalen Governance: Nicht eine ideale Gesellschaft. Sondern eine, die besser kann, als kurzfristig zu denken. Die Fragen, die 2084 offen bleiben: Wie skaliert man das Modell in ressourcenschwache Gesellschaften? Wie verhindert man Elitekapture in Räten der Weisen? Wie designt man Demokratie für 130-jährige Menschen? Diese Fragen gehören dem nächsten Quadrat.",
         "technologie": "2084: Die Werkzeuge existieren. Was wir daraus machen, entscheiden wir — jeden Tag, in jedem Quadrat."
       },
       "was_tun": {
-        "jung": "2084 ist das letzte Quadrat dieses Projekts. Aber dein Leben hat noch viele Quadrate vor sich. Was machst du mit dem nächsten?",
-        "aelter": "Wenn du dieses letzte Quadrat liest — in welchem Jahr du auch immer bist — weißt du: Die Geschichte war nicht vergebens. Du warst nicht vergebens. Danke."
+        "jung": "Das letzte Quadrat ist nicht das Ende. Dein nächstes Quadrat hat noch keine Antwort. Die Frage ist: Mit welchen Institutionen willst du es gestalten?",
+        "aelter": "Wenn du dieses letzte Quadrat liest: Du hast die ganze Geschichte getragen. Jetzt ist Zeig — nicht Nostalgie, sondern institutionelles Wissen — das Wichtigste, was du weitergeben kannst. Danke."
       },
       "en": {
         "label": "New Order",
-        "ueberschrift": "The Last Square — end of an annual card, beginning of a new story",
+        "ueberschrift": "The last square – structure beats virtue, forestry was enough, questions remain",
         "welt": {
           "usa": "USA 2084: The 250th anniversary of the US Declaration of Independence this year.Thomas Jefferson wrote: 'All men are created equal.'In 2084, biologically, politically and digitally, this applies to almost everyone for the first time.",
-          "china": "China 2084: Free Society, World Power, Cultural Center.The country that crushed its democracy movement in 1989 has traveled the longest and most difficult democratic path in history in 2084.",
-          "alte_welt": "Europe 2084: The European model — freedom, solidarity, reason — has survived.Not because it was perfect.But because enough people fought for it in every generation.",
-          "neue_welt": "Humanity 2084: Multiplanetary Civilization.Universal Longevity.Democracy as a global standard.Clean energy.No more poverty.The work is not finished — but the direction is clear.",
-          "crypto": "2084: Decentralized systems have broken government control over basic infrastructure (money, communication, identity).The libertarian vision has prevailed — but as a free choice, not a compulsion.",
-          "handel": "The last square.Looking back: From 1960 to 2084, humanity made more progress than in all previous millennia.Not linear.Not without crises.But forward."
+          "china": "China 2084: Free Society.The journey was 95 years after Mao's death and 45 years after the last technocrat.It was about economic hardship, demographic pressure, middle class demands.No revolution.Not a hero.Evolution under pressure.",
+          "alte_welt": "Europe 2084: The European idea — that peace, freedom and responsibility are interconnected — has survived.Not because Europeans are more virtuous.But because Europe built institutions after 1945 that structurally put a brake on short-term thinking.This is the European model: institutional design as a guarantee of freedom.",
+          "neue_welt": "Humanity 2084: Multiplanetary Civilization.Solar has made energy a common good.Generational governance has stabilized long-term investments.Inequality exists.Questions remain.But more people have more opportunities than ever before — through structure, not grace.",
+          "crypto": "Crypto 2084: Decentralized infrastructure for specific applications.Not the freedom revolution that was promised.But useful in niches.The real decentralization revolution was solar and the open internet — not crypto.",
+          "handel": "The biggest economic change from 1960 to 2084: Solar made energy a common good.Without a state program.Without a plan.Just because getting cheaper is a politically neutral force."
         },
         "gesellschaft": {
-          "text": "2084 is the last square of this project — but not the last year of history.There is no end.Just more squares, more years, more people who want to put their story into larger contexts.This is pragmatic optimism: not naive hope.But informed confidence — based on evidence, fed by experience, focused on what is possible.",
+          "text": "2084 is the last square.The lesson from 1960 to 2084 in one sentence: Pragmatic optimism is the recognition that good institutions produce good results — not because people are good, but because structures enforce the right behavior.A forester plants trees for grandchildren, not because he is noble - but because his job forces him to do so.If we build political institutions in such a way that they demand generational responsibility, long-term thinking becomes normal.Not as an appeal.As a design.",
           "metriken": {
             "screentime_std_tag": 6,
             "freundschaften": 8,
@@ -6607,12 +4731,12 @@ window.__FC_LIFE_YEARS__={
         "chancen": {
           "mental": "The Last Square: What are you taking with you?What are you letting go of?What do you want to leave the next square?",
           "koerper": "2084: Biological aging treatable.Mortality optional.The gift of science to humanity is complete.",
-          "gemeinschaft": "Humanity as a community: Earth and Mars, China and Europe, Africa and America — all in a civilization built on freedom, dignity and curiosity.",
+          "gemeinschaft": "The Legacy of Generational Governance: Not an Ideal Society.But one that can do better than thinking in the short term.The questions that remain open in 2084: How do you scale the model into resource-poor societies?How to prevent elite capture in councils of the wise?How do you design democracy for 130-year-old people?These questions belong to the next square.",
           "technologie": "2084: The tools exist.We decide what we do with it - every day, in every square."
         },
         "was_tun": {
-          "jung": "2084 is the last square of this project.But your life still has many squares ahead of it.What are you doing with the next one?",
-          "aelter": "When you read this last square, whatever year you are in, know that the story was not in vain.You were not in vain.Thanks."
+          "jung": "The last square is not the end.Your next square doesn't have an answer yet.The question is: which institutions do you want to shape it with?",
+          "aelter": "If you read this last square: you have carried the whole story.Now, Zeig — not nostalgia, but institutional knowledge — is the most important thing you can pass on.Thanks."
         }
       }
     }

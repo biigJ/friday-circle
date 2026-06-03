@@ -483,7 +483,9 @@ function renderGrid() {
 }
 
 function renderPanel(year, sqEl) {
-  activeTab = modeToTab(mode);
+  activeTab = 'society';
+  mode = 'neg';
+  syncModeToggle();
 
   document.querySelectorAll('.sq').forEach(s=>s.classList.remove('active'));
   sqEl.classList.add('active');

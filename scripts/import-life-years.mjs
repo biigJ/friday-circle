@@ -315,8 +315,17 @@ if (!Object.keys(csvYears).length && !Object.keys(matrixYears).length) {
   process.exit(1);
 }
 
+const REPLACE_FROM_YEAR = 2027;
+
 for (const [key, rec] of Object.entries(csvYears)) {
   payload.years[key] = rec;
+}
+
+for (const key of Object.keys(payload.years)) {
+  const year = parseInt(key, 10);
+  if (year >= REPLACE_FROM_YEAR && !csvYears[key]) {
+    delete payload.years[key];
+  }
 }
 
 for (const [key, rec] of Object.entries(matrixYears)) {

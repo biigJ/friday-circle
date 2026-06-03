@@ -12,6 +12,8 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.join(__dirname, "..");
 const jsonPath = path.join(root, "data/life-years.json");
 const force = process.argv.includes("--force");
+const fromArg = process.argv.find((a) => a.startsWith("--from="));
+const fromYear = fromArg ? parseInt(fromArg.split("=")[1], 10) : 0;
 const delayMs = Number(process.env.TRANSLATE_DELAY_MS || 120);
 
 const LABEL_EN = {
@@ -88,6 +90,7 @@ let done = 0;
 let skipped = 0;
 
 for (const year of keys) {
+  if (fromYear && year < fromYear) continue;
   const key = String(year);
   const rec = payload.years[key];
   if (rec.en && !force) {
