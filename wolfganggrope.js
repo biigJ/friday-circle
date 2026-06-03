@@ -311,6 +311,21 @@
     });
   }
 
+  function syncPopupFrameWidth() {
+    const slider = sliderTrack && sliderTrack.parentElement;
+    if (!slider || !slideCount) return;
+    const slide = sliderTrack.children[slideIndex];
+    if (!slide) return;
+    const img = slide.querySelector("img");
+    if (!img) return;
+    function apply() {
+      const w = img.offsetWidth;
+      if (w > 0) slider.style.width = w + "px";
+    }
+    if (img.complete && img.naturalWidth) apply();
+    else img.addEventListener("load", apply, { once: true });
+  }
+
   function setSlide(index) {
     if (!slideCount) return;
     slideIndex = (index + slideCount) % slideCount;
@@ -318,6 +333,7 @@
     sliderDots.querySelectorAll(".wga-slider__dot").forEach(function (dot, i) {
       dot.classList.toggle("is-active", i === slideIndex);
     });
+    syncPopupFrameWidth();
   }
 
   function buildPopupSlider(images, title) {
@@ -350,6 +366,7 @@
 
     sliderTrack.style.transform = "translateX(0)";
     sliderDots.hidden = slideCount <= 1;
+    syncPopupFrameWidth();
   }
 
   function openPopup(id) {
@@ -361,7 +378,9 @@
       return v && v !== "—";
     });
     popupMeta.textContent = meta.join(" · ");
+    popupMeta.hidden = meta.length === 0;
     popupBody.textContent = work.body || "";
+    popupBody.hidden = !work.body;
     if (work.price) {
       popupPrice.textContent = work.price;
       popupPrice.hidden = false;
@@ -373,6 +392,8 @@
       (work.images || [catalog.meta.placeholder]).map(resolveAsset),
       work.title || "Werk"
     );
+    if (meta.length) popup.setAttribute("aria-describedby", "wga-popup-meta");
+    else popup.removeAttribute("aria-describedby");
     popup.hidden = false;
     popup.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
@@ -426,6 +447,7 @@
     updateNavTheme();
     window.addEventListener("scroll", updateNavTheme, { passive: true });
     window.addEventListener("resize", updateNavTheme, { passive: true });
+    window.addEventListener("resize", syncPopupFrameWidth, { passive: true });
   }
 
   async function loadCatalog() {
