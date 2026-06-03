@@ -1,0 +1,4920 @@
+{
+  "meta": {
+    "artist": "Wolfgang Grope",
+    "heroHeadline": "1955 - 2005",
+    "placeholder": "assets/wolfgang-grope/placeholder.svg"
+  },
+  "heroSlides": [
+    {
+      "src": "assets/wolfgang-grope/WG-Gemaelde-1976-1991-30.jpg",
+      "alt": "Wolfgang Grope — Gemälde 1976–1991"
+    },
+    {
+      "src": "assets/wolfgang-grope/WG-Aquarell-1955-1970-03.jpg",
+      "alt": "Wolfgang Grope — Aquarell 1955–1970"
+    },
+    {
+      "src": "assets/wolfgang-grope/WG-Gemaelde-2002-04.jpg",
+      "alt": "Wolfgang Grope — Gemälde 2002"
+    },
+    {
+      "src": "assets/wolfgang-grope/WG-Keramik-01.jpg",
+      "alt": "Wolfgang Grope — Keramik"
+    },
+    {
+      "src": "assets/wolfgang-grope/WG-Gemaelde-2002-13.jpg",
+      "alt": "Wolfgang Grope — Gemälde 2002"
+    },
+    {
+      "src": "assets/wolfgang-grope/WG-Grafik-1972-1974-13.jpg",
+      "alt": "Wolfgang Grope — Radierung 1972–1974"
+    },
+    {
+      "src": "assets/wolfgang-grope/WG-Grafik-1972-1974-39.jpg",
+      "alt": "Wolfgang Grope — Radierung 1972–1974"
+    },
+    {
+      "src": "assets/wolfgang-grope/WG-Grafik-1972-1974-56.jpg",
+      "alt": "Wolfgang Grope — Radierung 1972–1974"
+    },
+    {
+      "src": "assets/wolfgang-grope/WG-Grafik-1975-1979-16.jpg",
+      "alt": "Wolfgang Grope — Radierung 1975–1979"
+    },
+    {
+      "src": "assets/wolfgang-grope/WG-Keramik-25.jpg",
+      "alt": "Wolfgang Grope — Keramik",
+      "logoOn": "dark"
+    }
+  ],
+  "sections": [
+    {
+      "id": "oel-1955-1970",
+      "title": "1955 - 1970 Ölmalerei",
+      "works": [
+        {
+          "id": "wg-aquarell-1955-1970-01",
+          "title": "Aquarell",
+          "year": "—",
+          "medium": "Aquarell",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Aquarell-1955-1970-01.jpg"
+          ]
+        },
+        {
+          "id": "wg-aquarell-1955-1970-02",
+          "title": "Aquarell",
+          "year": "—",
+          "medium": "Aquarell",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Aquarell-1955-1970-02.jpg"
+          ]
+        },
+        {
+          "id": "wg-aquarell-1955-1970-03",
+          "title": "Aquarell",
+          "year": "—",
+          "medium": "Aquarell",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Aquarell-1955-1970-03.jpg"
+          ]
+        },
+        {
+          "id": "wg-aquarell-1955-1970-04",
+          "title": "Aquarell",
+          "year": "—",
+          "medium": "Aquarell",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Aquarell-1955-1970-04.jpg"
+          ]
+        },
+        {
+          "id": "wg-aquarell-1955-1970-05",
+          "title": "Aquarell",
+          "year": "—",
+          "medium": "Aquarell",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Aquarell-1955-1970-05.jpg"
+          ]
+        },
+        {
+          "id": "wg-aquarell-1955-1970-06",
+          "title": "Aquarell",
+          "year": "—",
+          "medium": "Aquarell",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Aquarell-1955-1970-06.jpg"
+          ]
+        },
+        {
+          "id": "wg-oel-1955-1970-07",
+          "title": "Ölmalerei",
+          "year": "—",
+          "medium": "Öl auf Leinwand",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Oel-1955-1970-07.jpg"
+          ]
+        },
+        {
+          "id": "wg-oel-1955-1970-08",
+          "title": "Ölmalerei",
+          "year": "—",
+          "medium": "Öl auf Leinwand",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Oel-1955-1970-08.jpg"
+          ]
+        },
+        {
+          "id": "wg-oel-1955-1970-09",
+          "title": "Ölmalerei",
+          "year": "—",
+          "medium": "Öl auf Leinwand",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Oel-1955-1970-09.jpg"
+          ]
+        },
+        {
+          "id": "wg-oel-1955-1970-10",
+          "title": "Ölmalerei",
+          "year": "—",
+          "medium": "Öl auf Leinwand",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Oel-1955-1970-10.jpg"
+          ]
+        },
+        {
+          "id": "wg-oel-1955-1970-11",
+          "title": "Ölmalerei",
+          "year": "—",
+          "medium": "Öl auf Leinwand",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Oel-1955-1970-11.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rad-1972-1974",
+      "title": "1972 - 1974 Radierungen",
+      "works": [
+        {
+          "id": "wg-grafik-1972-1974-01",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-01.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-02",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-02.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-03",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-03.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-04",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-04.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-05",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-05.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-06",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-06.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-07",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-07.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-08",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-08.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-09",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-09.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-10",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-10.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-11",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-11.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-12",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-12.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-13",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-13.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-14",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-14.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-15",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-15.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-16",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-16.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-17",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-17.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-18",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-18.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-19",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-19.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-20",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-20.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-21",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-21.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-22",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-22.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-23",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-23.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-24",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-24.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-25",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-25.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-26",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-26.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-27",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-27.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-28",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-28.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-29",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-29.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-30",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-30.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-31",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-31.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-32",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-32.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-33",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-33.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-34",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-34.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-35",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-35.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-36",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-36.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-37",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-37.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-38",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-38.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-39",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-39.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-40",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-40.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-41",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-41.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-42",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-42.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-43",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-43.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-44",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-44.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-45",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-45.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-46",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-46.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-47",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-47.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-48",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-48.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-49",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-49.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-50",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-50.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-51",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-51.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-52",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-52.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-53",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-53.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-54",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-54.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-55",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-55.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-56",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-56.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-57",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-57.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-58",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-58.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-59",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-59.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-60",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-60.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oel-1974-drei",
+      "title": "1974 Drei Ölgemälde",
+      "works": [
+        {
+          "id": "wg-gemaelde-1974-01",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1974-01.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1974-02",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1974-02.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1974-03",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1974-03.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rad-1975-1979",
+      "title": "1975 - 1979 Radierungen",
+      "works": [
+        {
+          "id": "wg-grafik-1975-1979-01",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-01.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-02",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-02.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-03",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-03.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-04",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-04.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-05",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-05.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-06",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-06.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-07",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-07.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-08",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-08.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-09",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-09.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-10",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-10.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-11",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-11.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-12",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-12.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-13",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-13.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-14",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-14.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-15",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-15.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-16",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-16.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-17",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-17.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-18",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-18.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-19",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-19.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-20",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-20.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-21",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-21.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-22",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-22.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-23",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-23.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-24",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-24.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-25",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-25.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-26",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-26.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-27",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-27.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-28",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-28.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1975-1979-29",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1975-1979-29.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1975-1979-30",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1975-1979-30.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-31",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-31.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1975-1979-32",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1975-1979-32.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-33",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-33.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-34",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-34.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-35",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-35.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-36",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-36.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-37",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-37.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-38",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-38.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-39",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-39.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-40",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-40.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-41",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-41.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-42",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-42.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-43",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-43.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-44",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-44.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-45",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-45.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-46",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-46.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-47",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-47.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-48",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-48.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1975-1979-49",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1975-1979-49.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zeich-1976-1991",
+      "title": "1976 - 1991 Zeichnungen und Gemälde",
+      "works": [
+        {
+          "id": "wg-zeichnung-1976-1991-01",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1976-1991-01.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1976-1991-02",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1976-1991-02.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1976-1991-03",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1976-1991-03.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-04",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-04.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-05",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-05.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-06",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-06.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1976-1991-07",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1976-1991-07.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1976-1991-08",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1976-1991-08.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1976-1991-09",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1976-1991-09.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1976-1991-10",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1976-1991-10.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1976-1991-11",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1976-1991-11.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-12",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-12.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-13",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-13.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-14",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-14.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-15",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-15.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-16",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-16.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1976-1991-17",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1976-1991-17.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1976-1991-18",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1976-1991-18.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-19",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-19.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-20",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-20.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-21",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-21.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1976-1991-22",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1976-1991-22.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-23",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-23.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-24",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-24.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-25",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-25.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-26",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-26.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-27",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-27.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-28",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-28.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-29",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-29.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-30",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-30.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-31",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-31.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-32",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-32.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-33",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-33.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-34",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-34.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-35",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-35.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-36",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-36.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-37",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-37.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-38",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-38.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-39",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-39.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1976-1991-40",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1976-1991-40.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1976-1991-41",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1976-1991-41.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-42",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-42.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-43",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-43.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-44",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-44.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-45",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-45.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-46",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-46.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-47",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-47.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-48",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-48.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-49",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-49.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-50",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-50.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-51",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-51.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-52",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-52.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-53",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-53.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1976-1991-54",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1976-1991-54.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1976-1991-55",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1976-1991-55.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1976-1991-56",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1976-1991-56.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1976-1991-57",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1976-1991-57.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-58",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-58.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-59",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-59.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-60",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-60.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-61",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-61.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-62",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-62.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1976-1991-63",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1976-1991-63.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "rad-holz-1984-1993",
+      "title": "1984 - 1993 Radierungen und Holzschnitte",
+      "works": [
+        {
+          "id": "wg-grafik-1984-1993-01",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1984-1993-01.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1984-1993-02",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1984-1993-02.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1984-1993-03",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1984-1993-03.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1984-1993-04",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1984-1993-04.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1984-1993-05",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1984-1993-05.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1984-1993-06",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1984-1993-06.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1984-1993-07",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1984-1993-07.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1984-1993-08",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1984-1993-08.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1984-1993-09",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1984-1993-09.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1984-1993-10",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1984-1993-10.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1984-1993-11",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1984-1993-11.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1984-1993-12",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1984-1993-12.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1984-1993-13",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1984-1993-13.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1984-1993-14",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1984-1993-14.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1984-1993-15",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1984-1993-15.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1984-1993-16",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1984-1993-16.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1984-1993-17",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1984-1993-17.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1984-1993-18",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1984-1993-18.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1984-1993-19",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1984-1993-19.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1984-1993-20",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1984-1993-20.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1984-1993-21",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1984-1993-21.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1984-1993-22",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1984-1993-22.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1984-1993-23",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1984-1993-23.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1984-1993-24",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1984-1993-24.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1984-1993-25",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1984-1993-25.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1984-1993-26",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1984-1993-26.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1984-1993-27",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1984-1993-27.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1984-1993-28",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1984-1993-28.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "zeich-1991-1995",
+      "title": "1991 - 1995 Zeichnungen und Skizzen",
+      "works": [
+        {
+          "id": "wg-gemaelde-1991-1995-01",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-01.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-02",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-02.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-03",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-03.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-04",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-04.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-05",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-05.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-06",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-06.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-07",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-07.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-08",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-08.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-1991-1995-09",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-1991-1995-09.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-1991-1995-10",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-1991-1995-10.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-11",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-11.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-12",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-12.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-13",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-13.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-14",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-14.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-15",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-15.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-16",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-16.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-17",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-17.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-18",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-18.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-19",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-19.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-1991-1995-20",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-1991-1995-20.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-21",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-21.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-22",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-22.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-23",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-23.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-1991-1995-24",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-1991-1995-24.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-1991-1995-25",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-1991-1995-25.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-1991-1995-26",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-1991-1995-26.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-1991-1995-27",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-1991-1995-27.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-1991-1995-28",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-1991-1995-28.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-29",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-29.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-30",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-30.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-31",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-31.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-32",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-32.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-1991-1995-33",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-1991-1995-33.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-1991-1995-34",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-1991-1995-34.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-1991-1995-35",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-1991-1995-35.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-1991-1995-36",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-1991-1995-36.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-1991-1995-37",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-1991-1995-37.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-1991-1995-38",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-1991-1995-38.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-1991-1995-39",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-1991-1995-39.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-1991-1995-40",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-1991-1995-40.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-1991-1995-41",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-1991-1995-41.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-1991-1995-42",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-1991-1995-42.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-1991-1995-43",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-1991-1995-43.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-1991-1995-44",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-1991-1995-44.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-1991-1995-45",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-1991-1995-45.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-1991-1995-46",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-1991-1995-46.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-1991-1995-47",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-1991-1995-47.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-1991-1995-48",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-1991-1995-48.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-1991-1995-49",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-1991-1995-49.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-50",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-50.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-51",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-51.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-52",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-52.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-53",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-53.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-54",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-54.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-55",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-55.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-56",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-56.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-57",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-57.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-58",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-58.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-59",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-59.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-60",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-60.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-61",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-61.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-62",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-62.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-63",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-63.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-64",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-64.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-65",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-65.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-66",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-66.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-67",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-67.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-68",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-68.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-69",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-69.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-70",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-70.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-71",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-71.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-72",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-72.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-73",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-73.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-74",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-74.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-75",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-75.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-76",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-76.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-77",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-77.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-78",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-78.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-1991-1995-79",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-1991-1995-79.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-80",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-80.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-81",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-81.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-82",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-82.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-83",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-83.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-84",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-84.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-85",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-85.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-86",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-86.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-87",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-87.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-88",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-88.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-89",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-89.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-90",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-90.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-1991-1995-91",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-1991-1995-91.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-92",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-92.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-93",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-93.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-94",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-94.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-95",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-95.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-1991-1995-96",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-1991-1995-96.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-1991-1995-97",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-1991-1995-97.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1991-1995-98",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1991-1995-98.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1991-1995-99",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1991-1995-99.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1991-1995-100",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1991-1995-100.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1991-1995-101",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1991-1995-101.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1991-1995-102",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1991-1995-102.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1991-1995-103",
+          "title": "Radierung",
+          "year": "—",
+          "medium": "Radierung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1991-1995-103.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-104",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-104.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-105",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-105.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-106",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-106.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-107",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-107.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-108",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-108.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-109",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-109.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-110",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-110.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1991-1995-111",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1991-1995-111.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gem-1998-2001",
+      "title": "1998 - 2001 Gemälde",
+      "works": [
+        {
+          "id": "wg-gemaelde-1998-2001-01",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1998-2001-01.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1998-2001-02",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1998-2001-02.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1998-2001-03",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1998-2001-03.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1998-2001-04",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1998-2001-04.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1998-2001-05",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1998-2001-05.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1998-2001-06",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1998-2001-06.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1998-2001-07",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1998-2001-07.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-1998-2001-08",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-1998-2001-08.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skiz-2001-2003",
+      "title": "2001 - 2003 Skizzen",
+      "works": [
+        {
+          "id": "wg-gemaelde-2001-2003-01",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-2001-2003-01.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-2001-2003-02",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-2001-2003-02.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-2001-2003-03",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-2001-2003-03.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-2001-2003-04",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-2001-2003-04.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-2001-2003-05",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-2001-2003-05.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-2001-2003-06",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-2001-2003-06.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-2001-2003-07",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-2001-2003-07.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-2001-2003-08",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-2001-2003-08.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-2001-2003-09",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-2001-2003-09.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-2001-2003-10",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-2001-2003-10.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-2001-2003-11",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-2001-2003-11.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-2001-2003-12",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-2001-2003-12.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-2001-2003-13",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-2001-2003-13.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-2001-2003-14",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-2001-2003-14.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-2001-2003-15",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-2001-2003-15.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-2001-2003-16",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-2001-2003-16.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "abstraktion-2002",
+      "title": "2002 Abstraktion. Zwei Gemälde, Skizzen und eine Radierung",
+      "works": [
+        {
+          "id": "wg-gemaelde-2002-01",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-2002-01.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-2002-02",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-2002-02.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-2002-03",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-2002-03.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-2002-04",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-2002-04.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-2002-05",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-2002-05.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-2002-06",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-2002-06.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-2002-07",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-2002-07.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-2002-08",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-2002-08.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-2002-09",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-2002-09.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-2002-10",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-2002-10.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-2002-11",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-2002-11.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-2002-12",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-2002-12.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-2002-13",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-2002-13.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-2002-14",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-2002-14.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-2002-15",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-2002-15.jpg"
+          ]
+        },
+        {
+          "id": "wg-gemaelde-2002-16",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-2002-16.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skiz-2003-2007",
+      "title": "2003, 2005, 2007 Eine Skizze je Jahr",
+      "works": [
+        {
+          "id": "wg-gemaelde-2003-2007-01",
+          "title": "Gemälde",
+          "year": "—",
+          "medium": "Gemälde",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Gemaelde-2003-2007-01.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-2003-2007-02",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-2003-2007-02.jpg"
+          ]
+        },
+        {
+          "id": "wg-skizze-2003-2007-03",
+          "title": "Skizze",
+          "year": "—",
+          "medium": "Skizze",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Skizze-2003-2007-03.jpg"
+          ]
+        },
+        {
+          "id": "wg-zeichnung-2003-2007-04",
+          "title": "Zeichnung",
+          "year": "—",
+          "medium": "Zeichnung",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Zeichnung-2003-2007-04.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "keramiken",
+      "title": "Keramiken",
+      "works": [
+        {
+          "id": "wg-keramik-01",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-01.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-02",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-02.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-03",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-03.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-04",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-04.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-05",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-05.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-06",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-06.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-07",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-07.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-08",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-08.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-09",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-09.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-10",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-10.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-11",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-11.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-12",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-12.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-13",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-13.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-14",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-14.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-15",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-15.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-16",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-16.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-17",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-17.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-18",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-18.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-19",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-19.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-20",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-20.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-21",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-21.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-22",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-22.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-23",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-23.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-24",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-24.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-25",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-25.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-26",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-26.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-27",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-27.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-28",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-28.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-29",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-29.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-30",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-30.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-31",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-31.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-32",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-32.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-33",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-33.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-34",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-34.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-35",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-35.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-36",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-36.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-37",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-37.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-38",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-38.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-39",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-39.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-40",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-40.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-41",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-41.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-42",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-42.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-43",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-43.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-44",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-44.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-45",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-45.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-46",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-46.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-47",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-47.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-48",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-48.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-49",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-49.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-50",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-50.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-51",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-51.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-52",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-52.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-53",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-53.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-54",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-54.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-55",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-55.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-56",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-56.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-57",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-57.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-58",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-58.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-59",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-59.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-60",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-60.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-61",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-61.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-62",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-62.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-63",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-63.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-64",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-64.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-65",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-65.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-66",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-66.jpg"
+          ]
+        },
+        {
+          "id": "wg-keramik-67",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Keramik-67.jpg"
+          ]
+        }
+      ]
+    }
+  ]
+}
