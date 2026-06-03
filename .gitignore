@@ -4,6 +4,8 @@ Thumbs.db
 .env
 .env.*
 
+scripts/node_modules/
+
 # Local-only pages (not published on GitHub)
 about/
 zusammenarbeit/

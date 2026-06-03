@@ -1338,6 +1338,14 @@ html[lang="de"] .en-t {
   margin-bottom: 0;
 }
 
+.programmierung-page .fc-life-layout__grid {
+  align-self: start;
+}
+
+.programmierung-page .programmierung-sub__intro .landing-bridge__kicker {
+  margin-top: 0;
+}
+
 .programmierung-page .landing-after-video {
   padding-top: 0 !important;
   margin-top: 0 !important;

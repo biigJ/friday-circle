@@ -181,33 +181,20 @@
 .programmierung-page .fc-life-squares .subline {
   margin-bottom: clamp(20px, 3vw, 28px);
 }
-.programmierung-page .landing-bridge__rule {
-  display: none;
-}
-.programmierung-page .landing-bridge hr {
-  display: none !important;
-  border: 0 !important;
-  height: 0 !important;
-  margin: 0 !important;
-}
 </style>
 </head>
 <body class="programmierung-page">
 <div id="fc-site-header"></div>
 <main>
 
-      <section class="landing-bridge programmierung-sub__intro" aria-labelledby="fc-life-headline">
-        <hr class="landing-bridge__rule" />
-        <p class="landing-bridge__kicker"><span class="de-t"><span class="landing-bridge__kicker-strong">Pragmatischer Optimismus</span><br />Programmierung</span><span class="en-t"><span class="landing-bridge__kicker-strong">Pragmatic Optimism</span><br />Programming</span></p>
-        <p class="landing-bridge__subkicker"><span class="de-t">Deine Resilienz, auch wenn alles unübersichtlich wirkt und Du nicht nur simple Antworten finden willst. Ordne Dein Leben in den großen Zusammenhang ein.</span><span class="en-t">Your resilience, even when everything feels complex and you do not want simple answers. Place your life in the bigger context.</span></p>
-      </section>
-
       <section class="landing-after-video" aria-labelledby="fc-life-headline">
         <div class="landing-after-video__inner landing-after-video__inner--geschichte">
           <div class="fc-life-squares-embed" aria-label="Dein Leben in 90 Jahren — interaktive Übersicht">
             <div class="fc-life-squares">
               <div class="fc-life-layout">
-                <div class="fc-life-layout__intro">
+                <div class="fc-life-layout__intro programmierung-sub__intro">
+                  <p class="landing-bridge__kicker"><span class="de-t"><span class="landing-bridge__kicker-strong">Pragmatischer Optimismus</span><br />Programmierung</span><span class="en-t"><span class="landing-bridge__kicker-strong">Pragmatic Optimism</span><br />Programming</span></p>
+                  <p class="landing-bridge__subkicker"><span class="de-t">Deine Resilienz, auch wenn alles unübersichtlich wirkt und Du nicht nur simple Antworten finden willst. Ordne Dein Leben in den großen Zusammenhang ein.</span><span class="en-t">Your resilience, even when everything feels complex and you do not want simple answers. Place your life in the bigger context.</span></p>
                   <h1 id="fc-life-headline" class="headline">
                     Dein Leben verläuft parallel zum Leben des Internets.
                   </h1>
@@ -448,6 +435,7 @@
 </main>
 <div id="fc-site-footer"></div>
 <script src="nav.js" defer></script>
+<script src="data/life-years.js"></script>
 <script src="fc-life-in-squares.js" defer></script>
 <script>
 function toggleExpand(btn) {
