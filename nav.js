@@ -21,6 +21,15 @@
     return name.replace(/\.html$/, "");
   }
 
+  /** Bump when partials/site-footer.html or site-header.html change (cache bust). */
+  var FC_PARTIAL_CACHE = "2";
+
+  function partialCacheUrl(path) {
+    var url = new URL(path, partialBaseHref());
+    url.searchParams.set("fcv", FC_PARTIAL_CACHE);
+    return url.href;
+  }
+
   function ensureSiteBase() {
     var el = document.querySelector("base[data-fc-site-root]");
     if (!el) {
@@ -38,7 +47,7 @@
     }
     return new Promise(function (resolve, reject) {
       var s = document.createElement("script");
-      s.src = new URL("partials/" + key + ".js", partialBaseHref()).href;
+      s.src = partialCacheUrl("partials/" + key + ".js");
       s.onload = function () {
         if (window.FC_PARTIAL_HTML && window.FC_PARTIAL_HTML[key]) {
           resolve(window.FC_PARTIAL_HTML[key]);
@@ -54,18 +63,16 @@
   }
 
   function fetchPartial(name) {
-    if (location.protocol === "file:") {
-      return loadPartialScript(name);
-    }
-    var url = new URL("partials/" + name, partialBaseHref());
-    return fetch(url.href)
-      .then(function (r) {
-        if (!r.ok) throw new Error("partial " + name + " " + r.status);
-        return r.text();
-      })
-      .catch(function () {
-        return loadPartialScript(name);
-      });
+    return loadPartialScript(name).catch(function () {
+      if (location.protocol === "file:") {
+        return Promise.reject(new Error("partial " + name + " unavailable"));
+      }
+      return fetch(partialCacheUrl("partials/" + name))
+        .then(function (r) {
+          if (!r.ok) throw new Error("partial " + name + " " + r.status);
+          return r.text();
+        });
+    });
   }
 
   function loadScript(name) {
