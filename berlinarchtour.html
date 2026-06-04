@@ -68,7 +68,7 @@ body.bat-page .bat-brand-logo:hover,body.bat-page .bat-brand-logo:focus-visible{
 .bat-day__route{font-size:13.5px;line-height:1.6;opacity:.68;margin:8px 0 0;max-width:40rem}
 .bat-stops{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(16px,2.5vw,24px);row-gap:clamp(32px,5vw,48px);padding:0 0 clamp(32px,4vw,48px)}
 @media(max-width:960px){.bat-stops{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.bat-stop{display:flex;flex-direction:column;align-items:stretch;width:100%;border:none;background:rgba(255,255,255,.04);padding:0;margin:0;text-align:left;cursor:pointer;font-family:inherit;color:inherit;border-radius:4px;overflow:hidden;transition:background .15s;-webkit-appearance:none;appearance:none;line-height:1.5}
+.bat-stop{display:flex;flex-direction:column;align-items:stretch;width:100%;border:none;background:rgba(255,255,255,.04);padding:0;margin:0;text-align:left;cursor:default;font-family:inherit;color:inherit;border-radius:4px;overflow:hidden;transition:background .15s;-webkit-appearance:none;appearance:none;line-height:1.5}
 .bat-stop:hover,.bat-stop:focus-visible{background:rgba(255,255,255,.08);outline:none}
 .bat-stop__img-wrap{position:relative;display:block;width:100%;aspect-ratio:1/1;height:auto;min-height:0;margin:0;padding:0;line-height:0;font-size:0;background:rgba(255,255,255,.06);overflow:hidden;flex-shrink:0}
 body.bat-page .bat-stop__img-wrap img.bat-stop__img{position:absolute;top:0;left:0;width:100%;height:100%;max-width:none;max-height:none;margin:0;padding:0;border:0;border-radius:0;object-fit:cover;object-position:top center;display:block;filter:var(--bat-tile-filter)}
@@ -79,6 +79,21 @@ body.bat-page .bat-stop__img-wrap img.bat-stop__img{position:absolute;top:0;left
 .bat-stop__tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--bat-day-color,var(--bat-red));margin:0 0 8px}
 .bat-stop__name{margin:0 0 8px;font-size:17px;font-weight:500;color:var(--bat-white)}
 .bat-stop__teaser{margin:0;font-size:13.5px;line-height:1.55;color:rgba(255,255,255,.68)}
+.bat-stop__slider{position:relative;width:100%;touch-action:pan-y}
+.bat-stop__track{display:flex;width:100%;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.bat-stop__track::-webkit-scrollbar{display:none}
+.bat-stop__slide{flex:0 0 100%;width:100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always;box-sizing:border-box}
+.bat-stop__slide--card{display:flex;flex-direction:column}
+.bat-stop__slide--detail{display:flex;flex-direction:column;min-height:min(52vw,320px);max-height:min(72vh,480px);overflow-y:auto;padding:16px 18px 20px;background:rgba(255,255,255,.06);-webkit-overflow-scrolling:touch}
+.bat-stop__slide--photo{position:relative;aspect-ratio:1/1;background:rgba(255,255,255,.06);cursor:zoom-in}
+.bat-stop__slide--photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;filter:var(--bat-tile-filter)}
+.bat-stop__nav{position:absolute;top:42%;z-index:4;width:34px;height:34px;padding:0;border:none;border-radius:50%;background:rgba(0,0,0,.55);color:var(--bat-white);font-size:20px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .15s ease}
+.bat-stop:hover .bat-stop__nav,.bat-stop:focus-within .bat-stop__nav{opacity:1}
+.bat-stop__nav--prev{left:8px}
+.bat-stop__nav--next{right:8px}
+.bat-stop__dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);z-index:4;display:flex;gap:6px;margin:0;padding:0;list-style:none;pointer-events:none}
+.bat-stop__dots li{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.35);transition:background .15s ease,transform .15s ease}
+.bat-stop__dots li.is-active{background:var(--bat-day-color,var(--bat-red));transform:scale(1.15)}
 .bat-dining{padding:0 0 clamp(32px,4vw,48px);display:grid;gap:16px}
 @media(min-width:640px){.bat-dining{grid-template-columns:1fr 1fr;gap:24px}}
 .bat-dining__card{display:flex;flex-direction:row;align-items:stretch;height:192px;min-height:192px;border:1px solid rgba(255,255,255,.12);border-radius:4px;overflow:hidden;background:rgba(255,255,255,.03)}
@@ -122,28 +137,22 @@ main{position:relative;z-index:2}
 .bat-scroll-top[hidden]{display:none!important}
 .bat-scroll-top:hover,.bat-scroll-top:focus-visible{transform:translateY(-2px);outline:none;box-shadow:0 6px 22px rgba(0,0,0,.34)}
 .bat-scroll-top svg{display:block;flex-shrink:0}
-.bat-modal{position:fixed;inset:0;z-index:500;display:none;align-items:center;justify-content:center;padding:clamp(12px,3vw,24px)}
-.bat-modal.is-open{display:flex}
-.bat-modal__backdrop{position:absolute;inset:0;background:rgba(13,13,13,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
-.bat-modal__panel{position:relative;z-index:1;display:flex;flex-direction:column;width:min(560px,92vw);max-height:min(92vh,100%);overflow:hidden;background:var(--bat-black);color:var(--bat-white);border-radius:12px;margin:0}
-#bat-modal-media{flex:0 0 auto;width:100%;overflow:hidden;background:var(--bat-black)}
-.bat-modal__media-stack{width:100%}
-.bat-modal__frame{position:relative;width:100%;aspect-ratio:5/3;overflow:hidden;background:var(--bat-black)}
-.bat-modal__media-bound{position:absolute;inset:0;overflow:hidden}
-.bat-modal__labels{position:absolute;bottom:8px;right:8px;z-index:4;display:flex;flex-direction:column;align-items:flex-end;gap:4px;padding:0;pointer-events:none}
-body.bat-page .bat-modal__media-bound img.bat-modal__img{max-width:none;max-height:none;width:100%;height:100%;object-fit:contain;object-position:center;display:block}
-.bat-modal__gallery{position:absolute;inset:0;display:flex;flex-direction:column;background:transparent}
-.bat-modal__gallery-track{position:absolute;inset:0;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.bat-modal__gallery-track::-webkit-scrollbar{display:none}
-.bat-modal__gallery-slide{flex:0 0 100%;width:100%;height:100%;scroll-snap-align:start;scroll-snap-stop:always}
-.bat-modal__gallery-nav{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:0 8px;pointer-events:none;z-index:2}
-.bat-modal__gallery-nav button{pointer-events:auto;width:40px;height:40px;border:none;border-radius:50%;background:rgba(0,0,0,.55);color:var(--bat-white);font-size:22px;line-height:1;cursor:pointer}
-.bat-modal__gallery-dots{position:absolute;z-index:3;bottom:8px;left:50%;transform:translateX(-50%);display:flex;justify-content:center;gap:8px;margin:0;padding:0}
-.bat-modal__gallery-dots button{width:7px;height:7px;padding:0;border:none;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer}
-.bat-modal__gallery-dots button.is-active{background:var(--bat-red)}
-.bat-modal__ph{position:absolute;inset:0;display:none;align-items:center;justify-content:center;font-size:14px;letter-spacing:.1em;text-transform:uppercase;opacity:.45}
-.bat-modal__inner{flex:1 1 auto;min-height:0;overflow-y:auto;padding:clamp(14px,2.4vw,20px) clamp(16px,3vw,24px);-webkit-overflow-scrolling:touch}
-.bat-modal__close{position:absolute;top:10px;right:10px;z-index:6;width:36px;height:36px;border:none;border-radius:50%;background:rgba(0,0,0,.55);color:var(--bat-white);font-size:20px;line-height:1;cursor:pointer}
+.bat-lightbox{position:fixed;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;padding:clamp(8px,2vw,20px)}
+.bat-lightbox[hidden]{display:none!important}
+.bat-lightbox__backdrop{position:absolute;inset:0;background:rgba(13,13,13,.72);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.bat-lightbox__panel{position:relative;z-index:1;width:auto;max-width:min(96vw,1200px);max-height:none;overflow:visible;background:transparent;padding:0;line-height:0}
+.bat-lightbox__frame{position:relative;display:inline-block;max-width:100%;overflow:hidden;line-height:0}
+.bat-lightbox__close{position:absolute;z-index:12;top:clamp(8px,1.5vw,14px);right:clamp(8px,1.5vw,14px);width:36px;height:36px;border:0;border-radius:999px;background:rgba(10,10,10,.55);color:#fff;cursor:pointer;font-size:1.25rem;line-height:1}
+.bat-lightbox__close:hover,.bat-lightbox__close:focus-visible{background:rgba(10,10,10,.82);outline:none}
+.bat-lightbox__track{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.bat-lightbox__track::-webkit-scrollbar{display:none}
+.bat-lightbox__slide{flex:0 0 100%;width:100%;min-width:0;scroll-snap-align:start;scroll-snap-stop:always;margin:0;padding:0;box-sizing:border-box;display:block;overflow:hidden;background:transparent}
+body.bat-page .bat-lightbox__slide img{width:auto;max-width:min(96vw,1200px);height:auto!important;max-height:min(92vh,920px);object-fit:contain;object-position:center;display:block;margin:0;background:transparent;vertical-align:top}
+.bat-lightbox__dots{position:absolute;z-index:11;top:clamp(10px,1.8vw,16px);left:50%;transform:translateX(-50%);display:flex;gap:8px;margin:0;padding:0;list-style:none}
+.bat-lightbox__dots button{width:8px;height:8px;padding:0;border:1px solid rgba(255,255,255,.65);border-radius:50%;background:transparent;cursor:pointer}
+.bat-lightbox__dots button.is-active,.bat-lightbox__dots button:hover{background:#fff;border-color:#fff}
+.bat-lightbox__nav{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(4px,1vw,12px);pointer-events:none}
+.bat-lightbox__nav button{pointer-events:auto;width:40px;height:40px;border:none;border-radius:50%;background:rgba(0,0,0,.55);color:var(--bat-white);font-size:22px;line-height:1;cursor:pointer}
 .bat-modal__tag{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--bat-red);margin:0 0 6px}
 .bat-modal__title{margin:0 0 4px;font-size:clamp(1.05rem,2.6vw,1.35rem);font-weight:500;line-height:1.2}
 .bat-modal__meta{margin:0 0 10px;font-size:11px;opacity:.55;letter-spacing:.04em}
@@ -153,7 +162,7 @@ body.bat-page .bat-modal__media-bound img.bat-modal__img{max-width:none;max-heig
 .bat-modal__access{margin:0;font-size:12px;line-height:1.55;color:rgba(255,255,255,.55)}
 .bat-modal__access strong{display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px;color:rgba(255,255,255,.75)}
 @supports (container-type: inline-size){.bat-hero__inner{container-type:inline-size}}
-@media(max-width:640px){.bat-stops{grid-template-columns:1fr}.bat-hero__title{font-size:clamp(1.85rem,10.5vw,3.1rem)}.bat-modal{padding:clamp(8px,2.5vw,16px)}.bat-modal__panel{width:min(560px,94vw);border-radius:8px}.bat-modal__close{top:8px;right:8px;width:32px;height:32px;font-size:18px}.bat-modal__labels{bottom:6px;right:6px}.bat-modal__gallery-nav button{width:34px;height:34px;font-size:18px}.bat-modal__gallery-dots{bottom:6px}}.bat-day[data-day="1"]{--bat-day-color:#0d0d0d;background:var(--bat-black)}.bat-day-strip a[data-day-link="1"]{--bat-day-color:#0d0d0d}.bat-day[data-day="2"]{--bat-day-color:#2563eb;background:var(--bat-black)}.bat-day-strip a[data-day-link="2"]{--bat-day-color:#2563eb}.bat-day[data-day="3"]{--bat-day-color:#059669;background:var(--bat-black)}.bat-day-strip a[data-day-link="3"]{--bat-day-color:#059669}.bat-day[data-day="4"]{--bat-day-color:#d97706;background:var(--bat-black)}.bat-day-strip a[data-day-link="4"]{--bat-day-color:#d97706}.bat-day[data-day="5"]{--bat-day-color:#9333ea;background:var(--bat-black)}.bat-day-strip a[data-day-link="5"]{--bat-day-color:#9333ea}.bat-day[data-day="6"]{--bat-day-color:#db2777;background:var(--bat-black)}.bat-day-strip a[data-day-link="6"]{--bat-day-color:#db2777}.bat-day[data-day="7"]{--bat-day-color:#0891b2;background:var(--bat-black)}.bat-day-strip a[data-day-link="7"]{--bat-day-color:#0891b2}</style>
+@media(max-width:640px){.bat-stops{grid-template-columns:1fr}.bat-hero__title{font-size:clamp(1.85rem,10.5vw,3.1rem)}.bat-stop__nav{width:30px;height:30px;font-size:17px;opacity:1}.bat-lightbox{padding:clamp(6px,2vw,12px)}.bat-lightbox__close{width:32px;height:32px;font-size:18px}.bat-lightbox__nav button{width:34px;height:34px;font-size:18px}}.bat-day[data-day="1"]{--bat-day-color:#0d0d0d;background:var(--bat-black)}.bat-day-strip a[data-day-link="1"]{--bat-day-color:#0d0d0d}.bat-day[data-day="2"]{--bat-day-color:#2563eb;background:var(--bat-black)}.bat-day-strip a[data-day-link="2"]{--bat-day-color:#2563eb}.bat-day[data-day="3"]{--bat-day-color:#059669;background:var(--bat-black)}.bat-day-strip a[data-day-link="3"]{--bat-day-color:#059669}.bat-day[data-day="4"]{--bat-day-color:#d97706;background:var(--bat-black)}.bat-day-strip a[data-day-link="4"]{--bat-day-color:#d97706}.bat-day[data-day="5"]{--bat-day-color:#9333ea;background:var(--bat-black)}.bat-day-strip a[data-day-link="5"]{--bat-day-color:#9333ea}.bat-day[data-day="6"]{--bat-day-color:#db2777;background:var(--bat-black)}.bat-day-strip a[data-day-link="6"]{--bat-day-color:#db2777}.bat-day[data-day="7"]{--bat-day-color:#0891b2;background:var(--bat-black)}.bat-day-strip a[data-day-link="7"]{--bat-day-color:#0891b2}</style>
 </head>
 <body class="de bat-page">
 <header class="nav" aria-label="Hauptnavigation">
@@ -198,8 +207,8 @@ body.bat-page .bat-modal__media-bound img.bat-modal__img{max-width:none;max-heig
     <div class="bat-day-strip__days"><a href="#day-1" data-day-link="1"><span class="de-t">Tag 1 · Berlin Mitte</span><span class="en-t">Day 1 · Berlin Mitte</span></a><a href="#day-2" data-day-link="2"><span class="de-t">Tag 2 · Berlins Westen I</span><span class="en-t">Day 2 · Berlin West I</span></a><a href="#day-3" data-day-link="3"><span class="de-t">Tag 3 · Spreebogen &amp; Tiergarten</span><span class="en-t">Day 3 · Spreebogen &amp; Tiergarten</span></a><a href="#day-4" data-day-link="4"><span class="de-t">Tag 4 · Berlins Westen II</span><span class="en-t">Day 4 · Berlin West II</span></a><a href="#day-5" data-day-link="5"><span class="de-t">Tag 5 · Ostberlin</span><span class="en-t">Day 5 · East Berlin</span></a><a href="#day-6" data-day-link="6"><span class="de-t">Tag 6 · Ums Tempelhofer Feld</span><span class="en-t">Day 6 · Around Tempelhof Field</span></a><a href="#day-7" data-day-link="7"><span class="de-t">Tag 7 · Berlin Kreuzberg</span><span class="en-t">Day 7 · Berlin Kreuzberg</span></a></div>
   </nav>
   <section class="bat-intro" aria-label="Einleitung">
-    <p class="de-t">Die Aufteilung in Tage erfolgt teilweise historisch aber aus praktischen Gründen hauptsächlich geografisch. Jede Projektkarte hat eine Information und praktische Zugangshinweise. Klick auf eine Karte, um die Details zu lesen und ggf. weitere Fotos zu sehen.</p>
-    <p class="en-t">Days are partly historical but mainly geographic for practical reasons. Each project card includes information and practical access notes. Click a card to read details and view additional photos where available.</p>
+    <p class="de-t">Die Aufteilung in Tage erfolgt teilweise historisch aber aus praktischen Gründen hauptsächlich geografisch. Jede Projektkarte ist ein Slider: nach links wischen oder die Pfeile nutzen für die ausführliche Info und weitere Fotos. Auf ein Foto tippen öffnet es groß.</p>
+    <p class="en-t">Days are partly historical but mainly geographic for practical reasons. Each project card is a slider: swipe left or use the arrows for full information and more photos. Tap a photo to view it large.</p>
   </section>
   <div class="bat-label-filter" role="group" aria-label="Labels filtern"><div class="bat-label-filter__row"><button type="button" class="bat-label-filter__btn is-on bat-label-filter__btn--vor1900" data-label-filter="vor1900" aria-pressed="true"><span class="de-t">vor 1900</span><span class="en-t">before 1900</span></button><button type="button" class="bat-label-filter__btn is-on bat-label-filter__btn--vor1939" data-label-filter="vor1939" aria-pressed="true"><span class="de-t">vor 1939</span><span class="en-t">before 1939</span></button><button type="button" class="bat-label-filter__btn is-on bat-label-filter__btn--brd" data-label-filter="brd" aria-pressed="true"><span class="de-t">BRD</span><span class="en-t">FRG</span></button><button type="button" class="bat-label-filter__btn is-on bat-label-filter__btn--ddr" data-label-filter="ddr" aria-pressed="true"><span class="de-t">DDR</span><span class="en-t">GDR</span></button><button type="button" class="bat-label-filter__btn is-on bat-label-filter__btn--nach1990" data-label-filter="nach1990" aria-pressed="true"><span class="de-t">nach 1990</span><span class="en-t">after 1990</span></button></div><div class="bat-label-filter__row"><button type="button" class="bat-label-filter__btn is-on bat-label-filter__btn--moderne" data-label-filter="moderne" aria-pressed="true"><span class="de-t">Moderne</span><span class="en-t">Modern</span></button><button type="button" class="bat-label-filter__btn is-on bat-label-filter__btn--postmoderne" data-label-filter="postmoderne" aria-pressed="true"><span class="de-t">Postmoderne</span><span class="en-t">Postmodern</span></button><button type="button" class="bat-label-filter__btn is-on bat-label-filter__btn--neoklassizismus" data-label-filter="neoklassizismus" aria-pressed="true"><span class="de-t">Neo-Klassizismus</span><span class="en-t">Neo-Classicism</span></button><button type="button" class="bat-label-filter__btn is-on bat-label-filter__btn--expressionismus" data-label-filter="expressionismus" aria-pressed="true"><span class="de-t">Expressionismus</span><span class="en-t">Expressionism</span></button><button type="button" class="bat-label-filter__btn is-on bat-label-filter__btn--zeitgenoessisch" data-label-filter="zeitgenoessisch" aria-pressed="true"><span class="de-t">zeitgenössisch</span><span class="en-t">contemporary</span></button><button type="button" class="bat-label-filter__btn is-on bat-label-filter__btn--dekonstruktivismus" data-label-filter="dekonstruktivismus" aria-pressed="true"><span class="de-t">Dekonstruktivismus</span><span class="en-t">Deconstructivism</span></button><button type="button" class="bat-label-filter__btn is-on bat-label-filter__btn--ausstellung bat-label-filter__btn--gap-before" data-label-filter="ausstellung" aria-pressed="true"><span class="de-t">Ausstellung</span><span class="en-t">Exhibition</span></button><button type="button" class="bat-label-filter__btn is-on bat-label-filter__btn--zugaenglich" data-label-filter="zugaenglich" aria-pressed="true"><span class="de-t">zugänglich</span><span class="en-t">accessible</span></button><button type="button" class="bat-label-filter__btn is-on bat-label-filter__btn--privat" data-label-filter="privat" aria-pressed="true"><span class="de-t">privat</span><span class="en-t">private</span></button></div></div>
   </div>
@@ -1272,12 +1281,18 @@ body.bat-page .bat-modal__media-bound img.bat-modal__img{max-width:none;max-heig
 
 <div id="fc-site-footer"></div>
 
-<div class="bat-modal" id="bat-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="bat-modal-title">
-  <div class="bat-modal__backdrop" data-close-modal></div>
-  <div class="bat-modal__panel">
-    <button type="button" class="bat-modal__close" data-close-modal aria-label="Schließen">✕</button>
-    <div id="bat-modal-media"></div>
-    <div class="bat-modal__inner" id="bat-modal-content"></div>
+<div class="bat-lightbox" id="bat-lightbox" role="dialog" aria-modal="true" aria-hidden="true" hidden>
+  <div class="bat-lightbox__backdrop" data-close-lightbox></div>
+  <div class="bat-lightbox__panel">
+    <button type="button" class="bat-lightbox__close" data-close-lightbox aria-label="Schließen">×</button>
+    <div class="bat-lightbox__frame" id="bat-lightbox-frame">
+      <div class="bat-lightbox__track" id="bat-lightbox-track"></div>
+      <div class="bat-lightbox__nav" id="bat-lightbox-nav" hidden>
+        <button type="button" data-lightbox-prev aria-label="Vorheriges Bild">‹</button>
+        <button type="button" data-lightbox-next aria-label="Nächstes Bild">›</button>
+      </div>
+      <ul class="bat-lightbox__dots" id="bat-lightbox-dots" hidden></ul>
+    </div>
   </div>
 </div>
 
@@ -1292,7 +1307,8 @@ const DAY_COLORS = {"1":"#0d0d0d","2":"#2563eb","3":"#059669","4":"#d97706","5":
 const LABEL_DEFS = {"moderne":{"de":"Moderne","en":"Modern","bg":"#0d0d0d","color":"#ffffff"},"postmoderne":{"de":"Postmoderne","en":"Postmodern","bg":"#0d0d0d","color":"#ffffff"},"neoklassizismus":{"de":"Neo-Klassizismus","en":"Neo-Classicism","bg":"#0d0d0d","color":"#ffffff"},"expressionismus":{"de":"Expressionismus","en":"Expressionism","bg":"#0d0d0d","color":"#ffffff"},"zeitgenoessisch":{"de":"zeitgenössisch","en":"contemporary","bg":"#0d0d0d","color":"#ffffff"},"dekonstruktivismus":{"de":"Dekonstruktivismus","en":"Deconstructivism","bg":"#0d0d0d","color":"#ffffff"},"vor1900":{"de":"vor 1900","en":"before 1900","bg":"#0d0d0d","color":"#ffffff"},"vor1939":{"de":"vor 1939","en":"before 1939","bg":"#0d0d0d","color":"#ffffff"},"zugaenglich":{"de":"zugänglich","en":"accessible","bg":"#0d0d0d","color":"#ffffff"},"nach1990":{"de":"nach 1990","en":"after 1990","bg":"#0d0d0d","color":"#ffffff"},"privat":{"de":"privat","en":"private","bg":"#0d0d0d","color":"#ffffff"},"ausstellung":{"de":"Ausstellung","en":"Exhibition","bg":"#0d0d0d","color":"#ffffff"},"brd":{"de":"BRD","en":"FRG","bg":"#0d0d0d","color":"#ffffff"},"ddr":{"de":"DDR","en":"GDR","bg":"#0d0d0d","color":"#ffffff"}};
 const LABEL_ORDER = ["vor1900","vor1939","brd","ddr","nach1990","moderne","postmoderne","neoklassizismus","expressionismus","zeitgenoessisch","dekonstruktivismus","ausstellung","zugaenglich","privat"];
 let lang = (function(){try{return localStorage.getItem('fcLang')||'de'}catch(e){return 'de'}})();
-let openId = null;
+let lightboxPhotos = [];
+let lightboxIndex = 0;
 let batMapMarkerEntries = [];
 
 function syncMapTooltips() {
@@ -1314,25 +1330,6 @@ function normalizeLabels(labels) {
   return sorted.filter(function (l) { return l !== 'vor1939'; });
 }
 
-function renderModalLabelsHtml(s) {
-  const labels = normalizeLabels(s.labels || []);
-  if (!labels.length) return '';
-  const chips = labels.map(function (key) {
-    const def = LABEL_DEFS[key];
-    if (!def) return '';
-    return '<span class="bat-stop__label bat-stop__label--' + key + '"><span class="de-t">' + def.de + '</span><span class="en-t">' + def.en + '</span></span>';
-  }).join('');
-  return '<div class="bat-modal__labels">' + chips + '</div>';
-}
-
-function wrapModalFrame(inner, labelsHtml) {
-  return '<div class="bat-modal__frame"><div class="bat-modal__media-bound">' + inner + '</div>' + labelsHtml + '</div>';
-}
-
-function wrapModalMedia(labelsHtml, inner) {
-  return '<div class="bat-modal__media-stack">' + wrapModalFrame(inner, labelsHtml) + '</div>';
-}
-
 function findStop(id) {
   for (const day of TOUR) {
     const s = day.stops.find(x => x.id === id);
@@ -1347,168 +1344,306 @@ function setLang(next) {
   document.body.classList.toggle('de', lang === 'de');
   document.documentElement.lang = lang;
   try { localStorage.setItem('fcLang', lang); } catch (e) {}
-  if (openId) renderModal(openId);
+  refreshAllStopDetails();
   syncMapTooltips();
   updateBatScrollTopBtn();
 }
 document.addEventListener('fc-lang-change', function (e) { setLang(e.detail.lang); });
 setLang(lang);
 
-let modalGalleryIndex = 0;
-
 function getModalPhotos(s) {
   return [s.photo].concat(s.gallery || []).filter(Boolean);
 }
 
-function renderModalMedia(s, name) {
-  const media = document.getElementById('bat-modal-media');
-  const photos = getModalPhotos(s);
-  const safeName = name.replace(/</g, '&lt;');
-  const labelsHtml = renderModalLabelsHtml(s);
-  if (!photos.length) {
-    if (s.photo) {
-      media.innerHTML = wrapModalMedia(
-        labelsHtml,
-        '<img class="bat-modal__img" src="' +
-        s.photo.replace(/"/g, '&quot;') +
-        '" alt="" onerror="this.hidden=true;this.nextElementSibling.style.display=\'flex\'">' +
-        '<div class="bat-modal__ph" aria-hidden="true">' +
-        safeName +
-        '</div>'
-      );
-    } else {
-      media.innerHTML = wrapModalMedia(
-        labelsHtml,
-        '<div class="bat-modal__ph" style="display:flex" aria-hidden="true">' + safeName + '</div>'
-      );
-    }
-    return;
-  }
-  if (photos.length === 1) {
-    media.innerHTML = wrapModalMedia(
-      labelsHtml,
-      '<img class="bat-modal__img" src="' +
-      photos[0].replace(/"/g, '&quot;') +
-      '" alt="" onerror="this.hidden=true;this.nextElementSibling.style.display=\'flex\'">' +
-      '<div class="bat-modal__ph" aria-hidden="true">' +
-      safeName +
-      '</div>'
-    );
-    return;
-  }
-  modalGalleryIndex = 0;
-  const imgs = photos
-    .map(
-      (src) =>
-        '<div class="bat-modal__gallery-slide"><img class="bat-modal__img" src="' + src.replace(/"/g, '&quot;') + '" alt="" onerror="this.hidden=true"></div>'
-    )
-    .join('');
-  const dots = photos
-    .map(
-      (_, i) =>
-        '<button type="button" data-gallery-dot="' + i + '"' + (i ? '' : ' class="is-active"') + ' aria-label="' + (i + 1) + '/' + photos.length + '"></button>'
-    )
-    .join('');
-  media.innerHTML = wrapModalMedia(
-    labelsHtml,
-    '<div class="bat-modal__gallery" data-gallery-count="' +
-    photos.length +
-    '">' +
-    '<div class="bat-modal__gallery-track" id="bat-modal-gallery-track">' +
-    imgs +
-    '</div>' +
-    '<div class="bat-modal__gallery-nav">' +
-    '<button type="button" data-gallery-prev aria-label="Vorheriges Bild">‹</button>' +
-    '<button type="button" data-gallery-next aria-label="Nächstes Bild">›</button>' +
-    '</div>' +
-    '<div class="bat-modal__gallery-dots" id="bat-modal-gallery-dots">' +
-    dots +
-    '</div>' +
-    '<div class="bat-modal__ph" aria-hidden="true">' +
-    safeName +
-    '</div></div>'
-  );
-  bindModalGallery(photos.length);
-}
-
-function bindModalGallery(count) {
-  const track = document.getElementById('bat-modal-gallery-track');
-  if (!track) return;
-  const dots = document.querySelectorAll('[data-gallery-dot]');
-  function show(i) {
-    modalGalleryIndex = (i + count) % count;
-    track.scrollTo({ left: track.clientWidth * modalGalleryIndex, behavior: 'smooth' });
-    dots.forEach((dot, idx) => {
-      dot.classList.toggle('is-active', idx === modalGalleryIndex);
-    });
-  }
-  const prev = document.querySelector('[data-gallery-prev]');
-  const next = document.querySelector('[data-gallery-next]');
-  if (prev) prev.onclick = () => show(modalGalleryIndex - 1);
-  if (next) next.onclick = () => show(modalGalleryIndex + 1);
-  dots.forEach((dot) => {
-    dot.onclick = () => show(Number(dot.dataset.galleryDot));
-  });
-}
-
-function renderModal(id) {
-  const s = findStop(id);
-  if (!s) return;
-  const content = document.getElementById('bat-modal-content');
+function renderStopDetailHtml(s) {
   const name = lang === 'en' ? s.nameEn : s.nameDe;
   const body = lang === 'en' ? s.bodyEn : s.bodyDe;
   const access = lang === 'en' ? s.accessEn : s.accessDe;
   const story = lang === 'en' ? (s.storyEn || '') : (s.storyDe || '');
   const accessLabel = lang === 'en' ? 'Access' : 'Zugang';
-
-  renderModalMedia(s, name);
-
   let storyHtml = '';
   if (story && story.trim()) {
     const parts = story.split(' - ');
     const head = parts[0] || 'Story';
     const rest = parts.slice(1).join(' - ') || story;
-    storyHtml = '<div class="bat-modal__story"><strong>' + head.replace(/</g,'&lt;') + '</strong>' + rest.replace(/</g,'&lt;') + '</div>';
+    storyHtml = '<div class="bat-modal__story"><strong>' + head.replace(/</g, '&lt;') + '</strong>' + rest.replace(/</g, '&lt;') + '</div>';
   }
-
-  content.innerHTML =
-    '<p class="bat-modal__tag">' + (s.tag || '').replace(/</g,'&lt;') + '</p>' +
-    '<h2 class="bat-modal__title" id="bat-modal-title">' + name.replace(/</g,'&lt;') + '</h2>' +
-    '<p class="bat-modal__meta">' + (lang === 'en' ? s.metaEn : s.metaDe).replace(/</g,'&lt;') + '</p>' +
-    '<p class="bat-modal__body">' + body.replace(/</g,'&lt;') + '</p>' +
+  return (
+    '<p class="bat-modal__tag">' + (s.tag || '').replace(/</g, '&lt;') + '</p>' +
+    '<h2 class="bat-modal__title">' + name.replace(/</g, '&lt;') + '</h2>' +
+    '<p class="bat-modal__meta">' + (lang === 'en' ? s.metaEn : s.metaDe).replace(/</g, '&lt;') + '</p>' +
+    '<p class="bat-modal__body">' + body.replace(/</g, '&lt;') + '</p>' +
     storyHtml +
-    '<p class="bat-modal__access"><strong>' + accessLabel + '</strong>' + access.replace(/</g,'&lt;') + '</p>';
+    '<p class="bat-modal__access"><strong>' + accessLabel + '</strong>' + access.replace(/</g, '&lt;') + '</p>'
+  );
 }
 
-function openModal(id) {
-  openId = id;
-  renderModal(id);
-  const modal = document.getElementById('bat-modal');
-  modal.classList.add('is-open');
-  modal.setAttribute('aria-hidden', 'false');
+function refreshAllStopDetails() {
+  document.querySelectorAll('.bat-stop[data-stop-id]').forEach(function (stop) {
+    const s = findStop(stop.dataset.stopId);
+    const detail = stop.querySelector('.bat-stop__slide--detail');
+    if (s && detail) detail.innerHTML = renderStopDetailHtml(s);
+  });
+}
+
+function bindStopSlider(stop, track, prevBtn, nextBtn, dotsEl, slideCount) {
+  function goTo(i, smooth) {
+    const idx = Math.max(0, Math.min(slideCount - 1, i));
+    stop._batSlideIndex = idx;
+    track.scrollTo({ left: track.clientWidth * idx, behavior: smooth ? 'smooth' : 'auto' });
+    if (dotsEl) {
+      dotsEl.querySelectorAll('li').forEach(function (dot, n) {
+        dot.classList.toggle('is-active', n === idx);
+      });
+    }
+    const onLast = idx >= slideCount - 1;
+    const onFirst = idx <= 0;
+    if (prevBtn) prevBtn.hidden = onLast;
+    if (nextBtn) nextBtn.hidden = onFirst;
+  }
+  stop._batGoTo = goTo;
+  prevBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    goTo((stop._batSlideIndex || 0) + 1, true);
+  });
+  nextBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    goTo((stop._batSlideIndex || 0) - 1, true);
+  });
+  track.addEventListener(
+    'scroll',
+    function () {
+      const w = track.clientWidth;
+      if (!w) return;
+      const idx = Math.round(track.scrollLeft / w);
+      if (idx !== stop._batSlideIndex) {
+        stop._batSlideIndex = idx;
+        if (dotsEl) {
+          dotsEl.querySelectorAll('li').forEach(function (dot, n) {
+            dot.classList.toggle('is-active', n === idx);
+          });
+        }
+        if (prevBtn) prevBtn.hidden = idx >= slideCount - 1;
+        if (nextBtn) nextBtn.hidden = idx <= 0;
+      }
+    },
+    { passive: true }
+  );
+  goTo(0, false);
+}
+
+function initBatStopSliders() {
+  document.querySelectorAll('button.bat-stop').forEach(function (btn) {
+    const id = btn.dataset.stopId;
+    const s = findStop(id);
+    if (!s) return;
+
+    const stop = document.createElement('div');
+    stop.className = btn.className;
+    stop.dataset.stopId = id;
+    if (btn.getAttribute('data-labels')) stop.setAttribute('data-labels', btn.getAttribute('data-labels'));
+    if (btn.getAttribute('aria-label')) stop.setAttribute('aria-label', btn.getAttribute('aria-label'));
+
+    const slider = document.createElement('div');
+    slider.className = 'bat-stop__slider';
+
+    const prevBtn = document.createElement('button');
+    prevBtn.type = 'button';
+    prevBtn.className = 'bat-stop__nav bat-stop__nav--prev';
+    prevBtn.setAttribute('aria-label', lang === 'en' ? 'Next' : 'Weiter');
+    prevBtn.textContent = '‹';
+
+    const track = document.createElement('div');
+    track.className = 'bat-stop__track';
+
+    const photos = getModalPhotos(s);
+    const photoSlides = photos.length > 1 ? photos : [];
+
+    const slideCard = document.createElement('div');
+    slideCard.className = 'bat-stop__slide bat-stop__slide--card';
+    const imgWrap = btn.querySelector('.bat-stop__img-wrap');
+    const body = btn.querySelector('.bat-stop__body');
+    if (imgWrap) {
+      slideCard.appendChild(imgWrap);
+      if (photos.length) {
+        imgWrap.style.cursor = 'zoom-in';
+        imgWrap.addEventListener('click', function (e) {
+          e.stopPropagation();
+          openBatLightbox(photos, 0);
+        });
+      }
+    }
+    if (body) slideCard.appendChild(body);
+    track.appendChild(slideCard);
+
+    const slideDetail = document.createElement('div');
+    slideDetail.className = 'bat-stop__slide bat-stop__slide--detail';
+    slideDetail.innerHTML = renderStopDetailHtml(s);
+    track.appendChild(slideDetail);
+    photoSlides.forEach(function (src, photoIndex) {
+      const slidePhoto = document.createElement('div');
+      slidePhoto.className = 'bat-stop__slide bat-stop__slide--photo';
+      slidePhoto.innerHTML =
+        '<img src="' + src.replace(/"/g, '&quot;') + '" alt="" loading="lazy" decoding="async" onerror="this.style.opacity=\'0.35\'">';
+      slidePhoto.addEventListener('click', function (e) {
+        e.stopPropagation();
+        openBatLightbox(photos, photoIndex);
+      });
+      track.appendChild(slidePhoto);
+    });
+
+    const nextBtn = document.createElement('button');
+    nextBtn.type = 'button';
+    nextBtn.className = 'bat-stop__nav bat-stop__nav--next';
+    nextBtn.setAttribute('aria-label', lang === 'en' ? 'Previous' : 'Zurück');
+    nextBtn.textContent = '›';
+
+    const dotsEl = document.createElement('ul');
+    dotsEl.className = 'bat-stop__dots';
+    const slideCount = 2 + photoSlides.length;
+    for (let i = 0; i < slideCount; i++) {
+      const dot = document.createElement('li');
+      if (i === 0) dot.classList.add('is-active');
+      dotsEl.appendChild(dot);
+    }
+
+    slider.appendChild(prevBtn);
+    slider.appendChild(track);
+    slider.appendChild(nextBtn);
+    slider.appendChild(dotsEl);
+    stop.appendChild(slider);
+    btn.replaceWith(stop);
+
+    bindStopSlider(stop, track, prevBtn, nextBtn, dotsEl, slideCount);
+  });
+}
+
+initBatStopSliders();
+
+function renderBatLightbox() {
+  const frame = document.getElementById('bat-lightbox-frame');
+  const track = document.getElementById('bat-lightbox-track');
+  const dotsWrap = document.getElementById('bat-lightbox-dots');
+  const nav = document.getElementById('bat-lightbox-nav');
+  if (!track || !frame) return;
+  const count = lightboxPhotos.length;
+  track.innerHTML = lightboxPhotos
+    .map(function (src) {
+      return (
+        '<div class="bat-lightbox__slide"><img src="' +
+        src.replace(/"/g, '&quot;') +
+        '" alt=""></div>'
+      );
+    })
+    .join('');
+  track.style.transform = 'none';
+  if (count > 1) {
+    frame.style.width = 'min(96vw, 1200px)';
+    track.style.width = '100%';
+    requestAnimationFrame(function () {
+      showBatLightbox(lightboxIndex, false);
+    });
+  } else {
+    frame.style.width = '';
+    track.scrollLeft = 0;
+  }
+  if (dotsWrap) {
+    if (count > 1) {
+      dotsWrap.hidden = false;
+      dotsWrap.innerHTML = lightboxPhotos
+        .map(function (_, i) {
+          return (
+            '<li><button type="button" data-lightbox-dot="' +
+            i +
+            '"' +
+            (i === lightboxIndex ? ' class="is-active"' : '') +
+            ' aria-label="' +
+            (i + 1) +
+            '/' +
+            count +
+            '"></button></li>'
+          );
+        })
+        .join('');
+      dotsWrap.querySelectorAll('[data-lightbox-dot]').forEach(function (dot) {
+        dot.addEventListener('click', function () {
+          showBatLightbox(Number(dot.getAttribute('data-lightbox-dot')), true);
+        });
+      });
+    } else {
+      dotsWrap.hidden = true;
+      dotsWrap.innerHTML = '';
+    }
+  }
+  if (nav) nav.hidden = count <= 1;
+}
+
+function showBatLightbox(i, smooth) {
+  const count = lightboxPhotos.length;
+  if (!count) return;
+  lightboxIndex = (i + count) % count;
+  const track = document.getElementById('bat-lightbox-track');
+  if (track && count > 1) {
+    const w = track.clientWidth;
+    track.scrollTo({ left: w * lightboxIndex, behavior: smooth ? 'smooth' : 'auto' });
+  }
+  const dots = document.querySelectorAll('#bat-lightbox-dots [data-lightbox-dot]');
+  dots.forEach(function (dot, idx) {
+    dot.classList.toggle('is-active', idx === lightboxIndex);
+  });
+}
+
+function openBatLightbox(photos, startIndex) {
+  lightboxPhotos = photos.slice();
+  lightboxIndex = startIndex || 0;
+  renderBatLightbox();
+  const box = document.getElementById('bat-lightbox');
+  if (!box) return;
+  box.hidden = false;
+  box.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
   updateBatScrollTopBtn();
 }
 
-function closeModal() {
-  openId = null;
-  const modal = document.getElementById('bat-modal');
-  modal.classList.remove('is-open');
-  modal.setAttribute('aria-hidden', 'true');
+function closeBatLightbox() {
+  lightboxPhotos = [];
+  const box = document.getElementById('bat-lightbox');
+  if (!box) return;
+  box.hidden = true;
+  box.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
   updateBatScrollTopBtn();
 }
 
-document.querySelectorAll('.bat-stop').forEach(btn => {
-  btn.addEventListener('click', () => openModal(btn.dataset.stopId));
+function focusStop(id, slideIndex) {
+  const stop = document.querySelector('.bat-stop[data-stop-id="' + id + '"]');
+  if (!stop || !stop._batGoTo) return;
+  stop._batGoTo(slideIndex == null ? 0 : slideIndex, true);
+  stop.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+document.querySelectorAll('[data-close-lightbox]').forEach(function (el) {
+  el.addEventListener('click', closeBatLightbox);
 });
 
-document.querySelectorAll('[data-close-modal]').forEach(el => {
-  el.addEventListener('click', closeModal);
-});
+(function () {
+  const prevLb = document.querySelector('[data-lightbox-prev]');
+  const nextLb = document.querySelector('[data-lightbox-next]');
+  if (prevLb) {
+    prevLb.addEventListener('click', function () {
+      showBatLightbox(lightboxIndex - 1, true);
+    });
+  }
+  if (nextLb) {
+    nextLb.addEventListener('click', function () {
+      showBatLightbox(lightboxIndex + 1, true);
+    });
+  }
+})();
 
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeModal();
+document.addEventListener('keydown', function (e) {
+  const box = document.getElementById('bat-lightbox');
+  if (e.key === 'Escape' && box && !box.hidden) closeBatLightbox();
 });
 
 const activeLabelFilters = new Set(Object.keys(LABEL_DEFS));
@@ -1561,12 +1696,12 @@ function scrollToBatMap() {
 function updateBatScrollTopBtn() {
   var btn = document.getElementById('bat-scroll-top');
   var map = document.getElementById('bat-map');
-  var modal = document.getElementById('bat-modal');
+  var lightbox = document.getElementById('bat-lightbox');
   if (!btn || !map) return;
   var navH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--bat-sticky-top')) || 72;
   var pastMap = window.scrollY > map.offsetTop - navH + 24;
-  var modalOpen = modal && modal.classList.contains('is-open');
-  btn.hidden = !pastMap || modalOpen;
+  var lightboxOpen = lightbox && !lightbox.hidden;
+  btn.hidden = !pastMap || lightboxOpen;
   btn.setAttribute('aria-label', lang === 'en' ? 'Back to map' : 'Zur Karte');
 }
 
@@ -1729,7 +1864,7 @@ function initBatMap() {
         riseOnHover: true,
         riseOffset: 750
       });
-      marker.on('click', function () { openModal(p.id); });
+      marker.on('click', function () { focusStop(p.id, 1); });
       marker.bindTooltip(lang === 'en' ? p.nameEn : p.nameDe, {
         className: 'bat-map-tooltip',
         direction: 'top',
