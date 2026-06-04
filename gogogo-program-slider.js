@@ -13,7 +13,7 @@
     "Factfulness",
     "Upper Body",
     "Mobilityroutine",
-    "Das Naheliegende ist oft fern.",
+    "Das Naheliegende wirkt oft so fern.",
   ];
   var SLIDE_LABELS_EN = [
     "Your movement group",
@@ -23,7 +23,7 @@
     "Factfulness",
     "Upper body",
     "Mobility routine",
-    "The obvious is often far away.",
+    "What seems obvious often feels so far away.",
   ];
   var SLIDE_DEFAULT_DE = "Ein leichter Schritt, Dich täglich ausreichend zu bewegen.";
   var SLIDE_DEFAULT_EN = "A light step toward moving enough every day.";
