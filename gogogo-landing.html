@@ -839,6 +839,14 @@
         text-transform: uppercase;
         color: #f0eee6;
       }
+      .gogl-trainer-head__line--title {
+        max-width: min(22ch, 100%);
+        font-weight: 400;
+        font-size: clamp(1.35rem, 3.8vw, 2.35rem);
+        line-height: 1.12;
+        letter-spacing: 0.02em;
+        text-transform: none;
+      }
       .gogl-trainer-head__line--sub {
         margin: 0;
         font-family: var(--font-sans);
@@ -963,36 +971,36 @@
         max-width: min(36rem, 100%);
         min-width: 0;
         min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: clamp(14px, 2vh, 22px);
+        box-sizing: border-box;
         pointer-events: none;
       }
       .gogl-gosam-copy__title {
-        position: absolute;
-        top: 50%;
-        left: 0;
+        position: static;
         width: 100%;
         max-width: 100%;
-        box-sizing: border-box;
-        transform: translateY(-50%);
         margin: 0;
         font-family: var(--font-sans);
         font-weight: 700;
         font-size: clamp(2rem, 5.5vw, 3.5rem);
-        line-height: 1.05;
+        line-height: 1.08;
         letter-spacing: 0.01em;
         color: #ffffff;
         text-align: left;
       }
       .gogl-gosam-copy__actions {
-        position: absolute;
-        top: calc(50% + (0.525 * clamp(2rem, 5.5vw, 3.5rem)) + clamp(10px, 1.4vh, 14px));
-        left: 0;
+        position: static;
         width: 100%;
         max-width: 100%;
         box-sizing: border-box;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
-        align-items: center;
+        align-items: flex-start;
         justify-content: flex-start;
         gap: clamp(12px, 1.6vw, 18px);
         text-align: left;
@@ -1921,8 +1929,20 @@
       }
       .gogl-program-slider__slide[data-slide="3"] .gogl-joscha-copy__sub {
         color: rgba(10, 10, 10, 0.78);
+        margin-bottom: clamp(14px, 2vh, 20px);
+      }
+      .gogl-program-slider__slide[data-slide="3"] .gogl-joscha-copy {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        pointer-events: auto;
       }
       .gogogo-page main .gogl-program-slider__slide[data-slide="3"] .gogl-joscha-copy__cta {
+        position: static;
+        left: auto;
+        top: auto;
+        transform: none;
+        margin-top: 0;
         background: #0a0a0a !important;
         color: #ffffff !important;
         border: 1.5px solid #a48d47;
@@ -3655,7 +3675,7 @@
                         <div class="gogl-program-slider__dots" role="tablist" aria-label="Folie">
               <button type="button" class="gogl-program-slider__dot is-active" role="tab" aria-selected="true" aria-label="Sportsfreunde versammeln" data-slide-to="0"></button>
               <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="Deine Micro-Bewegung" data-slide-to="1"></button>
-              <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="Den passenden Trainer" data-slide-to="2"></button>
+              <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="Expertise für Deine Aktivitäten" data-slide-to="2"></button>
               <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="CIRCLE TRAINING" data-slide-to="3"></button>
               <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="Factfulness" data-slide-to="4"></button>
               <button type="button" class="gogl-program-slider__dot" role="tab" aria-selected="false" aria-label="Upper Body" data-slide-to="5"></button>
@@ -3751,8 +3771,8 @@
                     </div>
                   </div>
                   <div class="gogl-slide-footer-chrome gogl-slide-footer-chrome--reserve-banderole">
-                    <button type="button" class="gogl-hero-slide-next" aria-label="Nächstes Programm: Personal Training">
-                      <span class="gogl-hero-slide-next__label">Als Mitglied Personal Training machen</span>
+                    <button type="button" class="gogl-hero-slide-next" aria-label="Nächstes Programm: Experte finden">
+                      <span class="gogl-hero-slide-next__label">Finde und lade einen Experten dazu</span>
                       <span class="gogl-hero-slide-next__arrow" aria-hidden="true">›</span>
                     </button>
                   </div>
@@ -3765,10 +3785,9 @@
                   </div>
                   <div class="gogl-program-slide-card__inner gogl-program-slide-card__inner--trainer">
                     <div class="gogl-trainer-head">
-                      <h2 class="gogl-trainer-head__line gogl-trainer-head__line--main">PASSENDES<br />PERSONAL<br />TRAINING</h2>
-                      <p class="gogl-trainer-head__line gogl-trainer-head__line--sub">VOR ORT UND ONLINE</p>
+                      <h2 class="gogl-trainer-head__line gogl-trainer-head__line--main gogl-trainer-head__line--title">Expertise für Deine Aktivitäten</h2>
                     </div>
-                    <p class="gogl-program-slide-card__lede gogl-program-slide-card__lede--trainer">Termine mit Joscha oder einem anderen Experten in Berlin. Grundlagen, Analyse, Zielsetzung, tägliche Begleitung, regelmäßige Termine, persönlich zugeschnittene Einheiten.</p>
+                    <p class="gogl-program-slide-card__lede gogl-program-slide-card__lede--trainer">Termine mit Joscha oder anderen Experten in Berlin. Grundlagen, Analyse, Zielsetzung, tägliche Begleitung, regelmäßige Termine, persönlich zugeschnittene Bewegungseinheiten.</p>
                     <a class="gogl-program-slide-card__cta gogl-program-slide-card__cta--trainer" href="register-training/index.html">Optionen</a>
                   </div>
                   <div class="gogl-slide-footer-chrome gogl-slide-footer-chrome--reserve-banderole">
@@ -3785,6 +3804,7 @@
                 <div class="gogl-joscha-copy">
                   <h2 class="gogl-joscha-copy__heading">FACTFULNESS</h2>
                   <p class="gogl-joscha-copy__sub">Das Thema Bewegung ist viel einfacher als es uns die Fitnessbranche und insbesondere Influencer weiß machen wollen. Hier sind die wichtigsten Inhalte der meisten Kennenlerngespräche aus Trainerterminen. Was fehlt Dir noch im gesamten Bild?</p>
+                  <a class="gogl-joscha-copy__cta" href="kontakt/index.html">Anmerkungen &amp; Fragen</a>
                 </div>
                 <div class="gogl-tile-grid-stage">
                 <div class="gogl-tile-grid" id="gogl-tile-grid">
@@ -4144,7 +4164,7 @@
                   </div>
                   <div class="gogl-program-slide-card__inner">
                     <h2 class="gogl-program-slide-card__title">Upper Body Basics</h2>
-                    <p class="gogl-program-slide-card__lede">An einem Feierabend für interne Verwendung aufgenommen und auf englisch mit einem cringe Sound vertont. Bis es professionelles Material gibt - hier eine kleine Kostprobe des eigenen Oberkörpertrainings im Juli 2025 mit leichten Gewichten.<br /><br /><strong>Basics für fortgeschrittenes Krafttraining</strong>, das ich grundsätzlich empfehle: Klimmzüge, Pendlay Row, Bench Press, Military Press, Reverse Fly, Core-Rotation mit der Langhantel.<br /><br /><strong>Wenn Du noch kein Krafttraining in Deinen Alltag integriert hast</strong> oder lange Pause gemacht hast: es gibt für jede dieser Übungen auch equivalente Vereinfacherung. Oder wenn Du einfach nur mit <strong>Körpergewicht</strong> trainieren willst, können wir Dir auch Übungen dafür zeigen. Krafttraining ist keine Raketentechnik, super easy und ab 2 Stunden in der Woche erledigt. Starte einfach mit Liegestützen auf den Knien, freie Kniebeugen und Klimmzügen mit Füßen auf den Boden. <a class="gogl-program-slide-card__lede-link gogl-member-popup-trigger" href="#member-popup">Einen mini Plan zur Steigerung und tägliche Erinnerung für mehr Bewegung bekommst Du von uns wenn Du möchtest.</a></p>
+                    <p class="gogl-program-slide-card__lede">An einem Feierabend für interne Verwendung aufgenommen und auf englisch mit einem cringe Sound vertont. Bis es professionelles Material gibt - hier eine kleine Kostprobe des eigenen Oberkörpertrainings im Juli 2025 mit leichten Gewichten.<br /><br /><strong>Basics für fortgeschrittenes Krafttraining</strong>, das ich grundsätzlich empfehle: Klimmzüge, Pendlay Row, Bench Press, Military Press, Reverse Fly, Core-Rotation mit der Langhantel.<br /><br /><strong>Wenn Du noch kein Krafttraining in Deinen Alltag integriert hast</strong> oder lange Pause gemacht hast: es gibt für jede dieser Übungen auch equivalente Vereinfachung. Oder wenn Du einfach nur mit <strong>Körpergewicht</strong> trainieren willst, können wir Dir auch Übungen dafür zeigen. Krafttraining ist keine Raketentechnik, super easy und ab 2 Stunden in der Woche erledigt. Starte einfach mit Liegestützen auf den Knien, freie Kniebeugen und Klimmzügen mit Füßen auf den Boden. <a class="gogl-program-slide-card__lede-link gogl-member-popup-trigger" href="#member-popup">Einen mini Plan zur Steigerung und tägliche Erinnerung für mehr Bewegung bekommst Du von uns wenn Du möchtest.</a></p>
                   </div>
                   <div class="gogl-slide-footer-chrome gogl-slide-footer-chrome--reserve-banderole">
                     <button type="button" class="gogl-hero-slide-next" aria-label="Nächstes Programm: Joscha">
