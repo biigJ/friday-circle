@@ -36,7 +36,7 @@ window.REGISTER_I18N = {
       de: "Beantworte ein paar Fragen — wir melden uns persönlich bei dir.",
       en: "Answer a few questions — we will get in touch personally.",
     },
-    h1: { de: "Werde Mitglied", en: "Become a member" },
+    h1: { de: "Ein kleiner Schritt", en: "A small step" },
     submit: { de: "Join", en: "Join" },
     messagePlaceholder: { de: "Message", en: "Message" },
     benefitsAria: { de: "Das bekommst du als Mitglied", en: "What you get as a member" },
@@ -89,7 +89,7 @@ window.REGISTER_I18N = {
       de: "Beantworte ein paar Fragen — wir melden uns persönlich bei dir.",
       en: "Answer a few questions — we will get in touch personally.",
     },
-    h1: { de: "PERSONAL TRAINING", en: "PERSONAL TRAINING" },
+    h1: { de: "Hol Dir Expertise", en: "Get expertise" },
     submit: { de: "Optionen", en: "Options" },
     messagePlaceholder: {
       de: "Freitext: Thema, Ziel, Wunschtrainer",
