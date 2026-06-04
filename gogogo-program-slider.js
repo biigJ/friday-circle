@@ -6,24 +6,24 @@
   if (!slides.length) return;
 
   var SLIDE_LABELS_DE = [
-    "Sportsfreunde versammeln",
+    "Deine Bewegungsgruppe",
     "Deine Micro-Bewegung",
     "Expertise für Deine Aktivitäten",
     "CIRCLE TRAINING",
     "Factfulness",
     "Upper Body",
     "Mobilityroutine",
-    "Triff Joscha",
+    "Das Naheliegende ist oft fern.",
   ];
   var SLIDE_LABELS_EN = [
-    "Gather your sports friends",
+    "Your movement group",
     "Your micro-movement",
     "Expertise for your activities",
     "CIRCLE TRAINING",
     "Factfulness",
     "Upper body",
     "Mobility routine",
-    "Meet Joscha",
+    "The obvious is often far away.",
   ];
   var SLIDE_DEFAULT_DE = "Ein leichter Schritt, Dich täglich ausreichend zu bewegen.";
   var SLIDE_DEFAULT_EN = "A light step toward moving enough every day.";
