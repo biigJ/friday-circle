@@ -7,7 +7,7 @@
 
   var SLIDE_LABELS_DE = [
     "Sportsfreunde versammeln",
-    "Mitglied werden",
+    "Deine Micro-Bewegung",
     "Den passenden Trainer",
     "CIRCLE TRAINING",
     "Factfulness",
@@ -17,7 +17,7 @@
   ];
   var SLIDE_LABELS_EN = [
     "Gather your sports friends",
-    "Become a member",
+    "Your micro-movement",
     "Find the right trainer",
     "CIRCLE TRAINING",
     "Factfulness",
