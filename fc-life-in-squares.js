@@ -13,7 +13,7 @@ const POS_ICONS = ['🧠', '💪', '🤝', '🔬'];
 
 const FC_COPY = {
   de: {
-    globalRegions: ['Weltmacht USA', 'Aufstrebendes China', 'Alte Welt', 'Neue Welt', 'Crypto', 'Handel'],
+    globalRegions: ['Weltmacht USA', 'Aufstrebendes China', 'Alte Welt', 'Neue Welt', 'Kapital', 'Marktmacht'],
     posTitles: ['Mentales', 'Körper', 'Gemeinschaft', 'Technologie'],
     era: { PRE: 'Vor dem Web', EARLY: 'Frühes Internet', SOCIAL: 'Social Media', CRISIS: 'Krise & Wandel', NOW: 'Heute', FUTURE: 'Zukunft' },
     tabs: { global: 'Welt', society: 'Gesellschaft', pos: 'Chancen', agency: 'Was kann ich schon heute tun?' },
@@ -38,7 +38,7 @@ const FC_COPY = {
     statBase: 'Basiseinheit',
   },
   en: {
-    globalRegions: ['USA superpower', 'Rising China', 'Old World', 'New World', 'Crypto', 'Trade'],
+    globalRegions: ['USA superpower', 'Rising China', 'Old World', 'New World', 'Capital', 'Market power'],
     posTitles: ['Mental', 'Body', 'Community', 'Technology'],
     era: { PRE: 'Before the web', EARLY: 'Early internet', SOCIAL: 'Social media', CRISIS: 'Crisis & change', NOW: 'Today', FUTURE: 'Future' },
     tabs: { global: 'World', society: 'Society', pos: 'Opportunities', agency: 'What can I do today?' },

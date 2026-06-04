@@ -68,8 +68,8 @@
     { "key": "china", "label": "Aufstrebendes China" },
     { "key": "alte_welt", "label": "Alte Welt" },
     { "key": "neue_welt", "label": "Neue Welt" },
-    { "key": "crypto", "label": "Crypto" },
-    { "key": "handel", "label": "Handel" }
+    { "key": "crypto", "label": "Kapital" },
+    { "key": "handel", "label": "Marktmacht" }
   ],
   "chancen_categories": [
     { "key": "mental", "label": "Mentales", "icon": "🧠" },
