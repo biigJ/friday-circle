@@ -73,6 +73,46 @@
         en: "Make your space fit your life design — interior design and architecture by Joscha.",
       },
     ],
+    "joschaalstrainer.html": [
+      {
+        s: 'meta[name="description"]',
+        attr: "content",
+        de: "Joscha als Trainer — Sport als Bewegungstherapie bei Friday Circle gogogo.",
+        en: "Joscha as a trainer — movement as therapy with Friday Circle gogogo.",
+      },
+      { s: "header.nav", attr: "aria-label", de: "Hauptnavigation", en: "Main navigation" },
+      { s: ".gogogo-landing__logo", attr: "aria-label", de: "gogogo Startseite", en: "gogogo home" },
+      { s: ".nav__lang", attr: "aria-label", de: "Sprache", en: "Language" },
+      { s: "#ja-intro-kicker", de: "Kleine Kursänderungen", en: "Small course corrections" },
+      {
+        s: ".tj-hero--intro .tj-prose p:nth-of-type(1)",
+        de: "Zwanzig Jahre lang habe ich Räume für andere entworfen und dabei meinen eigenen Alltag lange vernachlässigt. Mit Fitness Apps, Influencer Videos, Personal Training und Mitgliedschaften fühlte ich mich irgendwann überfordert. Der Anspruch an mich und andere verdrängte alles.",
+        en: "For twenty years I designed spaces for others while neglecting my own everyday life for a long time. Fitness apps, influencer videos, personal training, and memberships eventually overwhelmed me. The pressure I put on myself and others crowded everything else out.",
+      },
+      {
+        s: ".tj-hero--intro .tj-prose p:nth-of-type(2)",
+        de: "Als ich anfing als Fitnesstrainer zu arbeiten, habe ich jeden Tag mehr begriffen, wie viel Potenzial an Zufriedenheit in einem gesunden Maß an Bewegung liegt. Das Naheliegende ist uns oft doch fern. Als Trainer darf ich wunderbare Gespräche mit so vielen unterschiedlichen Menschen führen und was ich aktuell erlebe, ist beeindruckend.",
+        en: "When I started working as a fitness trainer, I understood more every day how much satisfaction lies in a healthy amount of movement. What seems obvious is often far from us. As a trainer I get to have wonderful conversations with so many different people — and what I am experiencing right now is impressive.",
+      },
+      {
+        s: ".tj-hero--intro .tj-prose p:nth-of-type(3)",
+        de: "Dein innerer Antrieb passt sich über Jahre Deinem Alltag an. Paradox. Das ist nicht immer gesund. Du und ich sind nicht im Einzelkampf. Es braucht wohlgesonnene Menschen.",
+        en: "Your inner drive adapts to your everyday life over the years. Paradoxically, that is not always healthy. You and I are not fighting alone. It takes people who are genuinely on your side.",
+      },
+      {
+        s: ".tj-hero--intro .tj-prose p:nth-of-type(4)",
+        de: "Anstatt auf Social Media das Optimum zu suchen und unter äußerem und innerem Druck zu zerbrechen, benötigen wir einen oder mehrere Menschen, die sich Zeit für uns nehmen. Nachdem ich das für mich verstanden habe, war klar, was ich anderen Menschen geben möchte. Echtes wohlwollendes Interesse und ein ehrlicher Blick auf das, was für Dich wirklich möglich ist.",
+        en: "Instead of chasing the perfect life on social media and breaking under external and internal pressure, we need one or more people who take time for us. Once I understood that for myself, it was clear what I want to give others: genuine benevolent interest and an honest view of what is truly possible for you.",
+      },
+      { s: ".tj-hero--intro .tj-hero__figure img", attr: "alt", de: "Joscha im Gym", en: "Joscha portrait" },
+      {
+        s: ".tj-section--gym-only",
+        attr: "aria-label",
+        de: "Joscha und Kollege beim Training im Gym",
+        en: "Joscha and a colleague training in the gym",
+      },
+      { s: ".tj-section--gym-only img", attr: "alt", de: "Joscha und Kollege beim Training im Gym", en: "Joscha and a colleague training in the gym" },
+    ],
     "programmierung.html": [
       { s: ".programmierung-sub__intro .landing-bridge__kicker", de: "Pragmatischer Optimismus", en: "Pragmatic Optimism" },
       { s: "#fc-life-headline", html: true, de: "Dein Leben verläuft parallel zum Leben des Internets.", en: "Your life runs parallel to the life of the internet." },
@@ -448,6 +488,10 @@
     if (PAGE === "biig-interior") {
       document.title =
         lang === "en" ? "biig Interior — Friday Circle" : "biig Interior — Friday Circle";
+    }
+    if (PAGE === "joschaalstrainer.html") {
+      document.title =
+        lang === "en" ? "Joscha as trainer — Friday Circle" : "Joscha als Trainer — Friday Circle";
     }
     if (PAGE === "programmierung.html") {
       document.querySelectorAll("#geschichte-kontext .expand-btn").forEach(function (btn) {
