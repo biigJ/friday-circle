@@ -134,7 +134,8 @@ export const PHOTO_BY_STOP = {
   "d4-lafayette": ["2025-06-29_Galeries_Lafayette.jpg"],
   "d4-siegessaeule": [
     "2021-04-04_Siegessaeule.jpg",
-    "2018-11-18-Tiergarten.jpg",
+    "Eichhörnchen.jpeg",
+    "NeuerSee.JPG",
     "Siegessäule_2.JPG",
     "Neuer See.jpeg",
     "Siegessäule_3.jpeg",
