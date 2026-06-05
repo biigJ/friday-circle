@@ -3525,6 +3525,85 @@
           display: none;
         }
       }
+      .gogl-frame-popup[hidden] {
+        display: none !important;
+      }
+      .gogl-frame-popup {
+        position: fixed;
+        inset: 0;
+        z-index: 11900;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: clamp(12px, 3.5vw, 20px);
+      }
+      .gogl-frame-popup__backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(10, 10, 10, 0.56);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+      }
+      .gogl-frame-popup__panel {
+        position: relative;
+        z-index: 1;
+        width: min(28rem, calc(100vw - 24px));
+        max-height: min(88svh, calc(100svh - 24px));
+        overflow: auto;
+        border-radius: 16px;
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+        -webkit-overflow-scrolling: touch;
+      }
+      .gogl-frame-popup__close {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        z-index: 3;
+        width: 36px;
+        height: 36px;
+        border: 0;
+        border-radius: 999px;
+        background: rgba(10, 10, 10, 0.72);
+        color: #fff;
+        cursor: pointer;
+        font-size: 1.25rem;
+        line-height: 1;
+      }
+      .gogl-frame-popup__body > .oura-card,
+      .gogl-frame-popup__body > .c-card,
+      .gogl-frame-popup__body > .fp-tile {
+        position: relative !important;
+        width: 100% !important;
+        min-height: 22rem !important;
+        border-radius: 16px !important;
+        overflow: hidden !important;
+        flex: none !important;
+      }
+      .gogl-frame-popup__body .card-expanded {
+        max-height: none !important;
+        overflow: visible !important;
+      }
+      .gogl-frame-popup__body .cc-expanded,
+      .gogl-frame-popup__body .fp-expanded {
+        position: relative !important;
+        inset: auto !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        display: block !important;
+        padding: 5.5rem 1.25rem 1.5rem !important;
+        align-items: stretch !important;
+      }
+      .gogl-frame-popup__body .cc-expanded > div,
+      .gogl-frame-popup__body .fp-expanded > * {
+        width: 100% !important;
+        padding-right: 0 !important;
+      }
+      .gogl-frame-popup__body .cc-collapsed,
+      .gogl-frame-popup__body .fp-collapsed {
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
+
       .member-popup[hidden] {
         display: none !important;
       }
@@ -3573,6 +3652,32 @@
       .member-popup__body {
         clear: both;
         padding: clamp(8px, 1vw, 14px);
+      }
+
+      /* Mobile layout fixes: stack frames and single-column cards */
+      @media (max-width: 760px) {
+        #gogl-member-cards-section .oura-cards,
+        .member-popup .oura-cards {
+          grid-template-columns: 1fr !important;
+        }
+
+        /* 'einstieg' carousel: make cards stack vertically */
+        #carousel-viewport {
+          overflow: visible !important;
+        }
+        #carousel-track {
+          flex-direction: column !important;
+          transform: none !important;
+        }
+        #carousel-track .c-card {
+          flex: 0 0 auto !important;
+          width: 100% !important;
+        }
+
+        button[onclick="carouselPrev()"],
+        button[onclick="carouselNext()"] {
+          display: none !important;
+        }
       }
 
     </style>
@@ -4421,6 +4526,14 @@
   </div>
 </aside>
 
+<aside id="gogl-frame-popup" class="gogl-frame-popup" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Frame-Details">
+  <div class="gogl-frame-popup__backdrop" data-frame-popup-close aria-hidden="true"></div>
+  <div class="gogl-frame-popup__panel">
+    <button type="button" class="gogl-frame-popup__close" data-frame-popup-close aria-label="Popup schließen">×</button>
+    <div class="gogl-frame-popup__body" id="gogl-frame-popup-body"></div>
+  </div>
+</aside>
+
       <section id="einstieg" style="background:#f0eee6; padding:80px 0; overflow:hidden;">
   <div style="max-width:var(--page-max);margin:0 auto;padding:0 var(--page-x);">
     
@@ -4897,6 +5010,88 @@
     });
   });
 })();
+
+var gogogoMobileMq = window.matchMedia("(max-width: 760px)");
+function isGogogoMobile() {
+  return !!gogogoMobileMq && gogogoMobileMq.matches;
+}
+
+var framePopupEl = document.getElementById("gogl-frame-popup");
+var framePopupBodyEl = document.getElementById("gogl-frame-popup-body");
+function closeFramePopup() {
+  if (!framePopupEl || !framePopupBodyEl) return;
+  framePopupEl.hidden = true;
+  framePopupEl.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+  framePopupBodyEl.innerHTML = "";
+}
+
+function openFramePopupForCard(id) {
+  if (!framePopupEl || !framePopupBodyEl) return;
+  var card = document.getElementById(id);
+  if (!card) return;
+
+  framePopupBodyEl.innerHTML = "";
+  var clone = card.cloneNode(true);
+  clone.removeAttribute("id");
+
+  // Hide all internal toggle / plus buttons inside the popup.
+  clone.querySelectorAll(".cc-btn, .fp-btn, .oura-card button").forEach(function (b) {
+    b.style.display = "none";
+  });
+
+  if (clone.classList.contains("c-card")) {
+    var collapsed = clone.querySelector(".cc-collapsed");
+    var expanded = clone.querySelector(".cc-expanded");
+    if (collapsed) collapsed.style.opacity = "0";
+    if (collapsed) collapsed.style.pointerEvents = "none";
+    if (expanded) {
+      expanded.style.opacity = "1";
+      expanded.style.pointerEvents = "auto";
+      expanded.style.display = "block";
+    }
+  }
+
+  if (clone.classList.contains("oura-card")) {
+    var expanded = clone.querySelector(".card-expanded");
+    if (expanded) expanded.style.maxHeight = "560px";
+    var collapsedPhoto = clone.querySelector(".card-photo--collapsed");
+    var expandedPhoto = clone.querySelector(".card-photo--expanded");
+    if (collapsedPhoto) collapsedPhoto.style.opacity = "0";
+    if (expandedPhoto) expandedPhoto.style.opacity = "1";
+  }
+
+  // If the user clicks "Jetzt starten" inside this popup, close first.
+  clone
+    .querySelectorAll(
+      'a.gogl-member-popup-trigger, a[href="#member-popup"], a[href*="gogogo-landing.html#member-popup"]'
+    )
+    .forEach(function (a) {
+      a.addEventListener("click", function () {
+        closeFramePopup();
+      });
+    });
+
+  framePopupBodyEl.appendChild(clone);
+  framePopupEl.hidden = false;
+  framePopupEl.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+}
+
+(function initFramePopup() {
+  if (!framePopupEl) return;
+
+  framePopupEl.querySelectorAll("[data-frame-popup-close]").forEach(function (el) {
+    el.addEventListener("click", function () {
+      closeFramePopup();
+    });
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && !framePopupEl.hidden) closeFramePopup();
+  });
+})();
+
 // Warum gogogo carousel: 3 tiles visible, expand shifts track so wide tile stays in frame
 let carouselPos = 0;
 let expandNudgeX = 0;
@@ -4915,6 +5110,10 @@ function getCarouselStepPx() {
 function applyCarouselTransform() {
   const track = document.getElementById('carousel-track');
   if (!track) return;
+  if (isGogogoMobile()) {
+    track.style.transform = 'none';
+    return;
+  }
   const step = getCarouselStepPx();
   const x = carouselPos * step + expandNudgeX;
   track.style.transform = `translateX(-${x}px)`;
@@ -4956,6 +5155,10 @@ function nudgeExpandedIntoView() {
 }
 
 function expandCard(id) {
+  if (isGogogoMobile()) {
+    openFramePopupForCard(id);
+    return;
+  }
   const card = document.getElementById(id);
   const isOpen = card.classList.contains('cc-open');
 
@@ -4980,6 +5183,7 @@ function expandCard(id) {
 }
 
 function carouselNext() {
+  if (isGogogoMobile()) return;
   const track = document.getElementById('carousel-track');
   const cards = track?.querySelectorAll('.c-card') || [];
   if (carouselPos < cards.length - 3) {
@@ -4991,6 +5195,7 @@ function carouselNext() {
 }
 
 function carouselPrev() {
+  if (isGogogoMobile()) return;
   if (carouselPos > 0) {
     collapseAllCarouselCards();
     expandNudgeX = 0;
@@ -5023,6 +5228,10 @@ function expandTile(id) {
 }
 
 function toggleCard(id) {
+  if (isGogogoMobile()) {
+    openFramePopupForCard(id);
+    return;
+  }
   const card = document.getElementById(id);
   const expanded = card.querySelector('.card-expanded');
   const btn = card.querySelector('button');

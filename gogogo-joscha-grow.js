@@ -54,6 +54,7 @@
 
   function updateHeroWidth() {
     navEl = document.querySelector("header.nav");
+    document.documentElement.style.setProperty("--fc-nav-h", navHeight() + "px");
 
     if (mqFlush.matches) {
       applyMobileFlush();

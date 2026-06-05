@@ -174,5 +174,57 @@
     show(index);
   });
 
+  var swipeStartX = 0;
+  var swipeStartY = 0;
+  var swipeEligible = false;
+  var swipeThreshold = 48;
+
+  root.addEventListener(
+    "touchstart",
+    function (e) {
+      if (e.touches.length !== 1) return;
+      if (
+        e.target.closest(
+          ".gogl-tile, button, a, input, textarea, select, .gogl-program-slide-card__play"
+        )
+      ) {
+        swipeEligible = false;
+        return;
+      }
+      swipeEligible = true;
+      swipeStartX = e.touches[0].clientX;
+      swipeStartY = e.touches[0].clientY;
+    },
+    { passive: true }
+  );
+
+  root.addEventListener(
+    "touchmove",
+    function (e) {
+      if (!swipeEligible || e.touches.length !== 1) return;
+      var dx = e.touches[0].clientX - swipeStartX;
+      var dy = e.touches[0].clientY - swipeStartY;
+      if (Math.abs(dx) > 12 && Math.abs(dx) > Math.abs(dy)) {
+        e.preventDefault();
+      }
+    },
+    { passive: false }
+  );
+
+  root.addEventListener(
+    "touchend",
+    function (e) {
+      if (!swipeEligible) return;
+      swipeEligible = false;
+      var dx = e.changedTouches[0].clientX - swipeStartX;
+      var dy = e.changedTouches[0].clientY - swipeStartY;
+      if (Math.abs(dx) < swipeThreshold || Math.abs(dx) < Math.abs(dy)) return;
+      if (dx < 0) next();
+      else prev();
+      start();
+    },
+    { passive: true }
+  );
+
   show(0);
 })();
