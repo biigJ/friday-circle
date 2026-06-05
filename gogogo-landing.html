@@ -2516,9 +2516,11 @@
           display: block;
           grid-row: 1;
           margin: 0;
-          padding-right: min(38%, 10rem);
+          width: 100%;
+          max-width: 100%;
+          padding-right: 0;
           color: #f0eee6;
-          font-size: clamp(1rem, 4.2vw, 1.3rem);
+          font-size: clamp(calc(1rem * 1.25), calc(4.2vw * 1.25), calc(1.3rem * 1.25));
           line-height: 1;
         }
         .gogl-program-slider__slide[data-slide="3"] .gogl-joscha-copy__sub {
@@ -2526,7 +2528,8 @@
         }
         .gogogo-page main .gogl-program-slider__slide[data-slide="3"] .gogl-joscha-copy__cta {
           grid-row: 3;
-          margin: 0 auto;
+          justify-self: center;
+          margin: 0;
           padding: clamp(6px, 1.1vh, 8px) clamp(14px, 3.5vw, 18px);
           font-size: clamp(0.68rem, 2.8vw, 0.78rem);
         }
@@ -2535,7 +2538,7 @@
           --gogl-popup-scale: 1;
           display: flex;
           flex-direction: column;
-          align-items: stretch;
+          align-items: flex-start;
           gap: clamp(2px, 0.45vh, 4px);
           width: 100%;
           max-width: 100%;
@@ -2552,7 +2555,8 @@
           aspect-ratio: auto;
           height: auto;
           min-height: 0;
-          width: 100%;
+          width: fit-content;
+          max-width: calc(100% - min(38%, 10rem));
           padding: clamp(3px, 0.65vh, 5px) clamp(10px, 2.5vw, 13px);
           background: rgba(0, 0, 0, 0.82);
           border-radius: 999px;
@@ -2567,7 +2571,7 @@
           right: auto;
           bottom: auto;
           left: auto;
-          width: 100%;
+          width: auto;
           display: block;
           padding: 0;
           background: transparent;
@@ -2578,19 +2582,20 @@
         .gogl-program-slider__slide[data-slide="3"] .gogl-tile[data-state="closed"] .gogl-tile__head {
           margin: 0;
           padding: 0;
+          width: auto;
           justify-content: flex-start;
           text-align: left;
         }
         .gogl-program-slider__slide[data-slide="3"] .gogl-tile[data-state="closed"] .gogl-tile__title {
           color: #ffffff;
-          font-size: clamp(calc(0.72rem * 0.7), calc(3.1vw * 0.7), calc(0.84rem * 0.7));
+          font-size: clamp(calc(0.72rem * 0.7 * 1.25), calc(3.1vw * 0.7 * 1.25), calc(0.84rem * 0.7 * 1.25));
           font-weight: 600;
           line-height: 1.15;
           text-align: left;
           display: block;
           -webkit-line-clamp: unset;
-          overflow: hidden;
-          text-overflow: ellipsis;
+          overflow: visible;
+          text-overflow: unset;
           white-space: nowrap;
         }
         .gogl-program-slider__slide[data-slide="3"] .gogl-tile[data-state="closed"] .gogl-tile__body {
