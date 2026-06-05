@@ -1511,31 +1511,82 @@
       }
       @media (max-width: 760px) {
         .gogl-program-slide-card--cycle {
-          grid-template-rows: minmax(0, 0.92fr) minmax(0, 1.08fr);
+          grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
         }
         .gogl-program-slide-card--cycle .gogl-program-slide-card__inner--cycle {
-          --gogl-cycle-title-size: clamp(1.85rem, 14cqw, 2.65rem);
+          --gogl-cycle-title-size: clamp(1rem, 4.8vw, 1.35rem);
+          grid-row: 1 / -1;
+          background: linear-gradient(180deg, #0a0a0a 0%, #0a0a0a 50%, transparent 50%);
+          pointer-events: none;
+        }
+        .gogl-program-slide-card--cycle .gogl-cycle-body__lines,
+        .gogl-program-slide-card--cycle .gogl-cycle-head,
+        .gogl-program-slide-card--cycle .gogl-cycle-body__actions {
+          pointer-events: auto;
         }
         @supports not (width: 1cqw) {
           .gogl-program-slide-card--cycle .gogl-program-slide-card__inner--cycle {
-            --gogl-cycle-title-size: clamp(1.85rem, 10.5vw, 2.65rem);
+            --gogl-cycle-title-size: clamp(1rem, 4.8vw, 1.35rem);
           }
         }
-        .gogl-cycle-head {
-          left: var(--gogl-frame-inset-x);
+        .gogl-program-slide-card--cycle .gogl-cycle-body {
+          display: contents;
+        }
+        .gogl-program-slide-card--cycle .gogl-cycle-body__lines {
+          position: absolute;
+          top: var(--gogl-frame-inset-top);
           right: var(--gogl-frame-inset-x);
-        }
-        .gogl-cycle-body {
-          flex-direction: column;
-          align-items: stretch;
-          gap: 10px;
-        }
-        .gogl-cycle-body__lines {
+          left: var(--gogl-frame-inset-x);
+          bottom: 50%;
           max-width: 100%;
+          overflow-y: auto;
+          z-index: 2;
         }
-        .gogl-cycle-body__actions {
-          align-self: flex-end;
-          flex-wrap: wrap;
+        .gogl-program-slide-card--cycle .gogl-cycle-head {
+          top: 50%;
+          right: var(--gogl-frame-inset-x);
+          left: var(--gogl-frame-inset-x);
+          justify-content: center;
+          padding-top: clamp(10px, 2vh, 16px);
+          z-index: 3;
+        }
+        .gogl-program-slide-card--cycle .gogl-cycle-head__mast {
+          display: block;
+          text-align: center;
+        }
+        .gogl-program-slide-card--cycle .gogl-cycle-head__tag {
+          display: none;
+        }
+        .gogl-program-slide-card--cycle .gogl-cycle-head__title {
+          display: block;
+          white-space: nowrap;
+        }
+        .gogl-program-slide-card--cycle .gogl-cycle-head__title-line--cycle,
+        .gogl-program-slide-card--cycle .gogl-cycle-head__title-line--training,
+        .gogl-program-slide-card--cycle .gogl-cycle-head__t-tr,
+        .gogl-program-slide-card--cycle .gogl-cycle-head__t-aining {
+          display: inline;
+          grid-column: auto;
+          grid-row: auto;
+          justify-self: auto;
+          align-self: auto;
+        }
+        .gogl-program-slide-card--cycle .gogl-cycle-head__title-line--cycle::after {
+          content: " ";
+        }
+        .gogl-program-slide-card--cycle .gogl-cycle-body__actions {
+          position: absolute;
+          top: calc(50% + clamp(2.4rem, 8.5vw, 3.2rem));
+          left: 50%;
+          right: auto;
+          transform: translateX(-50%);
+          justify-content: center;
+          align-items: center;
+          flex-wrap: nowrap;
+          gap: clamp(10px, 2.5vw, 14px);
+          margin: 0;
+          z-index: 3;
+          pointer-events: auto;
         }
       }
       .gogl-program-slide-card__cta--light {
@@ -2398,9 +2449,9 @@
           max-width: min(44%, 11rem);
           transform: translateY(-50%) scale(1.35);
         }
-        .gogl-cycle-body__actions {
-          flex-wrap: wrap;
-          justify-content: flex-start;
+        .gogl-program-slide-card--cycle .gogl-cycle-body__actions {
+          flex-wrap: nowrap;
+          justify-content: center;
         }
         .gogl-joscha-copy {
           position: relative;
