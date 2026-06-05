@@ -1731,6 +1731,26 @@
           var(--gogl-frame-inset-bottom)
           var(--gogl-frame-inset-x);
       }
+      .gogl-program-slide-card__inner--mobility {
+        gap: clamp(12px, 2vh, 18px);
+      }
+      .gogogo-page main .gogl-program-slide-card--mobility .gogl-program-slide-card__cta--mobility {
+        position: static;
+        left: auto;
+        top: auto;
+        transform: none;
+        margin-top: clamp(4px, 0.8vh, 8px);
+        min-width: auto;
+        max-width: min(26rem, 100%);
+        text-transform: none;
+        letter-spacing: 0.02em;
+        white-space: normal;
+        text-align: left;
+      }
+      .gogogo-page main .gogl-program-slide-card--mobility .gogl-program-slide-card__cta--mobility:hover,
+      .gogogo-page main .gogl-program-slide-card--mobility .gogl-program-slide-card__cta--mobility:focus-visible {
+        transform: translateY(-1px);
+      }
       .gogl-program-slide-card--mobility .gogl-program-slide-card__title,
       .gogl-program-slide-card--upper .gogl-program-slide-card__title {
         margin: 0;
@@ -2660,6 +2680,31 @@
         .gogl-program-slide-card--cycle .gogl-cycle-body__actions {
           flex-wrap: nowrap;
           justify-content: center;
+        }
+        /* Slide 8 / Mobilitätsroutine — Text unten, CTA mittig */
+        .gogl-program-slider__slide[data-slide="7"] .gogl-program-slide-card__inner--mobility {
+          justify-content: flex-end;
+          align-items: center;
+          text-align: center;
+          padding: clamp(30%, 34vh, 40%) var(--gogl-frame-inset-x) clamp(14px, 2.4vh, 20px);
+          overflow-y: visible;
+        }
+        .gogl-program-slider__slide[data-slide="7"] .gogl-program-slide-card__title {
+          margin: 0 0 clamp(10px, 1.8vh, 14px);
+          text-align: center;
+          width: 100%;
+          max-width: 100%;
+        }
+        .gogl-program-slider__slide[data-slide="7"] .gogl-program-slide-card__lede {
+          margin: 0;
+          text-align: center;
+          max-width: 100%;
+        }
+        .gogogo-page main .gogl-program-slider__slide[data-slide="7"] .gogl-program-slide-card__cta--mobility {
+          margin: clamp(14px, 2.4vh, 20px) auto 0;
+          align-self: center;
+          text-align: center;
+          max-width: min(18rem, 92%);
         }
       }
 
@@ -4746,9 +4791,10 @@
                       <span class="gogl-program-slide-card__play-icon" aria-hidden="true"></span>
                     </button>
                   </div>
-                  <div class="gogl-program-slide-card__inner">
+                  <div class="gogl-program-slide-card__inner gogl-program-slide-card__inner--mobility">
                     <h2 class="gogl-program-slide-card__title">Mobilitätsroutine</h2>
-                    <p class="gogl-program-slide-card__lede">Teil 1 des Bewegtbildmaterials vom Juli 2025 für interne Zwecke. Weil es eines meiner Steckenpferde ist, stell ich es online, bis es professionelles Material gibt.<br /><br />Mobilität bedeutet nicht einfach Beweglichkeit sondern den eigenen Körper plus mehr Gewicht über den weitest möglichen Bewegungsradius bewegen zu können. Das kannst Du mit einer dreiminütigen Routine vorm Training aber auch an anderen Tagen verbessern. Was aber auch zur Wahrheit gehört: Beweglichkeit Deines Körpers steigerst Du mit einem abwechslungsreichen Alltag und Training.<br /><br /><a class="gogl-program-slide-card__lede-link gogl-member-popup-trigger" href="#member-popup">Wir bauen an Deiner individuellen Wochenstruktur - passend und nehmen Dir die Überforderung durch Information-Overkill.</a></p>
+                    <p class="gogl-program-slide-card__lede">Teil 1 des Bewegtbildmaterials vom Juli 2025 für interne Zwecke. Weil es eines meiner Steckenpferde ist, stell ich es online, bis es professionelles Material gibt.<br /><br />Mobilität bedeutet nicht einfach Beweglichkeit sondern den eigenen Körper plus mehr Gewicht über den weitest möglichen Bewegungsradius bewegen zu können. Das kannst Du mit einer dreiminütigen Routine vorm Training aber auch an anderen Tagen verbessern. Was aber auch zur Wahrheit gehört: Beweglichkeit Deines Körpers steigerst Du mit einem abwechslungsreichen Alltag und Training.</p>
+                    <a class="gogl-program-slide-card__cta gogl-program-slide-card__cta--mobility gogl-program-slide-card__cta--light gogl-member-popup-trigger" href="#member-popup">Wir bauen an Deiner individuellen Wochenstruktur - passend und nehmen Dir die Überforderung durch Information-Overkill.</a>
                   </div>
                   <div class="gogl-slide-footer-chrome gogl-slide-footer-chrome--reserve-banderole">
                     <button type="button" class="gogl-hero-slide-next" aria-label="Nächstes Programm: Komm in Bewegung">
