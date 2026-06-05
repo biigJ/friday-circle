@@ -82,6 +82,12 @@
         en: "Wolfgang Grope art works home",
       },
       { s: ".nav__lang", attr: "aria-label", de: "Sprache", en: "Language" },
+      {
+        s: "#wga-chapters-btn",
+        attr: "aria-label",
+        de: "Katalogkapitel auswählen",
+        en: "Choose catalog chapter",
+      },
     ],
     "joschaalstrainer.html": [
       {

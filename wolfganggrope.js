@@ -36,6 +36,9 @@
   const bioOverlay = document.getElementById("wga-bio");
   const bioOpen = document.getElementById("wga-bio-open");
   const bioText = document.getElementById("wga-bio-text");
+  const chaptersNav = document.getElementById("wga-chapters-nav");
+  const chaptersBtn = document.getElementById("wga-chapters-btn");
+  const chaptersMenu = document.getElementById("wga-chapters-menu");
   const BIO_URL = "data/wga-bio.txt";
   let bioLoaded = false;
 
@@ -315,6 +318,74 @@
       sec.appendChild(shell);
       catalogRoot.appendChild(sec);
     });
+    renderChaptersNav();
+  }
+
+  function navHeight() {
+    const nav = document.querySelector(".wga-nav");
+    return nav ? nav.getBoundingClientRect().height : 72;
+  }
+
+  function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const top = window.scrollY + el.getBoundingClientRect().top - navHeight() - 12;
+    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+  }
+
+  function setChaptersOpen(open) {
+    if (!chaptersNav || !chaptersBtn || !chaptersMenu) return;
+    chaptersNav.classList.toggle("is-open", open);
+    chaptersBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    chaptersMenu.hidden = !open;
+  }
+
+  function renderChaptersNav() {
+    if (!chaptersNav || !chaptersMenu || !catalog) return;
+    chaptersMenu.innerHTML = "";
+    const sections = (catalog.sections || []).filter(function (section) {
+      return (section.works || []).some(function (work) {
+        return work && !work.empty;
+      });
+    });
+    if (!sections.length) {
+      chaptersNav.hidden = true;
+      return;
+    }
+    sections.forEach(function (section) {
+      const item = document.createElement("li");
+      item.className = "wga-nav__chapters-item";
+      item.setAttribute("role", "option");
+      const link = document.createElement("a");
+      link.className = "wga-nav__chapters-link";
+      link.href = "#" + section.id;
+      link.textContent = section.title;
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        setChaptersOpen(false);
+        scrollToSection(section.id);
+        history.replaceState(null, "", "#" + section.id);
+      });
+      item.appendChild(link);
+      chaptersMenu.appendChild(item);
+    });
+    chaptersNav.hidden = false;
+    setChaptersOpen(false);
+  }
+
+  function initChaptersNav() {
+    if (!chaptersBtn || !chaptersMenu) return;
+    chaptersBtn.addEventListener("click", function () {
+      setChaptersOpen(!chaptersNav.classList.contains("is-open"));
+    });
+    document.addEventListener("click", function (e) {
+      if (!chaptersNav || chaptersNav.hidden || !chaptersNav.classList.contains("is-open")) return;
+      if (chaptersNav.contains(e.target)) return;
+      setChaptersOpen(false);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") setChaptersOpen(false);
+    });
   }
 
   function syncPopupFrameWidth() {
@@ -528,6 +599,7 @@
   }
 
   if (bioOpen) bioOpen.addEventListener("click", openBio);
+  initChaptersNav();
   if (bioOverlay) {
     bioOverlay.querySelectorAll("[data-wga-bio-close]").forEach(function (el) {
       el.addEventListener("click", closeBio);

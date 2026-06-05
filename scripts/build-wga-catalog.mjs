@@ -11,6 +11,9 @@ const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const assetsDir = path.join(root, "assets/wolfgang-grope");
 const jsonPath = path.join(root, "data/wga-catalog.json");
 
+const HOLZSCHNITT_1972_1974 = new Set([14, 15, 16, 18, 19, 52, 53, 54, 55, 56, 57, 58]);
+const SKIP_GRAFIK_1972_1974 = new Set([11]);
+
 const SECTION_DEFS = [
   {
     id: "aquarell-1960",
@@ -20,6 +23,7 @@ const SECTION_DEFS = [
   },
   { id: "acryl-1970", title: "1970 - Acryl", re: /^WG-Oel-1955-1970-/i },
   { id: "rad-1972-1974", title: "1972 - 1974 Radierungen", re: /^WG-Grafik-1972-1974-/i },
+  { id: "holz-1973-1974", title: "1973 - 1974 - Holzschnitt", re: /^WG-Grafik-1972-1974-/i },
   { id: "oel-1974-drei", title: "1974 Drei Ölgemälde", re: /^WG-Gemaelde-1974-/i },
   {
     id: "rad-1975-1979",
@@ -64,6 +68,7 @@ function mediumAndTitle(base, sectionId) {
   if (/Aquarell/i.test(base)) return { medium: "Aquarell", title: "Aquarell" };
   if (/Oel/i.test(base) && sectionId === "acryl-1970") return { medium: "Acryl", title: "Acryl" };
   if (/Oel/i.test(base)) return { medium: "Öl auf Leinwand", title: "Ölmalerei" };
+  if (sectionId === "holz-1973-1974") return { medium: "Holzschnitt", title: "Holzschnitt" };
   if (/Grafik/i.test(base)) return { medium: "Radierung", title: "Radierung" };
   if (/Gemaelde/i.test(base)) return { medium: "Gemälde", title: "Gemälde" };
   if (/Zeichnung/i.test(base)) return { medium: "Zeichnung", title: "Zeichnung" };
@@ -93,12 +98,37 @@ function workFromFile(filename, sectionId) {
   };
 }
 
+function grafik1972Num(filename) {
+  const m = filename.match(/^WG-Grafik-1972-1974-(\d+)\./i);
+  return m ? parseInt(m[1], 10) : null;
+}
+
 function sectionForFile(filename) {
+  const grafikNum = grafik1972Num(filename);
+  if (grafikNum !== null) {
+    if (SKIP_GRAFIK_1972_1974.has(grafikNum)) return null;
+    if (HOLZSCHNITT_1972_1974.has(grafikNum)) return "holz-1973-1974";
+    return "rad-1972-1974";
+  }
   for (const def of SECTION_DEFS) {
+    if (def.id === "rad-1972-1974" || def.id === "holz-1973-1974") continue;
     if (def.skip && def.skip(filename)) continue;
     if (def.re.test(filename)) return def.id;
   }
   return null;
+}
+
+function sortSectionWorks(id, works) {
+  works.sort((a, b) => a.sortNum - b.sortNum);
+  if (id === "holz-1973-1974") {
+    const i56 = works.findIndex((w) => w.sortNum === 56);
+    const i57 = works.findIndex((w) => w.sortNum === 57);
+    if (i56 >= 0 && i57 >= 0 && i57 > i56) {
+      const w57 = works[i57];
+      works.splice(i57, 1);
+      works.splice(i56, 0, w57);
+    }
+  }
 }
 
 const existing = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
@@ -111,14 +141,14 @@ const files = fs
 for (const file of files) {
   const sid = sectionForFile(file);
   if (!sid) {
-    console.warn("Unzugeordnet:", file);
+    if (grafik1972Num(file) === null) console.warn("Unzugeordnet:", file);
     continue;
   }
   buckets[sid].push(workFromFile(file, sid));
 }
 
 for (const id of Object.keys(buckets)) {
-  buckets[id].sort((a, b) => a.sortNum - b.sortNum);
+  sortSectionWorks(id, buckets[id]);
   buckets[id] = buckets[id].map(({ sortNum, ...w }) => w);
 }
 

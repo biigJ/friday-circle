@@ -285,17 +285,6 @@ window.__WGA_CATALOG__={
           ]
         },
         {
-          "id": "wg-grafik-1972-1974-11",
-          "title": "Radierung",
-          "year": "—",
-          "medium": "Radierung",
-          "dimensions": "—",
-          "body": "",
-          "images": [
-            "assets/wolfgang-grope/WG-Grafik-1972-1974-11.jpg"
-          ]
-        },
-        {
           "id": "wg-grafik-1972-1974-12",
           "title": "Radierung",
           "year": "—",
@@ -318,39 +307,6 @@ window.__WGA_CATALOG__={
           ]
         },
         {
-          "id": "wg-grafik-1972-1974-14",
-          "title": "Radierung",
-          "year": "—",
-          "medium": "Radierung",
-          "dimensions": "—",
-          "body": "",
-          "images": [
-            "assets/wolfgang-grope/WG-Grafik-1972-1974-14.jpg"
-          ]
-        },
-        {
-          "id": "wg-grafik-1972-1974-15",
-          "title": "Radierung",
-          "year": "—",
-          "medium": "Radierung",
-          "dimensions": "—",
-          "body": "",
-          "images": [
-            "assets/wolfgang-grope/WG-Grafik-1972-1974-15.jpg"
-          ]
-        },
-        {
-          "id": "wg-grafik-1972-1974-16",
-          "title": "Radierung",
-          "year": "—",
-          "medium": "Radierung",
-          "dimensions": "—",
-          "body": "",
-          "images": [
-            "assets/wolfgang-grope/WG-Grafik-1972-1974-16.jpg"
-          ]
-        },
-        {
           "id": "wg-grafik-1972-1974-17",
           "title": "Radierung",
           "year": "—",
@@ -359,28 +315,6 @@ window.__WGA_CATALOG__={
           "body": "",
           "images": [
             "assets/wolfgang-grope/WG-Grafik-1972-1974-17.jpg"
-          ]
-        },
-        {
-          "id": "wg-grafik-1972-1974-18",
-          "title": "Radierung",
-          "year": "—",
-          "medium": "Radierung",
-          "dimensions": "—",
-          "body": "",
-          "images": [
-            "assets/wolfgang-grope/WG-Grafik-1972-1974-18.jpg"
-          ]
-        },
-        {
-          "id": "wg-grafik-1972-1974-19",
-          "title": "Radierung",
-          "year": "—",
-          "medium": "Radierung",
-          "dimensions": "—",
-          "body": "",
-          "images": [
-            "assets/wolfgang-grope/WG-Grafik-1972-1974-19.jpg"
           ]
         },
         {
@@ -736,83 +670,6 @@ window.__WGA_CATALOG__={
           ]
         },
         {
-          "id": "wg-grafik-1972-1974-52",
-          "title": "Radierung",
-          "year": "—",
-          "medium": "Radierung",
-          "dimensions": "—",
-          "body": "",
-          "images": [
-            "assets/wolfgang-grope/WG-Grafik-1972-1974-52.jpg"
-          ]
-        },
-        {
-          "id": "wg-grafik-1972-1974-53",
-          "title": "Radierung",
-          "year": "—",
-          "medium": "Radierung",
-          "dimensions": "—",
-          "body": "",
-          "images": [
-            "assets/wolfgang-grope/WG-Grafik-1972-1974-53.jpg"
-          ]
-        },
-        {
-          "id": "wg-grafik-1972-1974-54",
-          "title": "Radierung",
-          "year": "—",
-          "medium": "Radierung",
-          "dimensions": "—",
-          "body": "",
-          "images": [
-            "assets/wolfgang-grope/WG-Grafik-1972-1974-54.jpg"
-          ]
-        },
-        {
-          "id": "wg-grafik-1972-1974-55",
-          "title": "Radierung",
-          "year": "—",
-          "medium": "Radierung",
-          "dimensions": "—",
-          "body": "",
-          "images": [
-            "assets/wolfgang-grope/WG-Grafik-1972-1974-55.jpg"
-          ]
-        },
-        {
-          "id": "wg-grafik-1972-1974-56",
-          "title": "Radierung",
-          "year": "—",
-          "medium": "Radierung",
-          "dimensions": "—",
-          "body": "",
-          "images": [
-            "assets/wolfgang-grope/WG-Grafik-1972-1974-56.jpg"
-          ]
-        },
-        {
-          "id": "wg-grafik-1972-1974-57",
-          "title": "Radierung",
-          "year": "—",
-          "medium": "Radierung",
-          "dimensions": "—",
-          "body": "",
-          "images": [
-            "assets/wolfgang-grope/WG-Grafik-1972-1974-57.jpg"
-          ]
-        },
-        {
-          "id": "wg-grafik-1972-1974-58",
-          "title": "Radierung",
-          "year": "—",
-          "medium": "Radierung",
-          "dimensions": "—",
-          "body": "",
-          "images": [
-            "assets/wolfgang-grope/WG-Grafik-1972-1974-58.jpg"
-          ]
-        },
-        {
           "id": "wg-grafik-1972-1974-59",
           "title": "Radierung",
           "year": "—",
@@ -832,6 +689,144 @@ window.__WGA_CATALOG__={
           "body": "",
           "images": [
             "assets/wolfgang-grope/WG-Grafik-1972-1974-60.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "holz-1973-1974",
+      "title": "1973 - 1974 - Holzschnitt",
+      "works": [
+        {
+          "id": "wg-grafik-1972-1974-14",
+          "title": "Holzschnitt",
+          "year": "—",
+          "medium": "Holzschnitt",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-14.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-15",
+          "title": "Holzschnitt",
+          "year": "—",
+          "medium": "Holzschnitt",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-15.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-16",
+          "title": "Holzschnitt",
+          "year": "—",
+          "medium": "Holzschnitt",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-16.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-18",
+          "title": "Holzschnitt",
+          "year": "—",
+          "medium": "Holzschnitt",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-18.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-19",
+          "title": "Holzschnitt",
+          "year": "—",
+          "medium": "Holzschnitt",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-19.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-52",
+          "title": "Holzschnitt",
+          "year": "—",
+          "medium": "Holzschnitt",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-52.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-53",
+          "title": "Holzschnitt",
+          "year": "—",
+          "medium": "Holzschnitt",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-53.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-54",
+          "title": "Holzschnitt",
+          "year": "—",
+          "medium": "Holzschnitt",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-54.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-55",
+          "title": "Holzschnitt",
+          "year": "—",
+          "medium": "Holzschnitt",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-55.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-57",
+          "title": "Holzschnitt",
+          "year": "—",
+          "medium": "Holzschnitt",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-57.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-56",
+          "title": "Holzschnitt",
+          "year": "—",
+          "medium": "Holzschnitt",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-56.jpg"
+          ]
+        },
+        {
+          "id": "wg-grafik-1972-1974-58",
+          "title": "Holzschnitt",
+          "year": "—",
+          "medium": "Holzschnitt",
+          "dimensions": "—",
+          "body": "",
+          "images": [
+            "assets/wolfgang-grope/WG-Grafik-1972-1974-58.jpg"
           ]
         }
       ]
