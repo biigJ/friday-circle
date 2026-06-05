@@ -40,6 +40,9 @@
   var dots = root.querySelectorAll(".gogl-program-slider__dot[data-slide-to]");
   var prevBtn = document.querySelector(".gogl-program-slider-arrow--prev");
   var nextBtn = document.querySelector(".gogl-program-slider-arrow--next");
+  var mobileNext = root.querySelector(".gogl-program-slider__mobile-next");
+  var mobileNextLabelEl = mobileNext ? mobileNext.querySelector(".gogl-hero-slide-next__label") : null;
+  var mobileNextButtonEl = mobileNext ? mobileNext.querySelector("button") : null;
 
   var index = 0;
   var timer;
@@ -64,6 +67,23 @@
       dot.classList.toggle("is-active", on);
       dot.setAttribute("aria-selected", on ? "true" : "false");
     });
+
+    if (mobileNextLabelEl) {
+      var activeSlide = root.querySelector(".gogl-program-slider__slide.is-active");
+      var labelEl =
+        activeSlide &&
+        (activeSlide.querySelector(".gogl-slide-footer-chrome .gogl-hero-slide-next__label") ||
+          activeSlide.querySelector(".gogl-hero-slide-next__label"));
+
+      var labelText = labelEl && labelEl.textContent ? labelEl.textContent.trim() : "";
+      if (labelText) {
+        mobileNextLabelEl.textContent = labelText;
+        if (mobileNextButtonEl) {
+          var prefix = currentLang() === "en" ? "Next program: " : "Nächstes Programm: ";
+          mobileNextButtonEl.setAttribute("aria-label", prefix + labelText);
+        }
+      }
+    }
   }
 
   function next() {

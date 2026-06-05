@@ -1165,23 +1165,129 @@
         color: rgba(255, 255, 255, 0.88);
       }
       @media (max-width: 760px) {
-        .gogl-gosam-slide__video {
-          width: 100%;
-          height: 42%;
-          top: auto;
-          bottom: 0;
+        /* Mobile: "Next program" CTA (Text + Pfeil) nicht als Overlay, sondern unter den Slides. */
+        #gogl-joscha-grow .gogl-slide-footer-chrome .gogl-hero-slide-next {
+          display: none;
         }
+
+        #gogl-joscha-grow .gogl-program-slider__mobile-next {
+          display: flex;
+          flex: 0 0 auto;
+          width: 100%;
+          padding: 0 var(--gogl-frame-inset-x) var(--gogl-frame-inset-bottom);
+          box-sizing: border-box;
+          justify-content: center;
+          align-items: center;
+          pointer-events: none;
+        }
+
+        #gogl-joscha-grow .gogl-program-slider__mobile-next .gogl-hero-slide-next--mobile {
+          pointer-events: auto;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: clamp(8px, 1.2vw, 12px);
+          width: 100%;
+          max-width: 52ch;
+          margin: 0;
+          padding: 0;
+          border: none;
+          background: transparent;
+          cursor: pointer;
+          color: #ffffff;
+          font-family: var(--font-sans);
+          font-size: clamp(0.9rem, 1.9vw, 1.05rem);
+          letter-spacing: 0.05em;
+          line-height: 1.5;
+          font-weight: 400;
+          text-align: center;
+          text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+          transform: none;
+          transition: transform 0.15s ease;
+        }
+
+        #gogl-joscha-grow .gogl-program-slider__mobile-next .gogl-hero-slide-next__label {
+          text-wrap: balance;
+          white-space: normal;
+        }
+
+        #gogl-joscha-grow .gogl-program-slider__mobile-next .gogl-hero-slide-next:hover,
+        #gogl-joscha-grow .gogl-program-slider__mobile-next .gogl-hero-slide-next:focus-visible {
+          transform: translateY(-1px);
+        }
+
+        /* Slide 2 (Micro-Bewegung): keine Zweiteilung, Video hinter allem. */
+        .gogl-joscha-grow__phone--gosam {
+          display: none;
+        }
+
+        .gogl-gosam-slide__video {
+          left: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 0;
+        }
+
         .gogl-program-slide-card__inner--gosam {
           width: 100%;
           max-width: none;
-          height: 58%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 0;
+          z-index: 3;
         }
+
+        .gogl-gosam-copy {
+          order: 0;
+          width: 100%;
+          max-width: 100%;
+          min-height: 0;
+          align-items: center;
+          justify-content: flex-start;
+          gap: clamp(10px, 2vh, 16px);
+        }
+
+        .gogl-gosam-intro {
+          order: 1;
+          max-width: min(48ch, 100%);
+          text-align: center;
+          margin-top: clamp(8px, 1.7vh, 16px);
+        }
+
+        .gogl-gosam-preface {
+          text-align: center;
+          font-size: clamp(0.95rem, 3.7vw, 1.06rem);
+        }
+
+        .gogl-gosam-copy__title {
+          font-size: clamp(1.45rem, 6vw, 1.75rem);
+          line-height: 1.08;
+          text-align: center;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+
+        .gogl-gosam-copy__tagline {
+          display: none;
+        }
+
         .gogl-gosam-copy__actions {
-          flex-wrap: wrap;
-          align-items: flex-start;
-        }
-        .gogl-slide-footer-chrome .gogl-hero-slide-next {
-          max-width: calc(100% - 2 * clamp(16px, 3vw, 32px));
+          position: absolute;
+          left: 50%;
+          bottom: 0;
+          transform: translateX(-50%);
+          width: 100%;
+          justify-content: center;
+          align-items: center;
+          gap: 0;
+          margin-top: 0;
+          padding: 0;
         }
       }
       .gogl-program-slide-card--cycle::after {
@@ -4422,6 +4528,16 @@
   </div>
 
             
+    <div class="gogl-program-slider__mobile-next" style="display:none;" aria-live="polite">
+      <button
+        type="button"
+        class="gogl-hero-slide-next gogl-hero-slide-next--mobile"
+        aria-label="Nächstes Programm"
+      >
+        <span class="gogl-hero-slide-next__label"></span>
+        <span class="gogl-hero-slide-next__arrow" aria-hidden="true">›</span>
+      </button>
+    </div>
     </div>
     </div>
   </div>
