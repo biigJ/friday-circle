@@ -88,6 +88,12 @@
         de: "Katalogkapitel auswählen",
         en: "Choose catalog chapter",
       },
+      {
+        s: "#wga-bio-open",
+        attr: "aria-label",
+        de: "Lebenslauf öffnen",
+        en: "Open CV",
+      },
     ],
     "joschaalstrainer.html": [
       {

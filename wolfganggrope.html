@@ -15,27 +15,29 @@
   <body class="wga-page de">
     <header class="nav wga-nav" aria-label="Wolfgang Grope Kunstwerke">
       <div class="nav__inner">
-        <a href="wolfganggrope.html" class="nav__logo" aria-label="Wolfgang Grope Kunstwerke Startseite"><span class="de-t">WOLFGANG GROPE KUNSTWERKE</span><span class="en-t">WOLFGANG GROPE ART WORKS</span></a>
-        <div class="nav__cta-bucket">
-          <div class="wga-nav__chapters" id="wga-chapters-nav" hidden>
-            <button
-              type="button"
-              class="wga-nav__chapters-btn"
-              id="wga-chapters-btn"
-              aria-haspopup="listbox"
-              aria-expanded="false"
-              aria-controls="wga-chapters-menu"
-            >
-              <span class="de-t">Kapitel</span><span class="en-t">Chapters</span>
-              <span class="wga-nav__chapters-chevron" aria-hidden="true">▾</span>
-            </button>
-            <ul class="wga-nav__chapters-menu" id="wga-chapters-menu" role="listbox" hidden></ul>
+        <div class="wga-nav__leading">
+          <a href="wolfganggrope.html" class="nav__logo" aria-label="Wolfgang Grope Kunstwerke Startseite"><span class="de-t">WOLFGANG GROPE KUNSTWERKE</span><span class="en-t">WOLFGANG GROPE ART WORKS</span></a>
+          <div class="wga-nav__menu">
+            <div class="wga-nav__chapters" id="wga-chapters-nav" hidden>
+              <button
+                type="button"
+                class="wga-nav__chapters-btn wga-nav__text-btn"
+                id="wga-chapters-btn"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+                aria-controls="wga-chapters-menu"
+              >
+                <span class="de-t">KAPITEL</span><span class="en-t">CHAPTERS</span>
+                <span class="wga-nav__chapters-chevron" aria-hidden="true">▾</span>
+              </button>
+              <ul class="wga-nav__chapters-menu" id="wga-chapters-menu" role="listbox" hidden></ul>
+            </div>
+            <button type="button" class="wga-nav__bio wga-nav__text-btn" id="wga-bio-open" aria-haspopup="dialog" aria-controls="wga-bio"><span class="de-t">LEBENSLAUF</span><span class="en-t">CV</span></button>
           </div>
-          <button type="button" class="wga-nav__bio" id="wga-bio-open" aria-haspopup="dialog" aria-controls="wga-bio">bio</button>
-          <div class="nav__lang" role="group" aria-label="Sprache">
-            <button type="button" class="is-active" data-fc-lang="de">DE</button>
-            <button type="button" data-fc-lang="en">EN</button>
-          </div>
+        </div>
+        <div class="nav__lang" role="group" aria-label="Sprache">
+          <button type="button" class="is-active" data-fc-lang="de">DE</button>
+          <button type="button" data-fc-lang="en">EN</button>
         </div>
       </div>
     </header>

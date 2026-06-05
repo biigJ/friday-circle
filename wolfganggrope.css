@@ -26,20 +26,50 @@ body.wga-page {
   box-sizing: border-box;
   padding: clamp(18px, 2.2vw, 26px) var(--wga-rail);
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   column-gap: clamp(16px, 3vw, 32px);
 }
 
+.wga-page .wga-nav .wga-nav__leading {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  min-width: 0;
+  gap: 0;
+}
+
 .wga-page .wga-nav .nav__logo {
+  flex: 0 1 auto;
   justify-self: start;
 }
 
-.wga-page .wga-nav .nav__cta-bucket {
-  justify-self: end;
+.wga-page .wga-nav .wga-nav__menu {
   display: flex;
   align-items: center;
+  flex: 0 0 auto;
   gap: clamp(14px, 2.2vw, 22px);
+  margin-left: 1em;
+}
+
+.wga-page .wga-nav .nav__lang {
+  justify-self: end;
+}
+
+.wga-page .wga-nav .wga-nav__text-btn {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: clamp(0.58rem, 1.15vw, 0.82rem);
+  font-weight: 400;
+  letter-spacing: clamp(0.1em, 0.16vw, 0.18em);
+  text-transform: uppercase;
+  color: #f0eee6;
+  cursor: pointer;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
+  transition: color 0.28s ease, opacity 0.2s ease;
 }
 
 .wga-page .wga-nav .wga-nav__bio {
@@ -47,15 +77,6 @@ body.wga-page {
   padding: 0;
   border: 0;
   background: transparent;
-  font-family: var(--font-sans);
-  font-size: clamp(0.72rem, 1.2vw, 0.82rem);
-  font-weight: 400;
-  letter-spacing: 0.14em;
-  text-transform: lowercase;
-  color: #f0eee6;
-  cursor: pointer;
-  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
-  transition: color 0.28s ease, opacity 0.2s ease;
 }
 
 .wga-page .wga-nav .wga-nav__bio:hover,
@@ -70,22 +91,9 @@ body.wga-page {
 }
 
 .wga-page .wga-nav .wga-nav__chapters-btn {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: transparent;
   display: inline-flex;
   align-items: center;
   gap: 0.35em;
-  font-family: var(--font-sans);
-  font-size: clamp(0.72rem, 1.2vw, 0.82rem);
-  font-weight: 400;
-  letter-spacing: 0.14em;
-  text-transform: lowercase;
-  color: #f0eee6;
-  cursor: pointer;
-  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
-  transition: color 0.28s ease, opacity 0.2s ease;
 }
 
 .wga-page .wga-nav .wga-nav__chapters-chevron {
@@ -98,6 +106,8 @@ body.wga-page {
   transform: rotate(180deg);
 }
 
+.wga-page .wga-nav .wga-nav__text-btn:hover,
+.wga-page .wga-nav .wga-nav__text-btn:focus-visible,
 .wga-page .wga-nav .wga-nav__chapters-btn:hover,
 .wga-page .wga-nav .wga-nav__chapters-btn:focus-visible {
   color: #ffffff;
@@ -170,6 +180,11 @@ body.wga-page {
   color: var(--bg);
 }
 
+.wga-page .wga-nav.wga-nav--on-light .wga-nav__text-btn {
+  color: var(--text);
+  text-shadow: none;
+}
+
 .wga-page .wga-nav.wga-nav--on-light .wga-nav__bio {
   color: var(--text);
   text-shadow: none;
@@ -195,6 +210,8 @@ body.wga-page {
   background: color-mix(in srgb, var(--text) 6%, transparent);
 }
 
+.wga-page .wga-nav.wga-nav--on-light .wga-nav__text-btn:hover,
+.wga-page .wga-nav.wga-nav--on-light .wga-nav__text-btn:focus-visible,
 .wga-page .wga-nav.wga-nav--on-light .wga-nav__bio:hover,
 .wga-page .wga-nav.wga-nav--on-light .wga-nav__bio:focus-visible {
   color: var(--text);
@@ -215,6 +232,11 @@ body.wga-page {
 .wga-page .wga-nav:not(.wga-nav--on-light).wga-nav--logo-light .nav__lang button.is-active {
   background: #f0eee6;
   color: #1a1a18;
+}
+
+.wga-page .wga-nav:not(.wga-nav--on-light).wga-nav--logo-light .wga-nav__text-btn {
+  color: #f0eee6;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
 }
 
 .wga-page .wga-nav:not(.wga-nav--on-light).wga-nav--logo-light .wga-nav__bio {
@@ -247,6 +269,11 @@ body.wga-page {
 .wga-page .wga-nav:not(.wga-nav--on-light).wga-nav--logo-dark .nav__lang button.is-active {
   background: var(--text);
   color: var(--bg);
+}
+
+.wga-page .wga-nav:not(.wga-nav--on-light).wga-nav--logo-dark .wga-nav__text-btn {
+  color: var(--text);
+  text-shadow: none;
 }
 
 .wga-page .wga-nav:not(.wga-nav--on-light).wga-nav--logo-dark .wga-nav__bio {
