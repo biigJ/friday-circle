@@ -2517,13 +2517,14 @@
         .gogl-program-slider__slide[data-slide="3"] .gogl-joscha-copy__heading {
           display: block;
           grid-row: 1;
+          grid-column: 1 / -1;
           justify-self: center;
-          margin: 0;
+          margin: 0 0 clamp(10px, 2.2vh, 18px);
           width: 100%;
           max-width: none;
           padding-right: 0;
           color: #f0eee6;
-          font-size: clamp(calc(1rem * 1.7), calc(4.2vw * 1.7), calc(1.3rem * 1.7));
+          font-size: clamp(calc(1rem * 2.2), calc(4.2vw * 2.2), calc(1.3rem * 2.2));
           line-height: 1;
           text-align: center;
         }
@@ -2532,6 +2533,12 @@
         }
         .gogogo-page main .gogl-program-slider__slide[data-slide="3"] .gogl-joscha-copy__cta {
           grid-row: 3;
+          grid-column: 1 / -1;
+          position: static;
+          left: auto;
+          right: auto;
+          top: auto;
+          transform: none;
           justify-self: center;
           align-self: center;
           margin: 0 auto;
