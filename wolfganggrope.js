@@ -340,6 +340,15 @@
     chaptersMenu.hidden = !open;
   }
 
+  function syncChaptersNavOffset() {
+    if (!chaptersBtn || !chaptersNav) return;
+    var lang =
+      document.body.classList.contains("en") || document.documentElement.lang === "en" ? "en" : "de";
+    var label = chaptersBtn.querySelector(lang === "en" ? ".en-t" : ".de-t");
+    if (!label) return;
+    chaptersNav.style.marginLeft = label.getBoundingClientRect().width + "px";
+  }
+
   function renderChaptersNav() {
     if (!chaptersNav || !chaptersMenu || !catalog) return;
     chaptersMenu.innerHTML = "";
@@ -371,6 +380,7 @@
     });
     chaptersNav.hidden = false;
     setChaptersOpen(false);
+    syncChaptersNavOffset();
   }
 
   function initChaptersNav() {
@@ -600,6 +610,8 @@
 
   if (bioOpen) bioOpen.addEventListener("click", openBio);
   initChaptersNav();
+  document.addEventListener("fc-lang-change", syncChaptersNavOffset);
+  window.addEventListener("resize", syncChaptersNavOffset);
   if (bioOverlay) {
     bioOverlay.querySelectorAll("[data-wga-bio-close]").forEach(function (el) {
       el.addEventListener("click", closeBio);
