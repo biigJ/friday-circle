@@ -166,6 +166,19 @@
       return;
     }
 
+    if (mqFlush.matches) {
+      clearTilePosition(tile);
+      var mobileAvailable = root.getBoundingClientRect().height - 72;
+      var mobileH = Math.max(120, Math.floor(mobileAvailable));
+      var mobileHPx = mobileH + "px";
+      tile.style.setProperty("--gogl-bg-scaler-h", mobileHPx);
+      scaler.style.height = "";
+      scaler.style.minHeight = "";
+      scaler.style.maxHeight = mobileHPx;
+      scaler.style.overflowY = "auto";
+      return;
+    }
+
     requestAnimationFrame(function () {
       var targetTop = getFrameTop();
       var scalerTop = scaler.getBoundingClientRect().top;

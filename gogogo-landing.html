@@ -1514,7 +1514,8 @@
           grid-template-rows: minmax(0, 1fr) minmax(0, 1fr);
         }
         .gogl-program-slide-card--cycle .gogl-program-slide-card__inner--cycle {
-          --gogl-cycle-title-size: clamp(1rem, 4.8vw, 1.35rem);
+          --gogl-cycle-title-size: clamp(1.35rem, 6.2vw, 1.75rem);
+          --gogl-cycle-small-size: clamp(0.82rem, 3.6vw, 0.95rem);
           grid-row: 1 / -1;
           background: linear-gradient(180deg, #0a0a0a 0%, #0a0a0a 50%, transparent 50%);
           pointer-events: none;
@@ -1526,8 +1527,23 @@
         }
         @supports not (width: 1cqw) {
           .gogl-program-slide-card--cycle .gogl-program-slide-card__inner--cycle {
-            --gogl-cycle-title-size: clamp(1rem, 4.8vw, 1.35rem);
+            --gogl-cycle-title-size: clamp(1.35rem, 6.2vw, 1.75rem);
+            --gogl-cycle-small-size: clamp(0.82rem, 3.6vw, 0.95rem);
           }
+        }
+        .gogl-program-slide-card--cycle .gogl-cycle-body__kicker {
+          font-size: clamp(0.9rem, 4.1vw, 1.02rem) !important;
+          line-height: 1.4 !important;
+          margin-bottom: clamp(10px, 1.8vh, 14px) !important;
+        }
+        .gogl-program-slide-card--cycle .gogl-cycle-body__lines p:not(.gogl-cycle-body__kicker) {
+          font-size: clamp(0.82rem, 3.7vw, 0.94rem);
+          line-height: 1.45;
+        }
+        .gogogo-page main .gogl-program-slide-card--cycle .gogl-cycle-body__cta {
+          font-size: clamp(0.84rem, 3.9vw, 0.96rem);
+          padding: 12px clamp(18px, 4.5vw, 24px);
+          min-width: clamp(7.5rem, 34vw, 9.5rem);
         }
         .gogl-program-slide-card--cycle .gogl-cycle-body {
           display: contents;
@@ -1576,7 +1592,7 @@
         }
         .gogl-program-slide-card--cycle .gogl-cycle-body__actions {
           position: absolute;
-          top: calc(50% + clamp(2.4rem, 8.5vw, 3.2rem));
+          top: calc(50% + clamp(2.75rem, 10vw, 3.6rem));
           left: 50%;
           right: auto;
           transform: translateX(-50%);
@@ -2435,14 +2451,183 @@
         .gogl-cycle-body__lines p {
           white-space: normal;
         }
+        /* Factfulness (Slide 6 / data-slide="3") — dunkles Foto rechts, Text-Pills, Popup mobil */
+        .gogl-joscha-grow:has(.gogl-program-slider__slide[data-slide="3"].is-active) {
+          background: #0a0a0a;
+        }
+        .gogl-joscha-grow:has(.gogl-program-slider__slide[data-slide="3"].is-active) .gogl-joscha-grow__photo--factfulness img {
+          width: min(58%, 280px);
+          filter: grayscale(0.35) brightness(0.22) contrast(1.12) saturate(0.55);
+          -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.45) 16%, #000 30%);
+          mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.45) 16%, #000 30%);
+        }
+        .gogl-joscha-grow:has(.gogl-program-slider__slide[data-slide="3"].is-active) .gogl-joscha-grow__photo--factfulness::after {
+          background: linear-gradient(
+            90deg,
+            rgba(10, 10, 10, 1) 0%,
+            rgba(10, 10, 10, 0.96) 40%,
+            rgba(10, 10, 10, 0.7) 56%,
+            rgba(10, 10, 10, 0.32) 72%,
+            transparent 100%
+          );
+        }
+        .gogl-joscha-grow:has(.gogl-program-slider__slide[data-slide="3"].is-active) .gogl-program-slider__dot {
+          border-color: rgba(240, 238, 230, 0.55);
+        }
+        .gogl-joscha-grow:has(.gogl-program-slider__slide[data-slide="3"].is-active) .gogl-program-slider__dot.is-active,
+        .gogl-joscha-grow:has(.gogl-program-slider__slide[data-slide="3"].is-active) .gogl-program-slider__dot:hover,
+        .gogl-joscha-grow:has(.gogl-program-slider__slide[data-slide="3"].is-active) .gogl-program-slider__dot:focus-visible {
+          background: #f0eee6;
+          border-color: #f0eee6;
+        }
+        .gogl-program-slider__slide[data-slide="3"] .gogl-joscha-panel {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          flex: 1 1 auto;
+          min-height: 0;
+          height: 100%;
+          overflow: hidden;
+        }
         .gogl-program-slider__slide[data-slide="3"] .gogl-joscha-tiles-wrap {
+          flex: 1 1 auto;
           flex-direction: column;
           align-items: stretch;
-          gap: clamp(14px, 3vw, 20px);
+          justify-content: flex-start;
+          gap: clamp(10px, 2vh, 16px);
+          min-height: 0;
+          height: 100%;
+          position: static;
+        }
+        .gogl-program-slider__slide[data-slide="3"] .gogl-tile-grid-stage {
+          flex: 1 1 auto;
+          min-height: 0;
+          width: 100%;
+          overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
+          align-items: flex-start;
+          justify-content: flex-start;
+          position: static;
         }
         .gogl-program-slider__slide[data-slide="3"] .gogl-joscha-copy {
-          max-width: 100%;
+          flex: 0 0 auto;
+          order: 2;
           width: 100%;
+          max-width: 100%;
+          margin: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding-top: clamp(8px, 1.5vh, 12px);
+          pointer-events: auto;
+        }
+        .gogl-program-slider__slide[data-slide="3"] .gogl-joscha-copy__heading,
+        .gogl-program-slider__slide[data-slide="3"] .gogl-joscha-copy__sub {
+          display: none;
+        }
+        .gogogo-page main .gogl-program-slider__slide[data-slide="3"] .gogl-joscha-copy__cta {
+          margin: 0 auto;
+        }
+        .gogl-program-slider__slide[data-slide="3"] .gogl-tile-grid {
+          --gogl-tile-visual-scale: 1;
+          --gogl-popup-scale: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          gap: clamp(6px, 1.2vh, 10px);
+          width: 100%;
+          max-width: 100%;
+          transform: none;
+          padding-right: min(40%, 10.5rem);
+          box-sizing: border-box;
+          position: static;
+        }
+        .gogl-program-slider__slide[data-slide="3"] .gogl-tile-grid > .gogl-tile:nth-child(n) {
+          grid-row: auto;
+          grid-column: auto;
+        }
+        .gogl-program-slider__slide[data-slide="3"] .gogl-tile[data-state="closed"] {
+          aspect-ratio: auto;
+          height: auto;
+          min-height: 0;
+          padding: 0;
+          background: transparent;
+          box-shadow: none;
+          transform: none;
+        }
+        .gogl-program-slider__slide[data-slide="3"] .gogl-tile[data-state="closed"] > .gogl-tile__scaler {
+          position: relative;
+          inset: auto;
+          top: auto;
+          right: auto;
+          bottom: auto;
+          left: auto;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          padding: clamp(7px, 1.5vh, 10px) clamp(12px, 3.5vw, 16px);
+          border-radius: 999px;
+          background: rgba(0, 0, 0, 0.75);
+          box-shadow: none;
+        }
+        .gogl-program-slider__slide[data-slide="3"] .gogl-tile[data-state="closed"] .gogl-tile__head {
+          margin: 0;
+          padding: 0;
+          justify-content: flex-start;
+          text-align: left;
+        }
+        .gogl-program-slider__slide[data-slide="3"] .gogl-tile[data-state="closed"] .gogl-tile__title {
+          color: #ffffff;
+          font-size: clamp(0.72rem, 3.1vw, 0.84rem);
+          font-weight: 600;
+          line-height: 1.25;
+          text-align: left;
+          display: block;
+          -webkit-line-clamp: unset;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+        .gogl-program-slider__slide[data-slide="3"] .gogl-tile[data-state="closed"] .gogl-tile__body {
+          display: none;
+        }
+        .gogl-program-slider__slide[data-slide="3"] .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"],
+        .gogl-program-slider__slide[data-slide="3"] .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] {
+          position: absolute;
+          inset: 0;
+          z-index: 40;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: var(--gogl-frame-inset-top) var(--gogl-frame-inset-x) var(--gogl-frame-inset-bottom);
+          box-sizing: border-box;
+          background: rgba(0, 0, 0, 0.72);
+          transform: none;
+        }
+        .gogl-program-slider__slide[data-slide="3"] .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"] > .gogl-tile__scaler,
+        .gogl-program-slider__slide[data-slide="3"] .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"] > .gogl-tile__scaler {
+          position: relative;
+          top: auto;
+          left: auto;
+          right: auto;
+          bottom: auto;
+          transform: none;
+          width: 100%;
+          max-width: 100%;
+          height: auto;
+          max-height: min(68svh, calc(var(--gogl-grow-h, 72svh) - 72px));
+          aspect-ratio: auto;
+          overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        .gogl-program-slider__slide[data-slide="3"] .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"]:nth-child(6n + 4) > .gogl-tile__scaler,
+        .gogl-program-slider__slide[data-slide="3"] .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"]:nth-child(6n + 5) > .gogl-tile__scaler,
+        .gogl-program-slider__slide[data-slide="3"] .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="open"]:nth-child(6n + 6) > .gogl-tile__scaler,
+        .gogl-program-slider__slide[data-slide="3"] .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"]:nth-child(6n + 4) > .gogl-tile__scaler,
+        .gogl-program-slider__slide[data-slide="3"] .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"]:nth-child(6n + 5) > .gogl-tile__scaler,
+        .gogl-program-slider__slide[data-slide="3"] .gogl-tile-grid.is-tile-overlay-active .gogl-tile[data-state="background"]:nth-child(6n + 6) > .gogl-tile__scaler {
+          transform: none;
         }
         .gogl-joscha-grow__phone--gosam img {
           right: 0;
@@ -2452,34 +2637,6 @@
         .gogl-program-slide-card--cycle .gogl-cycle-body__actions {
           flex-wrap: nowrap;
           justify-content: center;
-        }
-        .gogl-joscha-copy {
-          position: relative;
-          left: auto;
-          top: auto;
-          transform: none;
-          max-width: none;
-          margin: clamp(16px, 3vw, 24px) 0 0;
-          pointer-events: auto;
-        }
-        .gogl-tile-grid-stage {
-          width: 100%;
-        }
-        .gogl-tile-grid {
-          grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
-          grid-template-rows: unset;
-          grid-auto-rows: auto;
-          transform: scale(var(--gogl-tile-visual-scale));
-          transform-origin: 50% 50%;
-        }
-        .gogl-tile-grid > .gogl-tile:nth-child(n) {
-          grid-row: auto;
-          grid-column: auto;
-        }
-        .gogl-tile-grid .gogl-tile[data-state="closed"]:nth-child(6n + 4),
-        .gogl-tile-grid .gogl-tile[data-state="closed"]:nth-child(6n + 5),
-        .gogl-tile-grid .gogl-tile[data-state="closed"]:nth-child(6n + 6) {
-          transform: none;
         }
       }
 
