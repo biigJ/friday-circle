@@ -451,7 +451,12 @@
     if (heroHeadline && catalog?.meta?.heroHeadline) {
       heroHeadline.textContent = catalog.meta.heroHeadline;
     }
-    document.title = "Wolfgang Grope Art — Friday Circle";
+    var lang =
+      document.body.classList.contains("en") || document.documentElement.lang === "en" ? "en" : "de";
+    document.title =
+      lang === "en"
+        ? "WOLFGANG GROPE ART WORKS — Friday Circle"
+        : "WOLFGANG GROPE KUNSTWERKE — Friday Circle";
   }
 
   function initHeroFromDom() {

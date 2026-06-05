@@ -73,6 +73,16 @@
         en: "Make your space fit your life design — interior design and architecture by Joscha.",
       },
     ],
+    "wolfganggrope.html": [
+      { s: "header.nav.wga-nav", attr: "aria-label", de: "Wolfgang Grope Kunstwerke", en: "Wolfgang Grope art works" },
+      {
+        s: ".wga-nav .nav__logo",
+        attr: "aria-label",
+        de: "Wolfgang Grope Kunstwerke Startseite",
+        en: "Wolfgang Grope art works home",
+      },
+      { s: ".nav__lang", attr: "aria-label", de: "Sprache", en: "Language" },
+    ],
     "joschaalstrainer.html": [
       {
         s: 'meta[name="description"]',
@@ -492,6 +502,12 @@
     if (PAGE === "joschaalstrainer.html") {
       document.title =
         lang === "en" ? "Joscha as trainer — Friday Circle" : "Joscha als Trainer — Friday Circle";
+    }
+    if (PAGE === "wolfganggrope.html") {
+      document.title =
+        lang === "en"
+          ? "WOLFGANG GROPE ART WORKS — Friday Circle"
+          : "WOLFGANG GROPE KUNSTWERKE — Friday Circle";
     }
     if (PAGE === "programmierung.html") {
       document.querySelectorAll("#geschichte-kontext .expand-btn").forEach(function (btn) {
