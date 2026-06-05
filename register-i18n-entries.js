@@ -90,7 +90,7 @@ window.REGISTER_I18N = {
       en: "Answer a few questions — we will get in touch personally.",
     },
     h1: { de: "Hol Dir Expertise", en: "Get expertise" },
-    submit: { de: "Optionen", en: "Options" },
+    submit: { de: "Anfragen", en: "Submit" },
     messagePlaceholder: {
       de: "Freitext: Thema, Ziel, Wunschtrainer",
       en: "Notes: topic, goal, preferred trainer",
