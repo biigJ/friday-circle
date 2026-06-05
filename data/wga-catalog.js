@@ -49,20 +49,9 @@ window.__WGA_CATALOG__={
   ],
   "sections": [
     {
-      "id": "oel-1955-1970",
-      "title": "1955 - 1970 Ölmalerei",
+      "id": "aquarell-1960",
+      "title": "1960 - Aquarell",
       "works": [
-        {
-          "id": "wg-aquarell-1955-1970-01",
-          "title": "Aquarell",
-          "year": "—",
-          "medium": "Aquarell",
-          "dimensions": "—",
-          "body": "",
-          "images": [
-            "assets/wolfgang-grope/WG-Aquarell-1955-1970-01.jpg"
-          ]
-        },
         {
           "id": "wg-aquarell-1955-1970-02",
           "title": "Aquarell",
@@ -117,12 +106,18 @@ window.__WGA_CATALOG__={
           "images": [
             "assets/wolfgang-grope/WG-Aquarell-1955-1970-06.jpg"
           ]
-        },
+        }
+      ]
+    },
+    {
+      "id": "acryl-1970",
+      "title": "1970 - Acryl",
+      "works": [
         {
           "id": "wg-oel-1955-1970-07",
-          "title": "Ölmalerei",
+          "title": "Acryl",
           "year": "—",
-          "medium": "Öl auf Leinwand",
+          "medium": "Acryl",
           "dimensions": "—",
           "body": "",
           "images": [
@@ -131,9 +126,9 @@ window.__WGA_CATALOG__={
         },
         {
           "id": "wg-oel-1955-1970-08",
-          "title": "Ölmalerei",
+          "title": "Acryl",
           "year": "—",
-          "medium": "Öl auf Leinwand",
+          "medium": "Acryl",
           "dimensions": "—",
           "body": "",
           "images": [
@@ -142,9 +137,9 @@ window.__WGA_CATALOG__={
         },
         {
           "id": "wg-oel-1955-1970-09",
-          "title": "Ölmalerei",
+          "title": "Acryl",
           "year": "—",
-          "medium": "Öl auf Leinwand",
+          "medium": "Acryl",
           "dimensions": "—",
           "body": "",
           "images": [
@@ -153,9 +148,9 @@ window.__WGA_CATALOG__={
         },
         {
           "id": "wg-oel-1955-1970-10",
-          "title": "Ölmalerei",
+          "title": "Acryl",
           "year": "—",
-          "medium": "Öl auf Leinwand",
+          "medium": "Acryl",
           "dimensions": "—",
           "body": "",
           "images": [
@@ -164,9 +159,9 @@ window.__WGA_CATALOG__={
         },
         {
           "id": "wg-oel-1955-1970-11",
-          "title": "Ölmalerei",
+          "title": "Acryl",
           "year": "—",
-          "medium": "Öl auf Leinwand",
+          "medium": "Acryl",
           "dimensions": "—",
           "body": "",
           "images": [

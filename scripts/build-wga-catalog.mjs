@@ -12,7 +12,13 @@ const assetsDir = path.join(root, "assets/wolfgang-grope");
 const jsonPath = path.join(root, "data/wga-catalog.json");
 
 const SECTION_DEFS = [
-  { id: "oel-1955-1970", title: "1955 - 1970 Ölmalerei", re: /^WG-(Aquarell|Oel)-1955-1970-/i },
+  {
+    id: "aquarell-1960",
+    title: "1960 - Aquarell",
+    re: /^WG-Aquarell-1955-1970-/i,
+    skip: (f) => /^WG-Aquarell-1955-1970-01\./i.test(f),
+  },
+  { id: "acryl-1970", title: "1970 - Acryl", re: /^WG-Oel-1955-1970-/i },
   { id: "rad-1972-1974", title: "1972 - 1974 Radierungen", re: /^WG-Grafik-1972-1974-/i },
   { id: "oel-1974-drei", title: "1974 Drei Ölgemälde", re: /^WG-Gemaelde-1974-/i },
   {
@@ -54,8 +60,9 @@ const SECTION_DEFS = [
   { id: "keramiken", title: "Keramiken", re: /^WG-Keramik-/i },
 ];
 
-function mediumAndTitle(base) {
+function mediumAndTitle(base, sectionId) {
   if (/Aquarell/i.test(base)) return { medium: "Aquarell", title: "Aquarell" };
+  if (/Oel/i.test(base) && sectionId === "acryl-1970") return { medium: "Acryl", title: "Acryl" };
   if (/Oel/i.test(base)) return { medium: "Öl auf Leinwand", title: "Ölmalerei" };
   if (/Grafik/i.test(base)) return { medium: "Radierung", title: "Radierung" };
   if (/Gemaelde/i.test(base)) return { medium: "Gemälde", title: "Gemälde" };
@@ -65,11 +72,11 @@ function mediumAndTitle(base) {
   return { medium: "—", title: "Werk" };
 }
 
-function workFromFile(filename) {
+function workFromFile(filename, sectionId) {
   const base = filename.replace(/\.[^.]+$/i, "");
   const numMatch = base.match(/-(\d+)$/);
   const sortNum = numMatch ? parseInt(numMatch[1], 10) : 0;
-  const { medium, title } = mediumAndTitle(base);
+  const { medium, title } = mediumAndTitle(base, sectionId);
   const id = base
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
@@ -88,6 +95,7 @@ function workFromFile(filename) {
 
 function sectionForFile(filename) {
   for (const def of SECTION_DEFS) {
+    if (def.skip && def.skip(filename)) continue;
     if (def.re.test(filename)) return def.id;
   }
   return null;
@@ -106,7 +114,7 @@ for (const file of files) {
     console.warn("Unzugeordnet:", file);
     continue;
   }
-  buckets[sid].push(workFromFile(file));
+  buckets[sid].push(workFromFile(file, sid));
 }
 
 for (const id of Object.keys(buckets)) {
