@@ -1165,55 +1165,71 @@
         color: rgba(255, 255, 255, 0.88);
       }
       @media (max-width: 760px) {
-        /* Mobile: "Next program" CTA (Text + Pfeil) nicht als Overlay, sondern unter den Slides. */
-        #gogl-joscha-grow .gogl-slide-footer-chrome .gogl-hero-slide-next {
+        /* Mobile: Next-Label in der Slide-Box unten rechts, nicht als Overlay und nicht unter dem Widget. */
+        #gogl-joscha-grow .gogl-program-slide-card {
+          display: flex;
+          flex-direction: column;
+        }
+
+        #gogl-joscha-grow .gogl-program-slider__slide.is-active > .gogl-slide-footer-chrome,
+        #gogl-joscha-grow .gogl-slide-footer-chrome {
+          position: relative;
+          inset: auto;
+          flex: 0 0 auto;
+          margin-top: auto;
+          align-items: flex-end;
+          padding: clamp(8px, 1.4vh, 12px) clamp(16px, 3vw, 24px) var(--gogl-frame-inset-bottom);
+          z-index: 6;
+        }
+
+        #gogl-joscha-grow .gogl-slide-footer-chrome--reserve-banderole::after {
           display: none;
         }
 
-        #gogl-joscha-grow .gogl-program-slider__mobile-next {
-          display: flex;
-          flex: 0 0 auto;
-          width: 100%;
-          padding: 0 var(--gogl-frame-inset-x) var(--gogl-frame-inset-bottom);
-          box-sizing: border-box;
-          justify-content: center;
-          align-items: center;
-          pointer-events: none;
-        }
-
-        #gogl-joscha-grow .gogl-program-slider__mobile-next .gogl-hero-slide-next--mobile {
-          pointer-events: auto;
+        #gogl-joscha-grow .gogl-slide-footer-chrome .gogl-hero-slide-next {
           display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          gap: clamp(8px, 1.2vw, 12px);
-          width: 100%;
-          max-width: 52ch;
-          margin: 0;
-          padding: 0;
-          border: none;
-          background: transparent;
-          cursor: pointer;
-          color: #ffffff;
-          font-family: var(--font-sans);
-          font-size: clamp(0.9rem, 1.9vw, 1.05rem);
-          letter-spacing: 0.05em;
-          line-height: 1.5;
-          font-weight: 400;
-          text-align: center;
-          text-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
-          transform: none;
-          transition: transform 0.15s ease;
+          max-width: min(72%, 22rem);
+          text-align: right;
         }
 
-        #gogl-joscha-grow .gogl-program-slider__mobile-next .gogl-hero-slide-next__label {
-          text-wrap: balance;
-          white-space: normal;
+        #gogl-joscha-grow .gogl-program-slide-card__inner,
+        #gogl-joscha-grow .gogl-program-slide-card__inner--gosam,
+        #gogl-joscha-grow .gogl-program-slide-card__inner--trainer,
+        #gogl-joscha-grow .gogl-program-slide-card__inner--joscha,
+        #gogl-joscha-grow .gogl-program-slide-card__inner--cycle {
+          position: relative;
+          inset: auto;
+          flex: 1 1 auto;
+          height: auto;
+          min-height: 0;
         }
 
-        #gogl-joscha-grow .gogl-program-slider__mobile-next .gogl-hero-slide-next:hover,
-        #gogl-joscha-grow .gogl-program-slider__mobile-next .gogl-hero-slide-next:focus-visible {
-          transform: translateY(-1px);
+        #gogl-joscha-grow .gogl-program-slide-card--hero .gogl-hero-slide {
+          display: flex;
+          flex-direction: column;
+        }
+
+        #gogl-joscha-grow .gogl-program-slide-card--hero .gogl-video-overlay-footer {
+          position: relative;
+          inset: auto;
+          flex: 1 1 auto;
+          min-height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+        }
+
+        #gogl-joscha-grow .gogl-program-slide-card--hero .gogl-video-overlay-footer .gogl-slide-footer-chrome {
+          position: relative;
+          inset: auto;
+          margin-top: 0;
+        }
+
+        #gogl-joscha-grow .gogl-program-slider__slide.is-active[data-slide="3"] .gogl-joscha-panel {
+          flex: 1 1 auto;
+          min-height: 0;
+          height: auto;
+          overflow-y: auto;
         }
 
         /* Slide 2 (Micro-Bewegung): keine Zweiteilung, Video hinter allem. */
@@ -1234,7 +1250,6 @@
         .gogl-program-slide-card__inner--gosam {
           width: 100%;
           max-width: none;
-          height: 100%;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -1244,13 +1259,7 @@
         }
 
         .gogl-gosam-copy {
-          order: 0;
-          width: 100%;
-          max-width: 100%;
-          min-height: 0;
-          align-items: center;
-          justify-content: flex-start;
-          gap: clamp(10px, 2vh, 16px);
+          display: contents;
         }
 
         .gogl-gosam-intro {
@@ -1266,6 +1275,7 @@
         }
 
         .gogl-gosam-copy__title {
+          order: 0;
           font-size: clamp(1.45rem, 6vw, 1.75rem);
           line-height: 1.08;
           text-align: center;
@@ -1278,15 +1288,14 @@
         }
 
         .gogl-gosam-copy__actions {
-          position: absolute;
-          left: 50%;
-          bottom: 0;
-          transform: translateX(-50%);
+          order: 2;
+          position: static;
+          transform: none;
           width: 100%;
           justify-content: center;
           align-items: center;
           gap: 0;
-          margin-top: 0;
+          margin-top: clamp(14px, 2.4vh, 22px);
           padding: 0;
         }
       }
@@ -4527,17 +4536,6 @@
   </div>
   </div>
 
-            
-    <div class="gogl-program-slider__mobile-next" style="display:none;" aria-live="polite">
-      <button
-        type="button"
-        class="gogl-hero-slide-next gogl-hero-slide-next--mobile"
-        aria-label="Nächstes Programm"
-      >
-        <span class="gogl-hero-slide-next__label"></span>
-        <span class="gogl-hero-slide-next__arrow" aria-hidden="true">›</span>
-      </button>
-    </div>
     </div>
     </div>
   </div>
@@ -5062,7 +5060,7 @@
         background:#1a3a2a;
         cursor:default;
       ">
-        <img src="assets/gogogo/FC-gruppe.png" alt="Freitagsgruppe Berlin" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;opacity:1;" class="tile-photo">
+        <img src="assets/gogogo/fridaycycletraining.png" alt="Freitagsgruppe Berlin" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;opacity:1;" class="tile-photo">
         <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.7) 40%,rgba(0,0,0,0.1) 100%);"></div>
         <button onclick="expandTile('fp-1')" class="fp-btn" style="position:absolute;top:16px;right:16px;width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.2);backdrop-filter:blur(8px);border:none;cursor:pointer;color:#fff;font-size:1rem;display:flex;align-items:center;justify-content:center;z-index:10;">+</button>
         <div class="fp-collapsed" style="position:absolute;bottom:0;left:0;right:0;padding:24px;transition:opacity 0.3s;">
