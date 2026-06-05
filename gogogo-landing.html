@@ -2207,14 +2207,94 @@
       }
 
       @media (max-width: 760px) {
+        .gogl-showcase-pin {
+          width: 100%;
+          margin-left: 0;
+        }
         .gogl-joscha-grow-wrap {
           margin-top: clamp(20px, 3vw, 32px);
+          width: 100%;
+          padding-left: var(--page-x);
+          padding-right: var(--page-x);
+          box-sizing: border-box;
         }
         .gogl-joscha-grow {
           position: relative;
           top: auto;
-          width: 100vw !important;
-          border-radius: 0;
+          width: 100% !important;
+          max-width: 100%;
+          border-radius: clamp(10px, 1.2vw, 14px);
+          --gogl-grow-h: min(72svh, calc(100svh - var(--fc-nav-h, 72px) - 112px));
+          height: var(--gogl-grow-h);
+          min-height: min(420px, 72svh);
+          max-height: var(--gogl-grow-h);
+        }
+        .gogl-showcase-slider-ui {
+          padding-left: 0;
+          padding-right: 0;
+          max-width: 100%;
+        }
+        .gogl-program-slider-title {
+          overflow-wrap: break-word;
+          hyphens: auto;
+        }
+        .gogl-program-slide-card__inner {
+          right: 0;
+          max-width: 100%;
+          overflow-x: hidden;
+          overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+        .gogl-program-slide-card__inner--gosam {
+          width: 100%;
+          max-width: 100%;
+        }
+        .gogl-program-slider__slide[data-slide="1"] .gogl-gosam-copy {
+          transform: none;
+        }
+        .gogogo-page main .gogl-gosam-copy__cta {
+          white-space: normal;
+          text-align: center;
+        }
+        .gogl-program-slide-card--hero .gogl-hero-cards-block {
+          width: 100%;
+          max-width: 100%;
+          transform: none;
+          margin-bottom: clamp(12px, 2vh, 20px);
+        }
+        .gogl-program-slide-card--hero .gogl-hero-cards-block__headline {
+          width: 100%;
+          max-width: 100%;
+          padding: 0 clamp(8px, 2vw, 14px);
+          font-size: clamp(1rem, 4.5vw, 1.35rem);
+          transform: none;
+        }
+        .gogl-program-slide-card__title,
+        .gogl-program-slide-card__lede {
+          max-width: 100%;
+          overflow-wrap: break-word;
+        }
+        .gogl-cycle-head__tag,
+        .gogl-cycle-body__lines p {
+          white-space: normal;
+        }
+        .gogl-program-slider__slide[data-slide="3"] .gogl-joscha-tiles-wrap {
+          flex-direction: column;
+          align-items: stretch;
+          gap: clamp(14px, 3vw, 20px);
+        }
+        .gogl-program-slider__slide[data-slide="3"] .gogl-joscha-copy {
+          max-width: 100%;
+          width: 100%;
+        }
+        .gogl-joscha-grow__phone--gosam img {
+          right: 0;
+          max-width: min(44%, 11rem);
+          transform: translateY(-50%) scale(1.35);
+        }
+        .gogl-cycle-body__actions {
+          flex-wrap: wrap;
+          justify-content: flex-start;
         }
         .gogl-joscha-copy {
           position: relative;
@@ -3656,9 +3736,37 @@
 
       /* Mobile layout fixes: stack frames and single-column cards */
       @media (max-width: 760px) {
+        .gogogo-page {
+          overflow-x: clip;
+        }
+
+        .gogl-hero-intro__title .nowrap,
+        .gogl-hero-intro__lede .nowrap {
+          white-space: normal;
+        }
+        .gogl-hero-intro__title {
+          font-size: clamp(1.45rem, 7vw, 2rem);
+        }
+        .gogl-hero-intro__lede {
+          max-width: 100%;
+          font-size: clamp(0.95rem, 3.8vw, 1.1rem);
+        }
+
         #gogl-member-cards-section .oura-cards,
         .member-popup .oura-cards {
           grid-template-columns: 1fr !important;
+        }
+
+        #gogl-fp-grid {
+          grid-template-columns: 1fr !important;
+          grid-template-rows: auto !important;
+        }
+        #gogl-fp-grid .fp-tile {
+          grid-column: 1 / -1 !important;
+          min-height: 220px;
+        }
+        #gogl-testimonials-section {
+          padding: clamp(48px, 12vw, 80px) 0 !important;
         }
 
         /* 'einstieg' carousel: make cards stack vertically */
@@ -4812,7 +4920,7 @@
   </div>
 </section>
 
-      <section style="background:#f0eee6;padding:80px 0;">
+      <section id="gogl-testimonials-section" style="background:#f0eee6;padding:80px 0;">
   <div style="max-width:var(--page-max);margin:0 auto;padding:0 var(--page-x);">
 
     <h2 id="gogl-testi-h" class="gogl-section-title" style="
@@ -4821,7 +4929,7 @@
     ">Was mich und andere bewegt hat.</h2>
 
     <!-- 5-tile Whoop-style grid: 2 rows, mixed portrait/landscape -->
-    <div style="
+    <div id="gogl-fp-grid" style="
       display:grid;
       grid-template-columns:repeat(3,1fr);
       grid-template-rows:auto auto;
@@ -5061,6 +5169,20 @@ function openFramePopupForCard(id) {
     if (expandedPhoto) expandedPhoto.style.opacity = "1";
   }
 
+  if (clone.classList.contains("fp-tile")) {
+    var fpCollapsed = clone.querySelector(".fp-collapsed");
+    var fpExpanded = clone.querySelector(".fp-expanded");
+    if (fpCollapsed) {
+      fpCollapsed.style.opacity = "0";
+      fpCollapsed.style.pointerEvents = "none";
+    }
+    if (fpExpanded) {
+      fpExpanded.style.opacity = "1";
+      fpExpanded.style.pointerEvents = "auto";
+      fpExpanded.style.display = "block";
+    }
+  }
+
   // If the user clicks "Jetzt starten" inside this popup, close first.
   clone
     .querySelectorAll(
@@ -5207,6 +5329,10 @@ function carouselPrev() {
 
 // Fürsprecher tiles expand
 function expandTile(id) {
+  if (isGogogoMobile()) {
+    openFramePopupForCard(id);
+    return;
+  }
   const tile = document.getElementById(id);
   const isOpen = tile.classList.contains('fp-open');
   
