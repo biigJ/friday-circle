@@ -1164,72 +1164,63 @@
       .gogl-program-slider__slide[data-slide="5"] .gogl-program-slide-card__lede--joscha {
         color: rgba(255, 255, 255, 0.88);
       }
+      .gogl-program-slider__mobile-next {
+        display: none;
+      }
       @media (max-width: 760px) {
-        /* Mobile: Next-Label in der Slide-Box unten rechts, nicht als Overlay und nicht unter dem Widget. */
-        #gogl-joscha-grow .gogl-program-slide-card {
-          display: flex;
-          flex-direction: column;
-        }
-
-        #gogl-joscha-grow .gogl-program-slider__slide.is-active > .gogl-slide-footer-chrome,
-        #gogl-joscha-grow .gogl-slide-footer-chrome {
-          position: relative;
-          inset: auto;
-          flex: 0 0 auto;
-          margin-top: auto;
-          align-items: flex-end;
-          padding: clamp(8px, 1.4vh, 12px) clamp(16px, 3vw, 24px) var(--gogl-frame-inset-bottom);
-          z-index: 6;
-        }
-
-        #gogl-joscha-grow .gogl-slide-footer-chrome--reserve-banderole::after {
+        /* Mobile: Pfeil-Text unterhalb der Slide-Box (außerhalb Border), rechtsbündig. */
+        #gogl-joscha-grow .gogl-slide-footer-chrome .gogl-hero-slide-next {
           display: none;
         }
 
-        #gogl-joscha-grow .gogl-slide-footer-chrome .gogl-hero-slide-next {
-          display: inline-flex;
-          max-width: min(72%, 22rem);
-          text-align: right;
+        #gogl-joscha-grow .gogl-slide-footer-chrome--reserve-banderole {
+          display: none;
         }
 
-        #gogl-joscha-grow .gogl-program-slide-card__inner,
-        #gogl-joscha-grow .gogl-program-slide-card__inner--gosam,
-        #gogl-joscha-grow .gogl-program-slide-card__inner--trainer,
-        #gogl-joscha-grow .gogl-program-slide-card__inner--joscha,
-        #gogl-joscha-grow .gogl-program-slide-card__inner--cycle {
-          position: relative;
-          inset: auto;
-          flex: 1 1 auto;
-          height: auto;
-          min-height: 0;
-        }
-
-        #gogl-joscha-grow .gogl-program-slide-card--hero .gogl-hero-slide {
+        .gogl-joscha-grow-wrap .gogl-program-slider__mobile-next {
           display: flex;
-          flex-direction: column;
-        }
-
-        #gogl-joscha-grow .gogl-program-slide-card--hero .gogl-video-overlay-footer {
-          position: relative;
-          inset: auto;
-          flex: 1 1 auto;
-          min-height: 100%;
-          display: flex;
-          flex-direction: column;
           justify-content: flex-end;
+          align-items: flex-start;
+          width: 100%;
+          margin-top: clamp(10px, 1.6vh, 14px);
+          padding: 0;
+          box-sizing: border-box;
         }
 
-        #gogl-joscha-grow .gogl-program-slide-card--hero .gogl-video-overlay-footer .gogl-slide-footer-chrome {
-          position: relative;
-          inset: auto;
-          margin-top: 0;
+        .gogl-joscha-grow-wrap .gogl-program-slider__mobile-next .gogl-hero-slide-next--mobile {
+          display: inline-flex;
+          align-items: center;
+          justify-content: flex-end;
+          gap: clamp(8px, 1.2vw, 12px);
+          max-width: min(72%, 22rem);
+          margin: 0;
+          padding: 0;
+          border: none;
+          background: transparent;
+          cursor: pointer;
+          color: #0a0a0a;
+          font-family: var(--font-sans);
+          font-size: clamp(0.85rem, 1.6vw, 1.05rem);
+          letter-spacing: 0.05em;
+          line-height: 1.5;
+          font-weight: 400;
+          text-align: right;
+          transform: none;
+          transition: transform 0.15s ease;
         }
 
-        #gogl-joscha-grow .gogl-program-slider__slide.is-active[data-slide="3"] .gogl-joscha-panel {
-          flex: 1 1 auto;
-          min-height: 0;
-          height: auto;
-          overflow-y: auto;
+        .gogl-joscha-grow-wrap .gogl-program-slider__mobile-next .gogl-hero-slide-next__label {
+          text-wrap: balance;
+        }
+
+        .gogl-joscha-grow-wrap .gogl-program-slider__mobile-next .gogl-hero-slide-next:hover,
+        .gogl-joscha-grow-wrap .gogl-program-slider__mobile-next .gogl-hero-slide-next:focus-visible {
+          transform: translateY(-1px);
+        }
+
+        .gogl-joscha-grow-wrap .gogl-program-slider__mobile-next .gogl-hero-slide-next:hover .gogl-hero-slide-next__label,
+        .gogl-joscha-grow-wrap .gogl-program-slider__mobile-next .gogl-hero-slide-next:focus-visible .gogl-hero-slide-next__label {
+          font-weight: 700;
         }
 
         /* Slide 2 (Micro-Bewegung): keine Zweiteilung, Video hinter allem. */
@@ -4537,6 +4528,16 @@
   </div>
 
     </div>
+          <div class="gogl-program-slider__mobile-next" aria-live="polite">
+            <button
+              type="button"
+              class="gogl-hero-slide-next gogl-hero-slide-next--mobile"
+              aria-label="Nächstes Programm"
+            >
+              <span class="gogl-hero-slide-next__label"></span>
+              <span class="gogl-hero-slide-next__arrow" aria-hidden="true">›</span>
+            </button>
+          </div>
     </div>
   </div>
 </div>
