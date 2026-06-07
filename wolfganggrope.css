@@ -300,6 +300,72 @@ body.wga-page {
   color: #1a1a18;
 }
 
+@media (max-width: 760px) {
+  .wga-page .wga-nav .nav__inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "logo logo logo"
+      "chapters bio lang";
+    align-items: center;
+    column-gap: clamp(10px, 3vw, 18px);
+    row-gap: clamp(12px, 2.8vw, 18px);
+    padding-top: clamp(14px, 3.5vw, 20px);
+    padding-bottom: clamp(14px, 3.5vw, 20px);
+  }
+
+  .wga-page .wga-nav .wga-nav__leading {
+    display: contents;
+  }
+
+  .wga-page .wga-nav .wga-nav__menu {
+    display: contents;
+  }
+
+  .wga-page .wga-nav .nav__logo {
+    grid-area: logo;
+    justify-self: center;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    font-size: calc(clamp(0.58rem, 1.15vw, 0.82rem) * 1.3);
+    line-height: 1.25;
+  }
+
+  .wga-page .wga-nav .wga-nav__chapters {
+    grid-area: chapters;
+    justify-self: start;
+    align-self: center;
+    margin-left: 0 !important;
+  }
+
+  .wga-page .wga-nav .wga-nav__bio {
+    grid-area: bio;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .wga-page .wga-nav .nav__lang {
+    grid-area: lang;
+    justify-self: end;
+    align-self: center;
+  }
+
+  .wga-page .wga-nav .wga-nav__text-btn {
+    font-size: calc(clamp(0.58rem, 1.15vw, 0.82rem) * 1.3);
+  }
+
+  .wga-page .wga-nav .wga-nav__chapters-menu {
+    position: fixed;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: min(22rem, calc(100vw - 2 * var(--wga-rail)));
+    min-width: min(18rem, calc(100vw - 2 * var(--wga-rail)));
+    max-width: min(22rem, calc(100vw - 2 * var(--wga-rail)));
+  }
+}
+
 .wga-shell {
   max-width: var(--wga-content);
   margin: 0 auto;

@@ -339,10 +339,33 @@
     chaptersNav.classList.toggle("is-open", open);
     chaptersBtn.setAttribute("aria-expanded", open ? "true" : "false");
     chaptersMenu.hidden = !open;
+    syncChaptersMenuLayout();
+  }
+
+  function isWgaNavMobile() {
+    return window.matchMedia("(max-width: 760px)").matches;
+  }
+
+  function syncChaptersMenuLayout() {
+    if (!chaptersMenu) return;
+    if (!isWgaNavMobile()) {
+      chaptersMenu.style.removeProperty("top");
+      chaptersMenu.style.removeProperty("position");
+      return;
+    }
+    if (chaptersMenu.hidden) return;
+    var nav = document.querySelector(".wga-nav");
+    if (!nav) return;
+    chaptersMenu.style.position = "fixed";
+    chaptersMenu.style.top = nav.getBoundingClientRect().bottom + 10 + "px";
   }
 
   function syncChaptersNavOffset() {
     if (!chaptersBtn || !chaptersNav) return;
+    if (isWgaNavMobile()) {
+      chaptersNav.style.marginLeft = "0";
+      return;
+    }
     var lang =
       document.body.classList.contains("en") || document.documentElement.lang === "en" ? "en" : "de";
     var label = chaptersBtn.querySelector(lang === "en" ? ".en-t" : ".de-t");
@@ -668,7 +691,11 @@
   if (bioOpen) bioOpen.addEventListener("click", openBio);
   initChaptersNav();
   document.addEventListener("fc-lang-change", syncChaptersNavOffset);
-  window.addEventListener("resize", syncChaptersNavOffset);
+  window.addEventListener("resize", function () {
+    syncChaptersNavOffset();
+    syncChaptersMenuLayout();
+  });
+  window.addEventListener("scroll", syncChaptersMenuLayout, { passive: true });
   if (bioOverlay) {
     bioOverlay.querySelectorAll("[data-wga-bio-close]").forEach(function (el) {
       el.addEventListener("click", closeBio);
