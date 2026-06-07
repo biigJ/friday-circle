@@ -721,6 +721,29 @@ body.wga-page {
   transition: transform 0.45s ease;
 }
 
+.wga-berlin-dot {
+  position: absolute;
+  top: clamp(8px, 1.2vw, 12px);
+  right: clamp(8px, 1.2vw, 12px);
+  z-index: 2;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid #ffffff;
+  background: transparent;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.28);
+  pointer-events: none;
+}
+
+.wga-berlin-dot--unavailable {
+  background: #c62828;
+  border-color: #ffffff;
+}
+
+.wga-slider__slide {
+  position: relative;
+}
+
 .wga-tile--work:hover .wga-tile__media img,
 .wga-tile--work:focus-visible .wga-tile__media img {
   transform: scale(1.02);
@@ -910,6 +933,7 @@ body.wga-page {
 }
 
 .wga-popup .wga-slider__slide {
+  position: relative;
   flex: 0 0 100%;
   width: 100%;
   min-width: 0;

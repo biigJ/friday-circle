@@ -16,6 +16,7 @@ const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const assetsDir = path.join(root, "assets/wolfgang-grope");
 const jsonPath = path.join(root, "data/wga-catalog.json");
 const csvPath = path.join(root, "data/sources/wg-notion-import.csv");
+const berlinUnavailablePath = path.join(root, "data/sources/wg-berlin-unavailable.txt");
 
 function parseCsv(text) {
   const rows = [];
@@ -178,9 +179,20 @@ function attachChapterYears(sections) {
   return sections;
 }
 
+function loadBerlinUnavailable() {
+  if (!fs.existsSync(berlinUnavailablePath)) return new Set();
+  return new Set(
+    fs
+      .readFileSync(berlinUnavailablePath, "utf8")
+      .split(/\r?\n/)
+      .map((line) => nfc(clean(line)))
+      .filter(Boolean)
+  );
+}
+
 function mergeMeta(work, prev) {
   if (!prev) return work;
-  for (const key of ["dimensions", "body", "price", "availability"]) {
+  for (const key of ["dimensions", "body", "price", "availability", "berlinStatus"]) {
     if (prev[key] != null && prev[key] !== "" && prev[key] !== "—") {
       work[key] = prev[key];
     }
@@ -237,6 +249,7 @@ function buildHeroSlides(imageIndex, csvByFilename) {
 const imageIndex = indexImages();
 const csvRows = loadCsvRows();
 const csvByFilename = new Map(csvRows.map((row) => [nfc(row.filename), row]));
+const berlinUnavailable = loadBerlinUnavailable();
 const prevMeta = loadPreviousMeta();
 const existing = fs.existsSync(jsonPath) ? JSON.parse(fs.readFileSync(jsonPath, "utf8")) : { meta: {} };
 
@@ -271,6 +284,7 @@ for (const row of csvRows) {
       medium: row.medium || "—",
       dimensions: "—",
       body: "",
+      berlinStatus: berlinUnavailable.has(nfc(row.filename)) ? "unavailable" : "available",
       images: [`assets/wolfgang-grope/${rel}`],
     },
     prev

@@ -306,6 +306,22 @@
     return parts.join(" · ") || "Werk";
   }
 
+  function createBerlinDot(work) {
+    const dot = document.createElement("span");
+    const unavailable = work && work.berlinStatus === "unavailable";
+    dot.className = "wga-berlin-dot" + (unavailable ? " wga-berlin-dot--unavailable" : "");
+    dot.setAttribute("aria-hidden", "true");
+    const lang = getWgaLang();
+    dot.title = unavailable
+      ? lang === "en"
+        ? "Permanent loan, gifted, or in use"
+        : "Dauerleihgabe, verschenkt oder in Nutzung"
+      : lang === "en"
+        ? "Available in Berlin"
+        : "In Berlin vorhanden";
+    return dot;
+  }
+
   function createTile(work) {
     if (work.empty) return null;
 
@@ -322,6 +338,7 @@
     img.decoding = "async";
     img.loading = "lazy";
     media.appendChild(img);
+    media.appendChild(createBerlinDot(work));
 
     const hover = document.createElement("span");
     hover.className = "wga-tile__hover";
@@ -546,7 +563,7 @@
     syncPopupFrameWidth();
   }
 
-  function buildPopupSlider(images, title) {
+  function buildPopupSlider(images, title, work) {
     sliderTrack.innerHTML = "";
     sliderDots.innerHTML = "";
     slideCount = images.length;
@@ -560,6 +577,7 @@
       img.alt = title + " — Bild " + (i + 1);
       img.decoding = "async";
       fig.appendChild(img);
+      if (work) fig.appendChild(createBerlinDot(work));
       sliderTrack.appendChild(fig);
 
       if (slideCount > 1) {
@@ -638,7 +656,8 @@
     }
     buildPopupSlider(
       (work.images || [catalog.meta.placeholder]).map(resolveAsset),
-      work.title || "Werk"
+      work.title || "Werk",
+      work
     );
     if (meta.length) popup.setAttribute("aria-describedby", "wga-popup-meta");
     else popup.removeAttribute("aria-describedby");
