@@ -154,6 +154,20 @@ body.wga-page {
   outline: none;
 }
 
+@media (min-width: 761px) {
+  .wga-page .wga-nav .wga-nav__chapters-menu {
+    width: max-content;
+    min-width: 20rem;
+    max-width: min(44rem, calc(100vw - 2 * var(--wga-rail)));
+    max-height: none;
+    overflow: visible;
+  }
+
+  .wga-page .wga-nav .wga-nav__chapters-link {
+    white-space: nowrap;
+  }
+}
+
 .wga-page .wga-nav.wga-nav--on-light {
   background: #ffffff !important;
   backdrop-filter: none !important;
