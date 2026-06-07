@@ -512,10 +512,10 @@ body.wga-page {
 .wga-hero__arrow {
   width: 36px;
   height: 36px;
-  border: 1px solid rgba(255, 255, 255, 0.72);
+  border: none;
   border-radius: 50%;
-  background: rgba(10, 10, 10, 0.42);
-  color: #ffffff;
+  background: #ffffff;
+  color: #0a0a0a;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -524,7 +524,8 @@ body.wga-page {
   font-size: 1.35rem;
   line-height: 1;
   padding: 0 0 2px;
-  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.18);
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
 }
 
 .wga-hero__arrow span {
@@ -534,9 +535,9 @@ body.wga-page {
 
 .wga-hero__arrow:hover,
 .wga-hero__arrow:focus-visible {
-  background: rgba(10, 10, 10, 0.68);
-  border-color: #ffffff;
+  background: #f2f2f2;
   transform: translateY(-1px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.22);
   outline: none;
 }
 
