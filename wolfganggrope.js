@@ -385,28 +385,40 @@
   function renderChaptersNav() {
     if (!chaptersNav || !chaptersMenu || !catalog) return;
     chaptersMenu.innerHTML = "";
-    const sections = (catalog.sections || []).filter(function (section) {
-      return (section.works || []).some(function (work) {
+    const chapters = [];
+    const seen = new Set();
+
+    (catalog.sections || []).forEach(function (section) {
+      const hasWorks = (section.works || []).some(function (work) {
         return work && !work.empty;
       });
+      if (!hasWorks) return;
+
+      const chapter = section.chapter || section.title;
+      if (!chapter || seen.has(chapter)) return;
+      if (!/^\d{2}\s/.test(chapter)) return;
+
+      seen.add(chapter);
+      chapters.push({ label: chapter, sectionId: section.id });
     });
-    if (!sections.length) {
+
+    if (!chapters.length) {
       chaptersNav.hidden = true;
       return;
     }
-    sections.forEach(function (section) {
+    chapters.forEach(function (chapter) {
       const item = document.createElement("li");
       item.className = "wga-nav__chapters-item";
       item.setAttribute("role", "option");
       const link = document.createElement("a");
       link.className = "wga-nav__chapters-link";
-      link.href = "#" + section.id;
-      link.textContent = section.title;
+      link.href = "#" + chapter.sectionId;
+      link.textContent = chapter.label;
       link.addEventListener("click", function (e) {
         e.preventDefault();
         setChaptersOpen(false);
-        scrollToSection(section.id);
-        history.replaceState(null, "", "#" + section.id);
+        scrollToSection(chapter.sectionId);
+        history.replaceState(null, "", "#" + chapter.sectionId);
       });
       item.appendChild(link);
       chaptersMenu.appendChild(item);
