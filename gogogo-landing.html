@@ -4086,7 +4086,7 @@
       .member-popup__panel {
         position: relative;
         z-index: 1;
-        width: min(1360px, 100%);
+        width: min(720px, calc(100vw - 24px));
         max-height: min(92vh, 980px);
         overflow: auto;
         background: #f0eee6;
@@ -4119,6 +4119,50 @@
         transform: scale(1.06);
         transform-origin: center center;
       }
+      .member-popup .gogl-section-title {
+        text-align: center;
+        margin: 0 0 clamp(20px, 4vw, 28px) !important;
+      }
+      .member-popup .oura-cards {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: clamp(12px, 2.5vw, 20px) !important;
+        max-width: 640px;
+        margin-inline: auto;
+      }
+      .member-popup .oura-card {
+        min-height: 0 !important;
+        aspect-ratio: 1 / 1;
+        width: 100%;
+      }
+      .member-popup .oura-card > div[style*="bottom:0"] {
+        max-height: 78%;
+        overflow-y: auto;
+        padding: clamp(14px, 3vw, 22px) !important;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+      }
+      .member-popup .oura-card > div[style*="inset:0"][style*="linear-gradient"] {
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.82) 52%, rgba(0, 0, 0, 0.18) 100%) !important;
+      }
+      .member-popup .oura-card h3 {
+        font-size: clamp(0.88rem, 2.4vw, 1.05rem) !important;
+        margin-bottom: 6px !important;
+        line-height: 1.25 !important;
+      }
+      .member-popup .oura-card .card-expanded {
+        max-height: none !important;
+        overflow: visible !important;
+      }
+      .member-popup .oura-card .card-expanded p {
+        font-size: 0.75rem !important;
+        line-height: 1.45 !important;
+        margin-bottom: 8px !important;
+      }
+      .member-popup .oura-card .card-expanded a {
+        font-size: 0.75rem !important;
+        padding: 8px 14px !important;
+      }
 
       /* Mobile layout fixes: stack frames and single-column cards */
       @media (max-width: 760px) {
@@ -4141,6 +4185,9 @@
         #gogl-member-cards-section .oura-cards,
         .member-popup .oura-cards {
           grid-template-columns: 1fr !important;
+        }
+        .member-popup .oura-cards {
+          max-width: min(360px, 100%);
         }
 
         #gogl-fp-grid {
@@ -5915,6 +5962,8 @@ function toggleCard(id) {
     const popupCards = popupBody.querySelectorAll('.oura-card');
     popupCards.forEach((card, idx) => {
       card.removeAttribute('id');
+      card.classList.add('oura-card--popup-square');
+      card.style.minHeight = '0';
       const btn = card.querySelector('button');
       const expanded = card.querySelector('.card-expanded');
       if (btn) {
