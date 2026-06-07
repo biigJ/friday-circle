@@ -650,8 +650,9 @@ body.wga-page {
 .wga-section__title {
   display: flex;
   align-items: baseline;
+  flex-direction: row;
   flex-wrap: wrap;
-  gap: 0.55em;
+  gap: 0.65em;
   margin: clamp(28px, 4vw, 44px) 0 clamp(20px, 3vw, 32px);
   font-family: var(--font-sans);
   font-size: clamp(1.1rem, 2.2vw, 1.65rem);
@@ -661,10 +662,17 @@ body.wga-page {
   color: var(--text);
 }
 
-.wga-section__year,
+.wga-section__year {
+  display: inline;
+  margin: 0;
+  flex: 0 0 auto;
+  font: inherit;
+}
+
 .wga-section__name {
   display: inline;
   margin: 0;
+  flex: 0 1 auto;
   font: inherit;
 }
 
@@ -856,6 +864,50 @@ body.wga-page {
   outline: none;
 }
 
+.wga-popup__nav {
+  position: absolute;
+  z-index: 11;
+  top: clamp(8px, 1.5vw, 14px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.wga-popup__arrow {
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #0a0a0a;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 1.35rem;
+  line-height: 1;
+  padding: 0 0 2px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.18);
+  pointer-events: auto;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.wga-popup__arrow span {
+  display: block;
+  transform: translateY(-1px);
+}
+
+.wga-popup__arrow:hover,
+.wga-popup__arrow:focus-visible {
+  background: #f2f2f2;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.22);
+  outline: none;
+}
+
 .wga-popup__unavailable {
   position: absolute;
   z-index: 9;
@@ -898,59 +950,6 @@ body.wga-page {
 
 .wga-popup__caption {
   display: none !important;
-}
-
-.wga-popup__title {
-  margin: 0;
-  font-family: var(--font-sans);
-  font-size: clamp(0.9rem, 1.8vw, 1.15rem);
-  font-weight: 400;
-  line-height: 1.3;
-  letter-spacing: 0.02em;
-  color: #fff;
-  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
-}
-
-.wga-popup__meta,
-.wga-popup__body,
-.wga-popup__price {
-  display: none !important;
-}
-
-.wga-popup__meta:not([hidden]),
-.wga-popup__body:not([hidden]),
-.wga-popup__price:not([hidden]) {
-  display: block !important;
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-  padding: 8px clamp(12px, 2vw, 16px) 0;
-  box-sizing: border-box;
-  font-family: var(--font-sans);
-  font-size: clamp(0.72rem, 1.2vw, 0.85rem);
-  line-height: 1.45;
-  color: #f0eee6;
-  text-align: center;
-}
-
-.wga-popup__price:not([hidden]) {
-  font-weight: 500;
-  padding-top: 4px;
-}
-
-.wga-popup__price--status:not([hidden]) {
-  opacity: 0.84;
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  font-size: clamp(0.66rem, 1.05vw, 0.76rem);
-}
-
-.wga-popup__body:not([hidden]) {
-  opacity: 0.9;
-  max-width: 42rem;
-  margin-inline: auto;
-  padding-bottom: 4px;
 }
 
 .wga-popup .wga-slider {

@@ -2,6 +2,7 @@
   const CATALOG_URL = "data/wga-catalog.json";
   let catalog = null;
   const worksById = {};
+  const workOrder = [];
 
   function resolveAsset(path) {
     if (!path || /^https?:\/\//i.test(path)) return path;
@@ -32,11 +33,11 @@
 
   const popup = document.getElementById("wga-popup");
   const popupTitle = document.getElementById("wga-popup-title");
-  const popupMeta = document.getElementById("wga-popup-meta");
-  const popupBody = document.getElementById("wga-popup-body");
-  const popupPrice = document.getElementById("wga-popup-price");
   const popupUnavailable = document.getElementById("wga-popup-unavailable");
   const popupIndex = document.getElementById("wga-popup-index");
+  const popupNav = document.getElementById("wga-popup-nav");
+  const popupPrev = document.getElementById("wga-popup-prev");
+  const popupNext = document.getElementById("wga-popup-next");
   const sliderTrack = document.getElementById("wga-popup-track");
   const sliderDots = document.getElementById("wga-popup-dots");
 
@@ -166,11 +167,44 @@
 
   function indexWorks() {
     Object.keys(worksById).forEach((k) => delete worksById[k]);
+    workOrder.length = 0;
     (catalog?.sections || []).forEach((section) => {
+      if (!/^\d{2}\s/.test(section.chapter || "")) return;
       (section.works || []).forEach((work) => {
-        if (work.id && !work.empty) worksById[work.id] = work;
+        if (work.id && !work.empty) {
+          worksById[work.id] = work;
+          workOrder.push(work.id);
+        }
       });
     });
+  }
+
+  function updatePopupNav() {
+    if (popupNav) popupNav.hidden = workOrder.length <= 1;
+  }
+
+  function stepPopupWork(delta) {
+    if (!openWorkId || workOrder.length <= 1) return;
+    const idx = workOrder.indexOf(openWorkId);
+    if (idx < 0) return;
+    const nextId = workOrder[(idx + delta + workOrder.length) % workOrder.length];
+    openPopup(nextId);
+  }
+
+  function initPopupNav() {
+    if (popupPrev && !popupPrev.dataset.wgaBound) {
+      popupPrev.dataset.wgaBound = "1";
+      popupPrev.addEventListener("click", function () {
+        stepPopupWork(-1);
+      });
+    }
+    if (popupNext && !popupNext.dataset.wgaBound) {
+      popupNext.dataset.wgaBound = "1";
+      popupNext.addEventListener("click", function () {
+        stepPopupWork(1);
+      });
+    }
+    updatePopupNav();
   }
 
   function heroSlideCount() {
@@ -291,58 +325,54 @@
       .trim();
   }
 
-  function deriveSectionYear(section) {
-    const label = (section.sectionLabel || "").trim();
-    if (/^\d{4}(?:[–-]\d{4})?$/.test(label)) return label.replace(/-/g, "–");
-    const fromTitle = section.title.match(/(\d{4})(?:-(\d{4}))?/);
-    if (fromTitle) {
-      return fromTitle[2] ? `${fromTitle[1]}–${fromTitle[2]}` : fromTitle[1];
-    }
-    const years = (section.works || [])
-      .map(function (work) {
-        return work.year;
-      })
-      .filter(function (year) {
-        return year && year !== "—";
-      });
-    const nums = years
-      .flatMap(function (year) {
-        return (String(year).match(/\d{4}/g) || []).map(function (y) {
-          return parseInt(y, 10);
-        });
-      })
-      .sort(function (a, b) {
-        return a - b;
-      });
-    if (!nums.length) return "";
-    return nums[0] === nums[nums.length - 1] ? String(nums[0]) : `${nums[0]}–${nums[nums.length - 1]}`;
+  function normalizeYearLabel(value) {
+    return String(value || "")
+      .trim()
+      .replace(/-/g, "–");
   }
 
-  function sectionDisplayName(section) {
+  function deriveSectionYear(section) {
+    const folder = String(section.title || section.folder || "").trim();
+    if (!folder) return "";
+
+    const range = folder.match(/\b((?:19|20)\d{2})-((?:19|20)\d{2})\b/);
+    if (range) return `${range[1]}–${range[2]}`;
+
+    const trailingAfterDash = folder.match(/-\s*((?:19|20)\d{2})\s*$/);
+    if (trailingAfterDash) return trailingAfterDash[1];
+
+    const beforeParen = folder.match(/\b((?:19|20)\d{2})\s*\(/);
+    if (beforeParen) return beforeParen[1];
+
+    const trailingYear = folder.match(/\b((?:19|20)\d{2})\s*$/);
+    if (trailingYear) return trailingYear[1];
+
+    return "";
+  }
+
+  function sectionDisplayName(section, sectionYear) {
     const label = (section.sectionLabel || "").trim();
-    if (!label || /^\d{4}(?:[–-]\d{4})?$/.test(label)) return "";
+    if (!label) return "";
+    if (sectionYear && normalizeYearLabel(label) === normalizeYearLabel(sectionYear)) return "";
+    if (/^\d{4}(?:[–-]\d{4})?$/.test(label)) return "";
     return label;
   }
 
-  function shouldShowSectionHeader(section, sections) {
-    const label = (section.sectionLabel || "").trim();
-    if (!label) return false;
-    if (/^\d{4}(?:[–-]\d{4})?$/.test(label)) {
-      const chapterSections = sections.filter(function (s) {
-        return s.chapter === section.chapter;
-      });
-      return chapterSections.length > 1;
-    }
-    return true;
+  function shouldShowSectionHeader(section) {
+    const sectionYear = deriveSectionYear(section);
+    const sectionName = sectionDisplayName(section, sectionYear);
+    return !!(sectionYear || sectionName);
   }
 
   function popupIndexLine(work) {
     const id = work.catalogId || work.id || "";
-    const match = String(id).match(/^wg-(\d+)-(\d+)$/i) || String(id).match(/^WG-(\d+)-(\d+)$/i);
-    const year = work.year && work.year !== "—" ? String(work.year) : "";
-    if (!match) return year;
-    const line = `Nr. ${match[1]}, Nr. ${match[2]}`;
-    return year ? `${line} . ${year}` : line;
+    const match = String(id).match(/^(?:wg|WG)-(\d+)-(\d+)$/i);
+    if (!match) return "";
+    const chapter = match[1].padStart(2, "0");
+    const workNo = match[2].padStart(3, "0");
+    const yearMatch = work.year && work.year !== "—" ? String(work.year).match(/(\d{4})/) : null;
+    if (yearMatch) return `${chapter}-${workNo}-${yearMatch[1]}`;
+    return `${chapter}-${workNo}`;
   }
 
   function catalogNo(work) {
@@ -451,11 +481,11 @@
         lastChapter = section.chapter;
       }
 
-      if (shouldShowSectionHeader(section, sections)) {
+      if (shouldShowSectionHeader(section)) {
         const sectionTitle = document.createElement("h3");
         sectionTitle.className = "wga-section__title";
         const sectionYear = deriveSectionYear(section);
-        const sectionName = sectionDisplayName(section);
+        const sectionName = sectionDisplayName(section, sectionYear);
         if (sectionYear) {
           const yearEl = document.createElement("span");
           yearEl.className = "wga-section__year";
@@ -657,62 +687,11 @@
     initPopupSwipe();
   }
 
-  function workOfferLabel(work) {
-    if (!work) return null;
-    var availability = work.availability;
-    if (availability === "sold") return { text: "Verkauft", variant: "status" };
-    if (availability === "on_loan") return { text: "Verliehen", variant: "status" };
-    if (availability === "not_for_sale") return { text: "Unverkäuflich", variant: "status" };
-    if (availability === "available") {
-      if (work.price) return { text: work.price, variant: "price" };
-      return { text: "Verkäuflich", variant: "status" };
-    }
-    if (work.price) return { text: work.price, variant: "price" };
-    return null;
-  }
-
-  function workOfferLabelEn(work) {
-    if (!work) return null;
-    var availability = work.availability;
-    if (availability === "sold") return { text: "Sold", variant: "status" };
-    if (availability === "on_loan") return { text: "On loan", variant: "status" };
-    if (availability === "not_for_sale") return { text: "Not for sale", variant: "status" };
-    if (availability === "available") {
-      if (work.price) return { text: work.price, variant: "price" };
-      return { text: "For sale", variant: "status" };
-    }
-    if (work.price) return { text: work.price, variant: "price" };
-    return null;
-  }
-
-  function formatWorkOffer(work) {
-    var lang =
-      document.body.classList.contains("en") || document.documentElement.lang === "en" ? "en" : "de";
-    return lang === "en" ? workOfferLabelEn(work) : workOfferLabel(work);
-  }
-
   function openPopup(id) {
     const work = worksById[id];
     if (!work || !popup) return;
     openWorkId = id;
     popupTitle.textContent = work.title || "Werk";
-    const meta = [work.year, work.medium, work.dimensions].filter(function (v) {
-      return v && v !== "—";
-    });
-    popupMeta.textContent = meta.join(" · ");
-    popupMeta.hidden = meta.length === 0;
-    popupBody.textContent = work.body || "";
-    popupBody.hidden = !work.body;
-    const offer = formatWorkOffer(work);
-    if (offer) {
-      popupPrice.textContent = offer.text;
-      popupPrice.hidden = false;
-      popupPrice.classList.toggle("wga-popup__price--status", offer.variant === "status");
-    } else {
-      popupPrice.textContent = "";
-      popupPrice.hidden = true;
-      popupPrice.classList.remove("wga-popup__price--status");
-    }
     if (popupUnavailable) {
       const unavailable = work.berlinStatus === "unavailable";
       popupUnavailable.hidden = !unavailable;
@@ -730,8 +709,9 @@
       (work.images || [catalog.meta.placeholder]).map(resolveAsset),
       work.title || "Werk"
     );
-    if (meta.length) popup.setAttribute("aria-describedby", "wga-popup-meta");
+    if (popupIndex && popupIndex.textContent) popup.setAttribute("aria-describedby", "wga-popup-index");
     else popup.removeAttribute("aria-describedby");
+    updatePopupNav();
     popup.hidden = false;
     popup.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
@@ -875,7 +855,7 @@
         setSlide(newIndex);
       },
       ignore: function (target) {
-        return !!target.closest(".wga-slider__dot, button, a");
+        return !!target.closest(".wga-slider__dot, .wga-popup__arrow, button, a");
       },
       loop: true,
     });
@@ -950,10 +930,17 @@
   if (bioOpen) bioOpen.addEventListener("click", openBio);
   initChaptersNav();
   initHeroNav();
+  initPopupNav();
   initWgaScrollTop();
   document.addEventListener("fc-lang-change", syncChaptersNavOffset);
   document.addEventListener("fc-lang-change", function () {
     if (openWorkId) openPopup(openWorkId);
+    if (popupPrev) {
+      popupPrev.setAttribute("aria-label", getWgaLang() === "en" ? "Previous work" : "Vorheriges Werk");
+    }
+    if (popupNext) {
+      popupNext.setAttribute("aria-label", getWgaLang() === "en" ? "Next work" : "Nächstes Werk");
+    }
   });
   window.addEventListener("resize", function () {
     syncChaptersNavOffset();
@@ -974,8 +961,8 @@
     }
     if (bioOverlay && !bioOverlay.hidden) return;
     if (popup && popup.hidden) return;
-    if (e.key === "ArrowLeft") setSlide(slideIndex - 1);
-    if (e.key === "ArrowRight") setSlide(slideIndex + 1);
+    if (e.key === "ArrowLeft") stepPopupWork(-1);
+    if (e.key === "ArrowRight") stepPopupWork(1);
   });
 
   if (document.readyState === "loading") {
