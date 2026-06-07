@@ -643,6 +643,31 @@
     else img.addEventListener("load", apply, { once: true });
   }
 
+  function adjacentWorkId(delta) {
+    if (!openWorkId || !workOrder.length) return null;
+    const idx = workOrder.indexOf(openWorkId);
+    if (idx < 0) return null;
+    return workOrder[(idx + delta + workOrder.length) % workOrder.length];
+  }
+
+  function workPrimaryImage(work) {
+    if (!work) return resolveAsset(catalog?.meta?.placeholder || "assets/wolfgang-grope/placeholder.svg");
+    const images = work.images || [];
+    return images.length ? resolveAsset(images[0]) : resolveAsset(catalog?.meta?.placeholder || "");
+  }
+
+  function appendPopupSlide(src, alt) {
+    const fig = document.createElement("figure");
+    fig.className = "wga-slider__slide";
+    const img = document.createElement("img");
+    img.src = src;
+    img.alt = alt;
+    img.decoding = "async";
+    fig.appendChild(img);
+    sliderTrack.appendChild(fig);
+    return img;
+  }
+
   function setSlide(index) {
     if (!slideCount) return;
     slideIndex = (index + slideCount) % slideCount;
@@ -656,18 +681,31 @@
   function buildPopupSlider(images, title) {
     sliderTrack.innerHTML = "";
     sliderDots.innerHTML = "";
+
+    const mobileCarousel = isWgaNavMobile() && workOrder.length > 1 && openWorkId;
+
+    if (mobileCarousel) {
+      const prevWork = worksById[adjacentWorkId(-1)];
+      const nextWork = worksById[adjacentWorkId(1)];
+      const currentWork = worksById[openWorkId];
+      appendPopupSlide(workPrimaryImage(prevWork), (prevWork?.title || "Werk") + " — vorheriges");
+      appendPopupSlide(workPrimaryImage(currentWork), title + " — Bild 1");
+      appendPopupSlide(workPrimaryImage(nextWork), (nextWork?.title || "Werk") + " — nächstes");
+      slideCount = 3;
+      slideIndex = 1;
+      sliderTrack.style.transition = "transform 0.35s ease";
+      sliderTrack.style.transform = "translateX(-100%)";
+      sliderDots.hidden = true;
+      syncPopupFrameWidth();
+      initPopupSwipe();
+      return;
+    }
+
     slideCount = images.length;
     slideIndex = 0;
 
     images.forEach(function (src, i) {
-      const fig = document.createElement("figure");
-      fig.className = "wga-slider__slide";
-      const img = document.createElement("img");
-      img.src = src;
-      img.alt = title + " — Bild " + (i + 1);
-      img.decoding = "async";
-      fig.appendChild(img);
-      sliderTrack.appendChild(fig);
+      appendPopupSlide(src, title + " — Bild " + (i + 1));
 
       if (slideCount > 1) {
         const dot = document.createElement("button");
@@ -681,6 +719,7 @@
       }
     });
 
+    sliderTrack.style.transition = "transform 0.35s ease";
     sliderTrack.style.transform = "translateX(0)";
     sliderDots.hidden = slideCount <= 1;
     syncPopupFrameWidth();
@@ -712,7 +751,6 @@
     if (popupIndex && popupIndex.textContent) popup.setAttribute("aria-describedby", "wga-popup-index");
     else popup.removeAttribute("aria-describedby");
     updatePopupNav();
-    initPopupSwipe();
     popup.hidden = false;
     popup.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
@@ -841,81 +879,37 @@
   function initPopupSwipe() {
     if (popupSwipeApi && popupSwipeApi.destroy) popupSwipeApi.destroy();
     popupSwipeApi = null;
-    if (!isWgaNavMobile() || workOrder.length <= 1) return;
+    if (!isWgaNavMobile() || workOrder.length <= 1 || !window.FcSwipeSlider) return;
 
     const zone = document.querySelector(".wga-popup__frame");
-    if (!zone) return;
+    if (!zone || !sliderTrack || slideCount !== 3) return;
 
-    let startX = 0;
-    let startY = 0;
-    let pointerId = null;
-    let dragging = false;
-    const threshold = 52;
-
-    function ignore(target) {
-      return !!target.closest(
-        ".wga-slider__dot, .wga-popup__arrow, .wga-popup__close, button, a"
-      );
-    }
-
-    function onDown(e) {
-      if (!e.isPrimary || dragging) return;
-      if (ignore(e.target)) return;
-      dragging = true;
-      pointerId = e.pointerId;
-      startX = e.clientX;
-      startY = e.clientY;
-      zone.classList.add("is-swipe-dragging");
-      if (zone.setPointerCapture) {
-        try {
-          zone.setPointerCapture(e.pointerId);
-        } catch (err) {}
-      }
-    }
-
-    function onMove(e) {
-      if (!dragging || e.pointerId !== pointerId) return;
-      const dx = e.clientX - startX;
-      const dy = e.clientY - startY;
-      if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 8 && e.cancelable) {
-        e.preventDefault();
-      }
-    }
-
-    function onUp(e) {
-      if (!dragging || e.pointerId !== pointerId) return;
-      dragging = false;
-      pointerId = null;
-      zone.classList.remove("is-swipe-dragging");
-      if (zone.releasePointerCapture) {
-        try {
-          zone.releasePointerCapture(e.pointerId);
-        } catch (err) {}
-      }
-
-      const dx = e.clientX - startX;
-      const dy = e.clientY - startY;
-      if (Math.abs(dx) < threshold || Math.abs(dx) <= Math.abs(dy)) return;
-      stepPopupWork(dx < 0 ? 1 : -1);
-    }
-
-    zone.style.touchAction = "pan-y";
-    if (!zone.classList.contains("fc-swipe-zone")) zone.classList.add("fc-swipe-zone");
-    zone.addEventListener("pointerdown", onDown);
-    zone.addEventListener("pointermove", onMove, { passive: false });
-    zone.addEventListener("pointerup", onUp);
-    zone.addEventListener("pointercancel", onUp);
-
-    popupSwipeApi = {
-      destroy: function () {
-        zone.removeEventListener("pointerdown", onDown);
-        zone.removeEventListener("pointermove", onMove);
-        zone.removeEventListener("pointerup", onUp);
-        zone.removeEventListener("pointercancel", onUp);
-        zone.classList.remove("is-swipe-dragging", "fc-swipe-zone");
-        zone.style.removeProperty("touch-action");
+    popupSwipeApi = window.FcSwipeSlider.bind({
+      zone: zone,
+      track: sliderTrack,
+      mode: "percent",
+      getIndex: function () {
+        return slideIndex;
       },
-    };
+      getCount: function () {
+        return 3;
+      },
+      onIndexChange: function (newIndex) {
+        if (newIndex === 1) {
+          slideIndex = 1;
+          return;
+        }
+        if (newIndex === 0) stepPopupWork(-1);
+        else if (newIndex === 2) stepPopupWork(1);
+      },
+      ignore: function (target) {
+        return !!target.closest(".wga-slider__dot, .wga-popup__arrow, .wga-popup__close, button, a");
+      },
+      loop: false,
+      minIndex: 0,
+      maxIndex: 2,
+      transition: "transform 0.35s ease",
+    });
   }
 
   function initNavOnLight() {
