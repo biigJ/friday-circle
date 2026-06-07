@@ -9,7 +9,7 @@ window.GOGL_I18N_ENTRIES = [
   { s: ".gogl-hero-intro__lede-line--pink", de: "Fck Purpose, fck Big Brand Scam, fck 5am Club.", en: "Fck purpose, fck big-brand scam, fck 5am club." },
   { s: ".gogl-hero-intro__lede-line--turquoise", de: "Beweg Dich einfach jeden Tag. Das Programm unterstützt Dich, es in wenigen Wochen von selbst zu machen.", en: "Just move every day. The program supports you until it becomes automatic in a few weeks." },
   { s: "#gogl-program-slider-title", de: "genügend Bewegung für Dich", en: "enough movement for you" },
-  { s: '.gogl-program-slider__slide[data-slide="0"] .gogl-hero-cards-block__headline', de: "genügend Bewegung für Dich", en: "enough movement for you" },
+  { s: '.gogl-program-slider__slide[data-slide="0"] .gogl-hero-cards-block__headline', de: "Kurse, Mitgliedschaften und Trainer gibt es genug. Was fehlt ist jemand, der mit Dir geht. Wähl Deine Leute oder einen Trainer und macht es zusammen.", en: "Courses, memberships, and trainers are plentiful. What is missing is someone who goes with you. Choose your people or a trainer and do it together." },
   { s: '.gogl-program-slider__slide[data-slide="0"] .gogl-hero-card--left .gogl-hero-card__label', de: "VOR ORT IN BERLIN", en: "IN PERSON IN BERLIN" },
   { s: '.gogl-program-slider__slide[data-slide="0"] .gogl-hero-card--left .gogl-hero-card__title', de: "Einen Experten finden", en: "Find an expert" },
   { s: '.gogl-program-slider__slide[data-slide="0"] .gogl-hero-card--left .gogl-hero-card__text', de: "Grundlagengespräch · Bewegungsanalyse · Formtraining · Plangestaltung", en: "Intro call · movement analysis · form coaching · plan design" },
