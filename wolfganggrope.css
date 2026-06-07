@@ -750,13 +750,26 @@ body.wga-page {
   background: transparent;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.28);
   pointer-events: auto;
-  cursor: default;
+  padding: 0;
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+button.wga-berlin-dot:hover,
+button.wga-berlin-dot:focus-visible {
+  border-color: #ffffff;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.45), 0 1px 6px rgba(0, 0, 0, 0.35);
+  outline: none;
 }
 
 .wga-berlin-dot--unavailable {
   background: #c62828;
   border: none;
   box-shadow: none;
+  cursor: default;
+  pointer-events: none;
 }
 
 .wga-slider__slide {
@@ -1033,6 +1046,93 @@ body.wga-page {
   background: #fff;
   border-color: #fff;
   outline: none;
+}
+
+/* —— Inquiry popup —— */
+.wga-inquiry[hidden] {
+  display: none !important;
+}
+
+.wga-inquiry {
+  position: fixed;
+  inset: 0;
+  z-index: 12000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(8px, 2vw, 20px);
+}
+
+.wga-inquiry__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.72);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.wga-inquiry__panel {
+  position: relative;
+  z-index: 1;
+  width: auto;
+  max-width: min(96vw, 720px);
+}
+
+.wga-inquiry__frame {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  max-width: 100%;
+  background: #ffffff;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.28);
+}
+
+.wga-inquiry__close {
+  position: absolute;
+  z-index: 2;
+  top: clamp(8px, 1.5vw, 14px);
+  right: clamp(8px, 1.5vw, 14px);
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(10, 10, 10, 0.55);
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.wga-inquiry__close:hover,
+.wga-inquiry__close:focus-visible {
+  background: rgba(10, 10, 10, 0.82);
+  outline: none;
+}
+
+.wga-inquiry__image-wrap {
+  line-height: 0;
+  background: #f5f5f5;
+}
+
+.wga-inquiry__img {
+  display: block;
+  width: 100%;
+  max-height: min(62vh, 520px);
+  object-fit: contain;
+  object-position: center;
+}
+
+.wga-inquiry__text {
+  margin: 0;
+  padding: clamp(16px, 2.5vw, 24px) clamp(18px, 3vw, 28px);
+  font-family: var(--font-serif, "Cormorant Garamond", Georgia, serif);
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+  font-weight: 300;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  color: #1a1a1a;
+  text-align: center;
 }
 
 /* —— Bio —— */

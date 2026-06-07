@@ -2,6 +2,7 @@
   const CATALOG_URL = "data/wga-catalog.json";
   let catalog = null;
   const worksById = {};
+  const workSectionById = {};
   const workOrder = [];
 
   function resolveAsset(path) {
@@ -40,6 +41,11 @@
   const popupNext = document.getElementById("wga-popup-next");
   const sliderTrack = document.getElementById("wga-popup-track");
   const sliderDots = document.getElementById("wga-popup-dots");
+
+  const inquiryPopup = document.getElementById("wga-inquiry");
+  const inquiryImg = document.getElementById("wga-inquiry-img");
+  const inquiryText = document.getElementById("wga-inquiry-text");
+  let openInquiryWorkId = null;
 
   const bioOverlay = document.getElementById("wga-bio");
   const bioOpen = document.getElementById("wga-bio-open");
@@ -167,16 +173,185 @@
 
   function indexWorks() {
     Object.keys(worksById).forEach((k) => delete worksById[k]);
+    Object.keys(workSectionById).forEach((k) => delete workSectionById[k]);
     workOrder.length = 0;
     (catalog?.sections || []).forEach((section) => {
       if (!/^\d{2}\s/.test(section.chapter || "")) return;
       (section.works || []).forEach((work) => {
         if (work.id && !work.empty) {
           worksById[work.id] = work;
+          workSectionById[work.id] = section;
           workOrder.push(work.id);
         }
       });
     });
+  }
+
+  function normInquiryText(value) {
+    return String(value || "")
+      .normalize("NFC")
+      .toLowerCase();
+  }
+
+  function formatEuroAmount(amount) {
+    return String(amount).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
+
+  function formatInquiryPrice(price) {
+    if (price.fixed) return formatEuroAmount(price.value) + " €";
+    return formatEuroAmount(price.min) + " - " + formatEuroAmount(price.max) + " €";
+  }
+
+  const INQUIRY_PRICE_RULES = [
+    {
+      match: function (sectionLabel, medium, sectionTitle) {
+        return /obst in aquarell/.test(sectionLabel);
+      },
+      price: { min: 250, max: 1400 },
+    },
+    {
+      match: function (sectionLabel) {
+        return /skizzenbuch|skribbel/.test(sectionLabel);
+      },
+      price: { min: 300, max: 900 },
+    },
+    {
+      match: function (sectionLabel, medium, sectionTitle) {
+        return /kreide acryl radierung/.test(sectionLabel) || /kreide acryl radierung/.test(sectionTitle);
+      },
+      price: { min: 300, max: 500 },
+    },
+    {
+      match: function (sectionLabel) {
+        return /naives malen/.test(sectionLabel);
+      },
+      price: { value: 150, fixed: true },
+    },
+    {
+      match: function (sectionLabel) {
+        return /grafikdruck/.test(sectionLabel);
+      },
+      price: { value: 1600, fixed: true },
+    },
+    {
+      match: function (sectionLabel, medium) {
+        return /collagen/.test(sectionLabel) || /collage/.test(medium);
+      },
+      price: { value: 900, fixed: true },
+    },
+    {
+      match: function (sectionLabel, medium) {
+        return (
+          sectionLabel === "tuschezeichnung" ||
+          sectionLabel === "tuschestrichzeichnungen" ||
+          (/tuschezeichnung/.test(medium) && !/skizze/.test(medium))
+        );
+      },
+      price: { value: 550, fixed: true },
+    },
+    {
+      match: function (sectionLabel, medium) {
+        return /holzschnitt/.test(medium) || /holzschnitt/.test(sectionLabel);
+      },
+      price: { min: 780, max: 1300 },
+    },
+    {
+      match: function (sectionLabel, medium) {
+        return /aquarell/.test(medium) || /aquarell/.test(sectionLabel);
+      },
+      price: { min: 650, max: 2100 },
+    },
+    {
+      match: function (sectionLabel, medium) {
+        return /skizze|skizzen|buntstift/.test(medium) || /skizzen|buntstift/.test(sectionLabel);
+      },
+      price: { min: 300, max: 900 },
+    },
+    {
+      match: function (sectionLabel, medium) {
+        return /radierung|grafik/.test(medium) || /radierung/.test(sectionLabel);
+      },
+      price: { min: 350, max: 590 },
+    },
+    {
+      match: function (sectionLabel, medium) {
+        return /acryl/.test(medium) || /acryl/.test(sectionLabel);
+      },
+      price: { min: 2500, max: 3500 },
+    },
+    {
+      match: function (sectionLabel, medium) {
+        return /ölkreide|kreidezeichnung/.test(medium) || /ölkreide/.test(sectionLabel);
+      },
+      price: { min: 800, max: 1200 },
+    },
+    {
+      match: function (medium) {
+        return /ölmalerei|ölgemälde|olgem/.test(medium);
+      },
+      price: { min: 2000, max: 5000 },
+    },
+    {
+      match: function (medium) {
+        return /keramik/.test(medium);
+      },
+      price: { min: 500, max: 800 },
+    },
+  ];
+
+  function inquiryPriceForWork(work, section) {
+    const sectionLabel = normInquiryText(section && section.sectionLabel);
+    const sectionTitle = normInquiryText(section && section.title);
+    const medium = normInquiryText(work && work.medium);
+    for (let i = 0; i < INQUIRY_PRICE_RULES.length; i++) {
+      const rule = INQUIRY_PRICE_RULES[i];
+      if (rule.match(sectionLabel, medium, sectionTitle)) return rule.price;
+    }
+    return null;
+  }
+
+  function inquiryMessage(work) {
+    const section = workSectionById[work.id];
+    const price = inquiryPriceForWork(work, section);
+    const lang = getWgaLang();
+    if (!price) {
+      return lang === "en"
+        ? "Inquiry to the Grope family. Shipped framed. Price on request."
+        : "Anfrage an Familie Grope. Gerahmt versendet. Preis auf Anfrage.";
+    }
+    const priceStr = formatInquiryPrice(price);
+    if (lang === "en") {
+      const pricePart = price.fixed ? "Price " + priceStr : "Price between " + priceStr;
+      return "Inquiry to the Grope family. Shipped framed. " + pricePart + ".";
+    }
+    const pricePart = price.fixed ? "Preis " + priceStr : "Preis zwischen " + priceStr;
+    return "Anfrage an Familie Grope. Gerahmt versendet. " + pricePart + ".";
+  }
+
+  function openInquiryPopup(id) {
+    const work = worksById[id];
+    if (!work || !inquiryPopup || work.berlinStatus === "unavailable") return;
+    openInquiryWorkId = id;
+    if (inquiryImg) {
+      inquiryImg.src = workImage(work);
+      inquiryImg.alt = tileLabel(work);
+    }
+    if (inquiryText) inquiryText.textContent = inquiryMessage(work);
+    inquiryPopup.hidden = false;
+    inquiryPopup.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    const closeBtn = inquiryPopup.querySelector(".wga-inquiry__close");
+    if (closeBtn) closeBtn.focus();
+    updateWgaScrollTopBtn();
+  }
+
+  function closeInquiryPopup() {
+    if (!inquiryPopup) return;
+    openInquiryWorkId = null;
+    inquiryPopup.hidden = true;
+    inquiryPopup.setAttribute("aria-hidden", "true");
+    if ((!popup || popup.hidden) && (!bioOverlay || bioOverlay.hidden)) document.body.style.overflow = "";
+    updateWgaScrollTopBtn();
   }
 
   function updatePopupNav() {
@@ -399,12 +574,22 @@
   }
 
   function createBerlinDot(work) {
-    const dot = document.createElement("span");
     const unavailable = work && work.berlinStatus === "unavailable";
+    const dot = unavailable ? document.createElement("span") : document.createElement("button");
     dot.className = "wga-berlin-dot" + (unavailable ? " wga-berlin-dot--unavailable" : "");
-    dot.setAttribute("aria-hidden", "true");
-    if (!unavailable) {
-      dot.title = getWgaLang() === "en" ? "Available" : "verfügbar";
+    if (unavailable) {
+      dot.setAttribute("aria-hidden", "true");
+    } else {
+      dot.type = "button";
+      dot.setAttribute(
+        "aria-label",
+        getWgaLang() === "en" ? "Inquiry to the Grope family" : "Anfrage an Familie Grope"
+      );
+      dot.addEventListener("click", function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+        openInquiryPopup(work.id);
+      });
     }
     return dot;
   }
@@ -931,8 +1116,9 @@
     const btn = document.getElementById("wga-scroll-top");
     if (!btn) return;
     const popupOpen = popup && !popup.hidden;
+    const inquiryOpen = inquiryPopup && !inquiryPopup.hidden;
     const bioOpenState = bioOverlay && !bioOverlay.hidden;
-    btn.hidden = !isPastHero() || popupOpen || bioOpenState;
+    btn.hidden = !isPastHero() || popupOpen || inquiryOpen || bioOpenState;
     btn.setAttribute("aria-label", getWgaLang() === "en" ? "Back to top" : "Nach oben");
   }
 
@@ -978,6 +1164,12 @@
     });
   }
 
+  if (inquiryPopup) {
+    inquiryPopup.querySelectorAll("[data-wga-inquiry-close]").forEach(function (el) {
+      el.addEventListener("click", closeInquiryPopup);
+    });
+  }
+
   if (bioOpen) bioOpen.addEventListener("click", openBio);
   initChaptersNav();
   initHeroNav();
@@ -986,6 +1178,10 @@
   document.addEventListener("fc-lang-change", syncChaptersNavOffset);
   document.addEventListener("fc-lang-change", function () {
     if (openWorkId) openPopup(openWorkId);
+    if (openInquiryWorkId) {
+      const work = worksById[openInquiryWorkId];
+      if (work && inquiryText) inquiryText.textContent = inquiryMessage(work);
+    }
     if (popupPrev) {
       popupPrev.setAttribute("aria-label", getWgaLang() === "en" ? "Previous work" : "Vorheriges Werk");
     }
@@ -1008,6 +1204,7 @@
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
       if (bioOverlay && !bioOverlay.hidden) closeBio();
+      else if (inquiryPopup && !inquiryPopup.hidden) closeInquiryPopup();
       else if (popup && !popup.hidden) closePopup();
       return;
     }

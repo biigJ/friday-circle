@@ -259,7 +259,7 @@ window.__WGA_CATALOG__={
           "medium": "Ölmalerei",
           "dimensions": "—",
           "body": "",
-          "berlinStatus": "available",
+          "berlinStatus": "unavailable",
           "images": [
             "assets/wolfgang-grope/02 Knalliges Acryl 1970/WG-Ölmalerei-1960-11.jpg"
           ]
@@ -5599,7 +5599,7 @@ window.__WGA_CATALOG__={
           "medium": "Keramik",
           "dimensions": "—",
           "body": "",
-          "berlinStatus": "available",
+          "berlinStatus": "unavailable",
           "images": [
             "assets/wolfgang-grope/11 Keramik/WG-Keramik-34.jpg"
           ]
@@ -5976,7 +5976,7 @@ window.__WGA_CATALOG__={
           "medium": "Keramik",
           "dimensions": "—",
           "body": "",
-          "berlinStatus": "available",
+          "berlinStatus": "unavailable",
           "images": [
             "assets/wolfgang-grope/11 Keramik/WG-Keramik-63.jpg"
           ]
@@ -6028,7 +6028,7 @@ window.__WGA_CATALOG__={
           "medium": "Keramik",
           "dimensions": "—",
           "body": "",
-          "berlinStatus": "available",
+          "berlinStatus": "unavailable",
           "images": [
             "assets/wolfgang-grope/11 Keramik/WG-Keramik-67.jpg"
           ]

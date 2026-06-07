@@ -192,7 +192,7 @@ function loadBerlinUnavailable() {
 
 function mergeMeta(work, prev) {
   if (!prev) return work;
-  for (const key of ["dimensions", "body", "price", "availability", "berlinStatus"]) {
+  for (const key of ["dimensions", "body", "price", "availability"]) {
     if (prev[key] != null && prev[key] !== "" && prev[key] !== "—") {
       work[key] = prev[key];
     }
