@@ -378,6 +378,10 @@
 
   function stepPopupWork(delta) {
     if (!openWorkId || workOrder.length <= 1) return;
+    if (isWgaNavMobile() && slideCount === 3 && sliderTrack && sliderTrack.children.length === 3) {
+      commitMobilePopupStep(delta);
+      return;
+    }
     const idx = workOrder.indexOf(openWorkId);
     if (idx < 0) return;
     const nextId = workOrder[(idx + delta + workOrder.length) % workOrder.length];
@@ -834,6 +838,10 @@
   function syncPopupFrameWidth() {
     const slider = sliderTrack && sliderTrack.parentElement;
     if (!slider || !slideCount) return;
+    if (isWgaNavMobile() && slideCount === 3) {
+      slider.style.removeProperty("width");
+      return;
+    }
     const slide = sliderTrack.children[slideIndex];
     if (!slide) return;
     const img = slide.querySelector("img");
@@ -933,26 +941,12 @@
     const work = worksById[id];
     if (!work || !popup) return;
     openWorkId = id;
-    popupTitle.textContent = work.title || "Werk";
-    if (popupUnavailable) {
-      const unavailable = work.berlinStatus === "unavailable";
-      popupUnavailable.hidden = !unavailable;
-      popupUnavailable.textContent = unavailable
-        ? getWgaLang() === "en"
-          ? "not available / in use"
-          : "nicht verfügbar / in Nutzung"
-        : "";
-    }
-    if (popupIndex) {
-      popupIndex.textContent = popupIndexLine(work);
-      popupIndex.hidden = !popupIndex.textContent;
-    }
+    popupCarouselBusy = false;
+    updatePopupChrome(work);
     buildPopupSlider(
       (work.images || [catalog.meta.placeholder]).map(resolveAsset),
       work.title || "Werk"
     );
-    if (popupIndex && popupIndex.textContent) popup.setAttribute("aria-describedby", "wga-popup-index");
-    else popup.removeAttribute("aria-describedby");
     updatePopupNav();
     popup.hidden = false;
     popup.setAttribute("aria-hidden", "false");
@@ -963,6 +957,7 @@
   function closePopup() {
     if (!popup) return;
     openWorkId = null;
+    popupCarouselBusy = false;
     if (popupSwipeApi && popupSwipeApi.destroy) popupSwipeApi.destroy();
     popupSwipeApi = null;
     popup.hidden = true;
@@ -1067,6 +1062,114 @@
 
   let heroSwipeApi = null;
   let popupSwipeApi = null;
+  let popupCarouselBusy = false;
+
+  function updatePopupChrome(work) {
+    if (!work) return;
+    popupTitle.textContent = work.title || "Werk";
+    if (popupUnavailable) {
+      const unavailable = work.berlinStatus === "unavailable";
+      popupUnavailable.hidden = !unavailable;
+      popupUnavailable.textContent = unavailable
+        ? getWgaLang() === "en"
+          ? "not available / in use"
+          : "nicht verfügbar / in Nutzung"
+        : "";
+    }
+    if (popupIndex) {
+      popupIndex.textContent = popupIndexLine(work);
+      popupIndex.hidden = !popupIndex.textContent;
+    }
+    if (popup) {
+      if (popupIndex && popupIndex.textContent) popup.setAttribute("aria-describedby", "wga-popup-index");
+      else popup.removeAttribute("aria-describedby");
+    }
+  }
+
+  function preloadImageSrc(src) {
+    return new Promise(function (resolve) {
+      if (!src) {
+        resolve();
+        return;
+      }
+      const img = new Image();
+      img.decoding = "async";
+      function done() {
+        resolve();
+      }
+      img.onload = done;
+      img.onerror = done;
+      img.src = src;
+      if (img.complete) done();
+    });
+  }
+
+  function updateMobileCarouselSlideImage(slideEl, src, alt) {
+    if (!slideEl) return null;
+    const img = slideEl.querySelector("img");
+    if (!img) return null;
+    if (img.getAttribute("src") !== src) img.src = src;
+    img.alt = alt;
+    return img;
+  }
+
+  function resetMobileCarouselTrack() {
+    sliderTrack.style.transition = "none";
+    sliderTrack.style.transform = "translateX(-100%)";
+    slideIndex = 1;
+    void sliderTrack.offsetWidth;
+    sliderTrack.style.transition = "transform 0.35s ease";
+  }
+
+  function commitMobilePopupStep(delta) {
+    if (!openWorkId || popupCarouselBusy) return;
+    const idx = workOrder.indexOf(openWorkId);
+    if (idx < 0) return;
+    const nextId = workOrder[(idx + delta + workOrder.length) % workOrder.length];
+    const nextWork = worksById[nextId];
+    if (!nextWork) return;
+
+    popupCarouselBusy = true;
+    openWorkId = nextId;
+    updatePopupChrome(nextWork);
+
+    const prevWork = worksById[adjacentWorkId(-1)];
+    const nextWorkAdjacent = worksById[adjacentWorkId(1)];
+    const entries = [
+      { work: prevWork, suffix: " — vorheriges" },
+      { work: nextWork, suffix: " — Bild 1" },
+      { work: nextWorkAdjacent, suffix: " — nächstes" },
+    ];
+
+    Promise.all(
+      entries.map(function (entry) {
+        return preloadImageSrc(workPrimaryImage(entry.work));
+      })
+    ).then(function () {
+      const slides = sliderTrack.children;
+      if (slides.length !== 3) {
+        buildPopupSlider(
+          (nextWork.images || [catalog.meta.placeholder]).map(resolveAsset),
+          nextWork.title || "Werk"
+        );
+        popupCarouselBusy = false;
+        return;
+      }
+
+      entries.forEach(function (entry, i) {
+        const work = entry.work;
+        updateMobileCarouselSlideImage(
+          slides[i],
+          workPrimaryImage(work),
+          (work?.title || "Werk") + entry.suffix
+        );
+      });
+      resetMobileCarouselTrack();
+      syncPopupFrameWidth();
+      if (popupSwipeApi && popupSwipeApi.sync) popupSwipeApi.sync(false);
+      popupCarouselBusy = false;
+    });
+  }
 
   function initHeroSwipe() {
     if (heroSwipeApi && heroSwipeApi.destroy) heroSwipeApi.destroy();
@@ -1112,12 +1215,21 @@
         return 3;
       },
       onIndexChange: function (newIndex) {
-        if (newIndex === 1) {
+        if (newIndex === 1 || popupCarouselBusy) {
           slideIndex = 1;
           return;
         }
-        if (newIndex === 0) stepPopupWork(-1);
-        else if (newIndex === 2) stepPopupWork(1);
+        const delta = newIndex === 0 ? -1 : 1;
+        slideIndex = newIndex;
+        sliderTrack.style.transition = "transform 0.35s ease";
+        sliderTrack.style.transform = "translateX(-" + newIndex * 100 + "%)";
+
+        function finish(e) {
+          if (e && e.target !== sliderTrack) return;
+          if (e && e.propertyName && e.propertyName !== "transform") return;
+          commitMobilePopupStep(delta);
+        }
+        sliderTrack.addEventListener("transitionend", finish, { once: true });
       },
       ignore: function (target) {
         return !!target.closest(".wga-slider__dot, .wga-popup__arrow, .wga-popup__close, button, a");

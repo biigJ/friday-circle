@@ -598,7 +598,7 @@ body.wga-page {
   padding: 0;
   border: 1px solid rgba(13, 13, 13, 0.14);
   border-radius: 50%;
-  background: #f0eee6;
+  background: #ffffff;
   color: #0a0a0a;
   box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
   cursor: pointer;
@@ -991,6 +991,7 @@ button.wga-berlin-dot:focus-visible {
   align-items: flex-start;
   transition: transform 0.35s ease;
   will-change: transform;
+  backface-visibility: hidden;
 }
 
 .wga-popup .wga-slider__slide {
@@ -1003,7 +1004,9 @@ button.wga-berlin-dot:focus-visible {
   box-sizing: border-box;
   display: block;
   overflow: hidden;
-  background: transparent;
+  background: #0a0a0a;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .wga-popup .wga-slider__slide img {
@@ -1015,8 +1018,19 @@ button.wga-berlin-dot:focus-visible {
   object-position: center;
   display: block;
   margin: 0;
-  background: transparent;
+  background: #0a0a0a;
   vertical-align: top;
+}
+
+@media (max-width: 760px) {
+  .wga-popup .wga-slider {
+    width: min(96vw, 100%);
+  }
+
+  .wga-popup .wga-slider__slide img {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 .wga-popup .wga-slider__dots {
@@ -1207,7 +1221,7 @@ button.wga-berlin-dot:focus-visible {
 
 .wga-bio__photos {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 2fr;
   gap: clamp(10px, 2vw, 16px);
   flex: 0 0 auto;
   height: clamp(150px, 24vw, 210px);
