@@ -54,7 +54,7 @@
   const chaptersNav = document.getElementById("wga-chapters-nav");
   const chaptersBtn = document.getElementById("wga-chapters-btn");
   const chaptersMenu = document.getElementById("wga-chapters-menu");
-  const BIO_URL = "data/wga-bio.txt";
+  const BIO_URL = "data/wga-bio-de.txt";
   let bioLoaded = false;
 
   let heroIndex = 0;
@@ -971,13 +971,27 @@
     updateWgaScrollTopBtn();
   }
 
+  function getBioCopy() {
+    const bio = window.__WGA_BIO__;
+    const lang = getWgaLang();
+    if (bio && typeof bio === "object") return bio[lang] || bio.de || "";
+    if (typeof bio === "string") return bio;
+    return "";
+  }
+
+  function applyBioText() {
+    if (!bioText) return;
+    bioText.textContent = getBioCopy();
+  }
+
   async function loadBioText() {
-    if (!bioText || (bioLoaded && bioText.textContent)) return;
+    if (!bioText) return;
     if (window.__WGA_BIO__) {
-      bioText.textContent = window.__WGA_BIO__;
+      applyBioText();
       bioLoaded = true;
       return;
     }
+    if (bioLoaded && bioText.textContent) return;
     try {
       const res = await fetch(BIO_URL, { cache: "no-store" });
       if (res.ok) bioText.textContent = (await res.text()).trim();
@@ -1196,6 +1210,7 @@
   document.addEventListener("fc-lang-change", syncChaptersNavOffset);
   document.addEventListener("fc-lang-change", function () {
     if (openWorkId) openPopup(openWorkId);
+    if (bioLoaded) applyBioText();
     if (openInquiryWorkId) {
       const work = worksById[openInquiryWorkId];
       if (work) updateInquiryPopupContent(work);

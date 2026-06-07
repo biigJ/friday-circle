@@ -1203,6 +1203,23 @@ button.wga-berlin-dot:focus-visible {
   box-sizing: border-box;
 }
 
+.wga-bio__photos {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(10px, 2vw, 16px);
+  margin: 0 0 clamp(18px, 3vw, 28px);
+}
+
+.wga-bio__photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center top;
+  background: rgba(10, 10, 10, 0.06);
+}
+
 .wga-bio__close {
   position: absolute;
   top: 14px;
