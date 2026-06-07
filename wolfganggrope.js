@@ -481,6 +481,40 @@
     initPopupSwipe();
   }
 
+  function workOfferLabel(work) {
+    if (!work) return null;
+    var availability = work.availability;
+    if (availability === "sold") return { text: "Verkauft", variant: "status" };
+    if (availability === "on_loan") return { text: "Verliehen", variant: "status" };
+    if (availability === "not_for_sale") return { text: "Unverkäuflich", variant: "status" };
+    if (availability === "available") {
+      if (work.price) return { text: work.price, variant: "price" };
+      return { text: "Verkäuflich", variant: "status" };
+    }
+    if (work.price) return { text: work.price, variant: "price" };
+    return null;
+  }
+
+  function workOfferLabelEn(work) {
+    if (!work) return null;
+    var availability = work.availability;
+    if (availability === "sold") return { text: "Sold", variant: "status" };
+    if (availability === "on_loan") return { text: "On loan", variant: "status" };
+    if (availability === "not_for_sale") return { text: "Not for sale", variant: "status" };
+    if (availability === "available") {
+      if (work.price) return { text: work.price, variant: "price" };
+      return { text: "For sale", variant: "status" };
+    }
+    if (work.price) return { text: work.price, variant: "price" };
+    return null;
+  }
+
+  function formatWorkOffer(work) {
+    var lang =
+      document.body.classList.contains("en") || document.documentElement.lang === "en" ? "en" : "de";
+    return lang === "en" ? workOfferLabelEn(work) : workOfferLabel(work);
+  }
+
   function openPopup(id) {
     const work = worksById[id];
     if (!work || !popup) return;
@@ -493,12 +527,15 @@
     popupMeta.hidden = meta.length === 0;
     popupBody.textContent = work.body || "";
     popupBody.hidden = !work.body;
-    if (work.price) {
-      popupPrice.textContent = work.price;
+    const offer = formatWorkOffer(work);
+    if (offer) {
+      popupPrice.textContent = offer.text;
       popupPrice.hidden = false;
+      popupPrice.classList.toggle("wga-popup__price--status", offer.variant === "status");
     } else {
       popupPrice.textContent = "";
       popupPrice.hidden = true;
+      popupPrice.classList.remove("wga-popup__price--status");
     }
     buildPopupSlider(
       (work.images || [catalog.meta.placeholder]).map(resolveAsset),
@@ -723,6 +760,9 @@
   initChaptersNav();
   initWgaScrollTop();
   document.addEventListener("fc-lang-change", syncChaptersNavOffset);
+  document.addEventListener("fc-lang-change", function () {
+    if (openWorkId) openPopup(openWorkId);
+  });
   window.addEventListener("resize", function () {
     syncChaptersNavOffset();
     syncChaptersMenuLayout();

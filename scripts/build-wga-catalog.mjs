@@ -77,7 +77,7 @@ function mediumAndTitle(base, sectionId) {
   return { medium: "—", title: "Werk" };
 }
 
-function workFromFile(filename, sectionId) {
+function workFromFile(filename, sectionId, existingById) {
   const base = filename.replace(/\.[^.]+$/i, "");
   const numMatch = base.match(/-(\d+)$/);
   const sortNum = numMatch ? parseInt(numMatch[1], 10) : 0;
@@ -86,7 +86,7 @@ function workFromFile(filename, sectionId) {
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
-  return {
+  const work = {
     id,
     title,
     year: "—",
@@ -96,6 +96,14 @@ function workFromFile(filename, sectionId) {
     images: [`assets/wolfgang-grope/${filename}`],
     sortNum,
   };
+  const prev = existingById.get(id);
+  if (!prev) return work;
+  for (const key of ["title", "year", "medium", "dimensions", "body", "price", "availability"]) {
+    if (prev[key] != null && prev[key] !== "" && prev[key] !== "—") {
+      work[key] = prev[key];
+    }
+  }
+  return work;
 }
 
 function grafik1972Num(filename) {
@@ -132,6 +140,12 @@ function sortSectionWorks(id, works) {
 }
 
 const existing = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
+const existingById = new Map();
+for (const section of existing.sections || []) {
+  for (const work of section.works || []) {
+    if (work && work.id) existingById.set(work.id, work);
+  }
+}
 const buckets = Object.fromEntries(SECTION_DEFS.map((d) => [d.id, []]));
 
 const files = fs
@@ -144,7 +158,7 @@ for (const file of files) {
     if (grafik1972Num(file) === null) console.warn("Unzugeordnet:", file);
     continue;
   }
-  buckets[sid].push(workFromFile(file, sid));
+  buckets[sid].push(workFromFile(file, sid, existingById));
 }
 
 for (const id of Object.keys(buckets)) {

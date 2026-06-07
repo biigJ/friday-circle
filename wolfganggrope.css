@@ -756,6 +756,42 @@ body.wga-page {
   display: none !important;
 }
 
+.wga-popup__meta:not([hidden]),
+.wga-popup__body:not([hidden]),
+.wga-popup__price:not([hidden]) {
+  display: block !important;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 8px clamp(12px, 2vw, 16px) 0;
+  box-sizing: border-box;
+  font-family: var(--font-sans);
+  font-size: clamp(0.72rem, 1.2vw, 0.85rem);
+  line-height: 1.45;
+  color: #f0eee6;
+  text-align: center;
+}
+
+.wga-popup__price:not([hidden]) {
+  font-weight: 500;
+  padding-top: 4px;
+}
+
+.wga-popup__price--status:not([hidden]) {
+  opacity: 0.84;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: clamp(0.66rem, 1.05vw, 0.76rem);
+}
+
+.wga-popup__body:not([hidden]) {
+  opacity: 0.9;
+  max-width: 42rem;
+  margin-inline: auto;
+  padding-bottom: 4px;
+}
+
 .wga-popup .wga-slider {
   position: relative;
   overflow: hidden;
