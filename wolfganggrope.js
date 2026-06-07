@@ -35,6 +35,8 @@
   const popupMeta = document.getElementById("wga-popup-meta");
   const popupBody = document.getElementById("wga-popup-body");
   const popupPrice = document.getElementById("wga-popup-price");
+  const popupUnavailable = document.getElementById("wga-popup-unavailable");
+  const popupIndex = document.getElementById("wga-popup-index");
   const sliderTrack = document.getElementById("wga-popup-track");
   const sliderDots = document.getElementById("wga-popup-dots");
 
@@ -283,6 +285,66 @@
     updateHeroControls();
   }
 
+  function chapterDisplayName(chapter) {
+    return String(chapter || "")
+      .replace(/^\d{2}\s+/, "")
+      .trim();
+  }
+
+  function deriveSectionYear(section) {
+    const label = (section.sectionLabel || "").trim();
+    if (/^\d{4}(?:[–-]\d{4})?$/.test(label)) return label.replace(/-/g, "–");
+    const fromTitle = section.title.match(/(\d{4})(?:-(\d{4}))?/);
+    if (fromTitle) {
+      return fromTitle[2] ? `${fromTitle[1]}–${fromTitle[2]}` : fromTitle[1];
+    }
+    const years = (section.works || [])
+      .map(function (work) {
+        return work.year;
+      })
+      .filter(function (year) {
+        return year && year !== "—";
+      });
+    const nums = years
+      .flatMap(function (year) {
+        return (String(year).match(/\d{4}/g) || []).map(function (y) {
+          return parseInt(y, 10);
+        });
+      })
+      .sort(function (a, b) {
+        return a - b;
+      });
+    if (!nums.length) return "";
+    return nums[0] === nums[nums.length - 1] ? String(nums[0]) : `${nums[0]}–${nums[nums.length - 1]}`;
+  }
+
+  function sectionDisplayName(section) {
+    const label = (section.sectionLabel || "").trim();
+    if (!label || /^\d{4}(?:[–-]\d{4})?$/.test(label)) return "";
+    return label;
+  }
+
+  function shouldShowSectionHeader(section, sections) {
+    const label = (section.sectionLabel || "").trim();
+    if (!label) return false;
+    if (/^\d{4}(?:[–-]\d{4})?$/.test(label)) {
+      const chapterSections = sections.filter(function (s) {
+        return s.chapter === section.chapter;
+      });
+      return chapterSections.length > 1;
+    }
+    return true;
+  }
+
+  function popupIndexLine(work) {
+    const id = work.catalogId || work.id || "";
+    const match = String(id).match(/^wg-(\d+)-(\d+)$/i) || String(id).match(/^WG-(\d+)-(\d+)$/i);
+    const year = work.year && work.year !== "—" ? String(work.year) : "";
+    if (!match) return year;
+    const line = `Nr. ${match[1]}, Nr. ${match[2]}`;
+    return year ? `${line} . ${year}` : line;
+  }
+
   function catalogNo(work) {
     if (work.catalogId) {
       const m = String(work.catalogId).match(/-(\d+)$/i);
@@ -311,14 +373,9 @@
     const unavailable = work && work.berlinStatus === "unavailable";
     dot.className = "wga-berlin-dot" + (unavailable ? " wga-berlin-dot--unavailable" : "");
     dot.setAttribute("aria-hidden", "true");
-    const lang = getWgaLang();
-    dot.title = unavailable
-      ? lang === "en"
-        ? "Permanent loan, gifted, or in use"
-        : "Dauerleihgabe, verschenkt oder in Nutzung"
-      : lang === "en"
-        ? "Available in Berlin"
-        : "In Berlin vorhanden";
+    if (!unavailable) {
+      dot.title = getWgaLang() === "en" ? "Available" : "verfügbar";
+    }
     return dot;
   }
 
@@ -344,11 +401,11 @@
     hover.className = "wga-tile__hover";
     const label = document.createElement("span");
     label.className = "wga-tile__label";
-    label.textContent = work.title || "Werk";
+    label.textContent = work.medium && work.medium !== "—" ? work.medium : work.title || "Werk";
     const sub = document.createElement("span");
     sub.className = "wga-tile__sub";
     const no = catalogNo(work);
-    sub.textContent = [no ? "Nr. " + no : "", work.medium, work.year]
+    sub.textContent = [no ? "Nr. " + no : "", work.year]
       .filter(function (v) {
         return v && v !== "—";
       })
@@ -387,27 +444,30 @@
 
         const chapterTitle = document.createElement("h2");
         chapterTitle.className = "wga-chapter__title";
-        chapterTitle.textContent = section.chapter;
+        chapterTitle.textContent = chapterDisplayName(section.chapter);
         chapterHead.appendChild(chapterTitle);
-
-        if (section.chapterYear) {
-          const chapterYear = document.createElement("p");
-          chapterYear.className = "wga-chapter__year";
-          chapterYear.textContent = section.chapterYear;
-          chapterHead.appendChild(chapterYear);
-        }
 
         shell.appendChild(chapterHead);
         lastChapter = section.chapter;
       }
 
-      const sectionLabel = (section.sectionLabel || "").trim();
-      const showSectionTitle =
-        sectionLabel && sectionLabel !== section.chapterYear && sectionLabel !== section.chapter;
-      if (showSectionTitle) {
+      if (shouldShowSectionHeader(section, sections)) {
         const sectionTitle = document.createElement("h3");
         sectionTitle.className = "wga-section__title";
-        sectionTitle.textContent = sectionLabel;
+        const sectionYear = deriveSectionYear(section);
+        const sectionName = sectionDisplayName(section);
+        if (sectionYear) {
+          const yearEl = document.createElement("span");
+          yearEl.className = "wga-section__year";
+          yearEl.textContent = sectionYear;
+          sectionTitle.appendChild(yearEl);
+        }
+        if (sectionName) {
+          const nameEl = document.createElement("span");
+          nameEl.className = "wga-section__name";
+          nameEl.textContent = sectionName;
+          sectionTitle.appendChild(nameEl);
+        }
         shell.appendChild(sectionTitle);
       }
 
@@ -494,7 +554,7 @@
       if (!/^\d{2}\s/.test(chapter)) return;
 
       seen.add(chapter);
-      chapters.push({ label: chapter, sectionId: section.id });
+      chapters.push({ label: chapterDisplayName(chapter), sectionId: section.id });
     });
 
     if (!chapters.length) {
@@ -563,7 +623,7 @@
     syncPopupFrameWidth();
   }
 
-  function buildPopupSlider(images, title, work) {
+  function buildPopupSlider(images, title) {
     sliderTrack.innerHTML = "";
     sliderDots.innerHTML = "";
     slideCount = images.length;
@@ -577,7 +637,6 @@
       img.alt = title + " — Bild " + (i + 1);
       img.decoding = "async";
       fig.appendChild(img);
-      if (work) fig.appendChild(createBerlinDot(work));
       sliderTrack.appendChild(fig);
 
       if (slideCount > 1) {
@@ -654,10 +713,22 @@
       popupPrice.hidden = true;
       popupPrice.classList.remove("wga-popup__price--status");
     }
+    if (popupUnavailable) {
+      const unavailable = work.berlinStatus === "unavailable";
+      popupUnavailable.hidden = !unavailable;
+      popupUnavailable.textContent = unavailable
+        ? getWgaLang() === "en"
+          ? "not available / in use"
+          : "nicht verfügbar / in Nutzung"
+        : "";
+    }
+    if (popupIndex) {
+      popupIndex.textContent = popupIndexLine(work);
+      popupIndex.hidden = !popupIndex.textContent;
+    }
     buildPopupSlider(
       (work.images || [catalog.meta.placeholder]).map(resolveAsset),
-      work.title || "Werk",
-      work
+      work.title || "Werk"
     );
     if (meta.length) popup.setAttribute("aria-describedby", "wga-popup-meta");
     else popup.removeAttribute("aria-describedby");

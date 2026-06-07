@@ -647,18 +647,11 @@ body.wga-page {
   color: var(--text);
 }
 
-.wga-chapter__year {
-  margin: clamp(10px, 1.6vw, 18px) 0 0;
-  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-  font-size: clamp(1.15rem, 2.6vw, 1.85rem);
-  font-weight: 300;
-  font-style: italic;
-  letter-spacing: 0.08em;
-  line-height: 1.2;
-  color: color-mix(in srgb, var(--text) 68%, transparent);
-}
-
 .wga-section__title {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.55em;
   margin: clamp(28px, 4vw, 44px) 0 clamp(20px, 3vw, 32px);
   font-family: var(--font-sans);
   font-size: clamp(1.1rem, 2.2vw, 1.65rem);
@@ -666,6 +659,13 @@ body.wga-page {
   letter-spacing: 0.04em;
   line-height: 1.25;
   color: var(--text);
+}
+
+.wga-section__year,
+.wga-section__name {
+  display: inline;
+  margin: 0;
+  font: inherit;
 }
 
 .wga-chapter-head + .wga-section__title {
@@ -726,18 +726,20 @@ body.wga-page {
   top: clamp(8px, 1.2vw, 12px);
   right: clamp(8px, 1.2vw, 12px);
   z-index: 2;
-  width: 10px;
-  height: 10px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  border: 1.5px solid #ffffff;
+  border: 2px solid #ffffff;
   background: transparent;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.28);
-  pointer-events: none;
+  pointer-events: auto;
+  cursor: default;
 }
 
 .wga-berlin-dot--unavailable {
   background: #c62828;
-  border-color: #ffffff;
+  border: none;
+  box-shadow: none;
 }
 
 .wga-slider__slide {
@@ -854,15 +856,48 @@ body.wga-page {
   outline: none;
 }
 
-.wga-popup__caption {
+.wga-popup__unavailable {
   position: absolute;
-  z-index: 8;
+  z-index: 9;
+  top: clamp(10px, 1.8vw, 16px);
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0 clamp(48px, 8vw, 64px);
+  box-sizing: border-box;
+  font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 2.2vw, 1.35rem);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.55);
+  pointer-events: none;
+}
+
+.wga-popup__index {
+  position: absolute;
+  z-index: 9;
   left: 0;
   right: 0;
   bottom: 0;
+  margin: 0;
   padding: clamp(10px, 1.8vw, 14px) clamp(12px, 2vw, 16px);
-  background: transparent;
+  font-family: var(--font-sans);
+  font-size: clamp(0.78rem, 1.35vw, 0.92rem);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
   pointer-events: none;
+}
+
+.wga-popup__caption {
+  display: none !important;
 }
 
 .wga-popup__title {
