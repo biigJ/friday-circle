@@ -1,14 +1,10 @@
 #!/usr/bin/env node
 /**
- * Export all WGA catalog works to a Notion-friendly CSV.
+ * Export WGA catalog works to a Notion-friendly CSV.
  *
  *   node scripts/export-wga-notion.mjs
  *
  * Output: data/sources/wga-notion-export.csv
- * In Notion: New database → Import → CSV → map columns.
- * Keep column "ID" unchanged — it is the re-import key.
- *
- * Verfügbarkeit options: verkäuflich | unverkäuflich | verkauft | verliehen
  */
 import fs from "fs";
 import path from "path";
@@ -27,10 +23,10 @@ const AVAILABILITY_DE = {
 
 const HEADERS = [
   "ID",
-  "Kapitel",
   "Dateiname",
-  "Bildpfad",
-  "Titel",
+  "Kapitel",
+  "Ordner",
+  "Sektion",
   "Jahr",
   "Technik",
   "Maße",
@@ -63,11 +59,11 @@ for (const section of catalog.sections || []) {
     const image = (work.images && work.images[0]) || "";
     rows.push(
       csvRow([
-        work.id,
-        section.title,
+        work.catalogId || work.id || "",
         basename(image),
-        image,
-        work.title || "",
+        section.chapter || "",
+        section.title || "",
+        section.sectionLabel || "",
         work.year || "",
         work.medium || "",
         work.dimensions || "",
@@ -83,5 +79,3 @@ fs.mkdirSync(path.dirname(outPath), { recursive: true });
 fs.writeFileSync(outPath, "\uFEFF" + rows.join(""), "utf8");
 
 console.log(`Exported ${rows.length - 1} works → ${outPath}`);
-console.log("Notion: Import CSV as database, then edit. Re-import with:");
-console.log("  node scripts/import-wga-notion.mjs && node scripts/sync-wga-catalog-js.mjs");

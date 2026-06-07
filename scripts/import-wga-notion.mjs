@@ -2,8 +2,8 @@
 /**
  * Import WGA metadata from Notion CSV export into data/wga-catalog.json
  *
- * Place export at data/sources/wga-notion-export.csv (or any .csv in data/sources/
- * whose name contains "wga-notion").
+ * CSV: data/sources/wg-notion-import.csv (master image map)
+ *        or data/sources/wga-notion-export.csv (metadata round-trip)
  *
  *   node scripts/import-wga-notion.mjs
  *   node scripts/sync-wga-catalog-js.mjs
@@ -36,12 +36,17 @@ const AVAILABILITY_MAP = {
 };
 
 function findCsvPath() {
-  const preferred = path.join(sourcesDir, "wga-notion-export.csv");
-  if (fs.existsSync(preferred)) return preferred;
+  const preferred = [
+    path.join(sourcesDir, "wga-notion-export.csv"),
+    path.join(sourcesDir, "wg-notion-import.csv"),
+  ];
+  for (const p of preferred) {
+    if (fs.existsSync(p)) return p;
+  }
   if (!fs.existsSync(sourcesDir)) return null;
   const files = fs
     .readdirSync(sourcesDir)
-    .filter((f) => f.toLowerCase().includes("wga") && f.endsWith(".csv"))
+    .filter((f) => /wga|wg-notion/i.test(f) && f.endsWith(".csv"))
     .sort();
   return files.length ? path.join(sourcesDir, files[0]) : null;
 }
@@ -129,7 +134,7 @@ if (rows.length < 2) {
 const headers = rows[0];
 const idx = {
   id: colIndex(headers, ["ID", "id"]),
-  title: colIndex(headers, ["Titel", "title"]),
+  title: colIndex(headers, ["Titel", "title", "Technik"]),
   year: colIndex(headers, ["Jahr", "year"]),
   medium: colIndex(headers, ["Technik", "medium"]),
   dimensions: colIndex(headers, ["Maße", "Masse", "dimensions"]),
@@ -147,7 +152,8 @@ const catalog = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
 const byId = new Map();
 for (const section of catalog.sections || []) {
   for (const work of section.works || []) {
-    if (work && work.id) byId.set(work.id, work);
+    if (work && work.id) byId.set(work.id.toLowerCase(), work);
+    if (work && work.catalogId) byId.set(work.catalogId.toLowerCase(), work);
   }
 }
 
@@ -158,7 +164,7 @@ for (let r = 1; r < rows.length; r++) {
   const row = rows[r];
   const id = clean(row[idx.id]);
   if (!id) continue;
-  const work = byId.get(id);
+  const work = byId.get(id.toLowerCase());
   if (!work) {
     unknown++;
     continue;

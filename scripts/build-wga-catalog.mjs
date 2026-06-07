@@ -1,7 +1,12 @@
 #!/usr/bin/env node
 /**
- * Ordnet assets/wolfgang-grope/*.jpg den Katalog-Sections zu (Reihenfolge = Nummer im Dateinamen).
- * Danach: node scripts/build-wga-catalog.mjs && node scripts/sync-wga-catalog-js.mjs
+ * Build WGA catalog from folder-sorted assets + wg-notion-import.csv
+ *
+ *   node scripts/build-wga-catalog.mjs
+ *   node scripts/sync-wga-catalog-js.mjs
+ *
+ * CSV: data/sources/wg-notion-import.csv
+ * Columns: ID, Dateiname, Kapitel, Sektion, Jahr, Technik
  */
 import fs from "fs";
 import path from "path";
@@ -10,169 +15,245 @@ import { fileURLToPath } from "url";
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const assetsDir = path.join(root, "assets/wolfgang-grope");
 const jsonPath = path.join(root, "data/wga-catalog.json");
+const csvPath = path.join(root, "data/sources/wg-notion-import.csv");
 
-const HOLZSCHNITT_1972_1974 = new Set([14, 15, 16, 18, 19, 52, 53, 54, 55, 56, 57, 58]);
-const SKIP_GRAFIK_1972_1974 = new Set([11]);
-
-const SECTION_DEFS = [
-  {
-    id: "aquarell-1960",
-    title: "1960 - Aquarell",
-    re: /^WG-Aquarell-1955-1970-/i,
-    skip: (f) => /^WG-Aquarell-1955-1970-01\./i.test(f),
-  },
-  { id: "acryl-1970", title: "1970 - Acryl", re: /^WG-Oel-1955-1970-/i },
-  { id: "rad-1972-1974", title: "1972 - 1974 Radierungen", re: /^WG-Grafik-1972-1974-/i },
-  { id: "holz-1973-1974", title: "1973 - 1974 - Holzschnitt", re: /^WG-Grafik-1972-1974-/i },
-  { id: "oel-1974-drei", title: "1974 Drei Ölgemälde", re: /^WG-Gemaelde-1974-/i },
-  {
-    id: "rad-1975-1979",
-    title: "1975 - 1979 Radierungen",
-    re: /^WG-(Grafik|Zeichnung)-1975-1979-/i,
-  },
-  {
-    id: "zeich-1976-1991",
-    title: "1976 - 1991 Zeichnungen und Gemälde",
-    re: /^WG-(Gemaelde|Zeichnung|Grafik)-1976-1991-/i,
-  },
-  {
-    id: "rad-holz-1984-1993",
-    title: "1984 - 1993 Radierungen und Holzschnitte",
-    re: /^WG-Grafik-1984-1993-/i,
-  },
-  {
-    id: "zeich-1991-1995",
-    title: "1991 - 1995 Zeichnungen und Skizzen",
-    re: /^WG-(Zeichnung|Skizze|Gemaelde|Grafik)-1991-1995-/i,
-  },
-  { id: "gem-1998-2001", title: "1998 - 2001 Gemälde", re: /^WG-Gemaelde-1998-2001-/i },
-  {
-    id: "skiz-2001-2003",
-    title: "2001 - 2003 Skizzen",
-    re: /^WG-(Gemaelde|Skizze|Zeichnung)-2001-2003-/i,
-  },
-  {
-    id: "abstraktion-2002",
-    title: "2002 Abstraktion. Zwei Gemälde, Skizzen und eine Radierung",
-    re: /^WG-Gemaelde-2002-/i,
-  },
-  {
-    id: "skiz-2003-2007",
-    title: "2003, 2005, 2007 Eine Skizze je Jahr",
-    re: /^WG-(Gemaelde|Skizze|Zeichnung)-2003-2007-/i,
-  },
-  { id: "keramiken", title: "Keramiken", re: /^WG-Keramik-/i },
-];
-
-function mediumAndTitle(base, sectionId) {
-  if (/Aquarell/i.test(base)) return { medium: "Aquarell", title: "Aquarell" };
-  if (/Oel/i.test(base) && sectionId === "acryl-1970") return { medium: "Acryl", title: "Acryl" };
-  if (/Oel/i.test(base)) return { medium: "Öl auf Leinwand", title: "Ölmalerei" };
-  if (sectionId === "holz-1973-1974") return { medium: "Holzschnitt", title: "Holzschnitt" };
-  if (/Grafik/i.test(base)) return { medium: "Radierung", title: "Radierung" };
-  if (/Gemaelde/i.test(base)) return { medium: "Gemälde", title: "Gemälde" };
-  if (/Zeichnung/i.test(base)) return { medium: "Zeichnung", title: "Zeichnung" };
-  if (/Skizze/i.test(base)) return { medium: "Skizze", title: "Skizze" };
-  if (/Keramik/i.test(base)) return { medium: "Keramik", title: "Keramik" };
-  return { medium: "—", title: "Werk" };
+function parseCsv(text) {
+  const rows = [];
+  let cur = "";
+  let row = [];
+  let inQuotes = false;
+  for (let i = 0; i < text.length; i++) {
+    const ch = text[i];
+    if (ch === '"') {
+      if (inQuotes && text[i + 1] === '"') {
+        cur += '"';
+        i++;
+      } else inQuotes = !inQuotes;
+    } else if (ch === "," && !inQuotes) {
+      row.push(cur);
+      cur = "";
+    } else if ((ch === "\n" || ch === "\r") && !inQuotes) {
+      if (ch === "\r" && text[i + 1] === "\n") i++;
+      row.push(cur);
+      if (row.some((c) => c.trim() !== "")) rows.push(row);
+      row = [];
+      cur = "";
+    } else cur += ch;
+  }
+  row.push(cur);
+  if (row.some((c) => c.trim() !== "")) rows.push(row);
+  return rows;
 }
 
-function workFromFile(filename, sectionId, existingById) {
-  const base = filename.replace(/\.[^.]+$/i, "");
-  const numMatch = base.match(/-(\d+)$/);
-  const sortNum = numMatch ? parseInt(numMatch[1], 10) : 0;
-  const { medium, title } = mediumAndTitle(base, sectionId);
-  const id = base
+function slugify(value) {
+  return String(value || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-|-$/g, "");
-  const work = {
-    id,
-    title,
-    year: "—",
-    medium,
-    dimensions: "—",
-    body: "",
-    images: [`assets/wolfgang-grope/${filename}`],
-    sortNum,
+}
+
+function clean(val) {
+  return val == null ? "" : String(val).trim();
+}
+
+function folderSortKey(folder) {
+  const m = folder.match(/^(\d+|x)\s*/i);
+  if (!m) return `z-${folder}`;
+  const prefix = m[1].toLowerCase() === "x" ? 999 : parseInt(m[1], 10);
+  return `${String(prefix).padStart(3, "0")}-${folder.toLowerCase()}`;
+}
+
+function indexImages() {
+  const byName = new Map();
+  for (const entry of fs.readdirSync(assetsDir, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    const folder = entry.name;
+    const dir = path.join(assetsDir, folder);
+    for (const file of fs.readdirSync(dir)) {
+      if (!/\.(jpe?g|png|webp)$/i.test(file)) continue;
+      byName.set(file, `${folder}/${file}`);
+    }
+  }
+  return byName;
+}
+
+function loadCsvRows() {
+  if (!fs.existsSync(csvPath)) {
+    console.error(`Missing CSV: ${csvPath}`);
+    process.exit(1);
+  }
+  const parsed = parseCsv(fs.readFileSync(csvPath, "utf8").replace(/^\uFEFF/, ""));
+  const headers = parsed[0].map((h) => clean(h));
+  const idx = {
+    id: headers.indexOf("ID"),
+    filename: headers.indexOf("Dateiname"),
+    chapter: headers.indexOf("Kapitel"),
+    section: headers.indexOf("Sektion"),
+    year: headers.indexOf("Jahr"),
+    medium: headers.indexOf("Technik"),
   };
-  const prev = existingById.get(id);
+  if (idx.id < 0 || idx.filename < 0) {
+    console.error("CSV must contain ID and Dateiname columns.");
+    process.exit(1);
+  }
+  return parsed.slice(1).map((cells) => ({
+    id: clean(cells[idx.id]),
+    filename: clean(cells[idx.filename]),
+    chapter: idx.chapter >= 0 ? clean(cells[idx.chapter]) : "",
+    section: idx.section >= 0 ? clean(cells[idx.section]) : "",
+    year: idx.year >= 0 ? clean(cells[idx.year]) : "",
+    medium: idx.medium >= 0 ? clean(cells[idx.medium]) : "",
+  }));
+}
+
+function loadPreviousMeta() {
+  const byFilename = new Map();
+  const byId = new Map();
+  if (!fs.existsSync(jsonPath)) return { byFilename, byId };
+  const existing = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
+  for (const section of existing.sections || []) {
+    for (const work of section.works || []) {
+      if (!work) continue;
+      if (work.id) byId.set(work.id.toLowerCase(), work);
+      const base = (work.images && work.images[0] || "").split("/").pop();
+      if (base) byFilename.set(base.toLowerCase(), work);
+    }
+  }
+  return { byFilename, byId };
+}
+
+function mergeMeta(work, prev) {
   if (!prev) return work;
-  for (const key of ["title", "year", "medium", "dimensions", "body", "price", "availability"]) {
+  for (const key of ["dimensions", "body", "price", "availability"]) {
     if (prev[key] != null && prev[key] !== "" && prev[key] !== "—") {
       work[key] = prev[key];
     }
   }
+  if (prev.title && prev.title !== "—" && prev.title !== work.title) {
+    work.title = prev.title;
+  }
   return work;
 }
 
-function grafik1972Num(filename) {
-  const m = filename.match(/^WG-Grafik-1972-1974-(\d+)\./i);
-  return m ? parseInt(m[1], 10) : null;
-}
-
-function sectionForFile(filename) {
-  const grafikNum = grafik1972Num(filename);
-  if (grafikNum !== null) {
-    if (SKIP_GRAFIK_1972_1974.has(grafikNum)) return null;
-    if (HOLZSCHNITT_1972_1974.has(grafikNum)) return "holz-1973-1974";
-    return "rad-1972-1974";
-  }
-  for (const def of SECTION_DEFS) {
-    if (def.id === "rad-1972-1974" || def.id === "holz-1973-1974") continue;
-    if (def.skip && def.skip(filename)) continue;
-    if (def.re.test(filename)) return def.id;
-  }
-  return null;
-}
-
-function sortSectionWorks(id, works) {
-  works.sort((a, b) => a.sortNum - b.sortNum);
-  if (id === "holz-1973-1974") {
-    const i56 = works.findIndex((w) => w.sortNum === 56);
-    const i57 = works.findIndex((w) => w.sortNum === 57);
-    if (i56 >= 0 && i57 >= 0 && i57 > i56) {
-      const w57 = works[i57];
-      works.splice(i57, 1);
-      works.splice(i56, 0, w57);
+function pickHeroSlides(sections) {
+  const findImage = (filename) => {
+    for (const section of sections) {
+      for (const work of section.works) {
+        const base = work.images[0].split("/").pop();
+        if (base === filename) return work.images[0];
+      }
     }
-  }
+    return null;
+  };
+
+  const picks = [
+    { file: "WG-Gemaelde-1976-1991-30.jpg", alt: "Wolfgang Grope — Gemälde 1976–1991", folderHint: "Skizzen" },
+    { file: "WG-Gemaelde-2002-04.jpg", alt: "Wolfgang Grope — Gemälde 2002", folderHint: "1999-2002" },
+    { file: "WG-Grafik-1972-1974-39.jpg", alt: "Wolfgang Grope — Radierung 1972–1974" },
+    { file: "WG-Keramik-25.jpg", alt: "Wolfgang Grope — Keramik", logoOn: "dark" },
+  ];
+
+  return picks.map((pick) => {
+    let src = findImage(pick.file);
+    if (!src && pick.folderHint) {
+      outer: for (const section of sections) {
+        if (!section.folder.includes(pick.folderHint)) continue;
+        if (section.works.length) {
+          src = section.works[Math.min(2, section.works.length - 1)].images[0];
+          break outer;
+        }
+      }
+    }
+    if (!src) {
+      for (const section of sections) {
+        if (section.works.length) {
+          src = section.works[0].images[0];
+          break;
+        }
+      }
+    }
+    const slide = { src, alt: pick.alt };
+    if (pick.logoOn) slide.logoOn = pick.logoOn;
+    return slide;
+  }).filter((s) => s.src);
 }
 
-const existing = JSON.parse(fs.readFileSync(jsonPath, "utf8"));
-const existingById = new Map();
-for (const section of existing.sections || []) {
-  for (const work of section.works || []) {
-    if (work && work.id) existingById.set(work.id, work);
-  }
-}
-const buckets = Object.fromEntries(SECTION_DEFS.map((d) => [d.id, []]));
+const imageIndex = indexImages();
+const csvRows = loadCsvRows();
+const prevMeta = loadPreviousMeta();
+const existing = fs.existsSync(jsonPath) ? JSON.parse(fs.readFileSync(jsonPath, "utf8")) : { meta: {} };
 
-const files = fs
-  .readdirSync(assetsDir)
-  .filter((f) => /\.(jpe?g|png|webp)$/i.test(f) && !f.startsWith("."));
+const sectionMap = new Map();
 
-for (const file of files) {
-  const sid = sectionForFile(file);
-  if (!sid) {
-    if (grafik1972Num(file) === null) console.warn("Unzugeordnet:", file);
+for (const row of csvRows) {
+  if (!row.id || !row.filename) continue;
+  const rel = imageIndex.get(row.filename);
+  if (!rel) {
+    console.warn("Image not found in numbered folders:", row.filename);
     continue;
   }
-  buckets[sid].push(workFromFile(file, sid, existingById));
+  const folder = rel.includes("/") ? rel.split("/")[0] : "";
+  if (!sectionMap.has(folder)) {
+    sectionMap.set(folder, {
+      folder,
+      chapter: row.chapter,
+      sectionLabel: row.section,
+      works: [],
+    });
+  }
+
+  const workId = row.id.toLowerCase();
+  const prev = prevMeta.byId.get(workId) || prevMeta.byFilename.get(row.filename.toLowerCase());
+  const work = mergeMeta(
+    {
+      id: workId,
+      catalogId: row.id,
+      title: row.medium || row.chapter || "Werk",
+      year: row.year || "—",
+      medium: row.medium || "—",
+      dimensions: "—",
+      body: "",
+      images: [`assets/wolfgang-grope/${rel}`],
+    },
+    prev
+  );
+  sectionMap.get(folder).works.push(work);
 }
 
-for (const id of Object.keys(buckets)) {
-  sortSectionWorks(id, buckets[id]);
-  buckets[id] = buckets[id].map(({ sortNum, ...w }) => w);
-}
+const sections = Array.from(sectionMap.values())
+  .sort((a, b) => folderSortKey(a.folder).localeCompare(folderSortKey(b.folder), undefined, { numeric: true }))
+  .map((entry, index, all) => {
+    const base = slugify(entry.folder) || `section-${index + 1}`;
+    let id = base;
+    let n = 2;
+    while (all.some((s, j) => j < index && slugify(s.folder) === id)) {
+      id = `${base}-${n++}`;
+    }
+    return {
+      id,
+      title: entry.folder,
+      folder: entry.folder,
+      chapter: entry.chapter,
+      sectionLabel: entry.sectionLabel,
+      works: entry.works,
+    };
+  });
 
 const payload = {
-  meta: existing.meta,
-  heroSlides: existing.heroSlides,
-  sections: SECTION_DEFS.map((def) => ({
-    id: def.id,
-    title: def.title,
-    works: buckets[def.id] || [],
+  meta: {
+    artist: existing.meta?.artist || "Wolfgang Grope",
+    heroHeadline: existing.meta?.heroHeadline || "1955 - 2005",
+    placeholder: existing.meta?.placeholder || "assets/wolfgang-grope/placeholder.svg",
+  },
+  heroSlides: pickHeroSlides(sections),
+  sections: sections.map(({ id, title, chapter, sectionLabel, works }) => ({
+    id,
+    title,
+    chapter,
+    sectionLabel,
+    works,
   })),
 };
 

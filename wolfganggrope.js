@@ -235,6 +235,14 @@
   }
 
   function catalogNo(work) {
+    if (work.catalogId) {
+      const m = String(work.catalogId).match(/-(\d+)$/i);
+      if (m) return m[1];
+    }
+    if (work.id && /^wg-\d+-\d+$/i.test(work.id)) {
+      const m = work.id.match(/-(\d+)$/i);
+      if (m) return m[1];
+    }
     const src = (work.images && work.images[0]) || "";
     const m = src.match(/-(\d+)\.(?:jpe?g|png|webp|svg)$/i);
     return m ? m[1] : "";
