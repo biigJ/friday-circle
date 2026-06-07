@@ -122,6 +122,7 @@ window.__WGA_CATALOG__={
       "id": "01-28-jahre-alt-aquarell-1960",
       "title": "01 28 Jahre alt, Aquarell - 1960",
       "chapter": "01 28 Jahre alt",
+      "chapterYear": "1960",
       "sectionLabel": "1960",
       "works": [
         {
@@ -190,6 +191,7 @@ window.__WGA_CATALOG__={
       "id": "02-knalliges-acryl-1970",
       "title": "02 Knalliges Acryl 1970",
       "chapter": "02 Knalliges Acryl",
+      "chapterYear": "1970",
       "sectionLabel": "1970",
       "works": [
         {
@@ -258,6 +260,7 @@ window.__WGA_CATALOG__={
       "id": "03-fruher-radierungen-1972-1974",
       "title": "03 früher Radierungen 1972-1974",
       "chapter": "03 Frühe Radierungen",
+      "chapterYear": "1972–1974",
       "sectionLabel": "1972-1974",
       "works": [
         {
@@ -866,6 +869,7 @@ window.__WGA_CATALOG__={
       "id": "04-holzschnitte-1973-1974",
       "title": "04 Holzschnitte 1973-1974 ",
       "chapter": "04 Holzschnitte",
+      "chapterYear": "1973–1974",
       "sectionLabel": "1973-1974",
       "works": [
         {
@@ -982,6 +986,7 @@ window.__WGA_CATALOG__={
       "id": "05-olmalerei-1974",
       "title": "05 Ölmalerei 1974",
       "chapter": "05 Ölmalerei 1974",
+      "chapterYear": "1974",
       "sectionLabel": "1974",
       "works": [
         {
@@ -1026,6 +1031,7 @@ window.__WGA_CATALOG__={
       "id": "06-mehr-radierungen-1975-1979",
       "title": "06 Mehr Radierungen 1975-1979",
       "chapter": "06 Mehr Radierungen",
+      "chapterYear": "1975–1979",
       "sectionLabel": "1975-1979",
       "works": [
         {
@@ -1634,6 +1640,7 @@ window.__WGA_CATALOG__={
       "id": "07-1976-collagen",
       "title": "07 1976 (Collagen)",
       "chapter": "07 Neue Familie",
+      "chapterYear": "1976–1979",
       "sectionLabel": "Collagen",
       "works": [
         {
@@ -1666,6 +1673,7 @@ window.__WGA_CATALOG__={
       "id": "07-neue-familie-1976-tuschezeichnung",
       "title": "07 Neue Familie 1976 (Tuschezeichnung)",
       "chapter": "07 Neue Familie",
+      "chapterYear": "1976–1979",
       "sectionLabel": "Tuschezeichnung",
       "works": [
         {
@@ -1710,6 +1718,7 @@ window.__WGA_CATALOG__={
       "id": "07-neue-familie-1976-1979-aquarell",
       "title": "07 Neue Familie 1976-1979 (Aquarell)",
       "chapter": "07 Neue Familie",
+      "chapterYear": "1976–1979",
       "sectionLabel": "Aquarell",
       "works": [
         {
@@ -1790,6 +1799,7 @@ window.__WGA_CATALOG__={
       "id": "07-neue-familie-1976-1979-skizzen",
       "title": "07 Neue Familie 1976-1979 (Skizzen)",
       "chapter": "07 Neue Familie",
+      "chapterYear": "1976–1979",
       "sectionLabel": "Skizzen",
       "works": [
         {
@@ -1846,6 +1856,7 @@ window.__WGA_CATALOG__={
       "id": "08-80-er-jahre-1980-1985-buntstiftzeichnungen",
       "title": "08 80'er Jahre 1980-1985 (Buntstiftzeichnungen)",
       "chapter": "08 80er Jahre",
+      "chapterYear": "1980er Jahre",
       "sectionLabel": "Buntstiftzeichnungen",
       "works": [
         {
@@ -1902,6 +1913,7 @@ window.__WGA_CATALOG__={
       "id": "08-80-er-jahre-1980-1989-aquarell",
       "title": "08 80'er Jahre 1980-1989 (Aquarell)",
       "chapter": "08 80er Jahre",
+      "chapterYear": "1980er Jahre",
       "sectionLabel": "Aquarell",
       "works": [
         {
@@ -2042,6 +2054,7 @@ window.__WGA_CATALOG__={
       "id": "08-80-er-jahre-1984-1987-olkreide",
       "title": "08 80'er Jahre 1984-1987 (Ölkreide)",
       "chapter": "08 80er Jahre",
+      "chapterYear": "1980er Jahre",
       "sectionLabel": "Ölkreide",
       "works": [
         {
@@ -2182,6 +2195,7 @@ window.__WGA_CATALOG__={
       "id": "08-80-er-jahre-1988-1995-radierungen",
       "title": "08 80'er Jahre 1988-1995 (Radierungen)",
       "chapter": "08 80er Jahre",
+      "chapterYear": "1980er Jahre",
       "sectionLabel": "Radierungen",
       "works": [
         {
@@ -2382,6 +2396,7 @@ window.__WGA_CATALOG__={
       "id": "08-80-er-jahre-1989-druck-experimente",
       "title": "08 80'er Jahre 1989 (Druck-Experimente)",
       "chapter": "08 80er Jahre",
+      "chapterYear": "1980er Jahre",
       "sectionLabel": "Druck-Experimente",
       "works": [
         {
@@ -2606,6 +2621,7 @@ window.__WGA_CATALOG__={
       "id": "09-90-er-jahre-1990-krypta-wurzburger-dom",
       "title": "09 90'er Jahre 1990 (Krypta Würzburger Dom)",
       "chapter": "09 90er Jahre",
+      "chapterYear": "1990er Jahre",
       "sectionLabel": "Krypta Würzburger Dom",
       "works": [
         {
@@ -2662,6 +2678,7 @@ window.__WGA_CATALOG__={
       "id": "09-90-er-jahre-1990-1999-aquarellbilder",
       "title": "09 90'er Jahre 1990-1999 (Aquarellbilder)",
       "chapter": "09 90er Jahre",
+      "chapterYear": "1990er Jahre",
       "sectionLabel": "Aquarellbilder",
       "works": [
         {
@@ -2778,6 +2795,7 @@ window.__WGA_CATALOG__={
       "id": "09-90-er-jahre-1991-skizzen-griechenland",
       "title": "09 90'er Jahre 1991 (Skizzen Griechenland)",
       "chapter": "09 90er Jahre",
+      "chapterYear": "1990er Jahre",
       "sectionLabel": "Skizzen Griechenland",
       "works": [
         {
@@ -2882,6 +2900,7 @@ window.__WGA_CATALOG__={
       "id": "09-90-er-jahre-1991-1995-skribbel",
       "title": "09 90'er Jahre 1991-1995 (Skribbel)",
       "chapter": "09 90er Jahre",
+      "chapterYear": "1990er Jahre",
       "sectionLabel": "Skribbel",
       "works": [
         {
@@ -2986,6 +3005,7 @@ window.__WGA_CATALOG__={
       "id": "09-90-er-jahre-1992-acrylbilder-im-gro-format",
       "title": "09 90'er jahre 1992 (Acrylbilder im Großformat)",
       "chapter": "09 90er Jahre",
+      "chapterYear": "1990er Jahre",
       "sectionLabel": "Acrylbilder im Großformat",
       "works": [
         {
@@ -3030,6 +3050,7 @@ window.__WGA_CATALOG__={
       "id": "09-90-er-jahre-1992-skizzen-bornholm",
       "title": "09 90'er Jahre 1992 (Skizzen Bornholm)",
       "chapter": "09 90er Jahre",
+      "chapterYear": "1990er Jahre",
       "sectionLabel": "Skizzen Bornholm",
       "works": [
         {
@@ -3158,6 +3179,7 @@ window.__WGA_CATALOG__={
       "id": "09-90-er-jahre-1992-tuschestrichzeichnungen",
       "title": "09 90'er Jahre 1992 (Tuschestrichzeichnungen)",
       "chapter": "09 90er Jahre",
+      "chapterYear": "1990er Jahre",
       "sectionLabel": "Tuschestrichzeichnungen",
       "works": [
         {
@@ -3214,6 +3236,7 @@ window.__WGA_CATALOG__={
       "id": "09-90-er-jahre-1992-1994-skizzenbuch",
       "title": "09 90'er Jahre 1992-1994 (Skizzenbuch)",
       "chapter": "09 90er Jahre",
+      "chapterYear": "1990er Jahre",
       "sectionLabel": "Skizzenbuch",
       "works": [
         {
@@ -3558,6 +3581,7 @@ window.__WGA_CATALOG__={
       "id": "09-90-er-jahre-1993-spontanes-objekt",
       "title": "09 90'er Jahre 1993 (Spontanes Objekt)",
       "chapter": "09 90er Jahre",
+      "chapterYear": "1990er Jahre",
       "sectionLabel": "Spontanes Objekt",
       "works": [
         {
@@ -3578,6 +3602,7 @@ window.__WGA_CATALOG__={
       "id": "09-90-er-jahre-1995-obst-in-aquarell",
       "title": "09 90'er Jahre 1995 (Obst in Aquarell)",
       "chapter": "09 90er Jahre",
+      "chapterYear": "1990er Jahre",
       "sectionLabel": "Obst in Aquarell",
       "works": [
         {
@@ -3694,6 +3719,7 @@ window.__WGA_CATALOG__={
       "id": "09-90-er-jahre-1995-olkreide",
       "title": "09 90'er Jahre 1995 (Ölkreide)",
       "chapter": "09 90er Jahre",
+      "chapterYear": "1990er Jahre",
       "sectionLabel": "Ölkreide",
       "works": [
         {
@@ -3750,6 +3776,7 @@ window.__WGA_CATALOG__={
       "id": "09-90-er-jahre-1995-skizzen-lofoten",
       "title": "09 90'er Jahre 1995 (Skizzen Lofoten)",
       "chapter": "09 90er Jahre",
+      "chapterYear": "1990er Jahre",
       "sectionLabel": "Skizzen Lofoten",
       "works": [
         {
@@ -4238,6 +4265,7 @@ window.__WGA_CATALOG__={
       "id": "10-2000-er-jahre-grafikdruck",
       "title": "10 2000'er Jahre (Grafikdruck)",
       "chapter": "10 2000er Jahre",
+      "chapterYear": "2000er Jahre",
       "sectionLabel": "Grafikdruck",
       "works": [
         {
@@ -4258,6 +4286,7 @@ window.__WGA_CATALOG__={
       "id": "10-2000-er-jahre-1999-2002-olmalerei",
       "title": "10 2000'er Jahre 1999-2002 (Ölmalerei)",
       "chapter": "10 2000er Jahre",
+      "chapterYear": "2000er Jahre",
       "sectionLabel": "Ölmalerei",
       "works": [
         {
@@ -4350,6 +4379,7 @@ window.__WGA_CATALOG__={
       "id": "10-2000-er-jahre-2000-2002-kreide-acryl-radierung",
       "title": "10 2000'er Jahre 2000-2002 (Kreide Acryl Radierung)",
       "chapter": "10 2000er Jahre",
+      "chapterYear": "2000er Jahre",
       "sectionLabel": "Kreide Acryl Radierung",
       "works": [
         {
@@ -4550,6 +4580,7 @@ window.__WGA_CATALOG__={
       "id": "10-2000-er-jahre-2001-2007-naives-malen",
       "title": "10 2000'er Jahre 2001-2007 (Naives Malen)",
       "chapter": "10 2000er Jahre",
+      "chapterYear": "2000er Jahre",
       "sectionLabel": "Naives Malen",
       "works": [
         {
@@ -4762,6 +4793,7 @@ window.__WGA_CATALOG__={
       "id": "11-keramik",
       "title": "11 Keramik",
       "chapter": "11 Keramik",
+      "chapterYear": "",
       "sectionLabel": "",
       "works": [
         {
@@ -5566,58 +5598,6 @@ window.__WGA_CATALOG__={
           "body": "",
           "images": [
             "assets/wolfgang-grope/11 Keramik/WG-Keramik-67.jpg"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "x-1955-olmalerei",
-      "title": "x 1955 Ölmalerei",
-      "chapter": "x Sonstiges",
-      "sectionLabel": "1955",
-      "works": [
-        {
-          "id": "wg-x-001",
-          "catalogId": "WG-x-001",
-          "title": "Ölmalerei",
-          "year": "1955",
-          "medium": "Ölmalerei",
-          "dimensions": "—",
-          "body": "",
-          "images": [
-            "assets/wolfgang-grope/x 1955 Ölmalerei/WG-Ölmalerei-1955-01.jpg"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "x-n-a",
-      "title": "x n-a",
-      "chapter": "x Sonstiges",
-      "sectionLabel": "",
-      "works": [
-        {
-          "id": "wg-x-002",
-          "catalogId": "WG-x-002",
-          "title": "Skizze",
-          "year": "1994",
-          "medium": "Skizze",
-          "dimensions": "—",
-          "body": "",
-          "images": [
-            "assets/wolfgang-grope/x n-a/WG-Mischtechnik-1994-14.jpg"
-          ]
-        },
-        {
-          "id": "wg-x-003",
-          "catalogId": "WG-x-003",
-          "title": "Tuschezeichnung",
-          "year": "1976",
-          "medium": "Tuschezeichnung",
-          "dimensions": "—",
-          "body": "",
-          "images": [
-            "assets/wolfgang-grope/x n-a/WG-Tuschezeichnung-1976-00.jpg"
           ]
         }
       ]

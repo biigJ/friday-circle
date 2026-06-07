@@ -351,7 +351,12 @@
     if (!catalogRoot || !catalog) return;
     catalogRoot.innerHTML = "";
 
-    catalog.sections.forEach(function (section) {
+    let lastChapter = null;
+    const sections = (catalog.sections || []).filter(function (section) {
+      return /^\d{2}\s/.test(section.chapter || "");
+    });
+
+    sections.forEach(function (section) {
       const sec = document.createElement("section");
       sec.className = "wga-section";
       sec.id = section.id;
@@ -359,9 +364,35 @@
       const shell = document.createElement("div");
       shell.className = "wga-shell";
 
-      const h2 = document.createElement("h2");
-      h2.className = "wga-section__title";
-      h2.textContent = section.title;
+      if (section.chapter !== lastChapter) {
+        const chapterHead = document.createElement("div");
+        chapterHead.className = "wga-chapter-head";
+
+        const chapterTitle = document.createElement("h2");
+        chapterTitle.className = "wga-chapter__title";
+        chapterTitle.textContent = section.chapter;
+        chapterHead.appendChild(chapterTitle);
+
+        if (section.chapterYear) {
+          const chapterYear = document.createElement("p");
+          chapterYear.className = "wga-chapter__year";
+          chapterYear.textContent = section.chapterYear;
+          chapterHead.appendChild(chapterYear);
+        }
+
+        shell.appendChild(chapterHead);
+        lastChapter = section.chapter;
+      }
+
+      const sectionLabel = (section.sectionLabel || "").trim();
+      const showSectionTitle =
+        sectionLabel && sectionLabel !== section.chapterYear && sectionLabel !== section.chapter;
+      if (showSectionTitle) {
+        const sectionTitle = document.createElement("h3");
+        sectionTitle.className = "wga-section__title";
+        sectionTitle.textContent = sectionLabel;
+        shell.appendChild(sectionTitle);
+      }
 
       const grid = document.createElement("div");
       grid.className = "wga-grid";
@@ -371,7 +402,6 @@
         if (tile) grid.appendChild(tile);
       });
 
-      shell.appendChild(h2);
       shell.appendChild(grid);
       sec.appendChild(shell);
       catalogRoot.appendChild(sec);

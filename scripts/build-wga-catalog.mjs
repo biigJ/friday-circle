@@ -135,6 +135,49 @@ function loadPreviousMeta() {
   return { byFilename, byId };
 }
 
+function deriveChapterYear(chapter, chapterSections) {
+  const eraFull = chapter.match(/\b(20\d{2})er\s+Jahre/i);
+  if (eraFull) return `${eraFull[1]}er Jahre`;
+
+  const eraShort = chapter.match(/\b(\d{2})er\s+Jahre/i);
+  if (eraShort) {
+    const n = parseInt(eraShort[1], 10);
+    return n >= 80 ? `19${eraShort[1]}er Jahre` : `20${eraShort[1]}er Jahre`;
+  }
+
+  const years = [];
+  const addToken = (token) => {
+    const matches = String(token || "").match(/\d{4}/g);
+    if (matches) matches.forEach((y) => years.push(parseInt(y, 10)));
+  };
+
+  for (const section of chapterSections) {
+    if (section.sectionLabel && /^\d{4}(?:[–-]\d{4})?$/.test(section.sectionLabel.trim())) {
+      addToken(section.sectionLabel);
+    }
+    addToken(section.title);
+  }
+  addToken(chapter);
+
+  if (!years.length) return "";
+  years.sort((a, b) => a - b);
+  const min = years[0];
+  const max = years[years.length - 1];
+  return min === max ? String(min) : `${min}–${max}`;
+}
+
+function attachChapterYears(sections) {
+  const byChapter = new Map();
+  for (const section of sections) {
+    if (!byChapter.has(section.chapter)) byChapter.set(section.chapter, []);
+    byChapter.get(section.chapter).push(section);
+  }
+  for (const section of sections) {
+    section.chapterYear = deriveChapterYear(section.chapter, byChapter.get(section.chapter) || []);
+  }
+  return sections;
+}
+
 function mergeMeta(work, prev) {
   if (!prev) return work;
   for (const key of ["dimensions", "body", "price", "availability"]) {
@@ -201,6 +244,7 @@ const sectionMap = new Map();
 
 for (const row of csvRows) {
   if (!row.id || !row.filename) continue;
+  if (/^x\b/i.test(row.chapter)) continue;
   const rel = imageIndex.get(row.filename);
   if (!rel) {
     console.warn("Image not found in numbered folders:", row.filename);
@@ -234,24 +278,26 @@ for (const row of csvRows) {
   sectionMap.get(folder).works.push(work);
 }
 
-const sections = Array.from(sectionMap.values())
-  .sort((a, b) => folderSortKey(a.folder).localeCompare(folderSortKey(b.folder), undefined, { numeric: true }))
-  .map((entry, index, all) => {
-    const base = slugify(entry.folder) || `section-${index + 1}`;
-    let id = base;
-    let n = 2;
-    while (all.some((s, j) => j < index && slugify(s.folder) === id)) {
-      id = `${base}-${n++}`;
-    }
-    return {
-      id,
-      title: entry.folder,
-      folder: entry.folder,
-      chapter: entry.chapter,
-      sectionLabel: entry.sectionLabel,
-      works: entry.works,
-    };
-  });
+const sections = attachChapterYears(
+  Array.from(sectionMap.values())
+    .sort((a, b) => folderSortKey(a.folder).localeCompare(folderSortKey(b.folder), undefined, { numeric: true }))
+    .map((entry, index, all) => {
+      const base = slugify(entry.folder) || `section-${index + 1}`;
+      let id = base;
+      let n = 2;
+      while (all.some((s, j) => j < index && slugify(s.folder) === id)) {
+        id = `${base}-${n++}`;
+      }
+      return {
+        id,
+        title: entry.folder,
+        folder: entry.folder,
+        chapter: entry.chapter,
+        sectionLabel: entry.sectionLabel,
+        works: entry.works,
+      };
+    })
+);
 
 const payload = {
   meta: {
@@ -260,10 +306,11 @@ const payload = {
     placeholder: existing.meta?.placeholder || "assets/wolfgang-grope/placeholder.svg",
   },
   heroSlides: buildHeroSlides(imageIndex, csvByFilename),
-  sections: sections.map(({ id, title, chapter, sectionLabel, works }) => ({
+  sections: sections.map(({ id, title, chapter, chapterYear, sectionLabel, works }) => ({
     id,
     title,
     chapter,
+    chapterYear,
     sectionLabel,
     works,
   })),
