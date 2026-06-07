@@ -58,6 +58,14 @@ function clean(val) {
   return val == null ? "" : String(val).trim();
 }
 
+function nfcPath(value) {
+  return String(value ?? "").normalize("NFC");
+}
+
+function nfc(value) {
+  return clean(value).normalize("NFC");
+}
+
 function folderSortKey(folder) {
   const m = folder.match(/^(\d+|x)\s*/i);
   if (!m) return `z-${folder}`;
@@ -69,11 +77,14 @@ function indexImages() {
   const byName = new Map();
   for (const entry of fs.readdirSync(assetsDir, { withFileTypes: true })) {
     if (!entry.isDirectory()) continue;
-    const folder = entry.name;
-    const dir = path.join(assetsDir, folder);
+    const folder = nfcPath(entry.name);
+    const dir = path.join(assetsDir, entry.name);
     for (const file of fs.readdirSync(dir)) {
       if (!/\.(jpe?g|png|webp)$/i.test(file)) continue;
-      byName.set(file, `${folder}/${file}`);
+      const rel = `${folder}/${nfcPath(file)}`;
+      byName.set(nfcPath(file), rel);
+      byName.set(nfc(file), rel);
+      if (file !== nfcPath(file)) byName.set(file, rel);
     }
   }
   return byName;
@@ -100,11 +111,11 @@ function loadCsvRows() {
   }
   return parsed.slice(1).map((cells) => ({
     id: clean(cells[idx.id]),
-    filename: clean(cells[idx.filename]),
-    chapter: idx.chapter >= 0 ? clean(cells[idx.chapter]) : "",
-    section: idx.section >= 0 ? clean(cells[idx.section]) : "",
+    filename: nfc(cells[idx.filename]),
+    chapter: idx.chapter >= 0 ? nfc(cells[idx.chapter]) : "",
+    section: idx.section >= 0 ? nfc(cells[idx.section]) : "",
     year: idx.year >= 0 ? clean(cells[idx.year]) : "",
-    medium: idx.medium >= 0 ? clean(cells[idx.medium]) : "",
+    medium: idx.medium >= 0 ? nfc(cells[idx.medium]) : "",
   }));
 }
 

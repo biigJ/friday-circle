@@ -10,11 +10,11 @@ window.__WGA_CATALOG__={
       "alt": "Wolfgang Grope — Gemälde 1976–1991"
     },
     {
-      "src": "assets/wolfgang-grope/10 2000'er Jahre 1999-2002 (Ölmalerei)/WG-Ölmalerei-1998-01.jpg",
+      "src": "assets/wolfgang-grope/10 2000'er Jahre 1999-2002 (Ölmalerei)/WG-Ölmalerei-1998-01.jpg",
       "alt": "Wolfgang Grope — Gemälde 2002"
     },
     {
-      "src": "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-39.jpg",
+      "src": "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-39.jpg",
       "alt": "Wolfgang Grope — Radierung 1972–1974"
     },
     {
@@ -103,11 +103,11 @@ window.__WGA_CATALOG__={
           "catalogId": "WG-02-001",
           "title": "Ölmalerei",
           "year": "1960",
-          "medium": "Ölmalerei",
+          "medium": "Ölmalerei",
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/02 Knalliges Acryl 1970/WG-Ölmalerei-1960-07.jpg"
+            "assets/wolfgang-grope/02 Knalliges Acryl 1970/WG-Ölmalerei-1960-07.jpg"
           ]
         },
         {
@@ -115,11 +115,11 @@ window.__WGA_CATALOG__={
           "catalogId": "WG-02-002",
           "title": "Ölmalerei",
           "year": "1960",
-          "medium": "Ölmalerei",
+          "medium": "Ölmalerei",
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/02 Knalliges Acryl 1970/WG-Ölmalerei-1960-08.jpg"
+            "assets/wolfgang-grope/02 Knalliges Acryl 1970/WG-Ölmalerei-1960-08.jpg"
           ]
         },
         {
@@ -127,11 +127,11 @@ window.__WGA_CATALOG__={
           "catalogId": "WG-02-003",
           "title": "Ölmalerei",
           "year": "1960",
-          "medium": "Ölmalerei",
+          "medium": "Ölmalerei",
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/02 Knalliges Acryl 1970/WG-Ölmalerei-1960-09.jpg"
+            "assets/wolfgang-grope/02 Knalliges Acryl 1970/WG-Ölmalerei-1960-09.jpg"
           ]
         },
         {
@@ -139,11 +139,11 @@ window.__WGA_CATALOG__={
           "catalogId": "WG-02-004",
           "title": "Ölmalerei",
           "year": "1960",
-          "medium": "Ölmalerei",
+          "medium": "Ölmalerei",
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/02 Knalliges Acryl 1970/WG-Ölmalerei-1960-10.jpg"
+            "assets/wolfgang-grope/02 Knalliges Acryl 1970/WG-Ölmalerei-1960-10.jpg"
           ]
         },
         {
@@ -151,18 +151,18 @@ window.__WGA_CATALOG__={
           "catalogId": "WG-02-005",
           "title": "Ölmalerei",
           "year": "1960",
-          "medium": "Ölmalerei",
+          "medium": "Ölmalerei",
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/02 Knalliges Acryl 1970/WG-Ölmalerei-1960-11.jpg"
+            "assets/wolfgang-grope/02 Knalliges Acryl 1970/WG-Ölmalerei-1960-11.jpg"
           ]
         }
       ]
     },
     {
       "id": "03-fruher-radierungen-1972-1974",
-      "title": "03 früher Radierungen 1972-1974",
+      "title": "03 früher Radierungen 1972-1974",
       "chapter": "03 Frühe Radierungen",
       "sectionLabel": "1972-1974",
       "works": [
@@ -175,7 +175,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-01.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-01.jpg"
           ]
         },
         {
@@ -187,7 +187,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-02.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-02.jpg"
           ]
         },
         {
@@ -199,7 +199,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-03.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-03.jpg"
           ]
         },
         {
@@ -211,7 +211,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-04.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-04.jpg"
           ]
         },
         {
@@ -223,7 +223,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-05.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-05.jpg"
           ]
         },
         {
@@ -235,7 +235,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-06.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-06.jpg"
           ]
         },
         {
@@ -247,7 +247,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-07.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-07.jpg"
           ]
         },
         {
@@ -259,7 +259,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-08.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-08.jpg"
           ]
         },
         {
@@ -271,7 +271,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-09.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-09.jpg"
           ]
         },
         {
@@ -283,7 +283,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-10.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-10.jpg"
           ]
         },
         {
@@ -295,7 +295,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-12.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-12.jpg"
           ]
         },
         {
@@ -307,7 +307,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-13.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-13.jpg"
           ]
         },
         {
@@ -319,7 +319,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-16.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-16.jpg"
           ]
         },
         {
@@ -331,7 +331,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-17.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-17.jpg"
           ]
         },
         {
@@ -343,7 +343,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-18.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-18.jpg"
           ]
         },
         {
@@ -355,7 +355,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-19.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-19.jpg"
           ]
         },
         {
@@ -367,7 +367,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-20.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-20.jpg"
           ]
         },
         {
@@ -379,7 +379,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-21.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-21.jpg"
           ]
         },
         {
@@ -391,7 +391,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-22.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-22.jpg"
           ]
         },
         {
@@ -403,7 +403,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-23.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-23.jpg"
           ]
         },
         {
@@ -415,7 +415,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-24.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-24.jpg"
           ]
         },
         {
@@ -427,7 +427,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-25.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-25.jpg"
           ]
         },
         {
@@ -439,7 +439,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-26.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-26.jpg"
           ]
         },
         {
@@ -451,7 +451,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-27.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-27.jpg"
           ]
         },
         {
@@ -463,7 +463,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-28.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-28.jpg"
           ]
         },
         {
@@ -475,7 +475,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-29.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-29.jpg"
           ]
         },
         {
@@ -487,7 +487,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-30.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-30.jpg"
           ]
         },
         {
@@ -499,7 +499,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-31.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-31.jpg"
           ]
         },
         {
@@ -511,7 +511,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-32.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-32.jpg"
           ]
         },
         {
@@ -523,7 +523,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-33.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-33.jpg"
           ]
         },
         {
@@ -535,7 +535,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-34.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-34.jpg"
           ]
         },
         {
@@ -547,7 +547,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-35.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-35.jpg"
           ]
         },
         {
@@ -559,7 +559,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-36.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-36.jpg"
           ]
         },
         {
@@ -571,7 +571,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-37.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-37.jpg"
           ]
         },
         {
@@ -583,7 +583,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-38.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-38.jpg"
           ]
         },
         {
@@ -595,7 +595,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-39.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-39.jpg"
           ]
         },
         {
@@ -607,7 +607,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-40.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-40.jpg"
           ]
         },
         {
@@ -619,7 +619,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-41.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-41.jpg"
           ]
         },
         {
@@ -631,7 +631,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-42.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-42.jpg"
           ]
         },
         {
@@ -643,7 +643,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-43.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-43.jpg"
           ]
         },
         {
@@ -655,7 +655,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-44.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-44.jpg"
           ]
         },
         {
@@ -667,7 +667,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-45.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-45.jpg"
           ]
         },
         {
@@ -679,7 +679,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-46.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-46.jpg"
           ]
         },
         {
@@ -691,7 +691,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-47.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-47.jpg"
           ]
         },
         {
@@ -703,7 +703,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-48.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-48.jpg"
           ]
         },
         {
@@ -715,7 +715,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-49.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-49.jpg"
           ]
         },
         {
@@ -727,7 +727,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-50.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-50.jpg"
           ]
         },
         {
@@ -739,7 +739,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-51.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-51.jpg"
           ]
         },
         {
@@ -751,7 +751,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-59.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-59.jpg"
           ]
         },
         {
@@ -763,7 +763,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-60.jpg"
+            "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-60.jpg"
           ]
         }
       ]
@@ -886,7 +886,7 @@ window.__WGA_CATALOG__={
     },
     {
       "id": "05-olmalerei-1974",
-      "title": "05 Ölmalerei 1974",
+      "title": "05 Ölmalerei 1974",
       "chapter": "05 Ölmalerei 1974",
       "sectionLabel": "1974",
       "works": [
@@ -895,11 +895,11 @@ window.__WGA_CATALOG__={
           "catalogId": "WG-05-001",
           "title": "Ölgemälde",
           "year": "1974",
-          "medium": "Ölgemälde",
+          "medium": "Ölgemälde",
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/05 Ölmalerei 1974/WG-Ölgemälde-1974-01.jpg"
+            "assets/wolfgang-grope/05 Ölmalerei 1974/WG-Ölgemälde-1974-01.jpg"
           ]
         },
         {
@@ -907,11 +907,11 @@ window.__WGA_CATALOG__={
           "catalogId": "WG-05-002",
           "title": "Ölgemälde",
           "year": "1974",
-          "medium": "Ölgemälde",
+          "medium": "Ölgemälde",
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/05 Ölmalerei 1974/WG-Ölgemälde-1974-02.jpg"
+            "assets/wolfgang-grope/05 Ölmalerei 1974/WG-Ölgemälde-1974-02.jpg"
           ]
         },
         {
@@ -919,11 +919,11 @@ window.__WGA_CATALOG__={
           "catalogId": "WG-05-003",
           "title": "Ölgemälde",
           "year": "1974",
-          "medium": "Ölgemälde",
+          "medium": "Ölgemälde",
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/05 Ölmalerei 1974/WG-Ölgemälde-1974-03.jpg"
+            "assets/wolfgang-grope/05 Ölmalerei 1974/WG-Ölgemälde-1974-03.jpg"
           ]
         }
       ]
@@ -1946,9 +1946,9 @@ window.__WGA_CATALOG__={
     },
     {
       "id": "08-80-er-jahre-1984-1987-olkreide",
-      "title": "08 80'er Jahre 1984-1987 (Ölkreide)",
+      "title": "08 80'er Jahre 1984-1987 (Ölkreide)",
       "chapter": "08 80er Jahre",
-      "sectionLabel": "Ölkreide",
+      "sectionLabel": "Ölkreide",
       "works": [
         {
           "id": "wg-08-016",
@@ -1959,7 +1959,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/08 80'er Jahre 1984-1987 (Ölkreide)/WG-Kreidezeichnung-1984-31.jpg"
+            "assets/wolfgang-grope/08 80'er Jahre 1984-1987 (Ölkreide)/WG-Kreidezeichnung-1984-31.jpg"
           ]
         },
         {
@@ -1971,7 +1971,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/08 80'er Jahre 1984-1987 (Ölkreide)/WG-Kreidezeichnung-1989-53.jpg"
+            "assets/wolfgang-grope/08 80'er Jahre 1984-1987 (Ölkreide)/WG-Kreidezeichnung-1989-53.jpg"
           ]
         },
         {
@@ -1983,7 +1983,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/08 80'er Jahre 1984-1987 (Ölkreide)/WG-Kreidezeichnung-1991-35.jpg"
+            "assets/wolfgang-grope/08 80'er Jahre 1984-1987 (Ölkreide)/WG-Kreidezeichnung-1991-35.jpg"
           ]
         },
         {
@@ -1995,7 +1995,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/08 80'er Jahre 1984-1987 (Ölkreide)/WG-Mischtechnik-1987-48.jpg"
+            "assets/wolfgang-grope/08 80'er Jahre 1984-1987 (Ölkreide)/WG-Mischtechnik-1987-48.jpg"
           ]
         },
         {
@@ -2007,7 +2007,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/08 80'er Jahre 1984-1987 (Ölkreide)/WG-Ölkreide-1985-40.jpg"
+            "assets/wolfgang-grope/08 80'er Jahre 1984-1987 (Ölkreide)/WG-Ölkreide-1985-40.jpg"
           ]
         },
         {
@@ -2019,7 +2019,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/08 80'er Jahre 1984-1987 (Ölkreide)/WG-Ölkreide-1986-42.jpg"
+            "assets/wolfgang-grope/08 80'er Jahre 1984-1987 (Ölkreide)/WG-Ölkreide-1986-42.jpg"
           ]
         },
         {
@@ -2031,7 +2031,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/08 80'er Jahre 1984-1987 (Ölkreide)/WG-Ölkreide-1986-44.jpg"
+            "assets/wolfgang-grope/08 80'er Jahre 1984-1987 (Ölkreide)/WG-Ölkreide-1986-44.jpg"
           ]
         },
         {
@@ -2043,7 +2043,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/08 80'er Jahre 1984-1987 (Ölkreide)/WG-Ölkreide-1986-45.jpg"
+            "assets/wolfgang-grope/08 80'er Jahre 1984-1987 (Ölkreide)/WG-Ölkreide-1986-45.jpg"
           ]
         },
         {
@@ -2055,7 +2055,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/08 80'er Jahre 1984-1987 (Ölkreide)/WG-Ölkreide-1986-46.jpg"
+            "assets/wolfgang-grope/08 80'er Jahre 1984-1987 (Ölkreide)/WG-Ölkreide-1986-46.jpg"
           ]
         },
         {
@@ -2067,7 +2067,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/08 80'er Jahre 1984-1987 (Ölkreide)/WG-Ölkreide-1987-47.jpg"
+            "assets/wolfgang-grope/08 80'er Jahre 1984-1987 (Ölkreide)/WG-Ölkreide-1987-47.jpg"
           ]
         },
         {
@@ -2079,7 +2079,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/08 80'er Jahre 1984-1987 (Ölkreide)/WG-Ölkreide-1995-89.jpg"
+            "assets/wolfgang-grope/08 80'er Jahre 1984-1987 (Ölkreide)/WG-Ölkreide-1995-89.jpg"
           ]
         }
       ]
@@ -2510,9 +2510,9 @@ window.__WGA_CATALOG__={
     },
     {
       "id": "09-90-er-jahre-1990-krypta-wurzburger-dom",
-      "title": "09 90'er Jahre 1990 (Krypta Würzburger Dom)",
+      "title": "09 90'er Jahre 1990 (Krypta Würzburger Dom)",
       "chapter": "09 90er Jahre",
-      "sectionLabel": "Krypta Würzburger Dom",
+      "sectionLabel": "Krypta Würzburger Dom",
       "works": [
         {
           "id": "wg-09-001",
@@ -2523,7 +2523,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/09 90'er Jahre 1990 (Krypta Würzburger Dom)/WG-SKizze-1990-92.jpg"
+            "assets/wolfgang-grope/09 90'er Jahre 1990 (Krypta Würzburger Dom)/WG-SKizze-1990-92.jpg"
           ]
         },
         {
@@ -2535,7 +2535,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/09 90'er Jahre 1990 (Krypta Würzburger Dom)/WG-Skizze-1990-93.jpg"
+            "assets/wolfgang-grope/09 90'er Jahre 1990 (Krypta Würzburger Dom)/WG-Skizze-1990-93.jpg"
           ]
         },
         {
@@ -2547,7 +2547,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/09 90'er Jahre 1990 (Krypta Würzburger Dom)/WG-Skizze-1990-94.jpg"
+            "assets/wolfgang-grope/09 90'er Jahre 1990 (Krypta Würzburger Dom)/WG-Skizze-1990-94.jpg"
           ]
         },
         {
@@ -2559,7 +2559,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/09 90'er Jahre 1990 (Krypta Würzburger Dom)/WG-Skizze-1990-95.jpg"
+            "assets/wolfgang-grope/09 90'er Jahre 1990 (Krypta Würzburger Dom)/WG-Skizze-1990-95.jpg"
           ]
         }
       ]
@@ -2731,7 +2731,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/09 90'er Jahre 1991 (Skizzen Griechenland)/WG-Ölkreidezeichnung-1990-32.jpg"
+            "assets/wolfgang-grope/09 90'er Jahre 1991 (Skizzen Griechenland)/WG-Ölkreidezeichnung-1990-32.jpg"
           ]
         },
         {
@@ -2883,7 +2883,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/09 90'er Jahre 1991-1995 (Skribbel)/WG-Ölkreide-1991-04.jpg"
+            "assets/wolfgang-grope/09 90'er Jahre 1991-1995 (Skribbel)/WG-Ölkreide-1991-04.jpg"
           ]
         }
       ]
@@ -3598,9 +3598,9 @@ window.__WGA_CATALOG__={
     },
     {
       "id": "09-90-er-jahre-1995-olkreide",
-      "title": "09 90'er Jahre 1995 (Ölkreide)",
+      "title": "09 90'er Jahre 1995 (Ölkreide)",
       "chapter": "09 90er Jahre",
-      "sectionLabel": "Ölkreide",
+      "sectionLabel": "Ölkreide",
       "works": [
         {
           "id": "wg-09-082",
@@ -3611,7 +3611,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/09 90'er Jahre 1995 (Ölkreide)/WG-Acryl-1985-13.jpg"
+            "assets/wolfgang-grope/09 90'er Jahre 1995 (Ölkreide)/WG-Acryl-1985-13.jpg"
           ]
         },
         {
@@ -3623,7 +3623,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/09 90'er Jahre 1995 (Ölkreide)/WG-Ölkreide-1995-87.jpg"
+            "assets/wolfgang-grope/09 90'er Jahre 1995 (Ölkreide)/WG-Ölkreide-1995-87.jpg"
           ]
         },
         {
@@ -3635,7 +3635,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/09 90'er Jahre 1995 (Ölkreide)/WG-Ölkreide-1995-88.jpg"
+            "assets/wolfgang-grope/09 90'er Jahre 1995 (Ölkreide)/WG-Ölkreide-1995-88.jpg"
           ]
         },
         {
@@ -3647,7 +3647,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/09 90'er Jahre 1995 (Ölkreide)/WG-Ölkreide-1995-90.jpg"
+            "assets/wolfgang-grope/09 90'er Jahre 1995 (Ölkreide)/WG-Ölkreide-1995-90.jpg"
           ]
         }
       ]
@@ -3967,7 +3967,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/09 90'er Jahre 1995 (Skizzen Lofoten)/WG-Ölkreide-1995-34.jpg"
+            "assets/wolfgang-grope/09 90'er Jahre 1995 (Skizzen Lofoten)/WG-Ölkreide-1995-34.jpg"
           ]
         },
         {
@@ -3979,7 +3979,7 @@ window.__WGA_CATALOG__={
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/09 90'er Jahre 1995 (Skizzen Lofoten)/WG-Ölkreide-1995-70.jpg"
+            "assets/wolfgang-grope/09 90'er Jahre 1995 (Skizzen Lofoten)/WG-Ölkreide-1995-70.jpg"
           ]
         },
         {
@@ -4162,20 +4162,20 @@ window.__WGA_CATALOG__={
     },
     {
       "id": "10-2000-er-jahre-1999-2002-olmalerei",
-      "title": "10 2000'er Jahre 1999-2002 (Ölmalerei)",
+      "title": "10 2000'er Jahre 1999-2002 (Ölmalerei)",
       "chapter": "10 2000er Jahre",
-      "sectionLabel": "Ölmalerei",
+      "sectionLabel": "Ölmalerei",
       "works": [
         {
           "id": "wg-10-002",
           "catalogId": "WG-10-002",
           "title": "Ölgemälde",
           "year": "2002",
-          "medium": "Ölgemälde",
+          "medium": "Ölgemälde",
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/10 2000'er Jahre 1999-2002 (Ölmalerei)/WG-Ölgemälde-2002-04.jpg"
+            "assets/wolfgang-grope/10 2000'er Jahre 1999-2002 (Ölmalerei)/WG-Ölgemälde-2002-04.jpg"
           ]
         },
         {
@@ -4183,11 +4183,11 @@ window.__WGA_CATALOG__={
           "catalogId": "WG-10-003",
           "title": "Ölgemälde",
           "year": "2002",
-          "medium": "Ölgemälde",
+          "medium": "Ölgemälde",
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/10 2000'er Jahre 1999-2002 (Ölmalerei)/WG-Ölgemälde-2002.jpg"
+            "assets/wolfgang-grope/10 2000'er Jahre 1999-2002 (Ölmalerei)/WG-Ölgemälde-2002.jpg"
           ]
         },
         {
@@ -4195,11 +4195,11 @@ window.__WGA_CATALOG__={
           "catalogId": "WG-10-004",
           "title": "Ölmalerei",
           "year": "1998",
-          "medium": "Ölmalerei",
+          "medium": "Ölmalerei",
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/10 2000'er Jahre 1999-2002 (Ölmalerei)/WG-Ölmalerei-1998-01.jpg"
+            "assets/wolfgang-grope/10 2000'er Jahre 1999-2002 (Ölmalerei)/WG-Ölmalerei-1998-01.jpg"
           ]
         },
         {
@@ -4207,11 +4207,11 @@ window.__WGA_CATALOG__={
           "catalogId": "WG-10-005",
           "title": "Ölmalerei",
           "year": "1999",
-          "medium": "Ölmalerei",
+          "medium": "Ölmalerei",
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/10 2000'er Jahre 1999-2002 (Ölmalerei)/WG-Ölmalerei-1999-03.jpg"
+            "assets/wolfgang-grope/10 2000'er Jahre 1999-2002 (Ölmalerei)/WG-Ölmalerei-1999-03.jpg"
           ]
         },
         {
@@ -4219,11 +4219,11 @@ window.__WGA_CATALOG__={
           "catalogId": "WG-10-006",
           "title": "Ölmalerei",
           "year": "1999",
-          "medium": "Ölmalerei",
+          "medium": "Ölmalerei",
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/10 2000'er Jahre 1999-2002 (Ölmalerei)/WG-Ölmalerei-1999-04.jpg"
+            "assets/wolfgang-grope/10 2000'er Jahre 1999-2002 (Ölmalerei)/WG-Ölmalerei-1999-04.jpg"
           ]
         },
         {
@@ -4231,11 +4231,11 @@ window.__WGA_CATALOG__={
           "catalogId": "WG-10-007",
           "title": "Ölmalerei",
           "year": "1999",
-          "medium": "Ölmalerei",
+          "medium": "Ölmalerei",
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/10 2000'er Jahre 1999-2002 (Ölmalerei)/WG-Ölmalerei-1999-05.jpg"
+            "assets/wolfgang-grope/10 2000'er Jahre 1999-2002 (Ölmalerei)/WG-Ölmalerei-1999-05.jpg"
           ]
         },
         {
@@ -4243,11 +4243,11 @@ window.__WGA_CATALOG__={
           "catalogId": "WG-10-008",
           "title": "Ölmalerei",
           "year": "2000",
-          "medium": "Ölmalerei",
+          "medium": "Ölmalerei",
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/10 2000'er Jahre 1999-2002 (Ölmalerei)/WG-Ölmalerei-2000-06.jpg"
+            "assets/wolfgang-grope/10 2000'er Jahre 1999-2002 (Ölmalerei)/WG-Ölmalerei-2000-06.jpg"
           ]
         }
       ]
@@ -5478,7 +5478,7 @@ window.__WGA_CATALOG__={
     },
     {
       "id": "x-1955-olmalerei",
-      "title": "x 1955 Ölmalerei",
+      "title": "x 1955 Ölmalerei",
       "chapter": "x Sonstiges",
       "sectionLabel": "1955",
       "works": [
@@ -5487,11 +5487,11 @@ window.__WGA_CATALOG__={
           "catalogId": "WG-x-001",
           "title": "Ölmalerei",
           "year": "1955",
-          "medium": "Ölmalerei",
+          "medium": "Ölmalerei",
           "dimensions": "—",
           "body": "",
           "images": [
-            "assets/wolfgang-grope/x 1955 Ölmalerei/WG-Ölmalerei-1955-01.jpg"
+            "assets/wolfgang-grope/x 1955 Ölmalerei/WG-Ölmalerei-1955-01.jpg"
           ]
         }
       ]

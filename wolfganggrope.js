@@ -5,10 +5,11 @@
 
   function resolveAsset(path) {
     if (!path || /^https?:\/\//i.test(path)) return path;
+    const normalized = String(path).normalize("NFC");
     try {
-      return new URL(path, document.baseURI || location.href).href;
+      return new URL(normalized, document.baseURI || location.href).href;
     } catch (e) {
-      return path;
+      return normalized;
     }
   }
 
