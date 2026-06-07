@@ -45,6 +45,7 @@
   const inquiryPopup = document.getElementById("wga-inquiry");
   const inquiryImg = document.getElementById("wga-inquiry-img");
   const inquiryText = document.getElementById("wga-inquiry-text");
+  const inquiryMail = document.getElementById("wga-inquiry-mail");
   let openInquiryWorkId = null;
 
   const bioOverlay = document.getElementById("wga-bio");
@@ -328,6 +329,23 @@
     return "Anfrage an Familie Grope. Gerahmt versendet. " + pricePart + ".";
   }
 
+  function inquiryMailHref(work) {
+    const subject = [work.catalogId, work.title, work.year !== "—" ? work.year : ""]
+      .filter(Boolean)
+      .join(" · ");
+    const params = subject ? "?subject=" + encodeURIComponent("Anfrage: " + subject) : "";
+    return "mailto:mail@bjgrope.de" + params;
+  }
+
+  function updateInquiryPopupContent(work) {
+    if (!work) return;
+    if (inquiryText) inquiryText.textContent = inquiryMessage(work);
+    if (inquiryMail) {
+      inquiryMail.href = inquiryMailHref(work);
+      inquiryMail.textContent = getWgaLang() === "en" ? "Email" : "E-Mail";
+    }
+  }
+
   function openInquiryPopup(id) {
     const work = worksById[id];
     if (!work || !inquiryPopup || work.berlinStatus === "unavailable") return;
@@ -336,7 +354,7 @@
       inquiryImg.src = workImage(work);
       inquiryImg.alt = tileLabel(work);
     }
-    if (inquiryText) inquiryText.textContent = inquiryMessage(work);
+    updateInquiryPopupContent(work);
     inquiryPopup.hidden = false;
     inquiryPopup.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
@@ -1180,7 +1198,7 @@
     if (openWorkId) openPopup(openWorkId);
     if (openInquiryWorkId) {
       const work = worksById[openInquiryWorkId];
-      if (work && inquiryText) inquiryText.textContent = inquiryMessage(work);
+      if (work) updateInquiryPopupContent(work);
     }
     if (popupPrev) {
       popupPrev.setAttribute("aria-label", getWgaLang() === "en" ? "Previous work" : "Vorheriges Werk");
