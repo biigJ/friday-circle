@@ -4229,7 +4229,7 @@
         <div class="gogl-showcase-pin">
         <div class="gogl-joscha-grow-wrap">
           <div class="gogl-showcase-slider-ui">
-            <p class="gogl-program-slider-title" id="gogl-program-slider-title" aria-live="polite">Ein leichter Schritt, Dich täglich ausreichend zu bewegen.</p>
+            <p class="gogl-program-slider-title" id="gogl-program-slider-title" aria-live="polite">genügend Bewegung für Dich</p>
             <div class="gogl-program-slider-arrows">
               <button type="button" class="gogl-program-slider-arrow gogl-program-slider-arrow--prev" aria-label="Vorheriges Programm"><span aria-hidden="true">‹</span></button>
               <button type="button" class="gogl-program-slider-arrow gogl-program-slider-arrow--next" aria-label="Nächstes Programm"><span aria-hidden="true">›</span></button>
@@ -4279,7 +4279,7 @@
                     <div class="gogl-video-overlay-footer">
                       <div class="gogl-hero-cards-block">
                         <p class="gogl-hero-cards-block__headline">
-                          Kurse, Mitgliedschaften und Trainer gibt es genug. Was fehlt ist jemand, der mit Dir geht. Wähl Deine Leute oder einen Trainer und macht es zusammen.
+                          genügend Bewegung für Dich
                         </p>
                         <div class="gogl-hero-cards">
                         <a class="gogl-hero-card gogl-hero-card--left" href="register-training/index.html">
@@ -4304,10 +4304,10 @@
                         <div class="gogl-bar" aria-label="Hinweis">
                         <div class="gogl-bar__track">
                           <p class="gogl-bar__text">
-                            168 Stunden hat die Woche. Wie viele genießt Du davon? Beweg Dich jeden Tag mehr als ne Stunde. Und alles wird leichter.
+                            Beweg Dich jeden Tag mehr als ne Stunde.
                           </p>
                           <p class="gogl-bar__text" aria-hidden="true">
-                            168 Stunden hat die Woche. Wie viele genießt Du davon? Beweg Dich jeden Tag mehr als ne Stunde. Und alles wird leichter.
+                            Beweg Dich jeden Tag mehr als ne Stunde.
                           </p>
                         </div>
                       </div>
@@ -5650,12 +5650,37 @@ function nudgeExpandedIntoView() {
   applyCarouselTransform();
 }
 
-function expandCard(id) {
+function getCarouselCards() {
+  const track = document.getElementById('carousel-track');
+  return track ? Array.from(track.querySelectorAll('.c-card')) : [];
+}
+
+function getOpenCarouselCardIndex(cards) {
+  return cards.findIndex(function (c) {
+    return c.classList.contains('cc-open');
+  });
+}
+
+function ensureCarouselShowsCard(cardIndex, cardCount) {
+  const maxPos = Math.max(0, cardCount - 3);
+  if (cardIndex < carouselPos) {
+    carouselPos = cardIndex;
+  } else if (cardIndex > carouselPos + 2) {
+    carouselPos = Math.min(cardIndex - 2, maxPos);
+  }
+  expandNudgeX = 0;
+  applyCarouselTransform();
+}
+
+function openCarouselCard(id) {
   if (isGogogoMobile()) {
     openFramePopupForCard(id);
     return;
   }
   const card = document.getElementById(id);
+  if (!card) return;
+  const cards = getCarouselCards();
+  const cardIndex = cards.indexOf(card);
   const isOpen = card.classList.contains('cc-open');
 
   collapseAllCarouselCards();
@@ -5674,14 +5699,26 @@ function expandCard(id) {
       expanded.style.pointerEvents = 'auto';
     }
     if (btn) btn.textContent = '×';
+    if (cardIndex >= 0) ensureCarouselShowsCard(cardIndex, cards.length);
     setTimeout(nudgeExpandedIntoView, 520);
   }
 }
 
+function expandCard(id) {
+  openCarouselCard(id);
+}
+
 function carouselNext() {
   if (isGogogoMobile()) return;
-  const track = document.getElementById('carousel-track');
-  const cards = track?.querySelectorAll('.c-card') || [];
+  const cards = getCarouselCards();
+  const openIdx = getOpenCarouselCardIndex(cards);
+
+  if (openIdx >= 0) {
+    const nextIdx = Math.min(openIdx + 1, cards.length - 1);
+    if (nextIdx !== openIdx) openCarouselCard(cards[nextIdx].id);
+    return;
+  }
+
   if (carouselPos < cards.length - 3) {
     collapseAllCarouselCards();
     expandNudgeX = 0;
@@ -5692,6 +5729,15 @@ function carouselNext() {
 
 function carouselPrev() {
   if (isGogogoMobile()) return;
+  const cards = getCarouselCards();
+  const openIdx = getOpenCarouselCardIndex(cards);
+
+  if (openIdx >= 0) {
+    const prevIdx = Math.max(openIdx - 1, 0);
+    if (prevIdx !== openIdx) openCarouselCard(cards[prevIdx].id);
+    return;
+  }
+
   if (carouselPos > 0) {
     collapseAllCarouselCards();
     expandNudgeX = 0;
@@ -5699,6 +5745,17 @@ function carouselPrev() {
     applyCarouselTransform();
   }
 }
+
+document.getElementById('carousel-track')?.addEventListener('click', function (e) {
+  if (isGogogoMobile()) return;
+  if (e.target.closest('.cc-btn') || e.target.closest('a')) return;
+  const card = e.target.closest('.c-card');
+  if (!card || !card.id) return;
+  const cards = getCarouselCards();
+  const openIdx = getOpenCarouselCardIndex(cards);
+  if (openIdx >= 0 && cards[openIdx] === card) return;
+  openCarouselCard(card.id);
+});
 
 
 // Fürsprecher tiles expand

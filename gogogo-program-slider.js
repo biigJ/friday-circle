@@ -6,7 +6,7 @@
   if (!slides.length) return;
 
   var SLIDE_LABELS_DE = [
-    "Deine Bewegungsgruppe",
+    "genügend Bewegung für Dich",
     "Deine Micro-Bewegung",
     "Expertise für Deine Aktivitäten",
     "CIRCLE TRAINING",
@@ -16,7 +16,7 @@
     "Das Naheliegende wirkt oft so fern.",
   ];
   var SLIDE_LABELS_EN = [
-    "Your movement group",
+    "enough movement for you",
     "Your micro-movement",
     "Expertise for your activities",
     "CIRCLE TRAINING",
@@ -25,8 +25,8 @@
     "Mobility routine",
     "What seems obvious often feels so far away.",
   ];
-  var SLIDE_DEFAULT_DE = "Ein leichter Schritt, Dich täglich ausreichend zu bewegen.";
-  var SLIDE_DEFAULT_EN = "A light step toward moving enough every day.";
+  var SLIDE_DEFAULT_DE = "genügend Bewegung für Dich";
+  var SLIDE_DEFAULT_EN = "enough movement for you";
 
   function currentLang() {
     return document.body.classList.contains("en") ? "en" : "de";
