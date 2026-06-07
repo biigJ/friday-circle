@@ -16,6 +16,7 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <link rel="preload" href="assets/gogogo/hero.mp4" as="video" type="video/mp4" />
+    <script src="fc-swipe-slider.js" defer></script>
     <script src="gogogo-joscha-grow.js" defer></script>
     <script src="gogogo-program-slider.js" defer></script>
     <script src="gogogo-i18n-entries.js"></script>
@@ -623,20 +624,34 @@
         min-height: 0;
         display: flex;
         align-items: stretch;
+        overflow: hidden;
+        touch-action: pan-y;
+        cursor: grab;
+      }
+      .gogl-program-slider__viewport.is-swipe-dragging {
+        cursor: grabbing;
+      }
+      .gogl-program-slider__track {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        transition: transform 0.45s ease;
+        will-change: transform;
       }
       .gogl-program-slider__slide {
-        display: none;
+        flex: 0 0 100%;
         width: 100%;
+        min-width: 0;
         min-height: 100%;
-      }
-      .gogl-program-slider__slide.is-active {
         display: flex;
         flex-direction: column;
-        flex: 1 1 auto;
-        min-height: 0;
-        height: 100%;
         box-sizing: border-box;
         position: relative;
+      }
+      .gogl-program-slider__slide.is-active {
+        flex: 0 0 100%;
+        min-height: 0;
+        height: 100%;
       }
       .gogl-program-slider__slide.is-active .gogl-joscha-panel,
       .gogl-program-slider__slide.is-active .gogl-program-slide-card {
@@ -4134,6 +4149,14 @@
           padding: clamp(48px, 12vw, 80px) 0 !important;
         }
 
+      #carousel-viewport.fc-swipe-zone {
+        touch-action: pan-y;
+        cursor: grab;
+      }
+      #carousel-viewport.fc-swipe-zone.is-swipe-dragging {
+        cursor: grabbing;
+      }
+
         /* 'einstieg' carousel: make cards stack vertically */
         #carousel-viewport {
           overflow: visible !important;
@@ -5612,6 +5635,7 @@ function applyCarouselTransform() {
   }
   const step = getCarouselStepPx();
   const x = carouselPos * step + expandNudgeX;
+  track.style.transition = 'transform 0.45s ease';
   track.style.transform = `translateX(-${x}px)`;
 }
 
@@ -5755,6 +5779,85 @@ document.getElementById('carousel-track')?.addEventListener('click', function (e
   const openIdx = getOpenCarouselCardIndex(cards);
   if (openIdx >= 0 && cards[openIdx] === card) return;
   openCarouselCard(card.id);
+});
+
+var carouselSwipeApi = null;
+function initCarouselSwipe() {
+  if (carouselSwipeApi && carouselSwipeApi.destroy) carouselSwipeApi.destroy();
+  carouselSwipeApi = null;
+
+  var viewport = document.getElementById('carousel-viewport');
+  var track = document.getElementById('carousel-track');
+  if (!window.FcSwipeSlider || !viewport || !track) return;
+
+  if (isGogogoMobile()) {
+    var cards = getCarouselCards();
+    if (cards.length <= 1) return;
+    var mobileIndex = 0;
+    carouselSwipeApi = window.FcSwipeSlider.bind({
+      zone: viewport,
+      track: track,
+      axis: 'y',
+      loop: false,
+      getIndex: function () {
+        return mobileIndex;
+      },
+      getCount: function () {
+        return cards.length;
+      },
+      getOffsetForIndex: function (index) {
+        var offset = 0;
+        for (var i = 0; i < index; i++) {
+          offset += cards[i].offsetHeight + 16;
+        }
+        return -offset;
+      },
+      onIndexChange: function (newIndex) {
+        mobileIndex = newIndex;
+        cards[newIndex].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      },
+      ignore: function (target) {
+        return !!target.closest('.cc-btn, a, button');
+      },
+    });
+    return;
+  }
+
+  carouselSwipeApi = window.FcSwipeSlider.bind({
+    zone: viewport,
+    track: track,
+    loop: false,
+    minIndex: 0,
+    maxIndex: function () {
+      return Math.max(0, getCarouselCards().length - 3);
+    },
+    getIndex: function () {
+      return carouselPos;
+    },
+    getCount: function () {
+      return getCarouselCards().length;
+    },
+    getOffsetForIndex: function (i) {
+      return -(i * getCarouselStepPx() + expandNudgeX);
+    },
+    onIndexChange: function (newIndex) {
+      collapseAllCarouselCards();
+      expandNudgeX = 0;
+      carouselPos = newIndex;
+      applyCarouselTransform();
+    },
+    ignore: function (target) {
+      return !!target.closest('.cc-btn, a');
+    },
+  });
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  initCarouselSwipe();
+});
+window.addEventListener('resize', function () {
+  window.clearTimeout(window.__goglCarouselSwipeResize);
+  window.__goglCarouselSwipeResize = window.setTimeout(initCarouselSwipe, 120);
 });
 
 

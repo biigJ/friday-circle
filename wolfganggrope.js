@@ -231,6 +231,7 @@
     setHeroSlide(0);
     startHeroAutoplay();
     updateNavTheme();
+    initHeroSwipe();
   }
 
   function catalogNo(work) {
@@ -454,6 +455,7 @@
     sliderTrack.style.transform = "translateX(0)";
     sliderDots.hidden = slideCount <= 1;
     syncPopupFrameWidth();
+    initPopupSwipe();
   }
 
   function openPopup(id) {
@@ -567,6 +569,61 @@
     heroTrack.style.transform = "translateX(0)";
     startHeroAutoplay();
     updateNavTheme();
+    initHeroSwipe();
+  }
+
+  let heroSwipeApi = null;
+  let popupSwipeApi = null;
+
+  function initHeroSwipe() {
+    if (heroSwipeApi && heroSwipeApi.destroy) heroSwipeApi.destroy();
+    heroSwipeApi = null;
+    if (!window.FcSwipeSlider || !heroTrack) return;
+    const zone = document.querySelector(".wga-hero__bleed");
+    if (!zone || heroSlideCount() <= 1) return;
+    heroSwipeApi = window.FcSwipeSlider.bind({
+      zone: zone,
+      track: heroTrack,
+      mode: "percent",
+      getIndex: function () {
+        return heroIndex;
+      },
+      getCount: heroSlideCount,
+      onIndexChange: function (newIndex) {
+        setHeroSlide(newIndex);
+        startHeroAutoplay();
+      },
+      ignore: function (target) {
+        return !!target.closest(".wga-hero__dot, button, a");
+      },
+      loop: true,
+    });
+  }
+
+  function initPopupSwipe() {
+    if (popupSwipeApi && popupSwipeApi.destroy) popupSwipeApi.destroy();
+    popupSwipeApi = null;
+    if (!window.FcSwipeSlider || !sliderTrack || slideCount <= 1) return;
+    const zone = sliderTrack.closest(".wga-slider");
+    if (!zone) return;
+    popupSwipeApi = window.FcSwipeSlider.bind({
+      zone: zone,
+      track: sliderTrack,
+      mode: "percent",
+      getIndex: function () {
+        return slideIndex;
+      },
+      getCount: function () {
+        return slideCount;
+      },
+      onIndexChange: function (newIndex) {
+        setSlide(newIndex);
+      },
+      ignore: function (target) {
+        return !!target.closest(".wga-slider__dot, button, a");
+      },
+      loop: true,
+    });
   }
 
   function initNavOnLight() {

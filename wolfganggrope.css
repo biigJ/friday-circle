@@ -411,6 +411,24 @@ body.wga-page {
   outline: none;
 }
 
+.wga-hero__bleed.fc-swipe-zone {
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.wga-hero__bleed.fc-swipe-zone.is-swipe-dragging {
+  cursor: grabbing;
+}
+
+.wga-popup .wga-slider.fc-swipe-zone {
+  touch-action: pan-y;
+  cursor: grab;
+}
+
+.wga-popup .wga-slider.fc-swipe-zone.is-swipe-dragging {
+  cursor: grabbing;
+}
+
 /* —— Catalog —— */
 .wga-catalog {
   padding: clamp(48px, 7vw, 96px) 0 clamp(64px, 9vw, 120px);

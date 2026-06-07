@@ -2,9 +2,6 @@
   var root = document.getElementById("gogl-joscha-grow");
   if (!root || !root.classList.contains("gogl-program-slider")) return;
 
-  var slides = root.querySelectorAll(".gogl-program-slider__slide");
-  if (!slides.length) return;
-
   var SLIDE_LABELS_DE = [
     "genügend Bewegung für Dich",
     "Deine Micro-Bewegung",
@@ -28,6 +25,23 @@
   var SLIDE_DEFAULT_DE = "genügend Bewegung für Dich";
   var SLIDE_DEFAULT_EN = "enough movement for you";
 
+  var DISPLAY_ORDER = [0, 1, 2, 4, 3, 6, 7, 5];
+
+  var viewport = root.querySelector(".gogl-program-slider__viewport");
+  var track = viewport && viewport.querySelector(".gogl-program-slider__track");
+  if (viewport && !track) {
+    track = document.createElement("div");
+    track.className = "gogl-program-slider__track";
+    DISPLAY_ORDER.forEach(function (n) {
+      var slide = root.querySelector('.gogl-program-slider__slide[data-slide="' + n + '"]');
+      if (slide) track.appendChild(slide);
+    });
+    viewport.appendChild(track);
+  }
+
+  var slides = track ? track.querySelectorAll(".gogl-program-slider__slide") : root.querySelectorAll(".gogl-program-slider__slide");
+  if (!slides.length) return;
+
   function currentLang() {
     return document.body.classList.contains("en") ? "en" : "de";
   }
@@ -50,14 +64,19 @@
   var autoEnabled = false;
   var pausedByHover = false;
   var hoverRoot = root.closest(".gogl-joscha-grow-wrap") || root;
-  var DISPLAY_ORDER = [0, 1, 2, 4, 3, 6, 7, 5];
+
+  function applyTrackPosition(animate) {
+    if (!track) return;
+    track.style.transition = animate !== false ? "transform 0.45s ease" : "none";
+    track.style.transform = "translateX(-" + index * 100 + "%)";
+  }
 
   function show(i) {
     index = (i + slides.length) % slides.length;
-    var activeNodeIndex = DISPLAY_ORDER[index] != null ? DISPLAY_ORDER[index] : index;
     slides.forEach(function (slide, n) {
-      slide.classList.toggle("is-active", n === activeNodeIndex);
+      slide.classList.toggle("is-active", n === index);
     });
+    applyTrackPosition(true);
     if (titleEl) {
       var labels = slideLabels();
       titleEl.textContent = labels[index] || (currentLang() === "en" ? SLIDE_DEFAULT_EN : SLIDE_DEFAULT_DE);
@@ -70,7 +89,7 @@
     });
 
     if (mobileNextLabelEl) {
-      var activeSlide = root.querySelector(".gogl-program-slider__slide.is-active");
+      var activeSlide = slides[index];
       var labelEl =
         activeSlide &&
         (activeSlide.querySelector(".gogl-slide-footer-chrome .gogl-hero-slide-next__label") ||
@@ -108,7 +127,6 @@
   }
 
   function start() {
-    // Autoplay disabled: slides should only move manually.
     autoEnabled = false;
     clearTimer();
   }
@@ -193,57 +211,29 @@
     show(index);
   });
 
-  var swipeStartX = 0;
-  var swipeStartY = 0;
-  var swipeEligible = false;
-  var swipeThreshold = 48;
-
-  root.addEventListener(
-    "touchstart",
-    function (e) {
-      if (e.touches.length !== 1) return;
-      if (
-        e.target.closest(
+  if (window.FcSwipeSlider && viewport && track) {
+    window.FcSwipeSlider.bind({
+      zone: viewport,
+      track: track,
+      mode: "percent",
+      getIndex: function () {
+        return index;
+      },
+      getCount: function () {
+        return slides.length;
+      },
+      onIndexChange: function (newIndex) {
+        show(newIndex);
+        start();
+      },
+      ignore: function (target) {
+        return !!target.closest(
           ".gogl-tile, button, a, input, textarea, select, .gogl-program-slide-card__play"
-        )
-      ) {
-        swipeEligible = false;
-        return;
-      }
-      swipeEligible = true;
-      swipeStartX = e.touches[0].clientX;
-      swipeStartY = e.touches[0].clientY;
-    },
-    { passive: true }
-  );
-
-  root.addEventListener(
-    "touchmove",
-    function (e) {
-      if (!swipeEligible || e.touches.length !== 1) return;
-      var dx = e.touches[0].clientX - swipeStartX;
-      var dy = e.touches[0].clientY - swipeStartY;
-      if (Math.abs(dx) > 12 && Math.abs(dx) > Math.abs(dy)) {
-        e.preventDefault();
-      }
-    },
-    { passive: false }
-  );
-
-  root.addEventListener(
-    "touchend",
-    function (e) {
-      if (!swipeEligible) return;
-      swipeEligible = false;
-      var dx = e.changedTouches[0].clientX - swipeStartX;
-      var dy = e.changedTouches[0].clientY - swipeStartY;
-      if (Math.abs(dx) < swipeThreshold || Math.abs(dx) < Math.abs(dy)) return;
-      if (dx < 0) next();
-      else prev();
-      start();
-    },
-    { passive: true }
-  );
+        );
+      },
+      loop: true,
+    });
+  }
 
   show(0);
 })();

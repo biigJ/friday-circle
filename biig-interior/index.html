@@ -140,6 +140,19 @@
         display: block;
       }
 
+      .bi-hero__figure.fc-swipe-zone,
+      .bi-hochbau-slider.fc-swipe-zone,
+      .bi-slider.fc-swipe-zone {
+        touch-action: pan-y;
+        cursor: grab;
+      }
+
+      .bi-hero__figure.fc-swipe-zone.is-swipe-dragging,
+      .bi-hochbau-slider.fc-swipe-zone.is-swipe-dragging,
+      .bi-slider.fc-swipe-zone.is-swipe-dragging {
+        cursor: grabbing;
+      }
+
       .bi-hero__dots {
         position: absolute;
         z-index: 3;
@@ -1252,8 +1265,9 @@
       </div>
     </footer>
 
+    <script src="../fc-swipe-slider.js" defer></script>
     <script src="../fc-lang.js" defer></script>
-    <script>
+    <script defer>
       (function initBiInterior() {
         var PROJECTS = {
           moebel: {
@@ -1603,6 +1617,90 @@
         var heroSliderReady = false;
         var openProjectId = null;
         var openOfferId = null;
+        var heroSwipeApi = null;
+        var hochbauSwipeApi = null;
+        var popupSwipeApi = null;
+
+        function initHeroSwipe() {
+          if (heroSwipeApi && heroSwipeApi.destroy) heroSwipeApi.destroy();
+          heroSwipeApi = null;
+          if (!window.FcSwipeSlider || !heroTrack || HERO_SLIDES.length <= 1) return;
+          var zone = document.querySelector(".bi-hero__figure");
+          if (!zone) return;
+          heroSwipeApi = window.FcSwipeSlider.bind({
+            zone: zone,
+            track: heroTrack,
+            mode: "percent",
+            getIndex: function () {
+              return heroIndex;
+            },
+            getCount: function () {
+              return HERO_SLIDES.length;
+            },
+            onIndexChange: function (newIndex) {
+              setHeroSlide(newIndex);
+              startHeroAutoplay();
+            },
+            ignore: function (target) {
+              return !!target.closest(".bi-hero__dot, button, a");
+            },
+            loop: true,
+          });
+        }
+
+        function initHochbauSwipe() {
+          if (hochbauSwipeApi && hochbauSwipeApi.destroy) hochbauSwipeApi.destroy();
+          hochbauSwipeApi = null;
+          if (!window.FcSwipeSlider || !hochbauTrack || HOCHBAU_IDS.length <= 1) return;
+          var zone = hochbauSliderEl && hochbauSliderEl.querySelector(".bi-hochbau-slider");
+          if (!zone) return;
+          hochbauSwipeApi = window.FcSwipeSlider.bind({
+            zone: zone,
+            track: hochbauTrack,
+            mode: "percent",
+            getIndex: function () {
+              return hochbauIndex;
+            },
+            getCount: function () {
+              return HOCHBAU_IDS.length;
+            },
+            onIndexChange: function (newIndex) {
+              setHochbauSlide(newIndex);
+            },
+            ignore: function (target) {
+              return !!target.closest(
+                ".bi-hochbau-slider__dot, .bi-hochbau-slider__zone, button, a"
+              );
+            },
+            loop: true,
+          });
+        }
+
+        function initPopupSwipe() {
+          if (popupSwipeApi && popupSwipeApi.destroy) popupSwipeApi.destroy();
+          popupSwipeApi = null;
+          if (!window.FcSwipeSlider || !trackEl || slideCount <= 1) return;
+          var zone = document.getElementById("bi-popup-slider");
+          if (!zone) return;
+          popupSwipeApi = window.FcSwipeSlider.bind({
+            zone: zone,
+            track: trackEl,
+            mode: "percent",
+            getIndex: function () {
+              return slideIndex;
+            },
+            getCount: function () {
+              return slideCount;
+            },
+            onIndexChange: function (newIndex) {
+              setSlide(newIndex);
+            },
+            ignore: function (target) {
+              return !!target.closest(".bi-slider__dot, button, a");
+            },
+            loop: true,
+          });
+        }
 
         function pickOffer(offer, key) {
           return getLang() === "en" ? offer[key + "En"] : offer[key + "De"];
@@ -1801,6 +1899,7 @@
           heroIndex = 0;
           heroTrack.style.transform = "translateX(0)";
           startHeroAutoplay();
+          initHeroSwipe();
         }
 
         function updateHochbauHover() {
@@ -1875,6 +1974,7 @@
               preload.src = project.images[0];
             }
           });
+          initHochbauSwipe();
         }
 
         function applyTileLabels() {
@@ -1935,6 +2035,7 @@
 
           trackEl.style.transform = "translateX(0)";
           if (dotsEl) dotsEl.hidden = slideCount <= 1;
+          initPopupSwipe();
         }
 
         function openPopup(id) {
