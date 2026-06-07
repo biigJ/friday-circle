@@ -462,13 +462,82 @@ body.wga-page {
 .wga-hero__dots {
   position: absolute;
   z-index: 3;
-  bottom: clamp(16px, 3vw, 28px);
+  bottom: clamp(52px, 7vw, 68px);
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: 8px;
   margin: 0;
   padding: 0;
+}
+
+.wga-hero__footer {
+  position: absolute;
+  z-index: 3;
+  bottom: clamp(16px, 3vw, 28px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: var(--content-max);
+  padding: 0 var(--nav-pad-x);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(12px, 3vw, 24px);
+  pointer-events: none;
+}
+
+.wga-hero__caption {
+  margin: 0;
+  flex: 1 1 auto;
+  min-width: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(0.62rem, 1.05vw, 0.76rem);
+  font-weight: 300;
+  letter-spacing: 0.04em;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.88);
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.55);
+  pointer-events: auto;
+}
+
+.wga-hero__arrows {
+  display: flex;
+  gap: 8px;
+  flex: 0 0 auto;
+  pointer-events: auto;
+}
+
+.wga-hero__arrow {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 50%;
+  background: rgba(10, 10, 10, 0.42);
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 1.35rem;
+  line-height: 1;
+  padding: 0 0 2px;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.wga-hero__arrow span {
+  display: block;
+  transform: translateY(-1px);
+}
+
+.wga-hero__arrow:hover,
+.wga-hero__arrow:focus-visible {
+  background: rgba(10, 10, 10, 0.68);
+  border-color: #ffffff;
+  transform: translateY(-1px);
+  outline: none;
 }
 
 .wga-hero__dot {

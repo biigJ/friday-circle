@@ -6,20 +6,114 @@
   },
   "heroSlides": [
     {
+      "src": "assets/wolfgang-grope/02 Knalliges Acryl 1970/WG-Ölmalerei-1960-07.jpg",
+      "alt": "Wolfgang Grope — Ölmalerei, 1960",
+      "year": "1960",
+      "medium": "Ölmalerei"
+    },
+    {
+      "src": "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-50.jpg",
+      "alt": "Wolfgang Grope — Radierung, 1972",
+      "year": "1972",
+      "medium": "Radierung"
+    },
+    {
+      "src": "assets/wolfgang-grope/06 Mehr Radierungen 1975-1979/WG-Grafik-1975-09.jpg",
+      "alt": "Wolfgang Grope — Radierung, 1975",
+      "year": "1975",
+      "medium": "Radierung"
+    },
+    {
+      "src": "assets/wolfgang-grope/07 Neue Familie 1976-1979 (Aquarell)/WG-Aquarell-1976-14.jpg",
+      "alt": "Wolfgang Grope — Aquarell, 1976",
+      "year": "1976",
+      "medium": "Aquarell"
+    },
+    {
       "src": "assets/wolfgang-grope/07 Neue Familie 1976-1979 (Skizzen)/WG-Buntstiftskizze-1979-08.jpg",
-      "alt": "Wolfgang Grope — Gemälde 1976–1991"
+      "alt": "Wolfgang Grope — Skizze, 1979",
+      "year": "1979",
+      "medium": "Skizze"
     },
     {
-      "src": "assets/wolfgang-grope/10 2000'er Jahre 1999-2002 (Ölmalerei)/WG-Ölmalerei-1998-01.jpg",
-      "alt": "Wolfgang Grope — Gemälde 2002"
+      "src": "assets/wolfgang-grope/08 80'er Jahre 1980-1985 (Buntstiftzeichnungen)/WG-Buntstiftskizze-1980-11.jpg",
+      "alt": "Wolfgang Grope — Skizze, 1980",
+      "year": "1980",
+      "medium": "Skizze"
     },
     {
-      "src": "assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-39.jpg",
-      "alt": "Wolfgang Grope — Radierung 1972–1974"
+      "src": "assets/wolfgang-grope/08 80'er Jahre 1980-1989 (Aquarell)/WG-Aquarell-1984-27.jpg",
+      "alt": "Wolfgang Grope — Aquarell, 1984",
+      "year": "1984",
+      "medium": "Aquarell"
     },
     {
-      "src": "assets/wolfgang-grope/11 Keramik/WG-Keramik-25.jpg",
+      "src": "assets/wolfgang-grope/08 80'er Jahre 1984-1987 (Ölkreide)/WG-Ölkreide-1987-47.jpg",
+      "alt": "Wolfgang Grope — Skizze, 1987",
+      "year": "1987",
+      "medium": "Skizze"
+    },
+    {
+      "src": "assets/wolfgang-grope/08 80'er Jahre 1988-1995 (Radierungen)/WG-Grafik-1991-1995-100.jpg",
+      "alt": "Wolfgang Grope — Radierung, 1991",
+      "year": "1991",
+      "medium": "Radierung"
+    },
+    {
+      "src": "assets/wolfgang-grope/09 90'er Jahre 1990-1999 (Aquarellbilder)/WG-Aquarell-1990-62.jpg",
+      "alt": "Wolfgang Grope — Aquarell, 1990",
+      "year": "1990",
+      "medium": "Aquarell"
+    },
+    {
+      "src": "assets/wolfgang-grope/09 90'er Jahre 1991 (Skizzen Griechenland)/WG-Tuscheskizze-1976-03.jpg",
+      "alt": "Wolfgang Grope — Tuschezeichnung, 1976",
+      "year": "1976",
+      "medium": "Tuschezeichnung"
+    },
+    {
+      "src": "assets/wolfgang-grope/09 90'er Jahre 1992 (Skizzen Bornholm)/WG-Tuschezeichnung-1992-19.jpg",
+      "alt": "Wolfgang Grope — Tuschezeichnung, 1992",
+      "year": "1992",
+      "medium": "Tuschezeichnung"
+    },
+    {
+      "src": "assets/wolfgang-grope/09 90'er Jahre 1995 (Skizzen Lofoten)/WG-Aquarell-Lofoten-1995-71.jpg",
+      "alt": "Wolfgang Grope — Aquarell, 1995",
+      "year": "1995",
+      "medium": "Aquarell"
+    },
+    {
+      "src": "assets/wolfgang-grope/10 2000'er Jahre 1999-2002 (Ölmalerei)/WG-Ölgemälde-2002-04.jpg",
+      "alt": "Wolfgang Grope — Ölgemälde, 2002",
+      "year": "2002",
+      "medium": "Ölgemälde"
+    },
+    {
+      "src": "assets/wolfgang-grope/10 2000'er Jahre 2000-2002 (Kreide Acryl Radierung)/WG-Gemaelde-2002-03 Kopie.jpg",
+      "alt": "Wolfgang Grope — Ölgemälde, 2002",
+      "year": "2002",
+      "medium": "Ölgemälde"
+    },
+    {
+      "src": "assets/wolfgang-grope/11 Keramik/WG-Keramik-07.jpg",
       "alt": "Wolfgang Grope — Keramik",
+      "year": "",
+      "medium": "Keramik",
+      "logoOn": "dark"
+    },
+    {
+      "src": "assets/wolfgang-grope/11 Keramik/WG-Keramik-49.jpg",
+      "alt": "Wolfgang Grope — Keramik",
+      "year": "",
+      "medium": "Keramik",
+      "logoOn": "dark"
+    },
+    {
+      "src": "assets/wolfgang-grope/11 Keramik/WG-Keramik-45.jpg",
+      "alt": "Wolfgang Grope — Keramik",
+      "year": "",
+      "medium": "Keramik",
       "logoOn": "dark"
     }
   ],

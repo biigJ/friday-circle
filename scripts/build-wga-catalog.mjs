@@ -148,51 +148,52 @@ function mergeMeta(work, prev) {
   return work;
 }
 
-function pickHeroSlides(sections) {
-  const findImage = (filename) => {
-    for (const section of sections) {
-      for (const work of section.works) {
-        const base = work.images[0].split("/").pop();
-        if (base === filename) return work.images[0];
-      }
-    }
-    return null;
-  };
-
-  const picks = [
-    { file: "WG-Gemaelde-1976-1991-30.jpg", alt: "Wolfgang Grope — Gemälde 1976–1991", folderHint: "Skizzen" },
-    { file: "WG-Gemaelde-2002-04.jpg", alt: "Wolfgang Grope — Gemälde 2002", folderHint: "1999-2002" },
-    { file: "WG-Grafik-1972-1974-39.jpg", alt: "Wolfgang Grope — Radierung 1972–1974" },
-    { file: "WG-Keramik-25.jpg", alt: "Wolfgang Grope — Keramik", logoOn: "dark" },
+function buildHeroSlides(imageIndex, csvByFilename) {
+  const HERO_SLIDE_FILES = [
+    "WG-Ölmalerei-1960-07.jpg",
+    "WG-Grafik-1972-1974-50.jpg",
+    "WG-Grafik-1975-09.jpg",
+    "WG-Aquarell-1976-14.jpg",
+    "WG-Buntstiftskizze-1979-08.jpg",
+    "WG-Buntstiftskizze-1980-11.jpg",
+    "WG-Aquarell-1984-27.jpg",
+    "WG-Ölkreide-1987-47.jpg",
+    "WG-Grafik-1991-1995-100.jpg",
+    "WG-Aquarell-1990-62.jpg",
+    "WG-Tuscheskizze-1976-03.jpg",
+    "WG-Tuschezeichnung-1992-19.jpg",
+    "WG-Aquarell-Lofoten-1995-71.jpg",
+    "WG-Ölgemälde-2002-04.jpg",
+    "WG-Gemaelde-2002-03 Kopie.jpg",
+    "WG-Keramik-07.jpg",
+    "WG-Keramik-49.jpg",
+    "WG-Keramik-45.jpg",
   ];
 
-  return picks.map((pick) => {
-    let src = findImage(pick.file);
-    if (!src && pick.folderHint) {
-      outer: for (const section of sections) {
-        if (!section.folder.includes(pick.folderHint)) continue;
-        if (section.works.length) {
-          src = section.works[Math.min(2, section.works.length - 1)].images[0];
-          break outer;
-        }
-      }
+  return HERO_SLIDE_FILES.map((file) => {
+    const nfile = nfc(file);
+    const rel = imageIndex.get(nfile) || imageIndex.get(file);
+    if (!rel) {
+      console.warn("Hero image not found:", file);
+      return null;
     }
-    if (!src) {
-      for (const section of sections) {
-        if (section.works.length) {
-          src = section.works[0].images[0];
-          break;
-        }
-      }
-    }
-    const slide = { src, alt: pick.alt };
-    if (pick.logoOn) slide.logoOn = pick.logoOn;
+    const row = csvByFilename.get(nfile);
+    const year = row?.year || "";
+    const medium = row?.medium || "";
+    const slide = {
+      src: `assets/wolfgang-grope/${rel}`,
+      alt: `Wolfgang Grope — ${[medium, year].filter(Boolean).join(", ")}`,
+      year,
+      medium,
+    };
+    if (/keramik/i.test(medium)) slide.logoOn = "dark";
     return slide;
-  }).filter((s) => s.src);
+  }).filter(Boolean);
 }
 
 const imageIndex = indexImages();
 const csvRows = loadCsvRows();
+const csvByFilename = new Map(csvRows.map((row) => [nfc(row.filename), row]));
 const prevMeta = loadPreviousMeta();
 const existing = fs.existsSync(jsonPath) ? JSON.parse(fs.readFileSync(jsonPath, "utf8")) : { meta: {} };
 
@@ -258,7 +259,7 @@ const payload = {
     heroHeadline: existing.meta?.heroHeadline || "1955 - 2005",
     placeholder: existing.meta?.placeholder || "assets/wolfgang-grope/placeholder.svg",
   },
-  heroSlides: pickHeroSlides(sections),
+  heroSlides: buildHeroSlides(imageIndex, csvByFilename),
   sections: sections.map(({ id, title, chapter, sectionLabel, works }) => ({
     id,
     title,
