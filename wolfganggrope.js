@@ -509,6 +509,7 @@
     popup.hidden = false;
     popup.setAttribute("aria-hidden", "false");
     document.body.style.overflow = "hidden";
+    updateWgaScrollTopBtn();
   }
 
   function closePopup() {
@@ -517,6 +518,7 @@
     popup.hidden = true;
     popup.setAttribute("aria-hidden", "true");
     if (!bioOverlay || bioOverlay.hidden) document.body.style.overflow = "";
+    updateWgaScrollTopBtn();
   }
 
   async function loadBioText() {
@@ -543,6 +545,7 @@
     document.body.style.overflow = "hidden";
     const closeBtn = bioOverlay.querySelector(".wga-bio__close");
     if (closeBtn) closeBtn.focus();
+    updateWgaScrollTopBtn();
   }
 
   function closeBio() {
@@ -551,6 +554,7 @@
     bioOverlay.setAttribute("aria-hidden", "true");
     if (!popup || popup.hidden) document.body.style.overflow = "";
     if (bioOpen) bioOpen.focus();
+    updateWgaScrollTopBtn();
   }
 
   function applyMeta() {
@@ -656,6 +660,33 @@
     window.addEventListener("resize", syncPopupFrameWidth, { passive: true });
   }
 
+  function getWgaLang() {
+    return document.body.classList.contains("en") || document.documentElement.lang === "en" ? "en" : "de";
+  }
+
+  function scrollToWgaTop() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function updateWgaScrollTopBtn() {
+    const btn = document.getElementById("wga-scroll-top");
+    if (!btn) return;
+    const popupOpen = popup && !popup.hidden;
+    const bioOpenState = bioOverlay && !bioOverlay.hidden;
+    btn.hidden = !isPastHero() || popupOpen || bioOpenState;
+    btn.setAttribute("aria-label", getWgaLang() === "en" ? "Back to top" : "Nach oben");
+  }
+
+  function initWgaScrollTop() {
+    const btn = document.getElementById("wga-scroll-top");
+    if (!btn) return;
+    btn.addEventListener("click", scrollToWgaTop);
+    window.addEventListener("scroll", updateWgaScrollTopBtn, { passive: true });
+    window.addEventListener("resize", updateWgaScrollTopBtn);
+    document.addEventListener("fc-lang-change", updateWgaScrollTopBtn);
+    updateWgaScrollTopBtn();
+  }
+
   async function loadCatalog() {
     if (window.__WGA_CATALOG__) {
       catalog = window.__WGA_CATALOG__;
@@ -690,6 +721,7 @@
 
   if (bioOpen) bioOpen.addEventListener("click", openBio);
   initChaptersNav();
+  initWgaScrollTop();
   document.addEventListener("fc-lang-change", syncChaptersNavOffset);
   window.addEventListener("resize", function () {
     syncChaptersNavOffset();

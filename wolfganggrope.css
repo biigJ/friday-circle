@@ -495,6 +495,43 @@ body.wga-page {
   cursor: grabbing;
 }
 
+.wga-scroll-top {
+  position: fixed;
+  right: clamp(16px, 2.5vw, 28px);
+  bottom: clamp(16px, 2.5vw, 28px);
+  z-index: 1200;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(13, 13, 13, 0.14);
+  border-radius: 50%;
+  background: #f0eee6;
+  color: #0a0a0a;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.28);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  pointer-events: auto;
+}
+
+.wga-scroll-top[hidden] {
+  display: none !important;
+}
+
+.wga-scroll-top:hover,
+.wga-scroll-top:focus-visible {
+  transform: translateY(-2px);
+  outline: none;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.34);
+}
+
+.wga-scroll-top svg {
+  display: block;
+  flex-shrink: 0;
+}
+
 /* —— Catalog —— */
 .wga-catalog {
   padding: clamp(48px, 7vw, 96px) 0 clamp(64px, 9vw, 120px);
