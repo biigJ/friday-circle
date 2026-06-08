@@ -42,6 +42,7 @@
   const sliderTrack = document.getElementById("wga-popup-track");
   const sliderDots = document.getElementById("wga-popup-dots");
   const popupViewMore = document.getElementById("wga-popup-view-more");
+  const popupViewBack = document.getElementById("wga-popup-view-back");
 
   const inquiryPopup = document.getElementById("wga-inquiry");
   const inquiryImg = document.getElementById("wga-inquiry-img");
@@ -414,6 +415,12 @@
       popupViewMore.dataset.wgaBound = "1";
       popupViewMore.addEventListener("click", function () {
         setSlide(slideIndex + 1);
+      });
+    }
+    if (popupViewBack && !popupViewBack.dataset.wgaBound) {
+      popupViewBack.dataset.wgaBound = "1";
+      popupViewBack.addEventListener("click", function () {
+        setSlide(slideIndex - 1);
       });
     }
     updatePopupNav();
@@ -954,30 +961,29 @@
     return img;
   }
 
-  function updatePopupViewMore() {
-    if (!popupViewMore) return;
+  function updatePopupViewNav() {
     const popupWork = openWorkId ? worksById[openWorkId] : null;
-    const show =
-      slideCount > 1 &&
-      slideIndex < slideCount - 1 &&
-      !useMobileWorkCarousel(popupWork);
-    popupViewMore.hidden = !show;
+    const multiImage = slideCount > 1 && !useMobileWorkCarousel(popupWork);
     const lang = getWgaLang();
-    popupViewMore.setAttribute(
-      "aria-label",
-      lang === "en" ? "Another view" : "Weitere Ansicht"
-    );
+    if (popupViewMore) {
+      popupViewMore.hidden = !multiImage || slideIndex >= slideCount - 1;
+      popupViewMore.setAttribute(
+        "aria-label",
+        lang === "en" ? "Another view" : "Weitere Ansicht"
+      );
+    }
+    if (popupViewBack) {
+      popupViewBack.hidden = !multiImage || slideIndex <= 0;
+      popupViewBack.setAttribute("aria-label", lang === "en" ? "Back" : "Zurück");
+    }
   }
 
   function setSlide(index) {
     if (!slideCount) return;
     slideIndex = (index + slideCount) % slideCount;
     sliderTrack.style.transform = "translateX(-" + slideIndex * 100 + "%)";
-    sliderDots.querySelectorAll(".wga-slider__dot").forEach(function (dot, i) {
-      dot.classList.toggle("is-active", i === slideIndex);
-    });
     syncPopupFrameWidth();
-    updatePopupViewMore();
+    updatePopupViewNav();
   }
 
   function buildPopupSlider(images, title) {
@@ -998,7 +1004,7 @@
       sliderTrack.style.transition = "transform 0.35s ease";
       sliderTrack.style.transform = "translateX(-100%)";
       sliderDots.hidden = true;
-      updatePopupViewMore();
+      updatePopupViewNav();
       syncPopupFrameWidth();
       initPopupSwipe();
       return;
@@ -1009,23 +1015,12 @@
 
     images.forEach(function (src, i) {
       appendPopupSlide(src, title + " — Bild " + (i + 1));
-
-      if (slideCount > 1) {
-        const dot = document.createElement("button");
-        dot.type = "button";
-        dot.className = "wga-slider__dot" + (i === 0 ? " is-active" : "");
-        dot.setAttribute("aria-label", "Bild " + (i + 1));
-        dot.addEventListener("click", function () {
-          setSlide(i);
-        });
-        sliderDots.appendChild(dot);
-      }
     });
 
     sliderTrack.style.transition = "transform 0.35s ease";
     sliderTrack.style.transform = "translateX(0)";
-    sliderDots.hidden = slideCount <= 1;
-    updatePopupViewMore();
+    if (sliderDots) sliderDots.hidden = true;
+    updatePopupViewNav();
     syncPopupFrameWidth();
     initPopupSwipe();
   }
@@ -1361,7 +1356,7 @@
         },
         ignore: function (target) {
           return !!target.closest(
-            ".wga-slider__dot, .wga-popup__arrow, .wga-popup__view-more, .wga-popup__close, button, a"
+            ".wga-slider__dot, .wga-popup__arrow, .wga-popup__view-nav, .wga-popup__close, button, a"
           );
         },
         loop: false,
@@ -1387,7 +1382,7 @@
       },
       ignore: function (target) {
         return !!target.closest(
-          ".wga-slider__dot, .wga-popup__arrow, .wga-popup__view-more, .wga-popup__close, button, a"
+          ".wga-slider__dot, .wga-popup__arrow, .wga-popup__view-nav, .wga-popup__close, button, a"
         );
       },
       loop: true,
@@ -1489,7 +1484,7 @@
     if (popupNext) {
       popupNext.setAttribute("aria-label", getWgaLang() === "en" ? "Next work" : "Nächstes Werk");
     }
-    updatePopupViewMore();
+    updatePopupViewNav();
   });
   window.addEventListener("resize", function () {
     syncChaptersNavOffset();

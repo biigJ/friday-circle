@@ -1105,7 +1105,7 @@ button.wga-berlin-dot:focus-visible {
   padding: 0;
 }
 
-.wga-popup__view-more {
+.wga-popup__view-nav {
   position: absolute;
   z-index: 12;
   right: clamp(8px, 1.5vw, 14px);
@@ -1115,7 +1115,6 @@ button.wga-berlin-dot:focus-visible {
   align-items: center;
   gap: 0.4em;
   margin: 0;
-  padding: 0.55em 0.7em 0.55em 0.85em;
   border: none;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.92);
@@ -1132,21 +1131,29 @@ button.wga-berlin-dot:focus-visible {
   transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
 }
 
-.wga-popup__view-more-arrow {
+.wga-popup__view-more {
+  padding: 0.55em 0.7em 0.55em 0.85em;
+}
+
+.wga-popup__view-back {
+  padding: 0.55em 0.85em 0.55em 0.7em;
+}
+
+.wga-popup__view-nav-arrow {
   font-size: 1.3rem;
   line-height: 1;
   transform: translateY(-1px);
 }
 
-.wga-popup__view-more:hover,
-.wga-popup__view-more:focus-visible {
+.wga-popup__view-nav:hover,
+.wga-popup__view-nav:focus-visible {
   background: #ffffff;
   transform: translateY(calc(-50% - 1px));
   box-shadow: 0 2px 14px rgba(0, 0, 0, 0.24);
   outline: none;
 }
 
-.wga-popup__view-more[hidden] {
+.wga-popup__view-nav[hidden] {
   display: none !important;
 }
 
