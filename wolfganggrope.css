@@ -72,7 +72,8 @@ body.wga-page {
   transition: color 0.28s ease, opacity 0.2s ease;
 }
 
-.wga-page .wga-nav .wga-nav__bio {
+.wga-page .wga-nav .wga-nav__bio,
+.wga-page .wga-nav .wga-nav__inspiration {
   margin: 0;
   padding: 0;
   border: 0;
@@ -80,7 +81,9 @@ body.wga-page {
 }
 
 .wga-page .wga-nav .wga-nav__bio:hover,
-.wga-page .wga-nav .wga-nav__bio:focus-visible {
+.wga-page .wga-nav .wga-nav__bio:focus-visible,
+.wga-page .wga-nav .wga-nav__inspiration:hover,
+.wga-page .wga-nav .wga-nav__inspiration:focus-visible {
   color: #ffffff;
   opacity: 1;
   outline: none;
@@ -200,7 +203,8 @@ body.wga-page {
   text-shadow: none;
 }
 
-.wga-page .wga-nav.wga-nav--on-light .wga-nav__bio {
+.wga-page .wga-nav.wga-nav--on-light .wga-nav__bio,
+.wga-page .wga-nav.wga-nav--on-light .wga-nav__inspiration {
   color: var(--text);
   text-shadow: none;
 }
@@ -213,7 +217,9 @@ body.wga-page {
 .wga-page .wga-nav.wga-nav--on-light .wga-nav__text-btn:hover,
 .wga-page .wga-nav.wga-nav--on-light .wga-nav__text-btn:focus-visible,
 .wga-page .wga-nav.wga-nav--on-light .wga-nav__bio:hover,
-.wga-page .wga-nav.wga-nav--on-light .wga-nav__bio:focus-visible {
+.wga-page .wga-nav.wga-nav--on-light .wga-nav__bio:focus-visible,
+.wga-page .wga-nav.wga-nav--on-light .wga-nav__inspiration:hover,
+.wga-page .wga-nav.wga-nav--on-light .wga-nav__inspiration:focus-visible {
   color: var(--text);
   opacity: 0.72;
 }
@@ -239,7 +245,8 @@ body.wga-page {
   text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
 }
 
-.wga-page .wga-nav:not(.wga-nav--on-light).wga-nav--logo-light .wga-nav__bio {
+.wga-page .wga-nav:not(.wga-nav--on-light).wga-nav--logo-light .wga-nav__bio,
+.wga-page .wga-nav:not(.wga-nav--on-light).wga-nav--logo-light .wga-nav__inspiration {
   color: #f0eee6;
   text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
 }
@@ -276,7 +283,8 @@ body.wga-page {
   text-shadow: none;
 }
 
-.wga-page .wga-nav:not(.wga-nav--on-light).wga-nav--logo-dark .wga-nav__bio {
+.wga-page .wga-nav:not(.wga-nav--on-light).wga-nav--logo-dark .wga-nav__bio,
+.wga-page .wga-nav:not(.wga-nav--on-light).wga-nav--logo-dark .wga-nav__inspiration {
   color: var(--text);
   text-shadow: none;
 }
@@ -317,10 +325,10 @@ body.wga-page {
 @media (max-width: 760px) {
   .wga-page .wga-nav .nav__inner {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas:
-      "logo logo logo"
-      "chapters bio lang";
+      "logo logo logo logo"
+      "chapters bio inspiration lang";
     align-items: center;
     column-gap: clamp(10px, 3vw, 18px);
     row-gap: clamp(12px, 2.8vw, 18px);
@@ -355,6 +363,12 @@ body.wga-page {
 
   .wga-page .wga-nav .wga-nav__bio {
     grid-area: bio;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .wga-page .wga-nav .wga-nav__inspiration {
+    grid-area: inspiration;
     justify-self: center;
     align-self: center;
   }
@@ -1181,6 +1195,85 @@ button.wga-berlin-dot:focus-visible {
   color: #000000;
   text-decoration: underline;
   outline: none;
+}
+
+/* —— Inspiration —— */
+.wga-inspiration[hidden] {
+  display: none !important;
+}
+
+.wga-inspiration {
+  position: fixed;
+  inset: 0;
+  z-index: 12500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(12px, 2.5vw, 28px);
+}
+
+.wga-inspiration__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.72);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.wga-inspiration__panel {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: min(720px, 100%);
+  max-height: min(88vh, 900px);
+  overflow: hidden;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.wga-inspiration__close {
+  position: absolute;
+  z-index: 2;
+  top: 14px;
+  right: 14px;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(10, 10, 10, 0.08);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.wga-inspiration__close:hover,
+.wga-inspiration__close:focus-visible {
+  background: rgba(10, 10, 10, 0.14);
+  outline: none;
+}
+
+.wga-inspiration__scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  padding: clamp(20px, 3vw, 32px);
+  background: #ffffff;
+}
+
+.wga-inspiration__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  background: #ffffff;
+}
+
+.wga-inspiration__img + .wga-inspiration__img {
+  margin-top: clamp(16px, 2.5vw, 24px);
 }
 
 /* —— Bio —— */

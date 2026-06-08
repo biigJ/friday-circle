@@ -4011,7 +4011,7 @@ window.__WGA_CATALOG__={
           "medium": "Acrylmalerei",
           "dimensions": "—",
           "body": "",
-          "berlinStatus": "available",
+          "berlinStatus": "unavailable",
           "images": [
             "assets/wolfgang-grope/09 90'er Jahre 1995 (Ölkreide)/WG-Acryl-1985-13.jpg"
           ]

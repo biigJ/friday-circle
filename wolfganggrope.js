@@ -50,6 +50,8 @@
 
   const bioOverlay = document.getElementById("wga-bio");
   const bioOpen = document.getElementById("wga-bio-open");
+  const inspirationOverlay = document.getElementById("wga-inspiration");
+  const inspirationOpen = document.getElementById("wga-inspiration-open");
   const bioText = document.getElementById("wga-bio-text");
   const chaptersNav = document.getElementById("wga-chapters-nav");
   const chaptersBtn = document.getElementById("wga-chapters-btn");
@@ -368,7 +370,13 @@
     openInquiryWorkId = null;
     inquiryPopup.hidden = true;
     inquiryPopup.setAttribute("aria-hidden", "true");
-    if ((!popup || popup.hidden) && (!bioOverlay || bioOverlay.hidden)) document.body.style.overflow = "";
+    if (
+      (!popup || popup.hidden) &&
+      (!bioOverlay || bioOverlay.hidden) &&
+      (!inspirationOverlay || inspirationOverlay.hidden)
+    ) {
+      document.body.style.overflow = "";
+    }
     updateWgaScrollTopBtn();
   }
 
@@ -962,7 +970,12 @@
     popupSwipeApi = null;
     popup.hidden = true;
     popup.setAttribute("aria-hidden", "true");
-    if (!bioOverlay || bioOverlay.hidden) document.body.style.overflow = "";
+    if (
+      (!bioOverlay || bioOverlay.hidden) &&
+      (!inspirationOverlay || inspirationOverlay.hidden)
+    ) {
+      document.body.style.overflow = "";
+    }
     updateWgaScrollTopBtn();
   }
 
@@ -1011,8 +1024,37 @@
     if (!bioOverlay) return;
     bioOverlay.hidden = true;
     bioOverlay.setAttribute("aria-hidden", "true");
-    if (!popup || popup.hidden) document.body.style.overflow = "";
+    if (
+      (!popup || popup.hidden) &&
+      (!inspirationOverlay || inspirationOverlay.hidden)
+    ) {
+      document.body.style.overflow = "";
+    }
     if (bioOpen) bioOpen.focus();
+    updateWgaScrollTopBtn();
+  }
+
+  function openInspiration() {
+    if (!inspirationOverlay) return;
+    inspirationOverlay.hidden = false;
+    inspirationOverlay.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    const closeBtn = inspirationOverlay.querySelector(".wga-inspiration__close");
+    if (closeBtn) closeBtn.focus();
+    updateWgaScrollTopBtn();
+  }
+
+  function closeInspiration() {
+    if (!inspirationOverlay) return;
+    inspirationOverlay.hidden = true;
+    inspirationOverlay.setAttribute("aria-hidden", "true");
+    if (
+      (!popup || popup.hidden) &&
+      (!bioOverlay || bioOverlay.hidden)
+    ) {
+      document.body.style.overflow = "";
+    }
+    if (inspirationOpen) inspirationOpen.focus();
     updateWgaScrollTopBtn();
   }
 
@@ -1262,7 +1304,8 @@
     const popupOpen = popup && !popup.hidden;
     const inquiryOpen = inquiryPopup && !inquiryPopup.hidden;
     const bioOpenState = bioOverlay && !bioOverlay.hidden;
-    btn.hidden = !isPastHero() || popupOpen || inquiryOpen || bioOpenState;
+    const inspirationOpenState = inspirationOverlay && !inspirationOverlay.hidden;
+    btn.hidden = !isPastHero() || popupOpen || inquiryOpen || bioOpenState || inspirationOpenState;
     btn.setAttribute("aria-label", getWgaLang() === "en" ? "Back to top" : "Nach oben");
   }
 
@@ -1315,6 +1358,7 @@
   }
 
   if (bioOpen) bioOpen.addEventListener("click", openBio);
+  if (inspirationOpen) inspirationOpen.addEventListener("click", openInspiration);
   initChaptersNav();
   initHeroNav();
   initPopupNav();
@@ -1346,14 +1390,22 @@
     });
   }
 
+  if (inspirationOverlay) {
+    inspirationOverlay.querySelectorAll("[data-wga-inspiration-close]").forEach(function (el) {
+      el.addEventListener("click", closeInspiration);
+    });
+  }
+
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") {
       if (bioOverlay && !bioOverlay.hidden) closeBio();
+      else if (inspirationOverlay && !inspirationOverlay.hidden) closeInspiration();
       else if (inquiryPopup && !inquiryPopup.hidden) closeInquiryPopup();
       else if (popup && !popup.hidden) closePopup();
       return;
     }
     if (bioOverlay && !bioOverlay.hidden) return;
+    if (inspirationOverlay && !inspirationOverlay.hidden) return;
     if (popup && popup.hidden) return;
     if (e.key === "ArrowLeft") stepPopupWork(-1);
     if (e.key === "ArrowRight") stepPopupWork(1);
