@@ -60,7 +60,7 @@
       "medium": "Radierung"
     },
     {
-      "src": "assets/wolfgang-grope/09 90'er Jahre 1990-1999 (Aquarellbilder)/WG-Aquarell-1990-62.jpg",
+      "src": "assets/wolfgang-grope/09 90'er Jahre 1990-1995 (Aquarellbilder)/WG-Aquarell-1990-62.jpg",
       "alt": "Wolfgang Grope — Aquarell, 1990",
       "year": "1990",
       "medium": "Aquarell"
@@ -2876,132 +2876,6 @@
       ]
     },
     {
-      "id": "09-90-er-jahre-1990-1999-aquarellbilder",
-      "title": "09 90'er Jahre 1990-1999 (Aquarellbilder)",
-      "chapter": "09 90er Jahre",
-      "chapterYear": "1990er Jahre",
-      "sectionLabel": "Aquarellbilder",
-      "works": [
-        {
-          "id": "wg-09-005",
-          "catalogId": "WG-09-005",
-          "title": "Aquarell",
-          "year": "1990",
-          "medium": "Aquarell",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "available",
-          "images": [
-            "assets/wolfgang-grope/09 90'er Jahre 1990-1999 (Aquarellbilder)/WG-Aquarell-1990-58.jpg"
-          ]
-        },
-        {
-          "id": "wg-09-006",
-          "catalogId": "WG-09-006",
-          "title": "Aquarell",
-          "year": "1990",
-          "medium": "Aquarell",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "available",
-          "images": [
-            "assets/wolfgang-grope/09 90'er Jahre 1990-1999 (Aquarellbilder)/WG-Aquarell-1990-60.jpg"
-          ]
-        },
-        {
-          "id": "wg-09-007",
-          "catalogId": "WG-09-007",
-          "title": "Aquarell",
-          "year": "1990",
-          "medium": "Aquarell",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "available",
-          "images": [
-            "assets/wolfgang-grope/09 90'er Jahre 1990-1999 (Aquarellbilder)/WG-Aquarell-1990-62.jpg"
-          ]
-        },
-        {
-          "id": "wg-09-008",
-          "catalogId": "WG-09-008",
-          "title": "Aquarell",
-          "year": "1991",
-          "medium": "Aquarell",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "available",
-          "images": [
-            "assets/wolfgang-grope/09 90'er Jahre 1990-1999 (Aquarellbilder)/WG-Aquarell-1991-63.jpg"
-          ]
-        },
-        {
-          "id": "wg-09-009",
-          "catalogId": "WG-09-009",
-          "title": "Aquarell",
-          "year": "1992",
-          "medium": "Aquarell",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "available",
-          "images": [
-            "assets/wolfgang-grope/09 90'er Jahre 1990-1999 (Aquarellbilder)/WG-Aquarell-1992-43.jpg"
-          ]
-        },
-        {
-          "id": "wg-09-010",
-          "catalogId": "WG-09-010",
-          "title": "Aquarell",
-          "year": "1995",
-          "medium": "Aquarell",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "available",
-          "images": [
-            "assets/wolfgang-grope/09 90'er Jahre 1990-1999 (Aquarellbilder)/WG-Aquarell-1995-86.jpg"
-          ]
-        },
-        {
-          "id": "wg-09-011",
-          "catalogId": "WG-09-011",
-          "title": "Gemälde",
-          "year": "1991",
-          "medium": "Ölgemälde",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "available",
-          "images": [
-            "assets/wolfgang-grope/09 90'er Jahre 1990-1999 (Aquarellbilder)/WG-Gemaelde-1991-1995-02.jpg"
-          ]
-        },
-        {
-          "id": "wg-09-012",
-          "catalogId": "WG-09-012",
-          "title": "Gemälde",
-          "year": "1991",
-          "medium": "Ölgemälde",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "available",
-          "images": [
-            "assets/wolfgang-grope/09 90'er Jahre 1990-1999 (Aquarellbilder)/WG-Gemaelde-1991-1995-55.jpg"
-          ]
-        },
-        {
-          "id": "wg-09-013",
-          "catalogId": "WG-09-013",
-          "title": "Tuschezeichnung",
-          "year": "1991",
-          "medium": "Tuschezeichnung",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "available",
-          "images": [
-            "assets/wolfgang-grope/09 90'er Jahre 1990-1999 (Aquarellbilder)/WG-Tuschezeichnung-1991-56.jpg"
-          ]
-        }
-      ]
-    },
-    {
       "id": "09-90-er-jahre-1991-skizzen-griechenland",
       "title": "09 90'er Jahre 1991 (Skizzen Griechenland)",
       "chapter": "09 90er Jahre",
@@ -3110,6 +2984,132 @@
           "berlinStatus": "available",
           "images": [
             "assets/wolfgang-grope/09 90'er Jahre 1991 (Skizzen Griechenland)/WG-Tuschezeichnung-1991-06.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "09-90-er-jahre-1990-1995-aquarellbilder",
+      "title": "09 90'er Jahre 1990-1995 (Aquarellbilder)",
+      "chapter": "09 90er Jahre",
+      "chapterYear": "1990er Jahre",
+      "sectionLabel": "Aquarellbilder",
+      "works": [
+        {
+          "id": "wg-09-005",
+          "catalogId": "WG-09-005",
+          "title": "Aquarell",
+          "year": "1990",
+          "medium": "Aquarell",
+          "dimensions": "—",
+          "body": "",
+          "berlinStatus": "available",
+          "images": [
+            "assets/wolfgang-grope/09 90'er Jahre 1990-1995 (Aquarellbilder)/WG-Aquarell-1990-58.jpg"
+          ]
+        },
+        {
+          "id": "wg-09-006",
+          "catalogId": "WG-09-006",
+          "title": "Aquarell",
+          "year": "1990",
+          "medium": "Aquarell",
+          "dimensions": "—",
+          "body": "",
+          "berlinStatus": "available",
+          "images": [
+            "assets/wolfgang-grope/09 90'er Jahre 1990-1995 (Aquarellbilder)/WG-Aquarell-1990-60.jpg"
+          ]
+        },
+        {
+          "id": "wg-09-007",
+          "catalogId": "WG-09-007",
+          "title": "Aquarell",
+          "year": "1990",
+          "medium": "Aquarell",
+          "dimensions": "—",
+          "body": "",
+          "berlinStatus": "available",
+          "images": [
+            "assets/wolfgang-grope/09 90'er Jahre 1990-1995 (Aquarellbilder)/WG-Aquarell-1990-62.jpg"
+          ]
+        },
+        {
+          "id": "wg-09-008",
+          "catalogId": "WG-09-008",
+          "title": "Aquarell",
+          "year": "1991",
+          "medium": "Aquarell",
+          "dimensions": "—",
+          "body": "",
+          "berlinStatus": "available",
+          "images": [
+            "assets/wolfgang-grope/09 90'er Jahre 1990-1995 (Aquarellbilder)/WG-Aquarell-1991-63.jpg"
+          ]
+        },
+        {
+          "id": "wg-09-009",
+          "catalogId": "WG-09-009",
+          "title": "Aquarell",
+          "year": "1992",
+          "medium": "Aquarell",
+          "dimensions": "—",
+          "body": "",
+          "berlinStatus": "available",
+          "images": [
+            "assets/wolfgang-grope/09 90'er Jahre 1990-1995 (Aquarellbilder)/WG-Aquarell-1992-43.jpg"
+          ]
+        },
+        {
+          "id": "wg-09-010",
+          "catalogId": "WG-09-010",
+          "title": "Aquarell",
+          "year": "1995",
+          "medium": "Aquarell",
+          "dimensions": "—",
+          "body": "",
+          "berlinStatus": "available",
+          "images": [
+            "assets/wolfgang-grope/09 90'er Jahre 1990-1995 (Aquarellbilder)/WG-Aquarell-1995-86.jpg"
+          ]
+        },
+        {
+          "id": "wg-09-011",
+          "catalogId": "WG-09-011",
+          "title": "Gemälde",
+          "year": "1991",
+          "medium": "Ölgemälde",
+          "dimensions": "—",
+          "body": "",
+          "berlinStatus": "available",
+          "images": [
+            "assets/wolfgang-grope/09 90'er Jahre 1990-1995 (Aquarellbilder)/WG-Gemaelde-1991-1995-02.jpg"
+          ]
+        },
+        {
+          "id": "wg-09-012",
+          "catalogId": "WG-09-012",
+          "title": "Gemälde",
+          "year": "1994",
+          "medium": "Ölgemälde",
+          "dimensions": "—",
+          "body": "",
+          "berlinStatus": "available",
+          "images": [
+            "assets/wolfgang-grope/09 90'er Jahre 1990-1995 (Aquarellbilder)/WG-Gemaelde-1991-1995-55.jpg"
+          ]
+        },
+        {
+          "id": "wg-09-013",
+          "catalogId": "WG-09-013",
+          "title": "Tuschezeichnung",
+          "year": "1991",
+          "medium": "Tuschezeichnung",
+          "dimensions": "—",
+          "body": "",
+          "berlinStatus": "available",
+          "images": [
+            "assets/wolfgang-grope/09 90'er Jahre 1990-1995 (Aquarellbilder)/WG-Tuschezeichnung-1991-56.jpg"
           ]
         }
       ]

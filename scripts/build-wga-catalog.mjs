@@ -67,7 +67,28 @@ function nfc(value) {
   return clean(value).normalize("NFC");
 }
 
+const CHAPTER_09_FOLDER_ORDER = [
+  "09 90'er Jahre 1990 (Krypta Würzburger Dom)",
+  "09 90'er Jahre 1991 (Skizzen Griechenland)",
+  "09 90'er Jahre 1990-1995 (Aquarellbilder)",
+  "09 90'er Jahre 1991-1995 (Skribbel)",
+  "09 90'er jahre 1992 (Acrylbilder im Großformat)",
+  "09 90'er Jahre 1992 (Skizzen Bornholm)",
+  "09 90'er Jahre 1992 (Tuschestrichzeichnungen)",
+  "09 90'er Jahre 1992-1994 (Skizzenbuch)",
+  "09 90'er Jahre 1993 (Spontanes Objekt)",
+  "09 90'er Jahre 1995 (Obst in Aquarell)",
+  "09 90'er Jahre 1995 (Ölkreide)",
+  "09 90'er Jahre 1995 (Skizzen Lofoten)",
+];
+
+const FOLDER_ORDER_KEYS = new Map(
+  CHAPTER_09_FOLDER_ORDER.map((name, index) => [nfc(name), `009-${String(index).padStart(3, "0")}`])
+);
+
 function folderSortKey(folder) {
+  const ordered = FOLDER_ORDER_KEYS.get(nfc(folder));
+  if (ordered) return `${ordered}-${folder.toLowerCase()}`;
   const m = folder.match(/^(\d+|x)\s*/i);
   if (!m) return `z-${folder}`;
   const prefix = m[1].toLowerCase() === "x" ? 999 : parseInt(m[1], 10);
