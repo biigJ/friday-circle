@@ -524,10 +524,57 @@
     updateHeroControls();
   }
 
+  const WGA_CHAPTER_EN = {
+    "28 Jahre alt": "Age 28",
+    "Knalliges Acryl": "Vivid Acrylic",
+    "Frühe Radierungen": "Early Etchings",
+    Holzschnitte: "Woodcuts",
+    "Ölmalerei 1974": "Oil Painting 1974",
+    "Mehr Radierungen": "More Etchings",
+    "Neue Familie": "New Family",
+    "80er Jahre": "The 1980s",
+    "90er Jahre": "The 1990s",
+    "2000er Jahre": "The 2000s",
+    Keramik: "Ceramics",
+  };
+
+  const WGA_SECTION_EN = {
+    Collagen: "Collages",
+    Tuschezeichnung: "Ink Drawing",
+    Aquarell: "Watercolour",
+    Skizzen: "Sketches",
+    Buntstiftzeichnungen: "Coloured Pencil Drawings",
+    Ölkreide: "Oil Pastel",
+    Radierungen: "Etchings",
+    "Druck-Experimente": "Print Experiments",
+    "Krypta Würzburger Dom": "Crypt, Würzburg Cathedral",
+    "Skizzen Griechenland": "Sketches, Greece",
+    Aquarellbilder: "Watercolours",
+    Skribbel: "Doodles",
+    "Acrylbilder im Großformat": "Large-Format Acrylic Paintings",
+    "Skizzen Bornholm": "Sketches, Bornholm",
+    Tuschestrichzeichnungen: "Ink Line Drawings",
+    Skizzenbuch: "Sketchbook",
+    "Spontanes Objekt": "Spontaneous Object",
+    "Obst in Aquarell": "Fruit in Watercolour",
+    "Skizzen Lofoten": "Sketches, Lofoten",
+    Grafikdruck: "Printmaking",
+    Ölmalerei: "Oil Painting",
+    "Kreide Acryl Radierung": "Pastel, Acrylic, Etching",
+    "Naives Malen": "Naïve Painting",
+  };
+
+  function wgaCatalogLabel(label, map) {
+    const text = String(label || "").trim();
+    if (!text || getWgaLang() !== "en") return text;
+    return map[text] || text;
+  }
+
   function chapterDisplayName(chapter) {
-    return String(chapter || "")
+    const stripped = String(chapter || "")
       .replace(/^\d{2}\s+/, "")
       .trim();
+    return wgaCatalogLabel(stripped, WGA_CHAPTER_EN);
   }
 
   function normalizeYearLabel(value) {
@@ -560,7 +607,7 @@
     if (!label) return "";
     if (sectionYear && normalizeYearLabel(label) === normalizeYearLabel(sectionYear)) return "";
     if (/^\d{4}(?:[–-]\d{4})?$/.test(label)) return "";
-    return label;
+    return wgaCatalogLabel(label, WGA_SECTION_EN);
   }
 
   function shouldShowSectionHeader(section) {
@@ -1365,6 +1412,7 @@
   initWgaScrollTop();
   document.addEventListener("fc-lang-change", syncChaptersNavOffset);
   document.addEventListener("fc-lang-change", function () {
+    if (catalog) renderCatalog();
     if (openWorkId) openPopup(openWorkId);
     if (bioLoaded) applyBioText();
     if (openInquiryWorkId) {
