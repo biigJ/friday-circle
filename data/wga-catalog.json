@@ -5176,33 +5176,6 @@
           ]
         },
         {
-          "id": "wg-11-005",
-          "catalogId": "WG-11-005",
-          "title": "Keramik",
-          "year": "—",
-          "medium": "Keramik",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "unavailable",
-          "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-05.jpg"
-          ]
-        },
-        {
-          "id": "wg-11-007",
-          "catalogId": "WG-11-007",
-          "title": "Keramik",
-          "year": "—",
-          "medium": "Keramik",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "available",
-          "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-14.jpg",
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-08.jpg"
-          ]
-        },
-        {
           "id": "wg-11-002",
           "catalogId": "WG-11-002",
           "title": "Keramik",
@@ -5212,7 +5185,7 @@
           "body": "",
           "berlinStatus": "available",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-02.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-05.jpg"
           ]
         },
         {
@@ -5225,7 +5198,7 @@
           "body": "",
           "berlinStatus": "available",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-03.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-06.jpg"
           ]
         },
         {
@@ -5238,7 +5211,20 @@
           "body": "",
           "berlinStatus": "unavailable",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-04.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-14.jpg"
+          ]
+        },
+        {
+          "id": "wg-11-005",
+          "catalogId": "WG-11-005",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "berlinStatus": "unavailable",
+          "images": [
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-02.jpg"
           ]
         },
         {
@@ -5251,7 +5237,34 @@
           "body": "",
           "berlinStatus": "available",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-06.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-03.jpg"
+          ]
+        },
+        {
+          "id": "wg-11-007",
+          "catalogId": "WG-11-007",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "berlinStatus": "available",
+          "images": [
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-04.jpg"
+          ]
+        },
+        {
+          "id": "wg-11-008-a",
+          "catalogId": "WG-11-008-a",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "berlinStatus": "unavailable",
+          "images": [
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-10.jpg",
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-11.jpg"
           ]
         },
         {
@@ -5264,7 +5277,7 @@
           "body": "",
           "berlinStatus": "unavailable",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-10.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-09.jpg"
           ]
         },
         {
@@ -5277,8 +5290,20 @@
           "body": "",
           "berlinStatus": "unavailable",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-09.jpg",
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-11.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-12.jpg"
+          ]
+        },
+        {
+          "id": "wg-11-011",
+          "catalogId": "WG-11-011",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "berlinStatus": "unavailable",
+          "images": [
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-41.jpg"
           ]
         },
         {
@@ -5291,7 +5316,7 @@
           "body": "",
           "berlinStatus": "available",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-12.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-20.jpg"
           ]
         },
         {
@@ -5304,7 +5329,7 @@
           "body": "",
           "berlinStatus": "unavailable",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-41.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-15.jpg"
           ]
         },
         {
@@ -5317,7 +5342,7 @@
           "body": "",
           "berlinStatus": "available",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-20.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-16.jpg"
           ]
         },
         {
@@ -5330,7 +5355,7 @@
           "body": "",
           "berlinStatus": "available",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-15.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-17.jpg"
           ]
         },
         {
@@ -5343,7 +5368,7 @@
           "body": "",
           "berlinStatus": "available",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-16.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-18.jpg"
           ]
         },
         {
@@ -5356,7 +5381,7 @@
           "body": "",
           "berlinStatus": "available",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-17.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-19.jpg"
           ]
         },
         {
@@ -5369,7 +5394,7 @@
           "body": "",
           "berlinStatus": "available",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-18.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-21.jpg"
           ]
         },
         {
@@ -5382,7 +5407,7 @@
           "body": "",
           "berlinStatus": "unavailable",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-19.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-22.jpg"
           ]
         },
         {
@@ -5395,7 +5420,7 @@
           "body": "",
           "berlinStatus": "available",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-07.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-23.jpg"
           ]
         },
         {
@@ -5408,7 +5433,7 @@
           "body": "",
           "berlinStatus": "available",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-21.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-24.jpg"
           ]
         },
         {
@@ -5421,7 +5446,7 @@
           "body": "",
           "berlinStatus": "available",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-22.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-25.jpg"
           ]
         },
         {
@@ -5434,7 +5459,7 @@
           "body": "",
           "berlinStatus": "available",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-23.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-27.jpg"
           ]
         },
         {
@@ -5447,7 +5472,7 @@
           "body": "",
           "berlinStatus": "available",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-24.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-28.jpg"
           ]
         },
         {
@@ -5460,7 +5485,20 @@
           "body": "",
           "berlinStatus": "available",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-25.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-29.jpg"
+          ]
+        },
+        {
+          "id": "wg-11-026",
+          "catalogId": "WG-11-026",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "berlinStatus": "available",
+          "images": [
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-30.jpg"
           ]
         },
         {
@@ -5473,7 +5511,7 @@
           "body": "",
           "berlinStatus": "available",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-27.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-34.jpg"
           ]
         },
         {
@@ -5486,7 +5524,7 @@
           "body": "",
           "berlinStatus": "available",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-28.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-32.jpg"
           ]
         },
         {
@@ -5499,7 +5537,7 @@
           "body": "",
           "berlinStatus": "unavailable",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-29.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-33.jpg"
           ]
         },
         {
@@ -5512,7 +5550,7 @@
           "body": "",
           "berlinStatus": "available",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-30.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-31.jpg"
           ]
         },
         {
@@ -5525,7 +5563,7 @@
           "body": "",
           "berlinStatus": "unavailable",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-32.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-38.jpg"
           ]
         },
         {
@@ -5538,7 +5576,7 @@
           "body": "",
           "berlinStatus": "available",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-31.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-35.jpg"
           ]
         },
         {
@@ -5551,7 +5589,7 @@
           "body": "",
           "berlinStatus": "unavailable",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-33.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-36.jpg"
           ]
         },
         {
@@ -5564,64 +5602,12 @@
           "body": "",
           "berlinStatus": "unavailable",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-34.jpg"
-          ]
-        },
-        {
-          "id": "wg-11-035",
-          "catalogId": "WG-11-035",
-          "title": "Keramik",
-          "year": "—",
-          "medium": "Keramik",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "unavailable",
-          "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-35.jpg"
-          ]
-        },
-        {
-          "id": "wg-11-036",
-          "catalogId": "WG-11-036",
-          "title": "Keramik",
-          "year": "—",
-          "medium": "Keramik",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "available",
-          "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-36.jpg"
-          ]
-        },
-        {
-          "id": "wg-11-037",
-          "catalogId": "WG-11-037",
-          "title": "Keramik",
-          "year": "—",
-          "medium": "Keramik",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "available",
-          "images": [
             "assets/wolfgang-grope/11 Keramik/WG-Keramik-37.jpg"
           ]
         },
         {
-          "id": "wg-11-038",
-          "catalogId": "WG-11-038",
-          "title": "Keramik",
-          "year": "—",
-          "medium": "Keramik",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "available",
-          "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-38.jpg"
-          ]
-        },
-        {
-          "id": "wg-11-039",
-          "catalogId": "WG-11-039",
+          "id": "wg-11-035-a",
+          "catalogId": "WG-11-035-a",
           "title": "Keramik",
           "year": "—",
           "medium": "Keramik",
@@ -5634,180 +5620,8 @@
           ]
         },
         {
-          "id": "wg-11-041",
-          "catalogId": "WG-11-041",
-          "title": "Keramik",
-          "year": "—",
-          "medium": "Keramik",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "available",
-          "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-13.jpg"
-          ]
-        },
-        {
-          "id": "wg-11-043",
-          "catalogId": "WG-11-043",
-          "title": "Keramik",
-          "year": "—",
-          "medium": "Keramik",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "available",
-          "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-43.jpg"
-          ]
-        },
-        {
-          "id": "wg-11-045",
-          "catalogId": "WG-11-045",
-          "title": "Keramik",
-          "year": "—",
-          "medium": "Keramik",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "unavailable",
-          "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-45.jpg"
-          ]
-        },
-        {
-          "id": "wg-11-046",
-          "catalogId": "WG-11-046",
-          "title": "Keramik",
-          "year": "—",
-          "medium": "Keramik",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "available",
-          "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-46.jpg"
-          ]
-        },
-        {
-          "id": "wg-11-047",
-          "catalogId": "WG-11-047",
-          "title": "Keramik",
-          "year": "—",
-          "medium": "Keramik",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "unavailable",
-          "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-47.jpg",
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-52.jpg"
-          ]
-        },
-        {
-          "id": "wg-11-048",
-          "catalogId": "WG-11-048",
-          "title": "Keramik",
-          "year": "—",
-          "medium": "Keramik",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "unavailable",
-          "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-48.jpg",
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-55.jpg"
-          ]
-        },
-        {
-          "id": "wg-11-049",
-          "catalogId": "WG-11-049",
-          "title": "Keramik",
-          "year": "—",
-          "medium": "Keramik",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "available",
-          "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-49.jpg",
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-50.jpg"
-          ]
-        },
-        {
-          "id": "wg-11-051",
-          "catalogId": "WG-11-051",
-          "title": "Keramik",
-          "year": "—",
-          "medium": "Keramik",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "available",
-          "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-51.jpg"
-          ]
-        },
-        {
-          "id": "wg-11-053",
-          "catalogId": "WG-11-053",
-          "title": "Keramik",
-          "year": "—",
-          "medium": "Keramik",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "available",
-          "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-53.jpg"
-          ]
-        },
-        {
-          "id": "wg-11-054",
-          "catalogId": "WG-11-054",
-          "title": "Keramik",
-          "year": "—",
-          "medium": "Keramik",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "available",
-          "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-54.jpg"
-          ]
-        },
-        {
-          "id": "wg-11-056",
-          "catalogId": "WG-11-056",
-          "title": "Keramik",
-          "year": "—",
-          "medium": "Keramik",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "available",
-          "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-56.jpg"
-          ]
-        },
-        {
-          "id": "wg-11-057",
-          "catalogId": "WG-11-057",
-          "title": "Keramik",
-          "year": "—",
-          "medium": "Keramik",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "available",
-          "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-57.jpg"
-          ]
-        },
-        {
-          "id": "wg-11-058",
-          "catalogId": "WG-11-058",
-          "title": "Keramik",
-          "year": "—",
-          "medium": "Keramik",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "available",
-          "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-58.jpg"
-          ]
-        },
-        {
-          "id": "wg-11-059",
-          "catalogId": "WG-11-059",
+          "id": "wg-11-036-a",
+          "catalogId": "WG-11-036-a",
           "title": "Keramik",
           "year": "—",
           "medium": "Keramik",
@@ -5820,8 +5634,8 @@
           ]
         },
         {
-          "id": "wg-11-060",
-          "catalogId": "WG-11-060",
+          "id": "wg-11-037-a",
+          "catalogId": "WG-11-037-a",
           "title": "Keramik",
           "year": "—",
           "medium": "Keramik",
@@ -5829,12 +5643,185 @@
           "body": "",
           "berlinStatus": "available",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-60.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-07.jpg",
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-08.jpg"
           ]
         },
         {
-          "id": "wg-11-062",
-          "catalogId": "WG-11-062",
+          "id": "wg-11-038",
+          "catalogId": "WG-11-038",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "berlinStatus": "available",
+          "images": [
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-13.jpg"
+          ]
+        },
+        {
+          "id": "wg-11-039",
+          "catalogId": "WG-11-039",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "berlinStatus": "available",
+          "images": [
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-43.jpg"
+          ]
+        },
+        {
+          "id": "wg-11-040",
+          "catalogId": "WG-11-040",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "berlinStatus": "unavailable",
+          "images": [
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-45.jpg"
+          ]
+        },
+        {
+          "id": "wg-11-041",
+          "catalogId": "WG-11-041",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "berlinStatus": "available",
+          "images": [
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-46.jpg"
+          ]
+        },
+        {
+          "id": "wg-11-042-a",
+          "catalogId": "WG-11-042-a",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "berlinStatus": "unavailable",
+          "images": [
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-47.jpg",
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-52.jpg"
+          ]
+        },
+        {
+          "id": "wg-11-043-a",
+          "catalogId": "WG-11-043-a",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "berlinStatus": "unavailable",
+          "images": [
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-48.jpg",
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-55.jpg"
+          ]
+        },
+        {
+          "id": "wg-11-044",
+          "catalogId": "WG-11-044",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "berlinStatus": "available",
+          "images": [
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-57.jpg"
+          ]
+        },
+        {
+          "id": "wg-11-045-a",
+          "catalogId": "WG-11-045-a",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "berlinStatus": "available",
+          "images": [
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-49.jpg",
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-50.jpg"
+          ]
+        },
+        {
+          "id": "wg-11-046",
+          "catalogId": "WG-11-046",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "berlinStatus": "available",
+          "images": [
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-51.jpg"
+          ]
+        },
+        {
+          "id": "wg-11-047",
+          "catalogId": "WG-11-047",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "berlinStatus": "unavailable",
+          "images": [
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-53.jpg"
+          ]
+        },
+        {
+          "id": "wg-11-048",
+          "catalogId": "WG-11-048",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "berlinStatus": "unavailable",
+          "images": [
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-54.jpg"
+          ]
+        },
+        {
+          "id": "wg-11-049",
+          "catalogId": "WG-11-049",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "berlinStatus": "available",
+          "images": [
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-56.jpg"
+          ]
+        },
+        {
+          "id": "wg-11-050",
+          "catalogId": "WG-11-050",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "berlinStatus": "unavailable",
+          "images": [
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-58.jpg"
+          ]
+        },
+        {
+          "id": "wg-11-051",
+          "catalogId": "WG-11-051",
           "title": "Keramik",
           "year": "—",
           "medium": "Keramik",
@@ -5846,8 +5833,21 @@
           ]
         },
         {
-          "id": "wg-11-063",
-          "catalogId": "WG-11-063",
+          "id": "wg-11-052",
+          "catalogId": "WG-11-052",
+          "title": "Keramik",
+          "year": "—",
+          "medium": "Keramik",
+          "dimensions": "—",
+          "body": "",
+          "berlinStatus": "available",
+          "images": [
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-60.jpg"
+          ]
+        },
+        {
+          "id": "wg-11-053",
+          "catalogId": "WG-11-053",
           "title": "Keramik",
           "year": "—",
           "medium": "Keramik",
@@ -5859,34 +5859,21 @@
           ]
         },
         {
-          "id": "wg-11-064",
-          "catalogId": "WG-11-064",
+          "id": "wg-11-054",
+          "catalogId": "WG-11-054",
           "title": "Keramik",
           "year": "—",
           "medium": "Keramik",
           "dimensions": "—",
           "body": "",
-          "berlinStatus": "unavailable",
-          "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-64.jpg"
-          ]
-        },
-        {
-          "id": "wg-11-065",
-          "catalogId": "WG-11-065",
-          "title": "Keramik",
-          "year": "—",
-          "medium": "Keramik",
-          "dimensions": "—",
-          "body": "",
-          "berlinStatus": "unavailable",
+          "berlinStatus": "available",
           "images": [
             "assets/wolfgang-grope/11 Keramik/WG-Keramik-65.jpg"
           ]
         },
         {
-          "id": "wg-11-066",
-          "catalogId": "WG-11-066",
+          "id": "wg-11-055",
+          "catalogId": "WG-11-055",
           "title": "Keramik",
           "year": "—",
           "medium": "Keramik",
@@ -5898,8 +5885,8 @@
           ]
         },
         {
-          "id": "wg-11-067",
-          "catalogId": "WG-11-067",
+          "id": "wg-11-056",
+          "catalogId": "WG-11-056",
           "title": "Keramik",
           "year": "—",
           "medium": "Keramik",

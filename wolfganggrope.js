@@ -630,24 +630,50 @@
     return !!(sectionYear || sectionName);
   }
 
-  function popupIndexLine(work) {
+  function keramikPairBaseNo(work) {
+    const id = work?.catalogId || work?.id || "";
+    const m = String(id).match(/^(?:wg|WG)-\d+-(\d{3})-a$/i);
+    return m ? m[1] : "";
+  }
+
+  function keramikViewSuffix(imageIndex) {
+    if (imageIndex === 1) return "b";
+    if (imageIndex === 0) return "a";
+    return "";
+  }
+
+  function popupIndexLine(work, imageIndex) {
     const id = work.catalogId || work.id || "";
-    const match = String(id).match(/^(?:wg|WG)-(\d+)-(\d+)$/i);
+    const pair = String(id).match(/^(?:wg|WG)-(\d+)-(\d{3})-a$/i);
+    if (pair) {
+      const chapter = pair[1].padStart(2, "0");
+      const view = keramikViewSuffix(imageIndex);
+      const workNo = view ? `${pair[2]}-${view}` : pair[2];
+      const yearMatch = work.year && work.year !== "—" ? String(work.year).match(/(\d{4})/) : null;
+      if (yearMatch) return `${chapter}-${workNo}-${yearMatch[1]}`;
+      return `${chapter}-${workNo}`;
+    }
+    const match = String(id).match(/^(?:wg|WG)-(\d+)-(\d{3})$/i);
     if (!match) return "";
     const chapter = match[1].padStart(2, "0");
-    const workNo = match[2].padStart(3, "0");
+    const workNo = match[2];
     const yearMatch = work.year && work.year !== "—" ? String(work.year).match(/(\d{4})/) : null;
     if (yearMatch) return `${chapter}-${workNo}-${yearMatch[1]}`;
     return `${chapter}-${workNo}`;
   }
 
-  function catalogNo(work) {
+  function catalogNo(work, imageIndex) {
+    const pairBase = keramikPairBaseNo(work);
+    if (pairBase) {
+      const view = keramikViewSuffix(imageIndex);
+      return view ? `${pairBase}-${view}` : pairBase;
+    }
     if (work.catalogId) {
-      const m = String(work.catalogId).match(/-(\d+)$/i);
+      const m = String(work.catalogId).match(/-(\d{3})$/i);
       if (m) return m[1];
     }
-    if (work.id && /^wg-\d+-\d+$/i.test(work.id)) {
-      const m = work.id.match(/-(\d+)$/i);
+    if (work.id && /^wg-\d+-\d{3}$/i.test(work.id)) {
+      const m = work.id.match(/-(\d{3})$/i);
       if (m) return m[1];
     }
     const src = (work.images && work.images[0]) || "";
@@ -984,6 +1010,10 @@
     sliderTrack.style.transform = "translateX(-" + slideIndex * 100 + "%)";
     syncPopupFrameWidth();
     updatePopupViewNav();
+    const popupWork = openWorkId ? worksById[openWorkId] : null;
+    if (popupWork && slideCount > 1 && !useMobileWorkCarousel(popupWork)) {
+      updatePopupChrome(popupWork, slideIndex);
+    }
   }
 
   function buildPopupSlider(images, title) {
@@ -1186,8 +1216,10 @@
   let popupSwipeApi = null;
   let popupCarouselBusy = false;
 
-  function updatePopupChrome(work) {
+  function updatePopupChrome(work, imageIndex) {
     if (!work) return;
+    const viewIndex =
+      imageIndex != null && slideCount > 1 && !useMobileWorkCarousel(work) ? imageIndex : 0;
     popupTitle.textContent = work.title || "Werk";
     if (popupUnavailable) {
       const unavailable = work.berlinStatus === "unavailable";
@@ -1199,7 +1231,7 @@
         : "";
     }
     if (popupIndex) {
-      popupIndex.textContent = popupIndexLine(work);
+      popupIndex.textContent = popupIndexLine(work, viewIndex);
       popupIndex.hidden = !popupIndex.textContent;
     }
     if (popup) {

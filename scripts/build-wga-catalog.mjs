@@ -86,28 +86,17 @@ const FOLDER_ORDER_KEYS = new Map(
   CHAPTER_09_FOLDER_ORDER.map((name, index) => [nfc(name), `009-${String(index).padStart(3, "0")}`])
 );
 
-/** Keramik: second row omitted; extra image merged into primary work for popup slider. */
-const KERAMIK_SKIP_IDS = new Set([
-  "WG-11-008",
-  "WG-11-011",
-  "WG-11-040",
-  "WG-11-042",
-  "WG-11-044",
-  "WG-11-050",
-  "WG-11-052",
-  "WG-11-055",
-  "WG-11-061",
-]);
+/** Keramik: WG-11-NNN-b rows are second views, merged into WG-11-NNN-a for the popup slider. */
+function isKeramikSecondViewId(id) {
+  return /^WG-11-\d{3}-b$/i.test(id);
+}
 
-const KERAMIK_EXTRA_IMAGES = new Map([
-  ["WG-11-007", ["WG-Keramik-08.jpg"]],
-  ["WG-11-010", ["WG-Keramik-11.jpg"]],
-  ["WG-11-039", ["WG-Keramik-42.jpg"]],
-  ["WG-11-047", ["WG-Keramik-52.jpg"]],
-  ["WG-11-048", ["WG-Keramik-55.jpg"]],
-  ["WG-11-049", ["WG-Keramik-50.jpg"]],
-  ["WG-11-059", ["WG-Keramik-61.jpg"]],
-]);
+function keramikExtraFilenames(row, csvById) {
+  const m = row.id.match(/^(WG-11-\d{3})-a$/i);
+  if (!m) return [];
+  const bRow = csvById.get(`${m[1]}-b`);
+  return bRow?.filename ? [bRow.filename] : [];
+}
 
 function resolveWorkImagePaths(primaryFilename, extraFilenames, imageIndex) {
   const images = [];
@@ -316,6 +305,7 @@ function buildHeroSlides(imageIndex, csvByFilename) {
 
 const imageIndex = indexImages();
 const csvRows = loadCsvRows();
+const csvById = new Map(csvRows.map((row) => [row.id, row]));
 const csvByFilename = new Map(csvRows.map((row) => [nfc(row.filename), row]));
 const berlinUnavailable = loadBerlinUnavailable();
 const prevMeta = loadPreviousMeta();
@@ -326,8 +316,8 @@ const sectionMap = new Map();
 for (const row of csvRows) {
   if (!row.id || !row.filename) continue;
   if (/^x\b/i.test(row.chapter)) continue;
-  if (KERAMIK_SKIP_IDS.has(row.id)) continue;
-  const extraFiles = KERAMIK_EXTRA_IMAGES.get(row.id) || [];
+  if (isKeramikSecondViewId(row.id)) continue;
+  const extraFiles = keramikExtraFilenames(row, csvById);
   const rel = imageIndex.get(row.filename);
   if (!rel) {
     console.warn("Image not found in numbered folders:", row.filename);
