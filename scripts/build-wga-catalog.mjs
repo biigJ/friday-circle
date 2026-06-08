@@ -86,6 +86,46 @@ const FOLDER_ORDER_KEYS = new Map(
   CHAPTER_09_FOLDER_ORDER.map((name, index) => [nfc(name), `009-${String(index).padStart(3, "0")}`])
 );
 
+/** Keramik: second row omitted; extra image merged into primary work for popup slider. */
+const KERAMIK_SKIP_IDS = new Set([
+  "WG-11-008",
+  "WG-11-011",
+  "WG-11-040",
+  "WG-11-042",
+  "WG-11-044",
+  "WG-11-050",
+  "WG-11-052",
+  "WG-11-055",
+  "WG-11-061",
+]);
+
+const KERAMIK_EXTRA_IMAGES = new Map([
+  ["WG-11-007", ["WG-Keramik-08.jpg"]],
+  ["WG-11-010", ["WG-Keramik-11.jpg"]],
+  ["WG-11-039", ["WG-Keramik-42.jpg"]],
+  ["WG-11-047", ["WG-Keramik-52.jpg"]],
+  ["WG-11-048", ["WG-Keramik-55.jpg"]],
+  ["WG-11-049", ["WG-Keramik-50.jpg"]],
+  ["WG-11-059", ["WG-Keramik-61.jpg"]],
+]);
+
+function resolveWorkImagePaths(primaryFilename, extraFilenames, imageIndex) {
+  const images = [];
+  for (const file of [primaryFilename, ...extraFilenames]) {
+    const rel = imageIndex.get(nfc(file)) || imageIndex.get(file);
+    if (!rel) {
+      console.warn("Image not found for work merge:", file);
+      continue;
+    }
+    images.push(`assets/wolfgang-grope/${rel}`);
+  }
+  return images;
+}
+
+function isBerlinUnavailable(filenames, unavailable) {
+  return filenames.some((file) => unavailable.has(nfc(file)));
+}
+
 function folderSortKey(folder) {
   const ordered = FOLDER_ORDER_KEYS.get(nfc(folder));
   if (ordered) return `${ordered}-${folder.toLowerCase()}`;
@@ -281,11 +321,15 @@ const sectionMap = new Map();
 for (const row of csvRows) {
   if (!row.id || !row.filename) continue;
   if (/^x\b/i.test(row.chapter)) continue;
+  if (KERAMIK_SKIP_IDS.has(row.id)) continue;
+  const extraFiles = KERAMIK_EXTRA_IMAGES.get(row.id) || [];
   const rel = imageIndex.get(row.filename);
   if (!rel) {
     console.warn("Image not found in numbered folders:", row.filename);
     continue;
   }
+  const images = resolveWorkImagePaths(row.filename, extraFiles, imageIndex);
+  if (!images.length) continue;
   const folder = rel.includes("/") ? rel.split("/")[0] : "";
   if (!sectionMap.has(folder)) {
     sectionMap.set(folder, {
@@ -307,8 +351,10 @@ for (const row of csvRows) {
       medium: row.medium || "—",
       dimensions: "—",
       body: "",
-      berlinStatus: berlinUnavailable.has(nfc(row.filename)) ? "unavailable" : "available",
-      images: [`assets/wolfgang-grope/${rel}`],
+      berlinStatus: isBerlinUnavailable([row.filename, ...extraFiles], berlinUnavailable)
+        ? "unavailable"
+        : "available",
+      images,
     },
     prev
   );
