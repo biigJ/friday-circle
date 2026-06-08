@@ -285,12 +285,43 @@
 
       .bi-grid {
         container-type: inline-size;
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+        display: flex;
+        flex-direction: column;
         --bi-gap: clamp(10px, 1.2vw, 16px);
         gap: var(--bi-gap);
         --bi-col: calc((100cqw - 3 * var(--bi-gap)) / 4);
         --bi-tile-h: calc(var(--bi-col) * 4 / 3);
+      }
+
+      .bi-image-row {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .bi-image-row__scroll {
+        display: flex;
+        gap: var(--bi-gap);
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .bi-image-row__scroll::-webkit-scrollbar {
+        display: none;
+      }
+
+      .bi-image-row__scroll > .bi-tile,
+      .bi-image-row__scroll > .bi-tile--project {
+        flex: 0 0 auto;
+        width: var(--bi-col);
+        height: var(--bi-tile-h);
+        scroll-snap-align: start;
+      }
+
+      .bi-image-row__scroll > .bi-tile--span-2 {
+        width: calc(2 * var(--bi-col) + var(--bi-gap));
       }
 
       .bi-tile {
@@ -314,10 +345,6 @@
         background: #ffffff;
         border: 1px solid #0a0a0a;
         pointer-events: none;
-      }
-
-      .bi-tile--span-2 {
-        grid-column: span 2;
       }
 
       .bi-tile__media,
@@ -786,23 +813,13 @@
 
       @media (max-width: 900px) {
         .bi-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
           --bi-col: calc((100cqw - var(--bi-gap)) / 2);
-        }
-
-        .bi-tile--span-2 {
-          grid-column: span 2;
         }
       }
 
       @media (max-width: 520px) {
         .bi-grid {
-          grid-template-columns: 1fr;
-          --bi-col: 100cqw;
-        }
-
-        .bi-tile--span-2 {
-          grid-column: span 1;
+          --bi-col: min(100cqw, calc(100cqw - 24px));
         }
 
         .bi-hero__figure {
@@ -969,6 +986,100 @@
         color: color-mix(in srgb, var(--text) 62%, #ffffff);
       }
 
+      /* —— Image lightbox —— */
+      .bi-lightbox[hidden] {
+        display: none !important;
+      }
+
+      .bi-lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 13000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: clamp(12px, 2.6vw, 28px);
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+
+      .bi-lightbox.is-open {
+        opacity: 1;
+      }
+
+      .bi-lightbox__backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.92);
+        cursor: pointer;
+      }
+
+      .bi-lightbox__stage {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+
+      .bi-lightbox__img {
+        max-width: 90vw;
+        max-height: 90vh;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        display: block;
+        pointer-events: auto;
+      }
+
+      .bi-lightbox__close,
+      .bi-lightbox__nav {
+        position: absolute;
+        z-index: 2;
+        border: 0;
+        background: transparent;
+        color: #ffffff;
+        cursor: pointer;
+        pointer-events: auto;
+        line-height: 1;
+        padding: 8px;
+      }
+
+      .bi-lightbox__close {
+        top: clamp(12px, 2.5vw, 24px);
+        right: clamp(12px, 2.5vw, 24px);
+        font-size: clamp(1.75rem, 4vw, 2.25rem);
+      }
+
+      .bi-lightbox__nav {
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: clamp(2rem, 5vw, 2.75rem);
+      }
+
+      .bi-lightbox__nav--prev {
+        left: clamp(8px, 2vw, 20px);
+      }
+
+      .bi-lightbox__nav--next {
+        right: clamp(8px, 2vw, 20px);
+      }
+
+      .bi-lightbox__close:hover,
+      .bi-lightbox__close:focus-visible,
+      .bi-lightbox__nav:hover,
+      .bi-lightbox__nav:focus-visible {
+        opacity: 0.72;
+        outline: none;
+      }
+
+      .bi-lightbox__nav[hidden] {
+        display: none !important;
+      }
+
       @media (max-width: 720px) {
         .bi-intake__options {
           grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1006,12 +1117,12 @@
         <div class="bi-shell">
           <h1 id="bi-hero-intro" class="bi-hero__intro">
             <span class="bi-hero__intro-line">
-              <span class="de-t">Ist Dein Space gut?</span>
-              <span class="en-t">Is your space right?</span>
+              <span class="de-t">Dein Raum sollte zu deinem Leben passen.</span>
+              <span class="en-t">Your space should fit your life.</span>
             </span>
             <span class="bi-hero__intro-line">
-              <span class="de-t">Pass ihn an Deinen Lebensentwurf an.</span>
-              <span class="en-t">Tailor it to your life design.</span>
+              <span class="de-t">Noch nicht?</span>
+              <span class="en-t">Not yet?</span>
             </span>
           </h1>
           <figure class="bi-hero__figure">
@@ -1034,24 +1145,17 @@
       <section class="bi-portfolio" aria-labelledby="bi-portfolio-title">
         <div class="bi-shell">
           <h2 id="bi-portfolio-title" class="bi-portfolio__title">
-            <span class="de-t">Was wir zusammen machen können.</span>
-            <span class="en-t">What we can do together.</span>
+            <span class="de-t">Fangen wir an.</span>
+            <span class="en-t">Let's get started.</span>
           </h2>
-          <p class="bi-portfolio__lede">
-            <span class="de-t"
-              >Mit Expertise aus 20 Jahren Baubranche und Blickwinkeln aus verschiedenen Positionen, eben auch aus
-              fachfremden, konzentriere ich mich auf Ressourcen, Hindernisse und Ziele. Mit kleinen und bedachten
-              Schritten. Wir verwirklichen zusammen Räume für einen konkreten Lebensentwurf und dazu gehört viel
-              wohlwollendes Interesse mit Euphorie für individuelle Geschichten.</span
-            >
-            <span class="en-t"
-              >With twenty years in construction and perspectives from many roles — including ones outside the trade — I
-              focus on resources, obstacles, and goals. In small, deliberate steps. Together we shape spaces for a
-              concrete life design — with generous curiosity and enthusiasm for individual stories.</span
-            >
+          <p class="bi-portfolio__lede" hidden>
+            <span class="de-t">Text folgt später.</span>
+            <span class="en-t">Copy to follow.</span>
           </p>
           <div class="bi-grid">
             <!-- Zeile 1 -->
+            <div class="bi-image-row">
+              <div class="bi-image-row__scroll">
             <div class="bi-tile bi-tile--offer">
               <p>
                 <span class="de-t">Neues Arrangement mit Plan, Liste, technischen Hinweisen, Fotorealismus.</span>
@@ -1068,7 +1172,7 @@
                 </button>
               </div>
             </div>
-            <button type="button" class="bi-tile bi-tile--project" data-bi-project="moebel">
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="moebel" data-bi-lightbox-row="0" data-bi-lightbox-index="0">
               <span class="bi-tile__media">
                 <img src="../assets/interior/tisch-heller.png" alt="" width="800" height="1067" decoding="async" />
               </span>
@@ -1077,7 +1181,7 @@
                 <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
               </span>
             </button>
-            <button type="button" class="bi-tile bi-tile--project" data-bi-project="vinothek">
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="vinothek" data-bi-lightbox-row="0" data-bi-lightbox-index="1">
               <span class="bi-tile__media">
                 <img src="../assets/interior/geisenheim_blumen.png" alt="" width="800" height="1067" decoding="async" />
               </span>
@@ -1087,9 +1191,13 @@
               </span>
             </button>
             <div class="bi-tile bi-tile--empty" aria-hidden="true"></div>
+              </div>
+            </div>
 
             <!-- Zeile 2 -->
-            <button type="button" class="bi-tile bi-tile--project" data-bi-project="umbauten">
+            <div class="bi-image-row">
+              <div class="bi-image-row__scroll">
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="umbauten" data-bi-lightbox-row="1" data-bi-lightbox-index="0">
               <span class="bi-tile__media">
                 <img src="../assets/interior/rene-möbliert-01.png" alt="" width="800" height="1067" decoding="async" />
               </span>
@@ -1098,7 +1206,7 @@
                 <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
               </span>
             </button>
-            <button type="button" class="bi-tile bi-tile--project" data-bi-project="blankenese">
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="blankenese" data-bi-lightbox-row="1" data-bi-lightbox-index="1">
               <span class="bi-tile__media">
                 <img src="../assets/interior/treppe.png" alt="" width="800" height="1067" decoding="async" />
               </span>
@@ -1124,8 +1232,12 @@
               </div>
             </div>
             <div class="bi-tile bi-tile--empty" aria-hidden="true"></div>
+              </div>
+            </div>
 
             <!-- Zeile 3 -->
+            <div class="bi-image-row">
+              <div class="bi-image-row__scroll">
             <div class="bi-tile bi-tile--empty" aria-hidden="true"></div>
             <div class="bi-tile bi-tile--offer">
               <p>
@@ -1145,8 +1257,12 @@
             </div>
             <div class="bi-tile bi-tile--empty" aria-hidden="true"></div>
             <div class="bi-tile bi-tile--empty" aria-hidden="true"></div>
+              </div>
+            </div>
 
             <!-- Zeile 4 — Hochbau -->
+            <div class="bi-image-row">
+              <div class="bi-image-row__scroll">
             <div class="bi-tile bi-tile--offer bi-tile--span-2">
               <p>
                 <span class="de-t"
@@ -1181,6 +1297,8 @@
                 </div>
               </div>
             </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -1189,13 +1307,13 @@
     <section class="bi-intake" aria-labelledby="bi-intake-title">
       <div class="bi-shell">
         <h2 id="bi-intake-title" class="visually-hidden">
-          <span class="de-t">Was hast du vor?</span>
-          <span class="en-t">What are you planning?</span>
+          <span class="de-t">Ein Gespräch. Ein Plan. Los.</span>
+          <span class="en-t">One conversation. One plan. Let's go.</span>
         </h2>
         <div class="bi-intake__chooser" id="bi-intake-chooser">
           <p class="bi-intake__prompt">
-            <span class="de-t">Was hast du vor?</span>
-            <span class="en-t">What are you planning?</span>
+            <span class="de-t">Ein Gespräch. Ein Plan. Los.</span>
+            <span class="en-t">One conversation. One plan. Let's go.</span>
           </p>
           <div class="bi-intake__options" role="tablist" aria-label="Angebot wählen">
             <button type="button" class="bi-intake__option" role="tab" data-bi-intent="arrangement" aria-selected="false">
@@ -1296,6 +1414,23 @@
         <div id="bi-offer-popup-body" class="bi-offer-popup__body"></div>
       </div>
     </aside>
+
+    <div
+      id="bi-lightbox"
+      class="bi-lightbox"
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-label="Projektbild"
+    >
+      <div class="bi-lightbox__backdrop" data-bi-lightbox-close></div>
+      <button type="button" class="bi-lightbox__close" data-bi-lightbox-close id="bi-lightbox-close" aria-label="Schließen">×</button>
+      <button type="button" class="bi-lightbox__nav bi-lightbox__nav--prev" id="bi-lightbox-prev" hidden aria-label="Vorheriges Bild">‹</button>
+      <button type="button" class="bi-lightbox__nav bi-lightbox__nav--next" id="bi-lightbox-next" hidden aria-label="Nächstes Bild">›</button>
+      <div class="bi-lightbox__stage">
+        <img class="bi-lightbox__img" id="bi-lightbox-img" alt="" decoding="async" />
+      </div>
+    </div>
 
     <footer class="footer" id="bi-site-footer" aria-label="Seitenfuß">
       <div class="footer__inner">
@@ -1589,6 +1724,8 @@
           footerLinksEn: "Legal and about",
           closeDe: "Popup schließen",
           closeEn: "Close popup",
+          lightboxDe: "Projektbild",
+          lightboxEn: "Project image",
           prevDe: "Vorheriges Bild",
           prevEn: "Previous image",
           nextDe: "Nächstes Bild",
@@ -1632,11 +1769,45 @@
 
         var HOCHBAU_IDS = ["klinker", "rothestr", "graefe", "destijl", "schleswig"];
 
+        var IMAGE_ROWS = [];
+
+        function buildImageRows() {
+          IMAGE_ROWS = [
+            [
+              { src: PROJECTS.moebel.images[0], altDe: PROJECTS.moebel.titleDe, altEn: PROJECTS.moebel.titleEn },
+              { src: PROJECTS.vinothek.images[0], altDe: PROJECTS.vinothek.titleDe, altEn: PROJECTS.vinothek.titleEn },
+            ],
+            [
+              { src: PROJECTS.umbauten.images[0], altDe: PROJECTS.umbauten.titleDe, altEn: PROJECTS.umbauten.titleEn },
+              {
+                src: PROJECTS.blankenese.images[0],
+                altDe: PROJECTS.blankenese.titleDe,
+                altEn: PROJECTS.blankenese.titleEn,
+              },
+            ],
+            HOCHBAU_IDS.map(function (id) {
+              var project = PROJECTS[id];
+              return {
+                src: project.images[0],
+                altDe: project.titleDe,
+                altEn: project.titleEn,
+              };
+            }),
+          ];
+        }
+
+        buildImageRows();
+
         var popup = document.getElementById("bi-project-popup");
         var offerPopup = document.getElementById("bi-offer-popup");
         var offerTitleEl = document.getElementById("bi-offer-popup-title");
         var offerBodyEl = document.getElementById("bi-offer-popup-body");
         var offerCloseBtn = document.getElementById("bi-offer-popup-close");
+        var lightboxEl = document.getElementById("bi-lightbox");
+        var lightboxImg = document.getElementById("bi-lightbox-img");
+        var lightboxCloseBtn = document.getElementById("bi-lightbox-close");
+        var lightboxPrev = document.getElementById("bi-lightbox-prev");
+        var lightboxNext = document.getElementById("bi-lightbox-next");
         var titleEl = document.getElementById("bi-popup-title");
         var bodyEl = document.getElementById("bi-popup-body");
         var trackEl = document.getElementById("bi-slider-track");
@@ -1669,6 +1840,55 @@
         var heroSwipeApi = null;
         var hochbauSwipeApi = null;
         var popupSwipeApi = null;
+        var lightboxRow = 0;
+        var lightboxIndex = 0;
+
+        function lightboxCount() {
+          return IMAGE_ROWS[lightboxRow] ? IMAGE_ROWS[lightboxRow].length : 0;
+        }
+
+        function renderLightbox() {
+          if (!lightboxImg || !IMAGE_ROWS[lightboxRow] || !IMAGE_ROWS[lightboxRow][lightboxIndex]) return;
+          var item = IMAGE_ROWS[lightboxRow][lightboxIndex];
+          var lang = getLang();
+          lightboxImg.src = item.src;
+          lightboxImg.alt = lang === "en" ? item.altEn : item.altDe;
+          var count = lightboxCount();
+          if (lightboxPrev) lightboxPrev.hidden = count <= 1;
+          if (lightboxNext) lightboxNext.hidden = count <= 1;
+        }
+
+        function openLightbox(row, index) {
+          closePopup();
+          closeOfferPopup();
+          if (!lightboxEl || !IMAGE_ROWS[row] || !IMAGE_ROWS[row][index]) return;
+          lightboxRow = row;
+          lightboxIndex = index;
+          renderLightbox();
+          lightboxEl.hidden = false;
+          lightboxEl.setAttribute("aria-hidden", "false");
+          lightboxEl.classList.remove("is-open");
+          requestAnimationFrame(function () {
+            lightboxEl.classList.add("is-open");
+          });
+          document.body.style.overflow = "hidden";
+        }
+
+        function closeLightbox() {
+          if (!lightboxEl) return;
+          lightboxEl.classList.remove("is-open");
+          lightboxEl.hidden = true;
+          lightboxEl.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+          if (lightboxImg) lightboxImg.removeAttribute("src");
+        }
+
+        function lightboxStep(delta) {
+          var count = lightboxCount();
+          if (count <= 1) return;
+          lightboxIndex = (lightboxIndex + delta + count) % count;
+          renderLightbox();
+        }
 
         function initHeroSwipe() {
           if (heroSwipeApi && heroSwipeApi.destroy) heroSwipeApi.destroy();
@@ -1861,6 +2081,14 @@
           }
           if (closeBtn) closeBtn.setAttribute("aria-label", lang === "en" ? ARIA.closeEn : ARIA.closeDe);
           if (offerCloseBtn) offerCloseBtn.setAttribute("aria-label", lang === "en" ? ARIA.closeEn : ARIA.closeDe);
+          if (lightboxCloseBtn) {
+            lightboxCloseBtn.setAttribute("aria-label", lang === "en" ? ARIA.closeEn : ARIA.closeDe);
+          }
+          if (lightboxEl) {
+            lightboxEl.setAttribute("aria-label", lang === "en" ? ARIA.lightboxEn : ARIA.lightboxDe);
+          }
+          if (lightboxPrev) lightboxPrev.setAttribute("aria-label", lang === "en" ? ARIA.prevEn : ARIA.prevDe);
+          if (lightboxNext) lightboxNext.setAttribute("aria-label", lang === "en" ? ARIA.nextEn : ARIA.nextDe);
           if (hochbauPrev) hochbauPrev.setAttribute("aria-label", lang === "en" ? ARIA.prevEn : ARIA.prevDe);
           if (hochbauNext) hochbauNext.setAttribute("aria-label", lang === "en" ? ARIA.nextEn : ARIA.nextDe);
           if (heroPrev) heroPrev.setAttribute("aria-label", lang === "en" ? ARIA.prevEn : ARIA.prevDe);
@@ -1992,6 +2220,8 @@
             slide.type = "button";
             slide.className = "bi-hochbau-slider__slide";
             slide.setAttribute("data-bi-project", id);
+            slide.setAttribute("data-bi-lightbox-row", "2");
+            slide.setAttribute("data-bi-lightbox-index", String(i));
             var img = document.createElement("img");
             img.src = project.images[0];
             img.alt = pick(project, "title");
@@ -1999,9 +2229,6 @@
             img.loading = i === 0 ? "eager" : "lazy";
             if (project.cropPosition) img.style.objectPosition = project.cropPosition;
             slide.appendChild(img);
-            slide.addEventListener("click", function () {
-              openPopup(id);
-            });
             hochbauTrack.appendChild(slide);
 
             if (hochbauDots) {
@@ -2133,6 +2360,9 @@
             bodyEl.textContent = pick(project, "body");
             buildSlider(project.images, pick(project, "title"));
           }
+          if (lightboxEl && !lightboxEl.hidden) {
+            renderLightbox();
+          }
         }
 
         document.querySelectorAll("[data-bi-offer]").forEach(function (btn) {
@@ -2141,9 +2371,15 @@
           });
         });
 
-        document.querySelectorAll("[data-bi-project]").forEach(function (btn) {
-          btn.addEventListener("click", function () {
-            openPopup(btn.getAttribute("data-bi-project"));
+        document.querySelectorAll("[data-bi-lightbox-row]").forEach(function (btn) {
+          btn.addEventListener("click", function (e) {
+            if (e.target.closest(".bi-hochbau-slider__zone, .bi-hochbau-slider__dot, .bi-tile__more, a")) {
+              return;
+            }
+            openLightbox(
+              parseInt(btn.getAttribute("data-bi-lightbox-row"), 10),
+              parseInt(btn.getAttribute("data-bi-lightbox-index"), 10)
+            );
           });
         });
 
@@ -2155,10 +2391,36 @@
           el.addEventListener("click", closeOfferPopup);
         });
 
+        if (lightboxEl) {
+          lightboxEl.querySelectorAll("[data-bi-lightbox-close]").forEach(function (el) {
+            el.addEventListener("click", closeLightbox);
+          });
+        }
+
+        if (lightboxPrev) {
+          lightboxPrev.addEventListener("click", function (e) {
+            e.stopPropagation();
+            lightboxStep(-1);
+          });
+        }
+
+        if (lightboxNext) {
+          lightboxNext.addEventListener("click", function (e) {
+            e.stopPropagation();
+            lightboxStep(1);
+          });
+        }
+
         document.addEventListener("keydown", function (e) {
           if (e.key === "Escape") {
-            if (!offerPopup.hidden) closeOfferPopup();
+            if (lightboxEl && !lightboxEl.hidden) closeLightbox();
+            else if (!offerPopup.hidden) closeOfferPopup();
             else if (!popup.hidden) closePopup();
+            return;
+          }
+          if (lightboxEl && !lightboxEl.hidden) {
+            if (e.key === "ArrowLeft") lightboxStep(-1);
+            if (e.key === "ArrowRight") lightboxStep(1);
             return;
           }
           if (popup.hidden) return;
