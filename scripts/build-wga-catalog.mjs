@@ -219,7 +219,9 @@ function mergeMeta(work, prev) {
     }
   }
   if (prev.title && prev.title !== "—" && prev.title !== work.title) {
-    work.title = prev.title;
+    const mediumChanged =
+      nfc(prev.medium || "").toLowerCase() !== nfc(work.medium || "").toLowerCase();
+    if (!mediumChanged) work.title = prev.title;
   }
   return work;
 }
