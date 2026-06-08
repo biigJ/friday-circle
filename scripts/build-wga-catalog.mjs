@@ -263,6 +263,11 @@ function mergeMeta(work, prev) {
       nfc(prev.medium || "").toLowerCase() !== nfc(work.medium || "").toLowerCase();
     if (!mediumChanged) work.title = prev.title;
   }
+  const prevImage = prev.images && prev.images[0];
+  const workImage = work.images && work.images[0];
+  if (prev.berlinStatus && prevImage && workImage && prevImage !== workImage) {
+    work.berlinStatus = prev.berlinStatus;
+  }
   return work;
 }
 

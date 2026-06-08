@@ -5250,7 +5250,7 @@ window.__WGA_CATALOG__={
           "body": "",
           "berlinStatus": "available",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-07.jpg",
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-14.jpg",
             "assets/wolfgang-grope/11 Keramik/WG-Keramik-08.jpg"
           ]
         },
@@ -5304,7 +5304,7 @@ window.__WGA_CATALOG__={
           "body": "",
           "berlinStatus": "available",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-13.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-41.jpg"
           ]
         },
         {
@@ -5317,7 +5317,7 @@ window.__WGA_CATALOG__={
           "body": "",
           "berlinStatus": "available",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-14.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-07.jpg"
           ]
         },
         {
@@ -5643,7 +5643,7 @@ window.__WGA_CATALOG__={
           "body": "",
           "berlinStatus": "unavailable",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-41.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-13.jpg"
           ]
         },
         {
@@ -5892,9 +5892,9 @@ window.__WGA_CATALOG__={
           "medium": "Keramik",
           "dimensions": "—",
           "body": "",
-          "berlinStatus": "available",
+          "berlinStatus": "unavailable",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-66.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-67.jpg"
           ]
         },
         {
@@ -5905,9 +5905,9 @@ window.__WGA_CATALOG__={
           "medium": "Keramik",
           "dimensions": "—",
           "body": "",
-          "berlinStatus": "unavailable",
+          "berlinStatus": "available",
           "images": [
-            "assets/wolfgang-grope/11 Keramik/WG-Keramik-67.jpg"
+            "assets/wolfgang-grope/11 Keramik/WG-Keramik-66.jpg"
           ]
         }
       ]
