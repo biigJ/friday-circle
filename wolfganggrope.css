@@ -1105,6 +1105,51 @@ button.wga-berlin-dot:focus-visible {
   padding: 0;
 }
 
+.wga-popup__view-more {
+  position: absolute;
+  z-index: 12;
+  right: clamp(8px, 1.5vw, 14px);
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  margin: 0;
+  padding: 0.55em 0.7em 0.55em 0.85em;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #0a0a0a;
+  font-family: var(--font-sans);
+  font-size: clamp(0.62rem, 1vw, 0.75rem);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+  pointer-events: auto;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+}
+
+.wga-popup__view-more-arrow {
+  font-size: 1.3rem;
+  line-height: 1;
+  transform: translateY(-1px);
+}
+
+.wga-popup__view-more:hover,
+.wga-popup__view-more:focus-visible {
+  background: #ffffff;
+  transform: translateY(calc(-50% - 1px));
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.24);
+  outline: none;
+}
+
+.wga-popup__view-more[hidden] {
+  display: none !important;
+}
+
 .wga-popup .wga-slider__dot {
   width: 8px;
   height: 8px;
