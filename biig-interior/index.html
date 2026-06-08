@@ -186,6 +186,48 @@
         outline: none;
       }
 
+      .bi-hero__arrows {
+        position: absolute;
+        z-index: 3;
+        right: clamp(12px, 2vw, 18px);
+        bottom: clamp(12px, 2vw, 18px);
+        display: flex;
+        gap: 8px;
+        pointer-events: auto;
+      }
+
+      .bi-hero__arrow {
+        width: 36px;
+        height: 36px;
+        border: none;
+        border-radius: 50%;
+        background: #ffffff;
+        color: #0a0a0a;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-family: var(--font-sans);
+        font-size: 1.35rem;
+        line-height: 1;
+        padding: 0 0 2px;
+        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.18);
+        transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      }
+
+      .bi-hero__arrow span {
+        display: block;
+        transform: translateY(-1px);
+      }
+
+      .bi-hero__arrow:hover,
+      .bi-hero__arrow:focus-visible {
+        background: #f2f2f2;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.22);
+        outline: none;
+      }
+
       .bi-hero__slogan {
         position: absolute;
         inset: 0;
@@ -976,6 +1018,10 @@
             <div class="bi-hero__slider" aria-hidden="false">
               <div class="bi-hero__track" id="bi-hero-track"></div>
               <div class="bi-hero__dots" id="bi-hero-dots"></div>
+              <div class="bi-hero__arrows" id="bi-hero-arrows">
+                <button type="button" class="bi-hero__arrow bi-hero__arrow--prev" id="bi-hero-prev" aria-label="Vorheriges Bild"><span aria-hidden="true">‹</span></button>
+                <button type="button" class="bi-hero__arrow bi-hero__arrow--next" id="bi-hero-next" aria-label="Nächstes Bild"><span aria-hidden="true">›</span></button>
+              </div>
             </div>
             <p class="bi-hero__slogan">
               <span class="de-t">Finde die richtigen Mittel für Deine Alltagsarchitektur.<br />Umsetzungsstark &amp; Authentisch.</span>
@@ -1598,6 +1644,9 @@
         var closeBtn = document.getElementById("bi-popup-close");
         var heroTrack = document.getElementById("bi-hero-track");
         var heroDots = document.getElementById("bi-hero-dots");
+        var heroArrows = document.getElementById("bi-hero-arrows");
+        var heroPrev = document.getElementById("bi-hero-prev");
+        var heroNext = document.getElementById("bi-hero-next");
         var hochbauTrack = document.getElementById("bi-hochbau-track");
         var hochbauDots = document.getElementById("bi-hochbau-dots");
         var hochbauPrev = document.getElementById("bi-hochbau-prev");
@@ -1642,7 +1691,7 @@
               startHeroAutoplay();
             },
             ignore: function (target) {
-              return !!target.closest(".bi-hero__dot, button, a");
+              return !!target.closest(".bi-hero__dot, .bi-hero__arrow, button, a");
             },
             loop: true,
           });
@@ -1814,6 +1863,8 @@
           if (offerCloseBtn) offerCloseBtn.setAttribute("aria-label", lang === "en" ? ARIA.closeEn : ARIA.closeDe);
           if (hochbauPrev) hochbauPrev.setAttribute("aria-label", lang === "en" ? ARIA.prevEn : ARIA.prevDe);
           if (hochbauNext) hochbauNext.setAttribute("aria-label", lang === "en" ? ARIA.nextEn : ARIA.nextDe);
+          if (heroPrev) heroPrev.setAttribute("aria-label", lang === "en" ? ARIA.prevEn : ARIA.prevDe);
+          if (heroNext) heroNext.setAttribute("aria-label", lang === "en" ? ARIA.nextEn : ARIA.nextDe);
           if (hochbauSliderEl) {
             hochbauSliderEl.setAttribute("aria-label", lang === "en" ? ARIA.hochbauEn : ARIA.hochbauDe);
           }
@@ -1834,6 +1885,11 @@
               dot.classList.toggle("is-active", i === heroIndex);
             });
           }
+        }
+
+        function heroStep(delta) {
+          setHeroSlide(heroIndex + delta);
+          startHeroAutoplay();
         }
 
         function startHeroAutoplay() {
@@ -1896,6 +1952,7 @@
           });
 
           if (heroDots) heroDots.hidden = HERO_SLIDES.length <= 1;
+          if (heroArrows) heroArrows.hidden = HERO_SLIDES.length <= 1;
           heroIndex = 0;
           heroTrack.style.transform = "translateX(0)";
           startHeroAutoplay();
@@ -2108,6 +2165,22 @@
           if (e.key === "ArrowLeft") setSlide(slideIndex - 1);
           if (e.key === "ArrowRight") setSlide(slideIndex + 1);
         });
+
+        if (heroPrev) {
+          heroPrev.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            heroStep(-1);
+          });
+        }
+
+        if (heroNext) {
+          heroNext.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            heroStep(1);
+          });
+        }
 
         if (hochbauPrev) {
           hochbauPrev.addEventListener("click", function (e) {
