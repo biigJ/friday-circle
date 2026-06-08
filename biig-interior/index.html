@@ -283,6 +283,14 @@
         color: color-mix(in srgb, var(--text) 78%, #ffffff);
       }
 
+      .bi-portfolio__lede p {
+        margin: 0;
+      }
+
+      .bi-portfolio__lede p + p {
+        margin-top: 1.1em;
+      }
+
       .bi-grid {
         container-type: inline-size;
         display: flex;
@@ -1148,10 +1156,28 @@
             <span class="de-t">Fangen wir an.</span>
             <span class="en-t">Let's get started.</span>
           </h2>
-          <p class="bi-portfolio__lede" hidden>
-            <span class="de-t">Text folgt später.</span>
-            <span class="en-t">Copy to follow.</span>
-          </p>
+          <div class="bi-portfolio__lede">
+            <p>
+              <span class="de-t"
+                >Du hast eine Vorstellung davon wie es sein soll. Vielleicht ein Bild im Kopf, vielleicht nur ein Gefühl.
+                Beides reicht.</span
+              >
+              <span class="en-t"
+                >You have an idea of how it should be. Maybe a picture in your head, maybe just a feeling. Both are
+                enough.</span
+              >
+            </p>
+            <p>
+              <span class="de-t"
+                >Wir schauen gemeinsam was da ist, was fehlt und was als nächstes passiert. Kein großes Konzept das du
+                nicht brauchst. Kein Handwerker der nicht kommt.</span
+              >
+              <span class="en-t"
+                >Together we look at what's there, what's missing, and what happens next. No big concept you don't need.
+                No tradesperson who doesn't show up.</span
+              >
+            </p>
+          </div>
           <div class="bi-grid">
             <!-- Zeile 1 -->
             <div class="bi-image-row">
