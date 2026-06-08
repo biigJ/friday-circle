@@ -5222,7 +5222,7 @@ window.__WGA_CATALOG__={
           "medium": "Keramik",
           "dimensions": "—",
           "body": "",
-          "berlinStatus": "available",
+          "berlinStatus": "unavailable",
           "images": [
             "assets/wolfgang-grope/11 Keramik/WG-Keramik-05.jpg"
           ]
@@ -5586,7 +5586,7 @@ window.__WGA_CATALOG__={
           "medium": "Keramik",
           "dimensions": "—",
           "body": "",
-          "berlinStatus": "available",
+          "berlinStatus": "unavailable",
           "images": [
             "assets/wolfgang-grope/11 Keramik/WG-Keramik-33.jpg"
           ]
@@ -5677,7 +5677,7 @@ window.__WGA_CATALOG__={
           "medium": "Keramik",
           "dimensions": "—",
           "body": "",
-          "berlinStatus": "available",
+          "berlinStatus": "unavailable",
           "images": [
             "assets/wolfgang-grope/11 Keramik/WG-Keramik-40.jpg"
           ]
@@ -5742,7 +5742,7 @@ window.__WGA_CATALOG__={
           "medium": "Keramik",
           "dimensions": "—",
           "body": "",
-          "berlinStatus": "available",
+          "berlinStatus": "unavailable",
           "images": [
             "assets/wolfgang-grope/11 Keramik/WG-Keramik-45.jpg"
           ]
@@ -5781,7 +5781,7 @@ window.__WGA_CATALOG__={
           "medium": "Keramik",
           "dimensions": "—",
           "body": "",
-          "berlinStatus": "available",
+          "berlinStatus": "unavailable",
           "images": [
             "assets/wolfgang-grope/11 Keramik/WG-Keramik-48.jpg"
           ]
@@ -5872,7 +5872,7 @@ window.__WGA_CATALOG__={
           "medium": "Keramik",
           "dimensions": "—",
           "body": "",
-          "berlinStatus": "available",
+          "berlinStatus": "unavailable",
           "images": [
             "assets/wolfgang-grope/11 Keramik/WG-Keramik-55.jpg"
           ]
@@ -5989,7 +5989,7 @@ window.__WGA_CATALOG__={
           "medium": "Keramik",
           "dimensions": "—",
           "body": "",
-          "berlinStatus": "available",
+          "berlinStatus": "unavailable",
           "images": [
             "assets/wolfgang-grope/11 Keramik/WG-Keramik-64.jpg"
           ]
