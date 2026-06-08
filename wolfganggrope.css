@@ -80,6 +80,11 @@ body.wga-page {
   background: transparent;
 }
 
+.wga-page .wga-nav .wga-nav__inspiration {
+  text-transform: none;
+  letter-spacing: 0.04em;
+}
+
 .wga-page .wga-nav .wga-nav__bio:hover,
 .wga-page .wga-nav .wga-nav__bio:focus-visible,
 .wga-page .wga-nav .wga-nav__inspiration:hover,
@@ -1197,7 +1202,7 @@ button.wga-berlin-dot:focus-visible {
   outline: none;
 }
 
-/* —— Inspiration —— */
+/* —— x Interior —— */
 .wga-inspiration[hidden] {
   display: none !important;
 }

@@ -97,8 +97,8 @@
       {
         s: "#wga-inspiration-open",
         attr: "aria-label",
-        de: "Inspiration öffnen",
-        en: "Open inspiration",
+        de: "x Interior öffnen",
+        en: "Open x Interior",
       },
     ],
     "joschaalstrainer.html": [
