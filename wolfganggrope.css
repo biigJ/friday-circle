@@ -644,9 +644,50 @@ body.wga-page {
   flex-shrink: 0;
 }
 
+/* —— Intro —— */
+.wga-intro {
+  padding: clamp(48px, 7vw, 96px) 0 clamp(40px, 6vw, 72px);
+  background: var(--wga-bg);
+}
+
+.wga-intro__title {
+  margin: 0 0 clamp(20px, 3vw, 32px);
+  font-family: var(--font-sans);
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 200;
+  letter-spacing: 0.04em;
+  line-height: 1.15;
+  color: var(--text);
+}
+
+.wga-intro__body {
+  max-width: 42em;
+  font-family: var(--font-sans);
+  font-size: clamp(0.88rem, 1.12vw, 1rem);
+  font-weight: 300;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  color: color-mix(in srgb, var(--text) 88%, #fff);
+}
+
+.wga-intro__body p {
+  margin: 0 0 1.15em;
+}
+
+.wga-intro__body p:last-child {
+  margin-bottom: 0;
+}
+
+.wga-intro__sig {
+  margin-top: clamp(20px, 3vw, 32px) !important;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: var(--text);
+}
+
 /* —— Catalog —— */
 .wga-catalog {
-  padding: clamp(48px, 7vw, 96px) 0 clamp(64px, 9vw, 120px);
+  padding: 0 0 clamp(64px, 9vw, 120px);
 }
 
 .wga-section + .wga-section {
