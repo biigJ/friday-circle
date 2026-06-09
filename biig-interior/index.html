@@ -906,6 +906,10 @@
         left: 0;
         right: 0;
         bottom: 0;
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        gap: clamp(12px, 2vw, 20px);
+        align-items: end;
         margin: 0;
         padding: clamp(12px, 2vw, 18px) clamp(14px, 2.4vw, 22px);
         background: #ffffff;
@@ -915,7 +919,39 @@
         font-weight: 400;
         line-height: 1.45;
         letter-spacing: 0.01em;
-        pointer-events: none;
+        pointer-events: auto;
+      }
+
+      .bi-buy-popup__info-body {
+        margin: 0;
+      }
+
+      .bi-buy-popup__info-action {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.35em;
+        text-align: right;
+      }
+
+      .bi-buy-popup__info-spec {
+        margin: 0;
+        font-weight: 500;
+      }
+
+      .bi-buy-popup__buy-link {
+        color: var(--text);
+        font-weight: 500;
+        text-decoration: none;
+        letter-spacing: 0.02em;
+        transition: opacity 0.2s ease;
+      }
+
+      .bi-buy-popup__buy-link:hover,
+      .bi-buy-popup__buy-link:focus-visible {
+        opacity: 0.68;
+        outline: none;
+        text-decoration: underline;
       }
 
       /* —— Project popup —— */
@@ -1781,7 +1817,16 @@
       <div class="bi-buy-popup__stage">
         <figure class="bi-buy-popup__figure">
           <img class="bi-buy-popup__img" id="bi-buy-img" alt="" decoding="async" />
-          <p class="bi-buy-popup__info" id="bi-buy-info"></p>
+          <div class="bi-buy-popup__info" id="bi-buy-info">
+            <p class="bi-buy-popup__info-body" id="bi-buy-info-body"></p>
+            <div class="bi-buy-popup__info-action">
+              <p class="bi-buy-popup__info-spec" id="bi-buy-info-spec"></p>
+              <a class="bi-buy-popup__buy-link" id="bi-buy-link" href="mailto:mail@bjgrope.de">
+                <span class="de-t">Kaufen &gt;</span>
+                <span class="en-t">Buy &gt;</span>
+              </a>
+            </div>
+          </div>
         </figure>
       </div>
     </div>
@@ -2146,19 +2191,27 @@
                 src: "../assets/interior/tisch-aufgruenemkaro.png",
                 altDe: "Esstisch auf grünem Karomuster",
                 altEn: "Dining table on green carom pattern",
-                infoDe:
-                  "Multiplex Tischplatte gebeizt und lackiert. Tischgestell MDF lackiert. Mit Beschlägen zur Montage. Maße: 85 x 130 cm. Preis: 950 €.",
-                infoEn:
-                  "Plywood tabletop stained and lacquered. Lacquered MDF table frame. Hardware included for assembly. Size: 85 x 130 cm. Price: €950.",
+                bodyDe:
+                  "Multiplex Tischplatte gebeizt und lackiert. Tischgestell MDF lackiert. Mit Beschlägen zur Montage.",
+                bodyEn:
+                  "Plywood tabletop stained and lacquered. Lacquered MDF table frame. Hardware included for assembly.",
+                specDe: "Maße: 85 x 130 cm. Preis: 950 €.",
+                specEn: "Size: 85 x 130 cm. Price: €950.",
+                mailSubjectDe: "Anfrage Esstisch 85 x 130 cm",
+                mailSubjectEn: "Enquiry dining table 85 x 130 cm",
               },
               {
                 src: "../assets/interior/tisch-250.png",
                 altDe: "Großer Esstisch",
                 altEn: "Large dining table",
-                infoDe:
-                  "Multiplex Tischplatte gebeizt und lackiert. Tischgestell MDF lackiert. Mit Beschlägen zur Montage. Maße: 90 x 240 cm. Preis: 1.800 €.",
-                infoEn:
-                  "Plywood tabletop stained and lacquered. Lacquered MDF table frame. Hardware included for assembly. Size: 90 x 240 cm. Price: €1,800.",
+                bodyDe:
+                  "Multiplex Tischplatte gebeizt und lackiert. Tischgestell MDF lackiert. Mit Beschlägen zur Montage.",
+                bodyEn:
+                  "Plywood tabletop stained and lacquered. Lacquered MDF table frame. Hardware included for assembly.",
+                specDe: "Maße: 90 x 240 cm. Preis: 1.800 €.",
+                specEn: "Size: 90 x 240 cm. Price: €1,800.",
+                mailSubjectDe: "Anfrage Esstisch 90 x 240 cm",
+                mailSubjectEn: "Enquiry dining table 90 x 240 cm",
               },
             ],
           },
@@ -2246,6 +2299,9 @@
         var buyPopup = document.getElementById("bi-buy-popup");
         var buyImg = document.getElementById("bi-buy-img");
         var buyInfo = document.getElementById("bi-buy-info");
+        var buyInfoBody = document.getElementById("bi-buy-info-body");
+        var buyInfoSpec = document.getElementById("bi-buy-info-spec");
+        var buyLink = document.getElementById("bi-buy-link");
         var buyCloseBtn = document.getElementById("bi-buy-close");
         var buyPrev = document.getElementById("bi-buy-prev");
         var buyNext = document.getElementById("bi-buy-next");
@@ -2494,14 +2550,19 @@
         }
 
         function renderBuyPopup() {
-          if (!buyImg || !buyInfo || !openBuyId || !BUY_OFFERS[openBuyId]) return;
+          if (!buyImg || !buyInfoBody || !buyInfoSpec || !openBuyId || !BUY_OFFERS[openBuyId]) return;
           var lang = getLang();
           var slides = BUY_OFFERS[openBuyId].slides;
           var slide = slides[buyIndex];
           if (!slide) return;
           buyImg.src = slide.src;
           buyImg.alt = lang === "en" ? slide.altEn : slide.altDe;
-          buyInfo.textContent = lang === "en" ? slide.infoEn : slide.infoDe;
+          buyInfoBody.textContent = lang === "en" ? slide.bodyEn : slide.bodyDe;
+          buyInfoSpec.textContent = lang === "en" ? slide.specEn : slide.specDe;
+          if (buyLink) {
+            var subject = encodeURIComponent(lang === "en" ? slide.mailSubjectEn : slide.mailSubjectDe);
+            buyLink.href = "mailto:mail@bjgrope.de?subject=" + subject;
+          }
           if (buyPrev) buyPrev.hidden = buyIndex <= 0;
           if (buyNext) buyNext.hidden = buyIndex >= slides.length - 1;
         }
