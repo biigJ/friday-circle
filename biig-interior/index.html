@@ -606,6 +606,38 @@
         color: color-mix(in srgb, var(--text) 82%, #ffffff);
       }
 
+      .bi-tile--offer-compact {
+        text-align: center;
+        gap: clamp(10px, 1.6vw, 16px);
+        padding: clamp(10px, 1.4vw, 14px) clamp(8px, 1vw, 12px);
+      }
+
+      .bi-tile--offer-compact .bi-tile__headline {
+        margin: 0;
+        width: 100%;
+        font-family: var(--font-sans);
+        font-size: clamp(1.31rem, 1.68vw, 1.52rem);
+        font-weight: 200;
+        line-height: 1.38;
+        letter-spacing: 0.01em;
+        color: color-mix(in srgb, var(--text) 88%, #ffffff);
+      }
+
+      .bi-tile--offer-compact .bi-tile__price {
+        margin: 0;
+        width: 100%;
+        font-family: var(--font-sans);
+        font-size: clamp(1.09rem, 1.41vw, 1.25rem);
+        font-weight: 200;
+        line-height: 1.4;
+        letter-spacing: 0.02em;
+        color: color-mix(in srgb, var(--text) 68%, #ffffff);
+      }
+
+      .bi-tile--offer-compact .bi-tile__actions {
+        margin-top: clamp(4px, 0.6vw, 8px);
+      }
+
       .bi-tile--offer .bi-tile__cta {
         align-self: center;
       }
@@ -1174,32 +1206,41 @@
             <!-- Zeile 1 -->
             <div class="bi-image-row">
               <div class="bi-image-row__scroll">
-            <div class="bi-tile bi-tile--offer">
-              <p>
-                <span class="de-t">Neues Arrangement mit Plan, Liste, technischen Hinweisen, Fotorealismus.</span>
-                <span class="en-t">A fresh layout with plan, list, technical notes, and photorealistic visuals.</span>
-              </p>
-              <div class="bi-tile__actions">
-                <a class="bi-tile__cta" href="../kontakt/index.html">
-                  <span class="de-t">Anfragen</span>
-                  <span class="en-t">Enquire</span>
-                </a>
-                <button type="button" class="bi-tile__more" data-bi-offer="arrangement">
-                  <span class="de-t">mehr</span>
-                  <span class="en-t">more</span>
-                </button>
-              </div>
-            </div>
-            <button type="button" class="bi-tile bi-tile--project" data-bi-project="moebel" data-bi-lightbox-row="0" data-bi-lightbox-index="0">
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="dieffe33">
               <span class="bi-tile__media">
-                <img src="../assets/interior/tisch-heller.png" alt="" width="800" height="1067" decoding="async" />
+                <img src="../assets/interior/Dieffe33-02.png" alt="" width="2162" height="1592" decoding="async" />
               </span>
               <span class="bi-tile__hover">
                 <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
                 <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
               </span>
             </button>
-            <button type="button" class="bi-tile bi-tile--project" data-bi-project="vinothek" data-bi-lightbox-row="0" data-bi-lightbox-index="1">
+            <div class="bi-tile bi-tile--offer bi-tile--offer-compact">
+              <h3 class="bi-tile__headline">
+                <span class="de-t">Neues Arrangement mit Plan, Liste, technischen Hinweisen, Fotorealismus.</span>
+                <span class="en-t">A fresh layout with plan, list, technical notes, and photorealistic visuals.</span>
+              </h3>
+              <p class="bi-tile__price">
+                <span class="de-t">ab 450 € · abhängig von Umfang.</span>
+                <span class="en-t">from €450 · depending on scope.</span>
+              </p>
+              <div class="bi-tile__actions">
+                <a class="bi-tile__cta" href="../kontakt/index.html">
+                  <span class="de-t">Anfragen</span>
+                  <span class="en-t">Enquire</span>
+                </a>
+              </div>
+            </div>
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="moebel">
+              <span class="bi-tile__media">
+                <img src="../assets/interior/tisch-heller.png" alt="" width="1735" height="2023" decoding="async" />
+              </span>
+              <span class="bi-tile__hover">
+                <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
+                <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
+              </span>
+            </button>
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="vinothek">
               <span class="bi-tile__media">
                 <img src="../assets/interior/geisenheim_blumen.png" alt="" width="800" height="1067" decoding="async" />
               </span>
@@ -1208,14 +1249,13 @@
                 <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
               </span>
             </button>
-            <div class="bi-tile bi-tile--empty" aria-hidden="true"></div>
               </div>
             </div>
 
             <!-- Zeile 2 -->
             <div class="bi-image-row">
               <div class="bi-image-row__scroll">
-            <button type="button" class="bi-tile bi-tile--project" data-bi-project="umbauten" data-bi-lightbox-row="1" data-bi-lightbox-index="0">
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="umbauten">
               <span class="bi-tile__media">
                 <img src="../assets/interior/rene-möbliert-01.png" alt="" width="800" height="1067" decoding="async" />
               </span>
@@ -1224,7 +1264,7 @@
                 <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
               </span>
             </button>
-            <button type="button" class="bi-tile bi-tile--project" data-bi-project="blankenese" data-bi-lightbox-row="1" data-bi-lightbox-index="1">
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="blankenese">
               <span class="bi-tile__media">
                 <img src="../assets/interior/treppe.png" alt="" width="800" height="1067" decoding="async" />
               </span>
@@ -1469,6 +1509,25 @@
     <script defer>
       (function initBiInterior() {
         var PROJECTS = {
+          dieffe33: {
+            titleDe: "Sanierung - Mini-Apartement Berlin, 2025",
+            titleEn: "Renovation — mini apartment Berlin, 2025",
+            bodyDe:
+              "Sanierung eines Mini-Apartements in Berlin — klarer Grundriss, warme Materialität und Alltagstauglichkeit auf wenig Quadratmetern.",
+            bodyEn:
+              "Renovation of a mini apartment in Berlin — clear layout, warm materials, and everyday livability in a compact footprint.",
+            keywordDe: "Sanierung",
+            keywordEn: "Renovation",
+            concreteDe: "Mini-Apartement Berlin, 2025",
+            concreteEn: "Mini apartment Berlin, 2025",
+            images: [
+              "../assets/interior/Dieffe33-02.png",
+              "../assets/interior/biigJ-Küche-01.png",
+              "../assets/interior/tisch-heller.png",
+              "../assets/interior/dieffe33-keramik.jpeg",
+              "../assets/interior/dieffe33-04.png",
+            ],
+          },
           moebel: {
             titleDe: "Möbeldesign 2026",
             titleEn: "Furniture design 2026",
@@ -1787,35 +1846,6 @@
 
         var HOCHBAU_IDS = ["klinker", "rothestr", "graefe", "destijl", "schleswig"];
 
-        var IMAGE_ROWS = [];
-
-        function buildImageRows() {
-          IMAGE_ROWS = [
-            [
-              { src: PROJECTS.moebel.images[0], altDe: PROJECTS.moebel.titleDe, altEn: PROJECTS.moebel.titleEn },
-              { src: PROJECTS.vinothek.images[0], altDe: PROJECTS.vinothek.titleDe, altEn: PROJECTS.vinothek.titleEn },
-            ],
-            [
-              { src: PROJECTS.umbauten.images[0], altDe: PROJECTS.umbauten.titleDe, altEn: PROJECTS.umbauten.titleEn },
-              {
-                src: PROJECTS.blankenese.images[0],
-                altDe: PROJECTS.blankenese.titleDe,
-                altEn: PROJECTS.blankenese.titleEn,
-              },
-            ],
-            HOCHBAU_IDS.map(function (id) {
-              var project = PROJECTS[id];
-              return {
-                src: project.images[0],
-                altDe: project.titleDe,
-                altEn: project.titleEn,
-              };
-            }),
-          ];
-        }
-
-        buildImageRows();
-
         var popup = document.getElementById("bi-project-popup");
         var offerPopup = document.getElementById("bi-offer-popup");
         var offerTitleEl = document.getElementById("bi-offer-popup-title");
@@ -1858,30 +1888,37 @@
         var heroSwipeApi = null;
         var hochbauSwipeApi = null;
         var popupSwipeApi = null;
-        var lightboxRow = 0;
+        var lightboxProjectId = null;
         var lightboxIndex = 0;
 
         function lightboxCount() {
-          return IMAGE_ROWS[lightboxRow] ? IMAGE_ROWS[lightboxRow].length : 0;
+          if (!lightboxProjectId || !PROJECTS[lightboxProjectId]) return 0;
+          return PROJECTS[lightboxProjectId].images.length;
         }
 
         function renderLightbox() {
-          if (!lightboxImg || !IMAGE_ROWS[lightboxRow] || !IMAGE_ROWS[lightboxRow][lightboxIndex]) return;
-          var item = IMAGE_ROWS[lightboxRow][lightboxIndex];
+          if (!lightboxImg || !lightboxProjectId) return;
+          var project = PROJECTS[lightboxProjectId];
+          if (!project || !project.images[lightboxIndex]) return;
           var lang = getLang();
-          lightboxImg.src = item.src;
-          lightboxImg.alt = lang === "en" ? item.altEn : item.altDe;
+          lightboxImg.src = project.images[lightboxIndex];
+          lightboxImg.alt =
+            pick(project, "title") +
+            " — " +
+            (lang === "en" ? "Image " : "Bild ") +
+            (lightboxIndex + 1);
           var count = lightboxCount();
           if (lightboxPrev) lightboxPrev.hidden = count <= 1;
           if (lightboxNext) lightboxNext.hidden = count <= 1;
         }
 
-        function openLightbox(row, index) {
+        function openLightbox(projectId, index) {
           closePopup();
           closeOfferPopup();
-          if (!lightboxEl || !IMAGE_ROWS[row] || !IMAGE_ROWS[row][index]) return;
-          lightboxRow = row;
-          lightboxIndex = index;
+          var project = PROJECTS[projectId];
+          if (!lightboxEl || !project || !project.images.length) return;
+          lightboxProjectId = projectId;
+          lightboxIndex = Math.max(0, Math.min(index || 0, project.images.length - 1));
           renderLightbox();
           lightboxEl.hidden = false;
           lightboxEl.setAttribute("aria-hidden", "false");
@@ -1894,6 +1931,7 @@
 
         function closeLightbox() {
           if (!lightboxEl) return;
+          lightboxProjectId = null;
           lightboxEl.classList.remove("is-open");
           lightboxEl.hidden = true;
           lightboxEl.setAttribute("aria-hidden", "true");
@@ -2238,8 +2276,6 @@
             slide.type = "button";
             slide.className = "bi-hochbau-slider__slide";
             slide.setAttribute("data-bi-project", id);
-            slide.setAttribute("data-bi-lightbox-row", "2");
-            slide.setAttribute("data-bi-lightbox-index", String(i));
             var img = document.createElement("img");
             img.src = project.images[0];
             img.alt = pick(project, "title");
@@ -2389,17 +2425,17 @@
           });
         });
 
-        document.querySelectorAll("[data-bi-lightbox-row]").forEach(function (btn) {
-          btn.addEventListener("click", function (e) {
+        var gridEl = document.querySelector(".bi-grid");
+        if (gridEl) {
+          gridEl.addEventListener("click", function (e) {
+            var btn = e.target.closest("[data-bi-project]");
+            if (!btn) return;
             if (e.target.closest(".bi-hochbau-slider__zone, .bi-hochbau-slider__dot, .bi-tile__more, a")) {
               return;
             }
-            openLightbox(
-              parseInt(btn.getAttribute("data-bi-lightbox-row"), 10),
-              parseInt(btn.getAttribute("data-bi-lightbox-index"), 10)
-            );
+            openLightbox(btn.getAttribute("data-bi-project"), 0);
           });
-        });
+        }
 
         popup.querySelectorAll("[data-bi-popup-close]").forEach(function (el) {
           el.addEventListener("click", closePopup);
