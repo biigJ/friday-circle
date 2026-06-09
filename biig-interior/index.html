@@ -781,6 +781,143 @@
         outline: none;
       }
 
+      .bi-tile__buy {
+        position: absolute;
+        z-index: 3;
+        left: 50%;
+        bottom: clamp(12px, 2vw, 18px);
+        transform: translateX(-50%);
+        pointer-events: auto;
+      }
+
+      .bi-tile--project .bi-tile__buy .bi-tile__cta {
+        background: rgba(255, 255, 255, 0.92);
+        border-color: #ffffff;
+        color: var(--text);
+        box-shadow: 0 2px 14px rgba(0, 0, 0, 0.18);
+      }
+
+      .bi-tile--project .bi-tile__buy .bi-tile__cta:hover,
+      .bi-tile--project .bi-tile__buy .bi-tile__cta:focus-visible {
+        background: #ffffff;
+        color: var(--text);
+      }
+
+      /* —— Buy popup —— */
+      .bi-buy-popup[hidden] {
+        display: none !important;
+      }
+
+      .bi-buy-popup {
+        position: fixed;
+        inset: 0;
+        z-index: 13500;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: clamp(12px, 2.6vw, 28px);
+        opacity: 0;
+        transition: opacity 0.2s ease;
+      }
+
+      .bi-buy-popup.is-open {
+        opacity: 1;
+      }
+
+      .bi-buy-popup__backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.92);
+        cursor: pointer;
+      }
+
+      .bi-buy-popup__close,
+      .bi-buy-popup__nav {
+        position: absolute;
+        z-index: 2;
+        border: 0;
+        background: transparent;
+        color: #ffffff;
+        cursor: pointer;
+        pointer-events: auto;
+        line-height: 1;
+        padding: 8px;
+      }
+
+      .bi-buy-popup__close {
+        top: clamp(12px, 2.5vw, 24px);
+        right: clamp(12px, 2.5vw, 24px);
+        font-size: clamp(1.75rem, 4vw, 2.25rem);
+      }
+
+      .bi-buy-popup__nav {
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: clamp(2rem, 5vw, 2.75rem);
+      }
+
+      .bi-buy-popup__nav--prev {
+        left: clamp(8px, 2vw, 20px);
+      }
+
+      .bi-buy-popup__nav--next {
+        right: clamp(8px, 2vw, 20px);
+      }
+
+      .bi-buy-popup__close:hover,
+      .bi-buy-popup__close:focus-visible,
+      .bi-buy-popup__nav:hover,
+      .bi-buy-popup__nav:focus-visible {
+        opacity: 0.72;
+        outline: none;
+      }
+
+      .bi-buy-popup__nav[hidden] {
+        display: none !important;
+      }
+
+      .bi-buy-popup__stage {
+        position: relative;
+        z-index: 1;
+        width: min(92vw, 920px);
+        max-height: 92vh;
+        pointer-events: none;
+      }
+
+      .bi-buy-popup__figure {
+        position: relative;
+        margin: 0;
+        overflow: hidden;
+        line-height: 0;
+        background: #1a1a1a;
+        pointer-events: auto;
+      }
+
+      .bi-buy-popup__img {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-height: calc(92vh - 5rem);
+        object-fit: contain;
+      }
+
+      .bi-buy-popup__info {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 0;
+        padding: clamp(12px, 2vw, 18px) clamp(14px, 2.4vw, 22px);
+        background: #ffffff;
+        color: var(--text);
+        font-family: var(--font-sans);
+        font-size: clamp(0.78rem, 1.05vw, 0.9rem);
+        font-weight: 400;
+        line-height: 1.45;
+        letter-spacing: 0.01em;
+        pointer-events: none;
+      }
+
       /* —— Project popup —— */
       .bi-popup[hidden] {
         display: none !important;
@@ -1492,9 +1629,9 @@
                 <span class="en-t">Furniture design tailored to your space.</span>
               </h3>
             </div>
-            <button type="button" class="bi-tile bi-tile--project" data-bi-project="moebel">
+            <div class="bi-tile bi-tile--project" data-bi-project="moebel" role="button" tabindex="0">
               <span class="bi-tile__media">
-                <img src="../assets/interior/tisch-heller.png" alt="" width="1735" height="2023" decoding="async" />
+                <img src="../assets/interior/tisch-aufgruenemkaro.png" alt="" width="1874" height="1818" decoding="async" />
               </span>
               <span class="bi-tile__label">
                 <span class="de-t">Esstisch</span>
@@ -1504,7 +1641,13 @@
                 <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
                 <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
               </span>
-            </button>
+              <div class="bi-tile__buy">
+                <button type="button" class="bi-tile__cta" data-bi-buy="moebel">
+                  <span class="de-t">Kaufen</span>
+                  <span class="en-t">Buy</span>
+                </button>
+              </div>
+            </div>
               </div>
             </div>
           </div>
@@ -1622,6 +1765,26 @@
         <div id="bi-offer-popup-body" class="bi-offer-popup__body"></div>
       </div>
     </aside>
+
+    <div
+      id="bi-buy-popup"
+      class="bi-buy-popup"
+      hidden
+      role="dialog"
+      aria-modal="true"
+      aria-label="Tisch kaufen"
+    >
+      <div class="bi-buy-popup__backdrop" data-bi-buy-close></div>
+      <button type="button" class="bi-buy-popup__close" data-bi-buy-close id="bi-buy-close" aria-label="Schließen">×</button>
+      <button type="button" class="bi-buy-popup__nav bi-buy-popup__nav--prev" id="bi-buy-prev" hidden aria-label="Vorheriges Bild">‹</button>
+      <button type="button" class="bi-buy-popup__nav bi-buy-popup__nav--next" id="bi-buy-next" aria-label="Nächstes Bild">›</button>
+      <div class="bi-buy-popup__stage">
+        <figure class="bi-buy-popup__figure">
+          <img class="bi-buy-popup__img" id="bi-buy-img" alt="" decoding="async" />
+          <p class="bi-buy-popup__info" id="bi-buy-info"></p>
+        </figure>
+      </div>
+    </div>
 
     <div
       id="bi-lightbox"
@@ -1976,6 +2139,31 @@
           },
         };
 
+        var BUY_OFFERS = {
+          moebel: {
+            slides: [
+              {
+                src: "../assets/interior/tisch-aufgruenemkaro.png",
+                altDe: "Esstisch auf grünem Karomuster",
+                altEn: "Dining table on green carom pattern",
+                infoDe:
+                  "Multiplex Tischplatte gebeizt und lackiert. Tischgestell MDF lackiert. Mit Beschlägen zur Montage. Maße: 85 x 130 cm. Preis: 950 €.",
+                infoEn:
+                  "Plywood tabletop stained and lacquered. Lacquered MDF table frame. Hardware included for assembly. Size: 85 x 130 cm. Price: €950.",
+              },
+              {
+                src: "../assets/interior/tisch-250.png",
+                altDe: "Großer Esstisch",
+                altEn: "Large dining table",
+                infoDe:
+                  "Multiplex Tischplatte gebeizt und lackiert. Tischgestell MDF lackiert. Mit Beschlägen zur Montage. Maße: 90 x 240 cm. Preis: 1.800 €.",
+                infoEn:
+                  "Plywood tabletop stained and lacquered. Lacquered MDF table frame. Hardware included for assembly. Size: 90 x 240 cm. Price: €1,800.",
+              },
+            ],
+          },
+        };
+
         var ARIA = {
           navDe: "Hauptnavigation",
           navEn: "Main navigation",
@@ -1991,6 +2179,8 @@
           closeEn: "Close popup",
           lightboxDe: "Projektbild",
           lightboxEn: "Project image",
+          buyDe: "Tisch kaufen",
+          buyEn: "Buy table",
           prevDe: "Vorheriges Bild",
           prevEn: "Previous image",
           nextDe: "Nächstes Bild",
@@ -2053,6 +2243,12 @@
         var lightboxPrev = document.getElementById("bi-lightbox-prev");
         var lightboxNext = document.getElementById("bi-lightbox-next");
         var lightboxCaption = document.getElementById("bi-lightbox-caption");
+        var buyPopup = document.getElementById("bi-buy-popup");
+        var buyImg = document.getElementById("bi-buy-img");
+        var buyInfo = document.getElementById("bi-buy-info");
+        var buyCloseBtn = document.getElementById("bi-buy-close");
+        var buyPrev = document.getElementById("bi-buy-prev");
+        var buyNext = document.getElementById("bi-buy-next");
         var hochbauCollageInner = document.getElementById("bi-hochbau-collage-inner");
         var titleEl = document.getElementById("bi-popup-title");
         var bodyEl = document.getElementById("bi-popup-body");
@@ -2080,6 +2276,8 @@
         var lightboxProjectId = null;
         var lightboxGalleryItems = null;
         var lightboxIndex = 0;
+        var openBuyId = null;
+        var buyIndex = 0;
 
         function getImageAdjust(project, index) {
           if (!project || !project.imageAdjust) return null;
@@ -2290,7 +2488,63 @@
           openOfferId = null;
           offerPopup.hidden = true;
           offerPopup.setAttribute("aria-hidden", "true");
+          if (!buyPopup || buyPopup.hidden) {
+            document.body.style.overflow = "";
+          }
+        }
+
+        function renderBuyPopup() {
+          if (!buyImg || !buyInfo || !openBuyId || !BUY_OFFERS[openBuyId]) return;
+          var lang = getLang();
+          var slides = BUY_OFFERS[openBuyId].slides;
+          var slide = slides[buyIndex];
+          if (!slide) return;
+          buyImg.src = slide.src;
+          buyImg.alt = lang === "en" ? slide.altEn : slide.altDe;
+          buyInfo.textContent = lang === "en" ? slide.infoEn : slide.infoDe;
+          if (buyPrev) buyPrev.hidden = buyIndex <= 0;
+          if (buyNext) buyNext.hidden = buyIndex >= slides.length - 1;
+        }
+
+        function showBuyPopup() {
+          if (!buyPopup) return;
+          buyPopup.hidden = false;
+          buyPopup.setAttribute("aria-hidden", "false");
+          buyPopup.classList.remove("is-open");
+          requestAnimationFrame(function () {
+            buyPopup.classList.add("is-open");
+          });
+        }
+
+        function openBuyPopup(id) {
+          var offer = BUY_OFFERS[id];
+          if (!offer || !buyPopup || !offer.slides.length) return;
+          closeLightbox();
+          closeOfferPopup();
+          closePopup();
+          openBuyId = id;
+          buyIndex = 0;
+          renderBuyPopup();
+          showBuyPopup();
+          document.body.style.overflow = "hidden";
+        }
+
+        function closeBuyPopup() {
+          if (!buyPopup) return;
+          openBuyId = null;
+          buyPopup.classList.remove("is-open");
+          buyPopup.hidden = true;
+          buyPopup.setAttribute("aria-hidden", "true");
+          if (buyImg) buyImg.removeAttribute("src");
           document.body.style.overflow = "";
+        }
+
+        function buyStep(delta) {
+          if (!openBuyId || !BUY_OFFERS[openBuyId]) return;
+          var count = BUY_OFFERS[openBuyId].slides.length;
+          if (count <= 1) return;
+          buyIndex = Math.max(0, Math.min(buyIndex + delta, count - 1));
+          renderBuyPopup();
         }
 
         function pickIntent(item, key) {
@@ -2386,6 +2640,10 @@
           }
           if (lightboxPrev) lightboxPrev.setAttribute("aria-label", lang === "en" ? ARIA.prevEn : ARIA.prevDe);
           if (lightboxNext) lightboxNext.setAttribute("aria-label", lang === "en" ? ARIA.nextEn : ARIA.nextDe);
+          if (buyCloseBtn) buyCloseBtn.setAttribute("aria-label", lang === "en" ? ARIA.closeEn : ARIA.closeDe);
+          if (buyPopup) buyPopup.setAttribute("aria-label", lang === "en" ? ARIA.buyEn : ARIA.buyDe);
+          if (buyPrev) buyPrev.setAttribute("aria-label", lang === "en" ? ARIA.prevEn : ARIA.prevDe);
+          if (buyNext) buyNext.setAttribute("aria-label", lang === "en" ? ARIA.nextEn : ARIA.nextDe);
           if (heroPrev) heroPrev.setAttribute("aria-label", lang === "en" ? ARIA.prevEn : ARIA.prevDe);
           if (heroNext) heroNext.setAttribute("aria-label", lang === "en" ? ARIA.nextEn : ARIA.nextDe);
           if (heroTrack) {
@@ -2602,6 +2860,9 @@
           if (lightboxEl && !lightboxEl.hidden) {
             renderLightbox();
           }
+          if (buyPopup && !buyPopup.hidden) {
+            renderBuyPopup();
+          }
         }
 
         document.querySelectorAll("[data-bi-offer]").forEach(function (btn) {
@@ -2610,10 +2871,18 @@
           });
         });
 
+        document.querySelectorAll("[data-bi-buy]").forEach(function (btn) {
+          btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            openBuyPopup(btn.getAttribute("data-bi-buy"));
+          });
+        });
+
         var gridEl = document.querySelector(".bi-grid");
         if (gridEl) {
           gridEl.addEventListener("click", function (e) {
-            if (e.target.closest(".bi-tile__more, a")) return;
+            if (e.target.closest(".bi-tile__more, a, [data-bi-buy]")) return;
             var hochbauGalleryBtn = e.target.closest("[data-bi-hochbau-gallery]");
             if (hochbauGalleryBtn) {
               var cell = e.target.closest("[data-hochbau-index]");
@@ -2624,6 +2893,33 @@
             var btn = e.target.closest("[data-bi-project]");
             if (!btn) return;
             openLightbox(btn.getAttribute("data-bi-project"), 0);
+          });
+          gridEl.addEventListener("keydown", function (e) {
+            if (e.key !== "Enter" && e.key !== " ") return;
+            var tile = e.target.closest("[data-bi-project][tabindex]");
+            if (!tile || e.target.closest("[data-bi-buy]")) return;
+            e.preventDefault();
+            openLightbox(tile.getAttribute("data-bi-project"), 0);
+          });
+        }
+
+        if (buyPopup) {
+          buyPopup.querySelectorAll("[data-bi-buy-close]").forEach(function (el) {
+            el.addEventListener("click", closeBuyPopup);
+          });
+        }
+
+        if (buyPrev) {
+          buyPrev.addEventListener("click", function (e) {
+            e.stopPropagation();
+            buyStep(-1);
+          });
+        }
+
+        if (buyNext) {
+          buyNext.addEventListener("click", function (e) {
+            e.stopPropagation();
+            buyStep(1);
           });
         }
 
@@ -2657,9 +2953,15 @@
 
         document.addEventListener("keydown", function (e) {
           if (e.key === "Escape") {
-            if (lightboxEl && !lightboxEl.hidden) closeLightbox();
+            if (buyPopup && !buyPopup.hidden) closeBuyPopup();
+            else if (lightboxEl && !lightboxEl.hidden) closeLightbox();
             else if (!offerPopup.hidden) closeOfferPopup();
             else if (!popup.hidden) closePopup();
+            return;
+          }
+          if (buyPopup && !buyPopup.hidden) {
+            if (e.key === "ArrowLeft") buyStep(-1);
+            if (e.key === "ArrowRight") buyStep(1);
             return;
           }
           if (lightboxEl && !lightboxEl.hidden) {
