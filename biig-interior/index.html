@@ -452,6 +452,13 @@
         transform: scale(1.04);
       }
 
+      @media (hover: none), (pointer: coarse) {
+        .bi-tile--project:hover .bi-tile__media img,
+        .bi-tile--project:focus-visible .bi-tile__media img {
+          transform: none;
+        }
+      }
+
       .bi-tile--hochbau {
         padding: 0;
         background: #ffffff;
@@ -2689,8 +2696,11 @@
               h = maxH;
               w = h * ratio;
             }
+            lightboxViewport.style.transition = "none";
             lightboxViewport.style.width = Math.round(w) + "px";
             lightboxViewport.style.height = Math.round(h) + "px";
+            void lightboxViewport.offsetWidth;
+            lightboxViewport.style.transition = "";
           }
 
           if (img.complete && img.naturalWidth) {
@@ -2698,14 +2708,6 @@
           } else {
             img.addEventListener("load", apply, { once: true });
           }
-        }
-
-        function isLightboxLoopWrap(fromIndex, toIndex, count) {
-          if (count <= 1) return false;
-          return (
-            (fromIndex === 0 && toIndex === count - 1) ||
-            (fromIndex === count - 1 && toIndex === 0)
-          );
         }
 
         function scheduleLightboxViewportResize(index, afterTrackAnimation) {
@@ -2734,6 +2736,14 @@
           }, 480);
         }
 
+        function isLightboxLoopWrap(fromIndex, toIndex, count) {
+          if (count <= 1) return false;
+          return (
+            (fromIndex === 0 && toIndex === count - 1) ||
+            (fromIndex === count - 1 && toIndex === 0)
+          );
+        }
+
         function applyLightboxTrackTransform(toIndex, animate, fromIndex) {
           if (!lightboxTrack || !lightboxGalleryItems) return false;
           var count = lightboxGalleryItems.length;
@@ -2758,18 +2768,20 @@
           var prevIndex =
             typeof fromIndex === "number" ? fromIndex : lightboxIndex;
           lightboxIndex = ((index % count) + count) % count;
-          var shouldAnimateTrack = options.skipTransform
-            ? false
-            : applyLightboxTrackTransform(
-                lightboxIndex,
-                animate !== false,
-                prevIndex
-              );
+          if (!options.skipTransform) {
+            applyLightboxTrackTransform(
+              lightboxIndex,
+              animate !== false,
+              prevIndex
+            );
+          }
           updateLightboxTitle();
-          scheduleLightboxViewportResize(
-            lightboxIndex,
-            !!(options.deferViewportResize || shouldAnimateTrack)
-          );
+          var shouldDeferViewport =
+            options.deferViewportResize ||
+            (animate !== false &&
+              !options.skipTransform &&
+              !isLightboxLoopWrap(prevIndex, lightboxIndex, count));
+          scheduleLightboxViewportResize(lightboxIndex, shouldDeferViewport);
           if (lightboxPrev) lightboxPrev.hidden = count <= 1;
           if (lightboxNext) lightboxNext.hidden = count <= 1;
         }
