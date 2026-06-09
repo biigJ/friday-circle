@@ -1336,7 +1336,6 @@
         pointer-events: auto;
         touch-action: pan-y;
         cursor: grab;
-        transition: width 0.3s ease, height 0.3s ease;
       }
 
       .bi-lightbox__viewport.is-swipe-dragging {
@@ -2513,6 +2512,7 @@
         var lightboxIndex = 0;
         var lightboxSwipeApi = null;
         var lightboxTrackReady = false;
+        var lightboxViewportResizeToken = 0;
         var openBuyId = null;
         var buyIndex = 0;
 
@@ -2645,7 +2645,7 @@
             img.src = item.src;
             img.alt = lang === "en" ? item.altEn : item.altDe;
             img.decoding = "async";
-            img.loading = i < 3 ? "eager" : "lazy";
+            img.loading = "eager";
             if (item.objectPosition) img.style.objectPosition = item.objectPosition;
             var project = item.projectId ? PROJECTS[item.projectId] : null;
             applyImageAdjust(img, getImageAdjust(project, item.imageIndex));
@@ -2700,21 +2700,78 @@
           }
         }
 
-        function setLightboxSlide(index, animate) {
-          if (!lightboxGalleryItems || !lightboxGalleryItems.length) return;
-          var count = lightboxGalleryItems.length;
-          lightboxIndex = ((index % count) + count) % count;
-          if (lightboxTrack) {
-            lightboxTrack.style.transition = animate ? "transform 0.45s ease" : "none";
-            lightboxTrack.style.transform = "translateX(-" + lightboxIndex * 100 + "%)";
+        function isLightboxLoopWrap(fromIndex, toIndex, count) {
+          if (count <= 1) return false;
+          return (
+            (fromIndex === 0 && toIndex === count - 1) ||
+            (fromIndex === count - 1 && toIndex === 0)
+          );
+        }
+
+        function scheduleLightboxViewportResize(index, afterTrackAnimation) {
+          var token = ++lightboxViewportResizeToken;
+
+          function run() {
+            if (token !== lightboxViewportResizeToken) return;
+            syncLightboxViewportSize(index);
           }
+
+          if (!afterTrackAnimation || !lightboxTrack) {
+            run();
+            return;
+          }
+
+          function onEnd(e) {
+            if (e.target !== lightboxTrack || e.propertyName !== "transform") return;
+            lightboxTrack.removeEventListener("transitionend", onEnd);
+            run();
+          }
+
+          lightboxTrack.addEventListener("transitionend", onEnd);
+          setTimeout(function () {
+            lightboxTrack.removeEventListener("transitionend", onEnd);
+            run();
+          }, 480);
+        }
+
+        function applyLightboxTrackTransform(toIndex, animate, fromIndex) {
+          if (!lightboxTrack || !lightboxGalleryItems) return false;
+          var count = lightboxGalleryItems.length;
+          var shouldAnimate =
+            animate && !isLightboxLoopWrap(fromIndex, toIndex, count);
+          lightboxTrack.style.transition = shouldAnimate
+            ? "transform 0.45s ease"
+            : "none";
+          lightboxTrack.style.transform =
+            "translateX(calc(-" + toIndex * 100 + "% + 0px))";
+          if (!shouldAnimate) {
+            void lightboxTrack.offsetWidth;
+            lightboxTrack.style.transition = "";
+          }
+          return shouldAnimate;
+        }
+
+        function setLightboxSlide(index, animate, fromIndex, options) {
+          if (!lightboxGalleryItems || !lightboxGalleryItems.length) return;
+          options = options || {};
+          var count = lightboxGalleryItems.length;
+          var prevIndex =
+            typeof fromIndex === "number" ? fromIndex : lightboxIndex;
+          lightboxIndex = ((index % count) + count) % count;
+          var shouldAnimateTrack = options.skipTransform
+            ? false
+            : applyLightboxTrackTransform(
+                lightboxIndex,
+                animate !== false,
+                prevIndex
+              );
           updateLightboxTitle();
-          syncLightboxViewportSize(lightboxIndex);
+          scheduleLightboxViewportResize(
+            lightboxIndex,
+            !!(options.deferViewportResize || shouldAnimateTrack)
+          );
           if (lightboxPrev) lightboxPrev.hidden = count <= 1;
           if (lightboxNext) lightboxNext.hidden = count <= 1;
-          if (lightboxSwipeApi && lightboxSwipeApi.sync) {
-            lightboxSwipeApi.sync(animate !== false);
-          }
         }
 
         function renderLightbox() {
@@ -2738,8 +2795,12 @@
             getCount: function () {
               return lightboxGalleryItems.length;
             },
-            onIndexChange: function (newIndex) {
-              setLightboxSlide(newIndex, true);
+            onIndexChange: function (newIndex, meta) {
+              var useAnimate = !meta || meta.animate !== false;
+              setLightboxSlide(newIndex, useAnimate, meta && meta.from, {
+                skipTransform: true,
+                deferViewportResize: useAnimate,
+              });
             },
             ignore: function (target) {
               return !!target.closest(".bi-lightbox__close, .bi-lightbox__nav, button, a");
@@ -2787,6 +2848,7 @@
 
         function closeLightbox() {
           if (!lightboxEl) return;
+          lightboxViewportResizeToken++;
           if (lightboxSwipeApi && lightboxSwipeApi.destroy) lightboxSwipeApi.destroy();
           lightboxSwipeApi = null;
           lightboxGalleryItems = null;
@@ -2805,7 +2867,7 @@
 
         function lightboxStep(delta) {
           if (!lightboxGalleryItems || lightboxGalleryItems.length <= 1) return;
-          setLightboxSlide(lightboxIndex + delta, true);
+          setLightboxSlide(lightboxIndex + delta, true, lightboxIndex);
         }
 
         function initHeroSwipe() {
@@ -2825,7 +2887,7 @@
               return HERO_SLIDES.length;
             },
             onIndexChange: function (newIndex) {
-              setHeroSlide(newIndex);
+              setHeroSlide(newIndex, true);
               startHeroAutoplay();
             },
             ignore: function (target) {
@@ -2851,8 +2913,8 @@
             getCount: function () {
               return slideCount;
             },
-            onIndexChange: function (newIndex) {
-              setSlide(newIndex);
+            onIndexChange: function (newIndex, meta) {
+              setSlide(newIndex, !meta || meta.animate !== false, meta && meta.from, true);
             },
             ignore: function (target) {
               return !!target.closest(".bi-slider__dot, button, a");
@@ -3054,10 +3116,13 @@
           }
         }
 
-        function setHeroSlide(index) {
+        function setHeroSlide(index, skipTransform) {
           if (!heroTrack || !HERO_SLIDES.length) return;
           heroIndex = (index + HERO_SLIDES.length) % HERO_SLIDES.length;
-          heroTrack.style.transform = "translateX(-" + heroIndex * 100 + "%)";
+          if (!skipTransform) {
+            heroTrack.style.transform =
+              "translateX(calc(-" + heroIndex * 100 + "% + 0px))";
+          }
           if (heroDots) {
             heroDots.querySelectorAll(".bi-hero__dot").forEach(function (dot, i) {
               dot.classList.toggle("is-active", i === heroIndex);
@@ -3168,10 +3233,28 @@
           });
         }
 
-        function setSlide(index) {
+        function setSlide(index, animate, fromIndex, skipTransform) {
           if (!slideCount) return;
+          var prevIndex = typeof fromIndex === "number" ? fromIndex : slideIndex;
           slideIndex = (index + slideCount) % slideCount;
-          trackEl.style.transform = "translateX(-" + slideIndex * 100 + "%)";
+          if (!skipTransform) {
+            var isWrap =
+              slideCount > 1 &&
+              ((prevIndex === 0 && slideIndex === slideCount - 1) ||
+                (prevIndex === slideCount - 1 && slideIndex === 0));
+            var shouldAnimate = animate !== false && !isWrap;
+            if (shouldAnimate) {
+              trackEl.style.transition = "transform 0.35s ease";
+            } else {
+              trackEl.style.transition = "none";
+            }
+            trackEl.style.transform =
+              "translateX(calc(-" + slideIndex * 100 + "% + 0px))";
+            if (!shouldAnimate) {
+              void trackEl.offsetWidth;
+              trackEl.style.transition = "";
+            }
+          }
           dotsEl.querySelectorAll(".bi-slider__dot").forEach(function (dot, i) {
             dot.classList.toggle("is-active", i === slideIndex);
           });

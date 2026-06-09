@@ -172,6 +172,14 @@
       applyTransform(offset, false);
     }
 
+    function isLoopWrap(fromIndex, toIndex, total) {
+      if (!loop || total <= 1) return false;
+      return (
+        (fromIndex === 0 && toIndex === total - 1) ||
+        (fromIndex === total - 1 && toIndex === 0)
+      );
+    }
+
     function onUp(e) {
       if (!dragging || e.pointerId !== pointerId) return;
       dragging = false;
@@ -203,11 +211,14 @@
         return;
       }
 
+      var total = count();
+      var wrap = isLoopWrap(startIndex, nextIndex, total);
+      var useAnimate = !wrap;
+
       if (typeof onIndexChange === "function") {
-        onIndexChange(nextIndex, { from: startIndex, animate: true });
-      } else {
-        goToIndex(nextIndex, true);
+        onIndexChange(nextIndex, { from: startIndex, animate: useAnimate, wrap: wrap });
       }
+      goToIndex(nextIndex, useAnimate);
     }
 
     zone.style.touchAction = axis === "y" ? "pan-x" : "pan-y";
