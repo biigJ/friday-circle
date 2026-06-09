@@ -407,6 +407,16 @@
         inset: 0;
       }
 
+      .bi-tile--labeled .bi-tile__media {
+        position: absolute;
+        inset: 0;
+      }
+
+      .bi-tile--labeled:has(.bi-tile__media) .bi-tile__label {
+        color: #ffffff;
+        text-shadow: 0 1px 14px rgba(0, 0, 0, 0.5);
+      }
+
       .bi-tile__media img,
       .bi-slider__slide img {
         width: 100%;
@@ -1554,7 +1564,7 @@
             </div>
             <button type="button" class="bi-tile bi-tile--project" data-bi-project="altbauwohnung">
               <span class="bi-tile__media">
-                <img src="../assets/interior/altbau-pimpup-01.png" alt="" width="2404" height="1529" decoding="async" />
+                <img src="../assets/interior/altbau_mitfakekamin-01.png" alt="" width="1536" height="2576" decoding="async" />
               </span>
               <span class="bi-tile__label">
                 <span class="de-t">Deine Altbauwohnung</span>
@@ -1642,7 +1652,10 @@
             <!-- Zeile 3 -->
             <div class="bi-image-row">
               <div class="bi-image-row__scroll">
-            <div class="bi-tile bi-tile--empty bi-tile--labeled">
+            <div class="bi-tile bi-tile--labeled">
+              <span class="bi-tile__media">
+                <img src="../assets/interior/altbau-pimpup-01.png" alt="" width="2404" height="1529" decoding="async" />
+              </span>
               <span class="bi-tile__label">
                 <span class="de-t">Deine Oase</span>
                 <span class="en-t">Your oasis</span>
@@ -1955,7 +1968,7 @@
             keywordEn: "Period building",
             concreteDe: "Wohnung mit Kamin",
             concreteEn: "Apartment with fireplace",
-            images: ["../assets/interior/altbau-pimpup-01.png"],
+            images: ["../assets/interior/altbau_mitfakekamin-01.png"],
           },
           zweihaeuser: {
             tileLabelDe: "Dein Haus",
