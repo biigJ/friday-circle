@@ -1575,13 +1575,13 @@
                 <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
               </span>
             </button>
-            <button type="button" class="bi-tile bi-tile--project" data-bi-project="zweihaeuser">
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="homeoffice">
               <span class="bi-tile__media">
-                <img src="../assets/interior/traudi-küche.png" alt="" width="2193" height="1606" decoding="async" />
+                <img src="../assets/interior/homeoffice-01.png" alt="" width="1597" height="2074" decoding="async" />
               </span>
               <span class="bi-tile__label">
-                <span class="de-t">Dein Haus</span>
-                <span class="en-t">Your house</span>
+                <span class="de-t">Dein Homeoffice</span>
+                <span class="en-t">Your home office</span>
               </span>
               <span class="bi-tile__hover">
                 <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
@@ -1594,13 +1594,13 @@
             <!-- Zeile 2 -->
             <div class="bi-image-row">
               <div class="bi-image-row__scroll">
-            <button type="button" class="bi-tile bi-tile--project" data-bi-project="homeoffice">
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="zweihaeuser">
               <span class="bi-tile__media">
-                <img src="../assets/interior/homeoffice-01.png" alt="" width="1597" height="2074" decoding="async" />
+                <img src="../assets/interior/traudi-küche.png" alt="" width="2193" height="1606" decoding="async" />
               </span>
               <span class="bi-tile__label">
-                <span class="de-t">Dein Homeoffice</span>
-                <span class="en-t">Your home office</span>
+                <span class="de-t">Dein Haus</span>
+                <span class="en-t">Your house</span>
               </span>
               <span class="bi-tile__hover">
                 <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
@@ -1652,7 +1652,7 @@
             <!-- Zeile 3 -->
             <div class="bi-image-row">
               <div class="bi-image-row__scroll">
-            <div class="bi-tile bi-tile--labeled">
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="oase">
               <span class="bi-tile__media">
                 <img src="../assets/interior/altbau-pimpup-01.png" alt="" width="2404" height="1529" decoding="async" />
               </span>
@@ -1660,7 +1660,11 @@
                 <span class="de-t">Deine Oase</span>
                 <span class="en-t">Your oasis</span>
               </span>
-            </div>
+              <span class="bi-tile__hover">
+                <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
+                <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
+              </span>
+            </button>
             <div class="bi-tile bi-tile--offer bi-tile--offer-compact">
               <h3 class="bi-tile__headline">
                 <span class="de-t">All Inklusive mit Bauplanung &amp; Handwerk.</span>
@@ -2015,6 +2019,24 @@
             images: [
               "../assets/interior/loft-01.png",
               "../assets/interior/loftbalkon.png",
+            ],
+          },
+          oase: {
+            tileLabelDe: "Eigentumswohnung Upgrade, Berlin-Neukölln 2022",
+            tileLabelEn: "Condominium upgrade, Berlin-Neukölln 2022",
+            titleDe: "Eigentumswohnung Upgrade, Berlin-Neukölln 2022",
+            titleEn: "Condominium upgrade, Berlin-Neukölln 2022",
+            bodyDe:
+              "Eigentumswohnung in Neukölln — behaglicher Rückzugsort mit klarer Materialität und mehr Ruhe im Alltag.",
+            bodyEn:
+              "Condominium in Neukölln — a comfortable retreat with clear materials and more calm in everyday life.",
+            keywordDe: "Upgrade",
+            keywordEn: "Upgrade",
+            concreteDe: "Berlin-Neukölln, 2022",
+            concreteEn: "Berlin-Neukölln, 2022",
+            images: [
+              "../assets/interior/altbau-pimpup-01.png",
+              "../assets/interior/oase-essecke.png",
             ],
           },
           dieffe33: {
@@ -2416,9 +2438,10 @@
         var PORTFOLIO_LIGHTBOX_SEQUENCE = [
           { type: "project", id: "dieffe33" },
           { type: "project", id: "altbauwohnung" },
-          { type: "project", id: "zweihaeuser" },
           { type: "project", id: "homeoffice" },
+          { type: "project", id: "zweihaeuser" },
           { type: "project", id: "loft" },
+          { type: "project", id: "oase" },
           { type: "project", id: "umbauten" },
           { type: "project", id: "vinothek" },
           { type: "hochbau" },
