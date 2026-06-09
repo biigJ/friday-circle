@@ -638,6 +638,35 @@
         margin-top: clamp(4px, 0.6vw, 8px);
       }
 
+      .bi-tile--hochbau-collage {
+        padding: 0;
+        cursor: pointer;
+        background: #f0eee6;
+        overflow: hidden;
+      }
+
+      .bi-hochbau-collage {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        width: 100%;
+        height: 100%;
+        gap: 2px;
+      }
+
+      .bi-hochbau-collage__cell {
+        overflow: hidden;
+        min-width: 0;
+        height: 100%;
+      }
+
+      .bi-hochbau-collage__cell img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        filter: var(--bi-mood-filter);
+      }
+
       .bi-tile--offer .bi-tile__cta {
         align-self: center;
       }
@@ -1058,8 +1087,10 @@
         position: relative;
         z-index: 1;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
+        gap: clamp(10px, 1.8vw, 18px);
         width: 100%;
         height: 100%;
         pointer-events: none;
@@ -1067,12 +1098,29 @@
 
       .bi-lightbox__img {
         max-width: 90vw;
-        max-height: 90vh;
+        max-height: calc(90vh - 3.5rem);
         width: auto;
         height: auto;
         object-fit: contain;
         display: block;
         pointer-events: auto;
+      }
+
+      .bi-lightbox__caption {
+        margin: 0;
+        pointer-events: none;
+        color: #ffffff;
+        font-family: var(--font-sans);
+        font-size: clamp(0.82rem, 1.1vw, 0.95rem);
+        font-weight: 200;
+        line-height: 1.4;
+        letter-spacing: 0.02em;
+        text-align: center;
+        max-width: min(90vw, 42rem);
+      }
+
+      .bi-lightbox__caption[hidden] {
+        display: none !important;
       }
 
       .bi-lightbox__close,
@@ -1231,15 +1279,6 @@
                 </a>
               </div>
             </div>
-            <button type="button" class="bi-tile bi-tile--project" data-bi-project="moebel">
-              <span class="bi-tile__media">
-                <img src="../assets/interior/tisch-heller.png" alt="" width="1735" height="2023" decoding="async" />
-              </span>
-              <span class="bi-tile__hover">
-                <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
-                <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
-              </span>
-            </button>
             <div class="bi-tile bi-tile--empty" aria-hidden="true"></div>
               </div>
             </div>
@@ -1249,10 +1288,14 @@
               <div class="bi-image-row__scroll">
             <div class="bi-tile bi-tile--empty" aria-hidden="true"></div>
             <div class="bi-tile bi-tile--empty" aria-hidden="true"></div>
-            <div class="bi-tile bi-tile--offer">
-              <p>
+            <div class="bi-tile bi-tile--offer bi-tile--offer-compact">
+              <h3 class="bi-tile__headline">
                 <span class="de-t">Hilfe beim Sortieren von Deinen Ideen und Hab &amp; Gut.</span>
                 <span class="en-t">Help sorting your ideas and everything you own.</span>
+              </h3>
+              <p class="bi-tile__price">
+                <span class="de-t">ab 200 € · abhängig von Umfang.</span>
+                <span class="en-t">from €200 · depending on scope.</span>
               </p>
               <div class="bi-tile__actions">
                 <a class="bi-tile__cta" href="../kontakt/index.html">
@@ -1273,10 +1316,14 @@
             <div class="bi-image-row">
               <div class="bi-image-row__scroll">
             <div class="bi-tile bi-tile--empty" aria-hidden="true"></div>
-            <div class="bi-tile bi-tile--offer">
-              <p>
+            <div class="bi-tile bi-tile--offer bi-tile--offer-compact">
+              <h3 class="bi-tile__headline">
                 <span class="de-t">All Inklusive mit Bauplanung &amp; Handwerk.</span>
                 <span class="en-t">All-inclusive with planning and trades.</span>
+              </h3>
+              <p class="bi-tile__price">
+                <span class="de-t">ab 2.500 € · Preis auf Anfrage.</span>
+                <span class="en-t">from €2,500 · price on request.</span>
               </p>
               <div class="bi-tile__actions">
                 <a class="bi-tile__cta" href="../kontakt/index.html">
@@ -1310,18 +1357,18 @@
               </div>
             </div>
 
-            <!-- Zeile 4 — Hochbau -->
+            <!-- Zeile 4 -->
             <div class="bi-image-row">
               <div class="bi-image-row__scroll">
-            <div class="bi-tile bi-tile--offer bi-tile--span-2">
-              <p>
+            <div class="bi-tile bi-tile--offer bi-tile--offer-compact">
+              <h3 class="bi-tile__headline">
                 <span class="de-t"
                   >Hochbau und bauantragsrelevante Projekte setze ich mit einem Partnerbüro um.</span
                 >
                 <span class="en-t"
                   >Structural and planning-permit projects I deliver with a partner office.</span
                 >
-              </p>
+              </h3>
               <div class="bi-tile__actions">
                 <a class="bi-tile__cta" href="../kontakt/index.html">
                   <span class="de-t">Anrufen</span>
@@ -1333,20 +1380,30 @@
                 </button>
               </div>
             </div>
-            <div class="bi-tile bi-tile--hochbau bi-tile--span-2" id="bi-hochbau-slider" aria-label="Hochbauprojekte">
-              <div class="bi-hochbau-slider">
-                <div class="bi-hochbau-slider__track" id="bi-hochbau-track"></div>
-                <div class="bi-hochbau-slider__zones">
-                  <button type="button" class="bi-hochbau-slider__zone bi-hochbau-slider__zone--prev" id="bi-hochbau-prev" aria-label="Vorheriges Bild">‹</button>
-                  <button type="button" class="bi-hochbau-slider__zone bi-hochbau-slider__zone--next" id="bi-hochbau-next" aria-label="Nächstes Bild">›</button>
-                </div>
-                <div class="bi-hochbau-slider__dots" id="bi-hochbau-dots"></div>
-                <div class="bi-hochbau-slider__hover" id="bi-hochbau-hover" aria-hidden="true">
-                  <span class="bi-tile__keyword" id="bi-hochbau-keyword"></span>
-                  <span class="bi-tile__concrete" id="bi-hochbau-concrete"></span>
-                </div>
-              </div>
+            <button
+              type="button"
+              class="bi-tile bi-tile--project bi-tile--hochbau-collage"
+              id="bi-hochbau-collage"
+              data-bi-hochbau-gallery
+              aria-label="Hochbauprojekte"
+            >
+              <span class="bi-hochbau-collage" id="bi-hochbau-collage-inner"></span>
+            </button>
+            <div class="bi-tile bi-tile--offer bi-tile--offer-compact">
+              <h3 class="bi-tile__headline">
+                <span class="de-t">Möbeldesign auf Deinen Raum angepasst.</span>
+                <span class="en-t">Furniture design tailored to your space.</span>
+              </h3>
             </div>
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="moebel">
+              <span class="bi-tile__media">
+                <img src="../assets/interior/tisch-heller.png" alt="" width="1735" height="2023" decoding="async" />
+              </span>
+              <span class="bi-tile__hover">
+                <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
+                <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
+              </span>
+            </button>
               </div>
             </div>
           </div>
@@ -1479,6 +1536,7 @@
       <button type="button" class="bi-lightbox__nav bi-lightbox__nav--next" id="bi-lightbox-next" hidden aria-label="Nächstes Bild">›</button>
       <div class="bi-lightbox__stage">
         <img class="bi-lightbox__img" id="bi-lightbox-img" alt="" decoding="async" />
+        <p class="bi-lightbox__caption" id="bi-lightbox-caption" hidden></p>
       </div>
     </div>
 
@@ -1827,6 +1885,7 @@
         ];
 
         var HOCHBAU_IDS = ["klinker", "rothestr", "graefe", "destijl", "schleswig"];
+        var HOCHBAU_THUMB_FOCUS = ["28% center", "center center", "88% center", "72% center", "78% center"];
 
         var popup = document.getElementById("bi-project-popup");
         var offerPopup = document.getElementById("bi-offer-popup");
@@ -1838,6 +1897,8 @@
         var lightboxCloseBtn = document.getElementById("bi-lightbox-close");
         var lightboxPrev = document.getElementById("bi-lightbox-prev");
         var lightboxNext = document.getElementById("bi-lightbox-next");
+        var lightboxCaption = document.getElementById("bi-lightbox-caption");
+        var hochbauCollageInner = document.getElementById("bi-hochbau-collage-inner");
         var titleEl = document.getElementById("bi-popup-title");
         var bodyEl = document.getElementById("bi-popup-body");
         var trackEl = document.getElementById("bi-slider-track");
@@ -1848,60 +1909,77 @@
         var heroArrows = document.getElementById("bi-hero-arrows");
         var heroPrev = document.getElementById("bi-hero-prev");
         var heroNext = document.getElementById("bi-hero-next");
-        var hochbauTrack = document.getElementById("bi-hochbau-track");
-        var hochbauDots = document.getElementById("bi-hochbau-dots");
-        var hochbauPrev = document.getElementById("bi-hochbau-prev");
-        var hochbauNext = document.getElementById("bi-hochbau-next");
-        var hochbauSliderEl = document.getElementById("bi-hochbau-slider");
-        var hochbauKeywordEl = document.getElementById("bi-hochbau-keyword");
-        var hochbauConcreteEl = document.getElementById("bi-hochbau-concrete");
         var intakeForm = document.getElementById("bi-intake-form");
         var intakeQuestions = document.getElementById("bi-intake-questions");
         var intakeIntentField = document.getElementById("bi-intake-intent-field");
         var selectedIntent = null;
         var slideIndex = 0;
         var slideCount = 0;
-        var hochbauIndex = 0;
         var heroIndex = 0;
         var heroTimer = null;
         var heroSliderReady = false;
         var openProjectId = null;
         var openOfferId = null;
         var heroSwipeApi = null;
-        var hochbauSwipeApi = null;
         var popupSwipeApi = null;
         var lightboxProjectId = null;
+        var lightboxGalleryItems = null;
         var lightboxIndex = 0;
 
+        function buildHochbauGalleryItems() {
+          return HOCHBAU_IDS.map(function (id, i) {
+            var project = PROJECTS[id];
+            return {
+              src: project.images[0],
+              captionDe: project.titleDe,
+              captionEn: project.titleEn,
+              altDe: project.titleDe,
+              altEn: project.titleEn,
+              objectPosition: project.cropPosition || "center center",
+              thumbPosition: HOCHBAU_THUMB_FOCUS[i] || "center center",
+            };
+          });
+        }
+
         function lightboxCount() {
+          if (lightboxGalleryItems) return lightboxGalleryItems.length;
           if (!lightboxProjectId || !PROJECTS[lightboxProjectId]) return 0;
           return PROJECTS[lightboxProjectId].images.length;
         }
 
         function renderLightbox() {
-          if (!lightboxImg || !lightboxProjectId) return;
-          var project = PROJECTS[lightboxProjectId];
-          if (!project || !project.images[lightboxIndex]) return;
+          if (!lightboxImg) return;
           var lang = getLang();
-          lightboxImg.src = project.images[lightboxIndex];
-          lightboxImg.alt =
-            pick(project, "title") +
-            " — " +
-            (lang === "en" ? "Image " : "Bild ") +
-            (lightboxIndex + 1);
           var count = lightboxCount();
+          if (lightboxGalleryItems && lightboxGalleryItems[lightboxIndex]) {
+            var galleryItem = lightboxGalleryItems[lightboxIndex];
+            lightboxImg.src = galleryItem.src;
+            lightboxImg.alt = lang === "en" ? galleryItem.altEn : galleryItem.altDe;
+            lightboxImg.style.objectPosition = galleryItem.objectPosition || "";
+            if (lightboxCaption) {
+              lightboxCaption.textContent = lang === "en" ? galleryItem.captionEn : galleryItem.captionDe;
+              lightboxCaption.hidden = false;
+            }
+          } else if (lightboxProjectId && PROJECTS[lightboxProjectId]) {
+            var project = PROJECTS[lightboxProjectId];
+            if (!project.images[lightboxIndex]) return;
+            lightboxImg.src = project.images[lightboxIndex];
+            lightboxImg.alt =
+              pick(project, "title") +
+              " — " +
+              (lang === "en" ? "Image " : "Bild ") +
+              (lightboxIndex + 1);
+            lightboxImg.style.objectPosition = "";
+            if (lightboxCaption) lightboxCaption.hidden = true;
+          } else {
+            return;
+          }
           if (lightboxPrev) lightboxPrev.hidden = count <= 1;
           if (lightboxNext) lightboxNext.hidden = count <= 1;
         }
 
-        function openLightbox(projectId, index) {
-          closePopup();
-          closeOfferPopup();
-          var project = PROJECTS[projectId];
-          if (!lightboxEl || !project || !project.images.length) return;
-          lightboxProjectId = projectId;
-          lightboxIndex = Math.max(0, Math.min(index || 0, project.images.length - 1));
-          renderLightbox();
+        function showLightbox() {
+          if (!lightboxEl) return;
           lightboxEl.hidden = false;
           lightboxEl.setAttribute("aria-hidden", "false");
           lightboxEl.classList.remove("is-open");
@@ -1911,14 +1989,46 @@
           document.body.style.overflow = "hidden";
         }
 
+        function openLightbox(projectId, index) {
+          closePopup();
+          closeOfferPopup();
+          var project = PROJECTS[projectId];
+          if (!lightboxEl || !project || !project.images.length) return;
+          lightboxGalleryItems = null;
+          lightboxProjectId = projectId;
+          lightboxIndex = Math.max(0, Math.min(index || 0, project.images.length - 1));
+          renderLightbox();
+          showLightbox();
+        }
+
+        function openHochbauGallery(index) {
+          closePopup();
+          closeOfferPopup();
+          var items = buildHochbauGalleryItems();
+          if (!lightboxEl || !items.length) return;
+          lightboxProjectId = null;
+          lightboxGalleryItems = items;
+          lightboxIndex = Math.max(0, Math.min(index || 0, items.length - 1));
+          renderLightbox();
+          showLightbox();
+        }
+
         function closeLightbox() {
           if (!lightboxEl) return;
           lightboxProjectId = null;
+          lightboxGalleryItems = null;
           lightboxEl.classList.remove("is-open");
           lightboxEl.hidden = true;
           lightboxEl.setAttribute("aria-hidden", "true");
           document.body.style.overflow = "";
-          if (lightboxImg) lightboxImg.removeAttribute("src");
+          if (lightboxImg) {
+            lightboxImg.removeAttribute("src");
+            lightboxImg.style.objectPosition = "";
+          }
+          if (lightboxCaption) {
+            lightboxCaption.textContent = "";
+            lightboxCaption.hidden = true;
+          }
         }
 
         function lightboxStep(delta) {
@@ -1950,34 +2060,6 @@
             },
             ignore: function (target) {
               return !!target.closest(".bi-hero__dot, .bi-hero__arrow, button, a");
-            },
-            loop: true,
-          });
-        }
-
-        function initHochbauSwipe() {
-          if (hochbauSwipeApi && hochbauSwipeApi.destroy) hochbauSwipeApi.destroy();
-          hochbauSwipeApi = null;
-          if (!window.FcSwipeSlider || !hochbauTrack || HOCHBAU_IDS.length <= 1) return;
-          var zone = hochbauSliderEl && hochbauSliderEl.querySelector(".bi-hochbau-slider");
-          if (!zone) return;
-          hochbauSwipeApi = window.FcSwipeSlider.bind({
-            zone: zone,
-            track: hochbauTrack,
-            mode: "percent",
-            getIndex: function () {
-              return hochbauIndex;
-            },
-            getCount: function () {
-              return HOCHBAU_IDS.length;
-            },
-            onIndexChange: function (newIndex) {
-              setHochbauSlide(newIndex);
-            },
-            ignore: function (target) {
-              return !!target.closest(
-                ".bi-hochbau-slider__dot, .bi-hochbau-slider__zone, button, a"
-              );
             },
             loop: true,
           });
@@ -2127,13 +2209,8 @@
           }
           if (lightboxPrev) lightboxPrev.setAttribute("aria-label", lang === "en" ? ARIA.prevEn : ARIA.prevDe);
           if (lightboxNext) lightboxNext.setAttribute("aria-label", lang === "en" ? ARIA.nextEn : ARIA.nextDe);
-          if (hochbauPrev) hochbauPrev.setAttribute("aria-label", lang === "en" ? ARIA.prevEn : ARIA.prevDe);
-          if (hochbauNext) hochbauNext.setAttribute("aria-label", lang === "en" ? ARIA.nextEn : ARIA.nextDe);
           if (heroPrev) heroPrev.setAttribute("aria-label", lang === "en" ? ARIA.prevEn : ARIA.prevDe);
           if (heroNext) heroNext.setAttribute("aria-label", lang === "en" ? ARIA.nextEn : ARIA.nextDe);
-          if (hochbauSliderEl) {
-            hochbauSliderEl.setAttribute("aria-label", lang === "en" ? ARIA.hochbauEn : ARIA.hochbauDe);
-          }
           if (heroTrack) {
             heroTrack.querySelectorAll(".bi-hero__slide img").forEach(function (img, i) {
               var slide = HERO_SLIDES[i];
@@ -2225,76 +2302,24 @@
           initHeroSwipe();
         }
 
-        function updateHochbauHover() {
-          var project = PROJECTS[HOCHBAU_IDS[hochbauIndex]];
-          if (!project) return;
-          if (hochbauKeywordEl) hochbauKeywordEl.textContent = pick(project, "keyword");
-          if (hochbauConcreteEl) hochbauConcreteEl.textContent = pick(project, "concrete");
-        }
-
-        function setHochbauSlide(index) {
-          if (!hochbauTrack || !HOCHBAU_IDS.length) return;
-          hochbauIndex = (index + HOCHBAU_IDS.length) % HOCHBAU_IDS.length;
-          hochbauTrack.style.transform = "translateX(-" + hochbauIndex * 100 + "%)";
-          if (hochbauDots) {
-            hochbauDots.querySelectorAll(".bi-hochbau-slider__dot").forEach(function (dot, i) {
-              dot.classList.toggle("is-active", i === hochbauIndex);
-            });
-          }
-          updateHochbauHover();
-        }
-
-        function initHochbauSlider() {
-          if (!hochbauTrack) return;
-          var lang = getLang();
-          hochbauTrack.innerHTML = "";
-          if (hochbauDots) hochbauDots.innerHTML = "";
-
+        function initHochbauCollage() {
+          if (!hochbauCollageInner) return;
+          hochbauCollageInner.innerHTML = "";
           HOCHBAU_IDS.forEach(function (id, i) {
             var project = PROJECTS[id];
             if (!project) return;
-
-            var slide = document.createElement("button");
-            slide.type = "button";
-            slide.className = "bi-hochbau-slider__slide";
-            slide.setAttribute("data-bi-project", id);
+            var cell = document.createElement("span");
+            cell.className = "bi-hochbau-collage__cell";
+            cell.setAttribute("data-hochbau-index", String(i));
             var img = document.createElement("img");
             img.src = project.images[0];
             img.alt = pick(project, "title");
             img.decoding = "async";
             img.loading = i === 0 ? "eager" : "lazy";
-            if (project.cropPosition) img.style.objectPosition = project.cropPosition;
-            slide.appendChild(img);
-            hochbauTrack.appendChild(slide);
-
-            if (hochbauDots) {
-              var dot = document.createElement("button");
-              dot.type = "button";
-              dot.className = "bi-hochbau-slider__dot" + (i === 0 ? " is-active" : "");
-              dot.setAttribute(
-                "aria-label",
-                (lang === "en" ? "Image " : "Bild ") + (i + 1)
-              );
-              dot.addEventListener("click", function () {
-                setHochbauSlide(i);
-              });
-              hochbauDots.appendChild(dot);
-            }
+            img.style.objectPosition = HOCHBAU_THUMB_FOCUS[i] || "center center";
+            cell.appendChild(img);
+            hochbauCollageInner.appendChild(cell);
           });
-
-          if (hochbauDots) hochbauDots.hidden = HOCHBAU_IDS.length <= 1;
-          hochbauIndex = 0;
-          hochbauTrack.style.transform = "translateX(0)";
-          updateHochbauHover();
-
-          HOCHBAU_IDS.forEach(function (id) {
-            var project = PROJECTS[id];
-            if (project && project.images[0]) {
-              var preload = new Image();
-              preload.src = project.images[0];
-            }
-          });
-          initHochbauSwipe();
         }
 
         function applyTileLabels() {
@@ -2383,7 +2408,7 @@
           applyAria();
           applyTileLabels();
           initHeroSlider();
-          initHochbauSlider();
+          initHochbauCollage();
           if (selectedIntent) {
             renderIntakeQuestions(selectedIntent);
           }
@@ -2410,11 +2435,16 @@
         var gridEl = document.querySelector(".bi-grid");
         if (gridEl) {
           gridEl.addEventListener("click", function (e) {
-            var btn = e.target.closest("[data-bi-project]");
-            if (!btn) return;
-            if (e.target.closest(".bi-hochbau-slider__zone, .bi-hochbau-slider__dot, .bi-tile__more, a")) {
+            if (e.target.closest(".bi-tile__more, a")) return;
+            var hochbauGalleryBtn = e.target.closest("[data-bi-hochbau-gallery]");
+            if (hochbauGalleryBtn) {
+              var cell = e.target.closest("[data-hochbau-index]");
+              var index = cell ? parseInt(cell.getAttribute("data-hochbau-index"), 10) : 0;
+              openHochbauGallery(index);
               return;
             }
+            var btn = e.target.closest("[data-bi-project]");
+            if (!btn) return;
             openLightbox(btn.getAttribute("data-bi-project"), 0);
           });
         }
@@ -2477,22 +2507,6 @@
             e.preventDefault();
             e.stopPropagation();
             heroStep(1);
-          });
-        }
-
-        if (hochbauPrev) {
-          hochbauPrev.addEventListener("click", function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            setHochbauSlide(hochbauIndex - 1);
-          });
-        }
-
-        if (hochbauNext) {
-          hochbauNext.addEventListener("click", function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            setHochbauSlide(hochbauIndex + 1);
           });
         }
 
