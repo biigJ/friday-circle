@@ -355,6 +355,42 @@
         pointer-events: none;
       }
 
+      .bi-tile--labeled.bi-tile--empty {
+        pointer-events: auto;
+        cursor: default;
+      }
+
+      .bi-tile__label {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: clamp(8px, 1.2vw, 14px);
+        font-family: var(--font-sans);
+        font-size: clamp(1.31rem, 1.68vw, 1.52rem);
+        font-weight: 700;
+        line-height: 1.38;
+        letter-spacing: 0.01em;
+        text-align: center;
+        color: var(--text);
+        pointer-events: none;
+        transition: opacity 1.5s ease;
+      }
+
+      .bi-tile--project .bi-tile__label {
+        color: #ffffff;
+        text-shadow: 0 1px 14px rgba(0, 0, 0, 0.5);
+      }
+
+      .bi-tile--project:hover .bi-tile__label,
+      .bi-tile--project:focus-visible .bi-tile__label,
+      .bi-tile--labeled:hover .bi-tile__label,
+      .bi-tile--labeled:focus-visible .bi-tile__label {
+        opacity: 0;
+      }
+
       .bi-tile__media,
       .bi-hochbau-slider__slide,
       .bi-slider__slide {
@@ -547,7 +583,7 @@
       .bi-tile__hover {
         position: absolute;
         inset: 0;
-        z-index: 1;
+        z-index: 2;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -647,7 +683,7 @@
 
       .bi-hochbau-collage {
         display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
+        grid-template-columns: repeat(6, minmax(0, 1fr));
         width: 100%;
         height: 100%;
         gap: 2px;
@@ -1096,6 +1132,14 @@
         pointer-events: none;
       }
 
+      .bi-lightbox__frame {
+        overflow: hidden;
+        max-width: 90vw;
+        max-height: calc(90vh - 3.5rem);
+        line-height: 0;
+        pointer-events: auto;
+      }
+
       .bi-lightbox__img {
         max-width: 90vw;
         max-height: calc(90vh - 3.5rem);
@@ -1103,7 +1147,6 @@
         height: auto;
         object-fit: contain;
         display: block;
-        pointer-events: auto;
       }
 
       .bi-lightbox__caption {
@@ -1258,6 +1301,7 @@
               <span class="bi-tile__media">
                 <img src="../assets/interior/Dieffe33-02.png" alt="" width="2162" height="1592" decoding="async" />
               </span>
+              <span class="bi-tile__label">Dein Mini-Apartement</span>
               <span class="bi-tile__hover">
                 <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
                 <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
@@ -1279,16 +1323,31 @@
                 </a>
               </div>
             </div>
-            <div class="bi-tile bi-tile--empty" aria-hidden="true"></div>
-            <div class="bi-tile bi-tile--empty" aria-hidden="true"></div>
+            <div class="bi-tile bi-tile--empty bi-tile--labeled">
+              <span class="bi-tile__label">Deine Altbauwohnung</span>
+            </div>
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="zweihaeuser">
+              <span class="bi-tile__media">
+                <img src="../assets/interior/traudi-küche.png" alt="" width="2193" height="1606" decoding="async" />
+              </span>
+              <span class="bi-tile__label">zwei Häuser</span>
+              <span class="bi-tile__hover">
+                <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
+                <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
+              </span>
+            </button>
               </div>
             </div>
 
             <!-- Zeile 2 -->
             <div class="bi-image-row">
               <div class="bi-image-row__scroll">
-            <div class="bi-tile bi-tile--empty" aria-hidden="true"></div>
-            <div class="bi-tile bi-tile--empty" aria-hidden="true"></div>
+            <div class="bi-tile bi-tile--empty bi-tile--labeled">
+              <span class="bi-tile__label">Dein Homeoffice</span>
+            </div>
+            <div class="bi-tile bi-tile--empty bi-tile--labeled">
+              <span class="bi-tile__label">Dein Loft</span>
+            </div>
             <div class="bi-tile bi-tile--offer bi-tile--offer-compact">
               <h3 class="bi-tile__headline">
                 <span class="de-t">Hilfe beim Sortieren von Deinen Ideen und Hab &amp; Gut.</span>
@@ -1309,14 +1368,18 @@
                 </button>
               </div>
             </div>
-            <div class="bi-tile bi-tile--empty" aria-hidden="true"></div>
+            <div class="bi-tile bi-tile--empty bi-tile--labeled">
+              <span class="bi-tile__label">Deine Ordnung</span>
+            </div>
               </div>
             </div>
 
             <!-- Zeile 3 -->
             <div class="bi-image-row">
               <div class="bi-image-row__scroll">
-            <div class="bi-tile bi-tile--empty" aria-hidden="true"></div>
+            <div class="bi-tile bi-tile--empty bi-tile--labeled">
+              <span class="bi-tile__label">Deine Oase</span>
+            </div>
             <div class="bi-tile bi-tile--offer bi-tile--offer-compact">
               <h3 class="bi-tile__headline">
                 <span class="de-t">All Inklusive mit Bauplanung &amp; Handwerk.</span>
@@ -1341,6 +1404,7 @@
               <span class="bi-tile__media">
                 <img src="../assets/interior/rene-möbliert-01.png" alt="" width="800" height="1067" decoding="async" />
               </span>
+              <span class="bi-tile__label">Eine Etage</span>
               <span class="bi-tile__hover">
                 <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
                 <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
@@ -1350,6 +1414,7 @@
               <span class="bi-tile__media">
                 <img src="../assets/interior/geisenheim_blumen.png" alt="" width="800" height="1067" decoding="async" />
               </span>
+              <span class="bi-tile__label">Ein Gastraum</span>
               <span class="bi-tile__hover">
                 <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
                 <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
@@ -1389,6 +1454,7 @@
               aria-label="Hochbauprojekte"
             >
               <span class="bi-hochbau-collage" id="bi-hochbau-collage-inner"></span>
+              <span class="bi-tile__label">Bauprojekte</span>
             </button>
             <div class="bi-tile bi-tile--offer bi-tile--offer-compact">
               <h3 class="bi-tile__headline">
@@ -1400,6 +1466,7 @@
               <span class="bi-tile__media">
                 <img src="../assets/interior/tisch-heller.png" alt="" width="1735" height="2023" decoding="async" />
               </span>
+              <span class="bi-tile__label">Esstisch</span>
               <span class="bi-tile__hover">
                 <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
                 <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
@@ -1536,7 +1603,9 @@
       <button type="button" class="bi-lightbox__nav bi-lightbox__nav--prev" id="bi-lightbox-prev" hidden aria-label="Vorheriges Bild">‹</button>
       <button type="button" class="bi-lightbox__nav bi-lightbox__nav--next" id="bi-lightbox-next" hidden aria-label="Nächstes Bild">›</button>
       <div class="bi-lightbox__stage">
-        <img class="bi-lightbox__img" id="bi-lightbox-img" alt="" decoding="async" />
+        <div class="bi-lightbox__frame">
+          <img class="bi-lightbox__img" id="bi-lightbox-img" alt="" decoding="async" />
+        </div>
         <p class="bi-lightbox__caption" id="bi-lightbox-caption" hidden></p>
       </div>
     </div>
@@ -1560,6 +1629,22 @@
     <script defer>
       (function initBiInterior() {
         var PROJECTS = {
+          zweihaeuser: {
+            titleDe: "zwei Häuser",
+            titleEn: "Two houses",
+            bodyDe:
+              "Umbauten in Hamburg und Augsburg — zwei Häuser, unterschiedliche Orte, gemeinsame Idee: Bestand lesen und neu nutzen.",
+            bodyEn:
+              "Renovations in Hamburg and Augsburg — two houses, different locations, one idea: read the existing fabric and use it anew.",
+            keywordDe: "Umbauten",
+            keywordEn: "Renovations",
+            concreteDe: "Hamburg und Augsburg, 2014",
+            concreteEn: "Hamburg and Augsburg, 2014",
+            images: [
+              "../assets/interior/traudi-küche.png",
+              "../assets/interior/Neubauhaus.png",
+            ],
+          },
           dieffe33: {
             titleDe: "Sanierung - Mini-Apartement Berlin, 2025",
             titleEn: "Renovation — mini apartment Berlin, 2025",
@@ -1575,7 +1660,7 @@
               "../assets/interior/Dieffe33-02.png",
               "../assets/interior/biigJ-Küche-01.png",
               "../assets/interior/dieffe33-keramik.jpeg",
-              "../assets/interior/dieffe33-04.png",
+              "../assets/interior/dieffe33-04.png?v=2",
             ],
           },
           moebel: {
@@ -1593,7 +1678,7 @@
               "../assets/interior/tisch-heller.png",
               "../assets/interior/table_bronce.png",
               "../assets/interior/tisch-CAD.jpeg",
-              "../assets/interior/dieffe33-04.png",
+              "../assets/interior/dieffe33-04.png?v=2",
               "../assets/interior/tisch-250.png",
             ],
           },
@@ -1698,6 +1783,20 @@
             concreteEn: "Schleswig waterfront, 2016",
             images: ["../assets/hochbau/schleswig.png", "../assets/hochbau/wedel-strasse.png"],
             cropPosition: "52% 20%",
+          },
+          neubauhausstrasse: {
+            titleDe: "Studie Doppelhaus, Hamburg 2015",
+            titleEn: "Duplex house study, Hamburg 2015",
+            bodyDe:
+              "Studie für ein Doppelhaus in Hamburg — Straßenansicht mit klarer Kubatur und zurückhaltender Fassade im Bestandskontext.",
+            bodyEn:
+              "Study for a duplex house in Hamburg — street view with clear volume and restrained facade in the existing context.",
+            keywordDe: "Studie",
+            keywordEn: "Study",
+            concreteDe: "Doppelhaus Hamburg, 2015",
+            concreteEn: "Duplex house Hamburg, 2015",
+            images: ["../assets/hochbau/Neubauhaus-Strasse.png"],
+            cropPosition: "center center",
           },
         };
 
@@ -1895,8 +1994,15 @@
           },
         ];
 
-        var HOCHBAU_IDS = ["klinker", "rothestr", "graefe", "destijl", "schleswig"];
-        var HOCHBAU_THUMB_FOCUS = ["28% center", "center center", "88% center", "72% center", "78% center"];
+        var HOCHBAU_IDS = ["klinker", "rothestr", "graefe", "destijl", "schleswig", "neubauhausstrasse"];
+        var HOCHBAU_THUMB_FOCUS = [
+          "28% center",
+          "center center",
+          "88% center",
+          "72% center",
+          "78% center",
+          "center center",
+        ];
 
         var popup = document.getElementById("bi-project-popup");
         var offerPopup = document.getElementById("bi-offer-popup");
@@ -1936,6 +2042,28 @@
         var lightboxProjectId = null;
         var lightboxGalleryItems = null;
         var lightboxIndex = 0;
+
+        function getImageAdjust(project, index) {
+          if (!project || !project.imageAdjust) return null;
+          return project.imageAdjust[index] || null;
+        }
+
+        function applyImageAdjust(img, adjust) {
+          if (!img) return;
+          img.style.transform = "";
+          img.style.transformOrigin = "";
+          img.style.objectPosition = "";
+          if (!adjust) return;
+          if (adjust.objectPosition) img.style.objectPosition = adjust.objectPosition;
+          var parts = [];
+          if (adjust.scale) parts.push("scale(" + adjust.scale + ")");
+          if (adjust.translateX) parts.push("translateX(" + adjust.translateX + ")");
+          if (adjust.translateY) parts.push("translateY(" + adjust.translateY + ")");
+          if (parts.length) {
+            img.style.transform = parts.join(" ");
+            img.style.transformOrigin = adjust.transformOrigin || "center center";
+          }
+        }
 
         function buildHochbauGalleryItems() {
           return HOCHBAU_IDS.map(function (id, i) {
@@ -1980,7 +2108,7 @@
               " — " +
               (lang === "en" ? "Image " : "Bild ") +
               (lightboxIndex + 1);
-            lightboxImg.style.objectPosition = "";
+            applyImageAdjust(lightboxImg, getImageAdjust(project, lightboxIndex));
             if (lightboxCaption) lightboxCaption.hidden = true;
           } else {
             return;
@@ -2034,7 +2162,7 @@
           document.body.style.overflow = "";
           if (lightboxImg) {
             lightboxImg.removeAttribute("src");
-            lightboxImg.style.objectPosition = "";
+            applyImageAdjust(lightboxImg, null);
           }
           if (lightboxCaption) {
             lightboxCaption.textContent = "";
@@ -2353,7 +2481,7 @@
           });
         }
 
-        function buildSlider(images, title) {
+        function buildSlider(images, title, project) {
           var lang = getLang();
           trackEl.innerHTML = "";
           dotsEl.innerHTML = "";
@@ -2371,6 +2499,7 @@
               (lang === "en" ? "Image " : "Bild ") +
               (i + 1);
             img.decoding = "async";
+            applyImageAdjust(img, getImageAdjust(project, i));
             fig.appendChild(img);
             trackEl.appendChild(fig);
 
@@ -2401,7 +2530,7 @@
           openProjectId = id;
           titleEl.textContent = pick(project, "title");
           bodyEl.textContent = pick(project, "body");
-          buildSlider(project.images, pick(project, "title"));
+          buildSlider(project.images, pick(project, "title"), project);
           popup.hidden = false;
           popup.setAttribute("aria-hidden", "false");
           document.body.style.overflow = "hidden";
@@ -2430,7 +2559,7 @@
             var project = PROJECTS[openProjectId];
             titleEl.textContent = pick(project, "title");
             bodyEl.textContent = pick(project, "body");
-            buildSlider(project.images, pick(project, "title"));
+            buildSlider(project.images, pick(project, "title"), project);
           }
           if (lightboxEl && !lightboxEl.hidden) {
             renderLightbox();
