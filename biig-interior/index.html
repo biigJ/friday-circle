@@ -1524,12 +1524,19 @@
             <!-- Zeile 2 -->
             <div class="bi-image-row">
               <div class="bi-image-row__scroll">
-            <div class="bi-tile bi-tile--empty bi-tile--labeled">
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="homeoffice">
+              <span class="bi-tile__media">
+                <img src="../assets/interior/homeoffice-01.png" alt="" width="1597" height="2074" decoding="async" />
+              </span>
               <span class="bi-tile__label">
                 <span class="de-t">Dein Homeoffice</span>
                 <span class="en-t">Your home office</span>
               </span>
-            </div>
+              <span class="bi-tile__hover">
+                <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
+                <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
+              </span>
+            </button>
             <div class="bi-tile bi-tile--empty bi-tile--labeled">
               <span class="bi-tile__label">
                 <span class="de-t">Dein Loft</span>
@@ -1885,6 +1892,19 @@
               "../assets/interior/traudi-küche.png",
               "../assets/interior/Neubauhaus.png",
             ],
+          },
+          homeoffice: {
+            titleDe: "Dein Homeoffice",
+            titleEn: "Your home office",
+            bodyDe:
+              "Arbeitsplatz zu Hause — klar strukturiert, gut belichtet und auf den Alltag abgestimmt.",
+            bodyEn:
+              "Working from home — clearly structured, well lit, and aligned with everyday life.",
+            keywordDe: "Homeoffice",
+            keywordEn: "Home office",
+            concreteDe: "Arbeitsplatz",
+            concreteEn: "Workspace",
+            images: ["../assets/interior/homeoffice-01.png"],
           },
           dieffe33: {
             titleDe: "Sanierung - Mini-Apartement Berlin, 2025",
