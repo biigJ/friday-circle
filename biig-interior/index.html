@@ -1415,6 +1415,28 @@
         display: none !important;
       }
 
+      @media (max-width: 900px) {
+        .bi-lightbox {
+          --bi-lightbox-title-reserve: calc(3.75rem + env(safe-area-inset-bottom, 0px));
+          padding-bottom: var(--bi-lightbox-title-reserve);
+        }
+
+        .bi-lightbox__stage {
+          gap: 0;
+          justify-content: center;
+        }
+
+        .bi-lightbox__title {
+          position: fixed;
+          left: 0;
+          right: 0;
+          bottom: max(14px, env(safe-area-inset-bottom, 0px) + 10px);
+          z-index: 2;
+          max-width: none;
+          padding: 0 clamp(12px, 4vw, 24px);
+        }
+      }
+
       @media (max-width: 720px) {
         .bi-intake__options {
           grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -2604,6 +2626,14 @@
           lightboxTitle.textContent = lang === "en" ? item.tileLabelEn : item.tileLabelDe;
         }
 
+        function getLightboxTitleReserve() {
+          if (window.matchMedia("(max-width: 900px)").matches && lightboxEl) {
+            var reserve = parseFloat(getComputedStyle(lightboxEl).paddingBottom);
+            return Number.isFinite(reserve) && reserve > 0 ? reserve : 72;
+          }
+          return lightboxTitle ? lightboxTitle.offsetHeight + 28 : 72;
+        }
+
         function syncLightboxViewportSize(index) {
           if (!lightboxViewport || !lightboxTrack) return;
           var slide = lightboxTrack.children[index];
@@ -2614,7 +2644,7 @@
           function apply() {
             if (!img.naturalWidth || !img.naturalHeight) return;
             var maxW = Math.min(window.innerWidth * 0.9, 920);
-            var titleSpace = lightboxTitle ? lightboxTitle.offsetHeight + 28 : 72;
+            var titleSpace = getLightboxTitleReserve();
             var maxH = window.innerHeight * 0.9 - titleSpace;
             var ratio = img.naturalWidth / img.naturalHeight;
             var w = maxW;
