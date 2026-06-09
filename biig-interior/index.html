@@ -1499,12 +1499,19 @@
                 </a>
               </div>
             </div>
-            <div class="bi-tile bi-tile--empty bi-tile--labeled">
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="altbauwohnung">
+              <span class="bi-tile__media">
+                <img src="../assets/interior/altbau_mitfakekamin-01.png" alt="" width="1536" height="2576" decoding="async" />
+              </span>
               <span class="bi-tile__label">
                 <span class="de-t">Deine Altbauwohnung</span>
                 <span class="en-t">Your period apartment</span>
               </span>
-            </div>
+              <span class="bi-tile__hover">
+                <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
+                <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
+              </span>
+            </button>
             <button type="button" class="bi-tile bi-tile--project" data-bi-project="zweihaeuser">
               <span class="bi-tile__media">
                 <img src="../assets/interior/traudi-küche.png" alt="" width="2193" height="1606" decoding="async" />
@@ -1537,12 +1544,19 @@
                 <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
               </span>
             </button>
-            <div class="bi-tile bi-tile--empty bi-tile--labeled">
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="loft">
+              <span class="bi-tile__media">
+                <img src="../assets/interior/loft-01.png" alt="" width="1306" height="2430" decoding="async" />
+              </span>
               <span class="bi-tile__label">
                 <span class="de-t">Dein Loft</span>
                 <span class="en-t">Your loft</span>
               </span>
-            </div>
+              <span class="bi-tile__hover">
+                <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
+                <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
+              </span>
+            </button>
             <div class="bi-tile bi-tile--offer bi-tile--offer-compact">
               <h3 class="bi-tile__headline">
                 <span class="de-t">Hilfe beim Sortieren von Deinen Ideen und Hab &amp; Gut.</span>
@@ -1877,6 +1891,19 @@
     <script defer>
       (function initBiInterior() {
         var PROJECTS = {
+          altbauwohnung: {
+            titleDe: "Deine Altbauwohnung",
+            titleEn: "Your period apartment",
+            bodyDe:
+              "Altbauwohnung mit Charakter — hohe Räume, warme Materialien und ein Kamin als Mittelpunkt.",
+            bodyEn:
+              "Period apartment with character — tall rooms, warm materials, and a fireplace as the focal point.",
+            keywordDe: "Altbau",
+            keywordEn: "Period building",
+            concreteDe: "Wohnung mit Kamin",
+            concreteEn: "Apartment with fireplace",
+            images: ["../assets/interior/altbau_mitfakekamin-01.png"],
+          },
           zweihaeuser: {
             titleDe: "zwei Häuser",
             titleEn: "Two houses",
@@ -1905,6 +1932,19 @@
             concreteDe: "Arbeitsplatz",
             concreteEn: "Workspace",
             images: ["../assets/interior/homeoffice-01.png"],
+          },
+          loft: {
+            titleDe: "Dein Loft",
+            titleEn: "Your loft",
+            bodyDe:
+              "Loft-Wohnen — offene Räume, klare Struktur und viel Licht unter der Decke.",
+            bodyEn:
+              "Loft living — open spaces, clear structure, and plenty of light overhead.",
+            keywordDe: "Loft",
+            keywordEn: "Loft",
+            concreteDe: "Offener Wohnraum",
+            concreteEn: "Open living space",
+            images: ["../assets/interior/loft-01.png"],
           },
           dieffe33: {
             titleDe: "Sanierung - Mini-Apartement Berlin, 2025",
