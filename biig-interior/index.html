@@ -1321,11 +1321,12 @@
 
       .bi-lightbox__viewport {
         overflow: hidden;
-        width: min(90vw, 920px);
+        max-width: min(90vw, 920px);
         max-height: calc(90vh - 4.5rem);
         pointer-events: auto;
         touch-action: pan-y;
         cursor: grab;
+        transition: width 0.3s ease, height 0.3s ease;
       }
 
       .bi-lightbox__viewport.is-swipe-dragging {
@@ -1334,6 +1335,7 @@
 
       .bi-lightbox__track {
         display: flex;
+        height: 100%;
         transition: transform 0.45s ease;
         will-change: transform;
         backface-visibility: hidden;
@@ -1341,19 +1343,16 @@
 
       .bi-lightbox__slide {
         flex: 0 0 100%;
+        width: 100%;
+        height: 100%;
         min-width: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         overflow: hidden;
         line-height: 0;
       }
 
       .bi-lightbox__slide img {
-        max-width: 100%;
-        max-height: calc(90vh - 4.5rem);
-        width: auto;
-        height: auto;
+        width: 100%;
+        height: 100%;
         object-fit: contain;
         display: block;
       }
@@ -2045,7 +2044,6 @@
             images: [
               "../assets/interior/geisenheim_blumen.png",
               "../assets/interior/geisenheim.jpeg",
-              "../assets/interior/geisenheim.jpeg",
             ],
           },
           klinker: {
@@ -2606,6 +2604,36 @@
           lightboxTitle.textContent = lang === "en" ? item.tileLabelEn : item.tileLabelDe;
         }
 
+        function syncLightboxViewportSize(index) {
+          if (!lightboxViewport || !lightboxTrack) return;
+          var slide = lightboxTrack.children[index];
+          if (!slide) return;
+          var img = slide.querySelector("img");
+          if (!img) return;
+
+          function apply() {
+            if (!img.naturalWidth || !img.naturalHeight) return;
+            var maxW = Math.min(window.innerWidth * 0.9, 920);
+            var titleSpace = lightboxTitle ? lightboxTitle.offsetHeight + 28 : 72;
+            var maxH = window.innerHeight * 0.9 - titleSpace;
+            var ratio = img.naturalWidth / img.naturalHeight;
+            var w = maxW;
+            var h = w / ratio;
+            if (h > maxH) {
+              h = maxH;
+              w = h * ratio;
+            }
+            lightboxViewport.style.width = Math.round(w) + "px";
+            lightboxViewport.style.height = Math.round(h) + "px";
+          }
+
+          if (img.complete && img.naturalWidth) {
+            apply();
+          } else {
+            img.addEventListener("load", apply, { once: true });
+          }
+        }
+
         function setLightboxSlide(index, animate) {
           if (!lightboxGalleryItems || !lightboxGalleryItems.length) return;
           var count = lightboxGalleryItems.length;
@@ -2615,6 +2643,7 @@
             lightboxTrack.style.transform = "translateX(-" + lightboxIndex * 100 + "%)";
           }
           updateLightboxTitle();
+          syncLightboxViewportSize(lightboxIndex);
           if (lightboxPrev) lightboxPrev.hidden = count <= 1;
           if (lightboxNext) lightboxNext.hidden = count <= 1;
           if (lightboxSwipeApi && lightboxSwipeApi.sync) {
@@ -2702,6 +2731,10 @@
           if (lightboxTrack) lightboxTrack.innerHTML = "";
           lightboxTrackReady = false;
           if (lightboxTitle) lightboxTitle.textContent = "";
+          if (lightboxViewport) {
+            lightboxViewport.style.width = "";
+            lightboxViewport.style.height = "";
+          }
         }
 
         function lightboxStep(delta) {
