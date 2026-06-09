@@ -1091,7 +1091,21 @@
 
       @media (max-width: 900px) {
         .bi-grid {
-          --bi-col: calc((100cqw - var(--bi-gap)) / 2);
+          --bi-col: 100%;
+        }
+
+        .bi-image-row__scroll {
+          flex-direction: column;
+          overflow-x: visible;
+          scroll-snap-type: none;
+        }
+
+        .bi-image-row__scroll > .bi-tile,
+        .bi-image-row__scroll > .bi-tile--project,
+        .bi-image-row__scroll > .bi-tile--span-2 {
+          width: 100%;
+          flex: none;
+          scroll-snap-align: none;
         }
       }
 
@@ -1305,38 +1319,56 @@
         pointer-events: none;
       }
 
-      .bi-lightbox__frame {
+      .bi-lightbox__viewport {
         overflow: hidden;
-        max-width: 90vw;
-        max-height: calc(90vh - 3.5rem);
-        line-height: 0;
+        width: min(90vw, 920px);
+        max-height: calc(90vh - 4.5rem);
         pointer-events: auto;
+        touch-action: pan-y;
+        cursor: grab;
       }
 
-      .bi-lightbox__img {
-        max-width: 90vw;
-        max-height: calc(90vh - 3.5rem);
+      .bi-lightbox__viewport.is-swipe-dragging {
+        cursor: grabbing;
+      }
+
+      .bi-lightbox__track {
+        display: flex;
+        transition: transform 0.45s ease;
+        will-change: transform;
+        backface-visibility: hidden;
+      }
+
+      .bi-lightbox__slide {
+        flex: 0 0 100%;
+        min-width: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        line-height: 0;
+      }
+
+      .bi-lightbox__slide img {
+        max-width: 100%;
+        max-height: calc(90vh - 4.5rem);
         width: auto;
         height: auto;
         object-fit: contain;
         display: block;
       }
 
-      .bi-lightbox__caption {
+      .bi-lightbox__title {
         margin: 0;
         pointer-events: none;
         color: #ffffff;
         font-family: var(--font-sans);
-        font-size: clamp(0.82rem, 1.1vw, 0.95rem);
-        font-weight: 200;
+        font-size: clamp(0.95rem, 1.35vw, 1.1rem);
+        font-weight: 400;
         line-height: 1.4;
         letter-spacing: 0.02em;
         text-align: center;
         max-width: min(90vw, 42rem);
-      }
-
-      .bi-lightbox__caption[hidden] {
-        display: none !important;
       }
 
       .bi-lightbox__close,
@@ -1865,10 +1897,10 @@
       <button type="button" class="bi-lightbox__nav bi-lightbox__nav--prev" id="bi-lightbox-prev" hidden aria-label="Vorheriges Bild">‹</button>
       <button type="button" class="bi-lightbox__nav bi-lightbox__nav--next" id="bi-lightbox-next" hidden aria-label="Nächstes Bild">›</button>
       <div class="bi-lightbox__stage">
-        <div class="bi-lightbox__frame">
-          <img class="bi-lightbox__img" id="bi-lightbox-img" alt="" decoding="async" />
+        <div class="bi-lightbox__viewport" id="bi-lightbox-viewport">
+          <div class="bi-lightbox__track" id="bi-lightbox-track"></div>
         </div>
-        <p class="bi-lightbox__caption" id="bi-lightbox-caption" hidden></p>
+        <p class="bi-lightbox__title" id="bi-lightbox-title"></p>
       </div>
     </div>
 
@@ -1905,6 +1937,8 @@
             images: ["../assets/interior/altbau_mitfakekamin-01.png"],
           },
           zweihaeuser: {
+            tileLabelDe: "Dein Haus",
+            tileLabelEn: "Your house",
             titleDe: "zwei Häuser",
             titleEn: "Two houses",
             bodyDe:
@@ -1950,6 +1984,8 @@
             ],
           },
           dieffe33: {
+            tileLabelDe: "Dein Mini-Apartement",
+            tileLabelEn: "Your mini apartment",
             titleDe: "Sanierung - Mini-Apartement Berlin, 2025",
             titleEn: "Renovation — mini apartment Berlin, 2025",
             bodyDe:
@@ -1972,6 +2008,8 @@
             ],
           },
           moebel: {
+            tileLabelDe: "Esstisch",
+            tileLabelEn: "Dining table",
             titleDe: "Möbeldesign 2026",
             titleEn: "Furniture design 2026",
             bodyDe:
@@ -1992,6 +2030,8 @@
             ],
           },
           vinothek: {
+            tileLabelDe: "Dein Gastraum",
+            tileLabelEn: "Your dining room",
             titleDe: "Interiordesign Vinothek 2023",
             titleEn: "Interior design wine bar 2023",
             bodyDe:
@@ -2023,6 +2063,8 @@
             cropPosition: "68% 22%",
           },
           umbauten: {
+            tileLabelDe: "Deine Etage",
+            tileLabelEn: "Your floor",
             titleDe: "Umbauten in Hamburg 2015",
             titleEn: "Renovations in Hamburg 2015",
             bodyDe:
@@ -2338,6 +2380,23 @@
           },
         ];
 
+        var PORTFOLIO_LIGHTBOX_SEQUENCE = [
+          { type: "project", id: "dieffe33" },
+          { type: "project", id: "altbauwohnung" },
+          { type: "project", id: "zweihaeuser" },
+          { type: "project", id: "homeoffice" },
+          { type: "project", id: "loft" },
+          { type: "project", id: "umbauten" },
+          { type: "project", id: "vinothek" },
+          { type: "hochbau" },
+          { type: "project", id: "moebel" },
+        ];
+
+        var HOCHBAU_TILE_LABEL = {
+          tileLabelDe: "Bauprojekte",
+          tileLabelEn: "Building projects",
+        };
+
         var HOCHBAU_IDS = ["klinker", "rothestr", "graefe", "destijl", "schleswig", "neubauhausstrasse"];
         var HOCHBAU_THUMB_FOCUS = [
           "28% center",
@@ -2354,11 +2413,12 @@
         var offerBodyEl = document.getElementById("bi-offer-popup-body");
         var offerCloseBtn = document.getElementById("bi-offer-popup-close");
         var lightboxEl = document.getElementById("bi-lightbox");
-        var lightboxImg = document.getElementById("bi-lightbox-img");
+        var lightboxViewport = document.getElementById("bi-lightbox-viewport");
+        var lightboxTrack = document.getElementById("bi-lightbox-track");
+        var lightboxTitle = document.getElementById("bi-lightbox-title");
         var lightboxCloseBtn = document.getElementById("bi-lightbox-close");
         var lightboxPrev = document.getElementById("bi-lightbox-prev");
         var lightboxNext = document.getElementById("bi-lightbox-next");
-        var lightboxCaption = document.getElementById("bi-lightbox-caption");
         var buyPopup = document.getElementById("bi-buy-popup");
         var buyImg = document.getElementById("bi-buy-img");
         var buyInfo = document.getElementById("bi-buy-info");
@@ -2392,9 +2452,11 @@
         var openOfferId = null;
         var heroSwipeApi = null;
         var popupSwipeApi = null;
-        var lightboxProjectId = null;
+        var portfolioLightboxItems = null;
         var lightboxGalleryItems = null;
         var lightboxIndex = 0;
+        var lightboxSwipeApi = null;
+        var lightboxTrackReady = false;
         var openBuyId = null;
         var buyIndex = 0;
 
@@ -2435,41 +2497,159 @@
           });
         }
 
-        function lightboxCount() {
-          if (lightboxGalleryItems) return lightboxGalleryItems.length;
-          if (!lightboxProjectId || !PROJECTS[lightboxProjectId]) return 0;
-          return PROJECTS[lightboxProjectId].images.length;
+        function getProjectTileLabel(project, lang) {
+          if (!project) return "";
+          if (project.tileLabelDe) {
+            return lang === "en" ? project.tileLabelEn || project.tileLabelDe : project.tileLabelDe;
+          }
+          return pick(project, "title");
+        }
+
+        function buildPortfolioLightboxItems() {
+          var items = [];
+          PORTFOLIO_LIGHTBOX_SEQUENCE.forEach(function (entry) {
+            if (entry.type === "project") {
+              var project = PROJECTS[entry.id];
+              if (!project || !project.images || !project.images.length) return;
+              project.images.forEach(function (src, imageIndex) {
+                items.push({
+                  src: src,
+                  projectId: entry.id,
+                  imageIndex: imageIndex,
+                  tileLabelDe: getProjectTileLabel(project, "de"),
+                  tileLabelEn: getProjectTileLabel(project, "en"),
+                  altDe: project.titleDe + " — Bild " + (imageIndex + 1),
+                  altEn: project.titleEn + " — Image " + (imageIndex + 1),
+                  objectPosition: "",
+                });
+              });
+              return;
+            }
+            if (entry.type === "hochbau") {
+              HOCHBAU_IDS.forEach(function (id, hochbauIndex) {
+                var project = PROJECTS[id];
+                if (!project || !project.images || !project.images.length) return;
+                items.push({
+                  src: project.images[0],
+                  projectId: id,
+                  imageIndex: 0,
+                  hochbauIndex: hochbauIndex,
+                  tileLabelDe: HOCHBAU_TILE_LABEL.tileLabelDe,
+                  tileLabelEn: HOCHBAU_TILE_LABEL.tileLabelEn,
+                  altDe: project.titleDe,
+                  altEn: project.titleEn,
+                  objectPosition: project.cropPosition || "center center",
+                });
+              });
+            }
+          });
+          return items;
+        }
+
+        function ensurePortfolioLightboxItems() {
+          if (!portfolioLightboxItems) {
+            portfolioLightboxItems = buildPortfolioLightboxItems();
+          }
+          return portfolioLightboxItems;
+        }
+
+        function findPortfolioLightboxIndex(projectId, imageIndex) {
+          var items = ensurePortfolioLightboxItems();
+          for (var i = 0; i < items.length; i++) {
+            if (items[i].projectId === projectId && items[i].imageIndex === (imageIndex || 0)) {
+              return i;
+            }
+          }
+          for (var j = 0; j < items.length; j++) {
+            if (items[j].projectId === projectId) return j;
+          }
+          return 0;
+        }
+
+        function findHochbauPortfolioIndex(hochbauIndex) {
+          var items = ensurePortfolioLightboxItems();
+          for (var i = 0; i < items.length; i++) {
+            if (items[i].hochbauIndex === hochbauIndex) return i;
+          }
+          for (var j = 0; j < items.length; j++) {
+            if (items[j].hochbauIndex != null) return j;
+          }
+          return 0;
+        }
+
+        function buildLightboxTrack() {
+          if (!lightboxTrack) return;
+          var lang = getLang();
+          var items = ensurePortfolioLightboxItems();
+          lightboxTrack.innerHTML = "";
+          items.forEach(function (item, i) {
+            var slide = document.createElement("div");
+            slide.className = "bi-lightbox__slide";
+            var img = document.createElement("img");
+            img.src = item.src;
+            img.alt = lang === "en" ? item.altEn : item.altDe;
+            img.decoding = "async";
+            img.loading = i < 3 ? "eager" : "lazy";
+            if (item.objectPosition) img.style.objectPosition = item.objectPosition;
+            var project = item.projectId ? PROJECTS[item.projectId] : null;
+            applyImageAdjust(img, getImageAdjust(project, item.imageIndex));
+            slide.appendChild(img);
+            lightboxTrack.appendChild(slide);
+          });
+          lightboxTrackReady = true;
+        }
+
+        function updateLightboxTitle() {
+          if (!lightboxTitle || !lightboxGalleryItems || !lightboxGalleryItems[lightboxIndex]) return;
+          var lang = getLang();
+          var item = lightboxGalleryItems[lightboxIndex];
+          lightboxTitle.textContent = lang === "en" ? item.tileLabelEn : item.tileLabelDe;
+        }
+
+        function setLightboxSlide(index, animate) {
+          if (!lightboxGalleryItems || !lightboxGalleryItems.length) return;
+          var count = lightboxGalleryItems.length;
+          lightboxIndex = ((index % count) + count) % count;
+          if (lightboxTrack) {
+            lightboxTrack.style.transition = animate ? "transform 0.45s ease" : "none";
+            lightboxTrack.style.transform = "translateX(-" + lightboxIndex * 100 + "%)";
+          }
+          updateLightboxTitle();
+          if (lightboxPrev) lightboxPrev.hidden = count <= 1;
+          if (lightboxNext) lightboxNext.hidden = count <= 1;
+          if (lightboxSwipeApi && lightboxSwipeApi.sync) {
+            lightboxSwipeApi.sync(animate !== false);
+          }
         }
 
         function renderLightbox() {
-          if (!lightboxImg) return;
-          var lang = getLang();
-          var count = lightboxCount();
-          if (lightboxGalleryItems && lightboxGalleryItems[lightboxIndex]) {
-            var galleryItem = lightboxGalleryItems[lightboxIndex];
-            lightboxImg.src = galleryItem.src;
-            lightboxImg.alt = lang === "en" ? galleryItem.altEn : galleryItem.altDe;
-            lightboxImg.style.objectPosition = galleryItem.objectPosition || "";
-            if (lightboxCaption) {
-              lightboxCaption.textContent = lang === "en" ? galleryItem.captionEn : galleryItem.captionDe;
-              lightboxCaption.hidden = false;
-            }
-          } else if (lightboxProjectId && PROJECTS[lightboxProjectId]) {
-            var project = PROJECTS[lightboxProjectId];
-            if (!project.images[lightboxIndex]) return;
-            lightboxImg.src = project.images[lightboxIndex];
-            lightboxImg.alt =
-              pick(project, "title") +
-              " — " +
-              (lang === "en" ? "Image " : "Bild ") +
-              (lightboxIndex + 1);
-            applyImageAdjust(lightboxImg, getImageAdjust(project, lightboxIndex));
-            if (lightboxCaption) lightboxCaption.hidden = true;
-          } else {
-            return;
-          }
-          if (lightboxPrev) lightboxPrev.hidden = count <= 1;
-          if (lightboxNext) lightboxNext.hidden = count <= 1;
+          if (!lightboxTrackReady) buildLightboxTrack();
+          setLightboxSlide(lightboxIndex, false);
+        }
+
+        function initLightboxSwipe() {
+          if (lightboxSwipeApi && lightboxSwipeApi.destroy) lightboxSwipeApi.destroy();
+          lightboxSwipeApi = null;
+          if (!window.FcSwipeSlider || !lightboxViewport || !lightboxTrack) return;
+          if (!lightboxGalleryItems || lightboxGalleryItems.length <= 1) return;
+          lightboxSwipeApi = window.FcSwipeSlider.bind({
+            zone: lightboxViewport,
+            track: lightboxTrack,
+            mode: "percent",
+            loop: true,
+            getIndex: function () {
+              return lightboxIndex;
+            },
+            getCount: function () {
+              return lightboxGalleryItems.length;
+            },
+            onIndexChange: function (newIndex) {
+              setLightboxSlide(newIndex, true);
+            },
+            ignore: function (target) {
+              return !!target.closest(".bi-lightbox__close, .bi-lightbox__nav, button, a");
+            },
+          });
         }
 
         function showLightbox() {
@@ -2486,50 +2666,47 @@
         function openLightbox(projectId, index) {
           closePopup();
           closeOfferPopup();
+          closeBuyPopup();
           var project = PROJECTS[projectId];
           if (!lightboxEl || !project || !project.images.length) return;
-          lightboxGalleryItems = null;
-          lightboxProjectId = projectId;
-          lightboxIndex = Math.max(0, Math.min(index || 0, project.images.length - 1));
-          renderLightbox();
+          lightboxGalleryItems = ensurePortfolioLightboxItems();
+          lightboxIndex = findPortfolioLightboxIndex(projectId, index || 0);
+          if (!lightboxTrackReady) buildLightboxTrack();
+          setLightboxSlide(lightboxIndex, false);
           showLightbox();
+          initLightboxSwipe();
         }
 
         function openHochbauGallery(index) {
           closePopup();
           closeOfferPopup();
-          var items = buildHochbauGalleryItems();
-          if (!lightboxEl || !items.length) return;
-          lightboxProjectId = null;
-          lightboxGalleryItems = items;
-          lightboxIndex = Math.max(0, Math.min(index || 0, items.length - 1));
-          renderLightbox();
+          closeBuyPopup();
+          if (!lightboxEl) return;
+          lightboxGalleryItems = ensurePortfolioLightboxItems();
+          lightboxIndex = findHochbauPortfolioIndex(index || 0);
+          if (!lightboxTrackReady) buildLightboxTrack();
+          setLightboxSlide(lightboxIndex, false);
           showLightbox();
+          initLightboxSwipe();
         }
 
         function closeLightbox() {
           if (!lightboxEl) return;
-          lightboxProjectId = null;
+          if (lightboxSwipeApi && lightboxSwipeApi.destroy) lightboxSwipeApi.destroy();
+          lightboxSwipeApi = null;
           lightboxGalleryItems = null;
           lightboxEl.classList.remove("is-open");
           lightboxEl.hidden = true;
           lightboxEl.setAttribute("aria-hidden", "true");
           document.body.style.overflow = "";
-          if (lightboxImg) {
-            lightboxImg.removeAttribute("src");
-            applyImageAdjust(lightboxImg, null);
-          }
-          if (lightboxCaption) {
-            lightboxCaption.textContent = "";
-            lightboxCaption.hidden = true;
-          }
+          if (lightboxTrack) lightboxTrack.innerHTML = "";
+          lightboxTrackReady = false;
+          if (lightboxTitle) lightboxTitle.textContent = "";
         }
 
         function lightboxStep(delta) {
-          var count = lightboxCount();
-          if (count <= 1) return;
-          lightboxIndex = (lightboxIndex + delta + count) % count;
-          renderLightbox();
+          if (!lightboxGalleryItems || lightboxGalleryItems.length <= 1) return;
+          setLightboxSlide(lightboxIndex + delta, true);
         }
 
         function initHeroSwipe() {
@@ -2982,7 +3159,11 @@
             buildSlider(project.images, pick(project, "title"), project);
           }
           if (lightboxEl && !lightboxEl.hidden) {
-            renderLightbox();
+            lightboxGalleryItems = ensurePortfolioLightboxItems();
+            lightboxTrackReady = false;
+            buildLightboxTrack();
+            setLightboxSlide(lightboxIndex, false);
+            initLightboxSwipe();
           }
           if (buyPopup && !buyPopup.hidden) {
             renderBuyPopup();
