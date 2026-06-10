@@ -2659,26 +2659,26 @@
             imageLabelsDe: [
               "Frei Von Ecken - 4-Sitzer (85 x 130 cm)",
               "Frei Von Ecken - 4-Sitzer (85 x 130 cm)",
+              "Frei Von Ecken - 8-Sitzer (95 x 240 cm)",
+              "Frei Von Ecken - 8-Sitzer (95 x 240 cm)",
               "Frei Von Ecken - 4-Sitzer (85 x 130 cm)",
-              "Frei Von Ecken - 8-Sitzer (95 x 240 cm)",
-              "Frei Von Ecken - 8-Sitzer (95 x 240 cm)",
               "Frei Von Ecken - 4-Sitzer (85 x 130 cm)",
             ],
             imageLabelsEn: [
               "Frei Von Ecken — 4-seater (85 x 130 cm)",
               "Frei Von Ecken — 4-seater (85 x 130 cm)",
+              "Frei Von Ecken — 8-seater (95 x 240 cm)",
+              "Frei Von Ecken — 8-seater (95 x 240 cm)",
               "Frei Von Ecken — 4-seater (85 x 130 cm)",
-              "Frei Von Ecken — 8-seater (95 x 240 cm)",
-              "Frei Von Ecken — 8-seater (95 x 240 cm)",
               "Frei Von Ecken — 4-seater (85 x 130 cm)",
             ],
             images: [
-              "../assets/interior/dieffe33-esstischortho.png",
               "../assets/interior/tisch-aufgruenemkaro.png",
               "../assets/interior/tisch-130-strichzeichnung.png",
               "../assets/interior/tisch-250.png",
               "../assets/interior/table_bronce.png",
               "../assets/interior/tisch-heller.png",
+              "../assets/interior/dieffe33-esstischortho.png",
             ],
           },
           vinothek: {
@@ -3017,11 +3017,7 @@
         };
 
         function projectHasInfoSlide(projectId) {
-          return (
-            !!projectId &&
-            projectId !== "moebel" &&
-            HOCHBAU_IDS.indexOf(projectId) === -1
-          );
+          return !!projectId && HOCHBAU_IDS.indexOf(projectId) === -1;
         }
 
         function buildInfoBodyText(project, lang) {
