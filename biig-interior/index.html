@@ -1307,7 +1307,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        --bi-lightbox-title-reserve: calc(3.75rem + env(safe-area-inset-bottom, 0px));
         padding: clamp(12px, 2.6vw, 28px);
+        padding-bottom: var(--bi-lightbox-title-reserve);
         opacity: 0;
         transition: opacity 0.2s ease;
       }
@@ -1330,13 +1332,14 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: clamp(10px, 1.8vw, 18px);
+        gap: 0;
         width: 100%;
         height: 100%;
         pointer-events: none;
       }
 
       .bi-lightbox__viewport {
+        position: relative;
         overflow: hidden;
         max-width: min(90vw, 920px);
         max-height: calc(90vh - 4.5rem);
@@ -1373,7 +1376,33 @@
         display: block;
       }
 
+      .bi-lightbox__caption {
+        position: absolute;
+        z-index: 1;
+        left: 0;
+        right: 0;
+        bottom: clamp(10px, 1.6vw, 14px);
+        margin: 0;
+        padding: 0 clamp(10px, 2.5vw, 18px);
+        pointer-events: none;
+        color: #ffffff;
+        font-family: var(--font-sans);
+        font-size: clamp(0.68rem, 0.9vw, 0.8rem);
+        font-weight: 400;
+        line-height: 1.35;
+        letter-spacing: 0.02em;
+        text-align: center;
+        text-shadow:
+          0 1px 10px rgba(0, 0, 0, 0.9),
+          0 0 18px rgba(0, 0, 0, 0.55);
+      }
+
       .bi-lightbox__title {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: max(14px, env(safe-area-inset-bottom, 0px) + 10px);
+        z-index: 2;
         margin: 0;
         pointer-events: none;
         color: #ffffff;
@@ -1383,7 +1412,8 @@
         line-height: 1.4;
         letter-spacing: 0.02em;
         text-align: center;
-        max-width: min(90vw, 42rem);
+        max-width: none;
+        padding: 0 clamp(12px, 4vw, 24px);
       }
 
       .bi-lightbox__close,
@@ -1429,28 +1459,6 @@
 
       .bi-lightbox__nav[hidden] {
         display: none !important;
-      }
-
-      @media (max-width: 900px) {
-        .bi-lightbox {
-          --bi-lightbox-title-reserve: calc(3.75rem + env(safe-area-inset-bottom, 0px));
-          padding-bottom: var(--bi-lightbox-title-reserve);
-        }
-
-        .bi-lightbox__stage {
-          gap: 0;
-          justify-content: center;
-        }
-
-        .bi-lightbox__title {
-          position: fixed;
-          left: 0;
-          right: 0;
-          bottom: max(14px, env(safe-area-inset-bottom, 0px) + 10px);
-          z-index: 2;
-          max-width: none;
-          padding: 0 clamp(12px, 4vw, 24px);
-        }
       }
 
       @media (max-width: 720px) {
@@ -1646,12 +1654,19 @@
                 </button>
               </div>
             </div>
-            <div class="bi-tile bi-tile--empty bi-tile--labeled">
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="ordnung">
+              <span class="bi-tile__media">
+                <img src="../assets/interior/ordnung-01.png" alt="" width="1661" height="2382" decoding="async" />
+              </span>
               <span class="bi-tile__label">
                 <span class="de-t">Deine Ordnung</span>
                 <span class="en-t">Your organisation</span>
               </span>
-            </div>
+              <span class="bi-tile__hover">
+                <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
+                <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
+              </span>
+            </button>
               </div>
             </div>
 
@@ -1943,6 +1958,7 @@
       <div class="bi-lightbox__stage">
         <div class="bi-lightbox__viewport" id="bi-lightbox-viewport">
           <div class="bi-lightbox__track" id="bi-lightbox-track"></div>
+          <p class="bi-lightbox__caption" id="bi-lightbox-caption"></p>
         </div>
         <p class="bi-lightbox__title" id="bi-lightbox-title"></p>
       </div>
@@ -2027,9 +2043,24 @@
               "../assets/interior/loftbalkon.png",
             ],
           },
+          ordnung: {
+            tileLabelDe: "Deine Ordnung",
+            tileLabelEn: "Your organisation",
+            titleDe: "Berlin Brass Living.; Berlin 2026",
+            titleEn: "Berlin Brass Living; Berlin 2026",
+            bodyDe:
+              "Wohnkonzept in Berlin — Messing, klare Ordnung und ein ruhiger Rahmen für den Alltag.",
+            bodyEn:
+              "Living concept in Berlin — brass, clear order, and a calm frame for everyday life.",
+            keywordDe: "Brass Living",
+            keywordEn: "Brass Living",
+            concreteDe: "Berlin, 2026",
+            concreteEn: "Berlin, 2026",
+            images: ["../assets/interior/ordnung-01.png"],
+          },
           oase: {
-            tileLabelDe: "Eigentumswohnung Upgrade, Berlin-Neukölln 2022",
-            tileLabelEn: "Condominium upgrade, Berlin-Neukölln 2022",
+            tileLabelDe: "Deine Oase",
+            tileLabelEn: "Your oasis",
             titleDe: "Eigentumswohnung Upgrade, Berlin-Neukölln 2022",
             titleEn: "Condominium upgrade, Berlin-Neukölln 2022",
             bodyDe:
@@ -2447,6 +2478,7 @@
           { type: "project", id: "homeoffice" },
           { type: "project", id: "zweihaeuser" },
           { type: "project", id: "loft" },
+          { type: "project", id: "ordnung" },
           { type: "project", id: "oase" },
           { type: "project", id: "umbauten" },
           { type: "project", id: "vinothek" },
@@ -2478,6 +2510,7 @@
         var lightboxViewport = document.getElementById("bi-lightbox-viewport");
         var lightboxTrack = document.getElementById("bi-lightbox-track");
         var lightboxTitle = document.getElementById("bi-lightbox-title");
+        var lightboxCaption = document.getElementById("bi-lightbox-caption");
         var lightboxCloseBtn = document.getElementById("bi-lightbox-close");
         var lightboxPrev = document.getElementById("bi-lightbox-prev");
         var lightboxNext = document.getElementById("bi-lightbox-next");
@@ -2560,11 +2593,16 @@
           });
         }
 
-        function getProjectTileLabel(project, lang) {
+        function getProjectKachelLabel(project, lang) {
           if (!project) return "";
           if (project.tileLabelDe) {
             return lang === "en" ? project.tileLabelEn || project.tileLabelDe : project.tileLabelDe;
           }
+          return pick(project, "title");
+        }
+
+        function getProjectNameLabel(project, lang) {
+          if (!project) return "";
           return pick(project, "title");
         }
 
@@ -2579,8 +2617,10 @@
                   src: src,
                   projectId: entry.id,
                   imageIndex: imageIndex,
-                  tileLabelDe: getProjectTileLabel(project, "de"),
-                  tileLabelEn: getProjectTileLabel(project, "en"),
+                  kachelLabelDe: getProjectKachelLabel(project, "de"),
+                  kachelLabelEn: getProjectKachelLabel(project, "en"),
+                  projectLabelDe: getProjectNameLabel(project, "de"),
+                  projectLabelEn: getProjectNameLabel(project, "en"),
                   altDe: project.titleDe + " — Bild " + (imageIndex + 1),
                   altEn: project.titleEn + " — Image " + (imageIndex + 1),
                   objectPosition: "",
@@ -2597,8 +2637,10 @@
                   projectId: id,
                   imageIndex: 0,
                   hochbauIndex: hochbauIndex,
-                  tileLabelDe: HOCHBAU_TILE_LABEL.tileLabelDe,
-                  tileLabelEn: HOCHBAU_TILE_LABEL.tileLabelEn,
+                  kachelLabelDe: HOCHBAU_TILE_LABEL.tileLabelDe,
+                  kachelLabelEn: HOCHBAU_TILE_LABEL.tileLabelEn,
+                  projectLabelDe: getProjectNameLabel(project, "de"),
+                  projectLabelEn: getProjectNameLabel(project, "en"),
                   altDe: project.titleDe,
                   altEn: project.titleEn,
                   objectPosition: project.cropPosition || "center center",
@@ -2662,15 +2704,22 @@
           lightboxTrackReady = true;
         }
 
-        function updateLightboxTitle() {
-          if (!lightboxTitle || !lightboxGalleryItems || !lightboxGalleryItems[lightboxIndex]) return;
+        function updateLightboxLabels() {
+          if (!lightboxGalleryItems || !lightboxGalleryItems[lightboxIndex]) return;
           var lang = getLang();
           var item = lightboxGalleryItems[lightboxIndex];
-          lightboxTitle.textContent = lang === "en" ? item.tileLabelEn : item.tileLabelDe;
+          if (lightboxTitle) {
+            lightboxTitle.textContent =
+              lang === "en" ? item.kachelLabelEn : item.kachelLabelDe;
+          }
+          if (lightboxCaption) {
+            lightboxCaption.textContent =
+              lang === "en" ? item.projectLabelEn : item.projectLabelDe;
+          }
         }
 
         function getLightboxTitleReserve() {
-          if (window.matchMedia("(max-width: 900px)").matches && lightboxEl) {
+          if (lightboxEl) {
             var reserve = parseFloat(getComputedStyle(lightboxEl).paddingBottom);
             return Number.isFinite(reserve) && reserve > 0 ? reserve : 72;
           }
@@ -2775,7 +2824,7 @@
               prevIndex
             );
           }
-          updateLightboxTitle();
+          updateLightboxLabels();
           var shouldDeferViewport =
             options.deferViewportResize ||
             (animate !== false &&
@@ -2871,6 +2920,7 @@
           if (lightboxTrack) lightboxTrack.innerHTML = "";
           lightboxTrackReady = false;
           if (lightboxTitle) lightboxTitle.textContent = "";
+          if (lightboxCaption) lightboxCaption.textContent = "";
           if (lightboxViewport) {
             lightboxViewport.style.width = "";
             lightboxViewport.style.height = "";
