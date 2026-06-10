@@ -1984,60 +1984,86 @@
       (function initBiInterior() {
         var PROJECTS = {
           altbauwohnung: {
-            titleDe: "Deine Altbauwohnung",
-            titleEn: "Your period apartment",
+            tileLabelDe: "Deine Altbauwohnung",
+            tileLabelEn: "Your period apartment",
+            titleDe: "Gestaltung eines 40 qm Zimmers, Berlin 2025",
+            titleEn: "Design of a 40 sqm room, Berlin 2025",
             bodyDe:
               "Altbauwohnung mit Charakter — hohe Räume, warme Materialien und ein Kamin als Mittelpunkt.",
             bodyEn:
               "Period apartment with character — tall rooms, warm materials, and a fireplace as the focal point.",
             keywordDe: "Altbau",
             keywordEn: "Period building",
-            concreteDe: "Wohnung mit Kamin",
-            concreteEn: "Apartment with fireplace",
+            concreteDe: "40 qm Zimmer, Berlin 2025",
+            concreteEn: "40 sqm room, Berlin 2025",
+            imageLabelsDe: ["Gestaltung eines 40 qm Zimmers, Berlin 2025"],
+            imageLabelsEn: ["Design of a 40 sqm room, Berlin 2025"],
             images: ["../assets/interior/altbau_mitfakekamin-01.png"],
           },
           zweihaeuser: {
             tileLabelDe: "Dein Haus",
             tileLabelEn: "Your house",
-            titleDe: "zwei Häuser",
-            titleEn: "Two houses",
+            titleDe: "Sanierung Einfamilienhaus, Augsburg 2013",
+            titleEn: "Renovation single-family house, Augsburg 2013",
             bodyDe:
               "Umbauten in Hamburg und Augsburg — zwei Häuser, unterschiedliche Orte, gemeinsame Idee: Bestand lesen und neu nutzen.",
             bodyEn:
               "Renovations in Hamburg and Augsburg — two houses, different locations, one idea: read the existing fabric and use it anew.",
             keywordDe: "Umbauten",
             keywordEn: "Renovations",
-            concreteDe: "Hamburg und Augsburg, 2014",
-            concreteEn: "Hamburg and Augsburg, 2014",
+            concreteDe: "Augsburg & Hamburg",
+            concreteEn: "Augsburg & Hamburg",
+            imageLabelsDe: [
+              "Sanierung Einfamilienhaus, Augsburg 2013",
+              "Konzept Doppelhaushälfte, Hamburg 2012",
+            ],
+            imageLabelsEn: [
+              "Renovation single-family house, Augsburg 2013",
+              "Duplex half-house concept, Hamburg 2012",
+            ],
             images: [
               "../assets/interior/traudi-küche.png",
               "../assets/interior/Neubauhaus.png",
             ],
           },
           homeoffice: {
-            titleDe: "Dein Homeoffice",
-            titleEn: "Your home office",
+            tileLabelDe: "Dein Homeoffice",
+            tileLabelEn: "Your home office",
+            titleDe: "Konzept für ein Bürozimmer, Berlin 2023",
+            titleEn: "Concept for an office room, Berlin 2023",
             bodyDe:
               "Arbeitsplatz zu Hause — klar strukturiert, gut belichtet und auf den Alltag abgestimmt.",
             bodyEn:
               "Working from home — clearly structured, well lit, and aligned with everyday life.",
             keywordDe: "Homeoffice",
             keywordEn: "Home office",
-            concreteDe: "Arbeitsplatz",
-            concreteEn: "Workspace",
+            concreteDe: "Bürozimmer, Berlin 2023",
+            concreteEn: "Office room, Berlin 2023",
+            imageLabelsDe: ["Konzept für ein Bürozimmer, Berlin 2023"],
+            imageLabelsEn: ["Concept for an office room, Berlin 2023"],
             images: ["../assets/interior/homeoffice-01.png"],
           },
           loft: {
-            titleDe: "Dein Loft",
-            titleEn: "Your loft",
+            tileLabelDe: "Dein Loft",
+            tileLabelEn: "Your loft",
+            titleDe: "Strukturierung einer Wohnung, Berlin 2026",
+            titleEn: "Structuring an apartment, Berlin 2026",
             bodyDe:
               "Loft-Wohnen — offene Räume, klare Struktur und viel Licht unter der Decke.",
             bodyEn:
               "Loft living — open spaces, clear structure, and plenty of light overhead.",
             keywordDe: "Loft",
             keywordEn: "Loft",
-            concreteDe: "Offener Wohnraum",
-            concreteEn: "Open living space",
+            concreteDe: "Wohnung, Berlin 2026",
+            concreteEn: "Apartment, Berlin 2026",
+            imageLabelsDe: [
+              "Strukturierung einer Wohnung, Berlin 2026",
+              "Strukturierung einer Wohnung, Berlin 2026",
+            ],
+            imageLabelsEn: [
+              "Structuring an apartment, Berlin 2026",
+              "Structuring an apartment, Berlin 2026",
+            ],
             images: [
               "../assets/interior/loft-01.png",
               "../assets/interior/loftbalkon.png",
@@ -2046,8 +2072,8 @@
           ordnung: {
             tileLabelDe: "Deine Ordnung",
             tileLabelEn: "Your organisation",
-            titleDe: "Berlin Brass Living.; Berlin 2026",
-            titleEn: "Berlin Brass Living; Berlin 2026",
+            titleDe: "Brass Living, Berlin 2026",
+            titleEn: "Brass Living, Berlin 2026",
             bodyDe:
               "Wohnkonzept in Berlin — Messing, klare Ordnung und ein ruhiger Rahmen für den Alltag.",
             bodyEn:
@@ -2056,21 +2082,31 @@
             keywordEn: "Brass Living",
             concreteDe: "Berlin, 2026",
             concreteEn: "Berlin, 2026",
+            imageLabelsDe: ["Brass Living, Berlin 2026"],
+            imageLabelsEn: ["Brass Living, Berlin 2026"],
             images: ["../assets/interior/ordnung-01.png"],
           },
           oase: {
             tileLabelDe: "Deine Oase",
             tileLabelEn: "Your oasis",
-            titleDe: "Eigentumswohnung Upgrade, Berlin-Neukölln 2022",
-            titleEn: "Condominium upgrade, Berlin-Neukölln 2022",
+            titleDe: "Upgrade Eigentumswohnung, Berlin 2023",
+            titleEn: "Condominium upgrade, Berlin 2023",
             bodyDe:
               "Eigentumswohnung in Neukölln — behaglicher Rückzugsort mit klarer Materialität und mehr Ruhe im Alltag.",
             bodyEn:
               "Condominium in Neukölln — a comfortable retreat with clear materials and more calm in everyday life.",
             keywordDe: "Upgrade",
             keywordEn: "Upgrade",
-            concreteDe: "Berlin-Neukölln, 2022",
-            concreteEn: "Berlin-Neukölln, 2022",
+            concreteDe: "Berlin, 2023",
+            concreteEn: "Berlin, 2023",
+            imageLabelsDe: [
+              "Upgrade Eigentumswohnung, Berlin 2023",
+              "Upgrade Eigentumswohnung, Berlin 2023",
+            ],
+            imageLabelsEn: [
+              "Condominium upgrade, Berlin 2023",
+              "Condominium upgrade, Berlin 2023",
+            ],
             images: [
               "../assets/interior/oase-neopainting.png",
               "../assets/interior/oase-table.png",
@@ -2079,16 +2115,36 @@
           dieffe33: {
             tileLabelDe: "Dein Mini-Apartement",
             tileLabelEn: "Your mini apartment",
-            titleDe: "Sanierung - Mini-Apartement Berlin, 2025",
-            titleEn: "Renovation — mini apartment Berlin, 2025",
+            titleDe: "Eigentumswohnung in Kreuzberg, Berlin 2025",
+            titleEn: "Condominium in Kreuzberg, Berlin 2025",
             bodyDe:
               "Sanierung eines Mini-Apartements in Berlin — klarer Grundriss, warme Materialität und Alltagstauglichkeit auf wenig Quadratmetern.",
             bodyEn:
               "Renovation of a mini apartment in Berlin — clear layout, warm materials, and everyday livability in a compact footprint.",
             keywordDe: "Sanierung",
             keywordEn: "Renovation",
-            concreteDe: "Mini-Apartement Berlin, 2025",
-            concreteEn: "Mini apartment Berlin, 2025",
+            concreteDe: "Kreuzberg, Berlin 2025",
+            concreteEn: "Kreuzberg, Berlin 2025",
+            imageLabelsDe: [
+              "Eigentumswohnung in Kreuzberg, Berlin 2025",
+              "Eigentumswohnung in Kreuzberg, Berlin 2025",
+              "Eigentumswohnung in Kreuzberg, Berlin 2025",
+              "Eigentumswohnung in Kreuzberg, Berlin 2025",
+              "Eigentumswohnung in Kreuzberg, Berlin 2025",
+              "Eigentumswohnung in Kreuzberg, Berlin 2025",
+              "Eigentumswohnung in Kreuzberg, Berlin 2025",
+              "Eigentumswohnung in Kreuzberg, Berlin 2025",
+            ],
+            imageLabelsEn: [
+              "Condominium in Kreuzberg, Berlin 2025",
+              "Condominium in Kreuzberg, Berlin 2025",
+              "Condominium in Kreuzberg, Berlin 2025",
+              "Condominium in Kreuzberg, Berlin 2025",
+              "Condominium in Kreuzberg, Berlin 2025",
+              "Condominium in Kreuzberg, Berlin 2025",
+              "Condominium in Kreuzberg, Berlin 2025",
+              "Condominium in Kreuzberg, Berlin 2025",
+            ],
             images: [
               "../assets/interior/biigJ-Küche-01.png",
               "../assets/interior/Dieffe33-02.png",
@@ -2103,16 +2159,32 @@
           moebel: {
             tileLabelDe: "Esstisch",
             tileLabelEn: "Dining table",
-            titleDe: "Möbeldesign 2026",
-            titleEn: "Furniture design 2026",
+            titleDe: "Frei Von Ecken — 4-Sitzer (85 x 130 cm)",
+            titleEn: "Frei Von Ecken — 4-seater (85 x 130 cm)",
             bodyDe:
               "Entwurf und Planung für einen Arbeitstisch — Möbel als Raumgeber, abgestimmt auf den Alltag und den Lebensentwurf dahinter.",
             bodyEn:
               "Design and planning for a work desk — furniture as a spatial anchor, aligned with everyday life and the life design behind it.",
             keywordDe: "Möbeldesign",
             keywordEn: "Furniture design",
-            concreteDe: "Arbeitstisch & Entwürfe, 2026",
-            concreteEn: "Work desk & drafts, 2026",
+            concreteDe: "Frei Von Ecken, 2026",
+            concreteEn: "Frei Von Ecken, 2026",
+            imageLabelsDe: [
+              "Frei Von Ecken - 4-Sitzer (85 x 130 cm)",
+              "Frei Von Ecken - 4-Sitzer (85 x 130 cm)",
+              "Frei Von Ecken - 4-Sitzer (85 x 130 cm)",
+              "Frei Von Ecken - 8-Sitzer (95 x 240 cm)",
+              "Frei Von Ecken - 8-Sitzer (95 x 240 cm)",
+              "Frei Von Ecken - 4-Sitzer (85 x 130 cm)",
+            ],
+            imageLabelsEn: [
+              "Frei Von Ecken — 4-seater (85 x 130 cm)",
+              "Frei Von Ecken — 4-seater (85 x 130 cm)",
+              "Frei Von Ecken — 4-seater (85 x 130 cm)",
+              "Frei Von Ecken — 8-seater (95 x 240 cm)",
+              "Frei Von Ecken — 8-seater (95 x 240 cm)",
+              "Frei Von Ecken — 4-seater (85 x 130 cm)",
+            ],
             images: [
               "../assets/interior/dieffe33-esstischortho.png",
               "../assets/interior/tisch-aufgruenemkaro.png",
@@ -2125,24 +2197,32 @@
           vinothek: {
             tileLabelDe: "Dein Gastraum",
             tileLabelEn: "Your dining room",
-            titleDe: "Interiordesign Vinothek 2023",
-            titleEn: "Interior design wine bar 2023",
+            titleDe: "Umbau eines Weinguts, Geisenheim 2023",
+            titleEn: "Winery renovation, Geisenheim 2023",
             bodyDe:
               "Interiordesign für eine Vinothek in Geisenheim — Atmosphäre, Material und Licht für einen Ort zum Verweilen.",
             bodyEn:
               "Interior design for a wine bar in Geisenheim — atmosphere, materials, and light for a place to linger.",
             keywordDe: "Interiordesign",
             keywordEn: "Interior design",
-            concreteDe: "Vinothek Geisenheim, 2023",
-            concreteEn: "Wine bar Geisenheim, 2023",
+            concreteDe: "Geisenheim, 2023",
+            concreteEn: "Geisenheim, 2023",
+            imageLabelsDe: [
+              "Umbau eines Weinguts, Geisenheim 2023",
+              "Umbau eines Weinguts, Geisenheim 2023",
+            ],
+            imageLabelsEn: [
+              "Winery renovation, Geisenheim 2023",
+              "Winery renovation, Geisenheim 2023",
+            ],
             images: [
               "../assets/interior/geisenheim_blumen.png",
               "../assets/interior/geisenheim.jpeg",
             ],
           },
           klinker: {
-            titleDe: "Architektur in Hamburg 2016",
-            titleEn: "Architecture in Hamburg 2016",
+            titleDe: "Studie für eine Baulücke, Hamburg-Ottensen 2016",
+            titleEn: "Infill study, Hamburg-Ottensen 2016",
             bodyDe:
               "Klinkertreppe an einem Wohnhaus in Hamburg — Architektur im Bestand, präzise Details und dauerhafte Materialwahl.",
             bodyEn:
@@ -2157,16 +2237,28 @@
           umbauten: {
             tileLabelDe: "Deine Etage",
             tileLabelEn: "Your floor",
-            titleDe: "Umbauten in Hamburg 2015",
-            titleEn: "Renovations in Hamburg 2015",
+            titleDe: "Sanierung Geschäftshaus, Hamburg-Blankenese 2015",
+            titleEn: "Commercial building renovation, Hamburg-Blankenese 2015",
             bodyDe:
               "Umbau und Einrichtung eines Wohnraums in Hamburg — Raum neu denken, ohne das Gewohnte zu verlieren. Inklusive Treppenhaus und Wohnraum in Hamburg-Blankenese.",
             bodyEn:
               "Renovation and furnishing of a living space in Hamburg — rethinking the room without losing what feels familiar. Including stairwell and living space in Hamburg-Blankenese.",
             keywordDe: "Umbau",
             keywordEn: "Renovation",
-            concreteDe: "Hamburg & Blankenese, 2015",
-            concreteEn: "Hamburg & Blankenese, 2015",
+            concreteDe: "Hamburg-Blankenese, 2015",
+            concreteEn: "Hamburg-Blankenese, 2015",
+            imageLabelsDe: [
+              "Sanierung Geschäftshaus, Hamburg-Blankenese 2015",
+              "Sanierung Geschäftshaus, Hamburg-Blankenese 2015",
+              "Sanierung Geschäftshaus, Hamburg-Blankenese 2015",
+              "Sanierung Geschäftshaus, Hamburg-Blankenese 2015",
+            ],
+            imageLabelsEn: [
+              "Commercial building renovation, Hamburg-Blankenese 2015",
+              "Commercial building renovation, Hamburg-Blankenese 2015",
+              "Commercial building renovation, Hamburg-Blankenese 2015",
+              "Commercial building renovation, Hamburg-Blankenese 2015",
+            ],
             images: [
               "../assets/interior/rene-möbliert-01.png",
               "../assets/interior/treppe.png",
@@ -2175,8 +2267,8 @@
             ],
           },
           rothestr: {
-            titleDe: "Neubau 11 Wohnungen, Rothestraße, Hamburg-Ottensen 2015",
-            titleEn: "New build of 11 apartments, Rothestraße, Hamburg-Ottensen 2015",
+            titleDe: "Realisierung von 10 Wohnungen, Hamburg-Ottensen 2015",
+            titleEn: "Realisation of 10 apartments, Hamburg-Ottensen 2015",
             bodyDe:
               "Neubau von elf Wohnungen in Hamburg-Ottensen — kompakte Grundrisse, urbaner Kontext, solide Bauweise.",
             bodyEn: "New construction of eleven apartments in Hamburg-Ottensen — compact layouts, urban context, solid build.",
@@ -2188,8 +2280,8 @@
             cropPosition: "58% 24%",
           },
           graefe: {
-            titleDe: "Neubau 2 Wohnungen, Wrangelstraße, Hamburg-Stellingen 2016",
-            titleEn: "New build of 2 apartments, Wrangelstraße, Hamburg-Stellingen 2016",
+            titleDe: "Realisierung von 3 Wohnungen, Hamburg-Stellingen 2015",
+            titleEn: "Realisation of 3 apartments, Hamburg-Stellingen 2015",
             bodyDe: "Zwei Wohneinheiten in Hamburg-Stellingen — effiziente Flächen, Tageslicht und klare Fassadenlogik.",
             bodyEn: "Two residential units in Hamburg-Stellingen — efficient floor plans, daylight, and clear facade logic.",
             keywordDe: "Neubau",
@@ -2200,8 +2292,8 @@
             cropPosition: "60% 22%",
           },
           destijl: {
-            titleDe: "Sanierung Fassade & Modernisierung, Hamburg 2016",
-            titleEn: "Facade renovation & modernisation, Hamburg 2016",
+            titleDe: "Sanierungsentwurf, Hamburg 2016",
+            titleEn: "Renovation design, Hamburg 2016",
             bodyDe:
               "Sanierung einer Fassade und Modernisierung eines Wohnhauses in Hamburg — Bestand bewahren, Qualität sichtbar machen.",
             bodyEn:
@@ -2214,8 +2306,8 @@
             cropPosition: "48% 18%",
           },
           schleswig: {
-            titleDe: "Wettbewerb Schleswig an der Waterkant, 2016",
-            titleEn: "Competition Schleswig on the waterfront, 2016",
+            titleDe: "Wettbewerbsbeitrag, Schleswig 2016",
+            titleEn: "Competition entry, Schleswig 2016",
             bodyDe:
               "Wettbewerbsentwurf für Wohnbebauung und Ärztehaus in Schleswig — städtebaulicher Kontext an der Waterkant.",
             bodyEn:
@@ -2228,8 +2320,8 @@
             cropPosition: "52% 20%",
           },
           neubauhausstrasse: {
-            titleDe: "Studie Doppelhaus, Hamburg 2015",
-            titleEn: "Duplex house study, Hamburg 2015",
+            titleDe: "Entwurf Doppelhaus, Hamburg 2013",
+            titleEn: "Duplex house design, Hamburg 2013",
             bodyDe:
               "Studie für ein Doppelhaus in Hamburg — Straßenansicht mit klarer Kubatur und zurückhaltender Fassade im Bestandskontext.",
             bodyEn:
@@ -2606,6 +2698,13 @@
           return pick(project, "title");
         }
 
+        function getProjectImageLabel(project, imageIndex, lang) {
+          if (!project) return "";
+          var labels = lang === "en" ? project.imageLabelsEn : project.imageLabelsDe;
+          if (labels && labels[imageIndex]) return labels[imageIndex];
+          return getProjectNameLabel(project, lang);
+        }
+
         function buildPortfolioLightboxItems() {
           var items = [];
           PORTFOLIO_LIGHTBOX_SEQUENCE.forEach(function (entry) {
@@ -2619,10 +2718,10 @@
                   imageIndex: imageIndex,
                   kachelLabelDe: getProjectKachelLabel(project, "de"),
                   kachelLabelEn: getProjectKachelLabel(project, "en"),
-                  projectLabelDe: getProjectNameLabel(project, "de"),
-                  projectLabelEn: getProjectNameLabel(project, "en"),
-                  altDe: project.titleDe + " — Bild " + (imageIndex + 1),
-                  altEn: project.titleEn + " — Image " + (imageIndex + 1),
+                  projectLabelDe: getProjectImageLabel(project, imageIndex, "de"),
+                  projectLabelEn: getProjectImageLabel(project, imageIndex, "en"),
+                  altDe: getProjectImageLabel(project, imageIndex, "de"),
+                  altEn: getProjectImageLabel(project, imageIndex, "en"),
                   objectPosition: "",
                 });
               });
