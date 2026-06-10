@@ -2114,20 +2114,24 @@
               <button class="bk-opt" onclick="bkPickOpt('nutzer','familie',this)"><i class="ti ti-home-heart" aria-hidden="true"></i><div><span class="bk-ot">Familie mit Kindern</span></div></button>
               <button class="bk-opt" onclick="bkPickOpt('nutzer','wg',this)"><i class="ti ti-door" aria-hidden="true"></i><div><span class="bk-ot">WG</span></div></button>
             </div>
-            <div class="bk-q">Was braucht Ihr konkret?<small>Homeoffice & Fitness je +8%</small></div>
-            <div class="bk-tags">
-              <button class="bk-tag" data-k="funktionen" data-v="kinder_b" onclick="bkToggleTag(this)">Kinderbereiche</button>
-              <button class="bk-tag" data-k="funktionen" data-v="eltern" onclick="bkToggleTag(this)">Elternsuite</button>
-              <button class="bk-tag" data-k="funktionen" data-v="gaestezimmer" onclick="bkToggleTag(this)">Gästezimmer</button>
-              <button class="bk-tag" data-k="funktionen" data-v="homeoffice_f" onclick="bkToggleTag(this)">Homeoffice +8%</button>
-              <button class="bk-tag" data-k="funktionen" data-v="fitness" onclick="bkToggleTag(this)">Hobby / Fitness +8%</button>
-              <button class="bk-tag" data-k="funktionen" data-v="hauswirtschaft" onclick="bkToggleTag(this)">Hauswirtschaft</button>
+            <div id="bk-s5-funktionen">
+              <div class="bk-q">Was brauchst Du konkret?<small>Homeoffice & Fitness je +8%</small></div>
+              <div class="bk-tags">
+                <button class="bk-tag" data-k="funktionen" data-v="eltern" onclick="bkToggleTag(this)">Mastersuite</button>
+                <button class="bk-tag" data-k="funktionen" data-v="gaestezimmer" onclick="bkToggleTag(this)">Gästezimmer</button>
+                <button class="bk-tag" data-k="funktionen" data-v="kinder_b" onclick="bkToggleTag(this)">Kinderbereiche</button>
+                <button class="bk-tag" data-k="funktionen" data-v="homeoffice_f" onclick="bkToggleTag(this)">Homeoffice +8%</button>
+                <button class="bk-tag" data-k="funktionen" data-v="fitness" onclick="bkToggleTag(this)">Hobby / Fitness +8%</button>
+                <button class="bk-tag" data-k="funktionen" data-v="hauswirtschaft" onclick="bkToggleTag(this)">Hauswirtschaft</button>
+              </div>
             </div>
-            <div class="bk-q">Wie wird gekocht?<small>Häufig & aufwendig = +10%</small></div>
-            <div class="bk-opts">
-              <button class="bk-opt" onclick="bkPickOpt('kochen','aufwendig',this)"><i class="ti ti-chef-hat" aria-hidden="true"></i><div><span class="bk-ot">Häufig & aufwendig</span><span class="bk-os">+10%</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('kochen','schnell',this)"><i class="ti ti-bolt" aria-hidden="true"></i><div><span class="bk-ot">Schnell & pragmatisch</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('kochen','selten',this)"><i class="ti ti-flame-off" aria-hidden="true"></i><div><span class="bk-ot">Selten</span></div></button>
+            <div id="bk-s5-kochen">
+              <div class="bk-q">Wie wird gekocht?<small>Häufig & aufwendig = +10%</small></div>
+              <div class="bk-opts">
+                <button class="bk-opt" onclick="bkPickOpt('kochen','aufwendig',this)"><i class="ti ti-chef-hat" aria-hidden="true"></i><div><span class="bk-ot">Häufig & aufwendig</span><span class="bk-os">+10%</span></div></button>
+                <button class="bk-opt" onclick="bkPickOpt('kochen','schnell',this)"><i class="ti ti-bolt" aria-hidden="true"></i><div><span class="bk-ot">Schnell & pragmatisch</span></div></button>
+                <button class="bk-opt" onclick="bkPickOpt('kochen','selten',this)"><i class="ti ti-flame-off" aria-hidden="true"></i><div><span class="bk-ot">Selten</span></div></button>
+              </div>
             </div>
             <div class="bk-q">Smart Home?</div>
             <div class="bk-opts">

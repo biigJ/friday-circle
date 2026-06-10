@@ -824,6 +824,33 @@ textarea.bk-inf {
     width: 100%;
     justify-content: space-between;
   }
+
+  .bk-nav:has(.bk-progress) {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    align-items: center;
+    gap: 10px 8px;
+  }
+
+  .bk-nav:has(.bk-progress) .bk-progress {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .bk-nav:has(.bk-progress) .bk-nav__left {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+  }
+
+  .bk-nav:has(.bk-progress) > .bk-btn.primary {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: end;
+  }
 }
 
 @media (max-width: 480px) {

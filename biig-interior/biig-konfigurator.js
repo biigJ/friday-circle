@@ -125,7 +125,7 @@ function bkHonOutAbove(qm, qmOut, threshold, rate) {
 
 const BK_ORD_LABELS = {ideen:'Ideen strukturieren', moeblierung:'Möbel sortieren', stauraum_sys:'Stauraum-System', chaos:'Chaos-Zonen'};
 const BK_ZIELE_LABELS = {stauraum:'Mehr Stauraum', ruhe:'Ruhe & Rückzug', gaeste:'Gäste', homeoffice:'Homeoffice', kinder:'Kinder', aesthetik:'Ästhetik', fluss:'Raumfluss', licht:'Licht', kueche:'Küche', bad:'Bad'};
-const BK_FUNK_LABELS = {kinder_b:'Kinderbereiche', eltern:'Elternsuite', gaestezimmer:'Gästezimmer', homeoffice_f:'Homeoffice', fitness:'Fitness', hauswirtschaft:'Hauswirtschaft'};
+const BK_FUNK_LABELS = {kinder_b:'Kinderbereiche', eltern:'Mastersuite', gaestezimmer:'Gästezimmer', homeoffice_f:'Homeoffice', fitness:'Fitness', hauswirtschaft:'Hauswirtschaft'};
 const BK_MAT_LABELS = {holz_hell:'Holz (hell)', holz_dunkel:'Holz (dunkel)', naturstein:'Naturstein', marmor:'Marmor', metall:'Metall', beton:'Beton', textil:'Textilien', farbe:'Farbige Wände'};
 const BK_KOORD_LABELS = {kueche_koord:'Küchenplanung', moebel:'Möbelplanung', kunst:'Kunst & Objekte', licht_koord:'Lichtplanung', textil_koord:'Textil & Vorhänge', bauleitung_koord:'Bauleitung'};
 const BK_SIZE_BG = {
@@ -166,6 +166,7 @@ window.bkGoTo = function(n) {
   if (el) el.classList.add('active');
   if (n === 1) bkRenderStep1Tracks();
   if (n === 4) bkRenderS4();
+  if (n === 5) bkUpdateStep5();
   if (n === 7) { bkSyncSlOpts('ql', bkSt.ql); bkSyncSlOpts('cr', bkSt.cr); }
   if (n === 9) bkRenderFinalSummary();
   if (bkSt.size) bkSetHeaderBg(bkSt.size);
@@ -198,6 +199,7 @@ window.bkPickSize = function(s, qm) {
   const qor = document.getElementById('bk-qm-out-row');
   if (qor) qor.style.display = hasOut ? 'block' : 'none';
   bkSetHeaderBg(s);
+  bkUpdateStep5();
   bkUpdateCart();
 };
 
@@ -298,8 +300,36 @@ function bkStep4Valid() {
   return true;
 }
 
+function bkStep5ShowsKochen() {
+  return bkSt.size !== 'kl_zimmer';
+}
+
+function bkStep5ShowsFunktionen() {
+  return !['kl_zimmer', 'gr_zimmer'].includes(bkSt.size);
+}
+
+function bkUpdateStep5() {
+  const funkEl = document.getElementById('bk-s5-funktionen');
+  const kochenEl = document.getElementById('bk-s5-kochen');
+  const showFunk = bkStep5ShowsFunktionen();
+  const showKochen = bkStep5ShowsKochen();
+  if (funkEl) funkEl.hidden = !showFunk;
+  if (kochenEl) kochenEl.hidden = !showKochen;
+  if (!showFunk) bkSt.funktionen = [];
+  if (!showKochen) {
+    bkSt.kochen = '';
+    if (kochenEl) kochenEl.querySelectorAll('.bk-opt').forEach(b => b.classList.remove('sel'));
+  }
+  if (!showFunk) {
+    const tags = funkEl && funkEl.querySelectorAll('.bk-tag');
+    if (tags) tags.forEach(b => b.classList.remove('sel'));
+  }
+  bkUpdateNavButtons();
+}
+
 function bkStep5Valid() {
-  return !!bkSt.kochen && !!bkSt.smarthome;
+  if (bkStep5ShowsKochen() && !bkSt.kochen) return false;
+  return !!bkSt.smarthome;
 }
 
 function bkStep7Valid() {
@@ -698,6 +728,7 @@ function bkInitKonfigurator() {
   bkRenderStep1Tracks();
   bkSyncSlOpts('ql', bkSt.ql);
   bkSyncSlOpts('cr', bkSt.cr);
+  bkUpdateStep5();
   bkUpdateNavButtons();
 }
 
