@@ -5248,7 +5248,7 @@
           "medium": "Keramik",
           "dimensions": "—",
           "body": "",
-          "berlinStatus": "unavailable",
+          "berlinStatus": "available",
           "images": [
             "assets/wolfgang-grope/11 Keramik/WG-Keramik-10.jpg",
             "assets/wolfgang-grope/11 Keramik/WG-Keramik-11.jpg"
@@ -5681,7 +5681,7 @@
           "medium": "Keramik",
           "dimensions": "—",
           "body": "",
-          "berlinStatus": "available",
+          "berlinStatus": "unavailable",
           "images": [
             "assets/wolfgang-grope/11 Keramik/WG-Keramik-46.jpg"
           ]
@@ -5708,7 +5708,7 @@
           "medium": "Keramik",
           "dimensions": "—",
           "body": "",
-          "berlinStatus": "unavailable",
+          "berlinStatus": "available",
           "images": [
             "assets/wolfgang-grope/11 Keramik/WG-Keramik-48.jpg",
             "assets/wolfgang-grope/11 Keramik/WG-Keramik-55.jpg"

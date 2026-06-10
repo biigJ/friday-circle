@@ -18,8 +18,6 @@ WG-Ölmalerei-2000-06.jpg
 WG-Keramik-04.jpg
 WG-Keramik-05.jpg
 WG-Keramik-09.jpg
-WG-Keramik-10.jpg
-WG-Keramik-11.jpg
 WG-Keramik-19.jpg
 WG-Keramik-29.jpg
 WG-Keramik-32.jpg
@@ -27,11 +25,10 @@ WG-Keramik-33.jpg
 WG-Keramik-35.jpg
 WG-Keramik-41.jpg
 WG-Keramik-45.jpg
+WG-Keramik-46.jpg
 WG-Keramik-47.jpg
-WG-Keramik-48.jpg
 WG-Keramik-52.jpg
 WG-Keramik-53.jpg
-WG-Keramik-55.jpg
 WG-Keramik-58.jpg
 WG-Keramik-65.jpg
 WG-Keramik-34.jpg

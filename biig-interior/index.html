@@ -724,7 +724,7 @@
 
       .bi-hochbau-collage {
         display: grid;
-        grid-template-columns: repeat(6, minmax(0, 1fr));
+        grid-template-columns: repeat(7, minmax(0, 1fr));
         width: 100%;
         height: 100%;
         gap: 2px;
@@ -2541,8 +2541,22 @@
             keywordEn: "Competition",
             concreteDe: "Schleswig Waterkant, 2016",
             concreteEn: "Schleswig waterfront, 2016",
-            images: ["../assets/hochbau/schleswig.png", "../assets/hochbau/wedel-strasse.png"],
+            images: ["../assets/hochbau/schleswig.png"],
             cropPosition: "52% 20%",
+          },
+          wedel: {
+            titleDe: "Entwurf eines Wohnhauses, Wedel 2016",
+            titleEn: "Residential building design, Wedel 2016",
+            bodyDe:
+              "Entwurf eines Wohnhauses in Wedel — kompakte Wohnbebauung mit klarer Kubatur im städtischen Kontext.",
+            bodyEn:
+              "Design for a residential building in Wedel — compact housing with clear volume in an urban context.",
+            keywordDe: "Entwurf",
+            keywordEn: "Design",
+            concreteDe: "Wedel, 2016",
+            concreteEn: "Wedel, 2016",
+            images: ["../assets/hochbau/wedel-strasse.png"],
+            cropPosition: "center center",
           },
           neubauhausstrasse: {
             titleDe: "Entwurf Doppelhaus, Hamburg 2013",
@@ -2808,7 +2822,7 @@
           tileLabelEn: "Building projects",
         };
 
-        var HOCHBAU_IDS = ["klinker", "rothestr", "graefe", "destijl", "schleswig", "neubauhausstrasse"];
+        var HOCHBAU_IDS = ["klinker", "rothestr", "graefe", "destijl", "schleswig", "wedel", "neubauhausstrasse"];
 
         var INFO_LEISTUNG = {
           de: "Auf einem Bestandsgrundriss aufbauend erstelle ich Dir einen Plan nach Deinen Wünschen, Vorstellungen und Ressourcen. Für die Umsetzung begleite ich Materialwahl, Details und die Abstimmung mit Handwerk — Schritt für Schritt bis zur belastbaren Vorlage.",
@@ -2916,6 +2930,7 @@
           "88% center",
           "72% center",
           "78% center",
+          "center center",
           "center center",
         ];
 
