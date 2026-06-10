@@ -1376,6 +1376,143 @@
         display: block;
       }
 
+      .bi-lightbox__slide--info {
+        line-height: normal;
+        display: flex;
+        align-items: stretch;
+        justify-content: stretch;
+        padding: 0;
+        box-sizing: border-box;
+        background: #ffffff;
+      }
+
+      .bi-lightbox__slide--info .bi-lightbox__info {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        background: #ffffff;
+        color: var(--text);
+        box-sizing: border-box;
+      }
+
+      .bi-lightbox__info-head {
+        flex: 0 0 auto;
+        background: #000000;
+        color: #ffffff;
+        padding: clamp(12px, 2vw, 18px) clamp(14px, 2.4vw, 24px);
+        text-align: center;
+      }
+
+      .bi-lightbox__info-head-line1,
+      .bi-lightbox__info-head-line2 {
+        margin: 0;
+        font-family: var(--font-sans);
+        font-weight: 200;
+        line-height: 1.38;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .bi-lightbox__info-head-line1 {
+        font-size: clamp(0.82rem, 1.35vw, 1.05rem);
+      }
+
+      .bi-lightbox__info-head-line2 {
+        margin-top: clamp(4px, 0.65vw, 8px);
+        font-size: clamp(0.72rem, 1.1vw, 0.9rem);
+        letter-spacing: 0.08em;
+        opacity: 0.92;
+      }
+
+      .bi-lightbox__info-main {
+        flex: 1 1 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 0;
+        background: #ffffff;
+        padding: clamp(16px, 2.5vw, 28px) clamp(18px, 3vw, 32px);
+        overflow-y: auto;
+      }
+
+      .bi-lightbox__slide--info .bi-lightbox__info-body {
+        margin: 0;
+        text-align: center;
+        font-family: var(--font-sans);
+        font-size: clamp(0.86rem, 1.12vw, 0.96rem);
+        font-weight: 300;
+        line-height: 1.58;
+        letter-spacing: 0.02em;
+        color: var(--text);
+      }
+
+      .bi-lightbox__info-foot {
+        flex: 0 0 auto;
+        margin: 0;
+        background: #000000;
+        color: #ffffff;
+        padding: clamp(10px, 1.4vw, 14px) clamp(12px, 2vw, 18px);
+        font-family: var(--font-sans);
+        font-size: clamp(0.58rem, 0.72vw, 0.66rem);
+        font-weight: 300;
+        line-height: 1.45;
+        letter-spacing: 0.02em;
+        text-align: center;
+      }
+
+      .bi-slider__info {
+        width: 100%;
+        max-height: 100%;
+        overflow-y: auto;
+        background: #f4f2ec;
+        color: var(--text);
+        border-radius: 6px;
+        padding: clamp(18px, 3.2vw, 30px);
+        box-sizing: border-box;
+      }
+
+      .bi-slider__info-title {
+        margin: 0 0 clamp(12px, 2vw, 18px);
+        font-family: var(--font-sans);
+        font-size: clamp(1.02rem, 1.55vw, 1.26rem);
+        font-weight: 500;
+        line-height: 1.32;
+        letter-spacing: 0.01em;
+      }
+
+      .bi-slider__info-body {
+        margin: 0 0 clamp(14px, 2.2vw, 22px);
+        font-family: var(--font-sans);
+        font-size: clamp(0.86rem, 1.12vw, 0.96rem);
+        font-weight: 300;
+        line-height: 1.58;
+        letter-spacing: 0.02em;
+      }
+
+      .bi-slider__info-foot {
+        margin: 0;
+        font-family: var(--font-sans);
+        font-size: clamp(0.66rem, 0.86vw, 0.74rem);
+        font-weight: 300;
+        line-height: 1.45;
+        letter-spacing: 0.015em;
+        color: color-mix(in srgb, var(--text) 66%, #ffffff);
+      }
+
+      .bi-lightbox__viewport.is-info-slide .bi-lightbox__caption {
+        display: none;
+      }
+
+      .bi-slider__slide.bi-slider__slide--info {
+        display: flex;
+        align-items: stretch;
+        padding: clamp(10px, 2vw, 16px);
+        box-sizing: border-box;
+        background: #f4f2ec;
+      }
+
       .bi-lightbox__caption {
         position: absolute;
         z-index: 1;
@@ -1992,6 +2129,10 @@
               "Altbauwohnung mit Charakter — hohe Räume, warme Materialien und ein Kamin als Mittelpunkt.",
             bodyEn:
               "Period apartment with character — tall rooms, warm materials, and a fireplace as the focal point.",
+            infoDetailDe:
+              "Hier wurde ein 40-Quadratmeter-Zimmer in einer Altbauwohnung in Berlin gestaltet.",
+            infoDetailEn:
+              "Here, a 40 square metre room in a period apartment in Berlin was designed.",
             keywordDe: "Altbau",
             keywordEn: "Period building",
             concreteDe: "40 qm Zimmer, Berlin 2025",
@@ -2009,6 +2150,10 @@
               "Umbauten in Hamburg und Augsburg — zwei Häuser, unterschiedliche Orte, gemeinsame Idee: Bestand lesen und neu nutzen.",
             bodyEn:
               "Renovations in Hamburg and Augsburg — two houses, different locations, one idea: read the existing fabric and use it anew.",
+            infoDetailDe:
+              "Hier wurden ein Einfamilienhaus in Augsburg saniert und eine Doppelhaushälfte in Hamburg konzipiert.",
+            infoDetailEn:
+              "Here, a single-family house in Augsburg was renovated and a semi-detached house in Hamburg was conceived.",
             keywordDe: "Umbauten",
             keywordEn: "Renovations",
             concreteDe: "Augsburg & Hamburg",
@@ -2035,6 +2180,8 @@
               "Arbeitsplatz zu Hause — klar strukturiert, gut belichtet und auf den Alltag abgestimmt.",
             bodyEn:
               "Working from home — clearly structured, well lit, and aligned with everyday life.",
+            infoDetailDe: "Hier wurde ein Konzept für ein Bürozimmer in Berlin entwickelt.",
+            infoDetailEn: "Here, a concept for a home office room in Berlin was developed.",
             keywordDe: "Homeoffice",
             keywordEn: "Home office",
             concreteDe: "Bürozimmer, Berlin 2023",
@@ -2052,6 +2199,8 @@
               "Loft-Wohnen — offene Räume, klare Struktur und viel Licht unter der Decke.",
             bodyEn:
               "Loft living — open spaces, clear structure, and plenty of light overhead.",
+            infoDetailDe: "Hier wurde eine Wohnung in Berlin strukturell und räumlich neu geordnet.",
+            infoDetailEn: "Here, an apartment in Berlin was structurally and spatially reorganised.",
             keywordDe: "Loft",
             keywordEn: "Loft",
             concreteDe: "Wohnung, Berlin 2026",
@@ -2078,6 +2227,10 @@
               "Wohnkonzept in Berlin — Messing, klare Ordnung und ein ruhiger Rahmen für den Alltag.",
             bodyEn:
               "Living concept in Berlin — brass, clear order, and a calm frame for everyday life.",
+            infoDetailDe:
+              "Hier wurde ein Wohnkonzept mit Messing, klarer Ordnung und ruhigem Alltagsrahmen entwickelt.",
+            infoDetailEn:
+              "Here, a living concept with brass, clear order, and a calm everyday framework was developed.",
             keywordDe: "Brass Living",
             keywordEn: "Brass Living",
             concreteDe: "Berlin, 2026",
@@ -2095,6 +2248,8 @@
               "Eigentumswohnung in Neukölln — behaglicher Rückzugsort mit klarer Materialität und mehr Ruhe im Alltag.",
             bodyEn:
               "Condominium in Neukölln — a comfortable retreat with clear materials and more calm in everyday life.",
+            infoDetailDe: "Hier wurde eine Eigentumswohnung in Berlin aufgewertet und behaglicher gemacht.",
+            infoDetailEn: "Here, a condominium in Berlin was upgraded and made more comfortable.",
             keywordDe: "Upgrade",
             keywordEn: "Upgrade",
             concreteDe: "Berlin, 2023",
@@ -2121,6 +2276,10 @@
               "Sanierung eines Mini-Apartements in Berlin — klarer Grundriss, warme Materialität und Alltagstauglichkeit auf wenig Quadratmetern.",
             bodyEn:
               "Renovation of a mini apartment in Berlin — clear layout, warm materials, and everyday livability in a compact footprint.",
+            infoDetailDe:
+              "Hier wurde eine Eigentumswohnung in Kreuzberg saniert und als Mini-Apartement neu aufgestellt.",
+            infoDetailEn:
+              "Here, a condominium in Kreuzberg was renovated and reimagined as a mini apartment.",
             keywordDe: "Sanierung",
             keywordEn: "Renovation",
             concreteDe: "Kreuzberg, Berlin 2025",
@@ -2203,6 +2362,10 @@
               "Interiordesign für eine Vinothek in Geisenheim — Atmosphäre, Material und Licht für einen Ort zum Verweilen.",
             bodyEn:
               "Interior design for a wine bar in Geisenheim — atmosphere, materials, and light for a place to linger.",
+            infoDetailDe:
+              "Hier wurde ein Weingut in Geisenheim zu einem Ort mit Atmosphäre, Material und Licht umgebaut.",
+            infoDetailEn:
+              "Here, a winery in Geisenheim was transformed into a place of atmosphere, material, and light.",
             keywordDe: "Interiordesign",
             keywordEn: "Interior design",
             concreteDe: "Geisenheim, 2023",
@@ -2211,8 +2374,10 @@
               "Umbau eines Weinguts, Geisenheim 2023",
               "Umbau eines Weinguts, Geisenheim 2023",
               "Umbau eines Weinguts, Geisenheim 2023",
+              "Umbau eines Weinguts, Geisenheim 2023",
             ],
             imageLabelsEn: [
+              "Winery renovation, Geisenheim 2023",
               "Winery renovation, Geisenheim 2023",
               "Winery renovation, Geisenheim 2023",
               "Winery renovation, Geisenheim 2023",
@@ -2221,6 +2386,7 @@
               "../assets/interior/geisenheim_blumen.png",
               "../assets/interior/geisenheim.jpeg",
               "../assets/interior/geisenheim-gedecktertisch.png",
+              "../assets/interior/geisenheim-sundowner.png",
             ],
           },
           klinker: {
@@ -2246,6 +2412,10 @@
               "Umbau und Einrichtung eines Wohnraums in Hamburg — Raum neu denken, ohne das Gewohnte zu verlieren. Inklusive Treppenhaus und Wohnraum in Hamburg-Blankenese.",
             bodyEn:
               "Renovation and furnishing of a living space in Hamburg — rethinking the room without losing what feels familiar. Including stairwell and living space in Hamburg-Blankenese.",
+            infoDetailDe:
+              "Hier wurde ein Geschäftshaus in Hamburg-Blankenese saniert und neu eingerichtet.",
+            infoDetailEn:
+              "Here, a commercial building in Hamburg-Blankenese was renovated and newly furnished.",
             keywordDe: "Umbau",
             keywordEn: "Renovation",
             concreteDe: "Hamburg-Blankenese, 2015",
@@ -2587,6 +2757,107 @@
         };
 
         var HOCHBAU_IDS = ["klinker", "rothestr", "graefe", "destijl", "schleswig", "neubauhausstrasse"];
+
+        var INFO_LEISTUNG = {
+          de: "Auf einem Bestandsgrundriss aufbauend erstelle ich Dir einen Plan nach Deinen Wünschen, Vorstellungen und Ressourcen. Für die Umsetzung begleite ich Materialwahl, Details und die Abstimmung mit Handwerk — Schritt für Schritt bis zur belastbaren Vorlage.",
+          en: "Building on an existing floor plan, I create a layout based on your wishes, ideas, and resources. For implementation, I support material choices, details, and coordination with trades — step by step to a reliable brief.",
+        };
+        var INFO_FOOTER = {
+          de: "Fotos wurden in kleinen Details mit KI nachbearbeitet, um Designidee hervorzuheben. Bildrechte der Fotos und Visualisierungen liegen beim Architekt und Designer Ben Joscha Grope.",
+          en: "Photos were retouched in small details with AI to highlight the design intent. Image rights for photos and visualisations are held by architect and designer Ben Joscha Grope.",
+        };
+
+        function projectHasInfoSlide(projectId) {
+          return (
+            !!projectId &&
+            projectId !== "moebel" &&
+            HOCHBAU_IDS.indexOf(projectId) === -1
+          );
+        }
+
+        function buildInfoBodyText(project, lang) {
+          var leistung = lang === "en" ? INFO_LEISTUNG.en : INFO_LEISTUNG.de;
+          var detail =
+            lang === "en"
+              ? project.infoDetailEn || project.infoDetailDe || ""
+              : project.infoDetailDe || "";
+          return detail ? leistung + " " + detail : leistung;
+        }
+
+        function parseProjectInfoHeading(project, lang) {
+          var title = getProjectNameLabel(project, lang);
+          var comma = title.lastIndexOf(", ");
+          if (comma > 0) {
+            return {
+              line1: title.slice(0, comma),
+              line2: title.slice(comma + 2),
+            };
+          }
+          return { line1: title, line2: "" };
+        }
+
+        function appendInfoCard(parent, project, lang, variant) {
+          var isLightbox = variant === "lightbox";
+          var slide = document.createElement(isLightbox ? "div" : "figure");
+          slide.className = isLightbox
+            ? "bi-lightbox__slide bi-lightbox__slide--info"
+            : "bi-slider__slide bi-slider__slide--info";
+
+          var card = document.createElement("div");
+          card.className = isLightbox ? "bi-lightbox__info" : "bi-slider__info";
+
+          if (isLightbox) {
+            var heading = parseProjectInfoHeading(project, lang);
+            var head = document.createElement("header");
+            head.className = "bi-lightbox__info-head";
+            var line1 = document.createElement("p");
+            line1.className = "bi-lightbox__info-head-line1";
+            line1.textContent = heading.line1;
+            head.appendChild(line1);
+            if (heading.line2) {
+              var line2 = document.createElement("p");
+              line2.className = "bi-lightbox__info-head-line2";
+              line2.textContent = heading.line2;
+              head.appendChild(line2);
+            }
+
+            var main = document.createElement("div");
+            main.className = "bi-lightbox__info-main";
+            var body = document.createElement("p");
+            body.className = "bi-lightbox__info-body";
+            body.textContent = buildInfoBodyText(project, lang);
+            main.appendChild(body);
+
+            var foot = document.createElement("footer");
+            foot.className = "bi-lightbox__info-foot";
+            foot.textContent = lang === "en" ? INFO_FOOTER.en : INFO_FOOTER.de;
+
+            card.appendChild(head);
+            card.appendChild(main);
+            card.appendChild(foot);
+          } else {
+            var title = document.createElement("h4");
+            title.className = "bi-slider__info-title";
+            title.textContent = getProjectNameLabel(project, lang);
+
+            var sliderBody = document.createElement("p");
+            sliderBody.className = "bi-slider__info-body";
+            sliderBody.textContent = buildInfoBodyText(project, lang);
+
+            var sliderFoot = document.createElement("p");
+            sliderFoot.className = "bi-slider__info-foot";
+            sliderFoot.textContent = lang === "en" ? INFO_FOOTER.en : INFO_FOOTER.de;
+
+            card.appendChild(title);
+            card.appendChild(sliderBody);
+            card.appendChild(sliderFoot);
+          }
+
+          slide.appendChild(card);
+          parent.appendChild(slide);
+          return slide;
+        }
+
         var HOCHBAU_THUMB_FOCUS = [
           "28% center",
           "center center",
@@ -2727,6 +2998,14 @@
                   altEn: getProjectImageLabel(project, imageIndex, "en"),
                   objectPosition: "",
                 });
+                if (imageIndex === 0 && projectHasInfoSlide(entry.id)) {
+                  items.push({
+                    isInfo: true,
+                    projectId: entry.id,
+                    kachelLabelDe: getProjectKachelLabel(project, "de"),
+                    kachelLabelEn: getProjectKachelLabel(project, "en"),
+                  });
+                }
               });
               return;
             }
@@ -2789,7 +3068,12 @@
           var lang = getLang();
           var items = ensurePortfolioLightboxItems();
           lightboxTrack.innerHTML = "";
-          items.forEach(function (item, i) {
+          items.forEach(function (item) {
+            if (item.isInfo) {
+              var infoProject = item.projectId ? PROJECTS[item.projectId] : null;
+              if (infoProject) appendInfoCard(lightboxTrack, infoProject, lang, "lightbox");
+              return;
+            }
             var slide = document.createElement("div");
             slide.className = "bi-lightbox__slide";
             var img = document.createElement("img");
@@ -2810,13 +3094,20 @@
           if (!lightboxGalleryItems || !lightboxGalleryItems[lightboxIndex]) return;
           var lang = getLang();
           var item = lightboxGalleryItems[lightboxIndex];
+          if (lightboxViewport) {
+            lightboxViewport.classList.toggle("is-info-slide", !!item.isInfo);
+          }
           if (lightboxTitle) {
             lightboxTitle.textContent =
               lang === "en" ? item.kachelLabelEn : item.kachelLabelDe;
           }
           if (lightboxCaption) {
-            lightboxCaption.textContent =
-              lang === "en" ? item.projectLabelEn : item.projectLabelDe;
+            if (item.isInfo) {
+              lightboxCaption.textContent = "";
+            } else {
+              lightboxCaption.textContent =
+                lang === "en" ? item.projectLabelEn : item.projectLabelDe;
+            }
           }
         }
 
@@ -2832,6 +3123,28 @@
           if (!lightboxViewport || !lightboxTrack) return;
           var slide = lightboxTrack.children[index];
           if (!slide) return;
+          var item =
+            lightboxGalleryItems && lightboxGalleryItems[index]
+              ? lightboxGalleryItems[index]
+              : null;
+          if (item && item.isInfo) {
+            var infoMaxW = Math.min(window.innerWidth * 0.9, 920);
+            var infoTitleSpace = getLightboxTitleReserve();
+            var infoMaxH = window.innerHeight * 0.9 - infoTitleSpace;
+            var infoRatio = 3 / 4;
+            var infoW = infoMaxW;
+            var infoH = infoW / infoRatio;
+            if (infoH > infoMaxH) {
+              infoH = infoMaxH;
+              infoW = infoH * infoRatio;
+            }
+            lightboxViewport.style.transition = "none";
+            lightboxViewport.style.width = Math.round(infoW) + "px";
+            lightboxViewport.style.height = Math.round(infoH) + "px";
+            void lightboxViewport.offsetWidth;
+            lightboxViewport.style.transition = "";
+            return;
+          }
           var img = slide.querySelector("img");
           if (!img) return;
 
@@ -3026,6 +3339,7 @@
           if (lightboxViewport) {
             lightboxViewport.style.width = "";
             lightboxViewport.style.height = "";
+            lightboxViewport.classList.remove("is-info-slide");
           }
         }
 
@@ -3428,8 +3742,8 @@
           var lang = getLang();
           trackEl.innerHTML = "";
           dotsEl.innerHTML = "";
-          slideCount = images.length;
           slideIndex = 0;
+          var hasInfo = openProjectId && projectHasInfoSlide(openProjectId);
 
           images.forEach(function (src, i) {
             var fig = document.createElement("figure");
@@ -3446,20 +3760,43 @@
             fig.appendChild(img);
             trackEl.appendChild(fig);
 
-            if (slideCount > 1) {
-              var dot = document.createElement("button");
-              dot.type = "button";
-              dot.className = "bi-slider__dot" + (i === 0 ? " is-active" : "");
-              dot.setAttribute(
-                "aria-label",
-                (lang === "en" ? "Image " : "Bild ") + (i + 1)
-              );
-              dot.addEventListener("click", function () {
-                setSlide(i);
-              });
-              dotsEl.appendChild(dot);
+            if (i === 0 && hasInfo) {
+              appendInfoCard(trackEl, project, lang, "slider");
             }
           });
+
+          slideCount = trackEl.children.length;
+
+          if (slideCount > 1) {
+            for (var d = 0; d < slideCount; d++) {
+              (function (dotIndex) {
+                var isInfoDot =
+                  hasInfo &&
+                  dotIndex === 1 &&
+                  trackEl.children[dotIndex] &&
+                  trackEl.children[dotIndex].classList.contains(
+                    "bi-slider__slide--info"
+                  );
+                var dot = document.createElement("button");
+                dot.type = "button";
+                dot.className =
+                  "bi-slider__dot" + (dotIndex === 0 ? " is-active" : "");
+                dot.setAttribute(
+                  "aria-label",
+                  isInfoDot
+                    ? lang === "en"
+                      ? "Project info"
+                      : "Projektinfo"
+                    : (lang === "en" ? "Image " : "Bild ") +
+                      (hasInfo && dotIndex > 1 ? dotIndex : dotIndex + 1)
+                );
+                dot.addEventListener("click", function () {
+                  setSlide(dotIndex);
+                });
+                dotsEl.appendChild(dot);
+              })(d);
+            }
+          }
 
           trackEl.style.transform = "translateX(0)";
           if (dotsEl) dotsEl.hidden = slideCount <= 1;
