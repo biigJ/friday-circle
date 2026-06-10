@@ -6,6 +6,10 @@ Thumbs.db
 
 scripts/node_modules/
 
+# Local draft assets (not published)
+assets/x/
+assets/x */
+
 # Local-only pages (not published on GitHub)
 about/
 zusammenarbeit/
