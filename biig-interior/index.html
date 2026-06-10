@@ -61,7 +61,7 @@
 
       /* —— Hero —— */
       .bi-hero {
-        padding: clamp(36px, 5vw, 64px) 0 clamp(48px, 7vw, 88px);
+        padding: clamp(36px, 5vw, 64px) 0 clamp(24px, 4vw, 40px);
       }
 
       .bi-hero__intro {
@@ -257,9 +257,33 @@
         pointer-events: none;
       }
 
+      .bi-hero__mission {
+        margin: clamp(14px, 2vw, 22px) 0 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: clamp(16px, 2.4vw, 24px);
+        font-family: var(--font-sans);
+        font-size: clamp(0.85rem, 1.15vw, 0.95rem);
+        font-weight: 300;
+        line-height: 1.58;
+        letter-spacing: 0.02em;
+        color: color-mix(in srgb, var(--text) 78%, #ffffff);
+      }
+
+      @media (min-width: 960px) {
+        .bi-hero__mission {
+          grid-template-columns: 1fr 1fr;
+          gap: clamp(28px, 4vw, 56px);
+        }
+      }
+
+      .bi-hero__mission p {
+        margin: 0;
+      }
+
       /* —— Portfolio grid —— */
       .bi-portfolio {
-        padding: clamp(48px, 7vw, 96px) 0 clamp(72px, 10vw, 140px);
+        padding: clamp(28px, 4.5vw, 56px) 0 clamp(72px, 10vw, 140px);
       }
 
       .bi-portfolio__title {
@@ -1657,6 +1681,34 @@
               <span class="en-t">Find the right tools for your everyday architecture.<br />Strong in execution &amp; authentic.</span>
             </p>
           </figure>
+          <div class="bi-hero__mission">
+            <p>
+              <span class="de-t"
+                >Mission von biig Interior ist, jedem mit dem Wunsch und etwas Willen, die persönliche Umgebung besser
+                zu machen, auch ohne Architekt und Angst vorm Scheitern. FRIDAY CIRCLE ist die Idee, zusammen
+                zufriedener zu sein. In allen fünf Bereichen, die unsere Resilienz und Ambitionen tragen: Bewegung,
+                Nahrung, Erholung, Soziales, Mentales.</span
+              >
+              <span class="en-t"
+                >biig Interior's mission is to help everyone who wants to—and is willing—to improve their personal
+                environment, even without an architect and without fear of failure. FRIDAY CIRCLE is the idea of being
+                more satisfied together. In all five areas that carry our resilience and ambitions: movement, nutrition,
+                recovery, social life, and mental wellbeing.</span
+              >
+            </p>
+            <p>
+              <span class="de-t"
+                >Und die Räume, in denen wir in unserem Alltag leben und schaffen, beeinflussen genau das. Interior
+                Design als First Principle Thinking. An Deine Lebensgestaltung lebensnah, pragmatisch &amp; ästhetisch
+                funktional angepasst.</span
+              >
+              <span class="en-t"
+                >And the spaces where we live and work in everyday life influence exactly that. Interior design as
+                first-principles thinking. Adapted to your life design—close to life, pragmatic, and aesthetically
+                functional.</span
+              >
+            </p>
+          </div>
         </div>
       </section>
 
