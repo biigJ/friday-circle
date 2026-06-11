@@ -123,7 +123,7 @@ function bkHonOutAbove(qm, qmOut, threshold, rate) {
 }
 
 function bkOrdLabels() {
-  return { ideen: bkT('s4.ordnung.tag.ideen').replace(' +6%', ''), moeblierung: bkT('s6.koord.moebel').replace(' +6%', ''), stauraum_sys: bkT('s4.ordnung.tag.stauraum').replace(' +6%', ''), chaos: bkT('s4.ordnung.tag.chaos').replace(' +6%', '') };
+  return { ideen: bkT('s4.ordnung.tag.ideen').replace(' +6%', ''), moeblierung: bkT('s4.ordnung.tag.moeblierung').replace(' +6%', ''), stauraum_sys: bkT('s4.ordnung.tag.stauraum').replace(' +6%', ''), chaos: bkT('s4.ordnung.tag.chaos').replace(' +6%', '') };
 }
 function bkZieleLabels() {
   return { stauraum: bkT('s3.ziele.stauraum'), ruhe: bkT('s3.ziele.ruhe'), gaeste: bkT('s3.ziele.gaeste'), homeoffice: bkT('s3.ziele.homeoffice'), kinder: bkT('s3.ziele.kinder'), aesthetik: bkT('s3.ziele.aesthetik'), fluss: bkT('s3.ziele.fluss'), licht: bkT('s3.ziele.licht'), kueche: bkT('s3.ziele.kueche').replace(' +12%', ''), bad: bkT('s3.ziele.bad').replace(' +10%', '') };
@@ -512,7 +512,7 @@ function bkRenderS4() {
     <div class="bk-q">${bkT('s4.ordnung.q1')}<small>${bkT('s4.ordnung.q1Hint')}</small></div>
     <div class="bk-tags">
       <button class="bk-tag ${(bkSt.ord_fokus||[]).includes('ideen')?'sel':''}" data-k="ord_fokus" data-v="ideen" onclick="bkToggleTag(this)">${bkT('s4.ordnung.tag.ideen')}</button>
-      <button class="bk-tag ${(bkSt.ord_fokus||[]).includes('moeblierung')?'sel':''}" data-k="ord_fokus" data-v="moeblierung" onclick="bkToggleTag(this)">${bkT('s4.ordnung.tag.moebel')}</button>
+      <button class="bk-tag ${(bkSt.ord_fokus||[]).includes('moeblierung')?'sel':''}" data-k="ord_fokus" data-v="moeblierung" onclick="bkToggleTag(this)">${bkT('s4.ordnung.tag.moeblierung')}</button>
       <button class="bk-tag ${(bkSt.ord_fokus||[]).includes('stauraum_sys')?'sel':''}" data-k="ord_fokus" data-v="stauraum_sys" onclick="bkToggleTag(this)">${bkT('s4.ordnung.tag.stauraum')}</button>
       <button class="bk-tag ${(bkSt.ord_fokus||[]).includes('chaos')?'sel':''}" data-k="ord_fokus" data-v="chaos" onclick="bkToggleTag(this)">${bkT('s4.ordnung.tag.chaos')}</button>
     </div>
