@@ -164,9 +164,17 @@ window.biScrollSpaceAnpassen = function() {
 
 window.bkStartWithTrack = function(trackId) {
   if (!['ordnung', 'arrangement', 'allinclusive'].includes(trackId)) return;
+  bkReleaseQuizScrollLock();
   bkSt.track = [trackId];
   bkRenderStep1Tracks();
-  bkGoTo(bkIsMobileQuizViewport() ? 1 : 2);
+  if (bkIsMobileQuizViewport()) {
+    bkGoTo(1);
+    window.setTimeout(bkLockQuizToFormTop, 120);
+    window.setTimeout(bkLockQuizToFormTop, 420);
+    return false;
+  }
+  bkGoTo(2);
+  return false;
 };
 
 let bkQuizScrollLockTop = null;
