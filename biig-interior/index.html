@@ -697,6 +697,23 @@
         pointer-events: auto;
       }
 
+      .bi-mobile-tile-carousel__label {
+        position: absolute;
+        z-index: 6;
+        top: clamp(10px, 3vw, 16px);
+        left: clamp(10px, 3vw, 16px);
+        max-width: calc(100% - 2 * clamp(10px, 3vw, 16px));
+        padding: 5px 8px;
+        background: rgba(255, 255, 255, 0.86);
+        color: #000000;
+        font-family: var(--font-sans);
+        font-size: clamp(0.74rem, 3.4vw, 0.92rem);
+        font-weight: 600;
+        line-height: 1.25;
+        letter-spacing: 0.02em;
+        pointer-events: none;
+      }
+
       .bi-mobile-tile-carousel__dot {
         display: block;
         width: 8px;
@@ -3817,8 +3834,12 @@
           track.className = "bi-mobile-tile-carousel__track";
           var dots = document.createElement("div");
           dots.className = "bi-mobile-tile-carousel__dots";
+          var label = document.createElement("div");
+          label.className = "bi-mobile-tile-carousel__label";
+          label.textContent = getProjectKachelLabel(project, getLang());
           carousel.appendChild(track);
           carousel.appendChild(dots);
+          carousel.appendChild(label);
 
           items.forEach(function (item, i) {
             if (item.isInfo) {

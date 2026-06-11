@@ -169,8 +169,8 @@ window.bkStartWithTrack = function(trackId) {
   bkRenderStep1Tracks();
   if (bkIsMobileQuizViewport()) {
     bkGoTo(1);
-    window.setTimeout(bkLockQuizToFormTop, 120);
-    window.setTimeout(bkLockQuizToFormTop, 420);
+    window.setTimeout(bkForceQuizScrollLock, 500);
+    window.setTimeout(bkForceQuizScrollLock, 900);
     return false;
   }
   bkGoTo(2);
@@ -189,7 +189,9 @@ function bkIsMobileQuizViewport() {
 function bkGetFormTop() {
   const form = document.querySelector('#biig-konfigurator .bk-form');
   if (!form) return 0;
-  return Math.max(0, Math.round(form.getBoundingClientRect().top + window.scrollY));
+  const root = document.scrollingElement || document.documentElement;
+  const maxScroll = Math.max(0, root.scrollHeight - window.innerHeight);
+  return Math.min(maxScroll, Math.max(0, Math.round(form.getBoundingClientRect().top + window.scrollY)));
 }
 
 function bkReleaseQuizScrollLock() {
@@ -204,6 +206,11 @@ function bkApplyQuizScrollLock() {
   if (window.scrollY < bkQuizScrollLockTop - 1) {
     window.scrollTo({ top: bkQuizScrollLockTop, behavior: 'auto' });
   }
+}
+
+function bkForceQuizScrollLock() {
+  if (bkQuizScrollLockTop === null) return;
+  window.scrollTo({ top: bkQuizScrollLockTop, behavior: 'auto' });
 }
 
 function bkLockQuizToFormTop() {
