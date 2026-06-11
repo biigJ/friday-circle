@@ -482,17 +482,17 @@ function bkUpdateCart() {
   const ctB = document.getElementById('bk-ct-bau');
   const crEl = document.getElementById('bk-cart-rows');
   if (!honLow) {
-    if (ctH) ctH.textContent = '—';
-    if (ctB) ctB.textContent = '—';
+    if (ctH) ctH.textContent = '-';
+    if (ctB) ctB.textContent = '-';
     if (crEl) crEl.innerHTML = '';
     return;
   }
   if (ctH) {
     ctH.textContent = honorarOpen
       ? bkT('cart.from') + ' ' + bkFmtEuro(honLow)
-      : bkFmtNum(honLow) + ' – ' + bkFmtEuro(honHigh);
+      : bkFmtNum(honLow) + (bkGetLang() === 'en' ? ' to ' : ' bis ') + bkFmtEuro(honHigh);
   }
-  if (ctB) ctB.textContent = bauLow ? bkFmtNum(bauLow) + ' – ' + bkFmtEuro(bauHigh) : '—';
+  if (ctB) ctB.textContent = bauLow ? bkFmtNum(bauLow) + (bkGetLang() === 'en' ? ' to ' : ' bis ') + bkFmtEuro(bauHigh) : '-';
   let html = '';
   honItems.forEach(i => html += `<div class="bk-cr"><span>${i.l}</span><b>${bkFmtEuro(i.v)}</b></div>`);
   if (aufItems.length) html += `<div class="bk-cr aufschlag" style="font-size:10px"><span style="line-height:1.6">${aufItems.join(' · ')}</span></div>`;
@@ -646,24 +646,24 @@ function bkRenderFinalSummary() {
   const kochenL = {aufwendig: bkT('s5.kochen.aufwendig.t'), schnell: bkT('s5.kochen.schnell'), selten: bkT('s5.kochen.selten')};
   const smhL = {ja: bkT('s5.smh.ja.t'), licht: bkT('s5.smh.licht.t'), nein: bkT('s5.smh.nein')};
   const kvL = {nie: bkT('s7.kv.nie'), meilensteine: bkT('s7.kv.meilensteine'), monatlich: bkT('s7.kv.monatlich.t'), laufend: bkT('s7.kv.laufend.t')};
-  const aendL = {keine: bkT('s7.aend.keine.t') + ' — ' + bkT('s7.aend.keine.s'), wenige: bkT('s7.aend.wenige.t') + ' (+30%)', viele: bkT('s7.aend.viele.t') + ' (×2)'};
+  const aendL = {keine: bkT('s7.aend.keine.t') + ', ' + bkT('s7.aend.keine.s'), wenige: bkT('s7.aend.wenige.t') + ' (+30%)', viele: bkT('s7.aend.viele.t') + ' (×2)'};
   const dlL = {hart: bkT('s8.dl.hart.t'), weich: bkT('s8.dl.weich'), offen: bkT('s8.dl.offen')};
   const bewL = {ja: bkT('s8.bew.ja.t'), leer: bkT('s8.bew.leer'), beides: bkT('s8.bew.beides')};
   const kommL = {mail: bkT('s8.komm.mail'), whatsapp: bkT('s8.komm.whatsapp'), call: bkT('s8.komm.call')};
   const krL = {bis20k: bkT('s9.kr.bis20k'), '20_60k': bkT('s9.kr.20_60k'), '60_150k': bkT('s9.kr.60_150k'), '150kplus': bkT('s9.kr.150kplus'), '500kplus': bkT('s9.kr.500kplus'), offen: bkT('s9.kr.offen')};
   const stilL = {warm: bkT('s6.stil.warm.t'), clean: bkT('s6.stil.clean.t'), japanisch: bkT('s6.stil.japanisch.t'), urban: bkT('s6.stil.urban.t'), maximal: bkT('s6.stil.maximal.t'), offen: bkT('s6.stil.offen')};
-  const sizeStr = (bkSt.size ? bkSL(bkSt.size) : '—') + (bkSt.qmIn ? ', ' + bkSt.qmIn + ' m²' : '');
+  const sizeStr = (bkSt.size ? bkSL(bkSt.size) : '-') + (bkSt.qmIn ? ', ' + bkSt.qmIn + ' m²' : '');
   const aussenStr = bkSt.aussen && bkSt.aussen !== 'kein' ? (bkSt.aussen + (bkSt.qmOut ? ' ' + bkSt.qmOut + ' m²' : '')) : null;
 
   const hard = [
-    {k: bkT('summary.leistung'), v:bkSt.track.map(t=>tL[t]).join(', ')||'—'},
+    {k: bkT('summary.leistung'), v:bkSt.track.map(t=>tL[t]).join(', ')||'-'},
     bkSt.track.includes('allinclusive') && bkSt.aii_phase ? {k: bkT('summary.phase'), v:phaseL[bkSt.aii_phase]||bkSt.aii_phase} : null,
     {k: bkT('summary.size'), v:sizeStr},
     aussenStr ? {k: bkT('summary.outdoor'), v:aussenStr} : null,
     {k: bkT('summary.quality'), v: bkQL(bkSt.ql)},
     aufmassHon > 0 ? {k: bkT('cart.aufmass'), v: bkFmtEuro(aufmassHon)} : null,
-    {k: bkT('summary.feeEst'), v:honLow ? bkFmtNum(honLow)+' – '+bkFmtEuro(honHigh) : '—', hl:true},
-    bauLow ? {k: bkT('summary.buildEst'), v: bkFmtNum(bauLow)+' – '+bkFmtEuro(bauHigh)} : null,
+    {k: bkT('summary.feeEst'), v:honLow ? bkFmtNum(honLow) + (bkGetLang() === 'en' ? ' to ' : ' bis ') + bkFmtEuro(honHigh) : '-', hl:true},
+    bauLow ? {k: bkT('summary.buildEst'), v: bkFmtNum(bauLow) + (bkGetLang() === 'en' ? ' to ' : ' bis ') + bkFmtEuro(bauHigh)} : null,
     bkSt.kostenrahmen ? {k: bkT('summary.budget'), v:krL[bkSt.kostenrahmen]||bkSt.kostenrahmen} : null,
   ].filter(Boolean);
 
@@ -684,7 +684,7 @@ function bkRenderFinalSummary() {
     bkSt.hon_typ ? {k: bkT('summary.feeStruct'), v:{pauschale: bkT('s7.hon.pauschale.t'), stunden: bkT('s7.hon.stunden.t'), egal: bkT('s7.hon.egal')}[bkSt.hon_typ]||bkSt.hon_typ} : null,
     bkSt.kv ? {k: bkT('summary.costTrack'), v:kvL[bkSt.kv]||bkSt.kv} : null,
     bkSt.aend ? {k: bkT('summary.approval'), v:aendL[bkSt.aend]||bkSt.aend} : null,
-    bkSt.dl_typ ? {k: bkT('summary.deadline'), v:(dlL[bkSt.dl_typ]||bkSt.dl_typ)+(bkSt.dl_text?' — '+bkSt.dl_text:'')} : null,
+    bkSt.dl_typ ? {k: bkT('summary.deadline'), v:(dlL[bkSt.dl_typ]||bkSt.dl_typ)+(bkSt.dl_text?', '+bkSt.dl_text:'')} : null,
     bkSt.bewohnt ? {k: bkT('summary.during'), v:bewL[bkSt.bewohnt]||bkSt.bewohnt} : null,
     bkSt.komm ? {k: bkT('summary.contact'), v:kommL[bkSt.komm]||bkSt.komm} : null,
     bkSt.gesetzt ? {k: bkT('summary.fixedFurniture'), v:bkSt.gesetzt} : null,
