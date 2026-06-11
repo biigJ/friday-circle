@@ -1452,6 +1452,21 @@
           padding-right: var(--nav-pad-x);
         }
 
+        .bi-tile--hochbau-collage .bi-tile__label {
+          display: flex;
+          z-index: 4;
+          align-items: flex-start;
+          justify-content: flex-start;
+          padding: clamp(10px, 3vw, 16px);
+          color: #000000;
+          text-shadow: none;
+          font-size: clamp(0.74rem, 3.4vw, 0.92rem);
+          font-weight: 600;
+          pointer-events: none;
+        }
+      }
+
+      @media (max-width: 480px) {
         .bi-tile--project {
           cursor: grab;
           background: #ffffff;
@@ -1476,19 +1491,6 @@
 
         .bi-mobile-tile-carousel.is-swipe-dragging {
           cursor: grabbing;
-        }
-
-        .bi-tile--hochbau-collage .bi-tile__label {
-          display: flex;
-          z-index: 4;
-          align-items: flex-start;
-          justify-content: flex-start;
-          padding: clamp(10px, 3vw, 16px);
-          color: #000000;
-          text-shadow: none;
-          font-size: clamp(0.74rem, 3.4vw, 0.92rem);
-          font-weight: 600;
-          pointer-events: none;
         }
       }
 
@@ -3712,6 +3714,10 @@
           return window.matchMedia("(max-width: 520px)").matches;
         }
 
+        function isInlineMobileCarouselViewport() {
+          return window.matchMedia("(max-width: 480px)").matches;
+        }
+
         function createLightboxInfoItem(projectId) {
           var project = PROJECTS[projectId];
           if (!project || !projectHasInfoSlide(projectId)) return null;
@@ -3925,6 +3931,12 @@
 
         function initMobileTileCarousels() {
           destroyMobileTileCarousels();
+          if (!isInlineMobileCarouselViewport()) {
+            document.querySelectorAll(".bi-mobile-tile-carousel").forEach(function (el) {
+              el.remove();
+            });
+            return;
+          }
           document.querySelectorAll(".bi-tile--project[data-bi-project]").forEach(buildMobileTileCarousel);
         }
 
@@ -4843,7 +4855,10 @@
         }
 
         window.addEventListener("scroll", updateMobileNavTransparency, { passive: true });
-        window.addEventListener("resize", updateMobileNavTransparency);
+        window.addEventListener("resize", function () {
+          updateMobileNavTransparency();
+          initMobileTileCarousels();
+        });
 
         document.addEventListener("fc-lang-change", applyLang);
 
