@@ -232,8 +232,8 @@ window.bkGoTo = function(n) {
   document.querySelectorAll('.bk-step').forEach(s => s.classList.remove('active'));
   const el = n === 99 ? document.getElementById('bk-step-done') : document.getElementById('bk-step' + n);
   if (el) el.classList.add('active');
-  document.body.classList.toggle('bk-quiz-active', n >= 2 && n !== 99);
-  if (n < 2 || n === 99) bkReleaseQuizScrollLock();
+  document.body.classList.toggle('bk-quiz-active', n >= 1 && n !== 99);
+  if (n === 0 || n === 99) bkReleaseQuizScrollLock();
   if (n === 1) bkRenderStep1Tracks();
   if (n === 4) bkRenderS4();
   if (n === 5) bkUpdateStep5();
@@ -249,7 +249,7 @@ window.bkGoTo = function(n) {
       window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
     });
   }
-  else if (n >= 2 && n !== 99 && bkIsMobileQuizViewport()) bkLockQuizToFormTop();
+  else if (n >= 1 && n !== 99 && bkIsMobileQuizViewport()) bkLockQuizToFormTop();
   else if (sec) sec.scrollIntoView({behavior:'smooth', block:'start'});
 };
 
