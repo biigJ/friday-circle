@@ -181,6 +181,8 @@ let bkQuizScrollLockTop = null;
 let bkQuizScrollLockSettling = false;
 let bkQuizScrollLockTimer = 0;
 let bkQuizScrollLockListenersBound = false;
+let bkBottomScrollFrame = 0;
+let bkBottomScrollTimers = [];
 
 function bkIsMobileQuizViewport() {
   return window.matchMedia('(max-width: 520px)').matches;
@@ -197,6 +199,15 @@ function bkReleaseQuizScrollLock() {
   bkQuizScrollLockSettling = false;
   if (bkQuizScrollLockTimer) window.clearTimeout(bkQuizScrollLockTimer);
   bkQuizScrollLockTimer = 0;
+}
+
+function bkClearBottomScroll() {
+  if (bkBottomScrollFrame) window.cancelAnimationFrame(bkBottomScrollFrame);
+  bkBottomScrollFrame = 0;
+  bkBottomScrollTimers.forEach(function(timer) {
+    window.clearTimeout(timer);
+  });
+  bkBottomScrollTimers = [];
 }
 
 function bkApplyQuizScrollLock() {
@@ -258,6 +269,7 @@ function bkBindQuizScrollLock() {
 }
 
 function bkScrollToPageBottom() {
+  bkClearBottomScroll();
   const root = document.scrollingElement || document.documentElement;
   const getBottom = function() {
     const maxH = Math.max(root.scrollHeight, document.body ? document.body.scrollHeight : 0);
@@ -266,15 +278,17 @@ function bkScrollToPageBottom() {
   const scroll = function(behavior) {
     window.scrollTo({ top: getBottom(), behavior: behavior });
   };
-  requestAnimationFrame(function() {
+  bkBottomScrollFrame = requestAnimationFrame(function() {
+    bkBottomScrollFrame = 0;
     scroll('smooth');
-    window.setTimeout(function() { scroll('auto'); }, 450);
-    window.setTimeout(function() { scroll('auto'); }, 900);
+    bkBottomScrollTimers.push(window.setTimeout(function() { scroll('auto'); }, 450));
+    bkBottomScrollTimers.push(window.setTimeout(function() { scroll('auto'); }, 900));
   });
 }
 
 window.bkGoTo = function(n, opts) {
   opts = opts || {};
+  if (n !== 0) bkClearBottomScroll();
   const shouldLockToForm = n >= 1 && n !== 99 && bkIsMobileQuizViewport();
   const lockTop = shouldLockToForm ? (bkQuizScrollLockTop !== null ? bkQuizScrollLockTop : bkGetFormTop()) : null;
   document.querySelectorAll('.bk-step').forEach(s => s.classList.remove('active'));
