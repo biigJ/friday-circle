@@ -3540,6 +3540,8 @@
         var heroSwipeApi = null;
         var popupSwipeApi = null;
         var mobileTileCarousels = [];
+        var mobileTileCarouselViewportActive = null;
+        var mobileTileCarouselWidth = 0;
         var portfolioLightboxItems = null;
         var lightboxGalleryItems = null;
         var lightboxIndex = 0;
@@ -3717,6 +3719,10 @@
 
         function isInlineMobileCarouselViewport() {
           return window.matchMedia("(max-width: 480px) and (pointer: coarse)").matches;
+        }
+
+        function getInlineMobileCarouselWidth() {
+          return Math.round(document.documentElement.clientWidth || window.innerWidth || 0);
         }
 
         function createLightboxInfoItem(projectId) {
@@ -3932,9 +3938,17 @@
           mobileTileCarousels.push(entry);
         }
 
-        function initMobileTileCarousels() {
+        function initMobileTileCarousels(options) {
+          options = options || {};
+          var isActive = isInlineMobileCarouselViewport();
+          var width = getInlineMobileCarouselWidth();
+          if (!options.force && isActive === mobileTileCarouselViewportActive && width === mobileTileCarouselWidth) {
+            return;
+          }
+          mobileTileCarouselViewportActive = isActive;
+          mobileTileCarouselWidth = width;
           destroyMobileTileCarousels();
-          if (!isInlineMobileCarouselViewport()) {
+          if (!isActive) {
             document.querySelectorAll(".bi-mobile-tile-carousel").forEach(function (el) {
               el.remove();
             });
@@ -4708,7 +4722,7 @@
           applyAria();
           normalizeProjectTileElements();
           applyTileLabels();
-          initMobileTileCarousels();
+          initMobileTileCarousels({ force: true });
           initHeroSlider();
           initHochbauCollage();
           if (openOfferId) {
