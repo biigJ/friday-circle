@@ -169,8 +169,9 @@ window.bkStartWithTrack = function(trackId) {
   bkRenderStep1Tracks();
   if (bkIsMobileQuizViewport()) {
     bkGoTo(1);
-    window.setTimeout(bkForceQuizScrollLock, 500);
-    window.setTimeout(bkForceQuizScrollLock, 900);
+    window.setTimeout(bkSnapQuizToFormTop, 500);
+    window.setTimeout(bkSnapQuizToFormTop, 900);
+    window.setTimeout(bkSnapQuizToFormTop, 1300);
     return false;
   }
   bkGoTo(2);
@@ -211,6 +212,13 @@ function bkApplyQuizScrollLock() {
 function bkForceQuizScrollLock() {
   if (bkQuizScrollLockTop === null) return;
   window.scrollTo({ top: bkQuizScrollLockTop, behavior: 'auto' });
+}
+
+function bkSnapQuizToFormTop() {
+  if (!bkIsMobileQuizViewport() || !document.body.classList.contains('bk-quiz-active')) return;
+  bkQuizScrollLockTop = bkGetFormTop();
+  bkQuizScrollLockSettling = false;
+  bkForceQuizScrollLock();
 }
 
 function bkLockQuizToFormTop() {
