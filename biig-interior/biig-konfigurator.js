@@ -171,10 +171,6 @@ window.bkStartWithTrack = function(trackId) {
   if (bkIsMobileQuizViewport()) {
     bkGoTo(1, { skipScroll: true });
     bkLockQuizToFormTop(lockTop);
-    window.requestAnimationFrame(bkForceQuizScrollLock);
-    window.setTimeout(bkForceQuizScrollLock, 80);
-    window.setTimeout(bkForceQuizScrollLock, 500);
-    window.setTimeout(bkForceQuizScrollLock, 900);
     return false;
   }
   bkGoTo(2);
@@ -215,6 +211,13 @@ function bkForceQuizScrollLock() {
   window.scrollTo({ top: bkQuizScrollLockTop, behavior: 'auto' });
 }
 
+function bkSettleQuizScrollLock() {
+  window.requestAnimationFrame(bkForceQuizScrollLock);
+  window.setTimeout(bkForceQuizScrollLock, 80);
+  window.setTimeout(bkForceQuizScrollLock, 450);
+  window.setTimeout(bkForceQuizScrollLock, 900);
+}
+
 function bkSnapQuizToFormTop() {
   if (!bkIsMobileQuizViewport() || !document.body.classList.contains('bk-quiz-active')) return;
   bkQuizScrollLockTop = bkGetFormTop();
@@ -231,10 +234,11 @@ function bkLockQuizToFormTop(targetTop) {
   bkQuizScrollLockTop = top;
   bkQuizScrollLockSettling = true;
   window.scrollTo({ top: top, behavior: 'smooth' });
+  bkSettleQuizScrollLock();
   if (bkQuizScrollLockTimer) window.clearTimeout(bkQuizScrollLockTimer);
   bkQuizScrollLockTimer = window.setTimeout(function() {
     bkQuizScrollLockSettling = false;
-    bkApplyQuizScrollLock();
+    bkForceQuizScrollLock();
   }, 1100);
 }
 
