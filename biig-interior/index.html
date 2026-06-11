@@ -645,6 +645,11 @@
         background: #ffffff;
       }
 
+      .bi-mobile-tile-carousel__slide--cover img {
+        object-fit: cover;
+        object-position: left center;
+      }
+
       .bi-mobile-tile-carousel__slide--info {
         display: flex;
         align-items: center;
@@ -693,9 +698,9 @@
       }
 
       .bi-mobile-tile-carousel__dot {
+        display: block;
         width: 8px;
         height: 8px;
-        padding: 0;
         border: 1px solid #000000;
         border-radius: 50%;
         background: rgba(255, 255, 255, 0.78);
@@ -3780,15 +3785,32 @@
           track.appendChild(slide);
         }
 
+        function appendMobileTileImageSlide(track, item, project, isCover) {
+          var slide = document.createElement("div");
+          slide.className = "bi-mobile-tile-carousel__slide" + (isCover ? " bi-mobile-tile-carousel__slide--cover" : "");
+          var img = document.createElement("img");
+          img.src = item.src;
+          img.alt = getLang() === "en" ? item.altEn : item.altDe;
+          img.decoding = "async";
+          img.loading = "eager";
+          if (isCover) img.style.objectPosition = "left center";
+          else if (item.objectPosition) img.style.objectPosition = item.objectPosition;
+          slide.appendChild(img);
+          track.appendChild(slide);
+        }
+
         function buildMobileTileCarousel(tile) {
           var projectId = tile.getAttribute("data-bi-project");
           var project = PROJECTS[projectId];
           if (!project || !project.images || !project.images.length) return;
           var startImageIndex = getTileImageIndex(projectId, tile, tile);
-          var imageItems = buildProjectLightboxImageItems(projectId, startImageIndex);
+          var coverItem = buildProjectLightboxImageItems(projectId, startImageIndex)[0];
+          var lightboxItems = buildProjectLightboxImageItems(projectId, 0);
           var hasInfo = projectHasInfoSlide(projectId);
-          var items = hasInfo ? [{ isInfo: true, projectId: projectId }].concat(imageItems) : imageItems;
-          var initialIndex = hasInfo ? 1 : 0;
+          var items = [{ isCover: true, data: coverItem }]
+            .concat(hasInfo ? [{ isInfo: true, projectId: projectId }] : [])
+            .concat(lightboxItems);
+          var initialIndex = 0;
           var carousel = document.createElement("div");
           carousel.className = "bi-mobile-tile-carousel";
           var track = document.createElement("div");
@@ -3801,21 +3823,15 @@
           items.forEach(function (item, i) {
             if (item.isInfo) {
               appendMobileTileInfoSlide(track, project);
+            } else if (item.isCover) {
+              appendMobileTileImageSlide(track, item.data, project, true);
             } else {
-              var slide = document.createElement("div");
-              slide.className = "bi-mobile-tile-carousel__slide";
-              var img = document.createElement("img");
-              img.src = item.src;
-              img.alt = getLang() === "en" ? item.altEn : item.altDe;
-              img.decoding = "async";
-              img.loading = i <= 1 ? "eager" : "lazy";
-              if (item.objectPosition) img.style.objectPosition = item.objectPosition;
-              slide.appendChild(img);
-              track.appendChild(slide);
+              appendMobileTileImageSlide(track, item, project, false);
             }
 
-            var dot = document.createElement("button");
-            dot.type = "button";
+            var dot = document.createElement("span");
+            dot.setAttribute("role", "button");
+            dot.setAttribute("tabindex", "0");
             dot.className = "bi-mobile-tile-carousel__dot" + (i === initialIndex ? " is-active" : "");
             dot.setAttribute("aria-label", (getLang() === "en" ? "Tile slide " : "Kachel-Slide ") + (i + 1));
             dots.appendChild(dot);
@@ -3829,6 +3845,12 @@
           var entry = { tile: tile, carousel: carousel, track: track, dots: dots, items: items, index: initialIndex, swipe: null };
           dots.querySelectorAll(".bi-mobile-tile-carousel__dot").forEach(function (dot, i) {
             dot.addEventListener("click", function (e) {
+              e.preventDefault();
+              e.stopPropagation();
+              setMobileTileSlide(entry, i, true);
+            });
+            dot.addEventListener("keydown", function (e) {
+              if (e.key !== "Enter" && e.key !== " ") return;
               e.preventDefault();
               e.stopPropagation();
               setMobileTileSlide(entry, i, true);
@@ -3850,7 +3872,7 @@
                 setMobileTileSlide(entry, newIndex, !meta || meta.animate !== false, true);
               },
               ignore: function (target) {
-                return !!target.closest(".bi-mobile-tile-carousel__dot, button, a");
+                return !!target.closest("button, a");
               },
             });
           }
