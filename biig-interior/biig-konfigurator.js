@@ -33,14 +33,14 @@ const BK_TRACKS = [
     icon:'ti-stack-2',
     title:'Ordnung & Sortierung',
     desc:'ab 200 €',
-    info:'Wir sortieren Räume, Möbel oder Ideen — ohne Umbau oder neue Pläne. Ziel ist Klarheit, weniger Chaos und eine Struktur, mit der Du selbst weiterarbeiten kannst.',
+    info:'Ich bring Ordnung in Dein Projekt. Wie ist Dein Alltag strukturiert und wie der Ort. Grundriss, Platzbedarf, Möbel, was kann weg und was muss sein. Skizze in 2D und in 3D Stimmung.',
   },
   {
     id:'arrangement',
     icon:'ti-layout-dashboard',
     title:'Grundplanung Raum-Arrangement',
     desc:'Grundriss + Möbelplan + Visu · ab 450 €',
-    info:'Du bekommst Entwurf auf dem Bestandsgrundriss: Möbelplanung, Stauraum und Visualisierung. Die Umsetzung mit Handwerkern liegt bei Dir — ich liefere die belastbare Planungsvorlage.',
+    info:'Du bekommst eine Grundplanung auf einen Bestandsgrundriss mit konkreten Maßen. Deine Vorgaben fordere ich heraus. Mit Möbelplanung, Stauraum, professioneller Platzbedarfsanalyse. Und ein Design passend zu Dir.',
   },
   {
     id:'allinclusive',
