@@ -1069,10 +1069,6 @@ body.bk-qm-wheel-open {
     padding-right: 0;
   }
 
-  body.bk-quiz-active.biig-interior-page .bi-konfigurator-section {
-    padding-bottom: calc(100dvh + env(safe-area-inset-bottom, 0px));
-  }
-
   body.bk-quiz-active.biig-interior-page .biig-konfigurator {
     padding-top: 0;
   }
