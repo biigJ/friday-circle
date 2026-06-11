@@ -1030,6 +1030,18 @@ body.bk-qm-wheel-open {
 }
 
 @media (max-width: 520px) {
+  body.biig-interior-page .bi-konfigurator-section > .bi-shell {
+    transition: padding-left 0.55s ease, padding-right 0.55s ease;
+  }
+
+  body.biig-interior-page .biig-konfigurator {
+    transition: padding-top 0.55s ease;
+  }
+
+  body.biig-interior-page .bk-form {
+    transition: border-color 0.55s ease, border-left-width 0.55s ease, border-right-width 0.55s ease;
+  }
+
   body.bk-quiz-active.biig-interior-page .nav {
     background: transparent;
     background-color: transparent;
