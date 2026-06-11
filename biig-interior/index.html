@@ -541,6 +541,17 @@
         text-shadow: 0 1px 14px rgba(0, 0, 0, 0.5);
       }
 
+      .bi-tile__media--split {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .bi-tile__media-half {
+        position: relative;
+        overflow: hidden;
+        height: 100%;
+      }
+
       .bi-tile__media img,
       .bi-slider__slide img {
         width: 100%;
@@ -1754,7 +1765,7 @@
             </button>
             <button type="button" class="bi-tile bi-tile--project" data-bi-project="loft">
               <span class="bi-tile__media">
-                <img src="../assets/interior/loft-01.png?v=2" alt="" width="1306" height="2430" decoding="async" />
+                <img src="../assets/interior/loftbalkon.png?v=2" alt="" width="1306" height="2430" decoding="async" />
               </span>
               <span class="bi-tile__label">
                 <span class="de-t">Dein Loft</span>
@@ -1851,8 +1862,13 @@
               </span>
             </button>
             <button type="button" class="bi-tile bi-tile--project" data-bi-project="vinothek">
-              <span class="bi-tile__media">
-                <img src="../assets/interior/geisenheim_blumen.png" alt="" width="800" height="1067" decoding="async" />
+              <span class="bi-tile__media bi-tile__media--split">
+                <span class="bi-tile__media-half">
+                  <img src="../assets/interior/geisenheim_blumen.png" alt="" width="800" height="1067" decoding="async" />
+                </span>
+                <span class="bi-tile__media-half">
+                  <img src="../assets/interior/alpenkantine-V01.png?v=2" alt="" width="800" height="1067" decoding="async" />
+                </span>
               </span>
               <span class="bi-tile__label">
                 <span class="de-t">Dein Gastraum</span>
@@ -2553,8 +2569,8 @@
               "Brass Living",
             ],
             images: [
-              "../assets/interior/loft-01.png?v=2",
               "../assets/interior/loftbalkon.png?v=2",
+              "../assets/interior/loft-01.png?v=2",
               "../assets/interior/BrassLiving-walkincloset03.png",
             ],
           },
