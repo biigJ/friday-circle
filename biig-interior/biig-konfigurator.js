@@ -16,9 +16,15 @@ const bkSt = {
 };
 window.bkSt = bkSt;
 
-const BK_QL = {1:'Standard', 2:'Gehoben', 3:'Premium'};
-const BK_CR = {1:'1×', 2:'2×', 3:'3×', 4:'Unlimitiert (300%)'};
-const BK_SL = {kl_zimmer:'Kleines Zimmer', gr_zimmer:'Großes Zimmer', teile:'Teile der Wohnung / des Büros', etage:'Komplette Wohnung / komplettes Büro', haus:'Große Wohn- / Büroetag(e)', haus_garten:'Haus'};
+function bkQL(v) {
+  return { 1: bkT('ql.standard'), 2: bkT('ql.gehoben'), 3: bkT('ql.premium') }[v] || '';
+}
+function bkCR(v) {
+  return { 1: bkT('cr.1'), 2: bkT('cr.2'), 3: bkT('cr.3'), 4: bkT('cr.4') }[v] || '';
+}
+function bkSL(k) {
+  return bkT('size.' + k);
+}
 const BK_BKI = {1:550, 2:850, 3:1500};
 /** Außen-BKI je m² als Anteil der Innen-BKI (gleicher Faktor wie Baukosten-Orientierung). */
 const BK_BKI_OUTDOOR = 0.28;
@@ -27,51 +33,25 @@ function bkQmOutHon(qmOut) {
   return qmOut > 0 ? qmOut * BK_BKI_OUTDOOR : 0;
 }
 
-const BK_TRACKS = [
-  {
-    id:'ordnung',
-    icon:'ti-stack-2',
-    title:'Ordnung & Sortierung',
-    desc:'ab 200 €',
-    info:'Ich bring Ordnung in Dein Projekt. Wie ist Dein Alltag strukturiert und wie der Ort. Grundriss, Platzbedarf, Möbel, was kann weg und was muss sein. Skizze in 2D und in 3D Stimmung.',
-  },
-  {
-    id:'arrangement',
-    icon:'ti-layout-dashboard',
-    title:'Grundplanung Raum-Arrangement',
-    desc:'Grundriss + Möbelplan + Visu · ab 450 €',
-    info:'Du bekommst eine Grundplanung auf einen Bestandsgrundriss mit konkreten Maßen. Deine Vorgaben fordere ich heraus. Mit Möbelplanung, Stauraum, professioneller Platzbedarfsanalyse. Und ein Design passend zu Dir.',
-  },
-  {
-    id:'allinclusive',
-    icon:'ti-building',
-    title:'Entwurf bis Umsetzung',
-    desc:'Planung + Handwerk · ab 1.000 €',
-    info:'Vom ersten Entwurf bis zur koordinierten Umsetzung — je nach gewählter Leistungsphase in Schritt 4. Ein durchgängiger Ablauf statt einzelner Planungslieferung.',
-  },
-];
+function bkTracks() {
+  return [
+    { id:'ordnung', icon:'ti-stack-2', title: bkT('track.ordnung.title'), desc: bkT('track.ordnung.desc'), info: bkT('track.ordnung.info') },
+    { id:'arrangement', icon:'ti-layout-dashboard', title: bkT('track.arrangement.title'), desc: bkT('track.arrangement.desc'), info: bkT('track.arrangement.info') },
+    { id:'allinclusive', icon:'ti-building', title: bkT('track.allinclusive.title'), desc: bkT('track.allinclusive.desc'), info: bkT('track.allinclusive.info') },
+  ];
+}
 
-const BK_PHASES = [
-  {
-    id:'konzept', steps:'①', title:'Nur Planung', desc:'Entwurf, Grundriss, Visualisierung',
-    info:'Du erhältst Planung und Visualisierung — ohne Gewerkesuche, Angebotsvergleich oder Baustellenkoordination. Die Umsetzung verantwortest Du selbst oder mit eigenen Handwerkern.',
-  },
-  {
-    id:'planung_bau', steps:'①②', title:'+ Vermittlung', desc:'inkl. Gewerke suchen & Angebote koordinieren · +25%',
-    info:'Alles aus Stufe 1, plus ich suche passende Gewerke und koordiniere Angebote. Die Verträge mit Handwerkern schließt Du; ich strukturiere Auswahl und Vergleich.',
-  },
-  {
-    id:'bauleitung', steps:'①②③', title:'+ Bauleitung', desc:'inkl. Koordination auf der Baustelle · +45%',
-    info:'Alles aus Stufe 2, plus laufende Steuerung auf der Baustelle — Termine, Abläufe und Qualität vor Ort. Ich bin Dein Ansprechpartner zwischen Plan und Ausführung.',
-  },
-  {
-    id:'gue', steps:'①②③④', title:'Alles aus einer Hand', desc:'inkl. einem Vertrag für alle Leistungen · +65%',
-    info:'Das Komplettpaket: Planung, Vermittlung, Bauleitung und ein gemeinsamer Vertragsrahmen. Du hast einen Ansprechpartner; ich steuere Gewerke und Ablauf end-to-end.',
-  },
-];
+function bkPhases() {
+  return [
+    { id:'konzept', steps:'①', title: bkT('phase.konzept.title'), desc: bkT('phase.konzept.desc'), info: bkT('phase.konzept.info') },
+    { id:'planung_bau', steps:'①②', title: bkT('phase.planung_bau.title'), desc: bkT('phase.planung_bau.desc'), info: bkT('phase.planung_bau.info') },
+    { id:'bauleitung', steps:'①②③', title: bkT('phase.bauleitung.title'), desc: bkT('phase.bauleitung.desc'), info: bkT('phase.bauleitung.info') },
+    { id:'gue', steps:'①②③④', title: bkT('phase.gue.title'), desc: bkT('phase.gue.desc'), info: bkT('phase.gue.info') },
+  ];
+}
 
 function bkInfoBtnHtml(label, info) {
-  return `<button type="button" class="bk-info-btn" aria-label="Umfang: ${label}">
+  return `<button type="button" class="bk-info-btn" aria-label="${bkT('info.scope')} ${label}">
     <span class="bk-info__mark" aria-hidden="true">i</span>
     <span class="bk-info__tip" role="tooltip">${info}</span>
   </button>`;
@@ -80,7 +60,7 @@ function bkInfoBtnHtml(label, info) {
 function bkRenderStep1Tracks() {
   const el = document.getElementById('bk-step1-tracks');
   if (!el) return;
-  el.innerHTML = BK_TRACKS.map(t => {
+  el.innerHTML = bkTracks().map(t => {
     const sel = bkSt.track.includes(t.id);
     return `<div class="bk-opt-wrap">
       <button type="button" class="bk-opt bk-opt--track ${sel ? 'sel' : ''}" id="bk-t-${t.id}" onclick="bkToggleT('${t.id}')">
@@ -142,11 +122,21 @@ function bkHonOutAbove(qm, qmOut, threshold, rate) {
   return Math.max(0, (combined - inner) * rate);
 }
 
-const BK_ORD_LABELS = {ideen:'Ideen strukturieren', moeblierung:'Möbel sortieren', stauraum_sys:'Stauraum-System', chaos:'Chaos-Zonen'};
-const BK_ZIELE_LABELS = {stauraum:'Mehr Stauraum', ruhe:'Ruhe & Rückzug', gaeste:'Gäste', homeoffice:'Homeoffice', kinder:'Kinder', aesthetik:'Ästhetik', fluss:'Raumfluss', licht:'Licht', kueche:'Küche', bad:'Bad'};
-const BK_FUNK_LABELS = {kinder_b:'Kinderbereiche', eltern:'Mastersuite', gaestezimmer:'Gästezimmer', homeoffice_f:'Homeoffice', fitness:'Fitness', hauswirtschaft:'Hauswirtschaft'};
-const BK_MAT_LABELS = {holz_hell:'Holz (hell)', holz_dunkel:'Holz (dunkel)', naturstein:'Naturstein', marmor:'Marmor', metall:'Metall', beton:'Beton', textil:'Textilien', farbe:'Farbige Wände'};
-const BK_KOORD_LABELS = {kueche_koord:'Küchenplanung', moebel:'Möbelplanung', kunst:'Kunst & Objekte', licht_koord:'Lichtplanung', textil_koord:'Textil & Vorhänge', bauleitung_koord:'Bauleitung'};
+function bkOrdLabels() {
+  return { ideen: bkT('s4.ordnung.tag.ideen').replace(' +6%', ''), moeblierung: bkT('s6.koord.moebel').replace(' +6%', ''), stauraum_sys: bkT('s4.ordnung.tag.stauraum').replace(' +6%', ''), chaos: bkT('s4.ordnung.tag.chaos').replace(' +6%', '') };
+}
+function bkZieleLabels() {
+  return { stauraum: bkT('s3.ziele.stauraum'), ruhe: bkT('s3.ziele.ruhe'), gaeste: bkT('s3.ziele.gaeste'), homeoffice: bkT('s3.ziele.homeoffice'), kinder: bkT('s3.ziele.kinder'), aesthetik: bkT('s3.ziele.aesthetik'), fluss: bkT('s3.ziele.fluss'), licht: bkT('s3.ziele.licht'), kueche: bkT('s3.ziele.kueche').replace(' +12%', ''), bad: bkT('s3.ziele.bad').replace(' +10%', '') };
+}
+function bkFunkLabels() {
+  return { kinder_b: bkT('s5.funk.kinder_b'), eltern: bkT('s5.funk.eltern'), gaestezimmer: bkT('s5.funk.gaestezimmer'), homeoffice_f: bkT('s5.funk.homeoffice_f').replace(' +8%', ''), fitness: bkT('s5.funk.fitness').replace(' +8%', ''), hauswirtschaft: bkT('s5.funk.hauswirtschaft') };
+}
+function bkMatLabels() {
+  return { holz_hell: bkT('s6.mat.holz_hell'), holz_dunkel: bkT('s6.mat.holz_dunkel'), naturstein: bkT('s6.mat.naturstein'), marmor: bkT('s6.mat.marmor'), metall: bkT('s6.mat.metall'), beton: bkT('s6.mat.beton'), textil: bkT('s6.mat.textil'), farbe: bkT('s6.mat.farbe') };
+}
+function bkKoordLabels() {
+  return { kueche_koord: bkT('s6.koord.kueche').replace(' +8%', ''), moebel: bkT('s6.koord.moebel').replace(' +6%', ''), kunst: bkT('s6.koord.kunst').replace(' +4%', ''), licht_koord: bkT('s6.koord.licht').replace(' +5%', ''), textil_koord: bkT('s6.koord.textil').replace(' +4%', ''), bauleitung_koord: bkT('s6.koord.bau').replace(' +15%', '') };
+}
 const BK_SIZE_BG = {
   kl_zimmer: '../assets/interior/oase-neopainting.png',
   gr_zimmer: '../assets/interior/blauesgemälde.png',
@@ -269,7 +259,7 @@ window.bkPickSl = function(key, val) {
 window.bkUpdQl = function(v) {
   bkSt.ql = v;
   const el = document.getElementById('bk-ql-val');
-  if (el) el.textContent = BK_QL[v];
+  if (el) el.textContent = bkQL(v);
   bkSyncSlOpts('ql', v);
   bkUpdateCart();
 };
@@ -277,7 +267,7 @@ window.bkUpdQl = function(v) {
 window.bkUpdCr = function(v) {
   bkSt.cr = v;
   const el = document.getElementById('bk-cr-val');
-  if (el) el.textContent = BK_CR[v];
+  if (el) el.textContent = bkCR(v);
   bkSyncSlOpts('cr', v);
   bkUpdateCart();
 };
@@ -298,9 +288,9 @@ function bkUpdateKoordNote() {
   if (!el) return;
   const msgs = [];
   if ((bkSt.koord||[]).includes('kueche_koord') && (bkSt.ziele||[]).includes('kueche'))
-    msgs.push('Küchenplanung ist bereits in Schritt 3 berücksichtigt — kein Doppelaufschlag.');
+    msgs.push(bkT('koord.note.kueche'));
   if ((bkSt.koord||[]).includes('bauleitung_koord') && bkSt.track.includes('allinclusive') && bkSt.aii_phase === 'bauleitung')
-    msgs.push('Bauleitung ist in Deiner Leistungsphase bereits enthalten — Koordinationsaufschlag entfällt.');
+    msgs.push(bkT('koord.note.bau'));
   el.style.display = msgs.length ? 'block' : 'none';
   el.textContent = msgs.join(' ');
 }
@@ -375,14 +365,14 @@ function bkCalcPrice() {
     if (bkSt.ord_aufraumen === 'ja') bInner += 150;
     const fokusMult = 1 + ((bkSt.ord_fokus||[]).length * 0.06);
     honOutTotal += honOut * fokusMult;
-    honItems.push({l:'Ordnung & Sortierung', v:Math.round(bInner * fokusMult)});
+    honItems.push({l: bkT('cart.ordnung'), v:Math.round(bInner * fokusMult)});
     base += (bInner + honOut) * fokusMult;
   }
   if (bkSt.track.includes('arrangement')) {
     const honOut = bkHonOutAbove(qm, qmOut, 30, 4.5);
     const bInner = Math.max(450, 450 + (qm - 30) * 4.5);
     honOutTotal += honOut;
-    honItems.push({l:'Raum-Arrangement + Visu', v:Math.round(bInner)});
+    honItems.push({l: bkT('cart.arrangement'), v:Math.round(bInner)});
     base += bInner + honOut;
   }
   if (bkSt.track.includes('allinclusive')) {
@@ -391,19 +381,19 @@ function bkCalcPrice() {
     const phaseMult = bkAiiPhaseMult();
     honOutTotal += honOut * phaseMult;
     const bTotal = (bInner + honOut) * phaseMult;
-    honItems.push({l:'Entwurf bis Umsetzung', v:Math.round(bInner * phaseMult)});
+    honItems.push({l: bkT('cart.allinclusive'), v:Math.round(bInner * phaseMult)});
     base += bTotal;
   }
 
   const aufmassHon = bkCalcAufmassHon(qm, qmOutHon);
   if (aufmassHon > 0) {
-    honItems.push({l:'Aufmaß vor Ort', v:aufmassHon});
+    honItems.push({l: bkT('cart.aufmass'), v:aufmassHon});
     base += aufmassHon;
   }
 
   if (qmOut > 0 && honOutTotal > 0) {
     honItems.push({
-      l: 'Außen ~' + qmOut + ' m² (BKI ×' + Math.round(BK_BKI_OUTDOOR * 100) + '%)',
+      l: bkTfmt('cart.outdoor', { qm: qmOut, pct: Math.round(BK_BKI_OUTDOOR * 100) }),
       v: Math.round(honOutTotal),
     });
   }
@@ -436,7 +426,7 @@ function bkCalcPrice() {
   const koord = bkSt.koord || [];
   const kuecheSchonDrin = z.includes('kueche');
   if (koord.includes('kueche_koord') && !kuecheSchonDrin) { multi += .08; auf.push('Küchenkoord. +8%'); }
-  if (koord.includes('moebel')) { multi += .06; auf.push('Möbelplanung +6%'); }
+  if (koord.includes('moebel')) { multi += .06; auf.push(bkT('s6.koord.moebel')); }
   if (koord.includes('kunst')) { multi += .04; auf.push('Kunst +4%'); }
   if (koord.includes('licht_koord')) { multi += .05; auf.push('Lichtplanung +5%'); }
   if (koord.includes('textil_koord')) { multi += .04; auf.push('Textil +4%'); }
@@ -447,7 +437,7 @@ function bkCalcPrice() {
   const step8Done = bkStep8Valid();
 
   const qlM = step7Done ? ([1, 1, 1.35, 1.75][bkSt.ql] || 1) : 1;
-  if (step7Done && qlM > 1) auf.push(BK_QL[bkSt.ql] + ' +' + Math.round((qlM - 1) * 100) + '%');
+  if (step7Done && qlM > 1) auf.push(bkQL(bkSt.ql) + ' +' + Math.round((qlM - 1) * 100) + '%');
   multi *= qlM;
 
   const crM = step7Done ? ([1, 1, 1.15, 1.25, 3][bkSt.cr] || 1) : 1;
@@ -475,10 +465,10 @@ function bkCalcPrice() {
     const bkiM = BK_BKI[step7Done ? bkSt.ql : 1] || 550;
     const umbau = qm * bkiM;
     bauBase += umbau;
-    bauItems.push({l:'Umbau ~' + qm + ' m² (' + BK_QL[bkSt.ql] + ')', v:Math.round(umbau)});
-    if (z.includes('kueche')) { const kv = bkSt.ql===3?28000:bkSt.ql===2?14000:7000; bauBase+=kv; bauItems.push({l:'Küche', v:kv}); }
-    if (z.includes('bad')) { const bv = bkSt.ql===3?20000:bkSt.ql===2?10000:4500; bauBase+=bv; bauItems.push({l:'Bad', v:bv}); }
-    if (qmOut > 0) { const av = Math.round(qmOut * bkiM * BK_BKI_OUTDOOR); bauBase+=av; bauItems.push({l:'Außen ~'+qmOut+' m² (BKI)', v:av}); }
+    bauItems.push({l: bkTfmt('cart.umbau', { qm: qm, ql: bkQL(bkSt.ql) }), v:Math.round(umbau)});
+    if (z.includes('kueche')) { const kv = bkSt.ql===3?28000:bkSt.ql===2?14000:7000; bauBase+=kv; bauItems.push({l: bkT('cart.kitchen'), v:kv}); }
+    if (z.includes('bad')) { const bv = bkSt.ql===3?20000:bkSt.ql===2?10000:4500; bauBase+=bv; bauItems.push({l: bkT('cart.bath'), v:bv}); }
+    if (qmOut > 0) { const av = Math.round(qmOut * bkiM * BK_BKI_OUTDOOR); bauBase+=av; bauItems.push({l: bkTfmt('cart.outdoorBki', { qm: qmOut }), v:av}); }
   }
   const bauLow = bauBase ? Math.round(bauBase/500)*500 : 0;
   const bauHigh = bauLow ? Math.round(bauLow*1.35/500)*500 : 0;
@@ -499,16 +489,16 @@ function bkUpdateCart() {
   }
   if (ctH) {
     ctH.textContent = honorarOpen
-      ? 'ab ' + honLow.toLocaleString('de-DE') + ' €'
-      : honLow.toLocaleString('de-DE') + ' – ' + honHigh.toLocaleString('de-DE') + ' €';
+      ? bkT('cart.from') + ' ' + bkFmtEuro(honLow)
+      : bkFmtNum(honLow) + ' – ' + bkFmtEuro(honHigh);
   }
-  if (ctB) ctB.textContent = bauLow ? bauLow.toLocaleString('de-DE') + ' – ' + bauHigh.toLocaleString('de-DE') + ' €' : '—';
+  if (ctB) ctB.textContent = bauLow ? bkFmtNum(bauLow) + ' – ' + bkFmtEuro(bauHigh) : '—';
   let html = '';
-  honItems.forEach(i => html += `<div class="bk-cr"><span>${i.l}</span><b>${i.v.toLocaleString('de-DE')} €</b></div>`);
+  honItems.forEach(i => html += `<div class="bk-cr"><span>${i.l}</span><b>${bkFmtEuro(i.v)}</b></div>`);
   if (aufItems.length) html += `<div class="bk-cr aufschlag" style="font-size:10px"><span style="line-height:1.6">${aufItems.join(' · ')}</span></div>`;
   if (bauItems.length) {
-    html += `<div class="bk-cr" style="margin-top:3px;font-size:10px;opacity:.6"><span>Baukosten-Orientierung (BKI)</span></div>`;
-    bauItems.forEach(i => html += `<div class="bk-cr bau-row"><span>${i.l}</span><b>${i.v.toLocaleString('de-DE')} €</b></div>`);
+    html += `<div class="bk-cr" style="margin-top:3px;font-size:10px;opacity:.6"><span>${bkT('cart.bauGuide')}</span></div>`;
+    bauItems.forEach(i => html += `<div class="bk-cr bau-row"><span>${i.l}</span><b>${bkFmtEuro(i.v)}</b></div>`);
   }
   if (crEl) crEl.innerHTML = html;
 }
@@ -518,54 +508,54 @@ function bkRenderS4() {
   let html = '';
 
   if (tr.includes('ordnung')) {
-    html += `<div class="bk-sdiv">Ordnung & Sortierung</div>
-    <div class="bk-q">Was soll sortiert werden?<small>Jede Option +6% auf den Ordnungs-Block</small></div>
+    html += `<div class="bk-sdiv">${bkT('s4.ordnung.head')}</div>
+    <div class="bk-q">${bkT('s4.ordnung.q1')}<small>${bkT('s4.ordnung.q1Hint')}</small></div>
     <div class="bk-tags">
-      <button class="bk-tag ${(bkSt.ord_fokus||[]).includes('ideen')?'sel':''}" data-k="ord_fokus" data-v="ideen" onclick="bkToggleTag(this)">Ideen & Wünsche strukturieren +6%</button>
-      <button class="bk-tag ${(bkSt.ord_fokus||[]).includes('moeblierung')?'sel':''}" data-k="ord_fokus" data-v="moeblierung" onclick="bkToggleTag(this)">Möbel & Objekte sortieren +6%</button>
-      <button class="bk-tag ${(bkSt.ord_fokus||[]).includes('stauraum_sys')?'sel':''}" data-k="ord_fokus" data-v="stauraum_sys" onclick="bkToggleTag(this)">Stauraum-System +6%</button>
-      <button class="bk-tag ${(bkSt.ord_fokus||[]).includes('chaos')?'sel':''}" data-k="ord_fokus" data-v="chaos" onclick="bkToggleTag(this)">Chaos-Zonen +6%</button>
+      <button class="bk-tag ${(bkSt.ord_fokus||[]).includes('ideen')?'sel':''}" data-k="ord_fokus" data-v="ideen" onclick="bkToggleTag(this)">${bkT('s4.ordnung.tag.ideen')}</button>
+      <button class="bk-tag ${(bkSt.ord_fokus||[]).includes('moeblierung')?'sel':''}" data-k="ord_fokus" data-v="moeblierung" onclick="bkToggleTag(this)">${bkT('s4.ordnung.tag.moebel')}</button>
+      <button class="bk-tag ${(bkSt.ord_fokus||[]).includes('stauraum_sys')?'sel':''}" data-k="ord_fokus" data-v="stauraum_sys" onclick="bkToggleTag(this)">${bkT('s4.ordnung.tag.stauraum')}</button>
+      <button class="bk-tag ${(bkSt.ord_fokus||[]).includes('chaos')?'sel':''}" data-k="ord_fokus" data-v="chaos" onclick="bkToggleTag(this)">${bkT('s4.ordnung.tag.chaos')}</button>
     </div>
-    <div class="bk-q">Darf ich auch beim Aufräumen & Wegwerfen helfen?</div>
+    <div class="bk-q">${bkT('s4.ordnung.q2')}</div>
     <div class="bk-opts">
       <button class="bk-opt ${bkSt.ord_aufraumen==='ja'?'sel':''}" onclick="bkPickOpt('ord_aufraumen','ja',this)">
         <i class="ti ti-trash" aria-hidden="true"></i>
-        <div><span class="bk-ot">Ja gerne</span><span class="bk-os">Gemeinsam aussortieren · +150 €</span></div>
+        <div><span class="bk-ot">${bkT('s4.ordnung.aufr.ja.t')}</span><span class="bk-os">${bkT('s4.ordnung.aufr.ja.s')}</span></div>
       </button>
       <button class="bk-opt ${bkSt.ord_aufraumen==='nein'?'sel':''}" onclick="bkPickOpt('ord_aufraumen','nein',this)">
         <i class="ti ti-check" aria-hidden="true"></i>
-        <div><span class="bk-ot">Nein, ich mache das selbst</span></div>
+        <div><span class="bk-ot">${bkT('s4.ordnung.aufr.nein')}</span></div>
       </button>
     </div>`;
   }
 
   if (tr.includes('arrangement')) {
-    html += `<div class="bk-sdiv">Raum-Arrangement</div>
-    <div class="bk-q">Ausgangspunkt?</div>
+    html += `<div class="bk-sdiv">${bkT('s4.arr.head')}</div>
+    <div class="bk-q">${bkT('s4.arr.q1')}</div>
     <div class="bk-opts">
       <button class="bk-opt ${bkSt.arr_fokus==='leer'?'sel':''}" onclick="bkPickOpt('arr_fokus','leer',this)">
-        <i class="ti ti-box" aria-hidden="true"></i><div><span class="bk-ot">Leerer Raum</span></div>
+        <i class="ti ti-box" aria-hidden="true"></i><div><span class="bk-ot">${bkT('s4.arr.leer')}</span></div>
       </button>
       <button class="bk-opt ${bkSt.arr_fokus==='bestand'?'sel':''}" onclick="bkPickOpt('arr_fokus','bestand',this)">
-        <i class="ti ti-refresh" aria-hidden="true"></i><div><span class="bk-ot">Bestand optimieren</span></div>
+        <i class="ti ti-refresh" aria-hidden="true"></i><div><span class="bk-ot">${bkT('s4.arr.bestand')}</span></div>
       </button>
       <button class="bk-opt ${bkSt.arr_fokus==='misch'?'sel':''}" onclick="bkPickOpt('arr_fokus','misch',this)">
-        <i class="ti ti-layers-difference" aria-hidden="true"></i><div><span class="bk-ot">Mischung</span></div>
+        <i class="ti ti-layers-difference" aria-hidden="true"></i><div><span class="bk-ot">${bkT('s4.arr.misch')}</span></div>
       </button>
     </div>
-    <div class="bk-q">Stauraum als…</div>
+    <div class="bk-q">${bkT('s4.arr.q2')}</div>
     <div class="bk-opts">
-      <button class="bk-opt ${bkSt.stauraum_typ==='einbau'?'sel':''}" onclick="bkPickOpt('stauraum_typ','einbau',this)"><i class="ti ti-wall" aria-hidden="true"></i><div><span class="bk-ot">Einbauschränke</span></div></button>
-      <button class="bk-opt ${bkSt.stauraum_typ==='freistehend'?'sel':''}" onclick="bkPickOpt('stauraum_typ','freistehend',this)"><i class="ti ti-box" aria-hidden="true"></i><div><span class="bk-ot">Freistehende Möbel</span></div></button>
-      <button class="bk-opt ${bkSt.stauraum_typ==='beides'?'sel':''}" onclick="bkPickOpt('stauraum_typ','beides',this)"><i class="ti ti-stack-2" aria-hidden="true"></i><div><span class="bk-ot">Beides</span></div></button>
+      <button class="bk-opt ${bkSt.stauraum_typ==='einbau'?'sel':''}" onclick="bkPickOpt('stauraum_typ','einbau',this)"><i class="ti ti-wall" aria-hidden="true"></i><div><span class="bk-ot">${bkT('s4.arr.einbau')}</span></div></button>
+      <button class="bk-opt ${bkSt.stauraum_typ==='freistehend'?'sel':''}" onclick="bkPickOpt('stauraum_typ','freistehend',this)"><i class="ti ti-box" aria-hidden="true"></i><div><span class="bk-ot">${bkT('s4.arr.freistehend')}</span></div></button>
+      <button class="bk-opt ${bkSt.stauraum_typ==='beides'?'sel':''}" onclick="bkPickOpt('stauraum_typ','beides',this)"><i class="ti ti-stack-2" aria-hidden="true"></i><div><span class="bk-ot">${bkT('s4.arr.beides')}</span></div></button>
     </div>`;
   }
 
   if (tr.includes('allinclusive')) {
-    html += `<div class="bk-sdiv">Entwurf bis Umsetzung</div>
-    <div class="bk-q">Welche Leistungsphase brauchst Du?<small>Weiter unten = mehr Leistung enthalten — kein Ersatz, sondern Stufen</small></div>
+    html += `<div class="bk-sdiv">${bkT('s4.aii.head')}</div>
+    <div class="bk-q">${bkT('s4.aii.q1')}<small>${bkT('s4.aii.q1Hint')}</small></div>
     <div class="bk-opts bk-opts--phases">${
-      BK_PHASES.map(p => {
+      bkPhases().map(p => {
         const sel = bkSt.aii_phase === p.id;
         return `<div class="bk-opt-wrap">
           <button type="button" class="bk-opt bk-opt--phase ${sel ? 'sel' : ''}" onclick="bkPickOpt('aii_phase','${p.id}',this)">
@@ -576,52 +566,52 @@ function bkRenderS4() {
         </div>`;
       }).join('')
     }</div>
-    <div class="bk-q">Soll die Raumstruktur verändert werden?<small>Wände versetzen, Grundriss ändern, Installationsleitungen verlegen — nicht gemeint sind Möbel, Oberflächen oder Ausstattung</small></div>
+    <div class="bk-q">${bkT('s4.aii.q2')}<small>${bkT('s4.aii.q2Hint')}</small></div>
     <div class="bk-opts">
       <button class="bk-opt ${bkSt.struktur_eingriff==='ja'?'sel':''}" onclick="bkPickOpt('struktur_eingriff','ja',this)">
         <i class="ti ti-home-edit" aria-hidden="true"></i>
-        <div><span class="bk-ot">Ja — Eingriff in die Struktur</span><span class="bk-os">Wände, Leitungen, Grundriss · +15%</span></div>
+        <div><span class="bk-ot">${bkT('s4.aii.struktur.ja.t')}</span><span class="bk-os">${bkT('s4.aii.struktur.ja.s')}</span></div>
       </button>
       <button class="bk-opt ${bkSt.struktur_eingriff==='nein'?'sel':''}" onclick="bkPickOpt('struktur_eingriff','nein',this)">
         <i class="ti ti-check" aria-hidden="true"></i>
-        <div><span class="bk-ot">Nein — nur Ausbau & Ausstattung</span><span class="bk-os">Oberflächen, Möbel, Technik</span></div>
+        <div><span class="bk-ot">${bkT('s4.aii.struktur.nein.t')}</span><span class="bk-os">${bkT('s4.aii.struktur.nein.s')}</span></div>
       </button>
       <button class="bk-opt ${bkSt.struktur_eingriff==='unklar'?'sel':''}" onclick="bkPickOpt('struktur_eingriff','unklar',this)">
         <i class="ti ti-question-mark" aria-hidden="true"></i>
-        <div><span class="bk-ot">Noch unklar</span><span class="bk-os">Klären wir gemeinsam · +7% Planungspuffer</span></div>
+        <div><span class="bk-ot">${bkT('s4.aii.struktur.unklar.t')}</span><span class="bk-os">${bkT('s4.aii.struktur.unklar.s')}</span></div>
       </button>
     </div>
-    <div class="bk-q">Handwerker-Situation?</div>
+    <div class="bk-q">${bkT('s4.aii.q3')}</div>
     <div class="bk-opts">
       <button class="bk-opt ${bkSt.handwerker_status==='vorhanden'?'sel':''}" onclick="bkPickOpt('handwerker_status','vorhanden',this)">
-        <i class="ti ti-check" aria-hidden="true"></i><div><span class="bk-ot">Eigene Handwerker vorhanden</span><span class="bk-os">Kein Aufschlag</span></div>
+        <i class="ti ti-check" aria-hidden="true"></i><div><span class="bk-ot">${bkT('s4.aii.hw.vorhanden.t')}</span><span class="bk-os">${bkT('s4.aii.hw.vorhanden.s')}</span></div>
       </button>
       <button class="bk-opt ${bkSt.handwerker_status==='suchen'?'sel':''}" onclick="bkPickOpt('handwerker_status','suchen',this)">
-        <i class="ti ti-search" aria-hidden="true"></i><div><span class="bk-ot">Handwerker noch suchen</span><span class="bk-os">+7%</span></div>
+        <i class="ti ti-search" aria-hidden="true"></i><div><span class="bk-ot">${bkT('s4.aii.hw.suchen.t')}</span><span class="bk-os">${bkT('s4.aii.hw.suchen.s')}</span></div>
       </button>
       <button class="bk-opt ${bkSt.handwerker_status==='offen'?'sel':''}" onclick="bkPickOpt('handwerker_status','offen',this)">
-        <i class="ti ti-question-mark" aria-hidden="true"></i><div><span class="bk-ot">Noch unklar</span><span class="bk-os">+4% Planungspuffer</span></div>
+        <i class="ti ti-question-mark" aria-hidden="true"></i><div><span class="bk-ot">${bkT('s4.aii.hw.offen.t')}</span><span class="bk-os">${bkT('s4.aii.hw.offen.s')}</span></div>
       </button>
     </div>`;
   }
 
   if (tr.includes('arrangement') || tr.includes('allinclusive')) {
     const phaseHint = tr.includes('allinclusive')
-      ? '<small>Bei Entwurf bis Umsetzung anteilig zur gewählten Leistungsphase</small>'
-      : '<small>Zusatzleistung — separat ausgewiesen · ab 300 € je nach m²</small>';
-    html += `<div class="bk-sdiv">Aufmaß</div>
-    <div class="bk-q">Aufmaß vor Ort notwendig?${phaseHint}</div>
+      ? '<small>' + bkT('s4.aufmass.hint.aii') + '</small>'
+      : '<small>' + bkT('s4.aufmass.hint.arr') + '</small>';
+    html += `<div class="bk-sdiv">${bkT('s4.aufmass.head')}</div>
+    <div class="bk-q">${bkT('s4.aufmass.q')}${phaseHint}</div>
     <div class="bk-opts">
       <button class="bk-opt ${bkSt.aufmass===true?'sel':''}" onclick="bkPickAufmass(true,this)">
-        <i class="ti ti-ruler" aria-hidden="true"></i><div><span class="bk-ot">Ja, Aufmaß notwendig</span><span class="bk-os">ab 300 € je nach m²</span></div>
+        <i class="ti ti-ruler" aria-hidden="true"></i><div><span class="bk-ot">${bkT('s4.aufmass.ja.t')}</span><span class="bk-os">${bkT('s4.aufmass.ja.s')}</span></div>
       </button>
       <button class="bk-opt ${bkSt.aufmass===false?'sel':''}" onclick="bkPickAufmass(false,this)">
-        <i class="ti ti-file-description" aria-hidden="true"></i><div><span class="bk-ot">Nein, Pläne vorhanden</span></div>
+        <i class="ti ti-file-description" aria-hidden="true"></i><div><span class="bk-ot">${bkT('s4.aufmass.nein')}</span></div>
       </button>
     </div>`;
   }
 
-  if (!html) html = '<p style="font-size:12px;color:var(--bk-text2)">Bitte gehe zurück und wähle eine Leistung.</p>';
+  if (!html) html = '<p style="font-size:12px;color:var(--bk-text2)">' + bkT('summary.pickService') + '</p>';
   document.getElementById('bk-s4-content').innerHTML = html;
   bkUpdateCart();
   bkUpdateNavButtons();
@@ -641,60 +631,64 @@ function bkUpdateNavButtons() {
 window.bkUpdateNavButtons = bkUpdateNavButtons;
 
 function bkRenderFinalSummary() {
+  const zieleL = bkZieleLabels();
+  const matL = bkMatLabels();
+  const funkL = bkFunkLabels();
+  const koordL = bkKoordLabels();
   const qm = Math.max(bkSt.qmIn || 10, 5);
   const aufmassHon = bkCalcAufmassHon(qm, bkQmOutHon(bkSt.qmOut || 0));
   const {honLow, honHigh, bauLow, bauHigh} = bkCalcPrice();
-  const tL = {ordnung:'Ordnung & Sortierung', arrangement:'Raum-Arrangement', allinclusive:'Entwurf bis Umsetzung'};
-  const phaseL = Object.fromEntries(BK_PHASES.map(p => [p.id, p.steps + ' ' + p.title]));
-  const feelL = {retreat:'Ruhiges Retreat', lebhaft:'Lebhaftes Zuhause', repraesentation:'Repräsentation', funktional:'Maximal funktional'};
-  const neuanL = {ja:'Neue Möbel geplant', nein:'Nur Vorhandenes', wenig:'Wenige gezielte Stücke'};
-  const nutzerL = {allein:'Alleine', paar:'Zu zweit', familie:'Familie mit Kindern', wg:'WG'};
-  const kochenL = {aufwendig:'Häufig & aufwendig', schnell:'Schnell & pragmatisch', selten:'Selten'};
-  const smhL = {ja:'Ja, Licht & mehr', licht:'Nur Licht', nein:'Kein Thema'};
-  const kvL = {nie:'Nicht nötig', meilensteine:'An Meilensteinen', monatlich:'Monatlich', laufend:'Laufend'};
-  const aendL = {keine:'Einmal entscheiden, dann final', wenige:'Gelegentliche Korrekturen (+30%)', viele:'Spielraum (×2 Honorar)'};
-  const dlL = {hart:'Fixer Termin', weich:'Ungefähr', offen:'Noch offen'};
-  const bewL = {ja:'Bewohnt', leer:'Leer', beides:'Beides möglich'};
-  const kommL = {mail:'E-Mail', whatsapp:'WhatsApp', call:'Anruf'};
-  const krL = {bis20k:'bis 20.000 €', '20_60k':'20–60.000 €', '60_150k':'60–150.000 €', '150kplus':'150.000 € +', '500kplus':'500.000 € +', offen:'Noch offen'};
-  const stilL = {warm:'Warm-zeitlos', clean:'Modern-clean', japanisch:'Ruhig-japanisch', urban:'Urban-elegant', maximal:'Maximalistisch', offen:'Noch offen'};
-  const sizeStr = (BK_SL[bkSt.size]||'—') + (bkSt.qmIn ? ', ' + bkSt.qmIn + ' m²' : '');
+  const tL = {ordnung: bkT('cart.ordnung'), arrangement: bkT('cart.arrangement'), allinclusive: bkT('cart.allinclusive')};
+  const phaseL = Object.fromEntries(bkPhases().map(p => [p.id, p.steps + ' ' + p.title]));
+  const feelL = {retreat: bkT('s3.feel.retreat'), lebhaft: bkT('s3.feel.lebhaft'), repraesentation: bkT('s3.feel.repraesentation'), funktional: bkT('s3.feel.funktional')};
+  const neuanL = {ja: bkT('s6.neuan.ja'), nein: bkT('s6.neuan.nein'), wenig: bkT('s6.neuan.wenig')};
+  const nutzerL = {allein: bkT('s5.nutzer.allein'), paar: bkT('s5.nutzer.paar'), familie: bkT('s5.nutzer.familie'), wg: bkT('s5.nutzer.wg')};
+  const kochenL = {aufwendig: bkT('s5.kochen.aufwendig.t'), schnell: bkT('s5.kochen.schnell'), selten: bkT('s5.kochen.selten')};
+  const smhL = {ja: bkT('s5.smh.ja.t'), licht: bkT('s5.smh.licht.t'), nein: bkT('s5.smh.nein')};
+  const kvL = {nie: bkT('s7.kv.nie'), meilensteine: bkT('s7.kv.meilensteine'), monatlich: bkT('s7.kv.monatlich.t'), laufend: bkT('s7.kv.laufend.t')};
+  const aendL = {keine: bkT('s7.aend.keine.t') + ' — ' + bkT('s7.aend.keine.s'), wenige: bkT('s7.aend.wenige.t') + ' (+30%)', viele: bkT('s7.aend.viele.t') + ' (×2)'};
+  const dlL = {hart: bkT('s8.dl.hart.t'), weich: bkT('s8.dl.weich'), offen: bkT('s8.dl.offen')};
+  const bewL = {ja: bkT('s8.bew.ja.t'), leer: bkT('s8.bew.leer'), beides: bkT('s8.bew.beides')};
+  const kommL = {mail: bkT('s8.komm.mail'), whatsapp: bkT('s8.komm.whatsapp'), call: bkT('s8.komm.call')};
+  const krL = {bis20k: bkT('s9.kr.bis20k'), '20_60k': bkT('s9.kr.20_60k'), '60_150k': bkT('s9.kr.60_150k'), '150kplus': bkT('s9.kr.150kplus'), '500kplus': bkT('s9.kr.500kplus'), offen: bkT('s9.kr.offen')};
+  const stilL = {warm: bkT('s6.stil.warm.t'), clean: bkT('s6.stil.clean.t'), japanisch: bkT('s6.stil.japanisch.t'), urban: bkT('s6.stil.urban.t'), maximal: bkT('s6.stil.maximal.t'), offen: bkT('s6.stil.offen')};
+  const sizeStr = (bkSt.size ? bkSL(bkSt.size) : '—') + (bkSt.qmIn ? ', ' + bkSt.qmIn + ' m²' : '');
   const aussenStr = bkSt.aussen && bkSt.aussen !== 'kein' ? (bkSt.aussen + (bkSt.qmOut ? ' ' + bkSt.qmOut + ' m²' : '')) : null;
 
   const hard = [
-    {k:'Leistung', v:bkSt.track.map(t=>tL[t]).join(', ')||'—'},
-    bkSt.track.includes('allinclusive') && bkSt.aii_phase ? {k:'Leistungsphase', v:phaseL[bkSt.aii_phase]||bkSt.aii_phase} : null,
-    {k:'Projektgröße', v:sizeStr},
-    aussenStr ? {k:'Außenbereich', v:aussenStr} : null,
-    {k:'Qualitätsniveau', v:BK_QL[bkSt.ql]},
-    aufmassHon > 0 ? {k:'Aufmaß vor Ort', v:aufmassHon.toLocaleString('de-DE') + ' €'} : null,
-    {k:'Honorar-Schätzung', v:honLow ? honLow.toLocaleString('de-DE')+' – '+honHigh.toLocaleString('de-DE')+' €' : '—', hl:true},
-    bauLow ? {k:'Baukosten-Orientierung', v:bauLow.toLocaleString('de-DE')+' – '+bauHigh.toLocaleString('de-DE')+' €'} : null,
-    bkSt.kostenrahmen ? {k:'Mein Kostenrahmen', v:krL[bkSt.kostenrahmen]||bkSt.kostenrahmen} : null,
+    {k: bkT('summary.leistung'), v:bkSt.track.map(t=>tL[t]).join(', ')||'—'},
+    bkSt.track.includes('allinclusive') && bkSt.aii_phase ? {k: bkT('summary.phase'), v:phaseL[bkSt.aii_phase]||bkSt.aii_phase} : null,
+    {k: bkT('summary.size'), v:sizeStr},
+    aussenStr ? {k: bkT('summary.outdoor'), v:aussenStr} : null,
+    {k: bkT('summary.quality'), v: bkQL(bkSt.ql)},
+    aufmassHon > 0 ? {k: bkT('cart.aufmass'), v: bkFmtEuro(aufmassHon)} : null,
+    {k: bkT('summary.feeEst'), v:honLow ? bkFmtNum(honLow)+' – '+bkFmtEuro(honHigh) : '—', hl:true},
+    bauLow ? {k: bkT('summary.buildEst'), v: bkFmtNum(bauLow)+' – '+bkFmtEuro(bauHigh)} : null,
+    bkSt.kostenrahmen ? {k: bkT('summary.budget'), v:krL[bkSt.kostenrahmen]||bkSt.kostenrahmen} : null,
   ].filter(Boolean);
 
   const soft = [
-    bkSt.ziele.length ? {k:'Ziele', v:bkSt.ziele.map(z=>BK_ZIELE_LABELS[z]||z).join(', ')} : null,
-    bkSt.feel ? {k:'Atmosphäre', v:feelL[bkSt.feel]||bkSt.feel} : null,
-    bkSt.stil ? {k:'Stil', v:stilL[bkSt.stil]||bkSt.stil} : null,
-    bkSt.mat && bkSt.mat.length ? {k:'Materialien', v:bkSt.mat.map(m=>BK_MAT_LABELS[m]||m).join(', ')} : null,
-    bkSt.funktionen && bkSt.funktionen.length ? {k:'Raumfunktionen', v:bkSt.funktionen.map(f=>BK_FUNK_LABELS[f]||f).join(', ')} : null,
-    bkSt.nutzer ? {k:'Bewohner', v:nutzerL[bkSt.nutzer]||bkSt.nutzer} : null,
-    bkSt.kochen ? {k:'Kochen', v:kochenL[bkSt.kochen]||bkSt.kochen} : null,
-    bkSt.smarthome ? {k:'Smart Home', v:smhL[bkSt.smarthome]||bkSt.smarthome} : null,
-    bkSt.koord && bkSt.koord.length ? {k:'Koordination', v:bkSt.koord.map(c=>BK_KOORD_LABELS[c]||c).join(', ')} : null,
+    bkSt.ziele.length ? {k: bkT('summary.goals'), v:bkSt.ziele.map(z=>zieleL[z]||z).join(', ')} : null,
+    bkSt.feel ? {k: bkT('summary.atmosphere'), v:feelL[bkSt.feel]||bkSt.feel} : null,
+    bkSt.stil ? {k: bkT('summary.style'), v:stilL[bkSt.stil]||bkSt.stil} : null,
+    bkSt.mat && bkSt.mat.length ? {k: bkT('summary.materials'), v:bkSt.mat.map(m=>matL[m]||m).join(', ')} : null,
+    bkSt.funktionen && bkSt.funktionen.length ? {k: bkT('summary.functions'), v:bkSt.funktionen.map(f=>funkL[f]||f).join(', ')} : null,
+    bkSt.nutzer ? {k: bkT('summary.residents'), v:nutzerL[bkSt.nutzer]||bkSt.nutzer} : null,
+    bkSt.kochen ? {k: bkT('summary.cooking'), v:kochenL[bkSt.kochen]||bkSt.kochen} : null,
+    bkSt.smarthome ? {k: bkT('summary.smarthome'), v:smhL[bkSt.smarthome]||bkSt.smarthome} : null,
+    bkSt.koord && bkSt.koord.length ? {k: bkT('summary.coordination'), v:bkSt.koord.map(c=>koordL[c]||c).join(', ')} : null,
     bkSt.track.includes('allinclusive') && bkSt.struktur_eingriff
-      ? {k:'Raumstruktur', v:{ja:'Eingriff geplant', nein:'Nur Ausbau & Ausstattung', unklar:'Noch zu klären'}[bkSt.struktur_eingriff] || bkSt.struktur_eingriff}
+      ? {k: bkT('summary.structure'), v:{ja: bkT('s4.aii.struktur.ja.t'), nein: bkT('s4.aii.struktur.nein.t'), unklar: bkT('s4.aii.struktur.unklar.t')}[bkSt.struktur_eingriff] || bkSt.struktur_eingriff}
       : null,
-    bkSt.neuan ? {k:'Möbel', v:neuanL[bkSt.neuan]||bkSt.neuan} : null,
-    bkSt.hon_typ ? {k:'Honorarstruktur', v:{pauschale:'Pauschale', stunden:'Stundennachweis', egal:'Flexibel'}[bkSt.hon_typ]||bkSt.hon_typ} : null,
-    bkSt.kv ? {k:'Kostenverfolgung', v:kvL[bkSt.kv]||bkSt.kv} : null,
-    bkSt.aend ? {k:'Anpassung nach Freigabe', v:aendL[bkSt.aend]||bkSt.aend} : null,
-    bkSt.dl_typ ? {k:'Deadline', v:(dlL[bkSt.dl_typ]||bkSt.dl_typ)+(bkSt.dl_text?' — '+bkSt.dl_text:'')} : null,
-    bkSt.bewohnt ? {k:'Während des Projekts', v:bewL[bkSt.bewohnt]||bkSt.bewohnt} : null,
-    bkSt.komm ? {k:'Kontakt bevorzugt', v:kommL[bkSt.komm]||bkSt.komm} : null,
-    bkSt.gesetzt ? {k:'Gesetzte Möbel', v:bkSt.gesetzt} : null,
-    bkSt.nogo ? {k:'No-Go', v:bkSt.nogo} : null,
+    bkSt.neuan ? {k: bkT('summary.furniture'), v:neuanL[bkSt.neuan]||bkSt.neuan} : null,
+    bkSt.hon_typ ? {k: bkT('summary.feeStruct'), v:{pauschale: bkT('s7.hon.pauschale.t'), stunden: bkT('s7.hon.stunden.t'), egal: bkT('s7.hon.egal')}[bkSt.hon_typ]||bkSt.hon_typ} : null,
+    bkSt.kv ? {k: bkT('summary.costTrack'), v:kvL[bkSt.kv]||bkSt.kv} : null,
+    bkSt.aend ? {k: bkT('summary.approval'), v:aendL[bkSt.aend]||bkSt.aend} : null,
+    bkSt.dl_typ ? {k: bkT('summary.deadline'), v:(dlL[bkSt.dl_typ]||bkSt.dl_typ)+(bkSt.dl_text?' — '+bkSt.dl_text:'')} : null,
+    bkSt.bewohnt ? {k: bkT('summary.during'), v:bewL[bkSt.bewohnt]||bkSt.bewohnt} : null,
+    bkSt.komm ? {k: bkT('summary.contact'), v:kommL[bkSt.komm]||bkSt.komm} : null,
+    bkSt.gesetzt ? {k: bkT('summary.fixedFurniture'), v:bkSt.gesetzt} : null,
+    bkSt.nogo ? {k: bkT('summary.nogo'), v:bkSt.nogo} : null,
   ].filter(Boolean);
 
   const row = (r, isSoft) =>
@@ -706,9 +700,9 @@ function bkRenderFinalSummary() {
   const el = document.getElementById('bk-final-summary');
   if (el) el.innerHTML = `
     <div class="bk-smr">
-      <div class="bk-smr-t">Zusammenfassung Deiner Anfrage</div>
+      <div class="bk-smr-t">${bkT('summary.title')}</div>
       ${hard.map(r => row(r, false)).join('')}
-      ${soft.length ? '<div class="bk-smr-section-label">Details & Wünsche</div>' : ''}
+      ${soft.length ? '<div class="bk-smr-section-label">' + bkT('summary.details') + '</div>' : ''}
       ${soft.map(r => row(r, true)).join('')}
     </div>`;
 }
@@ -716,7 +710,7 @@ function bkRenderFinalSummary() {
 window.bkSubmit = function() {
   const fn = document.getElementById('bk-fname').value.trim();
   const em = document.getElementById('bk-femail').value.trim();
-  if (!fn || !em) { alert('Bitte Vorname und E-Mail ausfüllen.'); return; }
+  if (!fn || !em) { alert(bkT('alert.contact')); return; }
   /* === FORMULAR-SUBMIT ===
      Hier Formspree, Netlify Forms oder eigenen Endpoint eintragen.
      Beispiel Formspree:
@@ -742,10 +736,12 @@ function bkUpdateDots(curr) {
   }
 }
 
-const BK_QM_WHEEL_CFG = {
-  'bk-qm-in': { min: 5, max: 800, label: 'Innen', type: 'in' },
-  'bk-qm-out': { min: 0, max: 600, label: 'Außen', type: 'out' },
-};
+function bkQmWheelCfgData() {
+  return {
+    'bk-qm-in': { min: 5, max: 800, label: bkT('wheel.inner'), type: 'in' },
+    'bk-qm-out': { min: 0, max: 600, label: bkT('wheel.outer'), type: 'out' },
+  };
+}
 const BK_QM_WHEEL_ITEM_H = 44;
 let bkQmWheelEl = null;
 let bkQmWheelInput = null;
@@ -753,7 +749,7 @@ let bkQmWheelScrollRaf = 0;
 
 function bkSplitNavButtons() {
   document.querySelectorAll('.bk-nav .bk-btn').forEach(function(btn) {
-    if (btn.dataset.bkSplit) return;
+    if (btn.dataset.bkSplit === '1') return;
     const text = (btn.textContent || '').trim();
     let icon = '';
     let label = text;
@@ -772,9 +768,11 @@ function bkSplitNavButtons() {
     btn.dataset.bkSplit = '1';
   });
 }
+window.bkSplitNavButtons = bkSplitNavButtons;
 
 function bkQmWheelCfg(input) {
-  return BK_QM_WHEEL_CFG[input.id] || BK_QM_WHEEL_CFG['bk-qm-in'];
+  const cfg = bkQmWheelCfgData();
+  return cfg[input.id] || cfg['bk-qm-in'];
 }
 
 function bkQmWheelValueFromScroll(scroller, cfg) {
@@ -843,12 +841,12 @@ function bkCreateQmWheel() {
   el.id = 'bk-qm-wheel';
   el.className = 'bk-qm-wheel';
   el.hidden = true;
-  el.innerHTML = '<button type="button" class="bk-qm-wheel__backdrop" aria-label="Schließen"></button>'
+  el.innerHTML = '<button type="button" class="bk-qm-wheel__backdrop" aria-label="' + bkT('wheel.close') + '"></button>'
     + '<div class="bk-qm-wheel__panel" role="dialog" aria-modal="true" aria-labelledby="bk-qm-wheel-title">'
     + '<div class="bk-qm-wheel__title" id="bk-qm-wheel-title"></div>'
     + '<div class="bk-qm-wheel__frame"><div class="bk-qm-wheel__highlight" aria-hidden="true"></div>'
     + '<div class="bk-qm-wheel__scroller" tabindex="0"></div></div>'
-    + '<button type="button" class="bk-qm-wheel__done">Fertig</button></div>';
+    + '<button type="button" class="bk-qm-wheel__done" data-bk-i18n="wheel.done">' + bkT('wheel.done') + '</button></div>';
   document.body.appendChild(el);
   const scroller = el.querySelector('.bk-qm-wheel__scroller');
   scroller.addEventListener('scroll', function() {
@@ -888,14 +886,45 @@ function bkInitQmPickers() {
   });
 }
 
+window.bkOnLangChange = function() {
+  bkRenderStep1Tracks();
+  const s4 = document.getElementById('bk-step4');
+  if (s4 && s4.classList.contains('active')) bkRenderS4();
+  const s9 = document.getElementById('bk-step9');
+  if (s9 && s9.classList.contains('active')) bkRenderFinalSummary();
+  bkSyncSlOpts('ql', bkSt.ql);
+  bkSyncSlOpts('cr', bkSt.cr);
+  const qlVal = document.getElementById('bk-ql-val');
+  if (qlVal) qlVal.textContent = bkQL(bkSt.ql);
+  const crVal = document.getElementById('bk-cr-val');
+  if (crVal) crVal.textContent = bkCR(bkSt.cr);
+  document.querySelectorAll('.bk-sl-ends[data-bk-sl="ql"] .bk-sl-opt').forEach(function(btn) {
+    btn.textContent = bkQL(+btn.dataset.v);
+  });
+  document.querySelectorAll('.bk-sl-ends[data-bk-sl="cr"] .bk-sl-opt').forEach(function(btn, i) {
+    const labels = [bkT('cr.1'), bkT('s7.cr.2'), bkT('s7.cr.3'), bkT('s7.cr.4')];
+    btn.textContent = labels[i] || btn.textContent;
+  });
+  bkUpdateKoordNote();
+  bkUpdateCart();
+  if (bkQmWheelEl) {
+    const done = bkQmWheelEl.querySelector('.bk-qm-wheel__done');
+    if (done) done.textContent = bkT('wheel.done');
+    const backdrop = bkQmWheelEl.querySelector('.bk-qm-wheel__backdrop');
+    if (backdrop) backdrop.setAttribute('aria-label', bkT('wheel.close'));
+  }
+};
+
 function bkInitKonfigurator() {
-  bkSplitNavButtons();
+  if (typeof bkApplyKonfiguratorLang === 'function') bkApplyKonfiguratorLang();
+  else bkSplitNavButtons();
   bkInitQmPickers();
   bkRenderStep1Tracks();
   bkSyncSlOpts('ql', bkSt.ql);
   bkSyncSlOpts('cr', bkSt.cr);
   bkUpdateStep5();
   bkUpdateNavButtons();
+  bkOnLangChange();
 }
 
 if (document.readyState === 'loading') {

@@ -931,7 +931,7 @@ body.bk-qm-wheel-open { overflow: hidden; }
     <div class="bk-q">Was soll koordiniert werden?<small>Jede Option erhöht das Honorar leicht</small></div>
     <div class="bk-tags">
       <button class="bk-tag" data-k="koord" data-v="kueche_koord" onclick="bkToggleTag(this)">Küchenplanung +8%</button>
-      <button class="bk-tag" data-k="koord" data-v="moebel" onclick="bkToggleTag(this)">Möbelplanung +6%</button>
+      <button class="bk-tag" data-k="koord" data-v="moebel" onclick="bkToggleTag(this)">Möbel +6%</button>
       <button class="bk-tag" data-k="koord" data-v="kunst" onclick="bkToggleTag(this)">Kunst & Objekte +4%</button>
       <button class="bk-tag" data-k="koord" data-v="licht_koord" onclick="bkToggleTag(this)">Lichtplanung +5%</button>
       <button class="bk-tag" data-k="koord" data-v="textil_koord" onclick="bkToggleTag(this)">Textil & Vorhänge +4%</button>
@@ -1224,7 +1224,7 @@ const BK_ORD_LABELS = {ideen:'Ideen strukturieren', moeblierung:'Möbel sortiere
 const BK_ZIELE_LABELS = {stauraum:'Mehr Stauraum', ruhe:'Ruhe & Rückzug', gaeste:'Gäste', homeoffice:'Homeoffice', kinder:'Kinder', aesthetik:'Ästhetik', fluss:'Raumfluss', licht:'Licht', kueche:'Küche', bad:'Bad'};
 const BK_FUNK_LABELS = {kinder_b:'Kinderbereiche', eltern:'Mastersuite', gaestezimmer:'Gästezimmer', homeoffice_f:'Homeoffice', fitness:'Fitness', hauswirtschaft:'Hauswirtschaft'};
 const BK_MAT_LABELS = {holz_hell:'Holz (hell)', holz_dunkel:'Holz (dunkel)', naturstein:'Naturstein', marmor:'Marmor', metall:'Metall', beton:'Beton', textil:'Textilien', farbe:'Farbige Wände'};
-const BK_KOORD_LABELS = {kueche_koord:'Küchenplanung', moebel:'Möbelplanung', kunst:'Kunst & Objekte', licht_koord:'Lichtplanung', textil_koord:'Textil & Vorhänge', bauleitung_koord:'Bauleitung'};
+const BK_KOORD_LABELS = {kueche_koord:'Küchenplanung', moebel:'Möbel', kunst:'Kunst & Objekte', licht_koord:'Lichtplanung', textil_koord:'Textil & Vorhänge', bauleitung_koord:'Bauleitung'};
 window.bkGoTo = function(n) {
   document.querySelectorAll('.bk-step').forEach(s => s.classList.remove('active'));
   const el = n === 99 ? document.getElementById('bk-step-done') : document.getElementById('bk-step' + n);
@@ -1482,7 +1482,7 @@ function bkCalcPrice() {
   const koord = bkSt.koord || [];
   const kuecheSchonDrin = z.includes('kueche');
   if (koord.includes('kueche_koord') && !kuecheSchonDrin) { multi += .08; auf.push('Küchenkoord. +8%'); }
-  if (koord.includes('moebel')) { multi += .06; auf.push('Möbelplanung +6%'); }
+  if (koord.includes('moebel')) { multi += .06; auf.push('Möbel +6%'); }
   if (koord.includes('kunst')) { multi += .04; auf.push('Kunst +4%'); }
   if (koord.includes('licht_koord')) { multi += .05; auf.push('Lichtplanung +5%'); }
   if (koord.includes('textil_koord')) { multi += .04; auf.push('Textil +4%'); }
@@ -1568,7 +1568,7 @@ function bkRenderS4() {
     <div class="bk-q">Was soll sortiert werden?<small>Jede Option +6% auf den Ordnungs-Block</small></div>
     <div class="bk-tags">
       <button class="bk-tag ${(bkSt.ord_fokus||[]).includes('ideen')?'sel':''}" data-k="ord_fokus" data-v="ideen" onclick="bkToggleTag(this)">Ideen & Wünsche strukturieren +6%</button>
-      <button class="bk-tag ${(bkSt.ord_fokus||[]).includes('moeblierung')?'sel':''}" data-k="ord_fokus" data-v="moeblierung" onclick="bkToggleTag(this)">Möbel & Objekte sortieren +6%</button>
+      <button class="bk-tag ${(bkSt.ord_fokus||[]).includes('moeblierung')?'sel':''}" data-k="ord_fokus" data-v="moeblierung" onclick="bkToggleTag(this)">Möbel +6%</button>
       <button class="bk-tag ${(bkSt.ord_fokus||[]).includes('stauraum_sys')?'sel':''}" data-k="ord_fokus" data-v="stauraum_sys" onclick="bkToggleTag(this)">Stauraum-System +6%</button>
       <button class="bk-tag ${(bkSt.ord_fokus||[]).includes('chaos')?'sel':''}" data-k="ord_fokus" data-v="chaos" onclick="bkToggleTag(this)">Chaos-Zonen +6%</button>
     </div>

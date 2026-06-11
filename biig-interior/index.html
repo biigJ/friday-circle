@@ -1963,14 +1963,14 @@
               <div class="bk-form-header__bg" id="bk-form-header-bg" aria-hidden="true"></div>
               <div class="bk-form-header__inner">
                 <div class="bk-form-header__top">
-                  <span class="bk-form-header__title">Deine Anfrage</span>
+                  <span class="bk-form-header__title" data-bk-i18n="header.title"></span>
                   <div class="bk-cart-totals">
                     <div class="bk-ct-item">
-                      <span class="bk-ct-lbl">Honorar</span>
+                      <span class="bk-ct-lbl" data-bk-i18n="header.honorar"></span>
                       <span class="bk-ct-val" id="bk-ct-hon">—</span>
                     </div>
                     <div class="bk-ct-item">
-                      <span class="bk-ct-lbl">Baukosten-Orientierung</span>
+                      <span class="bk-ct-lbl" data-bk-i18n="header.bau"></span>
                       <span class="bk-ct-val bau" id="bk-ct-bau">—</span>
                     </div>
                   </div>
@@ -1982,356 +1982,356 @@
 
           <!-- S0: EINSTIEG -->
           <div id="bk-step0" class="bk-step active">
-            <div class="bk-slabel">Hallo</div>
-            <div class="bk-q">Benötigst Du Hilfe bei Deinem Space?</div>
+            <div class="bk-slabel" data-bk-i18n="s0.label"></div>
+            <div class="bk-q" data-bk-i18n="s0.q"></div>
             <div class="bk-opts">
               <button class="bk-opt" onclick="bkGoTo(1)">
                 <i class="ti ti-home-check" aria-hidden="true"></i>
-                <div><span class="bk-ot">Ja, ich möchte loslegen</span><span class="bk-os">mit ein paar Ideen</span></div>
+                <div><span class="bk-ot" data-bk-i18n="s0.opt1.t"></span><span class="bk-os" data-bk-i18n="s0.opt1.s"></span></div>
               </button>
               <button class="bk-opt" onclick="bkGoTo(1)">
                 <i class="ti ti-question-mark" aria-hidden="true"></i>
-                <div><span class="bk-ot">Mal schauen</span><span class="bk-os">keine genaue Vorstellung</span></div>
+                <div><span class="bk-ot" data-bk-i18n="s0.opt2.t"></span><span class="bk-os" data-bk-i18n="s0.opt2.s"></span></div>
               </button>
             </div>
           </div>
 
           <!-- S1: LEISTUNG -->
           <div id="bk-step1" class="bk-step">
-            <div class="bk-slabel">Schritt 1 — Leistung</div>
-            <div class="bk-q">Wie willst Du es umsetzen?<small>Mehrere Optionen möglich</small></div>
+            <div class="bk-slabel" data-bk-i18n="s1.label"></div>
+            <div class="bk-q"><span data-bk-i18n="s1.q"></span><small data-bk-i18n="s1.qHint"></small></div>
             <div id="bk-step1-tracks" class="bk-opts bk-opts--tracks"></div>
             <div class="bk-nav">
               <div class="bk-nav__left">
-                <button class="bk-btn" onclick="bkGoTo(0)">←← Zum Start</button>
-                <button class="bk-btn" onclick="bkGoTo(0)">← Zurück</button>
+                <button class="bk-btn" data-bk-nav="start" onclick="bkGoTo(0)"></button>
+                <button class="bk-btn" data-bk-nav="back" onclick="bkGoTo(0)"></button>
               </div>
               <div class="bk-progress" id="bk-prog1"></div>
-              <button class="bk-btn primary" id="bk-btn1" onclick="bkGoTo(2)" disabled>Weiter →</button>
+              <button class="bk-btn primary" id="bk-btn1" data-bk-nav="next" onclick="bkGoTo(2)" disabled></button>
             </div>
           </div>
 
           <!-- S2: GRÖßE -->
           <div id="bk-step2" class="bk-step">
-            <div class="bk-slabel">Schritt 2 — Projektgröße</div>
-            <div class="bk-q">Wie groß ist Dein Projekt?</div>
+            <div class="bk-slabel" data-bk-i18n="s2.label"></div>
+            <div class="bk-q" data-bk-i18n="s2.q"></div>
             <div class="bk-opts" id="bk-size-opts">
               <button class="bk-opt" onclick="bkPickSize('kl_zimmer',12)" data-v="kl_zimmer">
                 <i class="ti ti-square" aria-hidden="true"></i>
-                <div><span class="bk-ot">Kleines Zimmer</span><span class="bk-os">Büro, Schlafzimmer</span></div>
+                <div><span class="bk-ot" data-bk-i18n="s2.size.kl.t"></span><span class="bk-os" data-bk-i18n="s2.size.kl.s"></span></div>
               </button>
               <button class="bk-opt" onclick="bkPickSize('gr_zimmer',30)" data-v="gr_zimmer">
                 <i class="ti ti-rectangle" aria-hidden="true"></i>
-                <div><span class="bk-ot">Großes Zimmer</span><span class="bk-os">Wohnzimmer, Studio</span></div>
+                <div><span class="bk-ot" data-bk-i18n="s2.size.gr.t"></span><span class="bk-os" data-bk-i18n="s2.size.gr.s"></span></div>
               </button>
               <button class="bk-opt" onclick="bkPickSize('teile',60)" data-v="teile">
                 <i class="ti ti-layout-2" aria-hidden="true"></i>
-                <div><span class="bk-ot">Teile der Wohnung / des Büros</span><span class="bk-os">Mehrere Zimmer</span></div>
+                <div><span class="bk-ot" data-bk-i18n="s2.size.teile.t"></span><span class="bk-os" data-bk-i18n="s2.size.teile.s"></span></div>
               </button>
               <button class="bk-opt" onclick="bkPickSize('etage',90)" data-v="etage">
                 <i class="ti ti-building-community" aria-hidden="true"></i>
-                <div><span class="bk-ot">Komplette Wohnung / komplettes Büro</span><span class="bk-os">Gesamte Wohnfläche</span></div>
+                <div><span class="bk-ot" data-bk-i18n="s2.size.etage.t"></span><span class="bk-os" data-bk-i18n="s2.size.etage.s"></span></div>
               </button>
               <button class="bk-opt" onclick="bkPickSize('haus',150)" data-v="haus">
                 <i class="ti ti-home-2" aria-hidden="true"></i>
-                <div><span class="bk-ot">Große Wohn- / Büroetag(e)</span><span class="bk-os">Große zusammenhängende Etagen</span></div>
+                <div><span class="bk-ot" data-bk-i18n="s2.size.haus.t"></span><span class="bk-os" data-bk-i18n="s2.size.haus.s"></span></div>
               </button>
               <button class="bk-opt" onclick="bkPickSize('haus_garten',170)" data-v="haus_garten">
                 <i class="ti ti-home-2" aria-hidden="true"></i>
-                <div><span class="bk-ot">Haus</span><span class="bk-os">Mehrere Ebenen · Garten wählst Du unten</span></div>
+                <div><span class="bk-ot" data-bk-i18n="s2.size.haus_garten.t"></span><span class="bk-os" data-bk-i18n="s2.size.haus_garten.s"></span></div>
               </button>
             </div>
-            <div class="bk-q" style="margin-top:.2rem">Gibt es einen Außenbereich?</div>
+            <div class="bk-q" style="margin-top:.2rem" data-bk-i18n="s2.outdoor.q"></div>
             <div class="bk-opts">
-              <button class="bk-opt" onclick="bkPickOpt('aussen','kein',this)"><div><span class="bk-ot">Kein</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('aussen','balkon',this)"><i class="ti ti-door" aria-hidden="true"></i><div><span class="bk-ot">Balkon</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('aussen','dachterrasse',this)"><i class="ti ti-building" aria-hidden="true"></i><div><span class="bk-ot">Dachterrasse</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('aussen','terrasse',this)"><i class="ti ti-garden-cart" aria-hidden="true"></i><div><span class="bk-ot">Terrasse / Garten</span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('aussen','kein',this)"><div><span class="bk-ot" data-bk-i18n="s2.aussen.kein"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('aussen','balkon',this)"><i class="ti ti-door" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s2.aussen.balkon"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('aussen','dachterrasse',this)"><i class="ti ti-building" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s2.aussen.dachterrasse"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('aussen','terrasse',this)"><i class="ti ti-garden-cart" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s2.aussen.terrasse"></span></div></button>
             </div>
             <div id="bk-qm-wrap" style="display:none">
               <div class="bk-qm-row">
-                <label>Innen:</label>
+                <label data-bk-i18n="s2.qm.in"></label>
                 <input type="number" id="bk-qm-in" min="5" max="800" step="1" oninput="bkUpdQm('in',+this.value)">
-                <span>m² — passe gerne an</span>
+                <span data-bk-i18n="s2.qm.inHint"></span>
               </div>
               <div id="bk-qm-out-row" style="display:none">
                 <div class="bk-qm-row">
-                  <label>Außen:</label>
+                  <label data-bk-i18n="s2.qm.out"></label>
                   <input type="number" id="bk-qm-out" min="0" max="600" step="1" value="0" oninput="bkUpdQm('out',+this.value)">
-                  <span>m²</span>
+                  <span data-bk-i18n="s2.qm.outUnit"></span>
                 </div>
               </div>
             </div>
             <div class="bk-nav">
               <div class="bk-nav__left">
-                <button class="bk-btn" onclick="bkGoTo(0)">←← Zum Start</button>
-                <button class="bk-btn" onclick="bkGoTo(1)">← Zurück</button>
+                <button class="bk-btn" data-bk-nav="start" onclick="bkGoTo(0)"></button>
+                <button class="bk-btn" data-bk-nav="back" onclick="bkGoTo(1)"></button>
               </div>
               <div class="bk-progress" id="bk-prog2"></div>
-              <button class="bk-btn primary" id="bk-btn2" onclick="bkGoTo(3)" disabled>Weiter →</button>
+              <button class="bk-btn primary" id="bk-btn2" data-bk-nav="next" onclick="bkGoTo(3)" disabled></button>
             </div>
           </div>
 
           <!-- S3: ZIELE -->
           <div id="bk-step3" class="bk-step">
-            <div class="bk-slabel">Schritt 3 — Ziel & Situation</div>
-            <div class="bk-q">Was soll nach dem Projekt besser sein?<small>Küche und Bad erhöhen die Planungstiefe</small></div>
+            <div class="bk-slabel" data-bk-i18n="s3.label"></div>
+            <div class="bk-q"><span data-bk-i18n="s3.q1"></span><small data-bk-i18n="s3.q1Hint"></small></div>
             <div class="bk-tags">
-              <button class="bk-tag" data-k="ziele" data-v="stauraum" onclick="bkToggleTag(this)">Mehr Stauraum</button>
-              <button class="bk-tag" data-k="ziele" data-v="ruhe" onclick="bkToggleTag(this)">Ruhe & Rückzug</button>
-              <button class="bk-tag" data-k="ziele" data-v="gaeste" onclick="bkToggleTag(this)">Gäste gut unterbringen</button>
-              <button class="bk-tag" data-k="ziele" data-v="homeoffice" onclick="bkToggleTag(this)">Homeoffice-Qualität</button>
-              <button class="bk-tag" data-k="ziele" data-v="kinder" onclick="bkToggleTag(this)">Alltag mit Kindern</button>
-              <button class="bk-tag" data-k="ziele" data-v="aesthetik" onclick="bkToggleTag(this)">Mehr Ästhetik & Stimmung</button>
-              <button class="bk-tag" data-k="ziele" data-v="fluss" onclick="bkToggleTag(this)">Besserer Raumfluss</button>
-              <button class="bk-tag" data-k="ziele" data-v="licht" onclick="bkToggleTag(this)">Mehr Licht & Offenheit</button>
-              <button class="bk-tag" data-k="ziele" data-v="kueche" onclick="bkToggleTag(this)">Küche aufwerten +12%</button>
-              <button class="bk-tag" data-k="ziele" data-v="bad" onclick="bkToggleTag(this)">Bad aufwerten +10%</button>
+              <button class="bk-tag" data-k="ziele" data-v="stauraum" data-bk-i18n="s3.ziele.stauraum" onclick="bkToggleTag(this)"></button>
+              <button class="bk-tag" data-k="ziele" data-v="ruhe" data-bk-i18n="s3.ziele.ruhe" onclick="bkToggleTag(this)"></button>
+              <button class="bk-tag" data-k="ziele" data-v="gaeste" data-bk-i18n="s3.ziele.gaeste" onclick="bkToggleTag(this)"></button>
+              <button class="bk-tag" data-k="ziele" data-v="homeoffice" data-bk-i18n="s3.ziele.homeoffice" onclick="bkToggleTag(this)"></button>
+              <button class="bk-tag" data-k="ziele" data-v="kinder" data-bk-i18n="s3.ziele.kinder" onclick="bkToggleTag(this)"></button>
+              <button class="bk-tag" data-k="ziele" data-v="aesthetik" data-bk-i18n="s3.ziele.aesthetik" onclick="bkToggleTag(this)"></button>
+              <button class="bk-tag" data-k="ziele" data-v="fluss" data-bk-i18n="s3.ziele.fluss" onclick="bkToggleTag(this)"></button>
+              <button class="bk-tag" data-k="ziele" data-v="licht" data-bk-i18n="s3.ziele.licht" onclick="bkToggleTag(this)"></button>
+              <button class="bk-tag" data-k="ziele" data-v="kueche" data-bk-i18n="s3.ziele.kueche" onclick="bkToggleTag(this)"></button>
+              <button class="bk-tag" data-k="ziele" data-v="bad" data-bk-i18n="s3.ziele.bad" onclick="bkToggleTag(this)"></button>
             </div>
-            <div class="bk-q">Was stört Dich heute am meisten?</div>
-            <textarea class="bk-inf" placeholder="z. B. kein Platz, wirkt dunkel, keine Struktur …" oninput="bkSt.stoert=this.value"></textarea>
-            <div class="bk-q">Wie soll es sich anfühlen?</div>
+            <div class="bk-q" data-bk-i18n="s3.q2"></div>
+            <textarea class="bk-inf" data-bk-i18n-ph="s3.q2ph" placeholder="z. B. kein Platz, wirkt dunkel, keine Struktur …" oninput="bkSt.stoert=this.value"></textarea>
+            <div class="bk-q" data-bk-i18n="s3.q3"></div>
             <div class="bk-opts">
-              <button class="bk-opt" onclick="bkPickOpt('feel','retreat',this)"><i class="ti ti-leaf" aria-hidden="true"></i><div><span class="bk-ot">Ruhiges Retreat</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('feel','lebhaft',this)"><i class="ti ti-users" aria-hidden="true"></i><div><span class="bk-ot">Lebhaftes Zuhause</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('feel','repraesentation',this)"><i class="ti ti-award" aria-hidden="true"></i><div><span class="bk-ot">Repräsentation</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('feel','funktional',this)"><i class="ti ti-settings" aria-hidden="true"></i><div><span class="bk-ot">Maximal funktional</span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('feel','retreat',this)"><i class="ti ti-leaf" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s3.feel.retreat"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('feel','lebhaft',this)"><i class="ti ti-users" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s3.feel.lebhaft"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('feel','repraesentation',this)"><i class="ti ti-award" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s3.feel.repraesentation"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('feel','funktional',this)"><i class="ti ti-settings" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s3.feel.funktional"></span></div></button>
             </div>
             <div class="bk-nav">
               <div class="bk-nav__left">
-                <button class="bk-btn" onclick="bkGoTo(0)">←← Zum Start</button>
-                <button class="bk-btn" onclick="bkGoTo(2)">← Zurück</button>
+                <button class="bk-btn" data-bk-nav="start" onclick="bkGoTo(0)"></button>
+                <button class="bk-btn" data-bk-nav="back" onclick="bkGoTo(2)"></button>
               </div>
               <div class="bk-progress" id="bk-prog3"></div>
-              <button class="bk-btn primary" onclick="bkGoTo(4)">Weiter →</button>
+              <button class="bk-btn primary" data-bk-nav="next" onclick="bkGoTo(4)"></button>
             </div>
           </div>
 
           <!-- S4: TRACK-DETAILS (dynamisch gerendert) -->
           <div id="bk-step4" class="bk-step">
-            <div class="bk-slabel">Schritt 4 — Details</div>
+            <div class="bk-slabel" data-bk-i18n="s4.label"></div>
             <div id="bk-s4-content"></div>
             <div class="bk-nav">
               <div class="bk-nav__left">
-                <button class="bk-btn" onclick="bkGoTo(0)">←← Zum Start</button>
-                <button class="bk-btn" onclick="bkGoTo(3)">← Zurück</button>
+                <button class="bk-btn" data-bk-nav="start" onclick="bkGoTo(0)"></button>
+                <button class="bk-btn" data-bk-nav="back" onclick="bkGoTo(3)"></button>
               </div>
               <div class="bk-progress" id="bk-prog4"></div>
-              <button class="bk-btn primary" id="bk-btn4" onclick="bkGoTo(5)" disabled>Weiter →</button>
+              <button class="bk-btn primary" id="bk-btn4" data-bk-nav="next" onclick="bkGoTo(5)" disabled></button>
             </div>
           </div>
 
           <!-- S5: NUTZUNG -->
           <div id="bk-step5" class="bk-step">
-            <div class="bk-slabel">Schritt 5 — Nutzung & Alltag</div>
-            <div class="bk-q">Wer lebt im Raum?</div>
+            <div class="bk-slabel" data-bk-i18n="s5.label"></div>
+            <div class="bk-q" data-bk-i18n="s5.q1"></div>
             <div class="bk-opts">
-              <button class="bk-opt" onclick="bkPickOpt('nutzer','allein',this)"><i class="ti ti-user" aria-hidden="true"></i><div><span class="bk-ot">Alleine</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('nutzer','paar',this)"><i class="ti ti-users" aria-hidden="true"></i><div><span class="bk-ot">Zu zweit</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('nutzer','familie',this)"><i class="ti ti-home-heart" aria-hidden="true"></i><div><span class="bk-ot">Familie mit Kindern</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('nutzer','wg',this)"><i class="ti ti-door" aria-hidden="true"></i><div><span class="bk-ot">WG</span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('nutzer','allein',this)"><i class="ti ti-user" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s5.nutzer.allein"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('nutzer','paar',this)"><i class="ti ti-users" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s5.nutzer.paar"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('nutzer','familie',this)"><i class="ti ti-home-heart" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s5.nutzer.familie"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('nutzer','wg',this)"><i class="ti ti-door" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s5.nutzer.wg"></span></div></button>
             </div>
             <div id="bk-s5-funktionen">
-              <div class="bk-q">Sind diese Funktionen relevant?<small>Homeoffice & Fitness je +8%</small></div>
+              <div class="bk-q"><span data-bk-i18n="s5.q2"></span><small data-bk-i18n="s5.q2Hint"></small></div>
               <div class="bk-tags">
-                <button class="bk-tag" data-k="funktionen" data-v="eltern" onclick="bkToggleTag(this)">Mastersuite</button>
-                <button class="bk-tag" data-k="funktionen" data-v="gaestezimmer" onclick="bkToggleTag(this)">Gästezimmer</button>
-                <button class="bk-tag" data-k="funktionen" data-v="kinder_b" onclick="bkToggleTag(this)">Kinderbereiche</button>
-                <button class="bk-tag" data-k="funktionen" data-v="homeoffice_f" onclick="bkToggleTag(this)">Homeoffice +8%</button>
-                <button class="bk-tag" data-k="funktionen" data-v="fitness" onclick="bkToggleTag(this)">Hobby / Fitness +8%</button>
-                <button class="bk-tag" data-k="funktionen" data-v="hauswirtschaft" onclick="bkToggleTag(this)">Hauswirtschaft</button>
+                <button class="bk-tag" data-k="funktionen" data-v="eltern" data-bk-i18n="s5.funk.eltern" onclick="bkToggleTag(this)"></button>
+                <button class="bk-tag" data-k="funktionen" data-v="gaestezimmer" data-bk-i18n="s5.funk.gaestezimmer" onclick="bkToggleTag(this)"></button>
+                <button class="bk-tag" data-k="funktionen" data-v="kinder_b" data-bk-i18n="s5.funk.kinder_b" onclick="bkToggleTag(this)"></button>
+                <button class="bk-tag" data-k="funktionen" data-v="homeoffice_f" data-bk-i18n="s5.funk.homeoffice_f" onclick="bkToggleTag(this)"></button>
+                <button class="bk-tag" data-k="funktionen" data-v="fitness" data-bk-i18n="s5.funk.fitness" onclick="bkToggleTag(this)"></button>
+                <button class="bk-tag" data-k="funktionen" data-v="hauswirtschaft" data-bk-i18n="s5.funk.hauswirtschaft" onclick="bkToggleTag(this)"></button>
               </div>
             </div>
             <div id="bk-s5-kochen">
-              <div class="bk-q">Wenn Küchenplanung — wie wird gekocht?<small>Häufig & aufwendig = +10%</small></div>
+              <div class="bk-q"><span data-bk-i18n="s5.q3"></span><small data-bk-i18n="s5.q3Hint"></small></div>
               <div class="bk-opts">
-                <button class="bk-opt" onclick="bkPickOpt('kochen','aufwendig',this)"><i class="ti ti-chef-hat" aria-hidden="true"></i><div><span class="bk-ot">Häufig & aufwendig</span><span class="bk-os">+10%</span></div></button>
-                <button class="bk-opt" onclick="bkPickOpt('kochen','schnell',this)"><i class="ti ti-bolt" aria-hidden="true"></i><div><span class="bk-ot">Schnell & pragmatisch</span></div></button>
-                <button class="bk-opt" onclick="bkPickOpt('kochen','selten',this)"><i class="ti ti-flame-off" aria-hidden="true"></i><div><span class="bk-ot">Selten</span></div></button>
+                <button class="bk-opt" onclick="bkPickOpt('kochen','aufwendig',this)"><i class="ti ti-chef-hat" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s5.kochen.aufwendig.t"></span><span class="bk-os">+10%</span></div></button>
+                <button class="bk-opt" onclick="bkPickOpt('kochen','schnell',this)"><i class="ti ti-bolt" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s5.kochen.schnell"></span></div></button>
+                <button class="bk-opt" onclick="bkPickOpt('kochen','selten',this)"><i class="ti ti-flame-off" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s5.kochen.selten"></span></div></button>
               </div>
             </div>
-            <div class="bk-q">Smart Home?</div>
+            <div class="bk-q" data-bk-i18n="s5.q4"></div>
             <div class="bk-opts">
-              <button class="bk-opt" onclick="bkPickOpt('smarthome','ja',this)"><i class="ti ti-device-tablet" aria-hidden="true"></i><div><span class="bk-ot">Ja, Licht & mehr</span><span class="bk-os">+12%</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('smarthome','licht',this)"><i class="ti ti-bulb" aria-hidden="true"></i><div><span class="bk-ot">Nur Licht</span><span class="bk-os">+5%</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('smarthome','nein',this)"><i class="ti ti-x" aria-hidden="true"></i><div><span class="bk-ot">Kein Thema</span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('smarthome','ja',this)"><i class="ti ti-device-tablet" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s5.smh.ja.t"></span><span class="bk-os">+12%</span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('smarthome','licht',this)"><i class="ti ti-bulb" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s5.smh.licht.t"></span><span class="bk-os">+5%</span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('smarthome','nein',this)"><i class="ti ti-x" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s5.smh.nein"></span></div></button>
             </div>
             <div class="bk-nav">
               <div class="bk-nav__left">
-                <button class="bk-btn" onclick="bkGoTo(0)">←← Zum Start</button>
-                <button class="bk-btn" onclick="bkGoTo(4)">← Zurück</button>
+                <button class="bk-btn" data-bk-nav="start" onclick="bkGoTo(0)"></button>
+                <button class="bk-btn" data-bk-nav="back" onclick="bkGoTo(4)"></button>
               </div>
               <div class="bk-progress" id="bk-prog5"></div>
-              <button class="bk-btn primary" id="bk-btn5" onclick="bkGoTo(6)" disabled>Weiter →</button>
+              <button class="bk-btn primary" id="bk-btn5" data-bk-nav="next" onclick="bkGoTo(6)" disabled></button>
             </div>
           </div>
 
           <!-- S6: STIL -->
           <div id="bk-step6" class="bk-step">
-            <div class="bk-slabel">Schritt 6 — Stil & Ästhetik</div>
-            <div class="bk-q">Welcher Stil trifft Deinen Wunsch?</div>
+            <div class="bk-slabel" data-bk-i18n="s6.label"></div>
+            <div class="bk-q" data-bk-i18n="s6.q1"></div>
             <div class="bk-opts">
-              <button class="bk-opt" onclick="bkPickOpt('stil','warm',this)"><i class="ti ti-fire" aria-hidden="true"></i><div><span class="bk-ot">Warm-zeitlos</span><span class="bk-os">Holz, Naturstein</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('stil','clean',this)"><i class="ti ti-square" aria-hidden="true"></i><div><span class="bk-ot">Modern-clean</span><span class="bk-os">Weiß, Beton</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('stil','japanisch',this)"><i class="ti ti-leaf" aria-hidden="true"></i><div><span class="bk-ot">Ruhig-japanisch</span><span class="bk-os">Reduktion</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('stil','urban',this)"><i class="ti ti-building-skyscraper" aria-hidden="true"></i><div><span class="bk-ot">Urban-elegant</span><span class="bk-os">Metall, Statement</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('stil','maximal',this)"><i class="ti ti-palette" aria-hidden="true"></i><div><span class="bk-ot">Maximalistisch</span><span class="bk-os">Farbe, Charakter</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('stil','offen',this)"><i class="ti ti-question-mark" aria-hidden="true"></i><div><span class="bk-ot">Noch offen</span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('stil','warm',this)"><i class="ti ti-fire" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s6.stil.warm.t"></span><span class="bk-os" data-bk-i18n="s6.stil.warm.s"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('stil','clean',this)"><i class="ti ti-square" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s6.stil.clean.t"></span><span class="bk-os" data-bk-i18n="s6.stil.clean.s"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('stil','japanisch',this)"><i class="ti ti-leaf" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s6.stil.japanisch.t"></span><span class="bk-os" data-bk-i18n="s6.stil.japanisch.s"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('stil','urban',this)"><i class="ti ti-building-skyscraper" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s6.stil.urban.t"></span><span class="bk-os" data-bk-i18n="s6.stil.urban.s"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('stil','maximal',this)"><i class="ti ti-palette" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s6.stil.maximal.t"></span><span class="bk-os" data-bk-i18n="s6.stil.maximal.s"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('stil','offen',this)"><i class="ti ti-question-mark" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s6.stil.offen"></span></div></button>
             </div>
-            <div class="bk-q">Materialien die Du liebst?</div>
+            <div class="bk-q" data-bk-i18n="s6.q2"></div>
             <div class="bk-tags">
-              <button class="bk-tag" data-k="mat" data-v="holz_hell" onclick="bkToggleTag(this)">Holz (hell)</button>
-              <button class="bk-tag" data-k="mat" data-v="holz_dunkel" onclick="bkToggleTag(this)">Holz (dunkel)</button>
-              <button class="bk-tag" data-k="mat" data-v="naturstein" onclick="bkToggleTag(this)">Naturstein</button>
-              <button class="bk-tag" data-k="mat" data-v="marmor" onclick="bkToggleTag(this)">Marmor</button>
-              <button class="bk-tag" data-k="mat" data-v="metall" onclick="bkToggleTag(this)">Metall / Stahl</button>
-              <button class="bk-tag" data-k="mat" data-v="beton" onclick="bkToggleTag(this)">Beton / Putz</button>
-              <button class="bk-tag" data-k="mat" data-v="textil" onclick="bkToggleTag(this)">Textilien</button>
-              <button class="bk-tag" data-k="mat" data-v="farbe" onclick="bkToggleTag(this)">Farbige Wände</button>
+              <button class="bk-tag" data-k="mat" data-v="holz_hell" data-bk-i18n="s6.mat.holz_hell" onclick="bkToggleTag(this)"></button>
+              <button class="bk-tag" data-k="mat" data-v="holz_dunkel" data-bk-i18n="s6.mat.holz_dunkel" onclick="bkToggleTag(this)"></button>
+              <button class="bk-tag" data-k="mat" data-v="naturstein" data-bk-i18n="s6.mat.naturstein" onclick="bkToggleTag(this)"></button>
+              <button class="bk-tag" data-k="mat" data-v="marmor" data-bk-i18n="s6.mat.marmor" onclick="bkToggleTag(this)"></button>
+              <button class="bk-tag" data-k="mat" data-v="metall" data-bk-i18n="s6.mat.metall" onclick="bkToggleTag(this)"></button>
+              <button class="bk-tag" data-k="mat" data-v="beton" data-bk-i18n="s6.mat.beton" onclick="bkToggleTag(this)"></button>
+              <button class="bk-tag" data-k="mat" data-v="textil" data-bk-i18n="s6.mat.textil" onclick="bkToggleTag(this)"></button>
+              <button class="bk-tag" data-k="mat" data-v="farbe" data-bk-i18n="s6.mat.farbe" onclick="bkToggleTag(this)"></button>
             </div>
-            <div class="bk-q">Was ist ein No-Go?</div>
-            <textarea class="bk-inf" placeholder="z. B. kein Hochglanz, kein Weiß …" oninput="bkSt.nogo=this.value"></textarea>
-            <div class="bk-q">Gesetzte Möbel oder Objekte?</div>
-            <textarea class="bk-inf" placeholder="z. B. Sofa 2,50 m grau, Esstisch Eiche …" oninput="bkSt.gesetzt=this.value"></textarea>
-            <div class="bk-q">Neuanschaffungen geplant?</div>
+            <div class="bk-q" data-bk-i18n="s6.q3"></div>
+            <textarea class="bk-inf" data-bk-i18n-ph="s6.q3ph" placeholder="z. B. kein Hochglanz, kein Weiß …" oninput="bkSt.nogo=this.value"></textarea>
+            <div class="bk-q" data-bk-i18n="s6.q4"></div>
+            <textarea class="bk-inf" data-bk-i18n-ph="s6.q4ph" placeholder="z. B. Sofa 2,50 m grau, Esstisch Eiche …" oninput="bkSt.gesetzt=this.value"></textarea>
+            <div class="bk-q" data-bk-i18n="s6.q5"></div>
             <div class="bk-opts">
-              <button class="bk-opt" onclick="bkPickOpt('neuan','ja',this)"><i class="ti ti-shopping-cart" aria-hidden="true"></i><div><span class="bk-ot">Ja, neue Möbel</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('neuan','nein',this)"><i class="ti ti-lock" aria-hidden="true"></i><div><span class="bk-ot">Nein, nur Vorhandenes</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('neuan','wenig',this)"><i class="ti ti-adjustments-horizontal" aria-hidden="true"></i><div><span class="bk-ot">Wenige gezielte Stücke</span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('neuan','ja',this)"><i class="ti ti-shopping-cart" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s6.neuan.ja"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('neuan','nein',this)"><i class="ti ti-lock" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s6.neuan.nein"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('neuan','wenig',this)"><i class="ti ti-adjustments-horizontal" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s6.neuan.wenig"></span></div></button>
             </div>
-            <div class="bk-q">Was soll koordiniert werden?<small>Jede Option erhöht das Honorar leicht</small></div>
+            <div class="bk-q"><span data-bk-i18n="s6.q6"></span><small data-bk-i18n="s6.q6Hint"></small></div>
             <div class="bk-tags">
-              <button class="bk-tag" data-k="koord" data-v="kueche_koord" onclick="bkToggleTag(this)">Küchenplanung +8%</button>
-              <button class="bk-tag" data-k="koord" data-v="moebel" onclick="bkToggleTag(this)">Möbelplanung +6%</button>
-              <button class="bk-tag" data-k="koord" data-v="kunst" onclick="bkToggleTag(this)">Kunst & Objekte +4%</button>
-              <button class="bk-tag" data-k="koord" data-v="licht_koord" onclick="bkToggleTag(this)">Lichtplanung +5%</button>
-              <button class="bk-tag" data-k="koord" data-v="textil_koord" onclick="bkToggleTag(this)">Textil & Vorhänge +4%</button>
-              <button class="bk-tag" data-k="koord" data-v="bauleitung_koord" onclick="bkToggleTag(this)">Bauleitung koordinieren +15%</button>
+              <button class="bk-tag" data-k="koord" data-v="kueche_koord" data-bk-i18n="s6.koord.kueche" onclick="bkToggleTag(this)"></button>
+              <button class="bk-tag" data-k="koord" data-v="moebel" data-bk-i18n="s6.koord.moebel" onclick="bkToggleTag(this)"></button>
+              <button class="bk-tag" data-k="koord" data-v="kunst" data-bk-i18n="s6.koord.kunst" onclick="bkToggleTag(this)"></button>
+              <button class="bk-tag" data-k="koord" data-v="licht_koord" data-bk-i18n="s6.koord.licht" onclick="bkToggleTag(this)"></button>
+              <button class="bk-tag" data-k="koord" data-v="textil_koord" data-bk-i18n="s6.koord.textil" onclick="bkToggleTag(this)"></button>
+              <button class="bk-tag" data-k="koord" data-v="bauleitung_koord" data-bk-i18n="s6.koord.bau" onclick="bkToggleTag(this)"></button>
             </div>
             <div id="bk-koord-note" class="bk-info-box" style="display:none"></div>
             <div class="bk-nav">
               <div class="bk-nav__left">
-                <button class="bk-btn" onclick="bkGoTo(0)">←← Zum Start</button>
-                <button class="bk-btn" onclick="bkGoTo(5)">← Zurück</button>
+                <button class="bk-btn" data-bk-nav="start" onclick="bkGoTo(0)"></button>
+                <button class="bk-btn" data-bk-nav="back" onclick="bkGoTo(5)"></button>
               </div>
               <div class="bk-progress" id="bk-prog6"></div>
-              <button class="bk-btn primary" onclick="bkGoTo(7)">Weiter →</button>
+              <button class="bk-btn primary" data-bk-nav="next" onclick="bkGoTo(7)"></button>
             </div>
           </div>
 
           <!-- S7: QUALITÄT & KONDITIONEN -->
           <div id="bk-step7" class="bk-step">
-            <div class="bk-slabel">Schritt 7 — Qualität & Konditionen</div>
-            <div class="bk-q">Qualitätsniveau Materialien & Ausstattung?</div>
+            <div class="bk-slabel" data-bk-i18n="s7.label"></div>
+            <div class="bk-q" data-bk-i18n="s7.q1"></div>
             <div class="bk-sl-g">
-              <label>Niveau <b id="bk-ql-val">Standard</b></label>
+              <label><span data-bk-i18n="s7.sl.ql"></span> <b id="bk-ql-val">Standard</b></label>
               <input type="range" min="1" max="3" step="1" value="1" oninput="bkUpdQl(+this.value)" id="bk-sl-ql">
               <div class="bk-sl-ends" data-bk-sl="ql">
-                <button type="button" class="bk-sl-opt sel" data-v="1" onclick="bkPickSl('ql',1)">Standard</button>
-                <button type="button" class="bk-sl-opt" data-v="2" onclick="bkPickSl('ql',2)">Gehoben</button>
-                <button type="button" class="bk-sl-opt" data-v="3" onclick="bkPickSl('ql',3)">Premium</button>
+                <button type="button" class="bk-sl-opt sel" data-v="1" onclick="bkPickSl('ql',1)" data-bk-i18n="ql.standard"></button>
+                <button type="button" class="bk-sl-opt" data-v="2" onclick="bkPickSl('ql',2)" data-bk-i18n="ql.gehoben"></button>
+                <button type="button" class="bk-sl-opt" data-v="3" onclick="bkPickSl('ql',3)" data-bk-i18n="ql.premium"></button>
               </div>
             </div>
-            <div class="bk-q">Wie soll das Honorar strukturiert sein?<small>Pauschale = +20%</small></div>
+            <div class="bk-q"><span data-bk-i18n="s7.q2"></span><small data-bk-i18n="s7.q2Hint"></small></div>
             <div class="bk-opts">
-              <button class="bk-opt" onclick="bkPickOpt('hon_typ','pauschale',this)"><i class="ti ti-receipt" aria-hidden="true"></i><div><span class="bk-ot">Pauschale je Phase</span><span class="bk-os">+20%</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('hon_typ','stunden',this)"><i class="ti ti-clock" aria-hidden="true"></i><div><span class="bk-ot">Stundennachweis</span><span class="bk-os">Transparent, flexibel</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('hon_typ','egal',this)"><i class="ti ti-check" aria-hidden="true"></i><div><span class="bk-ot">Egal — Hauptsache fair</span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('hon_typ','pauschale',this)"><i class="ti ti-receipt" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s7.hon.pauschale.t"></span><span class="bk-os">+20%</span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('hon_typ','stunden',this)"><i class="ti ti-clock" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s7.hon.stunden.t"></span><span class="bk-os" data-bk-i18n="s7.hon.stunden.s"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('hon_typ','egal',this)"><i class="ti ti-check" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s7.hon.egal"></span></div></button>
             </div>
-            <div class="bk-q">Änderungsschleifen<small>bei neuen Wünschen nach Vorlage eines beauftragten Konzepts</small></div>
+            <div class="bk-q"><span data-bk-i18n="s7.q3"></span><small data-bk-i18n="s7.q3Hint"></small></div>
             <div class="bk-sl-g">
-              <label>Schleifen <b id="bk-cr-val">1×</b></label>
+              <label><span data-bk-i18n="s7.sl.cr"></span> <b id="bk-cr-val">1×</b></label>
               <input type="range" min="1" max="4" step="1" value="1" oninput="bkUpdCr(+this.value)" id="bk-sl-cr">
               <div class="bk-sl-ends" data-bk-sl="cr">
-                <button type="button" class="bk-sl-opt sel" data-v="1" onclick="bkPickSl('cr',1)">1×</button>
-                <button type="button" class="bk-sl-opt" data-v="2" onclick="bkPickSl('cr',2)">2× +15%</button>
-                <button type="button" class="bk-sl-opt" data-v="3" onclick="bkPickSl('cr',3)">3× +25%</button>
-                <button type="button" class="bk-sl-opt" data-v="4" onclick="bkPickSl('cr',4)">unlimitiert · 300%</button>
+                <button type="button" class="bk-sl-opt sel" data-v="1" onclick="bkPickSl('cr',1)" data-bk-i18n="cr.1"></button>
+                <button type="button" class="bk-sl-opt" data-v="2" onclick="bkPickSl('cr',2)" data-bk-i18n="s7.cr.2"></button>
+                <button type="button" class="bk-sl-opt" data-v="3" onclick="bkPickSl('cr',3)" data-bk-i18n="s7.cr.3"></button>
+                <button type="button" class="bk-sl-opt" data-v="4" onclick="bkPickSl('cr',4)" data-bk-i18n="s7.cr.4"></button>
               </div>
             </div>
-            <div class="bk-q">Kostenverfolgung?</div>
+            <div class="bk-q" data-bk-i18n="s7.q4"></div>
             <div class="bk-opts">
-              <button class="bk-opt" onclick="bkPickOpt('kv','nie',this)"><div><span class="bk-ot">Nicht nötig</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('kv','meilensteine',this)"><div><span class="bk-ot">An Meilensteinen</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('kv','monatlich',this)"><div><span class="bk-ot">Monatlich</span><span class="bk-os">+5%</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('kv','laufend',this)"><div><span class="bk-ot">Laufend</span><span class="bk-os">+10%</span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('kv','nie',this)"><div><span class="bk-ot" data-bk-i18n="s7.kv.nie"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('kv','meilensteine',this)"><div><span class="bk-ot" data-bk-i18n="s7.kv.meilensteine"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('kv','monatlich',this)"><div><span class="bk-ot" data-bk-i18n="s7.kv.monatlich.t"></span><span class="bk-os">+5%</span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('kv','laufend',this)"><div><span class="bk-ot" data-bk-i18n="s7.kv.laufend.t"></span><span class="bk-os">+10%</span></div></button>
             </div>
-            <div class="bk-q">Anpassung der Planung nach Deiner Freigabe</div>
+            <div class="bk-q" data-bk-i18n="s7.q5"></div>
             <div class="bk-opts">
-              <button class="bk-opt" onclick="bkPickOpt('aend','keine',this)"><div><span class="bk-ot">Ich entscheide einmal</span><span class="bk-os">Dann final</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('aend','wenige',this)"><div><span class="bk-ot">Gelegentliche Korrekturen</span><span class="bk-os">+30%</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('aend','viele',this)"><div><span class="bk-ot">Ich brauche Spielraum</span><span class="bk-os">×2 Honorar (+100%)</span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('aend','keine',this)"><div><span class="bk-ot" data-bk-i18n="s7.aend.keine.t"></span><span class="bk-os" data-bk-i18n="s7.aend.keine.s"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('aend','wenige',this)"><div><span class="bk-ot" data-bk-i18n="s7.aend.wenige.t"></span><span class="bk-os">+30%</span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('aend','viele',this)"><div><span class="bk-ot" data-bk-i18n="s7.aend.viele.t"></span><span class="bk-os" data-bk-i18n="s7.aend.viele.s"></span></div></button>
             </div>
             <div class="bk-nav">
               <div class="bk-nav__left">
-                <button class="bk-btn" onclick="bkGoTo(0)">←← Zum Start</button>
-                <button class="bk-btn" onclick="bkGoTo(6)">← Zurück</button>
+                <button class="bk-btn" data-bk-nav="start" onclick="bkGoTo(0)"></button>
+                <button class="bk-btn" data-bk-nav="back" onclick="bkGoTo(6)"></button>
               </div>
               <div class="bk-progress" id="bk-prog7"></div>
-              <button class="bk-btn primary" id="bk-btn7" onclick="bkGoTo(8)" disabled>Weiter →</button>
+              <button class="bk-btn primary" id="bk-btn7" data-bk-nav="next" onclick="bkGoTo(8)" disabled></button>
             </div>
           </div>
 
           <!-- S8: TIMING -->
           <div id="bk-step8" class="bk-step">
-            <div class="bk-slabel">Schritt 8 — Timing & Ablauf</div>
-            <div class="bk-q">Gibt es eine harte Deadline?<small>Fixer Termin = +20%</small></div>
+            <div class="bk-slabel" data-bk-i18n="s8.label"></div>
+            <div class="bk-q"><span data-bk-i18n="s8.q1"></span><small data-bk-i18n="s8.q1Hint"></small></div>
             <div class="bk-opts">
-              <button class="bk-opt" onclick="bkPickOpt('dl_typ','hart',this)"><i class="ti ti-calendar-event" aria-hidden="true"></i><div><span class="bk-ot">Ja, fixer Termin</span><span class="bk-os">+20%</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('dl_typ','weich',this)"><i class="ti ti-calendar" aria-hidden="true"></i><div><span class="bk-ot">Ungefähr</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('dl_typ','offen',this)"><i class="ti ti-infinity" aria-hidden="true"></i><div><span class="bk-ot">Noch offen</span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('dl_typ','hart',this)"><i class="ti ti-calendar-event" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s8.dl.hart.t"></span><span class="bk-os">+20%</span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('dl_typ','weich',this)"><i class="ti ti-calendar" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s8.dl.weich"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('dl_typ','offen',this)"><i class="ti ti-infinity" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s8.dl.offen"></span></div></button>
             </div>
-            <input class="bk-inf" type="text" id="bk-dl-text" placeholder="Wann ungefähr? z. B. Oktober 2025" oninput="bkSt.dl_text=this.value;bkUpdateNavButtons()">
-            <div class="bk-q">Wie läuft der Alltag während des Projekts?<small>Bewohnt = +30%</small></div>
+            <input class="bk-inf" type="text" id="bk-dl-text" data-bk-i18n-ph="s8.dlph" placeholder="Wann ungefähr? z. B. Oktober 2025" oninput="bkSt.dl_text=this.value;bkUpdateNavButtons()">
+            <div class="bk-q"><span data-bk-i18n="s8.q2"></span><small data-bk-i18n="s8.q2Hint"></small></div>
             <div class="bk-opts">
-              <button class="bk-opt" onclick="bkPickOpt('bewohnt','ja',this)"><i class="ti ti-home" aria-hidden="true"></i><div><span class="bk-ot">Bewohnt</span><span class="bk-os">+30%</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('bewohnt','leer',this)"><i class="ti ti-door-exit" aria-hidden="true"></i><div><span class="bk-ot">Leer / ausgezogen</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('bewohnt','beides',this)"><i class="ti ti-arrows-exchange" aria-hidden="true"></i><div><span class="bk-ot">Beides möglich</span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('bewohnt','ja',this)"><i class="ti ti-home" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s8.bew.ja.t"></span><span class="bk-os">+30%</span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('bewohnt','leer',this)"><i class="ti ti-door-exit" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s8.bew.leer"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('bewohnt','beides',this)"><i class="ti ti-arrows-exchange" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s8.bew.beides"></span></div></button>
             </div>
-            <div class="bk-q">Bevorzugte Kommunikation?</div>
+            <div class="bk-q" data-bk-i18n="s8.q3"></div>
             <div class="bk-opts">
-              <button class="bk-opt" onclick="bkPickOpt('komm','mail',this)"><i class="ti ti-mail" aria-hidden="true"></i><div><span class="bk-ot">E-Mail</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('komm','whatsapp',this)"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i><div><span class="bk-ot">WhatsApp</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('komm','call',this)"><i class="ti ti-phone" aria-hidden="true"></i><div><span class="bk-ot">Anruf</span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('komm','mail',this)"><i class="ti ti-mail" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s8.komm.mail"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('komm','whatsapp',this)"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s8.komm.whatsapp"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('komm','call',this)"><i class="ti ti-phone" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s8.komm.call"></span></div></button>
             </div>
             <div class="bk-nav">
               <div class="bk-nav__left">
-                <button class="bk-btn" onclick="bkGoTo(0)">←← Zum Start</button>
-                <button class="bk-btn" onclick="bkGoTo(7)">← Zurück</button>
+                <button class="bk-btn" data-bk-nav="start" onclick="bkGoTo(0)"></button>
+                <button class="bk-btn" data-bk-nav="back" onclick="bkGoTo(7)"></button>
               </div>
               <div class="bk-progress" id="bk-prog8"></div>
-              <button class="bk-btn primary" id="bk-btn8" onclick="bkGoTo(9)" disabled>Weiter →</button>
+              <button class="bk-btn primary" id="bk-btn8" data-bk-nav="next" onclick="bkGoTo(9)" disabled></button>
             </div>
           </div>
 
           <!-- S9: KONTAKT -->
           <div id="bk-step9" class="bk-step">
-            <div class="bk-slabel">Schritt 9 — Kontakt & Kostenrahmen</div>
-            <div class="bk-q">Fast fertig — wie erreiche ich Dich?</div>
+            <div class="bk-slabel" data-bk-i18n="s9.label"></div>
+            <div class="bk-q" data-bk-i18n="s9.q1"></div>
             <div class="bk-two-col">
-              <input class="bk-inf" type="text" id="bk-fname" placeholder="Vorname *">
-              <input class="bk-inf" type="text" id="bk-lname" placeholder="Nachname">
+              <input class="bk-inf" type="text" id="bk-fname" data-bk-i18n-ph="s9.ph.fname" placeholder="Vorname *">
+              <input class="bk-inf" type="text" id="bk-lname" data-bk-i18n-ph="s9.ph.lname" placeholder="Nachname">
             </div>
-            <input class="bk-inf" type="email" id="bk-femail" placeholder="E-Mail *">
-            <input class="bk-inf" type="tel" id="bk-fphone" placeholder="Telefon / WhatsApp (optional)">
-            <input class="bk-inf" type="text" id="bk-fcity" placeholder="Stadtteil / Stadt">
-            <div class="bk-q" style="margin-top:.4rem">Im Vergleich zur automatischen Berechnung: wie ist Dein Kostenrahmen?<small>Honorar + Baukosten zusammen, nur zur Orientierung</small></div>
+            <input class="bk-inf" type="email" id="bk-femail" data-bk-i18n-ph="s9.ph.email" placeholder="E-Mail *">
+            <input class="bk-inf" type="tel" id="bk-fphone" data-bk-i18n-ph="s9.ph.phone" placeholder="Telefon / WhatsApp (optional)">
+            <input class="bk-inf" type="text" id="bk-fcity" data-bk-i18n-ph="s9.ph.city" placeholder="Stadtteil / Stadt">
+            <div class="bk-q" style="margin-top:.4rem"><span data-bk-i18n="s9.q2"></span><small data-bk-i18n="s9.q2Hint"></small></div>
             <div class="bk-opts">
-              <button class="bk-opt" onclick="bkPickOpt('kostenrahmen','bis20k',this)"><div><span class="bk-ot">bis 20.000 €</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('kostenrahmen','20_60k',this)"><div><span class="bk-ot">20.000 – 60.000 €</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('kostenrahmen','60_150k',this)"><div><span class="bk-ot">60.000 – 150.000 €</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('kostenrahmen','150kplus',this)"><div><span class="bk-ot">150.000 € +</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('kostenrahmen','500kplus',this)"><div><span class="bk-ot">500.000 € +</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('kostenrahmen','offen',this)"><div><span class="bk-ot">Noch offen</span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('kostenrahmen','bis20k',this)"><div><span class="bk-ot" data-bk-i18n="s9.kr.bis20k"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('kostenrahmen','20_60k',this)"><div><span class="bk-ot" data-bk-i18n="s9.kr.20_60k"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('kostenrahmen','60_150k',this)"><div><span class="bk-ot" data-bk-i18n="s9.kr.60_150k"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('kostenrahmen','150kplus',this)"><div><span class="bk-ot" data-bk-i18n="s9.kr.150kplus"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('kostenrahmen','500kplus',this)"><div><span class="bk-ot" data-bk-i18n="s9.kr.500kplus"></span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('kostenrahmen','offen',this)"><div><span class="bk-ot" data-bk-i18n="s9.kr.offen"></span></div></button>
             </div>
-            <textarea class="bk-inf" rows="3" placeholder="Was ich noch wissen sollte… (optional)" oninput="bkSt.note=this.value"></textarea>
+            <textarea class="bk-inf" rows="3" data-bk-i18n-ph="s9.ph.note" placeholder="Was ich noch wissen sollte… (optional)" oninput="bkSt.note=this.value"></textarea>
             <div id="bk-final-summary"></div>
             <div class="bk-nav">
               <div class="bk-nav__left">
-                <button class="bk-btn" onclick="bkGoTo(0)">←← Zum Start</button>
-                <button class="bk-btn" onclick="bkGoTo(8)">← Zurück</button>
+                <button class="bk-btn" data-bk-nav="start" onclick="bkGoTo(0)"></button>
+                <button class="bk-btn" data-bk-nav="back" onclick="bkGoTo(8)"></button>
               </div>
-              <button class="bk-btn primary" onclick="bkSubmit()">Anfrage abschicken →</button>
+              <button class="bk-btn primary" data-bk-nav="submit" onclick="bkSubmit()"></button>
             </div>
           </div>
 
@@ -2339,8 +2339,8 @@
           <div id="bk-step-done" class="bk-step">
             <div class="bk-done-wrap">
               <div class="bk-done-icon"><i class="ti ti-check" aria-hidden="true"></i></div>
-              <h3>Danke — ich melde mich.</h3>
-              <p>Deine Anfrage ist eingegangen.<br>Joscha schaut drüber und schreibt Dir innerhalb von 48 Stunden.</p>
+              <h3 data-bk-i18n="done.title"></h3>
+              <p data-bk-i18n="done.body" data-bk-i18n-html="1"></p>
             </div>
           </div>
 
@@ -4234,6 +4234,7 @@
         }
       })();
     </script>
+    <script src="bk-i18n.js" defer></script>
     <script src="biig-konfigurator.js" defer></script>
   </body>
 </html>

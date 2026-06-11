@@ -1,0 +1,392 @@
+(function() {
+'use strict';
+
+const BK_STRINGS = {
+  'header.title': { de: 'Deine Anfrage', en: 'Your enquiry' },
+  'header.honorar': { de: 'Honorar', en: 'Fee' },
+  'header.bau': { de: 'Baukosten-Orientierung', en: 'Build cost guide' },
+  'nav.start': { de: 'Zum Start', en: 'To start' },
+  'nav.back': { de: 'Zurück', en: 'Back' },
+  'nav.next': { de: 'Weiter', en: 'Next' },
+  'nav.submit': { de: 'Anfrage abschicken', en: 'Send enquiry' },
+  'wheel.done': { de: 'Fertig', en: 'Done' },
+  'wheel.close': { de: 'Schließen', en: 'Close' },
+  'wheel.inner': { de: 'Innen', en: 'Interior' },
+  'wheel.outer': { de: 'Außen', en: 'Exterior' },
+  's0.label': { de: 'Hallo', en: 'Hello' },
+  's0.q': { de: 'Benötigst Du Hilfe bei Deinem Space?', en: 'Do you need help with your space?' },
+  's0.opt1.t': { de: 'Ja, ich möchte loslegen', en: 'Yes, I want to get started' },
+  's0.opt1.s': { de: 'mit ein paar Ideen', en: 'with a few ideas' },
+  's0.opt2.t': { de: 'Mal schauen', en: 'Just browsing' },
+  's0.opt2.s': { de: 'keine genaue Vorstellung', en: 'no clear picture yet' },
+  's1.label': { de: 'Schritt 1 — Leistung', en: 'Step 1 — Service' },
+  's1.q': { de: 'Wie willst Du es umsetzen?', en: 'How do you want to proceed?' },
+  's1.qHint': { de: 'Mehrere Optionen möglich', en: 'Multiple options possible' },
+  's2.label': { de: 'Schritt 2 — Projektgröße', en: 'Step 2 — Project size' },
+  's2.q': { de: 'Wie groß ist Dein Projekt?', en: 'How large is your project?' },
+  's2.outdoor.q': { de: 'Gibt es einen Außenbereich?', en: 'Is there an outdoor area?' },
+  's2.qm.in': { de: 'Innen:', en: 'Interior:' },
+  's2.qm.inHint': { de: 'm² — passe gerne an', en: 'm² — adjust as needed' },
+  's2.qm.out': { de: 'Außen:', en: 'Exterior:' },
+  's2.qm.outUnit': { de: 'm²', en: 'm²' },
+  's2.size.kl.t': { de: 'Kleines Zimmer', en: 'Small room' },
+  's2.size.kl.s': { de: 'Büro, Schlafzimmer', en: 'Office, bedroom' },
+  's2.size.gr.t': { de: 'Großes Zimmer', en: 'Large room' },
+  's2.size.gr.s': { de: 'Wohnzimmer, Studio', en: 'Living room, studio' },
+  's2.size.teile.t': { de: 'Teile der Wohnung / des Büros', en: 'Part of the flat / office' },
+  's2.size.teile.s': { de: 'Mehrere Zimmer', en: 'Several rooms' },
+  's2.size.etage.t': { de: 'Komplette Wohnung / komplettes Büro', en: 'Entire flat / entire office' },
+  's2.size.etage.s': { de: 'Gesamte Wohnfläche', en: 'Total living area' },
+  's2.size.haus.t': { de: 'Große Wohn- / Büroetag(e)', en: 'Large residential / office floor(s)' },
+  's2.size.haus.s': { de: 'Große zusammenhängende Etagen', en: 'Large connected floors' },
+  's2.size.haus_garten.t': { de: 'Haus', en: 'House' },
+  's2.size.haus_garten.s': { de: 'Mehrere Ebenen · Garten wählst Du unten', en: 'Multiple levels · garden selected below' },
+  's2.aussen.kein': { de: 'Kein', en: 'None' },
+  's2.aussen.balkon': { de: 'Balkon', en: 'Balcony' },
+  's2.aussen.dachterrasse': { de: 'Dachterrasse', en: 'Roof terrace' },
+  's2.aussen.terrasse': { de: 'Terrasse / Garten', en: 'Terrace / garden' },
+  's3.label': { de: 'Schritt 3 — Ziel & Situation', en: 'Step 3 — Goal & situation' },
+  's3.q1': { de: 'Was soll nach dem Projekt besser sein?', en: 'What should be better after the project?' },
+  's3.q1Hint': { de: 'Küche und Bad erhöhen die Planungstiefe', en: 'Kitchen and bathroom increase planning depth' },
+  's3.q2': { de: 'Was stört Dich heute am meisten?', en: 'What bothers you most today?' },
+  's3.q2ph': { de: 'z. B. kein Platz, wirkt dunkel, keine Struktur …', en: 'e.g. no space, feels dark, no structure …' },
+  's3.q3': { de: 'Wie soll es sich anfühlen?', en: 'How should it feel?' },
+  's3.ziele.stauraum': { de: 'Mehr Stauraum', en: 'More storage' },
+  's3.ziele.ruhe': { de: 'Ruhe & Rückzug', en: 'Calm & retreat' },
+  's3.ziele.gaeste': { de: 'Gäste gut unterbringen', en: 'Host guests well' },
+  's3.ziele.homeoffice': { de: 'Homeoffice-Qualität', en: 'Home office quality' },
+  's3.ziele.kinder': { de: 'Alltag mit Kindern', en: 'Life with children' },
+  's3.ziele.aesthetik': { de: 'Mehr Ästhetik & Stimmung', en: 'More aesthetics & mood' },
+  's3.ziele.fluss': { de: 'Besserer Raumfluss', en: 'Better flow' },
+  's3.ziele.licht': { de: 'Mehr Licht & Offenheit', en: 'More light & openness' },
+  's3.ziele.kueche': { de: 'Küche aufwerten +12%', en: 'Upgrade kitchen +12%' },
+  's3.ziele.bad': { de: 'Bad aufwerten +10%', en: 'Upgrade bathroom +10%' },
+  's3.feel.retreat': { de: 'Ruhiges Retreat', en: 'Calm retreat' },
+  's3.feel.lebhaft': { de: 'Lebhaftes Zuhause', en: 'Lively home' },
+  's3.feel.repraesentation': { de: 'Repräsentation', en: 'Representation' },
+  's3.feel.funktional': { de: 'Maximal funktional', en: 'Highly functional' },
+  's4.label': { de: 'Schritt 4 — Details', en: 'Step 4 — Details' },
+  's5.label': { de: 'Schritt 5 — Nutzung & Alltag', en: 'Step 5 — Use & daily life' },
+  's5.q1': { de: 'Wer lebt im Raum?', en: 'Who lives in the space?' },
+  's5.q2': { de: 'Sind diese Funktionen relevant?', en: 'Are these functions relevant?' },
+  's5.q2Hint': { de: 'Homeoffice & Fitness je +8%', en: 'Home office & fitness each +8%' },
+  's5.q3': { de: 'Wenn Küchenplanung — wie wird gekocht?', en: 'If kitchen planning — how do you cook?' },
+  's5.q3Hint': { de: 'Häufig & aufwendig = +10%', en: 'Frequent & elaborate = +10%' },
+  's5.q4': { de: 'Smart Home?', en: 'Smart home?' },
+  's5.nutzer.allein': { de: 'Alleine', en: 'Alone' },
+  's5.nutzer.paar': { de: 'Zu zweit', en: 'As a couple' },
+  's5.nutzer.familie': { de: 'Familie mit Kindern', en: 'Family with children' },
+  's5.nutzer.wg': { de: 'WG', en: 'Shared flat' },
+  's5.funk.eltern': { de: 'Mastersuite', en: 'Master suite' },
+  's5.funk.gaestezimmer': { de: 'Gästezimmer', en: 'Guest room' },
+  's5.funk.kinder_b': { de: 'Kinderbereiche', en: 'Children\'s areas' },
+  's5.funk.homeoffice_f': { de: 'Homeoffice +8%', en: 'Home office +8%' },
+  's5.funk.fitness': { de: 'Hobby / Fitness +8%', en: 'Hobby / fitness +8%' },
+  's5.funk.hauswirtschaft': { de: 'Hauswirtschaft', en: 'Utility room' },
+  's5.kochen.aufwendig.t': { de: 'Häufig & aufwendig', en: 'Frequent & elaborate' },
+  's5.kochen.schnell': { de: 'Schnell & pragmatisch', en: 'Quick & pragmatic' },
+  's5.kochen.selten': { de: 'Selten', en: 'Rarely' },
+  's5.smh.ja.t': { de: 'Ja, Licht & mehr', en: 'Yes, lighting & more' },
+  's5.smh.licht.t': { de: 'Nur Licht', en: 'Lighting only' },
+  's5.smh.nein': { de: 'Kein Thema', en: 'Not relevant' },
+  's6.label': { de: 'Schritt 6 — Stil & Ästhetik', en: 'Step 6 — Style & aesthetics' },
+  's6.q1': { de: 'Welcher Stil trifft Deinen Wunsch?', en: 'Which style matches your wish?' },
+  's6.q2': { de: 'Materialien die Du liebst?', en: 'Materials you love?' },
+  's6.q3': { de: 'Was ist ein No-Go?', en: 'What is a no-go?' },
+  's6.q3ph': { de: 'z. B. kein Hochglanz, kein Weiß …', en: 'e.g. no gloss, no white …' },
+  's6.q4': { de: 'Gesetzte Möbel oder Objekte?', en: 'Fixed furniture or objects?' },
+  's6.q4ph': { de: 'z. B. Sofa 2,50 m grau, Esstisch Eiche …', en: 'e.g. sofa 2.50 m grey, oak dining table …' },
+  's6.q5': { de: 'Neuanschaffungen geplant?', en: 'Planning new purchases?' },
+  's6.q6': { de: 'Was soll koordiniert werden?', en: 'What should be coordinated?' },
+  's6.q6Hint': { de: 'Jede Option erhöht das Honorar leicht', en: 'Each option slightly increases the fee' },
+  's6.stil.warm.t': { de: 'Warm-zeitlos', en: 'Warm & timeless' },
+  's6.stil.warm.s': { de: 'Holz, Naturstein', en: 'Wood, natural stone' },
+  's6.stil.clean.t': { de: 'Modern-clean', en: 'Modern clean' },
+  's6.stil.clean.s': { de: 'Weiß, Beton', en: 'White, concrete' },
+  's6.stil.japanisch.t': { de: 'Ruhig-japanisch', en: 'Calm Japanese' },
+  's6.stil.japanisch.s': { de: 'Reduktion', en: 'Reduction' },
+  's6.stil.urban.t': { de: 'Urban-elegant', en: 'Urban elegant' },
+  's6.stil.urban.s': { de: 'Metall, Statement', en: 'Metal, statement' },
+  's6.stil.maximal.t': { de: 'Maximalistisch', en: 'Maximalist' },
+  's6.stil.maximal.s': { de: 'Farbe, Charakter', en: 'Colour, character' },
+  's6.stil.offen': { de: 'Noch offen', en: 'Still open' },
+  's6.mat.holz_hell': { de: 'Holz (hell)', en: 'Wood (light)' },
+  's6.mat.holz_dunkel': { de: 'Holz (dunkel)', en: 'Wood (dark)' },
+  's6.mat.naturstein': { de: 'Naturstein', en: 'Natural stone' },
+  's6.mat.marmor': { de: 'Marmor', en: 'Marble' },
+  's6.mat.metall': { de: 'Metall / Stahl', en: 'Metal / steel' },
+  's6.mat.beton': { de: 'Beton / Putz', en: 'Concrete / plaster' },
+  's6.mat.textil': { de: 'Textilien', en: 'Textiles' },
+  's6.mat.farbe': { de: 'Farbige Wände', en: 'Coloured walls' },
+  's6.neuan.ja': { de: 'Ja, neue Möbel', en: 'Yes, new furniture' },
+  's6.neuan.nein': { de: 'Nein, nur Vorhandenes', en: 'No, existing only' },
+  's6.neuan.wenig': { de: 'Wenige gezielte Stücke', en: 'A few targeted pieces' },
+  's6.koord.kueche': { de: 'Küchenplanung +8%', en: 'Kitchen planning +8%' },
+  's6.koord.moebel': { de: 'Möbel +6%', en: 'Furniture +6%' },
+  's6.koord.kunst': { de: 'Kunst & Objekte +4%', en: 'Art & objects +4%' },
+  's6.koord.licht': { de: 'Lichtplanung +5%', en: 'Lighting planning +5%' },
+  's6.koord.textil': { de: 'Textil & Vorhänge +4%', en: 'Textiles & curtains +4%' },
+  's6.koord.bau': { de: 'Bauleitung koordinieren +15%', en: 'Coordinate site management +15%' },
+  's7.label': { de: 'Schritt 7 — Qualität & Konditionen', en: 'Step 7 — Quality & terms' },
+  's7.q1': { de: 'Qualitätsniveau Materialien & Ausstattung?', en: 'Quality level of materials & fittings?' },
+  's7.sl.ql': { de: 'Niveau', en: 'Level' },
+  's7.q2': { de: 'Wie soll das Honorar strukturiert sein?', en: 'How should the fee be structured?' },
+  's7.q2Hint': { de: 'Pauschale = +20%', en: 'Fixed fee = +20%' },
+  's7.q3': { de: 'Änderungsschleifen', en: 'Revision rounds' },
+  's7.q3Hint': { de: 'bei neuen Wünschen nach Vorlage eines beauftragten Konzepts', en: 'for new requests after a commissioned concept is delivered' },
+  's7.sl.cr': { de: 'Schleifen', en: 'Rounds' },
+  's7.q4': { de: 'Kostenverfolgung?', en: 'Cost tracking?' },
+  's7.q5': { de: 'Anpassung der Planung nach Deiner Freigabe', en: 'Adjusting the plan after your approval' },
+  's7.hon.pauschale.t': { de: 'Pauschale je Phase', en: 'Fixed fee per phase' },
+  's7.hon.stunden.t': { de: 'Stundennachweis', en: 'Hourly billing' },
+  's7.hon.stunden.s': { de: 'Transparent, flexibel', en: 'Transparent, flexible' },
+  's7.hon.egal': { de: 'Egal — Hauptsache fair', en: 'No preference — fair is what matters' },
+  's7.kv.nie': { de: 'Nicht nötig', en: 'Not needed' },
+  's7.kv.meilensteine': { de: 'An Meilensteinen', en: 'At milestones' },
+  's7.kv.monatlich.t': { de: 'Monatlich', en: 'Monthly' },
+  's7.kv.laufend.t': { de: 'Laufend', en: 'Ongoing' },
+  's7.aend.keine.t': { de: 'Ich entscheide einmal', en: 'I decide once' },
+  's7.aend.keine.s': { de: 'Dann final', en: 'Then final' },
+  's7.aend.wenige.t': { de: 'Gelegentliche Korrekturen', en: 'Occasional corrections' },
+  's7.aend.viele.t': { de: 'Ich brauche Spielraum', en: 'I need flexibility' },
+  's7.aend.viele.s': { de: '×2 Honorar (+100%)', en: '×2 fee (+100%)' },
+  's7.cr.2': { de: '2× +15%', en: '2× +15%' },
+  's7.cr.3': { de: '3× +25%', en: '3× +25%' },
+  's7.cr.4': { de: 'unlimitiert · 300%', en: 'unlimited · 300%' },
+  's8.label': { de: 'Schritt 8 — Timing & Ablauf', en: 'Step 8 — Timing & process' },
+  's8.q1': { de: 'Gibt es eine harte Deadline?', en: 'Is there a hard deadline?' },
+  's8.q1Hint': { de: 'Fixer Termin = +20%', en: 'Fixed date = +20%' },
+  's8.q2': { de: 'Wie läuft der Alltag während des Projekts?', en: 'What is daily life like during the project?' },
+  's8.q2Hint': { de: 'Bewohnt = +30%', en: 'Occupied = +30%' },
+  's8.q3': { de: 'Bevorzugte Kommunikation?', en: 'Preferred communication?' },
+  's8.dlph': { de: 'Wann ungefähr? z. B. Oktober 2025', en: 'Roughly when? e.g. October 2025' },
+  's8.dl.hart.t': { de: 'Ja, fixer Termin', en: 'Yes, fixed date' },
+  's8.dl.weich': { de: 'Ungefähr', en: 'Roughly' },
+  's8.dl.offen': { de: 'Noch offen', en: 'Still open' },
+  's8.bew.ja.t': { de: 'Bewohnt', en: 'Occupied' },
+  's8.bew.leer': { de: 'Leer / ausgezogen', en: 'Empty / vacated' },
+  's8.bew.beides': { de: 'Beides möglich', en: 'Both possible' },
+  's8.komm.mail': { de: 'E-Mail', en: 'Email' },
+  's8.komm.whatsapp': { de: 'WhatsApp', en: 'WhatsApp' },
+  's8.komm.call': { de: 'Anruf', en: 'Phone call' },
+  's9.label': { de: 'Schritt 9 — Kontakt & Kostenrahmen', en: 'Step 9 — Contact & budget' },
+  's9.q1': { de: 'Fast fertig — wie erreiche ich Dich?', en: 'Almost done — how can I reach you?' },
+  's9.q2': { de: 'Im Vergleich zur automatischen Berechnung: wie ist Dein Kostenrahmen?', en: 'Compared to the automatic estimate: what is your budget?' },
+  's9.q2Hint': { de: 'Honorar + Baukosten zusammen, nur zur Orientierung', en: 'Fee + build costs combined, for orientation only' },
+  's9.ph.fname': { de: 'Vorname *', en: 'First name *' },
+  's9.ph.lname': { de: 'Nachname', en: 'Last name' },
+  's9.ph.email': { de: 'E-Mail *', en: 'Email *' },
+  's9.ph.phone': { de: 'Telefon / WhatsApp (optional)', en: 'Phone / WhatsApp (optional)' },
+  's9.ph.city': { de: 'Stadtteil / Stadt', en: 'District / city' },
+  's9.ph.note': { de: 'Was ich noch wissen sollte… (optional)', en: 'Anything else I should know… (optional)' },
+  's9.kr.bis20k': { de: 'bis 20.000 €', en: 'up to €20,000' },
+  's9.kr.20_60k': { de: '20.000 – 60.000 €', en: '€20,000 – 60,000' },
+  's9.kr.60_150k': { de: '60.000 – 150.000 €', en: '€60,000 – 150,000' },
+  's9.kr.150kplus': { de: '150.000 € +', en: '€150,000 +' },
+  's9.kr.500kplus': { de: '500.000 € +', en: '€500,000 +' },
+  's9.kr.offen': { de: 'Noch offen', en: 'Still open' },
+  'done.title': { de: 'Danke — ich melde mich.', en: 'Thank you — I\'ll be in touch.' },
+  'done.body': { de: 'Deine Anfrage ist eingegangen.<br>Joscha schaut drüber und schreibt Dir innerhalb von 48 Stunden.', en: 'Your enquiry has been received.<br>Joscha will review it and get back to you within 48 hours.' },
+  'alert.contact': { de: 'Bitte Vorname und E-Mail ausfüllen.', en: 'Please enter your first name and email.' },
+  'cart.from': { de: 'ab', en: 'from' },
+  'cart.bauGuide': { de: 'Baukosten-Orientierung (BKI)', en: 'Build cost guide (BKI)' },
+  'summary.title': { de: 'Zusammenfassung Deiner Anfrage', en: 'Summary of your enquiry' },
+  'summary.details': { de: 'Details & Wünsche', en: 'Details & wishes' },
+  'summary.pickService': { de: 'Bitte gehe zurück und wähle eine Leistung.', en: 'Please go back and select a service.' },
+  'track.ordnung.title': { de: 'Ordnung & Sortierung', en: 'Organisation & sorting' },
+  'track.ordnung.desc': { de: 'ab 200 €', en: 'from €200' },
+  'track.ordnung.info': { de: 'Ich bring Ordnung in Dein Projekt. Wie ist Dein Alltag strukturiert und wie der Ort. Grundriss, Platzbedarf, Möbel, was kann weg und was muss sein. Skizze in 2D und in 3D Stimmung.', en: 'I bring order to your project. How is your daily life structured and how is the space used. Layout, space needs, furniture, what can go and what must stay. Sketch in 2D and 3D mood.' },
+  'track.arrangement.title': { de: 'Grundplanung Raum-Arrangement', en: 'Basic spatial layout planning' },
+  'track.arrangement.desc': { de: 'Grundriss + Möbelplan + Visu · ab 450 €', en: 'Layout + furniture plan + visuals · from €450' },
+  'track.arrangement.info': { de: 'Du bekommst eine Grundplanung auf einen Bestandsgrundriss mit konkreten Maßen. Deine Vorgaben fordere ich heraus. Mit Möbelplanung, Stauraum, professioneller Platzbedarfsanalyse. Und ein Design passend zu Dir.', en: 'You receive a basic plan on an existing layout with concrete dimensions. I challenge your brief. Including furniture planning, storage, professional space analysis. And a design that fits you.' },
+  'track.allinclusive.title': { de: 'Entwurf bis Umsetzung', en: 'Design through to delivery' },
+  'track.allinclusive.desc': { de: 'Planung + Handwerk · ab 1.000 €', en: 'Planning + trades · from €1,000' },
+  'track.allinclusive.info': { de: 'Vom ersten Entwurf bis zur koordinierten Umsetzung — je nach gewählter Leistungsphase in Schritt 4. Ein durchgängiger Ablauf statt einzelner Planungslieferung.', en: 'From first design to coordinated delivery — depending on the service phase chosen in step 4. One continuous process instead of separate planning deliverables.' },
+  'phase.konzept.title': { de: 'Nur Planung', en: 'Planning only' },
+  'phase.konzept.desc': { de: 'Entwurf, Grundriss, Visualisierung', en: 'Design, layout, visualisation' },
+  'phase.konzept.info': { de: 'Du erhältst Planung und Visualisierung — ohne Gewerkesuche, Angebotsvergleich oder Baustellenkoordination. Die Umsetzung verantwortest Du selbst oder mit eigenen Handwerkern.', en: 'You receive planning and visualisation — without trade sourcing, quote comparison or site coordination. You handle delivery yourself or with your own trades.' },
+  'phase.planung_bau.title': { de: '+ Vermittlung', en: '+ Sourcing' },
+  'phase.planung_bau.desc': { de: 'inkl. Gewerke suchen & Angebote koordinieren · +25%', en: 'incl. finding trades & coordinating quotes · +25%' },
+  'phase.planung_bau.info': { de: 'Alles aus Stufe 1, plus ich suche passende Gewerke und koordiniere Angebote. Die Verträge mit Handwerkern schließt Du; ich strukturiere Auswahl und Vergleich.', en: 'Everything in tier 1, plus I find suitable trades and coordinate quotes. You sign contracts with trades; I structure selection and comparison.' },
+  'phase.bauleitung.title': { de: '+ Bauleitung', en: '+ Site management' },
+  'phase.bauleitung.desc': { de: 'inkl. Koordination auf der Baustelle · +45%', en: 'incl. on-site coordination · +45%' },
+  'phase.bauleitung.info': { de: 'Alles aus Stufe 2, plus laufende Steuerung auf der Baustelle — Termine, Abläufe und Qualität vor Ort. Ich bin Dein Ansprechpartner zwischen Plan und Ausführung.', en: 'Everything in tier 2, plus ongoing control on site — schedules, workflows and quality on the ground. I am your contact between plan and execution.' },
+  'phase.gue.title': { de: 'Alles aus einer Hand', en: 'All from one source' },
+  'phase.gue.desc': { de: 'inkl. einem Vertrag für alle Leistungen · +65%', en: 'incl. one contract for all services · +65%' },
+  'phase.gue.info': { de: 'Das Komplettpaket: Planung, Vermittlung, Bauleitung und ein gemeinsamer Vertragsrahmen. Du hast einen Ansprechpartner; ich steuere Gewerke und Ablauf end-to-end.', en: 'The complete package: planning, sourcing, site management and one contractual framework. One contact; I steer trades and process end-to-end.' },
+  'info.scope': { de: 'Umfang:', en: 'Scope:' },
+  'ql.standard': { de: 'Standard', en: 'Standard' },
+  'ql.gehoben': { de: 'Gehoben', en: 'Elevated' },
+  'ql.premium': { de: 'Premium', en: 'Premium' },
+  'cr.1': { de: '1×', en: '1×' },
+  'cr.2': { de: '2×', en: '2×' },
+  'cr.3': { de: '3×', en: '3×' },
+  'cr.4': { de: 'Unlimitiert (300%)', en: 'Unlimited (300%)' },
+  'size.kl_zimmer': { de: 'Kleines Zimmer', en: 'Small room' },
+  'size.gr_zimmer': { de: 'Großes Zimmer', en: 'Large room' },
+  'size.teile': { de: 'Teile der Wohnung / des Büros', en: 'Part of the flat / office' },
+  'size.etage': { de: 'Komplette Wohnung / komplettes Büro', en: 'Entire flat / entire office' },
+  'size.haus': { de: 'Große Wohn- / Büroetag(e)', en: 'Large residential / office floor(s)' },
+  'size.haus_garten': { de: 'Haus', en: 'House' },
+  's4.ordnung.head': { de: 'Ordnung & Sortierung', en: 'Organisation & sorting' },
+  's4.ordnung.q1': { de: 'Was soll sortiert werden?', en: 'What should be sorted?' },
+  's4.ordnung.q1Hint': { de: 'Jede Option +6% auf den Ordnungs-Block', en: 'Each option +6% on the organisation block' },
+  's4.ordnung.tag.ideen': { de: 'Ideen & Wünsche strukturieren +6%', en: 'Structure ideas & wishes +6%' },
+  's4.ordnung.tag.moebel': { de: 'Möbel +6%', en: 'Furniture +6%' },
+  's4.ordnung.tag.stauraum': { de: 'Stauraum-System +6%', en: 'Storage system +6%' },
+  's4.ordnung.tag.chaos': { de: 'Chaos-Zonen +6%', en: 'Chaos zones +6%' },
+  's4.ordnung.q2': { de: 'Darf ich auch beim Aufräumen & Wegwerfen helfen?', en: 'May I also help with clearing out & discarding?' },
+  's4.ordnung.aufr.ja.t': { de: 'Ja gerne', en: 'Yes please' },
+  's4.ordnung.aufr.ja.s': { de: 'Gemeinsam aussortieren · +150 €', en: 'Sort together · +€150' },
+  's4.ordnung.aufr.nein': { de: 'Nein, ich mache das selbst', en: 'No, I\'ll do it myself' },
+  's4.arr.head': { de: 'Raum-Arrangement', en: 'Spatial layout' },
+  's4.arr.q1': { de: 'Ausgangspunkt?', en: 'Starting point?' },
+  's4.arr.leer': { de: 'Leerer Raum', en: 'Empty room' },
+  's4.arr.bestand': { de: 'Bestand optimieren', en: 'Optimise existing' },
+  's4.arr.misch': { de: 'Mischung', en: 'Mix' },
+  's4.arr.q2': { de: 'Stauraum als…', en: 'Storage as…' },
+  's4.arr.einbau': { de: 'Einbauschränke', en: 'Built-in wardrobes' },
+  's4.arr.freistehend': { de: 'Freistehende Möbel', en: 'Freestanding furniture' },
+  's4.arr.beides': { de: 'Beides', en: 'Both' },
+  's4.aii.head': { de: 'Entwurf bis Umsetzung', en: 'Design through to delivery' },
+  's4.aii.q1': { de: 'Welche Leistungsphase brauchst Du?', en: 'Which service phase do you need?' },
+  's4.aii.q1Hint': { de: 'Weiter unten = mehr Leistung enthalten — kein Ersatz, sondern Stufen', en: 'Further down = more service included — tiers, not substitutes' },
+  's4.aii.q2': { de: 'Soll die Raumstruktur verändert werden?', en: 'Should the spatial structure change?' },
+  's4.aii.q2Hint': { de: 'Wände versetzen, Grundriss ändern, Installationsleitungen verlegen — nicht gemeint sind Möbel, Oberflächen oder Ausstattung', en: 'Moving walls, changing layout, rerouting services — not furniture, finishes or fittings' },
+  's4.aii.struktur.ja.t': { de: 'Ja — Eingriff in die Struktur', en: 'Yes — structural intervention' },
+  's4.aii.struktur.ja.s': { de: 'Wände, Leitungen, Grundriss · +15%', en: 'Walls, services, layout · +15%' },
+  's4.aii.struktur.nein.t': { de: 'Nein — nur Ausbau & Ausstattung', en: 'No — fit-out & furnishings only' },
+  's4.aii.struktur.nein.s': { de: 'Oberflächen, Möbel, Technik', en: 'Surfaces, furniture, tech' },
+  's4.aii.struktur.unklar.t': { de: 'Noch unklar', en: 'Still unclear' },
+  's4.aii.struktur.unklar.s': { de: 'Klären wir gemeinsam · +7% Planungspuffer', en: 'We\'ll clarify together · +7% planning buffer' },
+  's4.aii.q3': { de: 'Handwerker-Situation?', en: 'Trades situation?' },
+  's4.aii.hw.vorhanden.t': { de: 'Eigene Handwerker vorhanden', en: 'Own trades available' },
+  's4.aii.hw.vorhanden.s': { de: 'Kein Aufschlag', en: 'No surcharge' },
+  's4.aii.hw.suchen.t': { de: 'Handwerker noch suchen', en: 'Still looking for trades' },
+  's4.aii.hw.suchen.s': { de: '+7%', en: '+7%' },
+  's4.aii.hw.offen.t': { de: 'Noch unklar', en: 'Still unclear' },
+  's4.aii.hw.offen.s': { de: '+4% Planungspuffer', en: '+4% planning buffer' },
+  's4.aufmass.head': { de: 'Aufmaß', en: 'Site survey' },
+  's4.aufmass.q': { de: 'Aufmaß vor Ort notwendig?', en: 'On-site survey needed?' },
+  's4.aufmass.hint.aii': { de: 'Bei Entwurf bis Umsetzung anteilig zur gewählten Leistungsphase', en: 'For design through delivery, proportional to chosen service phase' },
+  's4.aufmass.hint.arr': { de: 'Zusatzleistung — separat ausgewiesen · ab 300 € je nach m²', en: 'Additional service — quoted separately · from €300 depending on m²' },
+  's4.aufmass.ja.t': { de: 'Ja, Aufmaß notwendig', en: 'Yes, survey needed' },
+  's4.aufmass.ja.s': { de: 'ab 300 € je nach m²', en: 'from €300 depending on m²' },
+  's4.aufmass.nein': { de: 'Nein, Pläne vorhanden', en: 'No, plans available' },
+  'koord.note.kueche': { de: 'Küchenplanung ist bereits in Schritt 3 berücksichtigt — kein Doppelaufschlag.', en: 'Kitchen planning is already included in step 3 — no double surcharge.' },
+  'koord.note.bau': { de: 'Bauleitung ist in Deiner Leistungsphase bereits enthalten — Koordinationsaufschlag entfällt.', en: 'Site management is already included in your service phase — coordination surcharge waived.' },
+  'cart.ordnung': { de: 'Ordnung & Sortierung', en: 'Organisation & sorting' },
+  'cart.arrangement': { de: 'Raum-Arrangement + Visu', en: 'Spatial layout + visuals' },
+  'cart.allinclusive': { de: 'Entwurf bis Umsetzung', en: 'Design through to delivery' },
+  'cart.aufmass': { de: 'Aufmaß vor Ort', en: 'On-site survey' },
+  'cart.outdoor': { de: 'Außen ~{qm} m² (BKI ×{pct}%)', en: 'Exterior ~{qm} m² (BKI ×{pct}%)' },
+  'cart.umbau': { de: 'Umbau ~{qm} m² ({ql})', en: 'Refurb ~{qm} m² ({ql})' },
+  'cart.kitchen': { de: 'Küche', en: 'Kitchen' },
+  'cart.bath': { de: 'Bad', en: 'Bathroom' },
+  'cart.outdoorBki': { de: 'Außen ~{qm} m² (BKI)', en: 'Exterior ~{qm} m² (BKI)' },
+  'summary.leistung': { de: 'Leistung', en: 'Service' },
+  'summary.phase': { de: 'Leistungsphase', en: 'Service phase' },
+  'summary.size': { de: 'Projektgröße', en: 'Project size' },
+  'summary.outdoor': { de: 'Außenbereich', en: 'Outdoor area' },
+  'summary.quality': { de: 'Qualitätsniveau', en: 'Quality level' },
+  'summary.feeEst': { de: 'Honorar-Schätzung', en: 'Fee estimate' },
+  'summary.buildEst': { de: 'Baukosten-Orientierung', en: 'Build cost guide' },
+  'summary.budget': { de: 'Mein Kostenrahmen', en: 'My budget' },
+  'summary.goals': { de: 'Ziele', en: 'Goals' },
+  'summary.atmosphere': { de: 'Atmosphäre', en: 'Atmosphere' },
+  'summary.style': { de: 'Stil', en: 'Style' },
+  'summary.materials': { de: 'Materialien', en: 'Materials' },
+  'summary.functions': { de: 'Raumfunktionen', en: 'Room functions' },
+  'summary.residents': { de: 'Bewohner', en: 'Residents' },
+  'summary.cooking': { de: 'Kochen', en: 'Cooking' },
+  'summary.smarthome': { de: 'Smart Home', en: 'Smart home' },
+  'summary.coordination': { de: 'Koordination', en: 'Coordination' },
+  'summary.structure': { de: 'Raumstruktur', en: 'Spatial structure' },
+  'summary.furniture': { de: 'Möbel', en: 'Furniture' },
+  'summary.feeStruct': { de: 'Honorarstruktur', en: 'Fee structure' },
+  'summary.costTrack': { de: 'Kostenverfolgung', en: 'Cost tracking' },
+  'summary.approval': { de: 'Anpassung nach Freigabe', en: 'Changes after approval' },
+  'summary.deadline': { de: 'Deadline', en: 'Deadline' },
+  'summary.during': { de: 'Während des Projekts', en: 'During the project' },
+  'summary.contact': { de: 'Kontakt bevorzugt', en: 'Preferred contact' },
+  'summary.fixedFurniture': { de: 'Gesetzte Möbel', en: 'Fixed furniture' },
+  'summary.nogo': { de: 'No-Go', en: 'No-go' },
+};
+
+function bkTfmt(key, vars) {
+  let s = bkT(key);
+  if (vars) {
+    Object.keys(vars).forEach(function(k) {
+      s = s.split('{' + k + '}').join(vars[k]);
+    });
+  }
+  return s;
+}
+window.bkTfmt = bkTfmt;
+
+function bkGetLang() {
+  if (document.body.classList.contains('en') || document.documentElement.lang === 'en') return 'en';
+  return 'de';
+}
+
+function bkT(key) {
+  const row = BK_STRINGS[key];
+  if (!row) return key;
+  return row[bkGetLang()] || row.de || key;
+}
+
+function bkFmtNum(n) {
+  return Number(n).toLocaleString(bkGetLang() === 'en' ? 'en-GB' : 'de-DE');
+}
+
+function bkFmtEuro(n) {
+  return bkFmtNum(n) + ' €';
+}
+
+function bkApplyDomI18n() {
+  document.querySelectorAll('.biig-konfigurator [data-bk-i18n]').forEach(function(el) {
+    const key = el.getAttribute('data-bk-i18n');
+    const html = el.getAttribute('data-bk-i18n-html') === '1';
+    const val = bkT(key);
+    if (html) el.innerHTML = val;
+    else el.textContent = val;
+  });
+  document.querySelectorAll('.biig-konfigurator [data-bk-i18n-ph]').forEach(function(el) {
+    el.placeholder = bkT(el.getAttribute('data-bk-i18n-ph'));
+  });
+}
+
+function bkApplyNavI18n() {
+  const lang = bkGetLang();
+  const navMap = {
+    start: { de: '←← Zum Start', en: '←← To start' },
+    back: { de: '← Zurück', en: '← Back' },
+    next: { de: 'Weiter →', en: 'Next →' },
+    submit: { de: 'Anfrage abschicken →', en: 'Send enquiry →' },
+  };
+  document.querySelectorAll('.bk-nav .bk-btn[data-bk-nav]').forEach(function(btn) {
+    const key = btn.getAttribute('data-bk-nav');
+    const row = navMap[key];
+    if (!row) return;
+    delete btn.dataset.bkSplit;
+    btn.textContent = row[lang];
+  });
+  if (typeof window.bkSplitNavButtons === 'function') window.bkSplitNavButtons();
+}
+
+function bkApplyKonfiguratorLang() {
+  bkApplyDomI18n();
+  bkApplyNavI18n();
+  if (typeof window.bkOnLangChange === 'function') window.bkOnLangChange();
+}
+
+window.bkGetLang = bkGetLang;
+window.bkT = bkT;
+window.bkFmtNum = bkFmtNum;
+window.bkFmtEuro = bkFmtEuro;
+window.bkApplyKonfiguratorLang = bkApplyKonfiguratorLang;
+window.BK_STRINGS = BK_STRINGS;
+
+document.addEventListener('fc-lang-change', bkApplyKonfiguratorLang);
+
+})();
