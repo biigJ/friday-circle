@@ -165,14 +165,16 @@ window.biScrollSpaceAnpassen = function() {
 window.bkStartWithTrack = function(trackId) {
   if (!['ordnung', 'arrangement', 'allinclusive'].includes(trackId)) return;
   bkReleaseQuizScrollLock();
+  const lockTop = bkGetFormTop();
   bkSt.track = [trackId];
   bkRenderStep1Tracks();
   if (bkIsMobileQuizViewport()) {
     bkGoTo(1, { skipScroll: true });
-    window.requestAnimationFrame(bkSnapQuizToFormTop);
-    window.setTimeout(bkSnapQuizToFormTop, 80);
-    window.setTimeout(bkSnapQuizToFormTop, 500);
-    window.setTimeout(bkSnapQuizToFormTop, 900);
+    bkLockQuizToFormTop(lockTop);
+    window.requestAnimationFrame(bkForceQuizScrollLock);
+    window.setTimeout(bkForceQuizScrollLock, 80);
+    window.setTimeout(bkForceQuizScrollLock, 500);
+    window.setTimeout(bkForceQuizScrollLock, 900);
     return false;
   }
   bkGoTo(2);
@@ -189,7 +191,7 @@ function bkIsMobileQuizViewport() {
 }
 
 function bkGetFormTop() {
-  const form = document.querySelector('#biig-konfigurator .bk-form');
+  const form = document.getElementById('biig-konfigurator') || document.querySelector('#biig-konfigurator .bk-form');
   if (!form) return 0;
   return Math.max(0, Math.round(form.getBoundingClientRect().top + window.scrollY));
 }
@@ -220,12 +222,12 @@ function bkSnapQuizToFormTop() {
   bkForceQuizScrollLock();
 }
 
-function bkLockQuizToFormTop() {
+function bkLockQuizToFormTop(targetTop) {
   if (!bkIsMobileQuizViewport()) {
     bkReleaseQuizScrollLock();
     return;
   }
-  const top = bkGetFormTop();
+  const top = Number.isFinite(targetTop) ? Math.max(0, Math.round(targetTop)) : bkGetFormTop();
   bkQuizScrollLockTop = top;
   bkQuizScrollLockSettling = true;
   window.scrollTo({ top: top, behavior: 'smooth' });
@@ -245,6 +247,7 @@ function bkBindQuizScrollLock() {
       bkReleaseQuizScrollLock();
       return;
     }
+    if (bkQuizScrollLockSettling) return;
     if (bkQuizScrollLockTop !== null) bkQuizScrollLockTop = bkGetFormTop();
     bkApplyQuizScrollLock();
   });
