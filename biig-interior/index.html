@@ -1472,9 +1472,9 @@
           background: #ffffff;
         }
 
-        .bi-tile--project > .bi-tile__media,
-        .bi-tile--project > .bi-tile__label,
-        .bi-tile--project > .bi-tile__hover {
+        .bi-tile--project.has-mobile-carousel > .bi-tile__media,
+        .bi-tile--project.has-mobile-carousel > .bi-tile__label,
+        .bi-tile--project.has-mobile-carousel > .bi-tile__hover {
           display: none;
         }
 
@@ -3785,6 +3785,7 @@
         function destroyMobileTileCarousels() {
           mobileTileCarousels.forEach(function (entry) {
             if (entry.swipe && entry.swipe.destroy) entry.swipe.destroy();
+            if (entry.tile) entry.tile.classList.remove("has-mobile-carousel");
           });
           mobileTileCarousels = [];
         }
@@ -3889,6 +3890,7 @@
           tile.querySelectorAll(".bi-mobile-tile-carousel").forEach(function (old) {
             old.remove();
           });
+          tile.classList.add("has-mobile-carousel");
           tile.appendChild(carousel);
 
           var entry = { tile: tile, carousel: carousel, track: track, dots: dots, items: items, index: initialIndex, swipe: null };
@@ -3934,6 +3936,9 @@
           if (!isInlineMobileCarouselViewport()) {
             document.querySelectorAll(".bi-mobile-tile-carousel").forEach(function (el) {
               el.remove();
+            });
+            document.querySelectorAll(".bi-tile--project.has-mobile-carousel").forEach(function (tile) {
+              tile.classList.remove("has-mobile-carousel");
             });
             return;
           }
