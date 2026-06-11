@@ -386,6 +386,19 @@
           top: clamp(12px, 3vw, 18px);
           bottom: auto;
         }
+
+        .bi-hero__arrows {
+          display: none;
+        }
+
+        .bi-hero__caption {
+          left: 50%;
+          bottom: clamp(8px, 2.5vw, 14px);
+          width: calc(100% - 32px);
+          max-width: none;
+          transform: translateX(-50%);
+          text-align: center;
+        }
       }
 
       /* -- Portfolio grid -- */
@@ -1272,10 +1285,14 @@
         .biig-interior-page .nav {
           position: fixed;
           inset: 0 0 auto;
+          background: color-mix(in srgb, #ffffff 92%, transparent);
+          background-color: color-mix(in srgb, #ffffff 92%, transparent);
+          transition: background-color 0.18s ease, background 0.18s ease;
+        }
+
+        .biig-interior-page.bi-nav-over-tiles .nav {
           background: transparent;
           background-color: transparent;
-          -webkit-backdrop-filter: none;
-          backdrop-filter: none;
         }
 
         .biig-interior-page .bi-nav__inner {
@@ -1288,7 +1305,7 @@
         }
 
         .bi-grid {
-          --bi-gap: 0px;
+          --bi-gap: calc(var(--bi-mobile-header-h, 92px) / 2);
           --bi-col: 100cqw;
         }
 
@@ -3263,6 +3280,23 @@
         var openBuyId = null;
         var buyIndex = 0;
 
+        function updateMobileNavTransparency() {
+          var mobile = window.matchMedia("(max-width: 520px)").matches;
+          var firstTile = document.querySelector(".bi-grid .bi-tile");
+          var portfolio = document.querySelector(".bi-portfolio");
+          var nav = document.querySelector(".biig-interior-page .nav");
+          if (!mobile || !firstTile || !portfolio || !nav) {
+            document.body.style.removeProperty("--bi-mobile-header-h");
+            document.body.classList.remove("bi-nav-over-tiles");
+            return;
+          }
+          document.body.style.setProperty("--bi-mobile-header-h", nav.offsetHeight + "px");
+          var navBottom = nav.getBoundingClientRect().bottom;
+          var tileTop = firstTile.getBoundingClientRect().top;
+          var portfolioBottom = portfolio.getBoundingClientRect().bottom;
+          document.body.classList.toggle("bi-nav-over-tiles", tileTop <= navBottom && portfolioBottom > 0);
+        }
+
         function getImageAdjust(project, index) {
           if (!project || !project.imageAdjust) return null;
           return project.imageAdjust[index] || null;
@@ -4257,14 +4291,19 @@
           });
         }
 
+        window.addEventListener("scroll", updateMobileNavTransparency, { passive: true });
+        window.addEventListener("resize", updateMobileNavTransparency);
+
         document.addEventListener("fc-lang-change", applyLang);
 
         if (document.readyState === "loading") {
           document.addEventListener("DOMContentLoaded", function () {
             applyLang();
+            updateMobileNavTransparency();
           });
         } else {
           applyLang();
+          updateMobileNavTransparency();
         }
       })();
     </script>
