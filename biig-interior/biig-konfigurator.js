@@ -173,6 +173,7 @@ window.bkGoTo = function(n) {
   document.querySelectorAll('.bk-step').forEach(s => s.classList.remove('active'));
   const el = n === 99 ? document.getElementById('bk-step-done') : document.getElementById('bk-step' + n);
   if (el) el.classList.add('active');
+  document.body.classList.toggle('bk-quiz-active', n >= 1 && n !== 99);
   if (n === 1) bkRenderStep1Tracks();
   if (n === 4) bkRenderS4();
   if (n === 5) bkUpdateStep5();
@@ -192,6 +193,7 @@ window.bkToggleT = function(t) {
   else bkSt.track.push(t);
   bkRenderStep1Tracks();
   bkUpdateCart();
+  if (window.matchMedia('(max-width: 520px)').matches && bkSt.track.length) bkGoTo(2);
 };
 
 window.bkPickSize = function(s, qm) {

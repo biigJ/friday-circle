@@ -3293,9 +3293,10 @@
             return;
           }
           document.body.style.setProperty("--bi-mobile-header-h", nav.offsetHeight + "px");
-          var tileStart = firstTile.getBoundingClientRect().top + window.scrollY;
+          var navBottom = nav.getBoundingClientRect().bottom;
+          var tileTop = firstTile.getBoundingClientRect().top;
           var portfolioBottom = portfolio.getBoundingClientRect().bottom;
-          document.body.classList.toggle("bi-nav-over-tiles", window.scrollY >= tileStart && portfolioBottom > 0);
+          document.body.classList.toggle("bi-nav-over-tiles", tileTop <= navBottom && portfolioBottom > 0);
         }
 
         function getImageAdjust(project, index) {
