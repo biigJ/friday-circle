@@ -4517,6 +4517,19 @@
           });
         }
 
+        function normalizeProjectTileElements() {
+          document.querySelectorAll("button.bi-tile--project[data-bi-project]").forEach(function (button) {
+            var tile = document.createElement("div");
+            Array.prototype.slice.call(button.attributes).forEach(function (attr) {
+              if (attr.name !== "type") tile.setAttribute(attr.name, attr.value);
+            });
+            tile.setAttribute("role", "button");
+            tile.setAttribute("tabindex", "0");
+            tile.innerHTML = button.innerHTML;
+            button.replaceWith(tile);
+          });
+        }
+
         function setSlide(index, animate, fromIndex, skipTransform) {
           if (!slideCount) return;
           var prevIndex = typeof fromIndex === "number" ? fromIndex : slideIndex;
@@ -4632,6 +4645,7 @@
 
         function applyLang() {
           applyAria();
+          normalizeProjectTileElements();
           applyTileLabels();
           initMobileTileCarousels();
           initHeroSlider();
