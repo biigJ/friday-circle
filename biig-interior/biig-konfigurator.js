@@ -169,6 +169,7 @@ window.bkStartWithTrack = function(trackId) {
   bkRenderStep1Tracks();
   if (bkIsMobileQuizViewport()) {
     bkGoTo(1);
+    window.requestAnimationFrame(bkSnapQuizToFormTop);
     window.setTimeout(bkSnapQuizToFormTop, 500);
     window.setTimeout(bkSnapQuizToFormTop, 900);
     window.setTimeout(bkSnapQuizToFormTop, 1300);
@@ -190,9 +191,7 @@ function bkIsMobileQuizViewport() {
 function bkGetFormTop() {
   const form = document.querySelector('#biig-konfigurator .bk-form');
   if (!form) return 0;
-  const root = document.scrollingElement || document.documentElement;
-  const maxScroll = Math.max(0, root.scrollHeight - window.innerHeight);
-  return Math.min(maxScroll, Math.max(0, Math.round(form.getBoundingClientRect().top + window.scrollY)));
+  return Math.max(0, Math.round(form.getBoundingClientRect().top + window.scrollY));
 }
 
 function bkReleaseQuizScrollLock() {
