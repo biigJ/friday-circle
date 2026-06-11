@@ -614,6 +614,103 @@
         }
       }
 
+      .bi-mobile-tile-carousel {
+        display: none;
+      }
+
+      .bi-mobile-tile-carousel__track {
+        display: flex;
+        height: 100%;
+        transition: transform 0.42s ease;
+        will-change: transform;
+        backface-visibility: hidden;
+      }
+
+      .bi-mobile-tile-carousel__slide {
+        flex: 0 0 100%;
+        min-width: 0;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+        background: #ffffff;
+        line-height: 0;
+      }
+
+      .bi-mobile-tile-carousel__slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        display: block;
+        background: #ffffff;
+      }
+
+      .bi-mobile-tile-carousel__slide--info {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: clamp(18px, 7vw, 32px);
+        box-sizing: border-box;
+        background: #000000;
+        color: #ffffff;
+        line-height: normal;
+      }
+
+      .bi-mobile-tile-carousel__info {
+        max-width: 28rem;
+        text-align: center;
+        font-family: var(--font-sans);
+      }
+
+      .bi-mobile-tile-carousel__info-title {
+        margin: 0 0 0.8rem;
+        font-size: clamp(1rem, 5vw, 1.35rem);
+        font-weight: 300;
+        line-height: 1.25;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .bi-mobile-tile-carousel__info-body {
+        margin: 0;
+        font-size: clamp(0.86rem, 3.9vw, 1rem);
+        font-weight: 300;
+        line-height: 1.55;
+        letter-spacing: 0.02em;
+      }
+
+      .bi-mobile-tile-carousel__dots {
+        position: relative;
+        z-index: 5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin: 0;
+        padding: 10px 8px;
+        background: #ffffff;
+        pointer-events: auto;
+      }
+
+      .bi-mobile-tile-carousel__dot {
+        width: 8px;
+        height: 8px;
+        padding: 0;
+        border: 1px solid #000000;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.78);
+        cursor: pointer;
+        transition: background 0.2s ease, transform 0.15s ease;
+      }
+
+      .bi-mobile-tile-carousel__dot.is-active,
+      .bi-mobile-tile-carousel__dot:hover,
+      .bi-mobile-tile-carousel__dot:focus-visible {
+        background: #000000;
+        transform: scale(1.12);
+        outline: none;
+      }
+
       .bi-tile--hochbau {
         padding: 0;
         background: #ffffff;
@@ -1307,7 +1404,7 @@
         }
 
         .bi-grid {
-          --bi-gap: calc(var(--bi-mobile-header-h, 92px) / 2);
+          --bi-gap: calc(var(--bi-mobile-header-h, 92px) * 0.85);
           --bi-col: 100cqw;
         }
 
@@ -1324,6 +1421,32 @@
         .bi-portfolio__lede {
           padding-left: var(--nav-pad-x);
           padding-right: var(--nav-pad-x);
+        }
+
+        .bi-tile--project {
+          cursor: grab;
+          background: #ffffff;
+        }
+
+        .bi-tile--project > .bi-tile__media,
+        .bi-tile--project > .bi-tile__label,
+        .bi-tile--project > .bi-tile__hover {
+          display: none;
+        }
+
+        .bi-mobile-tile-carousel {
+          position: absolute;
+          inset: 0;
+          z-index: 4;
+          display: grid;
+          grid-template-rows: minmax(0, 1fr) auto;
+          overflow: hidden;
+          background: #ffffff;
+          touch-action: pan-y;
+        }
+
+        .bi-mobile-tile-carousel.is-swipe-dragging {
+          cursor: grabbing;
         }
       }
 
@@ -3371,6 +3494,7 @@
         var openOfferId = null;
         var heroSwipeApi = null;
         var popupSwipeApi = null;
+        var mobileTileCarousels = [];
         var portfolioLightboxItems = null;
         var lightboxGalleryItems = null;
         var lightboxIndex = 0;
@@ -3608,6 +3732,132 @@
             if (normalizeAssetSrc(project.images[i]) === tileSrc) return i;
           }
           return 0;
+        }
+
+        function destroyMobileTileCarousels() {
+          mobileTileCarousels.forEach(function (entry) {
+            if (entry.swipe && entry.swipe.destroy) entry.swipe.destroy();
+          });
+          mobileTileCarousels = [];
+        }
+
+        function setMobileTileSlide(entry, index, animate, skipTransform) {
+          if (!entry || !entry.items.length) return;
+          var prev = entry.index || 0;
+          entry.index = ((index % entry.items.length) + entry.items.length) % entry.items.length;
+          if (!skipTransform) {
+            var isWrap =
+              entry.items.length > 1 &&
+              ((prev === 0 && entry.index === entry.items.length - 1) ||
+                (prev === entry.items.length - 1 && entry.index === 0));
+            entry.track.style.transition = animate !== false && !isWrap ? "transform 0.42s ease" : "none";
+            entry.track.style.transform = "translateX(calc(-" + entry.index * 100 + "% + 0px))";
+            if (animate === false || isWrap) {
+              void entry.track.offsetWidth;
+              entry.track.style.transition = "";
+            }
+          }
+          entry.dots.querySelectorAll(".bi-mobile-tile-carousel__dot").forEach(function (dot, i) {
+            dot.classList.toggle("is-active", i === entry.index);
+          });
+        }
+
+        function appendMobileTileInfoSlide(track, project) {
+          var lang = getLang();
+          var slide = document.createElement("div");
+          slide.className = "bi-mobile-tile-carousel__slide bi-mobile-tile-carousel__slide--info";
+          var inner = document.createElement("div");
+          inner.className = "bi-mobile-tile-carousel__info";
+          var title = document.createElement("h4");
+          title.className = "bi-mobile-tile-carousel__info-title";
+          title.textContent = getProjectNameLabel(project, lang);
+          var body = document.createElement("p");
+          body.className = "bi-mobile-tile-carousel__info-body";
+          body.textContent = buildInfoBodyText(project, lang);
+          inner.appendChild(title);
+          inner.appendChild(body);
+          slide.appendChild(inner);
+          track.appendChild(slide);
+        }
+
+        function buildMobileTileCarousel(tile) {
+          var projectId = tile.getAttribute("data-bi-project");
+          var project = PROJECTS[projectId];
+          if (!project || !project.images || !project.images.length) return;
+          var startImageIndex = getTileImageIndex(projectId, tile, tile);
+          var imageItems = buildProjectLightboxImageItems(projectId, startImageIndex);
+          var items = projectHasInfoSlide(projectId) ? [{ isInfo: true, projectId: projectId }].concat(imageItems) : imageItems;
+          var carousel = document.createElement("div");
+          carousel.className = "bi-mobile-tile-carousel";
+          var track = document.createElement("div");
+          track.className = "bi-mobile-tile-carousel__track";
+          var dots = document.createElement("div");
+          dots.className = "bi-mobile-tile-carousel__dots";
+          carousel.appendChild(track);
+          carousel.appendChild(dots);
+
+          items.forEach(function (item, i) {
+            if (item.isInfo) {
+              appendMobileTileInfoSlide(track, project);
+            } else {
+              var slide = document.createElement("div");
+              slide.className = "bi-mobile-tile-carousel__slide";
+              var img = document.createElement("img");
+              img.src = item.src;
+              img.alt = getLang() === "en" ? item.altEn : item.altDe;
+              img.decoding = "async";
+              img.loading = i <= 1 ? "eager" : "lazy";
+              if (item.objectPosition) img.style.objectPosition = item.objectPosition;
+              slide.appendChild(img);
+              track.appendChild(slide);
+            }
+
+            var dot = document.createElement("button");
+            dot.type = "button";
+            dot.className = "bi-mobile-tile-carousel__dot" + (i === 0 ? " is-active" : "");
+            dot.setAttribute("aria-label", (getLang() === "en" ? "Tile slide " : "Kachel-Slide ") + (i + 1));
+            dots.appendChild(dot);
+          });
+
+          tile.querySelectorAll(".bi-mobile-tile-carousel").forEach(function (old) {
+            old.remove();
+          });
+          tile.appendChild(carousel);
+
+          var entry = { tile: tile, carousel: carousel, track: track, dots: dots, items: items, index: 0, swipe: null };
+          dots.querySelectorAll(".bi-mobile-tile-carousel__dot").forEach(function (dot, i) {
+            dot.addEventListener("click", function (e) {
+              e.preventDefault();
+              e.stopPropagation();
+              setMobileTileSlide(entry, i, true);
+            });
+          });
+          if (window.FcSwipeSlider && items.length > 1) {
+            entry.swipe = window.FcSwipeSlider.bind({
+              zone: carousel,
+              track: track,
+              mode: "percent",
+              loop: true,
+              getIndex: function () {
+                return entry.index;
+              },
+              getCount: function () {
+                return entry.items.length;
+              },
+              onIndexChange: function (newIndex, meta) {
+                setMobileTileSlide(entry, newIndex, !meta || meta.animate !== false, true);
+              },
+              ignore: function (target) {
+                return !!target.closest(".bi-mobile-tile-carousel__dot, button, a");
+              },
+            });
+          }
+          mobileTileCarousels.push(entry);
+        }
+
+        function initMobileTileCarousels() {
+          destroyMobileTileCarousels();
+          document.querySelectorAll(".bi-tile--project[data-bi-project]").forEach(buildMobileTileCarousel);
         }
 
         function buildLightboxTrack() {
@@ -4358,6 +4608,7 @@
         function applyLang() {
           applyAria();
           applyTileLabels();
+          initMobileTileCarousels();
           initHeroSlider();
           initHochbauCollage();
           if (openOfferId) {
@@ -4399,6 +4650,7 @@
         if (gridEl) {
           gridEl.addEventListener("click", function (e) {
             if (e.target.closest(".bi-tile__more, a, [data-bi-buy]")) return;
+            if (isMobileLightboxViewport() && e.target.closest(".bi-mobile-tile-carousel")) return;
             var hochbauGalleryBtn = e.target.closest("[data-bi-hochbau-gallery]");
             if (hochbauGalleryBtn) {
               var cell = e.target.closest("[data-hochbau-index]");
