@@ -347,7 +347,6 @@ function bkUpdateStep5() {
 }
 
 function bkStep5Valid() {
-  if (bkStep5ShowsKochen() && !bkSt.kochen) return false;
   return !!bkSt.smarthome;
 }
 
@@ -743,7 +742,155 @@ function bkUpdateDots(curr) {
   }
 }
 
+const BK_QM_WHEEL_CFG = {
+  'bk-qm-in': { min: 5, max: 800, label: 'Innen', type: 'in' },
+  'bk-qm-out': { min: 0, max: 600, label: 'Außen', type: 'out' },
+};
+const BK_QM_WHEEL_ITEM_H = 44;
+let bkQmWheelEl = null;
+let bkQmWheelInput = null;
+let bkQmWheelScrollRaf = 0;
+
+function bkSplitNavButtons() {
+  document.querySelectorAll('.bk-nav .bk-btn').forEach(function(btn) {
+    if (btn.dataset.bkSplit) return;
+    const text = (btn.textContent || '').trim();
+    let icon = '';
+    let label = text;
+    if (text.indexOf('←← ') === 0) {
+      icon = '←←';
+      label = text.slice(4);
+    } else if (text.indexOf('← ') === 0) {
+      icon = '←';
+      label = text.slice(2);
+    } else if (text.slice(-2) === ' →') {
+      icon = '→';
+      label = text.slice(0, -2);
+    }
+    btn.innerHTML = '<span class="bk-btn__icon" aria-hidden="true">' + icon + '</span>'
+      + '<span class="bk-btn__label">' + label + '</span>';
+    btn.dataset.bkSplit = '1';
+  });
+}
+
+function bkQmWheelCfg(input) {
+  return BK_QM_WHEEL_CFG[input.id] || BK_QM_WHEEL_CFG['bk-qm-in'];
+}
+
+function bkQmWheelValueFromScroll(scroller, cfg) {
+  const idx = Math.round(scroller.scrollTop / BK_QM_WHEEL_ITEM_H);
+  return Math.min(cfg.max, Math.max(cfg.min, cfg.min + idx));
+}
+
+function bkQmWheelPaint(scroller) {
+  const center = scroller.scrollTop + scroller.clientHeight * 0.5;
+  scroller.querySelectorAll('.bk-qm-wheel__item').forEach(function(item) {
+    const itemCenter = item.offsetTop + item.offsetHeight * 0.5;
+    const dist = Math.abs(center - itemCenter);
+    item.classList.toggle('is-selected', dist < BK_QM_WHEEL_ITEM_H * 0.5);
+  });
+}
+
+function bkCloseQmWheel(apply) {
+  if (!bkQmWheelEl) return;
+  if (apply && bkQmWheelInput) {
+    const cfg = bkQmWheelCfg(bkQmWheelInput);
+    const scroller = bkQmWheelEl.querySelector('.bk-qm-wheel__scroller');
+    const val = bkQmWheelValueFromScroll(scroller, cfg);
+    bkQmWheelInput.value = val;
+    bkUpdQm(cfg.type, val);
+  }
+  bkQmWheelEl.hidden = true;
+  document.body.classList.remove('bk-qm-wheel-open');
+  bkQmWheelInput = null;
+}
+
+function bkOpenQmWheel(input) {
+  const cfg = bkQmWheelCfg(input);
+  if (!bkQmWheelEl) return;
+  bkQmWheelInput = input;
+  const current = parseInt(input.value, 10);
+  const start = Number.isFinite(current) ? current : cfg.min;
+  const title = bkQmWheelEl.querySelector('.bk-qm-wheel__title');
+  const scroller = bkQmWheelEl.querySelector('.bk-qm-wheel__scroller');
+  if (title) title.textContent = cfg.label + ' (m²)';
+  scroller.innerHTML = '';
+  const padH = (scroller.clientHeight || 220) * 0.5 - BK_QM_WHEEL_ITEM_H * 0.5;
+  const pad = document.createElement('div');
+  pad.className = 'bk-qm-wheel__pad';
+  pad.style.height = Math.max(0, padH) + 'px';
+  scroller.appendChild(pad);
+  for (let v = cfg.min; v <= cfg.max; v++) {
+    const item = document.createElement('div');
+    item.className = 'bk-qm-wheel__item';
+    item.dataset.value = String(v);
+    item.textContent = v + ' m²';
+    scroller.appendChild(item);
+  }
+  scroller.appendChild(pad.cloneNode());
+  bkQmWheelEl.hidden = false;
+  document.body.classList.add('bk-qm-wheel-open');
+  const idx = Math.min(cfg.max - cfg.min, Math.max(0, start - cfg.min));
+  requestAnimationFrame(function() {
+    scroller.scrollTop = idx * BK_QM_WHEEL_ITEM_H;
+    bkQmWheelPaint(scroller);
+  });
+}
+
+function bkCreateQmWheel() {
+  if (bkQmWheelEl) return bkQmWheelEl;
+  const el = document.createElement('div');
+  el.id = 'bk-qm-wheel';
+  el.className = 'bk-qm-wheel';
+  el.hidden = true;
+  el.innerHTML = '<button type="button" class="bk-qm-wheel__backdrop" aria-label="Schließen"></button>'
+    + '<div class="bk-qm-wheel__panel" role="dialog" aria-modal="true" aria-labelledby="bk-qm-wheel-title">'
+    + '<div class="bk-qm-wheel__title" id="bk-qm-wheel-title"></div>'
+    + '<div class="bk-qm-wheel__frame"><div class="bk-qm-wheel__highlight" aria-hidden="true"></div>'
+    + '<div class="bk-qm-wheel__scroller" tabindex="0"></div></div>'
+    + '<button type="button" class="bk-qm-wheel__done">Fertig</button></div>';
+  document.body.appendChild(el);
+  const scroller = el.querySelector('.bk-qm-wheel__scroller');
+  scroller.addEventListener('scroll', function() {
+    if (bkQmWheelScrollRaf) return;
+    bkQmWheelScrollRaf = requestAnimationFrame(function() {
+      bkQmWheelScrollRaf = 0;
+      bkQmWheelPaint(scroller);
+    });
+  }, { passive: true });
+  el.querySelector('.bk-qm-wheel__backdrop').addEventListener('click', function() {
+    bkCloseQmWheel(false);
+  });
+  el.querySelector('.bk-qm-wheel__done').addEventListener('click', function() {
+    bkCloseQmWheel(true);
+  });
+  bkQmWheelEl = el;
+  return el;
+}
+
+function bkInitQmPickers() {
+  bkCreateQmWheel();
+  ['bk-qm-in', 'bk-qm-out'].forEach(function(id) {
+    const input = document.getElementById(id);
+    if (!input) return;
+    input.setAttribute('inputmode', 'numeric');
+    input.addEventListener('click', function(e) {
+      if (!window.matchMedia('(max-width: 720px)').matches) return;
+      e.preventDefault();
+      bkOpenQmWheel(input);
+    });
+    input.addEventListener('focus', function(e) {
+      if (!window.matchMedia('(max-width: 720px)').matches) return;
+      e.preventDefault();
+      input.blur();
+      bkOpenQmWheel(input);
+    });
+  });
+}
+
 function bkInitKonfigurator() {
+  bkSplitNavButtons();
+  bkInitQmPickers();
   bkRenderStep1Tracks();
   bkSyncSlOpts('ql', bkSt.ql);
   bkSyncSlOpts('cr', bkSt.cr);
