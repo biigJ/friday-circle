@@ -166,7 +166,7 @@ window.bkStartWithTrack = function(trackId) {
   if (!['ordnung', 'arrangement', 'allinclusive'].includes(trackId)) return;
   bkSt.track = [trackId];
   bkRenderStep1Tracks();
-  bkGoTo(2);
+  bkGoTo(bkIsMobileQuizViewport() ? 1 : 2);
 };
 
 let bkQuizScrollLockTop = null;
