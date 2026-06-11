@@ -228,6 +228,22 @@ function bkBindQuizScrollLock() {
   });
 }
 
+function bkScrollToPageBottom() {
+  const root = document.scrollingElement || document.documentElement;
+  const getBottom = function() {
+    const maxH = Math.max(root.scrollHeight, document.body ? document.body.scrollHeight : 0);
+    return Math.max(0, maxH - window.innerHeight);
+  };
+  const scroll = function(behavior) {
+    window.scrollTo({ top: getBottom(), behavior: behavior });
+  };
+  requestAnimationFrame(function() {
+    scroll('smooth');
+    window.setTimeout(function() { scroll('auto'); }, 450);
+    window.setTimeout(function() { scroll('auto'); }, 900);
+  });
+}
+
 window.bkGoTo = function(n) {
   document.querySelectorAll('.bk-step').forEach(s => s.classList.remove('active'));
   const el = n === 99 ? document.getElementById('bk-step-done') : document.getElementById('bk-step' + n);
@@ -245,9 +261,7 @@ window.bkGoTo = function(n) {
   bkUpdateDots(n);
   const sec = document.getElementById('biig-konfigurator');
   if (n === 0) {
-    requestAnimationFrame(function() {
-      window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
-    });
+    bkScrollToPageBottom();
   }
   else if (n >= 1 && n !== 99 && bkIsMobileQuizViewport()) bkLockQuizToFormTop();
   else if (sec) sec.scrollIntoView({behavior:'smooth', block:'start'});

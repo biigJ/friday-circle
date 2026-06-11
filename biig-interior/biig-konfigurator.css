@@ -1042,6 +1042,12 @@ body.bk-qm-wheel-open {
     transition: border-color 0.55s ease, border-left-width 0.55s ease, border-right-width 0.55s ease;
   }
 
+  body.biig-interior-page .bk-inf,
+  body.biig-interior-page .bk-qm-row input[type="number"] {
+    font-size: 16px;
+    max-width: 100%;
+  }
+
   body.bk-quiz-active.biig-interior-page .nav {
     background: transparent;
     background-color: transparent;
