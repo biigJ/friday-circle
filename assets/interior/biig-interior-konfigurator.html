@@ -749,7 +749,7 @@ textarea.bk-inf { resize: vertical; min-height: 64px; }
       <button class="bk-opt" onclick="bkPickOpt('nutzer','wg',this)"><i class="ti ti-door" aria-hidden="true"></i><div><span class="bk-ot">WG</span></div></button>
     </div>
     <div id="bk-s5-funktionen">
-      <div class="bk-q">Was brauchst Du konkret?<small>Homeoffice & Fitness je +8%</small></div>
+      <div class="bk-q">Sind diese Funktionen relevant?<small>Homeoffice & Fitness je +8%</small></div>
       <div class="bk-tags">
         <button class="bk-tag" data-k="funktionen" data-v="eltern" onclick="bkToggleTag(this)">Mastersuite</button>
         <button class="bk-tag" data-k="funktionen" data-v="gaestezimmer" onclick="bkToggleTag(this)">Gästezimmer</button>
@@ -760,7 +760,7 @@ textarea.bk-inf { resize: vertical; min-height: 64px; }
       </div>
     </div>
     <div id="bk-s5-kochen">
-      <div class="bk-q">Wie wird gekocht?<small>Häufig & aufwendig = +10%</small></div>
+      <div class="bk-q">Wenn Küchenplanung — wie wird gekocht?<small>Häufig & aufwendig = +10%</small></div>
       <div class="bk-opts">
         <button class="bk-opt" onclick="bkPickOpt('kochen','aufwendig',this)"><i class="ti ti-chef-hat" aria-hidden="true"></i><div><span class="bk-ot">Häufig & aufwendig</span><span class="bk-os">+10%</span></div></button>
         <button class="bk-opt" onclick="bkPickOpt('kochen','schnell',this)"><i class="ti ti-bolt" aria-hidden="true"></i><div><span class="bk-ot">Schnell & pragmatisch</span></div></button>
@@ -932,12 +932,13 @@ textarea.bk-inf { resize: vertical; min-height: 64px; }
     <input class="bk-inf" type="email" id="bk-femail" placeholder="E-Mail *">
     <input class="bk-inf" type="tel" id="bk-fphone" placeholder="Telefon / WhatsApp (optional)">
     <input class="bk-inf" type="text" id="bk-fcity" placeholder="Stadtteil / Stadt">
-    <div class="bk-q" style="margin-top:.4rem">Dein Kostenrahmen für das Gesamtprojekt?<small>Honorar + Baukosten zusammen — nur zur Orientierung</small></div>
+    <div class="bk-q" style="margin-top:.4rem">Im Vergleich zur automatischen Berechnung: wie ist Dein Kostenrahmen?<small>Honorar + Baukosten zusammen, nur zur Orientierung</small></div>
     <div class="bk-opts">
       <button class="bk-opt" onclick="bkPickOpt('kostenrahmen','bis20k',this)"><div><span class="bk-ot">bis 20.000 €</span></div></button>
       <button class="bk-opt" onclick="bkPickOpt('kostenrahmen','20_60k',this)"><div><span class="bk-ot">20.000 – 60.000 €</span></div></button>
       <button class="bk-opt" onclick="bkPickOpt('kostenrahmen','60_150k',this)"><div><span class="bk-ot">60.000 – 150.000 €</span></div></button>
       <button class="bk-opt" onclick="bkPickOpt('kostenrahmen','150kplus',this)"><div><span class="bk-ot">150.000 € +</span></div></button>
+      <button class="bk-opt" onclick="bkPickOpt('kostenrahmen','500kplus',this)"><div><span class="bk-ot">500.000 € +</span></div></button>
       <button class="bk-opt" onclick="bkPickOpt('kostenrahmen','offen',this)"><div><span class="bk-ot">Noch offen</span></div></button>
     </div>
     <textarea class="bk-inf" rows="3" placeholder="Was ich noch wissen sollte… (optional)" oninput="bkSt.note=this.value"></textarea>
@@ -1012,7 +1013,7 @@ const BK_TRACKS = [
     id:'allinclusive',
     icon:'ti-building',
     title:'Entwurf bis Umsetzung',
-    desc:'Planung + Handwerk · ab 2.500 €',
+    desc:'Planung + Handwerk · ab 1.000 €',
     info:'Vom ersten Entwurf bis zur koordinierten Umsetzung — je nach gewählter Leistungsphase in Schritt 4. Ein durchgängiger Ablauf statt einzelner Planungslieferung.',
   },
 ];
@@ -1062,6 +1063,25 @@ function bkRenderStep1Tracks() {
 
 const BK_AUFMASS_MIN = 300;
 const BK_AUFMASS_RATE = 3.5;
+
+/** Grundhonorar Entwurf bis Umsetzung: bis 20 m² → 1.000 €, ab 20 m² → 1.500 €, ab 40 m² → 2.000 €+, darüber Skalierung ab 60 m². */
+const BK_AII_BASE = {
+  tier1MaxQm: 20,
+  tier1Hon: 1000,
+  tier2MaxQm: 40,
+  tier2Hon: 1500,
+  tier3Hon: 2000,
+  scaleFromQm: 60,
+  scaleRate: 20,
+};
+
+function bkAllinclusiveBaseInner(qm) {
+  const q = Math.max(qm, 5);
+  if (q <= BK_AII_BASE.tier1MaxQm) return BK_AII_BASE.tier1Hon;
+  if (q < BK_AII_BASE.tier2MaxQm) return BK_AII_BASE.tier2Hon;
+  if (q < BK_AII_BASE.scaleFromQm) return BK_AII_BASE.tier3Hon;
+  return BK_AII_BASE.tier3Hon + (q - BK_AII_BASE.scaleFromQm) * BK_AII_BASE.scaleRate;
+}
 
 function bkAiiPhaseMult() {
   if (bkSt.aii_phase === 'bauleitung') return 1.45;
@@ -1234,7 +1254,7 @@ function bkStep4Valid() {
 }
 
 function bkStep5ShowsKochen() {
-  return bkSt.size !== 'kl_zimmer';
+  return true;
 }
 
 function bkStep5ShowsFunktionen() {
@@ -1302,7 +1322,7 @@ function bkCalcPrice() {
   }
   if (bkSt.track.includes('allinclusive')) {
     const honOut = bkHonOutAbove(qm, qmOut, 60, 20);
-    const bInner = Math.max(2500, 2500 + (qm - 60) * 20);
+    const bInner = bkAllinclusiveBaseInner(qm);
     const phaseMult = bkAiiPhaseMult();
     honOutTotal += honOut * phaseMult;
     const bTotal = (bInner + honOut) * phaseMult;
@@ -1571,7 +1591,7 @@ function bkRenderFinalSummary() {
   const dlL = {hart:'Fixer Termin', weich:'Ungefähr', offen:'Noch offen'};
   const bewL = {ja:'Bewohnt', leer:'Leer', beides:'Beides möglich'};
   const kommL = {mail:'E-Mail', whatsapp:'WhatsApp', call:'Anruf'};
-  const krL = {bis20k:'bis 20.000 €', '20_60k':'20–60.000 €', '60_150k':'60–150.000 €', '150kplus':'150.000 € +', offen:'Noch offen'};
+  const krL = {bis20k:'bis 20.000 €', '20_60k':'20–60.000 €', '60_150k':'60–150.000 €', '150kplus':'150.000 € +', '500kplus':'500.000 € +', offen:'Noch offen'};
   const stilL = {warm:'Warm-zeitlos', clean:'Modern-clean', japanisch:'Ruhig-japanisch', urban:'Urban-elegant', maximal:'Maximalistisch', offen:'Noch offen'};
   const sizeStr = (BK_SL[bkSt.size]||'—') + (bkSt.qmIn ? ', ' + bkSt.qmIn + ' m²' : '');
   const aussenStr = bkSt.aussen && bkSt.aussen !== 'kein' ? (bkSt.aussen + (bkSt.qmOut ? ' ' + bkSt.qmOut + ' m²' : '')) : null;

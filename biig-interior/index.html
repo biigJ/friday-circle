@@ -1322,6 +1322,7 @@
         pointer-events: auto;
         touch-action: pan-y;
         cursor: grab;
+        transition: none;
       }
 
       .bi-lightbox__viewport.is-swipe-dragging {
@@ -1359,7 +1360,7 @@
         justify-content: stretch;
         padding: 0;
         box-sizing: border-box;
-        background: #ffffff;
+        background: #000000;
       }
 
       .bi-lightbox__slide--info .bi-lightbox__info {
@@ -1368,8 +1369,8 @@
         display: flex;
         flex-direction: column;
         overflow: hidden;
-        background: #ffffff;
-        color: var(--text);
+        background: #000000;
+        color: #ffffff;
         box-sizing: border-box;
       }
 
@@ -1392,12 +1393,12 @@
       }
 
       .bi-lightbox__info-head-line1 {
-        font-size: clamp(0.82rem, 1.35vw, 1.05rem);
+        font-size: clamp(0.984rem, 1.62vw, 1.26rem);
       }
 
       .bi-lightbox__info-head-line2 {
         margin-top: clamp(4px, 0.65vw, 8px);
-        font-size: clamp(0.72rem, 1.1vw, 0.9rem);
+        font-size: clamp(0.864rem, 1.32vw, 1.08rem);
         letter-spacing: 0.08em;
         opacity: 0.92;
       }
@@ -1408,7 +1409,7 @@
         align-items: center;
         justify-content: center;
         min-height: 0;
-        background: #ffffff;
+        background: #000000;
         padding: clamp(16px, 2.5vw, 28px) clamp(18px, 3vw, 32px);
         overflow-y: auto;
       }
@@ -1417,11 +1418,11 @@
         margin: 0;
         text-align: center;
         font-family: var(--font-sans);
-        font-size: clamp(0.86rem, 1.12vw, 0.96rem);
+        font-size: clamp(1.032rem, 1.344vw, 1.152rem);
         font-weight: 300;
         line-height: 1.58;
         letter-spacing: 0.02em;
-        color: var(--text);
+        color: #ffffff;
       }
 
       .bi-lightbox__info-foot {
@@ -2131,7 +2132,7 @@
               <button class="bk-opt" onclick="bkPickOpt('nutzer','wg',this)"><i class="ti ti-door" aria-hidden="true"></i><div><span class="bk-ot">WG</span></div></button>
             </div>
             <div id="bk-s5-funktionen">
-              <div class="bk-q">Was brauchst Du konkret?<small>Homeoffice & Fitness je +8%</small></div>
+              <div class="bk-q">Sind diese Funktionen relevant?<small>Homeoffice & Fitness je +8%</small></div>
               <div class="bk-tags">
                 <button class="bk-tag" data-k="funktionen" data-v="eltern" onclick="bkToggleTag(this)">Mastersuite</button>
                 <button class="bk-tag" data-k="funktionen" data-v="gaestezimmer" onclick="bkToggleTag(this)">Gästezimmer</button>
@@ -2142,7 +2143,7 @@
               </div>
             </div>
             <div id="bk-s5-kochen">
-              <div class="bk-q">Wie wird gekocht?<small>Häufig & aufwendig = +10%</small></div>
+              <div class="bk-q">Wenn Küchenplanung — wie wird gekocht?<small>Häufig & aufwendig = +10%</small></div>
               <div class="bk-opts">
                 <button class="bk-opt" onclick="bkPickOpt('kochen','aufwendig',this)"><i class="ti ti-chef-hat" aria-hidden="true"></i><div><span class="bk-ot">Häufig & aufwendig</span><span class="bk-os">+10%</span></div></button>
                 <button class="bk-opt" onclick="bkPickOpt('kochen','schnell',this)"><i class="ti ti-bolt" aria-hidden="true"></i><div><span class="bk-ot">Schnell & pragmatisch</span></div></button>
@@ -2314,12 +2315,13 @@
             <input class="bk-inf" type="email" id="bk-femail" placeholder="E-Mail *">
             <input class="bk-inf" type="tel" id="bk-fphone" placeholder="Telefon / WhatsApp (optional)">
             <input class="bk-inf" type="text" id="bk-fcity" placeholder="Stadtteil / Stadt">
-            <div class="bk-q" style="margin-top:.4rem">Dein Kostenrahmen für das Gesamtprojekt?<small>Honorar + Baukosten zusammen — nur zur Orientierung</small></div>
+            <div class="bk-q" style="margin-top:.4rem">Im Vergleich zur automatischen Berechnung: wie ist Dein Kostenrahmen?<small>Honorar + Baukosten zusammen, nur zur Orientierung</small></div>
             <div class="bk-opts">
               <button class="bk-opt" onclick="bkPickOpt('kostenrahmen','bis20k',this)"><div><span class="bk-ot">bis 20.000 €</span></div></button>
               <button class="bk-opt" onclick="bkPickOpt('kostenrahmen','20_60k',this)"><div><span class="bk-ot">20.000 – 60.000 €</span></div></button>
               <button class="bk-opt" onclick="bkPickOpt('kostenrahmen','60_150k',this)"><div><span class="bk-ot">60.000 – 150.000 €</span></div></button>
               <button class="bk-opt" onclick="bkPickOpt('kostenrahmen','150kplus',this)"><div><span class="bk-ot">150.000 € +</span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('kostenrahmen','500kplus',this)"><div><span class="bk-ot">500.000 € +</span></div></button>
               <button class="bk-opt" onclick="bkPickOpt('kostenrahmen','offen',this)"><div><span class="bk-ot">Noch offen</span></div></button>
             </div>
             <textarea class="bk-inf" rows="3" placeholder="Was ich noch wissen sollte… (optional)" oninput="bkSt.note=this.value"></textarea>
@@ -3443,18 +3445,14 @@
             var infoMaxW = Math.min(window.innerWidth * 0.9, 920);
             var infoTitleSpace = getLightboxTitleReserve();
             var infoMaxH = window.innerHeight * 0.9 - infoTitleSpace;
-            var infoRatio = 3 / 4;
             var infoW = infoMaxW;
-            var infoH = infoW / infoRatio;
+            var infoH = (infoW * 3) / 4;
             if (infoH > infoMaxH) {
               infoH = infoMaxH;
-              infoW = infoH * infoRatio;
+              infoW = (infoH * 4) / 3;
             }
-            lightboxViewport.style.transition = "none";
             lightboxViewport.style.width = Math.round(infoW) + "px";
             lightboxViewport.style.height = Math.round(infoH) + "px";
-            void lightboxViewport.offsetWidth;
-            lightboxViewport.style.transition = "";
             return;
           }
           var img = slide.querySelector("img");
@@ -3472,11 +3470,8 @@
               h = maxH;
               w = h * ratio;
             }
-            lightboxViewport.style.transition = "none";
             lightboxViewport.style.width = Math.round(w) + "px";
             lightboxViewport.style.height = Math.round(h) + "px";
-            void lightboxViewport.offsetWidth;
-            lightboxViewport.style.transition = "";
           }
 
           if (img.complete && img.naturalWidth) {
@@ -3552,11 +3547,16 @@
             );
           }
           updateLightboxLabels();
+          var currentItem = lightboxGalleryItems[lightboxIndex];
+          var prevItem = lightboxGalleryItems[prevIndex];
+          var involvesInfoSlide =
+            (currentItem && currentItem.isInfo) || (prevItem && prevItem.isInfo);
           var shouldDeferViewport =
-            options.deferViewportResize ||
-            (animate !== false &&
-              !options.skipTransform &&
-              !isLightboxLoopWrap(prevIndex, lightboxIndex, count));
+            !involvesInfoSlide &&
+            (options.deferViewportResize ||
+              (animate !== false &&
+                !options.skipTransform &&
+                !isLightboxLoopWrap(prevIndex, lightboxIndex, count)));
           scheduleLightboxViewportResize(lightboxIndex, shouldDeferViewport);
           if (lightboxPrev) lightboxPrev.hidden = count <= 1;
           if (lightboxNext) lightboxNext.hidden = count <= 1;

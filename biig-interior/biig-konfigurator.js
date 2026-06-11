@@ -46,7 +46,7 @@ const BK_TRACKS = [
     id:'allinclusive',
     icon:'ti-building',
     title:'Entwurf bis Umsetzung',
-    desc:'Planung + Handwerk · ab 2.500 €',
+    desc:'Planung + Handwerk · ab 1.000 €',
     info:'Vom ersten Entwurf bis zur koordinierten Umsetzung — je nach gewählter Leistungsphase in Schritt 4. Ein durchgängiger Ablauf statt einzelner Planungslieferung.',
   },
 ];
@@ -96,6 +96,25 @@ function bkRenderStep1Tracks() {
 
 const BK_AUFMASS_MIN = 300;
 const BK_AUFMASS_RATE = 3.5;
+
+/** Grundhonorar Entwurf bis Umsetzung: bis 20 m² → 1.000 €, ab 20 m² → 1.500 €, ab 40 m² → 2.000 €+, darüber Skalierung ab 60 m². */
+const BK_AII_BASE = {
+  tier1MaxQm: 20,
+  tier1Hon: 1000,
+  tier2MaxQm: 40,
+  tier2Hon: 1500,
+  tier3Hon: 2000,
+  scaleFromQm: 60,
+  scaleRate: 20,
+};
+
+function bkAllinclusiveBaseInner(qm) {
+  const q = Math.max(qm, 5);
+  if (q <= BK_AII_BASE.tier1MaxQm) return BK_AII_BASE.tier1Hon;
+  if (q < BK_AII_BASE.tier2MaxQm) return BK_AII_BASE.tier2Hon;
+  if (q < BK_AII_BASE.scaleFromQm) return BK_AII_BASE.tier3Hon;
+  return BK_AII_BASE.tier3Hon + (q - BK_AII_BASE.scaleFromQm) * BK_AII_BASE.scaleRate;
+}
 
 function bkAiiPhaseMult() {
   if (bkSt.aii_phase === 'bauleitung') return 1.45;
@@ -301,7 +320,7 @@ function bkStep4Valid() {
 }
 
 function bkStep5ShowsKochen() {
-  return bkSt.size !== 'kl_zimmer';
+  return true;
 }
 
 function bkStep5ShowsFunktionen() {
@@ -369,7 +388,7 @@ function bkCalcPrice() {
   }
   if (bkSt.track.includes('allinclusive')) {
     const honOut = bkHonOutAbove(qm, qmOut, 60, 20);
-    const bInner = Math.max(2500, 2500 + (qm - 60) * 20);
+    const bInner = bkAllinclusiveBaseInner(qm);
     const phaseMult = bkAiiPhaseMult();
     honOutTotal += honOut * phaseMult;
     const bTotal = (bInner + honOut) * phaseMult;
@@ -638,7 +657,7 @@ function bkRenderFinalSummary() {
   const dlL = {hart:'Fixer Termin', weich:'Ungefähr', offen:'Noch offen'};
   const bewL = {ja:'Bewohnt', leer:'Leer', beides:'Beides möglich'};
   const kommL = {mail:'E-Mail', whatsapp:'WhatsApp', call:'Anruf'};
-  const krL = {bis20k:'bis 20.000 €', '20_60k':'20–60.000 €', '60_150k':'60–150.000 €', '150kplus':'150.000 € +', offen:'Noch offen'};
+  const krL = {bis20k:'bis 20.000 €', '20_60k':'20–60.000 €', '60_150k':'60–150.000 €', '150kplus':'150.000 € +', '500kplus':'500.000 € +', offen:'Noch offen'};
   const stilL = {warm:'Warm-zeitlos', clean:'Modern-clean', japanisch:'Ruhig-japanisch', urban:'Urban-elegant', maximal:'Maximalistisch', offen:'Noch offen'};
   const sizeStr = (BK_SL[bkSt.size]||'—') + (bkSt.qmIn ? ', ' + bkSt.qmIn + ' m²' : '');
   const aussenStr = bkSt.aussen && bkSt.aussen !== 'kein' ? (bkSt.aussen + (bkSt.qmOut ? ' ' + bkSt.qmOut + ' m²' : '')) : null;
