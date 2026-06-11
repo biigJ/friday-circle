@@ -3557,26 +3557,57 @@
           };
         }
 
-        function buildMobileLightboxItems(startIndex, infoProjectId) {
-          var baseItems = ensurePortfolioLightboxItems().filter(function (item) {
-            return !item.isInfo;
+        function buildProjectLightboxImageItems(projectId, startImageIndex, labels) {
+          var project = PROJECTS[projectId];
+          if (!project || !project.images || !project.images.length) return [];
+          var start = Math.max(0, Math.min(startImageIndex || 0, project.images.length - 1));
+          var imageIndexes = [];
+          for (var i = start; i < project.images.length; i++) imageIndexes.push(i);
+          for (var j = 0; j < start; j++) imageIndexes.push(j);
+          return imageIndexes.map(function (imageIndex) {
+            return {
+              src: project.images[imageIndex],
+              projectId: projectId,
+              imageIndex: imageIndex,
+              kachelLabelDe: labels && labels.kachelLabelDe ? labels.kachelLabelDe : getProjectKachelLabel(project, "de"),
+              kachelLabelEn: labels && labels.kachelLabelEn ? labels.kachelLabelEn : getProjectKachelLabel(project, "en"),
+              projectLabelDe: getProjectImageLabel(project, imageIndex, "de"),
+              projectLabelEn: getProjectImageLabel(project, imageIndex, "en"),
+              altDe: getProjectImageLabel(project, imageIndex, "de"),
+              altEn: getProjectImageLabel(project, imageIndex, "en"),
+              objectPosition: project.cropPosition || "",
+            };
           });
-          if (!baseItems.length) return [];
-          var startItem = ensurePortfolioLightboxItems()[startIndex] || baseItems[0];
-          var startPos = 0;
-          for (var i = 0; i < baseItems.length; i++) {
-            if (
-              baseItems[i].projectId === startItem.projectId &&
-              baseItems[i].imageIndex === startItem.imageIndex &&
-              baseItems[i].hochbauIndex === startItem.hochbauIndex
-            ) {
-              startPos = i;
-              break;
-            }
+        }
+
+        function buildMobileProjectLightboxItems(projectId, startImageIndex) {
+          var imageItems = buildProjectLightboxImageItems(projectId, startImageIndex);
+          var infoItem = createLightboxInfoItem(projectId);
+          return infoItem ? [infoItem].concat(imageItems) : imageItems;
+        }
+
+        function buildMobileHochbauLightboxItems(hochbauIndex) {
+          var projectId = HOCHBAU_IDS[Math.max(0, Math.min(hochbauIndex || 0, HOCHBAU_IDS.length - 1))];
+          return buildProjectLightboxImageItems(projectId, 0, {
+            kachelLabelDe: HOCHBAU_TILE_LABEL.tileLabelDe,
+            kachelLabelEn: HOCHBAU_TILE_LABEL.tileLabelEn,
+          });
+        }
+
+        function normalizeAssetSrc(src) {
+          return String(src || "").split("?")[0].split("/").pop();
+        }
+
+        function getTileImageIndex(projectId, tile, target) {
+          var project = PROJECTS[projectId];
+          if (!project || !project.images || !project.images.length || !tile) return 0;
+          var img = target && target.closest ? target.closest(".bi-tile__media img") : null;
+          if (!img || !tile.contains(img)) img = tile.querySelector(".bi-tile__media img");
+          var tileSrc = normalizeAssetSrc(img && img.getAttribute("src"));
+          for (var i = 0; i < project.images.length; i++) {
+            if (normalizeAssetSrc(project.images[i]) === tileSrc) return i;
           }
-          var ordered = baseItems.slice(startPos).concat(baseItems.slice(0, startPos));
-          var infoItem = createLightboxInfoItem(infoProjectId);
-          return infoItem ? [infoItem].concat(ordered) : ordered;
+          return 0;
         }
 
         function buildLightboxTrack() {
@@ -3851,7 +3882,7 @@
           if (!lightboxEl || !project || !project.images.length) return;
           var startIndex = findPortfolioLightboxIndex(projectId, index || 0);
           if (isMobileLightboxViewport()) {
-            lightboxGalleryItems = buildMobileLightboxItems(startIndex, projectId);
+            lightboxGalleryItems = buildMobileProjectLightboxItems(projectId, index || 0);
             lightboxIndex = 0;
           } else {
             lightboxGalleryItems = ensurePortfolioLightboxItems();
@@ -3870,7 +3901,7 @@
           if (!lightboxEl) return;
           var startIndex = findHochbauPortfolioIndex(index || 0);
           if (isMobileLightboxViewport()) {
-            lightboxGalleryItems = buildMobileLightboxItems(startIndex, null);
+            lightboxGalleryItems = buildMobileHochbauLightboxItems(index || 0);
             lightboxIndex = 0;
           } else {
             lightboxGalleryItems = ensurePortfolioLightboxItems();
@@ -4377,14 +4408,16 @@
             }
             var btn = e.target.closest("[data-bi-project]");
             if (!btn) return;
-            openLightbox(btn.getAttribute("data-bi-project"), 0);
+            var projectId = btn.getAttribute("data-bi-project");
+            openLightbox(projectId, getTileImageIndex(projectId, btn, e.target));
           });
           gridEl.addEventListener("keydown", function (e) {
             if (e.key !== "Enter" && e.key !== " ") return;
             var tile = e.target.closest("[data-bi-project][tabindex]");
             if (!tile || e.target.closest("[data-bi-buy]")) return;
             e.preventDefault();
-            openLightbox(tile.getAttribute("data-bi-project"), 0);
+            var projectId = tile.getAttribute("data-bi-project");
+            openLightbox(projectId, getTileImageIndex(projectId, tile, tile));
           });
         }
 
