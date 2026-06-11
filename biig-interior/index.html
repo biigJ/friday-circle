@@ -1567,6 +1567,35 @@
           0 0 18px rgba(0, 0, 0, 0.55);
       }
 
+      .bi-lightbox__dots {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        margin: 0;
+        padding: 12px 16px calc(12px + env(safe-area-inset-bottom, 0px));
+        pointer-events: auto;
+      }
+
+      .bi-lightbox__dot {
+        width: 8px;
+        height: 8px;
+        padding: 0;
+        border: 1px solid #000000;
+        border-radius: 50%;
+        background: transparent;
+        cursor: pointer;
+        transition: background 0.2s ease, transform 0.15s ease;
+      }
+
+      .bi-lightbox__dot.is-active,
+      .bi-lightbox__dot:hover,
+      .bi-lightbox__dot:focus-visible {
+        background: #000000;
+        transform: scale(1.12);
+        outline: none;
+      }
+
       .bi-lightbox__title {
         position: fixed;
         left: 0;
@@ -1629,6 +1658,73 @@
 
       .bi-lightbox__nav[hidden] {
         display: none !important;
+      }
+
+      @media (max-width: 520px) {
+        .bi-lightbox {
+          align-items: stretch;
+          justify-content: stretch;
+          padding: 0;
+          padding-bottom: 0;
+          background: #ffffff;
+          --bi-lightbox-title-reserve: 0px;
+        }
+
+        .bi-lightbox__backdrop {
+          background: #ffffff;
+        }
+
+        .bi-lightbox__stage {
+          justify-content: flex-start;
+          width: 100%;
+          height: 100%;
+          background: #ffffff;
+        }
+
+        .bi-lightbox__viewport {
+          width: 100vw !important;
+          max-width: none;
+          height: calc(100dvh - 52px - env(safe-area-inset-bottom, 0px)) !important;
+          max-height: none;
+          background: #ffffff;
+          border-radius: 0;
+        }
+
+        .bi-lightbox__slide {
+          background: #ffffff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .bi-lightbox__slide img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          background: #ffffff;
+        }
+
+        .bi-lightbox__slide--info {
+          background: #000000;
+        }
+
+        .bi-lightbox__caption,
+        .bi-lightbox__title,
+        .bi-lightbox__nav {
+          display: none !important;
+        }
+
+        .bi-lightbox__dots {
+          display: flex;
+          width: 100%;
+          box-sizing: border-box;
+          background: #ffffff;
+        }
+
+        .bi-lightbox__close {
+          color: #000000;
+          text-shadow: 0 1px 10px rgba(255, 255, 255, 0.65);
+        }
       }
 
     </style>
@@ -2488,6 +2584,7 @@
           <div class="bi-lightbox__track" id="bi-lightbox-track"></div>
           <p class="bi-lightbox__caption" id="bi-lightbox-caption"></p>
         </div>
+        <div class="bi-lightbox__dots" id="bi-lightbox-dots"></div>
         <p class="bi-lightbox__title" id="bi-lightbox-title"></p>
       </div>
     </div>
@@ -3239,6 +3336,7 @@
         var lightboxEl = document.getElementById("bi-lightbox");
         var lightboxViewport = document.getElementById("bi-lightbox-viewport");
         var lightboxTrack = document.getElementById("bi-lightbox-track");
+        var lightboxDots = document.getElementById("bi-lightbox-dots");
         var lightboxTitle = document.getElementById("bi-lightbox-title");
         var lightboxCaption = document.getElementById("bi-lightbox-caption");
         var lightboxCloseBtn = document.getElementById("bi-lightbox-close");
@@ -3444,10 +3542,47 @@
           return 0;
         }
 
+        function isMobileLightboxViewport() {
+          return window.matchMedia("(max-width: 520px)").matches;
+        }
+
+        function createLightboxInfoItem(projectId) {
+          var project = PROJECTS[projectId];
+          if (!project || !projectHasInfoSlide(projectId)) return null;
+          return {
+            isInfo: true,
+            projectId: projectId,
+            kachelLabelDe: getProjectKachelLabel(project, "de"),
+            kachelLabelEn: getProjectKachelLabel(project, "en"),
+          };
+        }
+
+        function buildMobileLightboxItems(startIndex, infoProjectId) {
+          var baseItems = ensurePortfolioLightboxItems().filter(function (item) {
+            return !item.isInfo;
+          });
+          if (!baseItems.length) return [];
+          var startItem = ensurePortfolioLightboxItems()[startIndex] || baseItems[0];
+          var startPos = 0;
+          for (var i = 0; i < baseItems.length; i++) {
+            if (
+              baseItems[i].projectId === startItem.projectId &&
+              baseItems[i].imageIndex === startItem.imageIndex &&
+              baseItems[i].hochbauIndex === startItem.hochbauIndex
+            ) {
+              startPos = i;
+              break;
+            }
+          }
+          var ordered = baseItems.slice(startPos).concat(baseItems.slice(0, startPos));
+          var infoItem = createLightboxInfoItem(infoProjectId);
+          return infoItem ? [infoItem].concat(ordered) : ordered;
+        }
+
         function buildLightboxTrack() {
           if (!lightboxTrack) return;
           var lang = getLang();
-          var items = ensurePortfolioLightboxItems();
+          var items = lightboxGalleryItems || ensurePortfolioLightboxItems();
           lightboxTrack.innerHTML = "";
           items.forEach(function (item) {
             if (item.isInfo) {
@@ -3469,6 +3604,7 @@
             lightboxTrack.appendChild(slide);
           });
           lightboxTrackReady = true;
+          renderLightboxDots();
         }
 
         function updateLightboxLabels() {
@@ -3492,6 +3628,33 @@
           }
         }
 
+        function renderLightboxDots() {
+          if (!lightboxDots || !lightboxGalleryItems) return;
+          lightboxDots.innerHTML = "";
+          if (lightboxGalleryItems.length <= 1) {
+            lightboxDots.hidden = true;
+            return;
+          }
+          lightboxDots.hidden = false;
+          lightboxGalleryItems.forEach(function (_item, i) {
+            var dot = document.createElement("button");
+            dot.type = "button";
+            dot.className = "bi-lightbox__dot" + (i === lightboxIndex ? " is-active" : "");
+            dot.setAttribute("aria-label", (getLang() === "en" ? "Lightbox slide " : "Lightbox-Bild ") + (i + 1));
+            dot.addEventListener("click", function () {
+              setLightboxSlide(i, true, lightboxIndex);
+            });
+            lightboxDots.appendChild(dot);
+          });
+        }
+
+        function updateLightboxDots() {
+          if (!lightboxDots) return;
+          lightboxDots.querySelectorAll(".bi-lightbox__dot").forEach(function (dot, i) {
+            dot.classList.toggle("is-active", i === lightboxIndex);
+          });
+        }
+
         function getLightboxTitleReserve() {
           if (lightboxEl) {
             var reserve = parseFloat(getComputedStyle(lightboxEl).paddingBottom);
@@ -3502,6 +3665,11 @@
 
         function syncLightboxViewportSize(index) {
           if (!lightboxViewport || !lightboxTrack) return;
+          if (isMobileLightboxViewport()) {
+            lightboxViewport.style.width = "";
+            lightboxViewport.style.height = "";
+            return;
+          }
           var slide = lightboxTrack.children[index];
           if (!slide) return;
           var item =
@@ -3614,6 +3782,7 @@
             );
           }
           updateLightboxLabels();
+          updateLightboxDots();
           var currentItem = lightboxGalleryItems[lightboxIndex];
           var prevItem = lightboxGalleryItems[prevIndex];
           var involvesInfoSlide =
@@ -3680,8 +3849,14 @@
           closeBuyPopup();
           var project = PROJECTS[projectId];
           if (!lightboxEl || !project || !project.images.length) return;
-          lightboxGalleryItems = ensurePortfolioLightboxItems();
-          lightboxIndex = findPortfolioLightboxIndex(projectId, index || 0);
+          var startIndex = findPortfolioLightboxIndex(projectId, index || 0);
+          if (isMobileLightboxViewport()) {
+            lightboxGalleryItems = buildMobileLightboxItems(startIndex, projectId);
+            lightboxIndex = 0;
+          } else {
+            lightboxGalleryItems = ensurePortfolioLightboxItems();
+            lightboxIndex = startIndex;
+          }
           if (!lightboxTrackReady) buildLightboxTrack();
           setLightboxSlide(lightboxIndex, false);
           showLightbox();
@@ -3693,8 +3868,14 @@
           closeOfferPopup();
           closeBuyPopup();
           if (!lightboxEl) return;
-          lightboxGalleryItems = ensurePortfolioLightboxItems();
-          lightboxIndex = findHochbauPortfolioIndex(index || 0);
+          var startIndex = findHochbauPortfolioIndex(index || 0);
+          if (isMobileLightboxViewport()) {
+            lightboxGalleryItems = buildMobileLightboxItems(startIndex, null);
+            lightboxIndex = 0;
+          } else {
+            lightboxGalleryItems = ensurePortfolioLightboxItems();
+            lightboxIndex = startIndex;
+          }
           if (!lightboxTrackReady) buildLightboxTrack();
           setLightboxSlide(lightboxIndex, false);
           showLightbox();
@@ -3712,6 +3893,7 @@
           lightboxEl.setAttribute("aria-hidden", "true");
           document.body.style.overflow = "";
           if (lightboxTrack) lightboxTrack.innerHTML = "";
+          if (lightboxDots) lightboxDots.innerHTML = "";
           lightboxTrackReady = false;
           if (lightboxTitle) lightboxTitle.textContent = "";
           if (lightboxCaption) lightboxCaption.textContent = "";
@@ -4157,7 +4339,7 @@
             buildSlider(project.images, pick(project, "title"), project);
           }
           if (lightboxEl && !lightboxEl.hidden) {
-            lightboxGalleryItems = ensurePortfolioLightboxItems();
+            if (!lightboxGalleryItems) lightboxGalleryItems = ensurePortfolioLightboxItems();
             lightboxTrackReady = false;
             buildLightboxTrack();
             setLightboxSlide(lightboxIndex, false);
