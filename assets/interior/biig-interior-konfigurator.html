@@ -1803,7 +1803,7 @@ function bkSplitNavButtons() {
     const text = (btn.textContent || '').trim();
     let icon = '';
     let label = text;
-    if (text.indexOf('←← ') === 0) { icon = '←←'; label = text.slice(4); }
+    if (text.indexOf('←← ') === 0) { icon = '←←'; label = text.slice(3); }
     else if (text.indexOf('← ') === 0) { icon = '←'; label = text.slice(2); }
     else if (text.slice(-2) === ' →') { icon = '→'; label = text.slice(0, -2); }
     btn.innerHTML = '<span class="bk-btn__icon" aria-hidden="true">' + icon + '</span>'

@@ -755,7 +755,7 @@ function bkSplitNavButtons() {
     let label = text;
     if (text.indexOf('←← ') === 0) {
       icon = '←←';
-      label = text.slice(4);
+      label = text.slice(3);
     } else if (text.indexOf('← ') === 0) {
       icon = '←';
       label = text.slice(2);
