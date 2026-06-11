@@ -381,6 +381,13 @@
         margin: 0;
       }
 
+      @media (max-width: 760px) {
+        .bi-hero__dots {
+          top: clamp(12px, 3vw, 18px);
+          bottom: auto;
+        }
+      }
+
       /* -- Portfolio grid -- */
       .bi-portfolio {
         padding: clamp(28px, 4.5vw, 56px) 0 clamp(72px, 10vw, 140px);
@@ -1262,12 +1269,42 @@
       }
 
       @media (max-width: 520px) {
+        .biig-interior-page .nav {
+          position: fixed;
+          inset: 0 0 auto;
+          background: transparent;
+          background-color: transparent;
+          -webkit-backdrop-filter: none;
+          backdrop-filter: none;
+        }
+
+        .biig-interior-page .bi-nav__inner {
+          padding-top: calc(12px + env(safe-area-inset-top, 0px));
+          padding-bottom: 12px;
+        }
+
+        .bi-hero {
+          padding-top: calc(clamp(36px, 5vw, 64px) + 92px + env(safe-area-inset-top, 0px));
+        }
+
         .bi-grid {
-          --bi-col: min(100cqw, calc(100cqw - 24px));
+          --bi-gap: 0px;
+          --bi-col: 100cqw;
         }
 
         .bi-hero__figure {
           aspect-ratio: 4 / 3;
+        }
+
+        .bi-portfolio > .bi-shell {
+          padding-left: 0;
+          padding-right: 0;
+        }
+
+        .bi-portfolio__title,
+        .bi-portfolio__lede {
+          padding-left: var(--nav-pad-x);
+          padding-right: var(--nav-pad-x);
         }
       }
 
