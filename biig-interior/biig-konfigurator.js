@@ -168,11 +168,11 @@ window.bkStartWithTrack = function(trackId) {
   bkSt.track = [trackId];
   bkRenderStep1Tracks();
   if (bkIsMobileQuizViewport()) {
-    bkGoTo(1);
+    bkGoTo(1, { skipScroll: true });
     window.requestAnimationFrame(bkSnapQuizToFormTop);
+    window.setTimeout(bkSnapQuizToFormTop, 80);
     window.setTimeout(bkSnapQuizToFormTop, 500);
     window.setTimeout(bkSnapQuizToFormTop, 900);
-    window.setTimeout(bkSnapQuizToFormTop, 1300);
     return false;
   }
   bkGoTo(2);
@@ -266,7 +266,8 @@ function bkScrollToPageBottom() {
   });
 }
 
-window.bkGoTo = function(n) {
+window.bkGoTo = function(n, opts) {
+  opts = opts || {};
   document.querySelectorAll('.bk-step').forEach(s => s.classList.remove('active'));
   const el = n === 99 ? document.getElementById('bk-step-done') : document.getElementById('bk-step' + n);
   if (el) el.classList.add('active');
@@ -281,6 +282,7 @@ window.bkGoTo = function(n) {
   bkUpdateCart();
   bkUpdateNavButtons();
   bkUpdateDots(n);
+  if (opts.skipScroll) return;
   const sec = document.getElementById('biig-konfigurator');
   if (n === 0) {
     bkScrollToPageBottom();

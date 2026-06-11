@@ -1466,7 +1466,7 @@
         }
       }
 
-      @media (max-width: 480px) {
+      @media (max-width: 480px) and (pointer: coarse) {
         .bi-tile--project {
           cursor: grab;
           background: #ffffff;
@@ -3715,7 +3715,7 @@
         }
 
         function isInlineMobileCarouselViewport() {
-          return window.matchMedia("(max-width: 480px)").matches;
+          return window.matchMedia("(max-width: 480px) and (pointer: coarse)").matches;
         }
 
         function createLightboxInfoItem(projectId) {
