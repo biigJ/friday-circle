@@ -3786,7 +3786,9 @@
           if (!project || !project.images || !project.images.length) return;
           var startImageIndex = getTileImageIndex(projectId, tile, tile);
           var imageItems = buildProjectLightboxImageItems(projectId, startImageIndex);
-          var items = projectHasInfoSlide(projectId) ? [{ isInfo: true, projectId: projectId }].concat(imageItems) : imageItems;
+          var hasInfo = projectHasInfoSlide(projectId);
+          var items = hasInfo ? [{ isInfo: true, projectId: projectId }].concat(imageItems) : imageItems;
+          var initialIndex = hasInfo ? 1 : 0;
           var carousel = document.createElement("div");
           carousel.className = "bi-mobile-tile-carousel";
           var track = document.createElement("div");
@@ -3814,7 +3816,7 @@
 
             var dot = document.createElement("button");
             dot.type = "button";
-            dot.className = "bi-mobile-tile-carousel__dot" + (i === 0 ? " is-active" : "");
+            dot.className = "bi-mobile-tile-carousel__dot" + (i === initialIndex ? " is-active" : "");
             dot.setAttribute("aria-label", (getLang() === "en" ? "Tile slide " : "Kachel-Slide ") + (i + 1));
             dots.appendChild(dot);
           });
@@ -3824,7 +3826,7 @@
           });
           tile.appendChild(carousel);
 
-          var entry = { tile: tile, carousel: carousel, track: track, dots: dots, items: items, index: 0, swipe: null };
+          var entry = { tile: tile, carousel: carousel, track: track, dots: dots, items: items, index: initialIndex, swipe: null };
           dots.querySelectorAll(".bi-mobile-tile-carousel__dot").forEach(function (dot, i) {
             dot.addEventListener("click", function (e) {
               e.preventDefault();
@@ -3852,6 +3854,7 @@
               },
             });
           }
+          setMobileTileSlide(entry, initialIndex, false);
           mobileTileCarousels.push(entry);
         }
 
