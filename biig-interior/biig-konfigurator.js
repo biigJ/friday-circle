@@ -271,6 +271,8 @@ function bkScrollToPageBottom() {
 
 window.bkGoTo = function(n, opts) {
   opts = opts || {};
+  const shouldLockToForm = n >= 1 && n !== 99 && bkIsMobileQuizViewport();
+  const lockTop = shouldLockToForm ? (bkQuizScrollLockTop !== null ? bkQuizScrollLockTop : bkGetFormTop()) : null;
   document.querySelectorAll('.bk-step').forEach(s => s.classList.remove('active'));
   const el = n === 99 ? document.getElementById('bk-step-done') : document.getElementById('bk-step' + n);
   if (el) el.classList.add('active');
@@ -290,7 +292,7 @@ window.bkGoTo = function(n, opts) {
   if (n === 0) {
     bkScrollToPageBottom();
   }
-  else if (n >= 1 && n !== 99 && bkIsMobileQuizViewport()) bkLockQuizToFormTop();
+  else if (shouldLockToForm) bkLockQuizToFormTop(lockTop);
   else if (sec) sec.scrollIntoView({behavior:'smooth', block:'start'});
 };
 
