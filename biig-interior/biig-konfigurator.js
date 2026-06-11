@@ -169,11 +169,71 @@ window.bkStartWithTrack = function(trackId) {
   bkGoTo(2);
 };
 
+let bkQuizScrollLockTop = null;
+let bkQuizScrollLockSettling = false;
+let bkQuizScrollLockTimer = 0;
+let bkQuizScrollLockListenersBound = false;
+
+function bkIsMobileQuizViewport() {
+  return window.matchMedia('(max-width: 520px)').matches;
+}
+
+function bkGetFormTop() {
+  const form = document.querySelector('#biig-konfigurator .bk-form');
+  if (!form) return 0;
+  return Math.max(0, Math.round(form.getBoundingClientRect().top + window.scrollY));
+}
+
+function bkReleaseQuizScrollLock() {
+  bkQuizScrollLockTop = null;
+  bkQuizScrollLockSettling = false;
+  if (bkQuizScrollLockTimer) window.clearTimeout(bkQuizScrollLockTimer);
+  bkQuizScrollLockTimer = 0;
+}
+
+function bkApplyQuizScrollLock() {
+  if (bkQuizScrollLockTop === null || bkQuizScrollLockSettling) return;
+  if (window.scrollY < bkQuizScrollLockTop - 1) {
+    window.scrollTo({ top: bkQuizScrollLockTop, behavior: 'auto' });
+  }
+}
+
+function bkLockQuizToFormTop() {
+  if (!bkIsMobileQuizViewport()) {
+    bkReleaseQuizScrollLock();
+    return;
+  }
+  const top = bkGetFormTop();
+  bkQuizScrollLockTop = top;
+  bkQuizScrollLockSettling = true;
+  window.scrollTo({ top: top, behavior: 'smooth' });
+  if (bkQuizScrollLockTimer) window.clearTimeout(bkQuizScrollLockTimer);
+  bkQuizScrollLockTimer = window.setTimeout(function() {
+    bkQuizScrollLockSettling = false;
+    bkApplyQuizScrollLock();
+  }, 700);
+}
+
+function bkBindQuizScrollLock() {
+  if (bkQuizScrollLockListenersBound) return;
+  bkQuizScrollLockListenersBound = true;
+  window.addEventListener('scroll', bkApplyQuizScrollLock, { passive: true });
+  window.addEventListener('resize', function() {
+    if (!bkIsMobileQuizViewport()) {
+      bkReleaseQuizScrollLock();
+      return;
+    }
+    if (bkQuizScrollLockTop !== null) bkQuizScrollLockTop = bkGetFormTop();
+    bkApplyQuizScrollLock();
+  });
+}
+
 window.bkGoTo = function(n) {
   document.querySelectorAll('.bk-step').forEach(s => s.classList.remove('active'));
   const el = n === 99 ? document.getElementById('bk-step-done') : document.getElementById('bk-step' + n);
   if (el) el.classList.add('active');
   document.body.classList.toggle('bk-quiz-active', n >= 1 && n !== 99);
+  if (n === 0 || n === 99) bkReleaseQuizScrollLock();
   if (n === 1) bkRenderStep1Tracks();
   if (n === 4) bkRenderS4();
   if (n === 5) bkUpdateStep5();
@@ -184,7 +244,8 @@ window.bkGoTo = function(n) {
   bkUpdateNavButtons();
   bkUpdateDots(n);
   const sec = document.getElementById('biig-konfigurator');
-  if (sec) sec.scrollIntoView({behavior:'smooth', block:'start'});
+  if (n >= 1 && n !== 99 && bkIsMobileQuizViewport()) bkLockQuizToFormTop();
+  else if (sec) sec.scrollIntoView({behavior:'smooth', block:'start'});
 };
 
 window.bkToggleT = function(t) {
@@ -920,6 +981,7 @@ window.bkOnLangChange = function() {
 function bkInitKonfigurator() {
   if (typeof bkApplyKonfiguratorLang === 'function') bkApplyKonfiguratorLang();
   else bkSplitNavButtons();
+  bkBindQuizScrollLock();
   bkInitQmPickers();
   bkRenderStep1Tracks();
   bkSyncSlOpts('ql', bkSt.ql);
