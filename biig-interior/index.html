@@ -716,6 +716,11 @@
         color: #ffffff;
       }
 
+      .bi-mobile-tile-carousel.is-cover-active .bi-mobile-tile-carousel__label {
+        color: #ffffff;
+        text-shadow: 0 1px 12px rgba(0, 0, 0, 0.48);
+      }
+
       .bi-mobile-tile-carousel__dot {
         display: block;
         width: 8px;
@@ -3798,6 +3803,7 @@
             dot.classList.toggle("is-active", i === entry.index);
           });
           entry.carousel.classList.toggle("is-info-active", !!entry.items[entry.index].isInfo);
+          entry.carousel.classList.toggle("is-cover-active", !!entry.items[entry.index].isCover);
         }
 
         function appendMobileTileInfoSlide(track, project) {
