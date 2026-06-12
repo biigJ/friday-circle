@@ -903,7 +903,7 @@ html[lang="de"] .en-t {
     height: 100%;
     max-width: 100%;
     object-position: center;
-    transform: scale(0.7) translateX(-15%);
+    transform: scale(1.4) translateX(-15%);
     transform-origin: center center;
   }
 
