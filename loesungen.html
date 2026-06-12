@@ -14,12 +14,22 @@
     <div id="fc-site-header"></div>
 
     <main class="page-loesungen">
-      <section class="fc-loesungen" aria-labelledby="loesungen-heading">
-        <div class="fc-head">
-          <h1 id="loesungen-heading">Auf der Suche nach Lösungen.</h1>
-          <p>Ein paar Dinge, die wir für uns herausgefunden haben und gerade weiter herausfinden.</p>
+      <section class="hero" aria-labelledby="loesungen-heading">
+        <div class="hero__grid">
+          <div class="hero__left">
+            <h1 id="loesungen-heading" class="hero__heading">
+              <span class="nowrap">Auf der Suche nach</span>
+              <span class="nowrap">Lösungen.</span>
+            </h1>
+          </div>
+          <p class="hero__lede">
+            Ein paar Dinge, die wir für uns herausgefunden haben und gerade weiter herausfinden.
+          </p>
         </div>
+      </section>
 
+      <section class="fc-loesungen" aria-label="Lösungen Moodboard">
+        <div class="fc-loesungen__inner">
         <div class="fc-board" id="fcBoard">
           <svg class="arrows-layer" viewBox="0 0 900 740" preserveAspectRatio="none" aria-hidden="true">
             <defs>
@@ -118,6 +128,7 @@
 
         <div class="fc-cta">
           <a href="kontakt/index.html">→ Erstgespräch buchen</a>
+        </div>
         </div>
       </section>
     </main>
