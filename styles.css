@@ -1585,6 +1585,31 @@ html[lang="de"] .en-t {
   background: #1a1a1a;
 }
 
+.product__frame--program-slide .fc-program-hero {
+  position: relative;
+  top: auto;
+  width: 100%;
+  height: auto;
+  min-height: clamp(360px, 56vw, 720px);
+  max-height: none;
+  aspect-ratio: 16 / 9;
+  border-radius: inherit;
+}
+
+.product__frame--program-slide .fc-program-hero__content,
+.product__frame--program-slide .fc-program-hero__content:has(.fc-program-hero__panel--gogogo.is-active) {
+  width: 100%;
+  padding: clamp(28px, 5vw, 64px) var(--overlay-pad-x);
+}
+
+.product__frame--program-slide .fc-program-hero__title {
+  font-size: clamp(1.45rem, 4.5vw, 3.1rem);
+}
+
+.product__frame--program-slide .fc-program-hero__title--gogogo {
+  max-width: min(80%, 58rem);
+}
+
 .product__video {
   width: 100%;
   aspect-ratio: 16 / 9;
