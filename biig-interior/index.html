@@ -1038,20 +1038,47 @@
       .bi-offer-popup__body p {
         margin: 0;
         font-family: var(--font-sans);
-        font-size: clamp(1.64rem, 2.3vw, 1.9rem);
         font-weight: 300;
-        line-height: 1.45;
         letter-spacing: 0.02em;
-        color: color-mix(in srgb, var(--text) 82%, #ffffff);
+        color: #ffffff;
+      }
+
+      .bi-offer-popup .bi-popup__panel {
+        width: min(620px, 100%);
+        background: #000000;
+        color: #ffffff;
+        border-radius: 0;
+        padding: clamp(28px, 5vw, 54px);
+        text-align: center;
       }
 
       .bi-offer-popup .bi-popup__title {
-        margin-bottom: clamp(16px, 2.4vw, 24px);
-        padding-right: 40px;
+        margin-bottom: clamp(18px, 3vw, 28px);
+        padding: 0 clamp(28px, 4vw, 42px) 0 0;
+        font-size: clamp(1.02rem, 1.55vw, 1.26rem);
+        font-weight: 300;
+        line-height: 1.32;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .bi-offer-popup__body {
+        max-width: 30rem;
+        margin: 0 auto;
+      }
+
+      .bi-offer-popup__body p {
+        font-size: clamp(0.86rem, 1.12vw, 0.96rem);
+        line-height: 1.58;
       }
 
       .bi-offer-popup__body p + p {
-        margin-top: clamp(16px, 2.4vw, 24px);
+        margin-top: clamp(14px, 2.2vw, 22px);
+      }
+
+      .bi-offer-popup .bi-popup__close {
+        background: rgba(255, 255, 255, 0.14);
+        color: #ffffff;
       }
 
       .bi-tile__cta {
@@ -2825,16 +2852,21 @@
             concreteEn: "Augsburg & Hamburg",
             imageLabelsDe: [
               "Sanierung Einfamilienhaus, Augsburg 2013",
+              "Sanierung Einfamilienhaus, Augsburg 2013",
+              "Konzept Doppelhaushälfte, Hamburg 2012",
               "Konzept Doppelhaushälfte, Hamburg 2012",
             ],
             imageLabelsEn: [
               "Renovation single-family house, Augsburg 2013",
+              "Renovation single-family house, Augsburg 2013",
+              "Duplex half-house concept, Hamburg 2012",
               "Duplex half-house concept, Hamburg 2012",
             ],
             images: [
               "../assets/interior/traudi-küche.png",
               "../assets/interior/traudi_kueche-gr.png",
               "../assets/interior/Neubauhaus.png",
+              "../assets/hochbau/doppelhaus-visu-strich.png",
             ],
           },
           homeoffice: {
