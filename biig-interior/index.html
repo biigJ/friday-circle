@@ -159,6 +159,10 @@
         opacity: 0.72;
       }
 
+      .bi-nav__sound-slot {
+        display: none;
+      }
+
       /* -- Hero -- */
       .bi-hero {
         padding: clamp(36px, 5vw, 64px) 0 clamp(24px, 4vw, 40px);
@@ -1504,6 +1508,18 @@
           padding-bottom: 12px;
         }
 
+        .bi-nav__sound-slot {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .bi-nav__sound-slot .bi-hero__sound {
+          position: relative;
+          inset: auto;
+          flex: 0 0 auto;
+        }
+
         .bi-hero {
           padding-top: calc(clamp(36px, 5vw, 64px) + 92px + env(safe-area-inset-top, 0px));
         }
@@ -1549,6 +1565,7 @@
         }
 
         .bi-tile--project.has-mobile-carousel > .bi-tile__media,
+        .bi-tile--hochbau-collage.has-mobile-carousel > .bi-hochbau-collage,
         .bi-tile--project.has-mobile-carousel > .bi-tile__label,
         .bi-tile--project.has-mobile-carousel > .bi-tile__hover {
           display: none;
@@ -1995,6 +2012,7 @@
             <span class="de-t">Honorar berechnen</span>
             <span class="en-t">Calculate fee</span>
           </a>
+          <span class="bi-nav__sound-slot" id="bi-nav-sound-slot" aria-hidden="true"></span>
           <div class="nav__lang" role="group" aria-label="Sprache">
             <button type="button" class="is-active" data-fc-lang="de">DE</button>
             <button type="button" data-fc-lang="en">EN</button>
@@ -3624,6 +3642,8 @@
         var heroNext = document.getElementById("bi-hero-next");
         var heroAudio = document.getElementById("bi-hero-audio");
         var heroSound = document.getElementById("bi-hero-sound");
+        var heroSoundNavSlot = document.getElementById("bi-nav-sound-slot");
+        var heroSoundHome = document.querySelector(".bi-hero__figure");
         var slideIndex = 0;
         var slideCount = 0;
         var heroIndex = 0;
@@ -4032,6 +4052,78 @@
           mobileTileCarousels.push(entry);
         }
 
+        function buildMobileHochbauTileCarousel(tile) {
+          if (!tile) return;
+          var items = buildHochbauGalleryItems();
+          if (!items.length) return;
+          var initialIndex = 0;
+          var carousel = document.createElement("div");
+          carousel.className = "bi-mobile-tile-carousel";
+          var track = document.createElement("div");
+          track.className = "bi-mobile-tile-carousel__track";
+          var dots = document.createElement("div");
+          dots.className = "bi-mobile-tile-carousel__dots";
+          var label = document.createElement("div");
+          label.className = "bi-mobile-tile-carousel__label";
+          label.textContent = getLang() === "en" ? HOCHBAU_TILE_LABEL.tileLabelEn : HOCHBAU_TILE_LABEL.tileLabelDe;
+          carousel.appendChild(track);
+          carousel.appendChild(dots);
+          carousel.appendChild(label);
+
+          items.forEach(function (item, i) {
+            appendMobileTileImageSlide(track, item, null, false);
+            var dot = document.createElement("span");
+            dot.setAttribute("role", "button");
+            dot.setAttribute("tabindex", "0");
+            dot.className = "bi-mobile-tile-carousel__dot" + (i === initialIndex ? " is-active" : "");
+            dot.setAttribute("aria-label", (getLang() === "en" ? "Building project slide " : "Bauprojekt-Slide ") + (i + 1));
+            dots.appendChild(dot);
+          });
+
+          tile.querySelectorAll(".bi-mobile-tile-carousel").forEach(function (old) {
+            old.remove();
+          });
+          tile.classList.add("has-mobile-carousel");
+          tile.appendChild(carousel);
+
+          var entry = { tile: tile, carousel: carousel, track: track, dots: dots, items: items, index: initialIndex, swipe: null };
+          dots.querySelectorAll(".bi-mobile-tile-carousel__dot").forEach(function (dot, i) {
+            dot.addEventListener("click", function (e) {
+              e.preventDefault();
+              e.stopPropagation();
+              setMobileTileSlide(entry, i, true);
+            });
+            dot.addEventListener("keydown", function (e) {
+              if (e.key !== "Enter" && e.key !== " ") return;
+              e.preventDefault();
+              e.stopPropagation();
+              setMobileTileSlide(entry, i, true);
+            });
+          });
+          if (window.FcSwipeSlider && items.length > 1) {
+            entry.swipe = window.FcSwipeSlider.bind({
+              zone: carousel,
+              track: track,
+              mode: "percent",
+              loop: false,
+              getIndex: function () {
+                return entry.index;
+              },
+              getCount: function () {
+                return entry.items.length;
+              },
+              onIndexChange: function (newIndex, meta) {
+                setMobileTileSlide(entry, newIndex, !meta || meta.animate !== false, true);
+              },
+              ignore: function (target) {
+                return !!target.closest("button, a");
+              },
+            });
+          }
+          setMobileTileSlide(entry, initialIndex, false);
+          mobileTileCarousels.push(entry);
+        }
+
         function initMobileTileCarousels(options) {
           options = options || {};
           var isActive = isInlineMobileCarouselViewport();
@@ -4052,6 +4144,7 @@
             return;
           }
           document.querySelectorAll(".bi-tile--project[data-bi-project]").forEach(buildMobileTileCarousel);
+          buildMobileHochbauTileCarousel(document.getElementById("bi-hochbau-collage"));
         }
 
         function buildLightboxTrack() {
@@ -4585,6 +4678,18 @@
           heroSound.classList.toggle("is-muted", !isOn);
         }
 
+        function placeHeroSoundControl() {
+          if (!heroSound || !heroSoundNavSlot || !heroSoundHome) return;
+          var moveToNav = window.matchMedia("(max-width: 520px)").matches;
+          if (moveToNav) {
+            if (heroSound.parentNode !== heroSoundNavSlot) heroSoundNavSlot.appendChild(heroSound);
+            heroSoundNavSlot.removeAttribute("aria-hidden");
+            return;
+          }
+          if (heroSound.parentNode !== heroSoundHome) heroSoundHome.appendChild(heroSound);
+          heroSoundNavSlot.setAttribute("aria-hidden", "true");
+        }
+
         function toggleHeroSound() {
           if (!heroAudio) return;
           if (!heroAudio.paused && !heroAudio.muted) {
@@ -5017,6 +5122,7 @@
 
         window.addEventListener("scroll", updateMobileNavTransparency, { passive: true });
         window.addEventListener("resize", function () {
+          placeHeroSoundControl();
           updateMobileNavTransparency();
           initMobileTileCarousels();
         });
@@ -5025,10 +5131,12 @@
 
         if (document.readyState === "loading") {
           document.addEventListener("DOMContentLoaded", function () {
+            placeHeroSoundControl();
             applyLang();
             updateMobileNavTransparency();
           });
         } else {
+          placeHeroSoundControl();
           applyLang();
           updateMobileNavTransparency();
         }
