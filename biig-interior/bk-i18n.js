@@ -154,6 +154,7 @@ const BK_STRINGS = {
   's7.cr.3': { de: '3× +25%', en: '3× +25%' },
   's7.cr.4': { de: 'unlimitiert · 300%', en: 'unlimited · 300%' },
   's8.label': { de: 'Schritt 8: Timing & Ablauf', en: 'Step 8: Timing & process' },
+  's8.labelKomm': { de: 'Schritt 8: Kontaktpräferenz', en: 'Step 8: Contact preference' },
   's8.q1': { de: 'Gibt es eine harte Deadline?', en: 'Is there a hard deadline?' },
   's8.q1Hint': { de: 'Fixer Termin = +20%', en: 'Fixed date = +20%' },
   's8.q2': { de: 'Wie läuft der Alltag während des Projekts?', en: 'What is daily life like during the project?' },

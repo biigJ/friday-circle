@@ -2732,6 +2732,7 @@
           <!-- S8: TIMING -->
           <div id="bk-step8" class="bk-step">
             <div class="bk-slabel" data-bk-i18n="s8.label"></div>
+            <div id="bk-s8-deadline" class="bk-s8-block">
             <div class="bk-q"><span data-bk-i18n="s8.q1"></span><small data-bk-i18n="s8.q1Hint"></small></div>
             <div class="bk-opts">
               <button class="bk-opt" onclick="bkPickOpt('dl_typ','hart',this)"><i class="ti ti-calendar-event" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s8.dl.hart.t"></span><span class="bk-os">+20%</span></div></button>
@@ -2739,11 +2740,14 @@
               <button class="bk-opt" onclick="bkPickOpt('dl_typ','offen',this)"><i class="ti ti-infinity" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s8.dl.offen"></span></div></button>
             </div>
             <input class="bk-inf" type="text" id="bk-dl-text" data-bk-i18n-ph="s8.dlph" placeholder="Wann ungefähr? z. B. Oktober 2025" oninput="bkSt.dl_text=this.value;bkUpdateNavButtons()">
+            </div>
+            <div id="bk-s8-alltag" class="bk-s8-block">
             <div class="bk-q"><span data-bk-i18n="s8.q2"></span><small data-bk-i18n="s8.q2Hint"></small></div>
             <div class="bk-opts">
               <button class="bk-opt" onclick="bkPickOpt('bewohnt','ja',this)"><i class="ti ti-home" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s8.bew.ja.t"></span><span class="bk-os">+30%</span></div></button>
               <button class="bk-opt" onclick="bkPickOpt('bewohnt','leer',this)"><i class="ti ti-door-exit" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s8.bew.leer"></span></div></button>
               <button class="bk-opt" onclick="bkPickOpt('bewohnt','beides',this)"><i class="ti ti-arrows-exchange" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s8.bew.beides"></span></div></button>
+            </div>
             </div>
             <div class="bk-q" data-bk-i18n="s8.q3"></div>
             <div class="bk-opts">

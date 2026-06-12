@@ -300,6 +300,7 @@ window.bkGoTo = function(n, opts) {
   if (n === 4) bkRenderS4();
   if (n === 5) bkUpdateStep5();
   if (n === 7) { bkSyncSlOpts('ql', bkSt.ql); bkSyncSlOpts('cr', bkSt.cr); }
+  if (n === 8) bkUpdateStep8();
   if (n === 9) bkRenderFinalSummary();
   if (bkSt.size) bkSetHeaderBg(bkSt.size);
   bkUpdateCart();
@@ -472,10 +473,39 @@ function bkStep7Valid() {
   return !!bkSt.hon_typ && !!bkSt.kv && !!bkSt.aend;
 }
 
+function bkStep8SkipTimingAndAlltag() {
+  const tr = bkSt.track;
+  if (!tr.length) return false;
+  return tr.every(function(t) { return t === 'ordnung' || t === 'arrangement'; });
+}
+
+function bkUpdateStep8() {
+  const skip = bkStep8SkipTimingAndAlltag();
+  const deadline = document.getElementById('bk-s8-deadline');
+  const alltag = document.getElementById('bk-s8-alltag');
+  if (deadline) deadline.hidden = skip;
+  if (alltag) alltag.hidden = skip;
+  const label = document.querySelector('#bk-step8 .bk-slabel');
+  if (label) label.textContent = skip ? bkT('s8.labelKomm') : bkT('s8.label');
+  if (skip) {
+    bkSt.dl_typ = '';
+    bkSt.dl_text = '';
+    bkSt.bewohnt = '';
+    const dlInput = document.getElementById('bk-dl-text');
+    if (dlInput) dlInput.value = '';
+    document.querySelectorAll('#bk-s8-deadline .bk-opt, #bk-s8-alltag .bk-opt').forEach(function(b) {
+      b.classList.remove('sel');
+    });
+  }
+}
+
 function bkStep8Valid() {
-  if (!bkSt.dl_typ || !bkSt.bewohnt || !bkSt.komm) return false;
-  if (bkSt.dl_typ === 'weich' && !String(bkSt.dl_text || '').trim()) return false;
-  return true;
+  const skip = bkStep8SkipTimingAndAlltag();
+  if (!skip) {
+    if (!bkSt.dl_typ || !bkSt.bewohnt) return false;
+    if (bkSt.dl_typ === 'weich' && !String(bkSt.dl_text || '').trim()) return false;
+  }
+  return !!bkSt.komm;
 }
 
 function bkCalcPrice() {
@@ -580,8 +610,8 @@ function bkCalcPrice() {
   else if (step7Done && bkSt.kv === 'laufend') { multi += .10; auf.push('KV laufend +10%'); }
   if (step7Done && bkSt.aend === 'wenige') { multi *= 1.3; auf.push('Freigabe-Anpassung +30%'); }
   else if (step7Done && bkSt.aend === 'viele') { multi *= 2; auf.push('Freigabe-Anpassung ×2 (+100%)'); }
-  if (step8Done && bkSt.dl_typ === 'hart') { multi *= 1.2; auf.push('Express +20%'); }
-  if (step8Done && bkSt.bewohnt === 'ja') { multi *= 1.3; auf.push('Bewohnt +30%'); }
+  if (step8Done && !bkStep8SkipTimingAndAlltag() && bkSt.dl_typ === 'hart') { multi *= 1.2; auf.push('Express +20%'); }
+  if (step8Done && !bkStep8SkipTimingAndAlltag() && bkSt.bewohnt === 'ja') { multi *= 1.3; auf.push('Bewohnt +30%'); }
 
   const total = base * multi;
   const honLow = Math.round(total / 50) * 50;
@@ -812,8 +842,8 @@ function bkRenderFinalSummary() {
     bkSt.hon_typ ? {k: bkT('summary.feeStruct'), v:{pauschale: bkT('s7.hon.pauschale.t'), stunden: bkT('s7.hon.stunden.t'), egal: bkT('s7.hon.egal')}[bkSt.hon_typ]||bkSt.hon_typ} : null,
     bkSt.kv ? {k: bkT('summary.costTrack'), v:kvL[bkSt.kv]||bkSt.kv} : null,
     bkSt.aend ? {k: bkT('summary.approval'), v:aendL[bkSt.aend]||bkSt.aend} : null,
-    bkSt.dl_typ ? {k: bkT('summary.deadline'), v:(dlL[bkSt.dl_typ]||bkSt.dl_typ)+(bkSt.dl_text?', '+bkSt.dl_text:'')} : null,
-    bkSt.bewohnt ? {k: bkT('summary.during'), v:bewL[bkSt.bewohnt]||bkSt.bewohnt} : null,
+    bkSt.dl_typ && !bkStep8SkipTimingAndAlltag() ? {k: bkT('summary.deadline'), v:(dlL[bkSt.dl_typ]||bkSt.dl_typ)+(bkSt.dl_text?', '+bkSt.dl_text:'')} : null,
+    bkSt.bewohnt && !bkStep8SkipTimingAndAlltag() ? {k: bkT('summary.during'), v:bewL[bkSt.bewohnt]||bkSt.bewohnt} : null,
     bkSt.komm ? {k: bkT('summary.contact'), v:kommL[bkSt.komm]||bkSt.komm} : null,
     bkSt.gesetzt ? {k: bkT('summary.fixedFurniture'), v:bkSt.gesetzt} : null,
     bkSt.nogo ? {k: bkT('summary.nogo'), v:bkSt.nogo} : null,

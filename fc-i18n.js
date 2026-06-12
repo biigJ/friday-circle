@@ -40,6 +40,71 @@
       { s: "#loesungen-heading .nowrap:nth-child(1)", de: "Auf der Suche nach", en: "Searching for" },
       { s: "#loesungen-heading .nowrap:nth-child(2)", de: "Lösungen.", en: "solutions." },
       { s: ".hero__lede", de: "Wenn es einfach wäre, würde jeder Mensch mit einem Lächeln durchs Leben laufen. Wir wissen, dass in allen Themen so viele Fragen offen sind und Uneinigkeit herrscht. Was wir beherrschen können, ist hier notiert.", en: "If it were easy, every person would walk through life with a smile. We know that in every topic so many questions are open and there is disagreement. What we can learn to handle is noted here." },
+      { s: ".fc-loesungen", attr: "aria-label", de: "Lösungen Moodboard", en: "Solutions moodboard" },
+      { s: ".fc-loesungen .fc-board > .pin:nth-child(5) small", de: "Bewegung", en: "Movement" },
+      { s: ".fc-loesungen .fc-board > .pin:nth-child(5) p", de: "In Bewegung kommen", en: "Get moving" },
+      {
+        s: ".fc-loesungen .fc-board > .pin:nth-child(5) .tooltip",
+        html: true,
+        de: "Körperliche Aktivität verbessert Stimmung, Kognition und Lebenserwartung nachweisbar. Wir schauen gemeinsam, was das konkret für deinen Alltag heißt.<em>Pedersen &amp; Saltin, 2015 – Exercise as medicine</em>",
+        en: "Physical activity measurably improves mood, cognition, and life expectancy. Together we look at what that means concretely for your everyday life.<em>Pedersen &amp; Saltin, 2015 – Exercise as medicine</em>",
+      },
+      { s: ".fc-loesungen .fc-board > .pin:nth-child(6) small", de: "Gruppe", en: "Group" },
+      { s: ".fc-loesungen .fc-board > .pin:nth-child(6) p", de: "Freunde an einem Ort für tägliche Bewegung versammeln", en: "Bring friends together in one place for daily movement" },
+      {
+        s: ".fc-loesungen .fc-board > .pin:nth-child(6) .tooltip",
+        html: true,
+        de: "Soziale Einbindung ist einer der stärksten Motivatoren für Verhaltensänderung. Wohlwollendes Interesse füreinander passiert in echten Gruppen – nicht in Feeds.<em>Holt-Lunstad et al., 2015 – Social relationships and health</em>",
+        en: "Social connection is one of the strongest motivators for behaviour change. Benevolent interest in each other happens in real groups, not in feeds.<em>Holt-Lunstad et al., 2015 – Social relationships and health</em>",
+      },
+      { s: ".fc-loesungen .fc-board > .pin:nth-child(7) small", de: "Orientierung", en: "Orientation" },
+      { s: ".fc-loesungen .fc-board > .pin:nth-child(7) p", de: "Die eigene Position bestimmen", en: "Determine your own position" },
+      {
+        s: ".fc-loesungen .fc-board > .pin:nth-child(7) .tooltip",
+        html: true,
+        de: "Wer versteht, wo er steht – im Leben, im Körper, im Raum – kann entspannter planen. Kontextklarheit reduziert Entscheidungsstress nachweislich.<em>Schwartz, 2004 – The Paradox of Choice</em>",
+        en: "Whoever understands where they stand in life, in their body, in space can plan more calmly. Context clarity measurably reduces decision stress.<em>Schwartz, 2004 – The Paradox of Choice</em>",
+      },
+      { s: ".fc-loesungen .fc-board > .pin:nth-child(8) small", de: "Freiheit", en: "Freedom" },
+      { s: ".fc-loesungen .fc-board > .pin:nth-child(8) p", de: "Frei sein – nicht App-abhängig. Rituale ja, aber keine gelernten Dogmen", en: "Be free, not app-dependent. Rituals yes, but no learned dogmas" },
+      {
+        s: ".fc-loesungen .fc-board > .pin:nth-child(8) .tooltip",
+        html: true,
+        de: "Starre Regeln, die aus Schuldgefühl entstehen, überlagern oft ältere Muster. Dopamin-Trigger bewusst zu setzen – für gute Dinge – ist etwas anderes als Selbstoptimierungsdruck.<em>Hayes et al., 2006 – Acceptance and Commitment Therapy</em>",
+        en: "Rigid rules born from guilt often overlay older patterns. Consciously setting dopamine triggers for good things is different from self-optimization pressure.<em>Hayes et al., 2006 – Acceptance and Commitment Therapy</em>",
+      },
+      { s: ".fc-loesungen .fc-board > .pin:nth-child(9) small", de: "Aufräumen", en: "Clearing out" },
+      { s: ".fc-loesungen .fc-board > .pin:nth-child(9) p", de: "In den fünf Säulen aufräumen – und das Leben nicht mit 1000 Dingen aufladen", en: "Clear out the five pillars and do not load life with 1000 things" },
+      {
+        s: ".fc-loesungen .fc-board > .pin:nth-child(9) .tooltip",
+        html: true,
+        de: "Bewegung, Nahrung, Erholung, Soziales, Mentales. Nicht alles auf einmal optimieren. Erstmal verstehen, was für einen selbst wirklich gilt.<em>Kahneman, 2011 – Thinking, Fast and Slow</em>",
+        en: "Movement, nutrition, recovery, social life, mental health. Do not optimize everything at once. First understand what truly applies to you.<em>Kahneman, 2011 – Thinking, Fast and Slow</em>",
+      },
+      { s: ".fc-loesungen .fc-board > .pin:nth-child(10) small", de: "Historie", en: "History" },
+      { s: ".fc-loesungen .fc-board > .pin:nth-child(10) p", de: "Interesse an Geschichte – damit man nicht überrascht wird", en: "Interest in history so you are not caught off guard" },
+      {
+        s: ".fc-loesungen .fc-board > .pin:nth-child(10) .tooltip",
+        html: true,
+        de: "Wer historische Muster kennt – persönlich wie gesellschaftlich – kann einordnen statt zu reagieren. Das macht ruhiger.<em>Harari, 2011 – Sapiens</em>",
+        en: "Whoever knows historical patterns, personal and societal, can contextualize instead of react. That makes you calmer.<em>Harari, 2011 – Sapiens</em>",
+      },
+      { s: ".fc-loesungen .fc-board > .pin:nth-child(11) small", de: "Ziel", en: "Goal" },
+      { s: ".fc-loesungen .fc-board > .pin:nth-child(11) p", de: "Resilienz & Ambitionen & eine gute Zeit", en: "Resilience, ambition, and a good time" },
+      {
+        s: ".fc-loesungen .fc-board > .pin:nth-child(11) .tooltip",
+        html: true,
+        de: "Resilienz nach ACT heißt nicht Stärke zeigen – sondern mit Unsicherheit handlungsfähig bleiben. Ambitionen die wirklich die eigenen sind, nicht übernommene.<em>Hayes, 2019 – A Liberated Mind</em>",
+        en: "Resilience in ACT does not mean showing strength but staying capable of action with uncertainty. Ambitions that are truly yours, not borrowed ones.<em>Hayes, 2019 – A Liberated Mind</em>",
+      },
+      { s: ".fc-loesungen .fc-board > .pin:nth-child(12) small", de: "Friday Circle", en: "Friday Circle" },
+      { s: ".fc-loesungen .fc-board > .pin:nth-child(12) p", de: "Warum der Name FRIDAY CIRCLE?", en: "Why the name FRIDAY CIRCLE?" },
+      {
+        s: ".fc-loesungen .fc-board > .pin:nth-child(12) .tooltip",
+        html: true,
+        de: '„It\'s Friday." Wir glauben an den Wochenzyklus und diese bewusst gesetzten Momente, an Routinen die einem gut tun, an Momente des Flows, des Trainings, des Kreativen, des Durchboxen und der Ausgelassenheit. Wir suchen nach mehr Momenten außerhalb von Apps.',
+        en: '"It\'s Friday." We believe in the weekly cycle and these consciously set moments, in routines that do you good, in moments of flow, training, creativity, pushing through, and exuberance. We look for more moments outside of apps.',
+      },
     ],
     "projekte.html": [
       { s: "#projekte-heading .nowrap:nth-child(1)", de: "Programme von", en: "Programs from" },
@@ -507,6 +572,10 @@
     if (PAGE === "joschaalstrainer.html") {
       document.title =
         lang === "en" ? "Joscha as trainer — Friday Circle" : "Joscha als Trainer — Friday Circle";
+    }
+    if (PAGE === "loesungen.html") {
+      document.title =
+        lang === "en" ? "Solutions — FRIDAY CIRCLE" : "Lösungen — FRIDAY CIRCLE";
     }
     if (PAGE === "wolfganggrope.html") {
       document.title =
