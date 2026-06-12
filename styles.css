@@ -2425,7 +2425,12 @@ a.community-product__cta.cta-pill {
     height: auto !important;
   }
 
+  .fc-loesungen .pin {
+    order: 1;
+  }
+
   .fc-loesungen .photo {
+    order: 2;
     min-height: 180px;
   }
 
