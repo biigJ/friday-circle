@@ -2459,7 +2459,7 @@ a.community-product__cta.cta-pill {
   }
 
   .fc-loesungen .fc-board > .photo:nth-child(2) {
-    top: calc(var(--fc-mobile-pin-h) * 2 + 3rem) !important;
+    top: calc(var(--fc-mobile-pin-h) * 5 + 3rem) !important;
     left: 2% !important;
     width: 58% !important;
     height: clamp(120px, 28vw, 180px) !important;
