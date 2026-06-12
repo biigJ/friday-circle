@@ -38,6 +38,9 @@
       }
 
       .kontakt-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
         width: var(--kontakt-shell);
         margin: 0 auto;
         padding: 0;
@@ -46,6 +49,8 @@
         align-items: center;
         justify-content: stretch;
         gap: clamp(18px, 2.4vw, 34px);
+        background: color-mix(in srgb, var(--kontakt-bg) 92%, transparent);
+        backdrop-filter: blur(10px);
         font-family: var(--font-sans);
       }
 
@@ -142,7 +147,7 @@
 
       .kontakt-main {
         width: var(--kontakt-shell);
-        margin: var(--fc-nav-h, 72px) auto clamp(32px, 5vw, 72px);
+        margin: calc(var(--fc-nav-h, 72px) * 0.6) auto clamp(32px, 5vw, 72px);
       }
 
       .kontakt-card {
