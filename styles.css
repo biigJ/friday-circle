@@ -2408,6 +2408,10 @@ a.community-product__cta.cta-pill {
     grid-template-columns: 1fr;
   }
 
+  .fc-loesungen {
+    overflow-x: clip;
+  }
+
   .fc-loesungen .fc-board {
     min-height: unset;
     position: relative;
@@ -2416,14 +2420,24 @@ a.community-product__cta.cta-pill {
     flex-direction: column;
     gap: 0.75rem;
     margin: 0;
+    overflow: hidden;
   }
 
   .fc-loesungen .pin {
     position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
     transform: none !important;
     max-width: 100% !important;
     width: 100% !important;
     height: auto !important;
+    z-index: auto;
+  }
+
+  .fc-loesungen .pin:hover,
+  .fc-loesungen .pin.active {
+    transform: none !important;
     z-index: 1;
   }
 
@@ -2478,6 +2492,11 @@ a.community-product__cta.cta-pill {
 
   .fc-loesungen .pin.active .tooltip {
     display: block;
+  }
+
+  .page-loesungen + #fc-site-footer {
+    position: relative;
+    z-index: 2;
   }
 
   .landing-name-story__grid {
