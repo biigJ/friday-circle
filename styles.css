@@ -777,9 +777,9 @@ html[lang="de"] .en-t {
   margin: 0 auto clamp(8px, 1.2vw, 11px);
   padding: 0 var(--nav-pad-x);
   box-sizing: border-box;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: end;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   gap: clamp(12px, 2vw, 20px);
 }
 
@@ -878,8 +878,6 @@ html[lang="de"] .en-t {
   }
 
   .fc-program-hero-head {
-    grid-template-columns: 1fr;
-    align-items: stretch;
     margin-bottom: clamp(6px, 1vw, 12px);
   }
 
