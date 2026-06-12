@@ -2365,7 +2365,8 @@ a.community-product__cta.cta-pill {
   .nav__burger {
     display: inline-flex;
     grid-column: 3;
-    grid-row: 1;
+    grid-row: 2;
+    justify-self: end;
   }
 
   .nav__inner {
@@ -2374,38 +2375,57 @@ a.community-product__cta.cta-pill {
     grid-template-rows: auto auto;
     align-items: center;
     column-gap: 8px;
-    row-gap: 4px;
+    row-gap: 10px;
   }
 
   .nav__logo {
-    grid-column: 1;
+    grid-column: 1 / -1;
     grid-row: 1;
-    justify-self: start;
+    justify-self: center;
+    text-align: center;
   }
 
   .nav__inner > .nav__cta-bucket {
+    display: contents;
+  }
+
+  .nav__lang {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+  }
+
+  .nav__cta-split {
     grid-column: 2;
-    grid-row: 1;
+    grid-row: 2;
     justify-self: end;
   }
 
   .nav__links {
-    grid-column: 1 / -1;
-    grid-row: 2;
-    justify-self: stretch;
+    position: fixed;
+    top: calc(var(--fc-nav-h, 72px) + 28px);
+    right: 0;
+    z-index: 1000;
     display: none;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 0.35rem;
-    width: 100%;
-    padding: 12px 0 8px;
+    align-items: flex-end;
+    gap: 0.2rem;
+    width: 60vw;
+    max-width: 24rem;
+    min-width: 13rem;
+    padding: clamp(18px, 5vw, 28px) clamp(16px, 4vw, 24px);
     margin: 0;
-    border-top: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+    background: #0a0a0a;
+    color: #ffffff;
+    border-top: none;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
   }
 
   .nav__links a {
-    padding: 10px 4px 10px 0;
+    padding: 10px 0;
     width: 100%;
+    color: #ffffff;
+    text-align: right;
   }
 
   .nav.nav--open .nav__links {

@@ -13,243 +13,263 @@
     />
     <link rel="stylesheet" href="../styles.css" />
     <style>
-      body.gogogo-page {
-        --page-x: 5%;
-        --page-max: 1280px;
-        background-color: #f0eee6;
+      :root {
+        --kontakt-bg: #f0eee6;
+        --kontakt-black: #0a0a0a;
+        --kontakt-red: #ff2f3a;
+        --kontakt-red-dark: #a4141c;
+        --kontakt-gold: #c9a962;
+        --kontakt-shell: min(100% - 2 * var(--nav-pad-x, clamp(16px, 4vw, 44px)), var(--content-max, 1180px));
       }
-      .gogogo-page {
-        --green-deep: #1a3a2a;
-        --green-signal: #2d9e8f;
-        --cream: #f0eee6;
-        --black: #0a0a0a;
-        --white: #ffffff;
-        --font-head: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        --font-body: Georgia, "Times New Roman", Times, serif;
-        --logo: #0a0a0a;
-        color: var(--black);
-        background: #f0eee6;
-        font-family: var(--font-body);
-        line-height: 1.5;
+
+      body.kontakt-page {
         margin: 0;
-        min-height: 100%;
+        min-height: 100vh;
+        background: var(--kontakt-bg);
+        color: var(--kontakt-black);
+        font-family: var(--font-serif);
       }
-      .gogogo-page *,
-      .gogogo-page *::before,
-      .gogogo-page *::after {
+
+      .kontakt-page *,
+      .kontakt-page *::before,
+      .kontakt-page *::after {
         box-sizing: border-box;
       }
-      .gogl-slab {
-        max-width: var(--page-max);
-        margin-left: auto;
-        margin-right: auto;
-        width: 100%;
-        padding-left: var(--page-x);
-        padding-right: var(--page-x);
-        box-sizing: border-box;
-      }
-      .gogl-form__h1 {
-        font-family: var(--font-sans);
-        font-weight: 300;
-        font-size: clamp(2rem, 3.5vw, 3rem);
-        line-height: 1.15;
-        color: var(--black);
-        margin: 0 0 12px;
-      }
-      .gogl-form-section {
-        background: transparent;
-        padding: 80px 0;
-      }
-      .gogl-form-wrap {
-        max-width: 640px;
+
+      .kontakt-header {
+        width: var(--kontakt-shell);
         margin: 0 auto;
-        width: 100%;
-        box-sizing: border-box;
-      }
-      .gogl-form-wrap .gogl-form__h1,
-      .gogl-form__sub {
-        text-align: center;
-        display: block;
-      }
-      .gogl-form__sub {
+        min-height: var(--fc-nav-h, 72px);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: clamp(14px, 2vw, 24px);
         font-family: var(--font-sans);
-        font-style: normal;
-        font-weight: 400;
-        font-size: 0.9rem;
-        color: #444444;
-        margin: 0 0 40px;
-        line-height: 1.55;
       }
-      .gogl-contact-block {
-        text-align: center;
-        margin: 0 0 44px;
-        font-family: var(--font-sans);
-        font-size: 0.92rem;
-        line-height: 1.65;
-        color: #444;
+
+      .kontakt-header__links {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: clamp(8px, 1.4vw, 16px);
+        min-width: 0;
       }
-      .gogl-contact-block strong {
-        display: block;
-        font-family: var(--font-head);
+
+      .kontakt-header__logo {
+        color: var(--kontakt-black);
+        font-size: clamp(0.56rem, 0.72vw, 0.72rem);
         font-weight: 700;
-        color: var(--black);
-        margin-bottom: 8px;
-        font-size: 0.82rem;
-        letter-spacing: 0.04em;
+        letter-spacing: 0.08em;
+        line-height: 1.1;
+        text-transform: uppercase;
+        text-decoration: none;
+        white-space: nowrap;
       }
-      .gogl-contact-block a {
-        color: var(--green-deep);
-        font-weight: 500;
+
+      .kontakt-header__logo--gogogo {
+        color: #c52f33;
+        letter-spacing: 0.02em;
+        text-transform: lowercase;
       }
-      .gogl-contact-block a:hover {
-        color: var(--green-signal);
+
+      .kontakt-header__logo--biig {
+        color: var(--kontakt-gold);
       }
-      .gogl-field label {
-        font-family: var(--font-head);
-        font-weight: 600;
-        font-size: 0.9rem;
-        display: block;
-        margin-bottom: 8px;
-        color: var(--black);
-      }
-      .gogl-field input,
-      .gogl-field textarea {
-        width: 100%;
-        padding: 14px;
-        border: 1.5px solid #cccccc;
-        border-radius: 4px;
-        background: var(--white);
-        font-family: var(--font-body);
-        font-size: 1rem;
-        color: var(--black);
-      }
-      .gogl-field textarea {
-        min-height: 10rem;
-        resize: vertical;
-      }
-      .gogl-field {
-        margin-bottom: 1.25rem;
-      }
-      .gogl-form__submit {
-        width: 100%;
-        background: var(--green-deep);
-        color: var(--white);
-        font-family: var(--font-head);
-        font-weight: 700;
-        font-size: 1rem;
-        padding: 20px;
-        border-radius: 999px;
-        border: none;
-        cursor: pointer;
-        margin-top: 24px;
-      }
-      .gogl-form__submit:hover,
-      .gogl-form__submit:focus-visible {
-        filter: brightness(1.05);
+
+      .kontakt-header__logo:hover,
+      .kontakt-header__logo:focus-visible {
+        text-decoration: underline;
+        text-underline-offset: 0.24em;
         outline: none;
       }
-      .gogl-consent {
-        margin: 0 0 8px;
+
+      .kontakt-lang {
+        display: inline-flex;
+        gap: 0.35rem;
+        flex: 0 0 auto;
+        font-family: var(--font-sans);
+        font-size: 0.66rem;
+        letter-spacing: 0.08em;
       }
-      .gogl-consent__label {
-        display: flex;
-        gap: 10px;
-        align-items: flex-start;
-        font-family: var(--font-body);
-        font-size: 0.85rem;
-        line-height: 1.45;
-        font-weight: 400;
+
+      .kontakt-lang button {
+        border: 0;
+        padding: 0;
+        background: transparent;
+        color: rgba(10, 10, 10, 0.45);
         cursor: pointer;
-        color: var(--black);
+        font: inherit;
       }
-      .gogl-consent__label input {
-        flex-shrink: 0;
-        width: 18px;
-        height: 18px;
-        margin: 2px 0 0;
-        accent-color: var(--green-deep);
-      }
-      .gogl-consent__label a {
-        color: var(--green-deep);
+
+      .kontakt-lang button.is-active {
+        color: var(--kontakt-black);
         text-decoration: underline;
-        text-underline-offset: 2px;
+        text-underline-offset: 0.22em;
       }
-      .gogl-consent__label a:hover {
-        color: var(--green-signal);
+
+      .kontakt-main {
+        width: var(--kontakt-shell);
+        margin: 0 auto clamp(32px, 5vw, 72px);
       }
-      .gogl-form__fine {
-        font-family: var(--font-head);
-        font-size: 0.8rem;
-        font-weight: 400;
-        color: #666666;
+
+      .kontakt-card {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.78fr);
+        min-height: clamp(560px, calc(100dvh - var(--fc-nav-h, 72px) - 56px), 760px);
+        background: var(--kontakt-black);
+        color: #fff0f0;
+        overflow: hidden;
+      }
+
+      .kontakt-card__copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 0;
+        padding: clamp(32px, 5vw, 68px);
+      }
+
+      .kontakt-card__text {
+        margin: 0;
+        max-width: 27ch;
+        font-family: var(--font-serif);
+        font-size: clamp(1.4rem, 2.45vw, 2.35rem);
+        font-weight: 600;
+        line-height: 1.42;
+        letter-spacing: -0.025em;
+      }
+
+      .kontakt-card__media {
+        position: relative;
+        min-height: 100%;
+        overflow: hidden;
+        background: #111;
+      }
+
+      .kontakt-card__media::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 49% 42%, rgba(255, 255, 255, 0.08) 0 15%, transparent 34%),
+          linear-gradient(180deg, rgba(0, 0, 0, 0.48) 0%, rgba(0, 0, 0, 0.1) 36%, rgba(0, 0, 0, 0.58) 100%),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.24) 0%, transparent 30%);
+        pointer-events: none;
+      }
+
+      .kontakt-card__media img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        object-position: center 34%;
+        filter: grayscale(1) contrast(1.05) brightness(0.9);
+      }
+
+      .kontakt-mail {
+        display: grid;
+        grid-template-columns: 1fr;
+        background: var(--kontakt-red);
+        color: #fff0f0;
+        font-family: var(--font-sans);
         text-align: center;
-        margin: 16px 0 0;
-        line-height: 1.5;
+      }
+
+      .kontakt-mail__link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: clamp(72px, 8vw, 96px);
+        padding: 18px 24px 12px;
+        color: #fff0f0;
+        font-size: clamp(1.02rem, 2vw, 1.5rem);
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        text-decoration: none;
+      }
+
+      .kontakt-mail__link:hover,
+      .kontakt-mail__link:focus-visible {
+        background: color-mix(in srgb, var(--kontakt-red) 82%, #000);
+        outline: none;
+      }
+
+      .kontakt-mail__note {
+        margin: 0;
+        padding: 0 20px 18px;
+        color: rgba(255, 240, 240, 0.86);
+        font-size: clamp(0.7rem, 1vw, 0.82rem);
+        font-weight: 400;
+        letter-spacing: 0.02em;
+      }
+
+      @media (max-width: 860px) {
+        .kontakt-header {
+          align-items: flex-start;
+          flex-direction: column;
+          padding: 16px 0;
+        }
+
+        .kontakt-card {
+          grid-template-columns: 1fr;
+          min-height: 0;
+        }
+
+        .kontakt-card__copy {
+          min-height: 58dvh;
+          padding: clamp(28px, 7vw, 46px);
+        }
+
+        .kontakt-card__text {
+          max-width: none;
+          font-size: clamp(1.22rem, 6vw, 2rem);
+        }
+
+        .kontakt-card__media {
+          min-height: 62dvh;
+        }
       }
     </style>
   </head>
-  <body class="gogogo-page" id="top">
-    <div id="fc-site-header"></div>
+  <body class="kontakt-page" id="top">
+    <header class="kontakt-header" aria-label="Hauptnavigation">
+      <nav class="kontakt-header__links" aria-label="Friday Circle Seiten">
+        <a class="kontakt-header__logo" href="../index.html">FRIDAY CIRCLE</a>
+        <a class="kontakt-header__logo kontakt-header__logo--gogogo" href="../gogogo-landing.html">gogogo</a>
+        <a class="kontakt-header__logo kontakt-header__logo--biig" href="../biig-interior/index.html">BIIG INTERIOR</a>
+        <a class="kontakt-header__logo" href="../berlinarchtour.html">BERLIN ARCHITECTURE TOUR</a>
+        <a class="kontakt-header__logo" href="../wolfganggrope.html">WOLFGANG GROPE KUNSTWERKE</a>
+      </nav>
+      <div class="kontakt-lang" role="group" aria-label="Sprache">
+        <button type="button" class="is-active" data-fc-lang="de">DEU</button>
+        <button type="button" data-fc-lang="en">ENG</button>
+      </div>
+    </header>
 
     <main>
-      <section id="nachricht" class="gogl-form-section" aria-labelledby="kontakt-h">
-        <div class="gogl-slab">
-          <div class="gogl-form-wrap">
-            <h1 id="kontakt-h" class="gogl-form__h1">Kontakt.</h1>
-            <p class="gogl-form__sub">Schreib uns — oder komm direkt zur gogogo-Bewerbung zum Erstgespräch über die Landing Page.</p>
-            <div class="gogl-contact-block">
-              <div>
-                <strong>E-MAIL</strong>
-                <a href="mailto:hallo@fridaycircle.example">hallo@fridaycircle.example</a><br />
-                <span>(Platzhalter — echte Adresse hier einpflegen)</span>
-              </div>
-              <div style="margin-top: 20px">
-                <strong>Gogogo FIRST STEP</strong>
-                <a href="../gogogo-landing.html#onboarding">Zum kurzen Gespräch anfragen</a>
-              </div>
-              <div style="margin-top: 16px">
-                <strong>JOSCHA</strong>
-                <a href="../triff-joscha.html">Videos &amp; Story — Triff Joscha</a>
-              </div>
-            </div>
-            <!-- Formspree-Endpunkt ersetzen + _next zur Danke-Seite -->
-            <form class="gogl-form" method="POST" action="https://formspree.io/f/DEIN_FORMSPREE_KONTAKT">
-              <input type="hidden" name="_subject" value="Kontakt über friday-circle Website" />
-              <input type="hidden" name="source" value="kontakt" />
-              <input type="text" name="_gotcha" value="" style="display: none" tabindex="-1" autocomplete="off" aria-hidden="true" />
-
-              <div class="gogl-field">
-                <label for="ko-name">Name</label>
-                <input id="ko-name" name="name" type="text" autocomplete="name" required placeholder="Vor- und Nachname" />
-              </div>
-              <div class="gogl-field">
-                <label for="ko-email">E-Mail</label>
-                <input id="ko-email" name="email" type="email" autocomplete="email" required placeholder="Deine Antwort-Adresse" />
-              </div>
-              <div class="gogl-field">
-                <label for="ko-msg">Deine Nachricht</label>
-                <textarea id="ko-msg" name="nachricht" rows="8" required placeholder="Womit können wir dir helfen?"></textarea>
-              </div>
-
-              <div class="gogl-field gogl-consent">
-                <label class="gogl-consent__label" for="ko-dsgvo">
-                  <input type="checkbox" id="ko-dsgvo" name="datenschutz_einwilligung" value="ja" required />
-                  <span
-                    >Ich bin einverstanden mit der Bearbeitung meiner Angaben zur Kontaktaufnahme wie in der
-                    <a href="../datenschutz/index.html">Datenschutzerklärung</a> beschrieben.</span
-                  >
-                </label>
-              </div>
-
-              <button type="submit" class="gogl-form__submit">Nachricht senden</button>
-              <p class="gogl-form__fine">Wir antworten möglichst innerhalb weniger Arbeitstage.</p>
-            </form>
+      <section class="kontakt-main" aria-labelledby="kontakt-heading">
+        <div class="kontakt-card">
+          <div class="kontakt-card__copy">
+            <h1 id="kontakt-heading" class="visually-hidden">Kontakt</h1>
+            <p class="kontakt-card__text">
+              <span class="de-t">Schreib mir für Feedback oder Fragen. Und hol mich gerne ab, wo Du gerade stehst und ob wir zusammenkommen können. Diese Page ist gemeinsamen Projekten gewidmet. Als Gegengewicht zum Selbstoptimierungswahn auf Social Media. Berlin ist mein Ort. Wir können schreiben, telefonieren, treffen. Lass uns austauschen. Schreib mir konkret oder einen vagen Gedanken. Alles erlaubt. Bis dann. Joscha</span>
+              <span class="en-t">Write to me with feedback or questions. Feel free to meet me where you are right now and whether we might come together. This page is dedicated to shared projects. As a counterweight to the self-optimization mania on social media. Berlin is my place. We can write, talk, meet. Let’s exchange. Send something concrete or a vague thought. Everything is allowed. See you soon. Joscha</span>
+            </p>
           </div>
+          <div class="kontakt-card__media" aria-hidden="true">
+            <img src="../assets/biigJ/biigJ-kontakt.png" alt="" width="1200" height="1600" decoding="async" />
+          </div>
+        </div>
+        <div class="kontakt-mail">
+          <a class="kontakt-mail__link" href="mailto:mail@bjgrope.de">mail@bjgrope.de</a>
+          <p class="kontakt-mail__note">
+            <span class="de-t">Aktuell laufen alle Anfragen auf meine persönliche Adresse.</span>
+            <span class="en-t">For now, all enquiries go to my personal address.</span>
+          </p>
         </div>
       </section>
     </main>
 
-    <div id="fc-site-footer"></div>
-    <script src="../nav.js" defer></script>
+    <script src="../fc-lang.js" defer></script>
   </body>
 </html>
