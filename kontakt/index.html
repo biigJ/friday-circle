@@ -38,9 +38,9 @@
       }
 
       .kontakt-header {
-        width: 100%;
-        margin: 0;
-        padding: 0 var(--kontakt-header-pad);
+        width: var(--kontakt-shell);
+        margin: 0 auto;
+        padding: 0;
         min-height: var(--fc-nav-h, 72px);
         display: flex;
         align-items: center;
@@ -53,7 +53,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        order: 2;
+        order: 1;
         flex: 1 1 auto;
         gap: clamp(12px, 2.2vw, 40px);
         min-width: 0;
@@ -61,7 +61,7 @@
 
       .kontakt-header__logo {
         color: var(--kontakt-black);
-        font-size: clamp(0.672rem, 0.864vw, 0.864rem);
+        font-size: clamp(0.56rem, 0.72vw, 0.72rem);
         font-weight: 800;
         letter-spacing: 0.06em;
         line-height: 1.1;
@@ -71,26 +71,26 @@
       }
 
       .kontakt-header__logo--fc {
-        font-size: clamp(0.9rem, 1.45vw, 1.52rem);
+        font-size: clamp(0.75rem, 1.21vw, 1.27rem);
         font-weight: 800;
         letter-spacing: 0.04em;
       }
 
       .kontakt-header__logo--gogogo {
-        font-size: clamp(0.86rem, 1.24vw, 1.18rem);
+        font-size: clamp(0.72rem, 1.03vw, 0.98rem);
         font-weight: 800;
         letter-spacing: -0.045em;
         text-transform: lowercase;
       }
 
       .kontakt-header__logo--biig {
-        font-size: clamp(0.78rem, 1.12vw, 1.08rem);
+        font-size: clamp(0.65rem, 0.93vw, 0.9rem);
         font-weight: 300;
         letter-spacing: 0.28em;
       }
 
       .kontakt-header__logo--bat {
-        font-size: clamp(0.74rem, 1.02vw, 0.98rem);
+        font-size: clamp(0.62rem, 0.85vw, 0.82rem);
         font-weight: 300;
         letter-spacing: 0.16em;
       }
@@ -100,7 +100,7 @@
       }
 
       .kontakt-header__logo--wolfgang {
-        font-size: clamp(0.64rem, 0.82vw, 0.82rem);
+        font-size: clamp(0.53rem, 0.68vw, 0.68rem);
         font-weight: 500;
         letter-spacing: 0.12em;
       }
@@ -115,7 +115,7 @@
       .kontakt-lang {
         display: inline-flex;
         overflow: hidden;
-        order: 1;
+        order: 2;
         border: 1px solid color-mix(in srgb, var(--kontakt-black) 18%, #fff);
         border-radius: 999px;
         flex: 0 0 auto;
@@ -160,9 +160,9 @@
         z-index: 2;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         min-height: 0;
-        padding: clamp(28px, 4vw, 52px);
+        padding: clamp(64px, 6.2vw, 88px) clamp(28px, 4vw, 52px) clamp(28px, 4vw, 52px);
         background: #ffffff;
       }
 
@@ -170,7 +170,7 @@
         margin: 0 0 clamp(14px, 2vw, 22px);
         width: 100%;
         font-family: var(--font-sans);
-        font-size: clamp(1.703rem, 2.184vw, 1.976rem);
+        font-size: clamp(2.555rem, 3.276vw, 2.964rem);
         font-weight: 300;
         line-height: 1.35;
         letter-spacing: 0.01em;
@@ -200,9 +200,9 @@
         position: absolute;
         inset: 0;
         background:
-          radial-gradient(circle at 49% 42%, rgba(255, 255, 255, 0.08) 0 15%, transparent 34%),
-          linear-gradient(180deg, rgba(0, 0, 0, 0.48) 0%, rgba(0, 0, 0, 0.1) 36%, rgba(0, 0, 0, 0.58) 100%),
-          linear-gradient(90deg, rgba(0, 0, 0, 0.24) 0%, transparent 30%);
+          radial-gradient(circle at 50% 42%, transparent 0 24%, rgba(0, 0, 0, 0.32) 48%, rgba(0, 0, 0, 0.72) 100%),
+          linear-gradient(180deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.08) 38%, rgba(0, 0, 0, 0.64) 100%),
+          linear-gradient(90deg, rgba(0, 0, 0, 0.34) 0%, transparent 38%, rgba(0, 0, 0, 0.48) 100%);
         pointer-events: none;
       }
 
@@ -212,7 +212,7 @@
         display: block;
         object-fit: cover;
         object-position: center 34%;
-        filter: grayscale(1) contrast(1.05) brightness(0.9);
+        filter: saturate(0.72) contrast(1.04) brightness(0.78);
       }
 
       .kontakt-mail {
@@ -280,7 +280,7 @@
 
         .kontakt-card__copy {
           min-height: min(72dvh, 640px);
-          padding: clamp(28px, 7vw, 46px);
+          padding: clamp(48px, 11vw, 70px) clamp(28px, 7vw, 46px) clamp(28px, 7vw, 46px);
           background: rgba(255, 255, 255, 0.82);
         }
 
@@ -298,7 +298,7 @@
         }
 
         .kontakt-card__heading {
-          font-size: clamp(1.35rem, 5.85vw, 1.89rem);
+          font-size: clamp(2.025rem, 8.775vw, 2.835rem);
         }
       }
     </style>
@@ -322,8 +322,7 @@
       <section class="kontakt-main" aria-labelledby="kontakt-heading">
         <div class="kontakt-card">
           <div class="kontakt-card__copy">
-            <h1 id="kontakt-heading" class="visually-hidden">Kontakt</h1>
-            <p class="kontakt-card__heading">Kontakt</p>
+            <h1 id="kontakt-heading" class="kontakt-card__heading">Kontakt</h1>
             <p class="kontakt-card__text">
               <span class="de-t">Schreib mir für Feedback oder Fragen. Und hol mich gerne ab, wo Du gerade stehst und ob wir zusammenkommen können. Diese Page ist gemeinsamen Projekten gewidmet. Als Gegengewicht zum Selbstoptimierungswahn auf Social Media. Berlin ist mein Ort. Wir können schreiben, telefonieren, treffen. Lass uns austauschen. Schreib mir konkret oder einen vagen Gedanken. Alles erlaubt. Bis dann. Joscha</span>
               <span class="en-t">Write to me with feedback or questions. Feel free to meet me where you are right now and whether we might come together. This page is dedicated to shared projects. As a counterweight to the self-optimization mania on social media. Berlin is my place. We can write, talk, meet. Let’s exchange. Send something concrete or a vague thought. Everything is allowed. See you soon. Joscha</span>
