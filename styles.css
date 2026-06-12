@@ -1916,6 +1916,10 @@ a.community-product__cta.cta-pill {
   padding-bottom: 0;
 }
 
+.goals-media--dark .goals-overlay__cta + .goals-overlay__cta {
+  margin-top: 0.65rem;
+}
+
 .goals-media--dark .goals-overlay__cta-brand {
   color: var(--accent);
   font-weight: 700;
