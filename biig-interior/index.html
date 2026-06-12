@@ -203,7 +203,7 @@
       .bi-hero__track {
         display: flex;
         height: 100%;
-        transition: transform 0.45s ease;
+        transition: transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
         will-change: transform;
       }
 
@@ -332,38 +332,48 @@
         position: absolute;
         z-index: 4;
         left: clamp(12px, 2vw, 18px);
-        top: clamp(12px, 2vw, 18px);
-        border: 1px solid rgba(255, 255, 255, 0.58);
-        border-radius: 999px;
-        background: rgba(10, 10, 10, 0.42);
-        color: #ffffff;
+        bottom: clamp(12px, 2vw, 18px);
+        width: 36px;
+        height: 36px;
+        border: none;
+        border-radius: 50%;
+        background: #ffffff;
+        color: #0a0a0a;
         display: inline-flex;
         align-items: center;
-        gap: 0.45rem;
-        padding: 0.48rem 0.72rem;
+        justify-content: center;
+        padding: 0;
         font-family: var(--font-sans);
-        font-size: clamp(0.66rem, 1vw, 0.78rem);
-        font-weight: 500;
+        font-size: 1.05rem;
+        font-weight: 700;
         line-height: 1;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
         cursor: pointer;
-        -webkit-backdrop-filter: blur(10px);
-        backdrop-filter: blur(10px);
-        box-shadow: 0 1px 12px rgba(0, 0, 0, 0.18);
-        transition: background 0.18s ease, border-color 0.18s ease, transform 0.15s ease;
+        box-shadow: 0 1px 8px rgba(0, 0, 0, 0.18);
+        transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
       }
 
       .bi-hero__sound:hover,
       .bi-hero__sound:focus-visible {
-        background: rgba(10, 10, 10, 0.64);
-        border-color: rgba(255, 255, 255, 0.9);
+        background: #f2f2f2;
         transform: translateY(-1px);
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.22);
         outline: none;
       }
 
       .bi-hero__sound-icon {
-        font-size: 0.95em;
+        display: block;
+        transform: translateY(-1px);
+      }
+
+      .bi-hero__sound.is-muted::after {
+        content: "";
+        position: absolute;
+        width: 19px;
+        height: 2px;
+        border-radius: 999px;
+        background: currentColor;
+        transform: rotate(-38deg);
+        transform-origin: center;
       }
 
       .bi-hero__slogan {
@@ -2024,10 +2034,6 @@
             </audio>
             <button type="button" class="bi-hero__sound" id="bi-hero-sound" aria-pressed="false">
               <span class="bi-hero__sound-icon" aria-hidden="true">♪</span>
-              <span class="bi-hero__sound-label">
-                <span class="de-t">Ton an</span>
-                <span class="en-t">Sound on</span>
-              </span>
             </button>
           </figure>
           <div class="bi-hero__mission">
@@ -4401,6 +4407,7 @@
             ignore: function (target) {
               return !!target.closest(".bi-hero__dot, .bi-hero__arrow, button, a");
             },
+            transition: "transform 1.8s cubic-bezier(0.16, 1, 0.3, 1)",
             loop: true,
           });
         }
@@ -4575,12 +4582,7 @@
               ? lang === "en" ? ARIA.soundOffEn : ARIA.soundOffDe
               : lang === "en" ? ARIA.soundOnEn : ARIA.soundOnDe
           );
-          var label = heroSound.querySelector(".bi-hero__sound-label");
-          if (label) {
-            label.innerHTML = isOn
-              ? '<span class="de-t">Ton aus</span><span class="en-t">Sound off</span>'
-              : '<span class="de-t">Ton an</span><span class="en-t">Sound on</span>';
-          }
+          heroSound.classList.toggle("is-muted", !isOn);
         }
 
         function toggleHeroSound() {
@@ -4630,7 +4632,7 @@
           if (HERO_SLIDES.length <= 1) return;
           heroTimer = window.setInterval(function () {
             setHeroSlide(heroIndex + 1);
-          }, 6000);
+          }, 8200);
         }
 
         function initHeroSlider() {
