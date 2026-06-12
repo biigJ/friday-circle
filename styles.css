@@ -2459,16 +2459,17 @@ a.community-product__cta.cta-pill {
   }
 
   .fc-loesungen .fc-board > .photo:nth-child(2) {
-    top: 38%;
-    left: 2%;
+    top: calc(var(--fc-mobile-pin-h) * 2 + 3rem) !important;
+    left: 2% !important;
     width: 58% !important;
     height: clamp(120px, 28vw, 180px) !important;
     --fc-photo-rot: 1.5deg;
+    transform: rotate(var(--fc-photo-rot, 0deg)) !important;
   }
 
   .fc-loesungen .fc-board > .photo:nth-child(3) {
-    top: calc(var(--fc-mobile-pin-h) * 0.12);
-    left: 50%;
+    top: 0 !important;
+    left: 50% !important;
     width: clamp(148px, 48vw, 230px) !important;
     height: clamp(230px, 62vw, 340px) !important;
     --fc-photo-rot: -2deg;
@@ -2481,9 +2482,13 @@ a.community-product__cta.cta-pill {
   }
 
   .fc-loesungen .fc-board > .photo:nth-child(4) {
-    top: 62%;
-    left: 42%;
+    top: auto !important;
+    bottom: 3% !important;
+    left: 28% !important;
+    width: 62% !important;
+    height: clamp(130px, 30vw, 190px) !important;
     --fc-photo-rot: 1deg;
+    transform: rotate(var(--fc-photo-rot, 0deg)) !important;
   }
 
   .fc-loesungen .photo img {
