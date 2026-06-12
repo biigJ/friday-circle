@@ -1567,6 +1567,86 @@ html[lang="de"] .en-t {
   margin-top: clamp(12px, 1.5vw, 18px);
 }
 
+.landing-faq {
+  padding: 0 0 clamp(48px, 7vw, 88px);
+}
+
+.landing-faq__inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 var(--nav-pad-x);
+}
+
+.landing-faq__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  gap: clamp(40px, 8vw, 120px);
+  align-items: start;
+}
+
+.landing-faq__heading {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: clamp(calc(18px * 0.6), calc(3.75vw * 0.6), calc(48px * 0.6));
+  line-height: 1.12;
+  letter-spacing: 0.015em;
+  text-transform: uppercase;
+}
+
+.landing-faq__list {
+  min-width: 0;
+  border-top: 1px solid color-mix(in srgb, var(--text) 26%, transparent);
+}
+
+.landing-faq__item {
+  border-bottom: 1px solid color-mix(in srgb, var(--text) 26%, transparent);
+}
+
+.landing-faq__question {
+  width: 100%;
+  list-style: none;
+  cursor: pointer;
+  padding: clamp(18px, 2.4vw, 28px) 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(18px, 3vw, 36px);
+  font-family: var(--font-sans);
+  font-size: clamp(0.98rem, 1.35vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.landing-faq__question::-webkit-details-marker {
+  display: none;
+}
+
+.landing-faq__question::after {
+  content: "+";
+  flex: 0 0 auto;
+  font-weight: 300;
+  font-size: 1.35em;
+  line-height: 1;
+  transform: translateY(-0.04em);
+}
+
+.landing-faq__item[open] .landing-faq__question::after {
+  content: "–";
+}
+
+.landing-faq__answer {
+  margin: 0;
+  padding: 0 0 clamp(18px, 2.4vw, 28px);
+  max-width: 58ch;
+  font-family: var(--font-serif);
+  font-size: clamp(15px, 1.32vw, 19px);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1.58;
+  color: color-mix(in srgb, var(--text) 78%, var(--bg));
+}
+
 /* Product / video blocks — gleiche horizontale Spalte wie .nav__inner / .hero__grid */
 .product {
   padding: 0 0 var(--section-pad-y);
@@ -2187,6 +2267,11 @@ a.community-product__cta.cta-pill {
     grid-template-columns: 1fr;
   }
 
+  .landing-faq__grid {
+    grid-template-columns: 1fr;
+    gap: clamp(18px, 5vw, 32px);
+  }
+
   /* Typo: bis 900px (Tablet/Smartphone), nicht nur ≤760 — sonst z.B. iPad ohne Effekt */
   :root {
     /* A Headlines, B große Aussagen & Hero-Lede, C Fließtext */
@@ -2218,6 +2303,15 @@ a.community-product__cta.cta-pill {
   }
 
   .landing-name-story__text {
+    font-size: var(--mobile-fs-body);
+  }
+
+  .landing-faq__heading,
+  .landing-faq__question {
+    font-size: var(--mobile-fs-mid);
+  }
+
+  .landing-faq__answer {
     font-size: var(--mobile-fs-body);
   }
 
