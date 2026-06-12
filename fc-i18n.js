@@ -114,7 +114,7 @@
       { s: "#ja-intro-kicker", de: "Kleine Kursänderungen", en: "Small course corrections" },
       {
         s: ".tj-hero--intro .tj-prose p:nth-of-type(1)",
-        de: "Zwanzig Jahre lang habe ich Räume für andere entworfen und dabei meinen eigenen Alltag lange vernachlässigt. Mit Fitness Apps, Influencer Videos, Personal Training und Mitgliedschaften fühlte ich mich irgendwann überfordert. Der Anspruch an mich und andere verdrängte alles.",
+        de: "Zwanzig Jahre lang habe ich Räume für andere entworfen und dabei meinen eigenen Alltag lange vernachlässigt. Mit Fitness Apps, Influencer Videos, Personal Training und Mitgliedschaften fühlte ich mich irgendwann überfordert. Dogmatischer Anspruch an mich und andere verhinderte echtes Ankommen, Zufriedenheit und einfach eine gute Zeit.",
         en: "For twenty years I designed spaces for others while neglecting my own everyday life for a long time. Fitness apps, influencer videos, personal training, and memberships eventually overwhelmed me. The pressure I put on myself and others crowded everything else out.",
       },
       {
