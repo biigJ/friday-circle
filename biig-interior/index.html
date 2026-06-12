@@ -1494,7 +1494,7 @@
         }
       }
 
-      @media (max-width: 480px) and (pointer: coarse) {
+      @media (max-width: 480px) and (pointer: coarse) and (orientation: portrait) {
         .bi-tile--project {
           cursor: grab;
           background: #ffffff;
@@ -3586,7 +3586,7 @@
         var buyIndex = 0;
 
         function updateMobileNavTransparency() {
-          var mobile = window.matchMedia("(max-width: 520px)").matches;
+          var mobile = window.matchMedia("(max-width: 520px) and (orientation: portrait)").matches;
           var firstTile = document.querySelector(".bi-grid .bi-tile");
           var portfolio = document.querySelector(".bi-portfolio");
           var nav = document.querySelector(".biig-interior-page .nav");
@@ -3752,7 +3752,7 @@
         }
 
         function isInlineMobileCarouselViewport() {
-          return window.matchMedia("(max-width: 480px) and (pointer: coarse)").matches;
+          return window.matchMedia("(max-width: 480px) and (pointer: coarse) and (orientation: portrait)").matches;
         }
 
         function getInlineMobileCarouselWidth() {
@@ -3953,7 +3953,7 @@
               zone: carousel,
               track: track,
               mode: "percent",
-              loop: true,
+              loop: false,
               getIndex: function () {
                 return entry.index;
               },

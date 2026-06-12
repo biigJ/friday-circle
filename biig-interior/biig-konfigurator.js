@@ -185,7 +185,7 @@ let bkBottomScrollFrame = 0;
 let bkBottomScrollTimers = [];
 
 function bkIsMobileQuizViewport() {
-  return window.matchMedia('(max-width: 520px)').matches;
+  return window.matchMedia('(max-width: 520px) and (orientation: portrait)').matches;
 }
 
 function bkGetFormTop() {
