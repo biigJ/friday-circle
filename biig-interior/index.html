@@ -2752,7 +2752,7 @@
             <p class="bi-buy-popup__info-body" id="bi-buy-info-body"></p>
             <div class="bi-buy-popup__info-action">
               <p class="bi-buy-popup__info-spec" id="bi-buy-info-spec"></p>
-              <a class="bi-buy-popup__buy-link" id="bi-buy-link" href="mailto:mail@bjgrope.de">
+              <a class="bi-buy-popup__buy-link" id="bi-buy-link" href="../kontakt/index.html">
                 <span class="de-t">Kaufen &gt;</span>
                 <span class="en-t">Buy &gt;</span>
               </a>
@@ -4416,7 +4416,7 @@
           buyInfoSpec.textContent = lang === "en" ? slide.specEn : slide.specDe;
           if (buyLink) {
             var subject = encodeURIComponent(lang === "en" ? slide.mailSubjectEn : slide.mailSubjectDe);
-            buyLink.href = "mailto:mail@bjgrope.de?subject=" + subject;
+            buyLink.href = "../kontakt/index.html?anfrage=" + subject;
           }
           if (buyPrev) buyPrev.hidden = buyIndex <= 0;
           if (buyNext) buyNext.hidden = buyIndex >= slides.length - 1;

@@ -333,20 +333,20 @@
     return "Anfrage an Familie Grope. Gerahmt versendet. " + pricePart + ".";
   }
 
-  function inquiryMailHref(work) {
+  function inquiryContactHref(work) {
     const subject = [work.catalogId, work.title, work.year !== "—" ? work.year : ""]
       .filter(Boolean)
       .join(" · ");
-    const params = subject ? "?subject=" + encodeURIComponent("Anfrage: " + subject) : "";
-    return "mailto:mail@bjgrope.de" + params;
+    const params = subject ? "?anfrage=" + encodeURIComponent("Anfrage: " + subject) : "";
+    return "kontakt/index.html" + params;
   }
 
   function updateInquiryPopupContent(work) {
     if (!work) return;
     if (inquiryText) inquiryText.textContent = inquiryMessage(work);
     if (inquiryMail) {
-      inquiryMail.href = inquiryMailHref(work);
-      inquiryMail.textContent = getWgaLang() === "en" ? "Email" : "E-Mail";
+      inquiryMail.href = inquiryContactHref(work);
+      inquiryMail.textContent = getWgaLang() === "en" ? "Contact" : "Kontakt";
     }
   }
 
