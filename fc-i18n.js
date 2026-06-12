@@ -57,7 +57,7 @@
     "projekte.html": [
       { s: "#projekte-heading .nowrap:nth-child(1)", de: "Programme von", en: "Programs from" },
       { s: "#projekte-heading .nowrap:nth-child(2)", de: "Friday Circle", en: "Friday Circle" },
-      { s: ".hero__lede", de: "Du hast alles parat und wir geben dir nicht noch eine App, sondern für alle Bereiche ein Gegenüber. Folgende Programme starten wir mit dir zusammen, wenn du Interesse hast.", en: "You have everything you need — we do not give you another app, but a human counterpart for every area. We start the following programs with you when you are interested." },
+      { s: ".hero__lede", de: "Wie wäre es, wenn Du in den nächsten Wochen weniger Screentime hast weil Du mit anderen Menschen Programme startest, die Bereiche in Deinen Alltag schöner machen? Hier erste Vorschläge.", en: "What if, over the next few weeks, you had less screen time because you started programs with other people that make parts of your everyday life better? Here are the first ideas." },
       { s: "#gogogo .product__kicker", de: "Woher Du kommst und was Du willst ist individuell – so auch die echte & menschliche Betreuung.", en: "Where you come from and what you want is individual — and so is genuine human support." },
       { s: "#gogogo .product__tagline", de: "Komm in Bewegung.", en: "Get moving." },
       { s: "#gogogo .product__cta", de: "mehr lesen", en: "read more" },

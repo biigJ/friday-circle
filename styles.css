@@ -1603,7 +1603,7 @@ html[lang="de"] .en-t {
 }
 
 .product__frame--program-slide .fc-program-hero__title {
-  font-size: clamp(1.45rem, 4.5vw, 3.1rem);
+  font-size: clamp(1.015rem, 3.15vw, 2.17rem);
 }
 
 .product__frame--program-slide .fc-program-hero__title--gogogo {
