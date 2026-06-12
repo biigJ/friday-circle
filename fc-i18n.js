@@ -39,8 +39,7 @@
     "loesungen.html": [
       { s: "#loesungen-heading .nowrap:nth-child(1)", de: "Auf der Suche nach", en: "Searching for" },
       { s: "#loesungen-heading .nowrap:nth-child(2)", de: "Lösungen.", en: "solutions." },
-      { s: ".hero__lede", de: "Ein paar Dinge, die wir für uns herausgefunden haben und gerade weiter herausfinden.", en: "A few things we have figured out for ourselves and are still figuring out." },
-      { s: ".fc-loesungen .fc-cta a", de: "→ Erstgespräch buchen", en: "→ Book intro call" },
+      { s: ".hero__lede", de: "Wenn es einfach wäre, würde jeder Mensch mit einem Lächeln durchs Leben laufen. Wir wissen, dass in allen Themen so viele Fragen offen sind und Uneinigkeit herrscht. Was wir beherrschen können, ist hier notiert.", en: "If it were easy, every person would walk through life with a smile. We know that in every topic so many questions are open and there is disagreement. What we can learn to handle is noted here." },
     ],
     "projekte.html": [
       { s: "#projekte-heading .nowrap:nth-child(1)", de: "Programme von", en: "Programs from" },

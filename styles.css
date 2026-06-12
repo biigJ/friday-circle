@@ -2108,8 +2108,9 @@ a.community-product__cta.cta-pill {
 
 .fc-loesungen .fc-board {
   position: relative;
+  width: min(900px, 100%);
   min-height: 740px;
-  margin: 0;
+  margin: 0 auto;
   user-select: none;
 }
 
@@ -2235,22 +2236,6 @@ a.community-product__cta.cta-pill {
   height: 100%;
   pointer-events: none;
   z-index: 0;
-}
-
-.fc-loesungen .fc-cta {
-  padding: 2rem 0 0;
-}
-
-.fc-loesungen .fc-cta a {
-  display: inline-block;
-  background: #111111;
-  color: #edeae3;
-  font-weight: 700;
-  font-size: 0.9rem;
-  padding: 0.85rem 1.8rem;
-  text-decoration: none;
-  border-radius: 50px;
-  letter-spacing: 0.03em;
 }
 
 /* Steps */
@@ -2460,11 +2445,6 @@ a.community-product__cta.cta-pill {
 
   .fc-loesungen .pin.active .tooltip {
     display: block;
-  }
-
-  .fc-loesungen .fc-cta {
-    padding-left: 0;
-    padding-right: 0;
   }
 
   .landing-name-story__grid {
