@@ -1921,8 +1921,15 @@ a.community-product__cta.cta-pill {
 }
 
 .goals-media--dark .goals-overlay__cta-brand {
-  color: var(--accent);
   font-weight: 700;
+}
+
+.goals-media--dark .goals-overlay__cta-brand--gogogo {
+  color: #c52f33;
+}
+
+.goals-media--dark .goals-overlay__cta-brand--biig {
+  color: #c9a962;
 }
 
 .goals-media--dark .goals-overlay__cta:hover,
