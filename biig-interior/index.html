@@ -328,6 +328,44 @@
         outline: none;
       }
 
+      .bi-hero__sound {
+        position: absolute;
+        z-index: 4;
+        left: clamp(12px, 2vw, 18px);
+        top: clamp(12px, 2vw, 18px);
+        border: 1px solid rgba(255, 255, 255, 0.58);
+        border-radius: 999px;
+        background: rgba(10, 10, 10, 0.42);
+        color: #ffffff;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.48rem 0.72rem;
+        font-family: var(--font-sans);
+        font-size: clamp(0.66rem, 1vw, 0.78rem);
+        font-weight: 500;
+        line-height: 1;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        cursor: pointer;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 1px 12px rgba(0, 0, 0, 0.18);
+        transition: background 0.18s ease, border-color 0.18s ease, transform 0.15s ease;
+      }
+
+      .bi-hero__sound:hover,
+      .bi-hero__sound:focus-visible {
+        background: rgba(10, 10, 10, 0.64);
+        border-color: rgba(255, 255, 255, 0.9);
+        transform: translateY(-1px);
+        outline: none;
+      }
+
+      .bi-hero__sound-icon {
+        font-size: 0.95em;
+      }
+
       .bi-hero__slogan {
         position: absolute;
         inset: 0;
@@ -1981,6 +2019,16 @@
               <span class="de-t">Finde die richtigen Mittel für Deine Alltagsarchitektur.<br />Umsetzungsstark &amp; Authentisch.</span>
               <span class="en-t">Find the right tools for your everyday architecture.<br />Strong in execution &amp; authentic.</span>
             </p>
+            <audio id="bi-hero-audio" preload="none" loop muted>
+              <source src="../assets/audio/dramatic-motion-watermarked.mp3" type="audio/mpeg" />
+            </audio>
+            <button type="button" class="bi-hero__sound" id="bi-hero-sound" aria-pressed="false">
+              <span class="bi-hero__sound-icon" aria-hidden="true">♪</span>
+              <span class="bi-hero__sound-label">
+                <span class="de-t">Ton an</span>
+                <span class="en-t">Sound on</span>
+              </span>
+            </button>
           </figure>
           <div class="bi-hero__mission">
             <p>
@@ -3354,6 +3402,10 @@
           nextEn: "Next image",
           heroAltDe: "Interieur mit blauem Gemälde, Sideboard und Glasobjekten",
           heroAltEn: "Interior with blue painting, sideboard, and glass objects",
+          soundOnDe: "Ton einschalten",
+          soundOnEn: "Turn sound on",
+          soundOffDe: "Ton ausschalten",
+          soundOffEn: "Turn sound off",
           hochbauDe: "Hochbauprojekte",
           hochbauEn: "Structural projects",
         };
@@ -3564,6 +3616,8 @@
         var heroArrows = document.getElementById("bi-hero-arrows");
         var heroPrev = document.getElementById("bi-hero-prev");
         var heroNext = document.getElementById("bi-hero-next");
+        var heroAudio = document.getElementById("bi-hero-audio");
+        var heroSound = document.getElementById("bi-hero-sound");
         var slideIndex = 0;
         var slideCount = 0;
         var heroIndex = 0;
@@ -4501,11 +4555,54 @@
           if (buyNext) buyNext.setAttribute("aria-label", lang === "en" ? ARIA.nextEn : ARIA.nextDe);
           if (heroPrev) heroPrev.setAttribute("aria-label", lang === "en" ? ARIA.prevEn : ARIA.prevDe);
           if (heroNext) heroNext.setAttribute("aria-label", lang === "en" ? ARIA.nextEn : ARIA.nextDe);
+          updateHeroSoundButton();
           if (heroTrack) {
             heroTrack.querySelectorAll(".bi-hero__slide img").forEach(function (img, i) {
               var slide = HERO_SLIDES[i];
               if (slide) img.alt = lang === "en" ? slide.altEn : slide.altDe;
             });
+          }
+        }
+
+        function updateHeroSoundButton() {
+          if (!heroSound || !heroAudio) return;
+          var lang = getLang();
+          var isOn = !heroAudio.paused && !heroAudio.muted;
+          heroSound.setAttribute("aria-pressed", isOn ? "true" : "false");
+          heroSound.setAttribute(
+            "aria-label",
+            isOn
+              ? lang === "en" ? ARIA.soundOffEn : ARIA.soundOffDe
+              : lang === "en" ? ARIA.soundOnEn : ARIA.soundOnDe
+          );
+          var label = heroSound.querySelector(".bi-hero__sound-label");
+          if (label) {
+            label.innerHTML = isOn
+              ? '<span class="de-t">Ton aus</span><span class="en-t">Sound off</span>'
+              : '<span class="de-t">Ton an</span><span class="en-t">Sound on</span>';
+          }
+        }
+
+        function toggleHeroSound() {
+          if (!heroAudio) return;
+          if (!heroAudio.paused && !heroAudio.muted) {
+            heroAudio.muted = true;
+            heroAudio.pause();
+            updateHeroSoundButton();
+            return;
+          }
+          heroAudio.volume = 0.42;
+          heroAudio.muted = false;
+          var playPromise = heroAudio.play();
+          if (playPromise && typeof playPromise.catch === "function") {
+            playPromise
+              .then(updateHeroSoundButton)
+              .catch(function () {
+                heroAudio.muted = true;
+                updateHeroSoundButton();
+              });
+          } else {
+            updateHeroSoundButton();
           }
         }
 
@@ -4905,6 +5002,14 @@
             e.preventDefault();
             e.stopPropagation();
             heroStep(1);
+          });
+        }
+
+        if (heroSound) {
+          heroSound.addEventListener("click", function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            toggleHeroSound();
           });
         }
 
