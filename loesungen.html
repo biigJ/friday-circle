@@ -14,70 +14,126 @@
     <div id="fc-site-header"></div>
 
     <main class="page-loesungen">
-      <section class="hero" aria-labelledby="loesungen-heading">
-        <div class="hero__grid">
-          <div class="hero__left">
-            <h1 id="loesungen-heading" class="hero__heading">
-              <span class="nowrap">Wir streben</span>
-              <span class="nowrap">Lösungen an.</span>
-            </h1>
-          </div>
-          <p class="hero__lede">
-            Wir bauen Angebote die du irgendwann nicht mehr brauchst. Das ist unser Geschäftsmodell – nicht deine Abhängigkeit.
-          </p>
+      <section class="fc-loesungen" aria-labelledby="loesungen-heading">
+        <div class="fc-head">
+          <h1 id="loesungen-heading">Auf der Suche nach Lösungen.</h1>
+          <p>Ein paar Dinge, die wir für uns herausgefunden haben und gerade weiter herausfinden.</p>
         </div>
-      </section>
 
-      <section class="product loesungen-media" aria-label="Programm und Hintergrund">
-        <div class="product__media">
-          <div class="product__frame">
-            <video class="product__video" autoplay muted loop playsinline preload="metadata" poster="assets/gogogo/hero-poster.png">
-              <source src="assets/loesungen.MOV" type="video/quicktime" />
-              <source src="assets/loesungen.mp4" type="video/mp4" />
-            </video>
-            <div class="product__overlay goals-overlay loesungen-overlay">
-              <div class="goals-overlay__copy loesungen-overlay__copy">
-                <p>
-                  Jedes Programm ist darauf ausgelegt, dass du am Ende weißt, wie es geht: klar, effektiv, abgeschlossen.
-                </p>
-                <h2 class="loesungen-overlay__subhead">Warum Friday Circle entstanden ist.</h2>
-                <p>
-                  Es gibt genug Angebote. Es fehlt die Frage: Was hält dich in deiner Woche wirklich auf? Wir nehmen uns Zeit für deine Geschichte und deine Kapazitäten.
-                </p>
-                <h2 class="loesungen-overlay__subhead">Was uns unterscheidet.</h2>
-                <p>
-                  Wir verdienen an deinem Ergebnis, nicht an Dauerbindung. Weniger Overhead, weniger Lifestyle, mehr Substanz.
-                </p>
-              </div>
+        <div class="fc-board" id="fcBoard">
+          <svg class="arrows-layer" viewBox="0 0 900 740" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <marker id="arr" markerWidth="7" markerHeight="7" refX="5" refY="3" orient="auto">
+                <path d="M0,0 L0,6 L7,3 z" fill="#aaa7a0" />
+              </marker>
+            </defs>
+            <path d="M175,80 Q260,40 340,70" stroke="#aaa7a0" stroke-width="1.5" fill="none" stroke-dasharray="5,4" marker-end="url(#arr)" />
+            <path d="M220,160 Q140,230 120,290" stroke="#aaa7a0" stroke-width="1.5" fill="none" stroke-dasharray="5,4" marker-end="url(#arr)" />
+            <path d="M190,360 Q230,430 200,470" stroke="#aaa7a0" stroke-width="1.5" fill="none" stroke-dasharray="5,4" marker-end="url(#arr)" />
+            <path d="M560,310 Q620,410 580,490" stroke="#aaa7a0" stroke-width="1.5" fill="none" stroke-dasharray="5,4" marker-end="url(#arr)" />
+            <path d="M430,560 Q490,590 530,555" stroke="#aaa7a0" stroke-width="1.5" fill="none" stroke-dasharray="5,4" marker-end="url(#arr)" />
+          </svg>
+
+          <div class="photo" style="top: 0; left: 42%; width: 200px; height: 150px; transform: rotate(1.5deg);">
+            <img src="assets/biigJ/biigJ+Kollege_imGym.png" alt="Training" />
+          </div>
+          <div class="photo" style="top: 240px; left: 60%; width: 165px; height: 205px; transform: rotate(-2deg);">
+            <img src="assets/gogogo/Jelena-smile.png" alt="Gemeinschaft" />
+          </div>
+          <div class="photo" style="top: 430px; left: 36%; width: 215px; height: 155px; transform: rotate(1deg);">
+            <img src="assets/interior/hagen.jpg" alt="Raum" />
+          </div>
+
+          <div class="pin p-red" style="top: 20px; left: 1%; transform: rotate(-2deg);">
+            <small>Bewegung</small>
+            <p>In Bewegung kommen</p>
+            <div class="tooltip">
+              Körperliche Aktivität verbessert Stimmung, Kognition und Lebenserwartung nachweisbar. Wir schauen gemeinsam, was das konkret für deinen Alltag heißt.
+              <em>Pedersen &amp; Saltin, 2015 – Exercise as medicine</em>
+            </div>
+          </div>
+
+          <div class="pin p-yellow" style="top: 15px; left: 24%; transform: rotate(1.5deg);">
+            <small>Gruppe</small>
+            <p>Freunde an einem Ort für tägliche Bewegung versammeln</p>
+            <div class="tooltip">
+              Soziale Einbindung ist einer der stärksten Motivatoren für Verhaltensänderung. Wohlwollendes Interesse füreinander passiert in echten Gruppen – nicht in Feeds.
+              <em>Holt-Lunstad et al., 2015 – Social relationships and health</em>
+            </div>
+          </div>
+
+          <div class="pin p-gold" style="top: 175px; left: 2%; transform: rotate(-1deg);">
+            <small>Orientierung</small>
+            <p>Die eigene Position bestimmen</p>
+            <div class="tooltip">
+              Wer versteht, wo er steht – im Leben, im Körper, im Raum – kann entspannter planen. Kontextklarheit reduziert Entscheidungsstress nachweislich.
+              <em>Schwartz, 2004 – The Paradox of Choice</em>
+            </div>
+          </div>
+
+          <div class="pin p-blue" style="top: 230px; left: 40%; transform: rotate(2deg);">
+            <small>Freiheit</small>
+            <p>Frei sein – nicht App-abhängig. Rituale ja, aber keine gelernten Dogmen</p>
+            <div class="tooltip">
+              Starre Regeln, die aus Schuldgefühl entstehen, überlagern oft ältere Muster. Dopamin-Trigger bewusst zu setzen – für gute Dinge – ist etwas anderes als Selbstoptimierungsdruck.
+              <em>Hayes et al., 2006 – Acceptance and Commitment Therapy</em>
+            </div>
+          </div>
+
+          <div class="pin p-white" style="top: 460px; left: 1%; transform: rotate(-1.5deg);">
+            <small>Aufräumen</small>
+            <p>In den fünf Säulen aufräumen – und das Leben nicht mit 1000 Dingen aufladen</p>
+            <div class="tooltip">
+              Bewegung, Nahrung, Erholung, Soziales, Mentales. Nicht alles auf einmal optimieren. Erstmal verstehen, was für einen selbst wirklich gilt.
+              <em>Kahneman, 2011 – Thinking, Fast and Slow</em>
+            </div>
+          </div>
+
+          <div class="pin p-dark" style="top: 540px; left: 28%; transform: rotate(1deg);">
+            <small>Historie</small>
+            <p>Interesse an Geschichte – damit man nicht überrascht wird</p>
+            <div class="tooltip">
+              Wer historische Muster kennt – persönlich wie gesellschaftlich – kann einordnen statt zu reagieren. Das macht ruhiger.
+              <em>Harari, 2011 – Sapiens</em>
+            </div>
+          </div>
+
+          <div class="pin p-yellow2" style="top: 500px; left: 60%; transform: rotate(-2.5deg);">
+            <small>Ziel</small>
+            <p>Resilienz &amp; Ambitionen &amp; eine gute Zeit</p>
+            <div class="tooltip">
+              Resilienz nach ACT heißt nicht Stärke zeigen – sondern mit Unsicherheit handlungsfähig bleiben. Ambitionen die wirklich die eigenen sind, nicht übernommene.
+              <em>Hayes, 2019 – A Liberated Mind</em>
+            </div>
+          </div>
+
+          <div class="pin p-gold" style="top: 640px; left: 15%; transform: rotate(-1deg);">
+            <small>Was ist FC</small>
+            <p>Offene Plattform von Joscha – gerade zwei Angebote, mal schauen wer wie was</p>
+            <div class="tooltip">
+              Kein fertiges System. Keine App-Abhängigkeit, keine Coach-Abhängigkeit. Friday Circle ist gerade im Entstehen – mit dem, was bisher funktioniert hat.
             </div>
           </div>
         </div>
-      </section>
 
-      <section class="page-continuation" aria-label="Mehr zu unseren Lösungen">
-        <div class="page-continuation__inner">
-          <h2>Was Minimalismus bei uns bedeutet.</h2>
-          <p>
-            Nicht weniger besitzen. Nicht bewusster konsumieren. Nicht ein weiterer Lifestyle dem du folgst. Minimalismus bei Friday Circle bedeutet: Überflüssiges aus dem Weg räumen damit das Wesentliche Raum bekommt. Das gilt für deinen Trainingsplan genauso wie für dein Büro, deine Garderobe, deine Woche.
-          </p>
-          <p>
-            Jedes Programm folgt derselben Logik: Erst verstehen was im Weg steht. Dann so wenig wie nötig verändern um den größten Effekt zu erzielen.
-          </p>
-          <h2>Keine Datenverwertung. Keine wirtschaftlichen Interessenkonflikte.</h2>
-          <p>
-            Was du uns erzählst bleibt bei uns. Wir verkaufen keine Nutzerdaten, keine Bewegungsprofile, keine aggregierten Insights. Wir haben keine Investoren die Wachstum über Substanz stellen. Friday Circle ist ein Berliner Serviceangebot – gebaut von einem Menschen der dasselbe Problem hatte wie du.
-          </p>
-          <h2>Niedrigschwellig in der Hürde. Nicht im Anspruch.</h2>
-          <p>
-            Du brauchst keine Ausrüstung, kein Vorwissen, keine bestehende Routine. Aber du bekommst dasselbe Niveau wie jemand der das Dreifache zahlt. Der Einstieg ist einfach – weil er einfach sein soll. Nicht weil das Angebot billig ist.
-          </p>
-          <h2>Ein Gespräch überzeugt mehr als jede Erklärung.</h2>
-          <p><a href="kontakt/index.html" class="page-continuation__cta">→ Erstgespräch buchen</a></p>
+        <div class="fc-cta">
+          <a href="kontakt/index.html">→ Erstgespräch buchen</a>
         </div>
       </section>
     </main>
 
-        <div id="fc-site-footer"></div>
+    <div id="fc-site-footer"></div>
     <script src="nav.js" defer></script>
+    <script>
+      document.querySelectorAll(".fc-loesungen .pin").forEach(function (pin) {
+        pin.addEventListener("click", function () {
+          var isActive = pin.classList.contains("active");
+          document.querySelectorAll(".fc-loesungen .pin").forEach(function (p) {
+            p.classList.remove("active");
+          });
+          if (!isActive) pin.classList.add("active");
+        });
+      });
+    </script>
   </body>
 </html>
