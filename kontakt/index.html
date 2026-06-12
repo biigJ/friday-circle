@@ -148,7 +148,8 @@
       .kontakt-card {
         position: relative;
         display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 0.468fr);
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.328fr);
+        grid-template-rows: minmax(0, 1fr) auto;
         min-height: clamp(420px, calc(100dvh - var(--fc-nav-h, 72px) - 156px), 580px);
         background: var(--kontakt-black);
         color: color-mix(in srgb, var(--kontakt-black) 88%, #ffffff);
@@ -158,6 +159,8 @@
       .kontakt-card__copy {
         position: relative;
         z-index: 2;
+        grid-column: 1;
+        grid-row: 1;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -190,6 +193,8 @@
 
       .kontakt-card__media {
         position: relative;
+        grid-column: 2;
+        grid-row: 1 / span 2;
         min-height: 100%;
         overflow: hidden;
         background: #111;
@@ -216,6 +221,10 @@
       }
 
       .kontakt-mail {
+        position: relative;
+        z-index: 2;
+        grid-column: 1;
+        grid-row: 2;
         display: grid;
         grid-template-columns: 1fr;
         background: var(--kontakt-red);
@@ -275,6 +284,7 @@
 
         .kontakt-card {
           grid-template-columns: 1fr;
+          grid-template-rows: minmax(0, 1fr) auto;
           min-height: min(72dvh, 640px);
         }
 
@@ -287,6 +297,8 @@
         .kontakt-card__media {
           position: absolute;
           inset: 0;
+          grid-column: auto;
+          grid-row: auto;
           min-height: 0;
           opacity: 0.32;
           filter: blur(0.5px);
@@ -299,6 +311,11 @@
 
         .kontakt-card__heading {
           font-size: clamp(2.025rem, 8.775vw, 2.835rem);
+        }
+
+        .kontakt-mail {
+          grid-column: 1;
+          grid-row: 2;
         }
       }
     </style>
@@ -331,13 +348,13 @@
           <div class="kontakt-card__media" aria-hidden="true">
             <img src="../assets/biigJ/biigJ-kontakt.png" alt="" width="1200" height="1600" decoding="async" />
           </div>
-        </div>
-        <div class="kontakt-mail">
-          <a class="kontakt-mail__link" href="mailto:mail@bjgrope.de">mail@bjgrope.de</a>
-          <p class="kontakt-mail__note">
-            <span class="de-t">Aktuell laufen alle Anfragen auf meine persönliche Adresse.</span>
-            <span class="en-t">For now, all enquiries go to my personal address.</span>
-          </p>
+          <div class="kontakt-mail">
+            <a class="kontakt-mail__link" href="mailto:mail@bjgrope.de">mail@bjgrope.de</a>
+            <p class="kontakt-mail__note">
+              <span class="de-t">Aktuell laufen alle Anfragen auf meine persönliche Adresse.</span>
+              <span class="en-t">For now, all enquiries go to my personal address.</span>
+            </p>
+          </div>
         </div>
       </section>
     </main>
