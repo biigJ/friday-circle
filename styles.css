@@ -2410,28 +2410,56 @@ a.community-product__cta.cta-pill {
 
   .fc-loesungen .fc-board {
     min-height: unset;
+    position: relative;
+    isolation: isolate;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
     margin: 0;
   }
 
-  .fc-loesungen .pin,
-  .fc-loesungen .photo {
-    position: static !important;
+  .fc-loesungen .pin {
+    position: relative !important;
     transform: none !important;
     max-width: 100% !important;
     width: 100% !important;
     height: auto !important;
-  }
-
-  .fc-loesungen .pin {
-    order: 1;
+    z-index: 1;
   }
 
   .fc-loesungen .photo {
-    order: 2;
-    min-height: 180px;
+    position: absolute !important;
+    pointer-events: none;
+    z-index: 0;
+    width: 58% !important;
+    max-width: none !important;
+    height: clamp(120px, 28vw, 180px) !important;
+    min-height: 0;
+    opacity: 0.34;
+    box-shadow: none;
+    transform: rotate(var(--fc-photo-rot, 0deg)) !important;
+  }
+
+  .fc-loesungen .fc-board > .photo:nth-child(2) {
+    top: 2%;
+    left: 38%;
+    --fc-photo-rot: 1.5deg;
+  }
+
+  .fc-loesungen .fc-board > .photo:nth-child(3) {
+    top: 32%;
+    left: 2%;
+    --fc-photo-rot: -2deg;
+  }
+
+  .fc-loesungen .fc-board > .photo:nth-child(4) {
+    top: 58%;
+    left: 42%;
+    --fc-photo-rot: 1deg;
+  }
+
+  .fc-loesungen .photo img {
+    filter: brightness(0.92) saturate(0.78);
   }
 
   .fc-loesungen .arrows-layer {
