@@ -68,8 +68,8 @@ window.GOGL_I18N_ENTRIES = [
   { s: ".footer__links a[href*='impressum']", de: "Impressum", en: "Legal notice" },
   { s: ".footer__links a[href*='datenschutz']", de: "Datenschutz", en: "Privacy" },
   { s: ".footer__links a[href*='kontakt']", de: "Kontakt", en: "Contact" },
-  { s: ".footer__links a[href*='wolfganggrope']", de: "Art", en: "Art" },
   { s: ".footer__links a[href*='triff-joscha']", de: "Joscha", en: "Joscha" },
+  { s: ".footer__links a[href*='wolfganggrope']", de: "Kunst", en: "Art" },
 ];
 
 window.GOGL_TILE_I18N = [
