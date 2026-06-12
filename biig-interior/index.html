@@ -131,6 +131,37 @@
           justify-content: center;
           row-gap: 10px;
         }
+
+        .biig-interior-page .bi-nav__actions {
+          display: grid;
+          grid-template-columns: repeat(2, auto);
+          grid-template-rows: auto auto;
+          justify-content: center;
+          justify-items: center;
+          align-items: center;
+          column-gap: clamp(10px, 3vw, 16px);
+          row-gap: 10px;
+        }
+
+        .biig-interior-page .bi-nav__cta--frame {
+          grid-column: 1;
+          grid-row: 1;
+        }
+
+        .biig-interior-page .bi-nav__honorar {
+          grid-column: 2;
+          grid-row: 1;
+        }
+
+        .biig-interior-page .bi-nav__sound-slot {
+          grid-column: 1;
+          grid-row: 2;
+        }
+
+        .biig-interior-page .nav__lang {
+          grid-column: 2;
+          grid-row: 2;
+        }
       }
 
       .bi-shell {
