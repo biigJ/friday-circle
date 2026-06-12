@@ -142,7 +142,7 @@
 
       .kontakt-main {
         width: var(--kontakt-shell);
-        margin: 0 auto clamp(32px, 5vw, 72px);
+        margin: var(--fc-nav-h, 72px) auto clamp(32px, 5vw, 72px);
       }
 
       .kontakt-card {
@@ -292,13 +292,20 @@
         }
 
         .kontakt-header__logo--bat {
-          font-size: clamp(0.56rem, 2.15vw, 0.72rem);
-          letter-spacing: 0.09em;
+          font-size: clamp(0.44rem, 1.72vw, 0.58rem);
+          letter-spacing: 0.055em;
+          flex: 1 1 0;
         }
 
         .kontakt-header__logo--wolfgang {
-          font-size: clamp(0.52rem, 1.95vw, 0.64rem);
-          letter-spacing: 0.07em;
+          font-size: clamp(0.41rem, 1.56vw, 0.51rem);
+          letter-spacing: 0.04em;
+          flex: 1 1 0;
+          text-align: right;
+        }
+
+        .kontakt-main {
+          margin-top: 0;
         }
 
         .kontakt-card {
@@ -326,12 +333,12 @@
 
         .kontakt-card__media::after {
           background:
-            radial-gradient(circle at 50% 42%, rgba(0, 0, 0, 0.14) 0 20%, rgba(0, 0, 0, 0.49) 52%, rgba(0, 0, 0, 0.73) 100%),
-            linear-gradient(180deg, rgba(0, 0, 0, 0.61) 0%, rgba(0, 0, 0, 0.24) 42%, rgba(0, 0, 0, 0.7) 100%);
+            radial-gradient(circle at 50% 42%, rgba(0, 0, 0, 0.12) 0 20%, rgba(0, 0, 0, 0.42) 52%, rgba(0, 0, 0, 0.62) 100%),
+            linear-gradient(180deg, rgba(0, 0, 0, 0.52) 0%, rgba(0, 0, 0, 0.2) 42%, rgba(0, 0, 0, 0.6) 100%);
         }
 
         .kontakt-card__media img {
-          filter: saturate(0.62) contrast(1.06) brightness(0.64);
+          filter: saturate(0.62) contrast(1.06) brightness(0.74);
         }
 
         .kontakt-card__text {
