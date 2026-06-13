@@ -22,8 +22,6 @@
       { s: ".hero__lede", de: "Digitale Überstimulierung ist das zentrale Problem unserer Zeit. Friday Circle findet menschliche Gegengewichte für Klarheit und Authentizität.", en: "Digital overstimulation is the central problem of our time. Friday Circle finds human counterweights for clarity and authenticity." },
       { s: "#landing-name-heading .nowrap:nth-child(1)", de: "Warum der Name", en: "Why the name" },
       { s: "#landing-name-heading .nowrap:nth-child(2)", de: "FRIDAY CIRCLE?", en: "FRIDAY CIRCLE?" },
-      { s: ".landing-name-story__quote", de: "„It's Friday.“", en: '"It\'s Friday."' },
-      { s: ".landing-name-story__prose .landing-name-story__text:nth-of-type(1)", de: "Wir glauben an den Wochenzyklus und diese bewusst gesetzten Momente, an Routinen die einem gut tun, an Momente des Flows, des Trainings, des Kreativen, des Durchboxen und der Ausgelassenheit. Wir suchen nach mehr Momenten außerhalb von Apps.", en: "We believe in the weekly cycle and these consciously set moments, in routines that do you good, in moments of flow, training, creativity, pushing through, and exuberance. We look for more moments outside of apps." },
     ],
     "ziele.html": [
       { s: "#ziele-heading .nowrap:nth-child(1)", de: "Ziele von", en: "Goals of" },
