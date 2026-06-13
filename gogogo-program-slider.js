@@ -9,7 +9,7 @@
     "ZIRKELTRAINING",
     "Factfulness",
     "Upper Body",
-    "Mobilityroutine",
+    "Mobility",
     "Das Naheliegende wirkt oft so fern.",
   ];
   var SLIDE_LABELS_EN = [
@@ -19,7 +19,7 @@
     "CIRCUIT TRAINING",
     "Factfulness",
     "Upper body",
-    "Mobility routine",
+    "Mobility",
     "What seems obvious often feels so far away.",
   ];
   var SLIDE_DEFAULT_DE = "Was fehlt Dir neben App und Fitness Studio?";
