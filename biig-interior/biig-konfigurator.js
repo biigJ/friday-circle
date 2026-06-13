@@ -8,6 +8,9 @@ const BK_TOTAL = 9;
  * Anleitung: https://web3forms.com  →  Formular anlegen  →  E-Mail: mail@bjgrope.de
  */
 const BK_WEB3FORMS_ACCESS_KEY = '3ffad713-3ad6-491b-bf99-185a87b0d706';
+/** Web3Forms PRO required for file attachments — PDF is delivered via client download. */
+const BK_WEB3FORMS_ATTACH_PDF = false;
+
 const bkSt = {
   track:[], size:'', qmIn:0, qmOut:0, aussen:'',
   ziele:[], feel:'', stoert:'',
@@ -1247,6 +1250,7 @@ function bkSendAnfrage(contact, pdfBlob, data) {
   const name = [contact.fname, contact.lname].filter(Boolean).join(' ');
   const formData = new FormData();
   formData.append('access_key', BK_WEB3FORMS_ACCESS_KEY);
+  formData.append('botcheck', '');
   formData.append('subject', bkT('submit.mailSubject'));
   formData.append('from_name', name || contact.fname);
   formData.append('name', name || contact.fname);
@@ -1254,22 +1258,28 @@ function bkSendAnfrage(contact, pdfBlob, data) {
   formData.append('replyto', contact.email);
   if (contact.phone) formData.append('phone', contact.phone);
   if (contact.city) formData.append('city', contact.city);
-  formData.append('message', bkFormatSummaryPlainText(data, contact));
-  if (pdfBlob) formData.append('attachment', pdfBlob, bkT('submit.pdfName'));
+  var message = bkFormatSummaryPlainText(data, contact);
+  if (pdfBlob) message += '\n\n' + bkT('submit.pdfClientNote');
+  formData.append('message', message);
+  if (BK_WEB3FORMS_ATTACH_PDF && pdfBlob) {
+    formData.append('attachment', new File([pdfBlob], bkT('submit.pdfName'), { type: 'application/pdf' }));
+  }
   return bkWithTimeout(fetch('https://api.web3forms.com/submit', {
     method: 'POST',
     body: formData,
   }), 45000, 'submit').then(function(res) {
-    return res.json();
-  }).then(function(resData) {
-    if (!resData || !resData.success) throw new Error((resData && resData.message) || 'submit failed');
-    return resData;
+    return res.json().then(function(resData) {
+      if (!res.ok || !resData || !resData.success) {
+        throw new Error((resData && resData.message) || ('HTTP ' + res.status));
+      }
+      return resData;
+    });
   });
 }
 
 window.bkSubmit = function() {
   const contact = bkCollectContactFields();
-  if (!contact.fname || !contact.email) {
+  if (!contact.fname || !contact.lname || !contact.email) {
     alert(bkT('alert.contact'));
     return;
   }
