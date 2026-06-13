@@ -93,8 +93,8 @@
       {
         s: ".fc-loesungen .fc-board > .pin:nth-child(11) .tooltip",
         html: true,
-        de: "Resilienz nach ACT heißt nicht Stärke zeigen, sondern mit Unsicherheit handlungsfähig bleiben. Ambitionen die wirklich die eigenen sind, nicht übernommene.<em>Hayes, 2019, A Liberated Mind</em>",
-        en: "Resilience in ACT does not mean showing strength but staying capable of action with uncertainty. Ambitions that are truly yours, not borrowed ones.<em>Hayes, 2019, A Liberated Mind</em>",
+        de: "Resilienz heißt nicht Stärke zeigen, sondern mit Unsicherheit handlungsfähig bleiben. Ambitionen die wirklich die eigenen sind, nicht übernommene.<em>Hayes, 2019, A Liberated Mind</em>",
+        en: "Resilience does not mean showing strength but staying capable of action with uncertainty. Ambitions that are truly yours, not borrowed ones.<em>Hayes, 2019, A Liberated Mind</em>",
       },
       { s: ".fc-loesungen .fc-board > .pin:nth-child(12) small", de: "Friday Circle", en: "Friday Circle" },
       { s: ".fc-loesungen .fc-board > .pin:nth-child(12) p", de: "Warum der Name FRIDAY CIRCLE?", en: "Why the name FRIDAY CIRCLE?" },
