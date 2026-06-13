@@ -2236,45 +2236,85 @@
         justify-content: flex-end;
         pointer-events: none;
       }
-      .gogl-program-slide-card--hero .gogl-hero-cards-block {
-        flex: 1 1 auto;
-        align-self: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin: auto 0 clamp(6px, 1vh, 12px);
-        width: min(94%, var(--content-max));
-        max-width: min(var(--content-max), calc(100% - 2 * clamp(16px, 3vw, 32px)));
-        transform: translateY(calc(-1 * clamp(1.75rem, 5vw, 3rem) * 1.08));
+      .gogl-program-slide-card--hero .gogl-video-frame video {
+        filter: sepia(0.7) brightness(0.48) contrast(1.14) saturate(1.4) hue-rotate(-14deg);
       }
-      .gogl-program-slide-card--hero .gogl-hero-cards-block__headline {
-        margin: 0 0 clamp(12px, 1.6vh, 18px);
-        padding: 0 calc(clamp(12px, 2vw, 20px) * 1.5);
+      .gogl-program-slide-card--hero .gogl-video-overlay-footer {
+        justify-content: flex-end;
+        padding: 0 clamp(16px, 3vw, 32px) clamp(14px, 2.2vh, 22px);
+        box-sizing: border-box;
+      }
+      .gogl-program-slide-card--hero .gogl-video-overlay-footer .gogl-slide-footer-chrome {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        flex: 0 0 auto;
+        padding-right: 0;
+      }
+      .gogl-program-slide-card--hero .gogl-hero-slide__center-headline {
+        position: absolute;
+        left: 50%;
+        top: 44%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        padding: 0 clamp(16px, 4vw, 32px);
         text-align: center;
         font-family: var(--font-sans);
         font-weight: 700;
-        font-size: clamp(1.2rem, 3.9vw, 2.25rem);
-        line-height: 1.12;
+        font-size: clamp(1.55rem, 4.4vw, 2.65rem);
+        line-height: 1.1;
         letter-spacing: 0.01em;
         color: #f0eee6;
-        text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
-        width: 80%;
-        max-width: 80%;
-        margin-left: auto;
-        margin-right: auto;
-        overflow-wrap: break-word;
+        text-shadow: 0 2px 18px rgba(0, 0, 0, 0.65);
+        pointer-events: none;
+        z-index: 3;
+        width: min(92%, 22ch);
+      }
+      .gogl-program-slide-card--hero .gogl-hero-cards-block {
+        flex: 0 0 auto;
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-end;
+        margin: 0 0 clamp(10px, 1.6vh, 16px);
+        width: 100%;
+        max-width: min(400px, 100%);
+        transform: none;
+      }
+      .gogl-program-slide-card--hero .gogl-hero-cards-block__headline {
+        display: none;
       }
       .gogl-program-slide-card--hero .gogl-hero-cards-block .gogl-hero-cards {
         position: relative;
         left: auto;
         top: auto;
         transform: none;
-        flex: 0 0 auto;
-        align-self: stretch;
-        margin: 0;
+        grid-template-columns: 1fr;
+        gap: clamp(10px, 1.4vh, 14px);
         width: 100%;
         max-width: none;
+        align-self: stretch;
+      }
+      .gogl-program-slide-card--hero .gogl-hero-card__title {
+        font-size: clamp(0.88rem, 1.1vw, 0.98rem);
+        margin: 0 0 8px;
+      }
+      .gogl-program-slide-card--hero .gogl-hero-card__text {
+        margin: 0;
+      }
+      .gogl-program-slide-card--hero .gogl-hero-card__cta-box {
+        display: inline-block;
+        margin-top: clamp(10px, 1.4vh, 14px);
+        padding: clamp(8px, 1vh, 10px) clamp(12px, 2vw, 16px);
+        border: 1px solid rgba(255, 255, 255, 0.32);
+        border-radius: 4px;
+        font-family: var(--font-head);
+        font-size: clamp(0.76rem, 0.92vw, 0.84rem);
+        font-weight: 600;
+        color: #f0eee6;
+        line-height: 1.35;
       }
       .gogl-program-slide-card--hero .gogl-hero-cards-block,
       .gogl-program-slide-card--hero a.gogl-hero-card {
@@ -2298,19 +2338,6 @@
       }
       .gogl-program-slide-card--hero .gogl-hero-card {
         padding: clamp(14px, 1.6vw, 20px) clamp(16px, 2vw, 24px);
-      }
-      .gogl-program-slide-card--hero .gogl-hero-card__title {
-        font-size: clamp(0.82rem, 1.05vw, 0.92rem);
-      }
-      .gogl-program-slide-card--hero .gogl-hero-card__text {
-        font-size: clamp(0.72rem, 0.95vw, 0.8rem);
-      }
-      .gogl-program-slide-card--hero .gogl-hero-card__link {
-        color: #ffffff;
-      }
-      .gogl-program-slide-card--hero .gogl-hero-card__link:hover,
-      .gogl-program-slide-card--hero .gogl-hero-card__link:focus-visible {
-        color: #ffffff;
       }
       .gogl-program-slide-card--hero .gogl-bar {
         position: relative;
@@ -2439,14 +2466,12 @@
           width: 100%;
           max-width: 100%;
           transform: none;
-          margin-bottom: clamp(12px, 2vh, 20px);
+          margin-bottom: clamp(10px, 1.8vh, 16px);
         }
-        .gogl-program-slide-card--hero .gogl-hero-cards-block__headline {
-          width: 100%;
-          max-width: 100%;
-          padding: 0 clamp(8px, 2vw, 14px);
-          font-size: clamp(1rem, 4.5vw, 1.35rem);
-          transform: none;
+        .gogl-program-slide-card--hero .gogl-hero-slide__center-headline {
+          top: 40%;
+          width: min(94%, 18ch);
+          font-size: clamp(1.35rem, 6vw, 1.85rem);
         }
         .gogl-program-slide-card__title,
         .gogl-program-slide-card__lede {
@@ -4116,22 +4141,18 @@
         </div>
                     </div>
                     <div class="gogl-video-overlay-footer">
+                      <h2 class="gogl-hero-slide__center-headline">Feste Verabredungen</h2>
                       <div class="gogl-hero-cards-block">
-                        <p class="gogl-hero-cards-block__headline">
-                          Mitgliedschaften, Apps, Trainer gibt es genug. Was fehlt sind Deine verbindlichen Freunde. Gründe Deinen Micro-Kurs mit Leuten oder einem Coach.
-                        </p>
                         <div class="gogl-hero-cards">
-                        <a class="gogl-hero-card gogl-hero-card--left" href="register-training/index.html">
-                          <p class="gogl-hero-card__label">VOR ORT IN BERLIN</p>
-                          <p class="gogl-hero-card__title">Einen Experten finden</p>
-                          <p class="gogl-hero-card__text">Grundlagengespräch · Bewegungsanalyse · Formtraining · Plangestaltung</p>
-                          <span class="gogl-hero-card__link">Mehr erfahren →</span>
-                        </a>
-                        <a class="gogl-hero-card" href="register-accountability/index.html">
-                          <p class="gogl-hero-card__label">VON ÜBERALL</p>
-                          <p class="gogl-hero-card__title">Deine Micro-Bewegung auf dem Smartphone</p>
+                        <a class="gogl-hero-card gogl-hero-card--group" href="register-accountability/index.html">
+                          <p class="gogl-hero-card__title">Wir gründen eine Gruppe (WhatsApp)</p>
                           <p class="gogl-hero-card__text">Zielanalyse &amp; Gruppe erstellen. 30 Tage kostenlos jeden Tag ein echter Check-in. Game-Changer.</p>
-                          <span class="gogl-hero-card__link">Wähle eine Variante deines Gym-Buddys →</span>
+                          <span class="gogl-hero-card__cta-box">kostenloses Gespräch buchen</span>
+                        </a>
+                        <a class="gogl-hero-card gogl-hero-card--workshop" href="register-training/index.html">
+                          <p class="gogl-hero-card__title">Workshop mit Experten-Buddy (BERLIN)</p>
+                          <p class="gogl-hero-card__text">Grundlagengespräch · Bewegungsanalyse · Formtraining · Plangestaltung</p>
+                          <span class="gogl-hero-card__cta-box">kostenloses Gespräch buchen</span>
                         </a>
                       </div>
                       </div>
