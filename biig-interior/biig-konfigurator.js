@@ -256,6 +256,35 @@ function bkIsMobileQuizViewport() {
   return window.matchMedia('(max-width: 520px) and (orientation: portrait)').matches;
 }
 
+function bkGetNavHeight() {
+  const nav = document.querySelector('.bi-nav') || document.querySelector('.nav');
+  return nav ? nav.getBoundingClientRect().height : 0;
+}
+
+function bkGetKonfiguratorScrollTarget() {
+  return document.querySelector('#biig-konfigurator .bk-form') || document.getElementById('biig-konfigurator');
+}
+
+function bkGetKonfiguratorScrollTop() {
+  const target = bkGetKonfiguratorScrollTarget();
+  if (!target) return 0;
+  return Math.max(0, Math.round(target.getBoundingClientRect().top + window.scrollY - bkGetNavHeight()));
+}
+
+function bkScrollKonfiguratorUnderNav(behavior) {
+  const top = bkGetKonfiguratorScrollTop();
+  window.scrollTo({ top: top, behavior: behavior || 'smooth' });
+}
+
+function bkSettleKonfiguratorScroll(behavior) {
+  bkScrollKonfiguratorUnderNav(behavior || 'auto');
+  window.requestAnimationFrame(function() {
+    bkScrollKonfiguratorUnderNav('auto');
+  });
+  window.setTimeout(function() { bkScrollKonfiguratorUnderNav('auto'); }, 80);
+  window.setTimeout(function() { bkScrollKonfiguratorUnderNav('auto'); }, 450);
+}
+
 function bkGetFormTop() {
   const form = document.getElementById('biig-konfigurator') || document.querySelector('#biig-konfigurator .bk-form');
   if (!form) return 0;
@@ -383,12 +412,17 @@ window.bkGoTo = function(n, opts) {
   bkUpdateNavButtons();
   bkUpdateDots(n);
   if (opts.skipScroll) return;
-  const sec = document.getElementById('biig-konfigurator');
   if (n === 0) {
-    bkScrollToPageBottom();
+    if (bkIsMobileQuizViewport()) bkScrollToPageBottom();
+    else {
+      bkScrollKonfiguratorUnderNav('smooth');
+      bkSettleKonfiguratorScroll('auto');
+    }
+  } else if (shouldLockToForm) bkLockQuizToFormTop(lockTop);
+  else {
+    bkScrollKonfiguratorUnderNav('smooth');
+    bkSettleKonfiguratorScroll('auto');
   }
-  else if (shouldLockToForm) bkLockQuizToFormTop(lockTop);
-  else if (sec) sec.scrollIntoView({behavior:'smooth', block:'start'});
 };
 
 window.bkToggleT = function(t) {
