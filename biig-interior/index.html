@@ -2283,8 +2283,8 @@
             </button>
             <div class="bi-tile bi-tile--offer bi-tile--offer-compact">
               <h3 class="bi-tile__headline">
-                <span class="de-t">Hilfe beim Sortieren von Deinen Ideen und Hab &amp; Gut.</span>
-                <span class="en-t">Help sorting your ideas and everything you own.</span>
+                <span class="de-t">Hilfe beim Sortieren Deiner Ideen und/oder Deines Hab &amp; Guts.</span>
+                <span class="en-t">Help sorting your ideas and/or what you own.</span>
               </h3>
               <p class="bi-tile__price">
                 <span class="de-t">ab 200 €<br />abhängig vom Umfang</span>
@@ -3472,12 +3472,22 @@
             line2En: "Photorealistic visuals show you how the space will feel before anything changes.",
           },
           sortieren: {
-            titleDe: "Sortieren & Klarheit",
-            titleEn: "Sorting & clarity",
-            line1De: "Wir sortieren gemeinsam Ideen, Möbel und Hab & Gut: was bleibt, was geht, was fehlt.",
-            line1En: "Together we sort ideas, furniture, and what you own: what stays, what goes, what is missing.",
-            line2De: "Am Ende hast du eine belastbare Entscheidungsgrundlage statt visueller Überforderung.",
-            line2En: "In the end you have a solid basis for decisions instead of visual overwhelm.",
+            titleDe: "Sortieren & Ordnung",
+            titleEn: "Sorting & order",
+            paragraphsDe: [
+              "Willst du deine Ideen mit dem Status Quo zu Hause oder im Büro abgleichen? Oder konkret im Haus Ordnung schaffen?",
+              "Vollgestopfte Schränke, unaufgeräumte Zimmer, ein Keller, der schon zu lange wartet – oder Umbau-Ideen, die im Kopf kreisen, aber nie den Weg auf Papier finden. Du willst es angehen. Aber irgendwie fehlt der Anfang.",
+              "Ich zeige dir, wie du aus der Blockade rauskommst. Mit klaren Techniken, die helfen, über jeden Gegenstand zu entscheiden – oder jeden Raum neu zu denken. Ohne Druck, ohne Vorurteile.",
+              "Wir starten mit dem Ist-Zustand: Wie fühlst du dich in deiner Umgebung gerade? Was soll sich ändern – und warum eigentlich? Was hättest du davon, wenn es erledigt wäre?",
+              "Ordnung oder Veränderung: beides schafft Raum. Für Neues, für Ruhe, für das Gefühl, wieder Herr der Lage zu sein.",
+            ],
+            paragraphsEn: [
+              "Do you want to compare your ideas with the status quo at home or in the office? Or create order in your home, concretely?",
+              "Stuffed cupboards, untidy rooms, a cellar that has waited too long – or renovation ideas circling in your head but never making it onto paper. You want to tackle it. But somehow the starting point is missing.",
+              "I show you how to get out of the block. With clear techniques that help you decide on every object – or rethink every room. Without pressure, without judgement.",
+              "We start with the current state: How do you feel in your environment right now? What should change – and why? What would you gain if it were done?",
+              "Order or change: both create space. For something new, for calm, for the feeling of being in control again.",
+            ],
           },
           allinklusive: {
             titleDe: "All Inklusive",
@@ -4598,8 +4608,17 @@
           if (!offer || !offerPopup) return;
           openOfferId = id;
           offerTitleEl.textContent = pickOffer(offer, "title");
-          offerBodyEl.innerHTML =
-            "<p>" + pickOffer(offer, "line1") + "</p><p>" + pickOffer(offer, "line2") + "</p>";
+          var paras = getLang() === "en" ? offer.paragraphsEn : offer.paragraphsDe;
+          if (paras && paras.length) {
+            offerBodyEl.innerHTML = paras
+              .map(function (p) {
+                return "<p>" + p + "</p>";
+              })
+              .join("");
+          } else {
+            offerBodyEl.innerHTML =
+              "<p>" + pickOffer(offer, "line1") + "</p><p>" + pickOffer(offer, "line2") + "</p>";
+          }
           offerPopup.hidden = false;
           offerPopup.setAttribute("aria-hidden", "false");
           document.body.style.overflow = "hidden";
