@@ -927,7 +927,8 @@ function bkBuildSummaryData() {
   const koordL = bkKoordLabels();
   const qm = Math.max(bkSt.qmIn || 10, 5);
   const aufmassHon = bkCalcAufmassHon(qm, bkQmOutHon(bkSt.qmOut || 0));
-  const {honLow, honHigh, bauLow, bauHigh} = bkCalcPrice();
+  const pricing = bkCalcPrice();
+  const {honLow, honHigh, bauLow, bauHigh, honItems, aufItems, bauItems} = pricing;
   const tL = {ordnung: bkT('cart.ordnung'), arrangement: bkT('cart.arrangement'), allinclusive: bkT('cart.allinclusive')};
   const phaseL = Object.fromEntries(bkPhases().map(p => [p.id, p.steps + ' ' + p.title]));
   const feelL = {retreat: bkT('s3.feel.retreat'), lebhaft: bkT('s3.feel.lebhaft'), repraesentation: bkT('s3.feel.repraesentation'), funktional: bkT('s3.feel.funktional')};
@@ -981,12 +982,37 @@ function bkBuildSummaryData() {
     bkSt.nogo ? {k: bkT('summary.nogo'), v:bkSt.nogo} : null,
   ].filter(Boolean);
 
-  return { hard, soft };
+  return { hard, soft, pricing: { honLow, honHigh, bauLow, bauHigh, honItems, aufItems, bauItems } };
 }
 
-function bkFormatSummaryPlainText(data, contact) {
+function bkSummaryRow(k, v) {
+  return k + ' · ' + v;
+}
+
+function bkAppendPricingBreakdown(lines, pricing) {
+  if (!pricing || !pricing.honLow) return;
   const sep = '──────────────────────────────────────';
-  const row = (k, v) => k + ' · ' + v;
+
+  if (pricing.honItems && pricing.honItems.length) {
+    lines.push('', bkT('summary.honPositions').toUpperCase(), sep, '');
+    pricing.honItems.forEach(function(i) { lines.push(bkSummaryRow(i.l, bkFmtEuro(i.v))); });
+  }
+  if (pricing.aufItems && pricing.aufItems.length) {
+    lines.push('', bkT('summary.surcharges').toUpperCase(), sep, '');
+    pricing.aufItems.forEach(function(a) { lines.push('· ' + a); });
+  }
+  if (pricing.bauItems && pricing.bauItems.length) {
+    lines.push('', bkT('summary.bauBreakdown').toUpperCase(), sep, '');
+    pricing.bauItems.forEach(function(i) { lines.push(bkSummaryRow(i.l, bkFmtEuro(i.v))); });
+    lines.push(bkSummaryRow(
+      bkT('summary.buildEst'),
+      bkFmtNum(pricing.bauLow) + (bkGetLang() === 'en' ? ' to ' : ' bis ') + bkFmtEuro(pricing.bauHigh)
+    ));
+  }
+}
+
+function bkBuildSummaryLines(data, contact) {
+  const sep = '──────────────────────────────────────';
   const lines = [];
 
   if (contact && contact.note) {
@@ -994,14 +1020,34 @@ function bkFormatSummaryPlainText(data, contact) {
   }
 
   lines.push(bkT('summary.title').toUpperCase(), sep, '');
-  data.hard.forEach(function(r) { lines.push(row(r.k, r.v)); });
+  data.hard.forEach(function(r) { lines.push(bkSummaryRow(r.k, r.v)); });
+  bkAppendPricingBreakdown(lines, data.pricing);
 
   if (data.soft.length) {
     lines.push('', bkT('summary.details').toUpperCase(), sep, '');
-    data.soft.forEach(function(r) { lines.push(row(r.k, r.v)); });
+    data.soft.forEach(function(r) { lines.push(bkSummaryRow(r.k, r.v)); });
   }
 
-  return lines.join('\n');
+  return lines;
+}
+
+function bkFormatSummaryPlainText(data, contact) {
+  return bkBuildSummaryLines(data, contact).join('\n');
+}
+
+function bkGetJsPDF() {
+  if (window.jspdf && window.jspdf.jsPDF) return window.jspdf.jsPDF;
+  if (typeof window.jsPDF === 'function') return window.jsPDF;
+  return null;
+}
+
+function bkPdfSafeText(str) {
+  const circled = '①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳';
+  let s = String(str || '');
+  for (let i = 0; i < circled.length; i++) {
+    s = s.split(circled[i]).join('(' + (i + 1) + ')');
+  }
+  return s.replace(/\u2014/g, '-').replace(/\u2013/g, '-').replace(/\u00d7/g, 'x');
 }
 
 function bkRenderFinalSummary() {
@@ -1053,66 +1099,69 @@ function bkCollectContactFields() {
 }
 
 function bkGenerateSummaryPdf(contact, data) {
-  const jsPDF = window.jspdf && window.jspdf.jsPDF;
+  const jsPDF = bkGetJsPDF();
   if (!jsPDF) return Promise.reject(new Error('jspdf missing'));
 
-  const doc = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
-  const margin = 14;
-  const maxW = 182;
-  const pageBottom = 283;
-  let y = margin;
-  const rowLine = (k, v) => k + ' · ' + v;
+  try {
+    const doc = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
+    const margin = 14;
+    const maxW = 182;
+    const pageBottom = 283;
+    let y = margin;
 
-  function ensureSpace(h) {
-    if (y + h > pageBottom) {
-      doc.addPage();
-      y = margin;
+    function ensureSpace(h) {
+      if (y + h > pageBottom) {
+        doc.addPage();
+        y = margin;
+      }
     }
-  }
 
-  function addLines(text, opts) {
-    opts = opts || {};
-    const size = opts.size || 10;
-    const lh = size * 0.48;
-    doc.setFontSize(size);
-    doc.setFont('helvetica', opts.bold ? 'bold' : 'normal');
-    doc.splitTextToSize(String(text || ''), maxW).forEach(function(line) {
-      ensureSpace(lh);
-      doc.text(line, margin, y);
-      y += lh;
+    function addLines(text, opts) {
+      opts = opts || {};
+      const size = opts.size || 10;
+      const lh = size * 0.48;
+      doc.setFontSize(size);
+      doc.setFont('helvetica', opts.bold ? 'bold' : 'normal');
+      doc.splitTextToSize(bkPdfSafeText(text), maxW).forEach(function(line) {
+        ensureSpace(lh);
+        doc.text(line, margin, y);
+        y += lh;
+      });
+      if (opts.gapAfter) y += opts.gapAfter;
+    }
+
+    addLines(bkT('submit.pdfTitle'), { size: 16, bold: true, gapAfter: 4 });
+    addLines(bkT('submit.contactBlock'), { size: 11, bold: true, gapAfter: 2 });
+    const name = [contact.fname, contact.lname].filter(Boolean).join(' ');
+    addLines(bkSummaryRow(bkT('submit.field.name'), name || contact.fname));
+    addLines(bkSummaryRow(bkT('submit.field.email'), contact.email));
+    if (contact.phone) addLines(bkSummaryRow(bkT('submit.field.phone'), contact.phone));
+    if (contact.city) addLines(bkSummaryRow(bkT('submit.field.city'), contact.city));
+    if (contact.note) {
+      y += 2;
+      addLines(bkT('submit.field.note'), { bold: true, gapAfter: 1 });
+      addLines(contact.note);
+    }
+
+    y += 4;
+    bkBuildSummaryLines(data, null).forEach(function(line) {
+      if (!line || /^─+$/.test(line)) return;
+      addLines(line);
     });
-    if (opts.gapAfter) y += opts.gapAfter;
+
+    return Promise.resolve(doc.output('blob'));
+  } catch (err) {
+    return Promise.reject(err);
   }
-
-  addLines(bkT('submit.pdfTitle'), { size: 16, bold: true, gapAfter: 4 });
-  addLines(bkT('submit.contactBlock'), { size: 11, bold: true, gapAfter: 2 });
-  const name = [contact.fname, contact.lname].filter(Boolean).join(' ');
-  addLines(rowLine(bkT('submit.field.name'), name || contact.fname));
-  addLines(rowLine(bkT('submit.field.email'), contact.email));
-  if (contact.phone) addLines(rowLine(bkT('submit.field.phone'), contact.phone));
-  if (contact.city) addLines(rowLine(bkT('submit.field.city'), contact.city));
-  if (contact.note) {
-    y += 2;
-    addLines(bkT('submit.field.note'), { bold: true, gapAfter: 1 });
-    addLines(contact.note);
-  }
-
-  y += 4;
-  addLines(bkT('summary.title'), { size: 11, bold: true, gapAfter: 2 });
-  data.hard.forEach(function(r) { addLines(rowLine(r.k, r.v)); });
-
-  if (data.soft.length) {
-    y += 3;
-    addLines(bkT('summary.details'), { size: 11, bold: true, gapAfter: 2 });
-    data.soft.forEach(function(r) { addLines(rowLine(r.k, r.v)); });
-  }
-
-  return Promise.resolve(doc.output('blob'));
 }
 
 function bkUpdateDoneScreen() {
   const btn = document.getElementById('bk-done-pdf');
+  const body = document.querySelector('#bk-step-done [data-bk-i18n="done.body"]');
   if (btn) btn.hidden = !window.bkLastPdfBlob;
+  if (body) {
+    body.innerHTML = window.bkLastPdfBlob ? bkT('done.body') : bkT('done.bodyNoPdf');
+  }
 }
 
 window.bkDownloadLastPdf = function() {
@@ -1191,6 +1240,7 @@ window.bkSubmit = function() {
   }
   bkRenderFinalSummary();
   const summaryData = bkBuildSummaryData();
+  window.bkLastPdfBlob = null;
   bkSetSubmitBusy(true);
 
   bkGenerateSummaryPdf(contact, summaryData)
