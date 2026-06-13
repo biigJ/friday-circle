@@ -699,6 +699,7 @@ body.wga-page {
 }
 
 .wga-chapter-head {
+  scroll-margin-top: calc(var(--fc-nav-h, 72px) + 16px);
   margin: 0 0 clamp(24px, 4vw, 40px);
 }
 
@@ -717,6 +718,7 @@ body.wga-page {
 }
 
 .wga-section__title {
+  scroll-margin-top: calc(var(--fc-nav-h, 72px) + 16px);
   display: flex;
   align-items: baseline;
   flex-direction: row;

@@ -1,4 +1,6 @@
 (function () {
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+
   const CATALOG_URL = "data/wga-catalog.json";
   let catalog = null;
   const worksById = {};
@@ -823,11 +825,73 @@
     return nav ? nav.getBoundingClientRect().height : 72;
   }
 
-  function scrollToSection(id) {
-    const el = document.getElementById(id);
+  function sectionScrollTarget(sectionEl) {
+    if (!sectionEl) return null;
+    const title = sectionEl.querySelector(".wga-section__title");
+    if (title) return title;
+    const chapterHead = sectionEl.querySelector(".wga-chapter-head");
+    if (chapterHead) return chapterHead;
+    return sectionEl;
+  }
+
+  function imagesThroughSection(sectionEl) {
+    const imgs = [];
+    if (!catalogRoot || !sectionEl) return imgs;
+    const sections = catalogRoot.querySelectorAll(".wga-section");
+    for (let i = 0; i < sections.length; i += 1) {
+      sections[i].querySelectorAll("img").forEach(function (img) {
+        imgs.push(img);
+      });
+      if (sections[i] === sectionEl) break;
+    }
+    return imgs;
+  }
+
+  function whenImagesReady(imgs) {
+    if (!imgs.length) return Promise.resolve();
+    return Promise.all(
+      imgs.map(function (img) {
+        if (img.complete && img.naturalWidth > 0) return Promise.resolve();
+        return new Promise(function (resolve) {
+          function done() {
+            resolve();
+          }
+          img.addEventListener("load", done, { once: true });
+          img.addEventListener("error", done, { once: true });
+          window.setTimeout(done, 2200);
+        });
+      })
+    );
+  }
+
+  function scrollToElement(el, behavior) {
     if (!el) return;
     const top = window.scrollY + el.getBoundingClientRect().top - navHeight() - 12;
-    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+    window.scrollTo({ top: Math.max(0, top), behavior: behavior || "smooth" });
+  }
+
+  function scrollToSection(id, options) {
+    options = options || {};
+    const sectionEl = document.getElementById(id);
+    if (!sectionEl) return Promise.resolve(false);
+    const targetEl = sectionScrollTarget(sectionEl);
+    const behavior = options.behavior || "smooth";
+
+    function scrollOnce() {
+      scrollToElement(targetEl, behavior);
+    }
+
+    scrollOnce();
+
+    if (!options.settle) return Promise.resolve(true);
+
+    return whenImagesReady(imagesThroughSection(sectionEl)).then(function () {
+      scrollOnce();
+      window.requestAnimationFrame(function () {
+        scrollOnce();
+        window.setTimeout(scrollOnce, 120);
+      });
+    });
   }
 
   function setChaptersOpen(open) {
@@ -1486,7 +1550,15 @@
 
   function scrollToHashChapter() {
     var id = (location.hash || "").replace(/^#/, "");
-    if (!id || id === "wga-catalog-root" || id === "top") return;
+    if (!id || id === "top") return;
+    if (id === "wga-catalog-root") {
+      if (catalogRoot) {
+        window.requestAnimationFrame(function () {
+          scrollToElement(catalogRoot, "auto");
+        });
+      }
+      return;
+    }
     if (worksById[id]) {
       window.requestAnimationFrame(function () {
         openPopup(id);
@@ -1494,9 +1566,8 @@
       return;
     }
     if (!document.getElementById(id)) return;
-    window.requestAnimationFrame(function () {
-      scrollToSection(id);
-    });
+    window.scrollTo(0, 0);
+    scrollToSection(id, { behavior: "auto", settle: true });
   }
 
   if (popup) {
@@ -1571,6 +1642,11 @@
     }
     if (e.key === "ArrowLeft") stepPopupWork(-1);
     if (e.key === "ArrowRight") stepPopupWork(1);
+  });
+
+  window.addEventListener("hashchange", function () {
+    if (!catalog) return;
+    scrollToHashChapter();
   });
 
   if (document.readyState === "loading") {
