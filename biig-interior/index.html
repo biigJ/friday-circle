@@ -2850,12 +2850,19 @@
             </div>
             <textarea class="bk-inf" rows="3" data-bk-i18n-ph="s9.ph.note" placeholder="Was ich noch wissen sollte… (optional)" oninput="bkSt.note=this.value"></textarea>
             <div id="bk-final-summary"></div>
+            <div class="bk-consent-row">
+              <p class="bk-consent__text" data-bk-i18n="s9.consent.text"></p>
+              <label class="bk-consent__check" for="bk-consent">
+                <input type="checkbox" id="bk-consent" name="bk-consent" onchange="bkUpdateConsentSubmit()" />
+                <span data-bk-i18n="s9.consent.confirm"></span>
+              </label>
+            </div>
             <div class="bk-nav">
               <div class="bk-nav__left">
                 <button class="bk-btn" data-bk-nav="start" onclick="bkGoTo(0)"></button>
                 <button class="bk-btn" data-bk-nav="back" onclick="bkGoTo(8)"></button>
               </div>
-              <button class="bk-btn primary" data-bk-nav="submit" onclick="bkSubmit()"></button>
+              <button class="bk-btn primary" id="bk-btn-submit" data-bk-nav="submit" onclick="bkSubmit()" disabled></button>
             </div>
           </div>
 
