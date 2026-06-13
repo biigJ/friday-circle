@@ -2495,11 +2495,11 @@
             <div class="bk-slabel" data-bk-i18n="s0.label"></div>
             <div class="bk-q" data-bk-i18n="s0.q"></div>
             <div class="bk-opts">
-              <button class="bk-opt" onclick="bkGoTo(1)">
+              <button class="bk-opt" onclick="bkEnterQuizFromGreeting()">
                 <i class="ti ti-home-check" aria-hidden="true"></i>
                 <div><span class="bk-ot" data-bk-i18n="s0.opt1.t"></span><span class="bk-os" data-bk-i18n="s0.opt1.s"></span></div>
               </button>
-              <button class="bk-opt" onclick="bkGoTo(1)">
+              <button class="bk-opt" onclick="bkEnterQuizFromGreeting()">
                 <i class="ti ti-question-mark" aria-hidden="true"></i>
                 <div><span class="bk-ot" data-bk-i18n="s0.opt2.t"></span><span class="bk-os" data-bk-i18n="s0.opt2.s"></span></div>
               </button>
@@ -2655,15 +2655,15 @@
             <div id="bk-s5-kochen">
               <div class="bk-q"><span data-bk-i18n="s5.q3"></span><small data-bk-i18n="s5.q3Hint"></small></div>
               <div class="bk-opts">
-                <button class="bk-opt" onclick="bkPickOpt('kochen','aufwendig',this)"><i class="ti ti-chef-hat" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s5.kochen.aufwendig.t"></span><span class="bk-os">+10%</span></div></button>
+                <button class="bk-opt" onclick="bkPickOpt('kochen','aufwendig',this)"><i class="ti ti-chef-hat" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s5.kochen.aufwendig.t"></span><span class="bk-os">+8%</span></div></button>
                 <button class="bk-opt" onclick="bkPickOpt('kochen','schnell',this)"><i class="ti ti-bolt" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s5.kochen.schnell"></span></div></button>
                 <button class="bk-opt" onclick="bkPickOpt('kochen','selten',this)"><i class="ti ti-flame-off" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s5.kochen.selten"></span></div></button>
               </div>
             </div>
             <div class="bk-q" data-bk-i18n="s5.q4"></div>
             <div class="bk-opts">
-              <button class="bk-opt" onclick="bkPickOpt('smarthome','ja',this)"><i class="ti ti-device-tablet" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s5.smh.ja.t"></span><span class="bk-os">+12%</span></div></button>
-              <button class="bk-opt" onclick="bkPickOpt('smarthome','licht',this)"><i class="ti ti-bulb" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s5.smh.licht.t"></span><span class="bk-os">+5%</span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('smarthome','ja',this)"><i class="ti ti-device-tablet" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s5.smh.ja.t"></span><span class="bk-os">+8%</span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('smarthome','licht',this)"><i class="ti ti-bulb" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s5.smh.licht.t"></span><span class="bk-os">+3%</span></div></button>
               <button class="bk-opt" onclick="bkPickOpt('smarthome','nein',this)"><i class="ti ti-x" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s5.smh.nein"></span></div></button>
             </div>
             <div class="bk-nav">
@@ -2742,12 +2742,15 @@
                 <button type="button" class="bk-sl-opt" data-v="3" onclick="bkPickSl('ql',3)" data-bk-i18n="ql.premium"></button>
               </div>
             </div>
+            <div id="bk-s7-hon-typ">
             <div class="bk-q"><span data-bk-i18n="s7.q2"></span><small data-bk-i18n="s7.q2Hint"></small></div>
             <div class="bk-opts">
-              <button class="bk-opt" onclick="bkPickOpt('hon_typ','pauschale',this)"><i class="ti ti-receipt" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s7.hon.pauschale.t"></span><span class="bk-os">+20%</span></div></button>
+              <button class="bk-opt" onclick="bkPickOpt('hon_typ','pauschale',this)"><i class="ti ti-receipt" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s7.hon.pauschale.t"></span><span class="bk-os">+10%</span></div></button>
               <button class="bk-opt" onclick="bkPickOpt('hon_typ','stunden',this)"><i class="ti ti-clock" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s7.hon.stunden.t"></span><span class="bk-os" data-bk-i18n="s7.hon.stunden.s"></span></div></button>
               <button class="bk-opt" onclick="bkPickOpt('hon_typ','egal',this)"><i class="ti ti-check" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s7.hon.egal"></span></div></button>
             </div>
+            </div>
+            <div id="bk-s7-cr">
             <div class="bk-q"><span data-bk-i18n="s7.q3"></span><small data-bk-i18n="s7.q3Hint"></small></div>
             <div class="bk-sl-g">
               <label><span data-bk-i18n="s7.sl.cr"></span> <b id="bk-cr-val">1×</b></label>
@@ -2759,6 +2762,7 @@
                 <button type="button" class="bk-sl-opt" data-v="4" onclick="bkPickSl('cr',4)" data-bk-i18n="s7.cr.4"></button>
               </div>
             </div>
+            </div>
             <div class="bk-q" data-bk-i18n="s7.q4"></div>
             <div class="bk-opts">
               <button class="bk-opt" onclick="bkPickOpt('kv','nie',this)"><div><span class="bk-ot" data-bk-i18n="s7.kv.nie"></span></div></button>
@@ -2766,11 +2770,13 @@
               <button class="bk-opt" onclick="bkPickOpt('kv','monatlich',this)"><div><span class="bk-ot" data-bk-i18n="s7.kv.monatlich.t"></span><span class="bk-os">+5%</span></div></button>
               <button class="bk-opt" onclick="bkPickOpt('kv','laufend',this)"><div><span class="bk-ot" data-bk-i18n="s7.kv.laufend.t"></span><span class="bk-os">+10%</span></div></button>
             </div>
-            <div class="bk-q" data-bk-i18n="s7.q5"></div>
+            <div id="bk-s7-aend">
+            <div class="bk-q"><span data-bk-i18n="s7.q5"></span><small data-bk-i18n="s7.q5Hint"></small></div>
             <div class="bk-opts">
               <button class="bk-opt" onclick="bkPickOpt('aend','keine',this)"><div><span class="bk-ot" data-bk-i18n="s7.aend.keine.t"></span><span class="bk-os" data-bk-i18n="s7.aend.keine.s"></span></div></button>
               <button class="bk-opt" onclick="bkPickOpt('aend','wenige',this)"><div><span class="bk-ot" data-bk-i18n="s7.aend.wenige.t"></span><span class="bk-os">+30%</span></div></button>
               <button class="bk-opt" onclick="bkPickOpt('aend','viele',this)"><div><span class="bk-ot" data-bk-i18n="s7.aend.viele.t"></span><span class="bk-os" data-bk-i18n="s7.aend.viele.s"></span></div></button>
+            </div>
             </div>
             <div class="bk-nav">
               <div class="bk-nav__left">

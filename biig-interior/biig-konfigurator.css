@@ -125,6 +125,10 @@
   letter-spacing: 0.02em;
 }
 
+.bk-q small:empty {
+  display: none;
+}
+
 .bk-opts {
   display: flex;
   flex-wrap: wrap;

@@ -74,7 +74,7 @@ function bkRenderStep1Tracks() {
   if (b1) b1.disabled = bkSt.track.length === 0;
 }
 
-const BK_AUFMASS_MIN = 300;
+const BK_AUFMASS_MIN = 200;
 const BK_AUFMASS_RATE = 3.5;
 
 /** Grundhonorar Entwurf bis Umsetzung: bis 20 m² → 1.000 €, ab 20 m² → 1.500 €, ab 40 m² → 2.000 €+, darüber Skalierung ab 60 m². */
@@ -160,6 +160,62 @@ window.biScrollSpaceAnpassen = function() {
   const navH = nav ? nav.getBoundingClientRect().height : 0;
   const top = target.getBoundingClientRect().top + window.scrollY - navH + 140;
   window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+};
+
+function bkDefaultQuizState() {
+  return {
+    track: [], size: '', qmIn: 0, qmOut: 0, aussen: '',
+    ziele: [], feel: '', stoert: '',
+    ord_fokus: [], ord_aufraumen: '',
+    arr_fokus: '', neuan: '', stauraum_typ: '',
+    aii_phase: '', aufmass: null, struktur_eingriff: '', handwerker_status: '',
+    nutzer: '', funktionen: [], kochen: '', smarthome: '',
+    stil: '', mat: [], nogo: '', gesetzt: '', koord: [],
+    ql: 1, hon_typ: '', cr: 1, kv: '', aend: '',
+    dl_typ: '', dl_text: '', bewohnt: '', komm: '',
+    kostenrahmen: '', note: '',
+  };
+}
+
+function bkResetQuizState() {
+  Object.assign(bkSt, bkDefaultQuizState());
+  document.querySelectorAll('.bk-opt.sel, .bk-tag.sel, .bk-sl-opt.sel').forEach(function(el) {
+    el.classList.remove('sel');
+  });
+  document.querySelectorAll('.bk-inf').forEach(function(el) {
+    el.value = '';
+  });
+  ['bk-dl-text', 'bk-fname', 'bk-femail'].forEach(function(id) {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  const qmIn = document.getElementById('bk-qm-in');
+  if (qmIn) qmIn.value = '';
+  const qmOut = document.getElementById('bk-qm-out');
+  if (qmOut) qmOut.value = '0';
+  const qmWrap = document.getElementById('bk-qm-wrap');
+  if (qmWrap) qmWrap.style.display = 'none';
+  const qmOutRow = document.getElementById('bk-qm-out-row');
+  if (qmOutRow) qmOutRow.style.display = 'none';
+  document.querySelectorAll('#bk-size-opts .bk-opt').forEach(function(o) {
+    o.classList.remove('sel');
+  });
+  const s4 = document.getElementById('bk-s4-content');
+  if (s4) s4.innerHTML = '';
+  bkSetHeaderBg('');
+  bkUpdQl(1);
+  bkUpdCr(1);
+  bkRenderStep1Tracks();
+  bkUpdateStep5();
+  bkUpdateStep7();
+  bkUpdateCart();
+  bkUpdateNavButtons();
+}
+
+window.bkEnterQuizFromGreeting = function() {
+  bkResetQuizState();
+  bkGoTo(1);
+  return false;
 };
 
 window.bkStartWithTrack = function(trackId) {
@@ -299,7 +355,11 @@ window.bkGoTo = function(n, opts) {
   if (n === 1) bkRenderStep1Tracks();
   if (n === 4) bkRenderS4();
   if (n === 5) bkUpdateStep5();
-  if (n === 7) { bkSyncSlOpts('ql', bkSt.ql); bkSyncSlOpts('cr', bkSt.cr); }
+  if (n === 7) {
+    bkUpdateStep7();
+    bkSyncSlOpts('ql', bkSt.ql);
+    bkSyncSlOpts('cr', bkSt.cr);
+  }
   if (n === 8) bkUpdateStep8();
   if (n === 9) bkRenderFinalSummary();
   if (bkSt.size) bkSetHeaderBg(bkSt.size);
@@ -320,6 +380,7 @@ window.bkToggleT = function(t) {
   if (i > -1) bkSt.track.splice(i, 1);
   else bkSt.track.push(t);
   bkRenderStep1Tracks();
+  bkUpdateStep7();
   bkUpdateCart();
 };
 
@@ -465,12 +526,45 @@ function bkUpdateStep5() {
   bkUpdateNavButtons();
 }
 
+function bkStep7ShowsHonTyp() {
+  return bkSt.track.includes('allinclusive');
+}
+
+function bkStep7ShowsCrAndAend() {
+  return bkSt.track.includes('arrangement') || bkSt.track.includes('allinclusive');
+}
+
+function bkUpdateStep7() {
+  const honBlock = document.getElementById('bk-s7-hon-typ');
+  const crBlock = document.getElementById('bk-s7-cr');
+  const aendBlock = document.getElementById('bk-s7-aend');
+  const showHon = bkStep7ShowsHonTyp();
+  const showCrAend = bkStep7ShowsCrAndAend();
+  if (honBlock) honBlock.hidden = !showHon;
+  if (crBlock) crBlock.hidden = !showCrAend;
+  if (aendBlock) aendBlock.hidden = !showCrAend;
+  if (!showHon) {
+    bkSt.hon_typ = '';
+    if (honBlock) honBlock.querySelectorAll('.bk-opt').forEach(function(b) { b.classList.remove('sel'); });
+  }
+  if (!showCrAend) {
+    bkSt.aend = '';
+    bkSt.cr = 1;
+    bkUpdCr(1);
+    if (aendBlock) aendBlock.querySelectorAll('.bk-opt').forEach(function(b) { b.classList.remove('sel'); });
+  }
+  bkUpdateNavButtons();
+}
+
 function bkStep5Valid() {
   return !!bkSt.smarthome;
 }
 
 function bkStep7Valid() {
-  return !!bkSt.hon_typ && !!bkSt.kv && !!bkSt.aend;
+  if (!bkSt.kv) return false;
+  if (bkStep7ShowsHonTyp() && !bkSt.hon_typ) return false;
+  if (bkStep7ShowsCrAndAend() && !bkSt.aend) return false;
+  return true;
 }
 
 function bkStep8SkipTimingAndAlltag() {
@@ -574,12 +668,9 @@ function bkCalcPrice() {
     else if (hs === 'offen') { multi += .04; auf.push('HW-offen +4%'); }
   }
 
-  const funk = bkSt.funktionen || [];
-  if (funk.includes('homeoffice_f')) { multi += .08; auf.push('Homeoffice +8%'); }
-  if (funk.includes('fitness')) { multi += .08; auf.push('Fitness +8%'); }
-  if (bkSt.kochen === 'aufwendig') { multi += .10; auf.push('Aufwend. Küche +10%'); }
-  if (bkSt.smarthome === 'ja') { multi += .12; auf.push('Smart Home +12%'); }
-  else if (bkSt.smarthome === 'licht') { multi += .05; auf.push('Licht-Smart +5%'); }
+  if (bkSt.kochen === 'aufwendig') { multi += .08; auf.push('Aufwend. Küche +8%'); }
+  if (bkSt.smarthome === 'ja') { multi += .08; auf.push('Smart Home +8%'); }
+  else if (bkSt.smarthome === 'licht') { multi += .03; auf.push('Licht-Smart +3%'); }
 
   const koord = bkSt.koord || [];
   const kuecheSchonDrin = z.includes('kueche');
@@ -591,25 +682,27 @@ function bkCalcPrice() {
   const bauleitungSchonDrin = bkSt.track.includes('allinclusive') && bkSt.aii_phase === 'bauleitung';
   if (koord.includes('bauleitung_koord') && !bauleitungSchonDrin) { multi += .15; auf.push('Bauleitung +15%'); }
 
-  const step7Done = bkStep7Valid();
-  const step8Done = bkStep8Valid();
+  const onStep7 = !!(document.getElementById('bk-step7') && document.getElementById('bk-step7').classList.contains('active'));
+  const applyStep7Extras = onStep7 || bkStep7Valid();
 
-  const qlM = step7Done ? ([1, 1, 1.35, 1.75][bkSt.ql] || 1) : 1;
-  if (step7Done && qlM > 1) auf.push(bkQL(bkSt.ql) + ' +' + Math.round((qlM - 1) * 100) + '%');
+  const qlM = applyStep7Extras ? ([1, 1, 1.35, 1.75][bkSt.ql] || 1) : 1;
+  if (applyStep7Extras && qlM > 1) auf.push(bkQL(bkSt.ql) + ' +' + Math.round((qlM - 1) * 100) + '%');
   multi *= qlM;
 
-  const crM = step7Done ? ([1, 1, 1.15, 1.25, 3][bkSt.cr] || 1) : 1;
-  if (step7Done && bkSt.cr === 4) auf.push('Änderungsschleifen unlimitiert (300%)');
-  else if (step7Done && bkSt.cr === 3) auf.push('Änderungsschleifen 3× +25%');
-  else if (step7Done && bkSt.cr === 2) auf.push('Änderungsschleifen 2× +15%');
-  else if (step7Done && crM > 1) auf.push('Änderungsschleifen +' + Math.round((crM - 1) * 100) + '%');
+  const crActive = applyStep7Extras && bkStep7ShowsCrAndAend();
+  const crM = crActive ? ([1, 1, 1.15, 1.25, 3][bkSt.cr] || 1) : 1;
+  if (crActive && bkSt.cr === 4) auf.push('Änderungsschleifen unlimitiert (300%)');
+  else if (crActive && bkSt.cr === 3) auf.push('Änderungsschleifen 3× +25%');
+  else if (crActive && bkSt.cr === 2) auf.push('Änderungsschleifen 2× +15%');
+  else if (crActive && crM > 1) auf.push('Änderungsschleifen +' + Math.round((crM - 1) * 100) + '%');
   multi *= crM;
 
-  if (step7Done && bkSt.hon_typ === 'pauschale') { multi *= 1.2; auf.push('Pauschale +20%'); }
-  if (step7Done && bkSt.kv === 'monatlich') { multi += .05; auf.push('KV monatl. +5%'); }
-  else if (step7Done && bkSt.kv === 'laufend') { multi += .10; auf.push('KV laufend +10%'); }
-  if (step7Done && bkSt.aend === 'wenige') { multi *= 1.3; auf.push('Freigabe-Anpassung +30%'); }
-  else if (step7Done && bkSt.aend === 'viele') { multi *= 2; auf.push('Freigabe-Anpassung ×2 (+100%)'); }
+  if (applyStep7Extras && bkStep7ShowsHonTyp() && bkSt.hon_typ === 'pauschale') { multi *= 1.1; auf.push('Pauschale +10%'); }
+  if (applyStep7Extras && bkSt.kv === 'monatlich') { multi += .05; auf.push('KV monatl. +5%'); }
+  else if (applyStep7Extras && bkSt.kv === 'laufend') { multi += .10; auf.push('KV laufend +10%'); }
+  if (applyStep7Extras && bkStep7ShowsCrAndAend() && bkSt.aend === 'wenige') { multi *= 1.3; auf.push('Freigabe-Anpassung +30%'); }
+  else if (applyStep7Extras && bkStep7ShowsCrAndAend() && bkSt.aend === 'viele') { multi *= 2; auf.push('Freigabe-Anpassung ×2 (+100%)'); }
+  const step8Done = bkStep8Valid();
   if (step8Done && !bkStep8SkipTimingAndAlltag() && bkSt.dl_typ === 'hart') { multi *= 1.2; auf.push('Express +20%'); }
   if (step8Done && !bkStep8SkipTimingAndAlltag() && bkSt.bewohnt === 'ja') { multi *= 1.3; auf.push('Bewohnt +30%'); }
 
@@ -619,8 +712,9 @@ function bkCalcPrice() {
 
   const bauItems = [];
   let bauBase = 0;
+  const bkiQl = applyStep7Extras ? bkSt.ql : 1;
   if (bkSt.track.includes('allinclusive') || bkSt.track.includes('arrangement')) {
-    const bkiM = BK_BKI[step7Done ? bkSt.ql : 1] || 550;
+    const bkiM = BK_BKI[bkiQl] || 550;
     const umbau = qm * bkiM;
     bauBase += umbau;
     bauItems.push({l: bkTfmt('cart.umbau', { qm: qm, ql: bkQL(bkSt.ql) }), v:Math.round(umbau)});
@@ -631,7 +725,7 @@ function bkCalcPrice() {
   const bauLow = bauBase ? Math.round(bauBase/500)*500 : 0;
   const bauHigh = bauLow ? Math.round(bauLow*1.35/500)*500 : 0;
 
-  return {honLow, honHigh, bauLow, bauHigh, honItems, aufItems:auf, bauItems, honorarOpen:!step7Done};
+  return {honLow, honHigh, bauLow, bauHigh, honItems, aufItems:auf, bauItems, honorarOpen:!applyStep7Extras};
 }
 
 function bkUpdateCart() {
@@ -666,8 +760,9 @@ function bkRenderS4() {
   let html = '';
 
   if (tr.includes('ordnung')) {
+    const q1Hint = bkT('s4.ordnung.q1Hint');
     html += `<div class="bk-sdiv">${bkT('s4.ordnung.head')}</div>
-    <div class="bk-q">${bkT('s4.ordnung.q1')}<small>${bkT('s4.ordnung.q1Hint')}</small></div>
+    <div class="bk-q">${bkT('s4.ordnung.q1')}${q1Hint ? '<small>' + q1Hint + '</small>' : ''}</div>
     <div class="bk-tags">
       <button class="bk-tag ${(bkSt.ord_fokus||[]).includes('ideen')?'sel':''}" data-k="ord_fokus" data-v="ideen" onclick="bkToggleTag(this)">${bkT('s4.ordnung.tag.ideen')}</button>
       <button class="bk-tag ${(bkSt.ord_fokus||[]).includes('moeblierung')?'sel':''}" data-k="ord_fokus" data-v="moeblierung" onclick="bkToggleTag(this)">${bkT('s4.ordnung.tag.moeblierung')}</button>
@@ -756,7 +851,7 @@ function bkRenderS4() {
   if (tr.includes('arrangement') || tr.includes('allinclusive')) {
     const phaseHint = tr.includes('allinclusive')
       ? '<small>' + bkT('s4.aufmass.hint.aii') + '</small>'
-      : '<small>' + bkT('s4.aufmass.hint.arr') + '</small>';
+      : (bkT('s4.aufmass.hint.arr') ? '<small>' + bkT('s4.aufmass.hint.arr') + '</small>' : '');
     html += `<div class="bk-sdiv">${bkT('s4.aufmass.head')}</div>
     <div class="bk-q">${bkT('s4.aufmass.q')}${phaseHint}</div>
     <div class="bk-opts">
@@ -1064,6 +1159,7 @@ window.bkOnLangChange = function() {
     btn.textContent = labels[i] || btn.textContent;
   });
   bkUpdateKoordNote();
+  bkUpdateStep7();
   bkUpdateCart();
   if (bkQmWheelEl) {
     const done = bkQmWheelEl.querySelector('.bk-qm-wheel__done');
@@ -1082,6 +1178,7 @@ function bkInitKonfigurator() {
   bkSyncSlOpts('ql', bkSt.ql);
   bkSyncSlOpts('cr', bkSt.cr);
   bkUpdateStep5();
+  bkUpdateStep7();
   bkUpdateNavButtons();
   bkOnLangChange();
 }
