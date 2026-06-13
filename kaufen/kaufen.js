@@ -339,6 +339,16 @@
     return ref ? "Anfrage " + ref : "Anfrage";
   }
 
+  function wgaCatalogHref(sectionId) {
+    if (!sectionId) return "wolfganggrope.html#wga-catalog-root";
+    return (
+      "wolfganggrope.html?section=" +
+      encodeURIComponent(sectionId) +
+      "#" +
+      encodeURIComponent(sectionId)
+    );
+  }
+
   function bindKunstPage() {
     var go = document.getElementById("kaufen-kunst-go");
     var order = document.getElementById("kaufen-kunst-order");
@@ -370,6 +380,12 @@
           if (work && work.id) worksById[work.id] = work;
         });
       });
+    }
+
+    function updateCatalogLink() {
+      if (!go) return;
+      var slide = currentSlides[slideIndex];
+      go.href = wgaCatalogHref(slide ? slide.sectionId : "");
     }
 
     function updateOrderMail() {
@@ -439,6 +455,7 @@
       }
       updateSectionLabel();
       updateOrderMail();
+      updateCatalogLink();
     }
 
     function renderKunstSlider(categoryId) {
@@ -493,6 +510,7 @@
       slideIndex = 0;
       updateSectionLabel();
       updateOrderMail();
+      updateCatalogLink();
     }
 
     function selectCategory(categoryId) {
@@ -534,12 +552,6 @@
       });
     }
 
-    go.addEventListener("click", function () {
-      var slide = currentSlides[slideIndex];
-      var sectionId = slide ? slide.sectionId : "";
-      window.location.href = sectionId ? "wolfganggrope.html#" + sectionId : "wolfganggrope.html#wga-catalog-root";
-    });
-
     indexSections();
     renderCategoryButtons();
     var firstWithWorks = KUNST_CATEGORIES.find(function (entry) {
@@ -551,6 +563,7 @@
       updatePrice("");
       updateSectionLabel();
       updateOrderMail();
+      updateCatalogLink();
     }
   }
 

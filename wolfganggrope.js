@@ -1548,26 +1548,65 @@
     scrollToHashChapter();
   }
 
-  function scrollToHashChapter() {
-    var id = (location.hash || "").replace(/^#/, "");
-    if (!id || id === "top") return;
-    if (id === "wga-catalog-root") {
-      if (catalogRoot) {
-        window.requestAnimationFrame(function () {
-          scrollToElement(catalogRoot, "auto");
-        });
+  function hashTargetId() {
+    var id = (location.hash || "").replace(/^#/, "").trim();
+    if (id && id !== "top") {
+      try {
+        return decodeURIComponent(id);
+      } catch (err) {
+        return id;
       }
+    }
+    try {
+      var fromQuery = new URLSearchParams(location.search).get("section");
+      if (fromQuery) return fromQuery.trim();
+    } catch (err2) {}
+    return "";
+  }
+
+  var pendingHashScroll = null;
+
+  function runHashScroll(attempt) {
+    if (pendingHashScroll) {
+      window.clearTimeout(pendingHashScroll);
+      pendingHashScroll = null;
+    }
+    attempt = attempt || 0;
+    var id = hashTargetId();
+    if (!catalog || !id) return;
+
+    if (id === "wga-catalog-root") {
+      if (catalogRoot) scrollToElement(catalogRoot, "auto");
       return;
     }
+
     if (worksById[id]) {
       window.requestAnimationFrame(function () {
         openPopup(id);
       });
       return;
     }
-    if (!document.getElementById(id)) return;
-    window.scrollTo(0, 0);
+
+    var sectionEl = document.getElementById(id);
+    if (!sectionEl) {
+      if (attempt < 40) {
+        pendingHashScroll = window.setTimeout(function () {
+          runHashScroll(attempt + 1);
+        }, 100);
+      }
+      return;
+    }
+
     scrollToSection(id, { behavior: "auto", settle: true });
+    if (attempt < 6) {
+      pendingHashScroll = window.setTimeout(function () {
+        runHashScroll(attempt + 1);
+      }, 280 + attempt * 180);
+    }
+  }
+
+  function scrollToHashChapter() {
+    runHashScroll(0);
   }
 
   if (popup) {
@@ -1604,6 +1643,7 @@
       popupNext.setAttribute("aria-label", getWgaLang() === "en" ? "Next work" : "Nächstes Werk");
     }
     updatePopupViewNav();
+    if (hashTargetId()) scrollToHashChapter();
   });
   window.addEventListener("resize", function () {
     syncChaptersNavOffset();
@@ -1646,6 +1686,16 @@
 
   window.addEventListener("hashchange", function () {
     if (!catalog) return;
+    scrollToHashChapter();
+  });
+
+  window.addEventListener("load", function () {
+    if (!catalog || !hashTargetId()) return;
+    scrollToHashChapter();
+  });
+
+  window.addEventListener("pageshow", function () {
+    if (!catalog || !hashTargetId()) return;
     scrollToHashChapter();
   });
 
