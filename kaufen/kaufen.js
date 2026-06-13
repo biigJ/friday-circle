@@ -141,24 +141,129 @@
     render();
   }
 
-  function chapterLabel(chapter) {
-    return String(chapter || "")
-      .replace(/^\d{2}\s+/, "")
-      .toLowerCase();
+  var KUNST_CATEGORIES = [
+    {
+      id: "aquarell",
+      labelDe: "Aquarell",
+      labelEn: "Watercolour",
+      sections: [
+        "01-28-jahre-alt-aquarell-1960",
+        "07-neue-familie-1976-1979-aquarell",
+        "08-80-er-jahre-1980-1989-aquarell",
+        "09-90-er-jahre-1990-1995-aquarellbilder",
+        "09-90-er-jahre-1995-obst-in-aquarell",
+      ],
+    },
+    {
+      id: "acryl",
+      labelDe: "Acryl",
+      labelEn: "Acrylic",
+      sections: ["02-knalliges-acryl-1970"],
+    },
+    {
+      id: "radierung",
+      labelDe: "Radierung",
+      labelEn: "Etching",
+      sections: [
+        "03-fruher-radierungen-1972-1974",
+        "06-mehr-radierungen-1975-1979",
+        "08-80-er-jahre-1988-1995-radierungen",
+      ],
+    },
+    {
+      id: "holzschnitt",
+      labelDe: "Holzschnitt",
+      labelEn: "Woodcut",
+      sections: ["04-holzschnitte-1973-1974"],
+    },
+    {
+      id: "collage",
+      labelDe: "Collage",
+      labelEn: "Collage",
+      sections: ["07-1976-collagen"],
+    },
+    {
+      id: "tusche",
+      labelDe: "Tusche",
+      labelEn: "Ink",
+      sections: ["07-neue-familie-1976-tuschezeichnung", "09-90-er-jahre-1992-tuschestrichzeichnungen"],
+    },
+    {
+      id: "skizzen",
+      labelDe: "Skizzen",
+      labelEn: "Sketches",
+      sections: [
+        "07-neue-familie-1976-1979-skizzen",
+        "09-90-er-jahre-1990-krypta-wurzburger-dom",
+        "09-90-er-jahre-1991-skizzen-griechenland",
+        "09-90-er-jahre-1991-1995-skribbel",
+        "09-90-er-jahre-1992-skizzen-bornholm",
+        "09-90-er-jahre-1992-1994-skizzenbuch",
+        "09-90-er-jahre-1995-skizzen-lofoten",
+      ],
+    },
+    {
+      id: "buntstift",
+      labelDe: "Buntstift",
+      labelEn: "Coloured pencil",
+      sections: ["08-80-er-jahre-1980-1985-buntstiftzeichnungen"],
+    },
+    {
+      id: "olkreide",
+      labelDe: "Ölkreide",
+      labelEn: "Oil pastel",
+      sections: ["08-80-er-jahre-1984-1987-olkreide", "09-90-er-jahre-1995-olkreide"],
+    },
+    {
+      id: "druck-experiment",
+      labelDe: "Druck-Experiment",
+      labelEn: "Print experiment",
+      sections: ["08-80-er-jahre-1989-druck-experimente"],
+    },
+    {
+      id: "olmalerei",
+      labelDe: "Ölmalerei",
+      labelEn: "Oil painting",
+      sections: ["10-2000-er-jahre-1999-2002-olmalerei"],
+    },
+    {
+      id: "keramik",
+      labelDe: "Keramik",
+      labelEn: "Ceramics",
+      sections: ["11-keramik"],
+    },
+  ];
+
+  function deriveSectionYear(title) {
+    var folder = String(title || "").trim();
+    var range = folder.match(/\b((?:19|20)\d{2})-((?:19|20)\d{2})\b/);
+    if (range) return range[1] + "–" + range[2];
+    var trailingAfterDash = folder.match(/-\s*((?:19|20)\d{2})\s*$/);
+    if (trailingAfterDash) return trailingAfterDash[1];
+    var beforeParen = folder.match(/\b((?:19|20)\d{2})\s*\(/);
+    if (beforeParen) return beforeParen[1];
+    var trailingYear = folder.match(/\b((?:19|20)\d{2})\s*$/);
+    if (trailingYear) return trailingYear[1];
+    return "";
   }
 
-  function priceForChapter(chapter) {
-    if (chapter === "11 Keramik") {
+  function formatKunstSectionLabel(section) {
+    if (!section) return "";
+    var title = section.title || "";
+    var year = deriveSectionYear(title);
+    var paren = title.match(/\(([^)]+)\)/);
+    if (paren) {
+      return (year ? year + " " : "") + paren[1].trim();
+    }
+    var stripped = title.replace(/^\d{2}\s+[\w\s'äöüÄÖÜß-]+?\s+/i, "").trim();
+    return stripped || section.id;
+  }
+
+  function priceForCategory(categoryId) {
+    if (categoryId === "keramik") {
       return { de: "800 € – 2.500 €", en: "€800 – €2,500" };
     }
-    if (
-      chapter === "01 28 Jahre alt" ||
-      chapter === "02 Knalliges Acryl" ||
-      chapter === "05 Ölmalerei 1974" ||
-      chapter === "07 Neue Familie" ||
-      chapter === "08 80er Jahre" ||
-      chapter === "09 90er Jahre"
-    ) {
+    if (categoryId === "aquarell" || categoryId === "acryl" || categoryId === "olmalerei") {
       return { de: "500 € – 1.200 €", en: "€500 – €1,200" };
     }
     return { de: "ab 300 €", en: "from €300" };
@@ -167,6 +272,7 @@
   function bindIndexFilter() {
     var grid = document.getElementById("kaufen-shop-grid");
     var nav = document.getElementById("kaufen-shop-nav");
+    var back = document.getElementById("kaufen-index-back");
     if (!grid || !nav) return;
 
     var tiles = grid.querySelectorAll("[data-shop-group]");
@@ -184,6 +290,7 @@
         tile.classList.toggle("is-filtered-out", !show);
       });
       grid.classList.toggle("is-filtered", !!activeFilter);
+      if (back) back.hidden = !activeFilter;
     }
 
     links.forEach(function (link) {
@@ -194,6 +301,14 @@
       });
     });
 
+    if (back) {
+      back.addEventListener("click", function (e) {
+        if (!activeFilter) return;
+        e.preventDefault();
+        applyFilter("");
+      });
+    }
+
     applyFilter("");
   }
 
@@ -201,6 +316,7 @@
     var go = document.getElementById("kaufen-kunst-go");
     var options = document.getElementById("kaufen-kunst-options");
     var priceEl = document.getElementById("kaufen-kunst-price");
+    var sectionLabelEl = document.getElementById("kaufen-kunst-section-label");
     var slidesRoot = document.getElementById("kaufen-kunst-slides");
     var dotsRoot = document.getElementById("kaufen-kunst-dots");
     var prev = document.getElementById("kaufen-kunst-prev");
@@ -208,8 +324,7 @@
     if (!go || !options || !slidesRoot) return;
 
     var catalog = window.__WGA_CATALOG__;
-    var chapters = [];
-    var chapterMap = {};
+    var sectionById = {};
     var selected = "";
     var slideIndex = 0;
     var currentSlides = [];
@@ -218,37 +333,34 @@
       return work && !work.empty && work.berlinStatus !== "unavailable" && work.images && work.images[0];
     }
 
-    function buildChapters() {
+    function indexSections() {
       if (!catalog || !catalog.sections) return;
-      var seen = new Set();
       catalog.sections.forEach(function (section) {
-        var chapter = section.chapter;
-        if (!chapter || seen.has(chapter) || !/^\d{2}\s/.test(chapter)) return;
-        seen.add(chapter);
-        var entry = {
-          chapter: chapter,
-          sectionId: section.id,
-          label: chapterLabel(chapter),
-        };
-        chapters.push(entry);
-        chapterMap[chapter] = entry;
+        sectionById[section.id] = section;
       });
     }
 
-    function worksForChapter(chapter) {
+    function worksForCategory(categoryId) {
+      var category = KUNST_CATEGORIES.find(function (entry) {
+        return entry.id === categoryId;
+      });
+      if (!category) return [];
       var items = [];
-      if (!catalog || !catalog.sections) return items;
-      catalog.sections.forEach(function (section) {
-        if (section.chapter !== chapter) return;
+      category.sections.forEach(function (sectionId) {
+        var section = sectionById[sectionId];
+        if (!section) return;
+        var label = formatKunstSectionLabel(section);
         (section.works || []).forEach(function (work) {
           if (!workIsAvailable(work)) return;
           items.push({
             src: "../" + work.images[0],
             workId: work.id,
+            sectionId: sectionId,
+            sectionLabel: label,
           });
         });
       });
-      if (chapter === "03 Frühe Radierungen") {
+      if (categoryId === "radierung") {
         items.sort(function (a, b) {
           var aPin = a.src.indexOf("WG-Grafik-1972-1974-10") >= 0;
           var bPin = b.src.indexOf("WG-Grafik-1972-1974-10") >= 0;
@@ -260,13 +372,19 @@
       return items;
     }
 
-    function updatePrice(chapter) {
-      if (!priceEl || !chapter) {
+    function updatePrice(categoryId) {
+      if (!priceEl || !categoryId) {
         if (priceEl) priceEl.textContent = "—";
         return;
       }
-      var p = priceForChapter(chapter);
+      var p = priceForCategory(categoryId);
       priceEl.textContent = t(p.de, p.en);
+    }
+
+    function updateSectionLabel() {
+      if (!sectionLabelEl) return;
+      var slide = currentSlides[slideIndex];
+      sectionLabelEl.textContent = slide ? slide.sectionLabel : "";
     }
 
     function showKunstSlide(i) {
@@ -280,10 +398,11 @@
           dot.classList.toggle("is-active", n === slideIndex);
         });
       }
+      updateSectionLabel();
     }
 
-    function renderKunstSlider(chapter) {
-      currentSlides = worksForChapter(chapter);
+    function renderKunstSlider(categoryId) {
+      currentSlides = worksForCategory(categoryId);
       slidesRoot.innerHTML = "";
       if (dotsRoot) dotsRoot.innerHTML = "";
 
@@ -297,6 +416,7 @@
         slidesRoot.appendChild(empty);
         if (prev) prev.hidden = true;
         if (next) next.hidden = true;
+        updateSectionLabel();
         return;
       }
 
@@ -330,29 +450,30 @@
       if (prev) prev.hidden = !multi;
       if (next) next.hidden = !multi;
       slideIndex = 0;
+      updateSectionLabel();
     }
 
-    function selectChapter(chapter) {
-      selected = chapter;
+    function selectCategory(categoryId) {
+      selected = categoryId;
       options.querySelectorAll(".kaufen-kunst-btn").forEach(function (btn) {
-        btn.classList.toggle("is-active", btn.getAttribute("data-value") === chapter);
+        btn.classList.toggle("is-active", btn.getAttribute("data-value") === categoryId);
       });
-      updatePrice(chapter);
-      renderKunstSlider(chapter);
+      updatePrice(categoryId);
+      renderKunstSlider(categoryId);
     }
 
-    function renderChapterButtons() {
+    function renderCategoryButtons() {
       options.innerHTML = "";
-      chapters.forEach(function (entry) {
+      KUNST_CATEGORIES.forEach(function (entry) {
         var btn = document.createElement("button");
         btn.type = "button";
         btn.className = "kaufen-kunst-btn";
-        btn.setAttribute("data-value", entry.chapter);
-        btn.textContent = entry.label;
-        var hasWorks = worksForChapter(entry.chapter).length > 0;
+        btn.setAttribute("data-value", entry.id);
+        btn.textContent = t(entry.labelDe, entry.labelEn).toLowerCase();
+        var hasWorks = worksForCategory(entry.id).length > 0;
         if (!hasWorks) btn.disabled = true;
         btn.addEventListener("click", function () {
-          selectChapter(entry.chapter);
+          selectCategory(entry.id);
         });
         options.appendChild(btn);
       });
@@ -372,20 +493,21 @@
     }
 
     go.addEventListener("click", function () {
-      var entry = chapterMap[selected];
-      var sectionId = entry ? entry.sectionId : "";
+      var slide = currentSlides[slideIndex];
+      var sectionId = slide ? slide.sectionId : "";
       window.location.href = sectionId ? "wolfganggrope.html#" + sectionId : "wolfganggrope.html#wga-catalog-root";
     });
 
-    buildChapters();
-    renderChapterButtons();
-    var firstWithWorks = chapters.find(function (entry) {
-      return worksForChapter(entry.chapter).length > 0;
+    indexSections();
+    renderCategoryButtons();
+    var firstWithWorks = KUNST_CATEGORIES.find(function (entry) {
+      return worksForCategory(entry.id).length > 0;
     });
     if (firstWithWorks) {
-      selectChapter(firstWithWorks.chapter);
+      selectCategory(firstWithWorks.id);
     } else {
       updatePrice("");
+      updateSectionLabel();
     }
   }
 
@@ -403,8 +525,14 @@
     var priceEl = document.getElementById("kaufen-kunst-price");
     var active = document.querySelector(".kaufen-kunst-btn.is-active");
     if (priceEl && active) {
-      var p = priceForChapter(active.getAttribute("data-value"));
+      var p = priceForCategory(active.getAttribute("data-value"));
       priceEl.textContent = t(p.de, p.en);
     }
+    document.querySelectorAll(".kaufen-kunst-btn").forEach(function (btn) {
+      var entry = KUNST_CATEGORIES.find(function (cat) {
+        return cat.id === btn.getAttribute("data-value");
+      });
+      if (entry) btn.textContent = t(entry.labelDe, entry.labelEn).toLowerCase();
+    });
   });
 })();

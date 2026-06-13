@@ -42,12 +42,15 @@
         <a class="kaufen-back" href="kaufen/index.html"><span class="de-t">← zurück</span><span class="en-t">← back</span></a>
 
         <div class="kaufen-product">
-          <figure class="kaufen-product__figure kaufen-product__figure--slider" id="kaufen-kunst-slider" aria-live="polite">
-            <div class="kaufen-tile__slider" id="kaufen-kunst-slides"></div>
-            <button type="button" class="kaufen-tile__nav kaufen-tile__nav--prev" id="kaufen-kunst-prev" aria-label="Vorheriges Bild" hidden>‹</button>
-            <button type="button" class="kaufen-tile__nav kaufen-tile__nav--next" id="kaufen-kunst-next" aria-label="Nächstes Bild" hidden>›</button>
-            <div class="kaufen-tile__dots" id="kaufen-kunst-dots" aria-hidden="true"></div>
-          </figure>
+          <div class="kaufen-kunst-media">
+            <figure class="kaufen-product__figure kaufen-product__figure--slider" id="kaufen-kunst-slider" aria-live="polite">
+              <div class="kaufen-tile__slider" id="kaufen-kunst-slides"></div>
+              <button type="button" class="kaufen-tile__nav kaufen-tile__nav--prev" id="kaufen-kunst-prev" aria-label="Vorheriges Bild" hidden>‹</button>
+              <button type="button" class="kaufen-tile__nav kaufen-tile__nav--next" id="kaufen-kunst-next" aria-label="Nächstes Bild" hidden>›</button>
+              <div class="kaufen-tile__dots" id="kaufen-kunst-dots" aria-hidden="true"></div>
+            </figure>
+            <p class="kaufen-kunst-section-label" id="kaufen-kunst-section-label" aria-live="polite"></p>
+          </div>
 
           <div class="kaufen-product__info">
             <h1 class="kaufen-product__title">Kunst</h1>
@@ -56,10 +59,7 @@
               <span class="en-t">Originals only from the estate of Wolfgang Grope (1955–2005).</span>
             </p>
 
-            <div>
-              <p class="kaufen-field__label"><span class="de-t">Kapitel wählen</span><span class="en-t">Choose chapter</span></p>
-              <div class="kaufen-kunst-chapters" id="kaufen-kunst-options"></div>
-            </div>
+            <div class="kaufen-kunst-chapters" id="kaufen-kunst-options"></div>
 
             <p class="kaufen-product__price" id="kaufen-kunst-price">—</p>
 
@@ -90,8 +90,8 @@
                 </summary>
                 <div class="kaufen-details__body">
                   <p>
-                    <span class="de-t">Nach der Auswahl wirst Du zum Werkkatalog von Wolfgang Grope Kunstwerke weitergeleitet — direkt zum gewählten Kapitel. Dort kannst Du einzelne Werke mit Klick auf den Punkt rechts oben anfragen.</span>
-                    <span class="en-t">After selecting a chapter you will be redirected to the Wolfgang Grope art catalog — directly to the chosen chapter. There you can enquire about individual works by clicking the dot in the top right.</span>
+                    <span class="de-t">Nach der Auswahl wirst Du zum Werkkatalog von Wolfgang Grope Kunstwerke weitergeleitet — direkt zur gewählten Sektion. Dort kannst Du einzelne Werke mit Klick auf den Punkt rechts oben anfragen.</span>
+                    <span class="en-t">After selecting a category you will be redirected to the Wolfgang Grope art catalog — directly to the chosen section. There you can enquire about individual works by clicking the dot in the top right.</span>
                   </p>
                 </div>
               </details>

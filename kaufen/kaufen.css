@@ -403,12 +403,47 @@ body.kaufen-page {
 }
 
 .kaufen-kunst-chapters {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 6px;
   max-height: min(42vh, 320px);
   overflow-y: auto;
   padding-right: 4px;
+}
+
+.kaufen-kunst-media {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(10px, 2vw, 16px);
+  align-items: center;
+}
+
+.kaufen-kunst-section-label {
+  margin: 0;
+  max-width: 7.5rem;
+  color: var(--kaufen-muted);
+  font-size: 0.72rem;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  text-transform: lowercase;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+@media (max-width: 900px) {
+  .kaufen-kunst-media {
+    grid-template-columns: 1fr;
+  }
+
+  .kaufen-kunst-section-label {
+    writing-mode: horizontal-tb;
+    transform: none;
+    max-width: none;
+  }
+
+  .kaufen-kunst-chapters {
+    grid-template-columns: 1fr;
+  }
 }
 
 .kaufen-kunst-btn {
