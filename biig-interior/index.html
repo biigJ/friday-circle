@@ -2585,7 +2585,7 @@
           <!-- S3: ZIELE -->
           <div id="bk-step3" class="bk-step">
             <div class="bk-slabel" data-bk-i18n="s3.label"></div>
-            <div class="bk-q"><span data-bk-i18n="s3.q1"></span><small data-bk-i18n="s3.q1Hint"></small></div>
+            <div class="bk-q" data-bk-i18n="s3.q1"></div>
             <div class="bk-tags">
               <button class="bk-tag" data-k="ziele" data-v="stauraum" data-bk-i18n="s3.ziele.stauraum" onclick="bkToggleTag(this)"></button>
               <button class="bk-tag" data-k="ziele" data-v="ruhe" data-bk-i18n="s3.ziele.ruhe" onclick="bkToggleTag(this)"></button>
@@ -2642,7 +2642,7 @@
               <button class="bk-opt" onclick="bkPickOpt('nutzer','wg',this)"><i class="ti ti-door" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s5.nutzer.wg"></span></div></button>
             </div>
             <div id="bk-s5-funktionen">
-              <div class="bk-q"><span data-bk-i18n="s5.q2"></span><small data-bk-i18n="s5.q2Hint"></small></div>
+              <div class="bk-q" data-bk-i18n="s5.q2"></div>
               <div class="bk-tags">
                 <button class="bk-tag" data-k="funktionen" data-v="eltern" data-bk-i18n="s5.funk.eltern" onclick="bkToggleTag(this)"></button>
                 <button class="bk-tag" data-k="funktionen" data-v="gaestezimmer" data-bk-i18n="s5.funk.gaestezimmer" onclick="bkToggleTag(this)"></button>
@@ -2655,7 +2655,7 @@
             <div id="bk-s5-kochen">
               <div class="bk-q"><span data-bk-i18n="s5.q3"></span><small data-bk-i18n="s5.q3Hint"></small></div>
               <div class="bk-opts">
-                <button class="bk-opt" onclick="bkPickOpt('kochen','aufwendig',this)"><i class="ti ti-chef-hat" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s5.kochen.aufwendig.t"></span><span class="bk-os">+8%</span></div></button>
+                <button class="bk-opt" onclick="bkPickOpt('kochen','aufwendig',this)"><i class="ti ti-chef-hat" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s5.kochen.aufwendig.t"></span><span class="bk-os" data-bk-i18n="s5.kochen.aufwendig.s"></span></div></button>
                 <button class="bk-opt" onclick="bkPickOpt('kochen','schnell',this)"><i class="ti ti-bolt" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s5.kochen.schnell"></span></div></button>
                 <button class="bk-opt" onclick="bkPickOpt('kochen','selten',this)"><i class="ti ti-flame-off" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s5.kochen.selten"></span></div></button>
               </div>
@@ -2665,6 +2665,18 @@
               <button class="bk-opt" onclick="bkPickOpt('smarthome','ja',this)"><i class="ti ti-device-tablet" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s5.smh.ja.t"></span><span class="bk-os">+8%</span></div></button>
               <button class="bk-opt" onclick="bkPickOpt('smarthome','licht',this)"><i class="ti ti-bulb" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s5.smh.licht.t"></span><span class="bk-os">+3%</span></div></button>
               <button class="bk-opt" onclick="bkPickOpt('smarthome','nein',this)"><i class="ti ti-x" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s5.smh.nein"></span></div></button>
+            </div>
+            <div id="bk-s5-koord">
+              <div class="bk-q" data-bk-i18n="s6.q6"></div>
+              <div class="bk-tags">
+                <button class="bk-tag" data-k="koord" data-v="kueche_koord" data-bk-i18n="s6.koord.kueche" onclick="bkToggleTag(this)"></button>
+                <button class="bk-tag" data-k="koord" data-v="moebel" data-bk-i18n="s6.koord.moebel" onclick="bkToggleTag(this)"></button>
+                <button class="bk-tag" data-k="koord" data-v="kunst" data-bk-i18n="s6.koord.kunst" onclick="bkToggleTag(this)"></button>
+                <button class="bk-tag" data-k="koord" data-v="licht_koord" data-bk-i18n="s6.koord.licht" onclick="bkToggleTag(this)"></button>
+                <button class="bk-tag" data-k="koord" data-v="textil_koord" data-bk-i18n="s6.koord.textil" onclick="bkToggleTag(this)"></button>
+                <button class="bk-tag" data-k="koord" data-v="bauleitung_koord" data-bk-i18n="s6.koord.bau" onclick="bkToggleTag(this)"></button>
+              </div>
+              <div id="bk-koord-note" class="bk-info-box" style="display:none"></div>
             </div>
             <div class="bk-nav">
               <div class="bk-nav__left">
@@ -2709,16 +2721,6 @@
               <button class="bk-opt" onclick="bkPickOpt('neuan','nein',this)"><i class="ti ti-lock" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s6.neuan.nein"></span></div></button>
               <button class="bk-opt" onclick="bkPickOpt('neuan','wenig',this)"><i class="ti ti-adjustments-horizontal" aria-hidden="true"></i><div><span class="bk-ot" data-bk-i18n="s6.neuan.wenig"></span></div></button>
             </div>
-            <div class="bk-q"><span data-bk-i18n="s6.q6"></span><small data-bk-i18n="s6.q6Hint"></small></div>
-            <div class="bk-tags">
-              <button class="bk-tag" data-k="koord" data-v="kueche_koord" data-bk-i18n="s6.koord.kueche" onclick="bkToggleTag(this)"></button>
-              <button class="bk-tag" data-k="koord" data-v="moebel" data-bk-i18n="s6.koord.moebel" onclick="bkToggleTag(this)"></button>
-              <button class="bk-tag" data-k="koord" data-v="kunst" data-bk-i18n="s6.koord.kunst" onclick="bkToggleTag(this)"></button>
-              <button class="bk-tag" data-k="koord" data-v="licht_koord" data-bk-i18n="s6.koord.licht" onclick="bkToggleTag(this)"></button>
-              <button class="bk-tag" data-k="koord" data-v="textil_koord" data-bk-i18n="s6.koord.textil" onclick="bkToggleTag(this)"></button>
-              <button class="bk-tag" data-k="koord" data-v="bauleitung_koord" data-bk-i18n="s6.koord.bau" onclick="bkToggleTag(this)"></button>
-            </div>
-            <div id="bk-koord-note" class="bk-info-box" style="display:none"></div>
             <div class="bk-nav">
               <div class="bk-nav__left">
                 <button class="bk-btn" data-bk-nav="start" onclick="bkGoTo(0)"></button>
@@ -2763,12 +2765,14 @@
               </div>
             </div>
             </div>
+            <div id="bk-s7-kv">
             <div class="bk-q" data-bk-i18n="s7.q4"></div>
             <div class="bk-opts">
               <button class="bk-opt" onclick="bkPickOpt('kv','nie',this)"><div><span class="bk-ot" data-bk-i18n="s7.kv.nie"></span></div></button>
               <button class="bk-opt" onclick="bkPickOpt('kv','meilensteine',this)"><div><span class="bk-ot" data-bk-i18n="s7.kv.meilensteine"></span></div></button>
               <button class="bk-opt" onclick="bkPickOpt('kv','monatlich',this)"><div><span class="bk-ot" data-bk-i18n="s7.kv.monatlich.t"></span><span class="bk-os">+5%</span></div></button>
               <button class="bk-opt" onclick="bkPickOpt('kv','laufend',this)"><div><span class="bk-ot" data-bk-i18n="s7.kv.laufend.t"></span><span class="bk-os">+10%</span></div></button>
+            </div>
             </div>
             <div id="bk-s7-aend">
             <div class="bk-q"><span data-bk-i18n="s7.q5"></span><small data-bk-i18n="s7.q5Hint"></small></div>

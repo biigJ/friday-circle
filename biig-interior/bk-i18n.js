@@ -80,10 +80,11 @@ const BK_STRINGS = {
   's5.funk.eltern': { de: 'Mastersuite', en: 'Master suite' },
   's5.funk.gaestezimmer': { de: 'Gästezimmer', en: 'Guest room' },
   's5.funk.kinder_b': { de: 'Kinderbereiche', en: 'Children\'s areas' },
-  's5.funk.homeoffice_f': { de: 'Homeoffice', en: 'Home office' },
-  's5.funk.fitness': { de: 'Hobby / Fitness', en: 'Hobby / fitness' },
+  's5.funk.homeoffice_f': { de: 'Homeoffice +8%', en: 'Home office +8%' },
+  's5.funk.fitness': { de: 'Hobby / Fitness +8%', en: 'Hobby / fitness +8%' },
   's5.funk.hauswirtschaft': { de: 'Hauswirtschaft', en: 'Utility room' },
-  's5.kochen.aufwendig.t': { de: 'Kochen ist Dein Lebensmittelpunkt? Dann planen wir Next Level.', en: 'Is cooking your focal point? Then we plan next level.' },
+  's5.kochen.aufwendig.t': { de: 'Ich koche viel und aufwändig', en: 'I cook a lot and elaborately' },
+  's5.kochen.aufwendig.s': { de: 'Kochen ist Dein Lebensmittelpunkt? Dann planen wir Next Level.', en: 'Is cooking your focal point? Then we plan next level.' },
   's5.kochen.schnell': { de: 'Schnell & pragmatisch', en: 'Quick & pragmatic' },
   's5.kochen.selten': { de: 'Selten', en: 'Rarely' },
   's5.smh.ja.t': { de: 'Ja, Licht & mehr', en: 'Yes, lighting & more' },
@@ -334,7 +335,10 @@ function bkGetLang() {
 function bkT(key) {
   const row = BK_STRINGS[key];
   if (!row) return key;
-  return row[bkGetLang()] || row.de || key;
+  const lang = bkGetLang();
+  if (Object.prototype.hasOwnProperty.call(row, lang)) return row[lang];
+  if (Object.prototype.hasOwnProperty.call(row, 'de')) return row.de;
+  return key;
 }
 
 function bkFmtNum(n) {

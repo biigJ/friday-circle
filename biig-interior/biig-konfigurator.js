@@ -380,6 +380,7 @@ window.bkToggleT = function(t) {
   if (i > -1) bkSt.track.splice(i, 1);
   else bkSt.track.push(t);
   bkRenderStep1Tracks();
+  bkUpdateStep5();
   bkUpdateStep7();
   bkUpdateCart();
 };
@@ -507,13 +508,20 @@ function bkStep5ShowsFunktionen() {
   return !['kl_zimmer', 'gr_zimmer'].includes(bkSt.size);
 }
 
+function bkStep5ShowsKoord() {
+  return bkSt.track.includes('allinclusive');
+}
+
 function bkUpdateStep5() {
   const funkEl = document.getElementById('bk-s5-funktionen');
   const kochenEl = document.getElementById('bk-s5-kochen');
+  const koordEl = document.getElementById('bk-s5-koord');
   const showFunk = bkStep5ShowsFunktionen();
   const showKochen = bkStep5ShowsKochen();
+  const showKoord = bkStep5ShowsKoord();
   if (funkEl) funkEl.hidden = !showFunk;
   if (kochenEl) kochenEl.hidden = !showKochen;
+  if (koordEl) koordEl.hidden = !showKoord;
   if (!showFunk) bkSt.funktionen = [];
   if (!showKochen) {
     bkSt.kochen = '';
@@ -523,6 +531,13 @@ function bkUpdateStep5() {
     const tags = funkEl && funkEl.querySelectorAll('.bk-tag');
     if (tags) tags.forEach(b => b.classList.remove('sel'));
   }
+  if (!showKoord) {
+    bkSt.koord = [];
+    if (koordEl) {
+      koordEl.querySelectorAll('.bk-tag').forEach(function(b) { b.classList.remove('sel'); });
+    }
+    bkUpdateKoordNote();
+  }
   bkUpdateNavButtons();
 }
 
@@ -530,27 +545,38 @@ function bkStep7ShowsHonTyp() {
   return bkSt.track.includes('allinclusive');
 }
 
-function bkStep7ShowsCrAndAend() {
+function bkStep7ShowsCr() {
   return bkSt.track.includes('arrangement') || bkSt.track.includes('allinclusive');
+}
+
+function bkStep7ShowsKvAndAend() {
+  return bkSt.track.includes('allinclusive');
 }
 
 function bkUpdateStep7() {
   const honBlock = document.getElementById('bk-s7-hon-typ');
   const crBlock = document.getElementById('bk-s7-cr');
+  const kvBlock = document.getElementById('bk-s7-kv');
   const aendBlock = document.getElementById('bk-s7-aend');
   const showHon = bkStep7ShowsHonTyp();
-  const showCrAend = bkStep7ShowsCrAndAend();
+  const showCr = bkStep7ShowsCr();
+  const showKvAend = bkStep7ShowsKvAndAend();
   if (honBlock) honBlock.hidden = !showHon;
-  if (crBlock) crBlock.hidden = !showCrAend;
-  if (aendBlock) aendBlock.hidden = !showCrAend;
+  if (crBlock) crBlock.hidden = !showCr;
+  if (kvBlock) kvBlock.hidden = !showKvAend;
+  if (aendBlock) aendBlock.hidden = !showKvAend;
   if (!showHon) {
     bkSt.hon_typ = '';
     if (honBlock) honBlock.querySelectorAll('.bk-opt').forEach(function(b) { b.classList.remove('sel'); });
   }
-  if (!showCrAend) {
-    bkSt.aend = '';
+  if (!showCr) {
     bkSt.cr = 1;
     bkUpdCr(1);
+  }
+  if (!showKvAend) {
+    bkSt.kv = '';
+    bkSt.aend = '';
+    if (kvBlock) kvBlock.querySelectorAll('.bk-opt').forEach(function(b) { b.classList.remove('sel'); });
     if (aendBlock) aendBlock.querySelectorAll('.bk-opt').forEach(function(b) { b.classList.remove('sel'); });
   }
   bkUpdateNavButtons();
@@ -561,9 +587,9 @@ function bkStep5Valid() {
 }
 
 function bkStep7Valid() {
-  if (!bkSt.kv) return false;
+  if (bkStep7ShowsKvAndAend() && !bkSt.kv) return false;
   if (bkStep7ShowsHonTyp() && !bkSt.hon_typ) return false;
-  if (bkStep7ShowsCrAndAend() && !bkSt.aend) return false;
+  if (bkStep7ShowsKvAndAend() && !bkSt.aend) return false;
   return true;
 }
 
@@ -672,6 +698,10 @@ function bkCalcPrice() {
   if (bkSt.smarthome === 'ja') { multi += .08; auf.push('Smart Home +8%'); }
   else if (bkSt.smarthome === 'licht') { multi += .03; auf.push('Licht-Smart +3%'); }
 
+  const funk = bkSt.funktionen || [];
+  if (funk.includes('homeoffice_f')) { multi += .08; auf.push('Homeoffice +8%'); }
+  if (funk.includes('fitness')) { multi += .08; auf.push('Fitness +8%'); }
+
   const koord = bkSt.koord || [];
   const kuecheSchonDrin = z.includes('kueche');
   if (koord.includes('kueche_koord') && !kuecheSchonDrin) { multi += .08; auf.push('Küchenkoord. +8%'); }
@@ -689,7 +719,8 @@ function bkCalcPrice() {
   if (applyStep7Extras && qlM > 1) auf.push(bkQL(bkSt.ql) + ' +' + Math.round((qlM - 1) * 100) + '%');
   multi *= qlM;
 
-  const crActive = applyStep7Extras && bkStep7ShowsCrAndAend();
+  const crActive = applyStep7Extras && bkStep7ShowsCr();
+  const kvAendActive = applyStep7Extras && bkStep7ShowsKvAndAend();
   const crM = crActive ? ([1, 1, 1.15, 1.25, 3][bkSt.cr] || 1) : 1;
   if (crActive && bkSt.cr === 4) auf.push('Änderungsschleifen unlimitiert (300%)');
   else if (crActive && bkSt.cr === 3) auf.push('Änderungsschleifen 3× +25%');
@@ -698,10 +729,10 @@ function bkCalcPrice() {
   multi *= crM;
 
   if (applyStep7Extras && bkStep7ShowsHonTyp() && bkSt.hon_typ === 'pauschale') { multi *= 1.1; auf.push('Pauschale +10%'); }
-  if (applyStep7Extras && bkSt.kv === 'monatlich') { multi += .05; auf.push('KV monatl. +5%'); }
-  else if (applyStep7Extras && bkSt.kv === 'laufend') { multi += .10; auf.push('KV laufend +10%'); }
-  if (applyStep7Extras && bkStep7ShowsCrAndAend() && bkSt.aend === 'wenige') { multi *= 1.3; auf.push('Freigabe-Anpassung +30%'); }
-  else if (applyStep7Extras && bkStep7ShowsCrAndAend() && bkSt.aend === 'viele') { multi *= 2; auf.push('Freigabe-Anpassung ×2 (+100%)'); }
+  if (kvAendActive && bkSt.kv === 'monatlich') { multi += .05; auf.push('KV monatl. +5%'); }
+  else if (kvAendActive && bkSt.kv === 'laufend') { multi += .10; auf.push('KV laufend +10%'); }
+  if (kvAendActive && bkSt.aend === 'wenige') { multi *= 1.3; auf.push('Freigabe-Anpassung +30%'); }
+  else if (kvAendActive && bkSt.aend === 'viele') { multi *= 2; auf.push('Freigabe-Anpassung ×2 (+100%)'); }
   const step8Done = bkStep8Valid();
   if (step8Done && !bkStep8SkipTimingAndAlltag() && bkSt.dl_typ === 'hart') { multi *= 1.2; auf.push('Express +20%'); }
   if (step8Done && !bkStep8SkipTimingAndAlltag() && bkSt.bewohnt === 'ja') { multi *= 1.3; auf.push('Bewohnt +30%'); }
@@ -760,9 +791,8 @@ function bkRenderS4() {
   let html = '';
 
   if (tr.includes('ordnung')) {
-    const q1Hint = bkT('s4.ordnung.q1Hint');
     html += `<div class="bk-sdiv">${bkT('s4.ordnung.head')}</div>
-    <div class="bk-q">${bkT('s4.ordnung.q1')}${q1Hint ? '<small>' + q1Hint + '</small>' : ''}</div>
+    <div class="bk-q">${bkT('s4.ordnung.q1')}</div>
     <div class="bk-tags">
       <button class="bk-tag ${(bkSt.ord_fokus||[]).includes('ideen')?'sel':''}" data-k="ord_fokus" data-v="ideen" onclick="bkToggleTag(this)">${bkT('s4.ordnung.tag.ideen')}</button>
       <button class="bk-tag ${(bkSt.ord_fokus||[]).includes('moeblierung')?'sel':''}" data-k="ord_fokus" data-v="moeblierung" onclick="bkToggleTag(this)">${bkT('s4.ordnung.tag.moeblierung')}</button>
