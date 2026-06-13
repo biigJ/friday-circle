@@ -379,6 +379,12 @@ body.kaufen-page {
 
 .kaufen-product__figure--slider {
   position: relative;
+  background: #000;
+}
+
+.kaufen-kunst-media .kaufen-product__figure--slider {
+  width: 100%;
+  aspect-ratio: 1;
 }
 
 .kaufen-product__figure--slider .kaufen-tile__slider,
@@ -387,6 +393,19 @@ body.kaufen-page {
   width: 100%;
   height: 100%;
   display: block;
+  background: #000;
+}
+
+.kaufen-product__figure--slider .kaufen-tile__slider {
+  position: absolute;
+  inset: 0;
+}
+
+.kaufen-product__figure--slider .kaufen-tile__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
 }
 
 .kaufen-product__figure--slider .kaufen-tile__nav {
