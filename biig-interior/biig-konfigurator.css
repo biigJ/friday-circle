@@ -129,6 +129,67 @@
   display: none;
 }
 
+.bk-pdf-root {
+  position: fixed;
+  left: -10000px;
+  top: 0;
+  z-index: -1;
+  width: 190mm;
+  padding: 14mm 12mm;
+  background: #ffffff;
+  color: #111111;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.bk-pdf-root h2 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.bk-pdf-root h3 {
+  margin: 14px 0 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.bk-pdf-root p {
+  margin: 0 0 4px;
+}
+
+.bk-pdf-root .bk-smr-t {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.bk-pdf-root .bk-sr {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 3px 0;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.bk-pdf-root .bk-sk {
+  flex: 0 0 42%;
+  color: #444444;
+}
+
+.bk-pdf-root .bk-sv {
+  flex: 1;
+  text-align: right;
+  font-weight: 500;
+}
+
+.bk-btn.is-submitting {
+  opacity: 0.65;
+  pointer-events: none;
+}
+
 .bk-opts {
   display: flex;
   flex-wrap: wrap;

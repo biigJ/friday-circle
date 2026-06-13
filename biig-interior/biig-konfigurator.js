@@ -2,6 +2,12 @@
 'use strict';
 
 const BK_TOTAL = 9;
+
+/**
+ * Web3Forms Access Key — nach Account-Einrichtung hier eintragen.
+ * Anleitung: https://web3forms.com  →  Formular anlegen  →  E-Mail: mail@bjgrope.de
+ */
+const BK_WEB3FORMS_ACCESS_KEY = '';
 const bkSt = {
   track:[], size:'', qmIn:0, qmOut:0, aussen:'',
   ziele:[], feel:'', stoert:'',
@@ -990,20 +996,149 @@ function bkRenderFinalSummary() {
     </div>`;
 }
 
+function bkCollectContactFields() {
+  return {
+    fname: (document.getElementById('bk-fname') && document.getElementById('bk-fname').value.trim()) || '',
+    lname: (document.getElementById('bk-lname') && document.getElementById('bk-lname').value.trim()) || '',
+    email: (document.getElementById('bk-femail') && document.getElementById('bk-femail').value.trim()) || '',
+    phone: (document.getElementById('bk-fphone') && document.getElementById('bk-fphone').value.trim()) || '',
+    city: (document.getElementById('bk-fcity') && document.getElementById('bk-fcity').value.trim()) || '',
+    note: bkSt.note || '',
+  };
+}
+
+function bkSummaryPlainText() {
+  const el = document.getElementById('bk-final-summary');
+  if (!el) return '';
+  return el.innerText.replace(/\s+\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim();
+}
+
+function bkBuildPdfRoot(contact) {
+  const summaryEl = document.getElementById('bk-final-summary');
+  const root = document.createElement('div');
+  root.className = 'bk-pdf-root';
+  root.setAttribute('aria-hidden', 'true');
+  const name = [contact.fname, contact.lname].filter(Boolean).join(' ');
+  root.innerHTML =
+    '<h2>' + bkT('submit.pdfTitle') + '</h2>' +
+    '<h3>' + bkT('submit.contactBlock') + '</h3>' +
+    '<p><strong>' + bkT('submit.field.name') + ':</strong> ' + name + '</p>' +
+    '<p><strong>' + bkT('submit.field.email') + ':</strong> ' + contact.email + '</p>' +
+    (contact.phone ? '<p><strong>' + bkT('submit.field.phone') + ':</strong> ' + contact.phone + '</p>' : '') +
+    (contact.city ? '<p><strong>' + bkT('submit.field.city') + ':</strong> ' + contact.city + '</p>' : '') +
+    (contact.note ? '<p><strong>' + bkT('submit.field.note') + ':</strong> ' + contact.note + '</p>' : '') +
+    (summaryEl ? summaryEl.innerHTML : '');
+  return root;
+}
+
+function bkGenerateSummaryPdf(contact) {
+  if (!window.html2pdf) return Promise.reject(new Error('html2pdf missing'));
+  const root = bkBuildPdfRoot(contact);
+  document.body.appendChild(root);
+  return window.html2pdf()
+    .set({
+      margin: [8, 8, 8, 8],
+      filename: bkT('submit.pdfName'),
+      image: { type: 'jpeg', quality: 0.92 },
+      html2canvas: { scale: 2, useCORS: true, logging: false },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+    })
+    .from(root)
+    .outputPdf('blob')
+    .then(function(blob) {
+      root.remove();
+      return blob;
+    })
+    .catch(function(err) {
+      root.remove();
+      throw err;
+    });
+}
+
+function bkDownloadBlob(blob, filename) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  a.rel = 'noopener';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  window.setTimeout(function() { URL.revokeObjectURL(url); }, 1000);
+}
+
+function bkSetSubmitBusy(busy) {
+  const btn = document.querySelector('#bk-step9 .bk-btn[data-bk-nav="submit"]');
+  if (!btn) return;
+  const label = btn.querySelector('.bk-btn__label');
+  if (busy) {
+    if (label && !btn.dataset.bkSubmitLabel) btn.dataset.bkSubmitLabel = label.textContent;
+    btn.classList.add('is-submitting');
+    btn.disabled = true;
+    if (label) label.textContent = bkT('submit.sending');
+    return;
+  }
+  btn.classList.remove('is-submitting');
+  btn.disabled = false;
+  if (label && btn.dataset.bkSubmitLabel) label.textContent = btn.dataset.bkSubmitLabel;
+}
+
+function bkSendAnfrage(contact, pdfBlob) {
+  if (!BK_WEB3FORMS_ACCESS_KEY) return Promise.reject(new Error('no access key'));
+  const name = [contact.fname, contact.lname].filter(Boolean).join(' ');
+  const formData = new FormData();
+  formData.append('access_key', BK_WEB3FORMS_ACCESS_KEY);
+  formData.append('subject', bkT('submit.mailSubject'));
+  formData.append('from_name', name || contact.fname);
+  formData.append('name', name || contact.fname);
+  formData.append('email', contact.email);
+  formData.append('replyto', contact.email);
+  if (contact.phone) formData.append('phone', contact.phone);
+  if (contact.city) formData.append('city', contact.city);
+  if (contact.note) formData.append('message', contact.note + '\n\n---\n\n' + bkSummaryPlainText());
+  else formData.append('message', bkSummaryPlainText());
+  formData.append('attachment', pdfBlob, bkT('submit.pdfName'));
+  return fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    body: formData,
+  }).then(function(res) {
+    return res.json();
+  }).then(function(data) {
+    if (!data || !data.success) throw new Error((data && data.message) || 'submit failed');
+    return data;
+  });
+}
+
 window.bkSubmit = function() {
-  const fn = document.getElementById('bk-fname').value.trim();
-  const em = document.getElementById('bk-femail').value.trim();
-  if (!fn || !em) { alert(bkT('alert.contact')); return; }
-  /* === FORMULAR-SUBMIT ===
-     Hier Formspree, Netlify Forms oder eigenen Endpoint eintragen.
-     Beispiel Formspree:
-       fetch('https://formspree.io/f/DEIN_FORMSPREE_BIIG_INTERIOR', {
-         method:'POST',
-         headers:{'Content-Type':'application/json'},
-         body: JSON.stringify({...bkSt, fname:fn, email:em})
-       });
-  */
-  bkGoTo(99);
+  const contact = bkCollectContactFields();
+  if (!contact.fname || !contact.email) {
+    alert(bkT('alert.contact'));
+    return;
+  }
+  if (!BK_WEB3FORMS_ACCESS_KEY) {
+    alert(bkT('alert.noFormKey'));
+    return;
+  }
+  if (!window.html2pdf) {
+    alert(bkT('alert.submitFail'));
+    return;
+  }
+  bkRenderFinalSummary();
+  bkSetSubmitBusy(true);
+  bkGenerateSummaryPdf(contact)
+    .then(function(pdfBlob) {
+      bkDownloadBlob(pdfBlob, bkT('submit.pdfName'));
+      return bkSendAnfrage(contact, pdfBlob);
+    })
+    .then(function() {
+      bkGoTo(99);
+    })
+    .catch(function() {
+      alert(bkT('alert.submitFail'));
+    })
+    .finally(function() {
+      bkSetSubmitBusy(false);
+    });
 };
 
 function bkUpdateDots(curr) {
