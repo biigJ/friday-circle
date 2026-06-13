@@ -371,47 +371,31 @@
     return { de: "ab 300 €", en: "from €300" };
   }
 
-  function bindIndexFilter() {
-    var grid = document.getElementById("kaufen-shop-grid");
-    var nav = document.getElementById("kaufen-shop-nav");
-    var back = document.getElementById("kaufen-index-back");
-    if (!grid || !nav) return;
+  var SHOP_NAV_REDIRECTS = {
+    moebel: "kaufen/tisch.html",
+    kleidung: "kaufen/sweater.html",
+    kunst: "kaufen/kunst.html",
+  };
 
-    var tiles = grid.querySelectorAll("[data-shop-group]");
-    var links = nav.querySelectorAll("[data-shop-filter]");
-    var activeFilter = "";
+  function shopNavKeyFromPath() {
+    var path = (location.pathname || "").toLowerCase();
+    if (path.indexOf("/tisch.html") >= 0) return "moebel";
+    if (path.indexOf("/sweater.html") >= 0) return "kleidung";
+    if (path.indexOf("/kunst.html") >= 0) return "kunst";
+    return "all";
+  }
 
-    function applyFilter(filter) {
-      activeFilter = filter || "";
-      links.forEach(function (link) {
-        link.classList.toggle("is-active", link.getAttribute("data-shop-filter") === activeFilter);
-      });
-      tiles.forEach(function (tile) {
-        var group = tile.getAttribute("data-shop-group");
-        var show = !activeFilter || group === activeFilter;
-        tile.classList.toggle("is-filtered-out", !show);
-      });
-      grid.classList.toggle("is-filtered", !!activeFilter);
-      if (back) back.hidden = !activeFilter;
+  function bindShopNav() {
+    var hash = (location.hash || "").replace(/^#/, "");
+    if (shopNavKeyFromPath() === "all" && SHOP_NAV_REDIRECTS[hash]) {
+      location.replace(SHOP_NAV_REDIRECTS[hash]);
+      return;
     }
 
-    links.forEach(function (link) {
-      link.addEventListener("click", function (e) {
-        e.preventDefault();
-        var filter = link.getAttribute("data-shop-filter");
-        applyFilter(activeFilter === filter ? "" : filter);
-      });
+    var active = shopNavKeyFromPath();
+    document.querySelectorAll(".kaufen-sidebar__nav [data-shop-nav]").forEach(function (link) {
+      link.classList.toggle("is-active", link.getAttribute("data-shop-nav") === active);
     });
-
-    if (back) {
-      back.addEventListener("click", function (e) {
-        if (!activeFilter) return;
-        e.preventDefault();
-        applyFilter("");
-      });
-    }
-
-    applyFilter("");
   }
 
   function inquiryRefForWork(work, imageIndex) {
@@ -670,7 +654,7 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     bindTileSlider(document.getElementById("kaufen-tisch-tile"));
-    bindIndexFilter();
+    bindShopNav();
     bindSweaterPage();
     bindTischPage();
     bindKunstPage();
