@@ -341,7 +341,7 @@
 
   function wgaCatalogHref(sectionId, workId) {
     if (!sectionId) return "wolfganggrope.html#wga-catalog-root";
-    var qs = "section=" + encodeURIComponent(sectionId);
+    var qs = "section=" + encodeURIComponent(sectionId) + "&view=catalog";
     if (workId) qs += "&work=" + encodeURIComponent(workId);
     return "wolfganggrope.html?" + qs + "#" + encodeURIComponent(sectionId);
   }

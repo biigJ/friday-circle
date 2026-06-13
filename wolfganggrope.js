@@ -1545,6 +1545,7 @@
     renderCatalog();
     initNavOnLight();
     loadBioText();
+    if (isShopCatalogView()) releaseCatalogViewLock();
     scrollToHashChapter();
   }
 
@@ -1557,12 +1558,29 @@
     }
   }
 
-  function hasCatalogSectionParam() {
+  function isShopCatalogView() {
     try {
-      return !!new URLSearchParams(location.search).get("section");
-    } catch (err) {
-      return false;
+      var params = new URLSearchParams(location.search);
+      if (params.get("view") === "catalog") return true;
+      if (params.get("section")) return true;
+      if (params.get("work")) return true;
+    } catch (err) {}
+    return false;
+  }
+
+  function releaseCatalogViewLock() {
+    openWorkId = null;
+    openInquiryWorkId = null;
+    if (popup) {
+      popup.hidden = true;
+      popup.setAttribute("aria-hidden", "true");
     }
+    if (inquiryPopup) {
+      inquiryPopup.hidden = true;
+      inquiryPopup.setAttribute("aria-hidden", "true");
+    }
+    document.body.style.overflow = "";
+    document.body.style.removeProperty("overflow");
   }
 
   function highlightCatalogWork(workId) {
@@ -1603,6 +1621,7 @@
       pendingHashScroll = null;
     }
     attempt = attempt || 0;
+    if (isShopCatalogView()) releaseCatalogViewLock();
     var id = hashTargetId();
     if (!catalog || !id) return;
 
@@ -1612,10 +1631,14 @@
     }
 
     if (worksById[id]) {
-      if (hasCatalogSectionParam()) {
+      if (isShopCatalogView()) {
         try {
           var sectionFromQuery = new URLSearchParams(location.search).get("section");
           if (sectionFromQuery) id = sectionFromQuery.trim();
+          else {
+            var section = workSectionById[id];
+            if (section) id = section.id;
+          }
         } catch (err) {}
       } else {
         window.requestAnimationFrame(function () {
@@ -1638,6 +1661,7 @@
     scrollToSection(id, { behavior: "auto", settle: true }).then(function () {
       var catalogWork = catalogViewWorkId();
       if (catalogWork) highlightCatalogWork(catalogWork);
+      if (isShopCatalogView()) releaseCatalogViewLock();
     });
     if (attempt < 6) {
       pendingHashScroll = window.setTimeout(function () {
@@ -1671,7 +1695,10 @@
   document.addEventListener("fc-lang-change", syncChaptersNavOffset);
   document.addEventListener("fc-lang-change", function () {
     if (catalog) renderCatalog();
-    if (openWorkId) openPopup(openWorkId);
+    if (openWorkId) {
+      if (isShopCatalogView()) releaseCatalogViewLock();
+      else openPopup(openWorkId);
+    }
     if (bioLoaded) applyBioText();
     if (openInquiryWorkId) {
       const work = worksById[openInquiryWorkId];
@@ -1732,12 +1759,20 @@
 
   window.addEventListener("load", function () {
     if (!catalog || !hashTargetId()) return;
+    if (isShopCatalogView()) releaseCatalogViewLock();
     scrollToHashChapter();
   });
 
   window.addEventListener("pageshow", function () {
+    if (isShopCatalogView()) releaseCatalogViewLock();
     if (!catalog || !hashTargetId()) return;
     scrollToHashChapter();
+  });
+
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "visible" && isShopCatalogView()) {
+      releaseCatalogViewLock();
+    }
   });
 
   if (document.readyState === "loading") {
