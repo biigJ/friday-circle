@@ -1242,6 +1242,10 @@ html[lang="de"] .en-t {
   border-color: #fff;
 }
 
+.fc-program-hero__slide--shop img {
+  object-position: center 65%;
+}
+
 .fc-program-hero__panel.fc-program-hero__panel--shop {
   max-width: 100%;
   width: 100%;
