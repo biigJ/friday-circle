@@ -7,7 +7,7 @@ const BK_TOTAL = 9;
  * Web3Forms Access Key — nach Account-Einrichtung hier eintragen.
  * Anleitung: https://web3forms.com  →  Formular anlegen  →  E-Mail: mail@bjgrope.de
  */
-const BK_WEB3FORMS_ACCESS_KEY = '';
+const BK_WEB3FORMS_ACCESS_KEY = '3ffad713-3ad6-491b-bf99-185a87b0d706';
 const bkSt = {
   track:[], size:'', qmIn:0, qmOut:0, aussen:'',
   ziele:[], feel:'', stoert:'',
