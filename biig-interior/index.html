@@ -1071,6 +1071,7 @@
       }
 
       .bi-hochbau-collage__cell {
+        position: relative;
         overflow: hidden;
         min-width: 0;
         height: 100%;
@@ -1082,6 +1083,57 @@
         object-fit: cover;
         display: block;
         filter: var(--bi-mood-filter);
+        transition: transform 0.45s ease;
+      }
+
+      .bi-hochbau-collage__cell:hover img,
+      .bi-hochbau-collage__cell:focus-within img {
+        transform: scale(1.04);
+      }
+
+      .bi-hochbau-collage__hover {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.2em;
+        padding: clamp(4px, 0.7vw, 8px);
+        background: rgba(10, 10, 10, 0.52);
+        color: #ffffff;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 0.28s ease;
+        pointer-events: none;
+      }
+
+      .bi-hochbau-collage__cell:hover .bi-hochbau-collage__hover,
+      .bi-hochbau-collage__cell:focus-within .bi-hochbau-collage__hover {
+        opacity: 1;
+      }
+
+      .bi-hochbau-collage__hover .bi-tile__keyword {
+        font-size: clamp(0.48rem, 0.62vw, 0.62rem);
+        letter-spacing: 0.04em;
+      }
+
+      .bi-hochbau-collage__hover .bi-tile__concrete {
+        font-size: clamp(0.52rem, 0.72vw, 0.68rem);
+        line-height: 1.2;
+      }
+
+      .bi-tile--hochbau-collage:has(.bi-hochbau-collage__cell:hover) .bi-tile__label,
+      .bi-tile--hochbau-collage:has(.bi-hochbau-collage__cell:focus-within) .bi-tile__label {
+        opacity: 0;
+      }
+
+      @media (hover: none), (pointer: coarse) {
+        .bi-hochbau-collage__cell:hover img,
+        .bi-hochbau-collage__cell:focus-within img {
+          transform: none;
+        }
       }
 
       .bi-tile--offer .bi-tile__cta {
@@ -3523,20 +3575,6 @@
           },
         ];
 
-        var PORTFOLIO_LIGHTBOX_SEQUENCE = [
-          { type: "project", id: "dieffe33" },
-          { type: "project", id: "altbauwohnung" },
-          { type: "project", id: "homeoffice" },
-          { type: "project", id: "zweihaeuser" },
-          { type: "project", id: "loft" },
-          { type: "project", id: "ordnung" },
-          { type: "project", id: "oase" },
-          { type: "project", id: "umbauten" },
-          { type: "project", id: "vinothek" },
-          { type: "hochbau" },
-          { type: "project", id: "moebel" },
-        ];
-
         var HOCHBAU_TILE_LABEL = {
           tileLabelDe: "Bauprojekte",
           tileLabelEn: "Building projects",
@@ -3700,8 +3738,8 @@
         var mobileTileCarousels = [];
         var mobileTileCarouselViewportActive = null;
         var mobileTileCarouselWidth = 0;
-        var portfolioLightboxItems = null;
         var lightboxGalleryItems = null;
+        var lightboxContext = null;
         var lightboxIndex = 0;
         var lightboxSwipeApi = null;
         var lightboxTrackReady = false;
@@ -3785,90 +3823,27 @@
           return getProjectNameLabel(project, lang);
         }
 
-        function buildPortfolioLightboxItems() {
-          var items = [];
-          PORTFOLIO_LIGHTBOX_SEQUENCE.forEach(function (entry) {
-            if (entry.type === "project") {
-              var project = PROJECTS[entry.id];
-              if (!project || !project.images || !project.images.length) return;
-              project.images.forEach(function (src, imageIndex) {
-                items.push({
-                  src: src,
-                  projectId: entry.id,
-                  imageIndex: imageIndex,
-                  kachelLabelDe: getProjectKachelLabel(project, "de"),
-                  kachelLabelEn: getProjectKachelLabel(project, "en"),
-                  projectLabelDe: getProjectImageLabel(project, imageIndex, "de"),
-                  projectLabelEn: getProjectImageLabel(project, imageIndex, "en"),
-                  altDe: getProjectImageLabel(project, imageIndex, "de"),
-                  altEn: getProjectImageLabel(project, imageIndex, "en"),
-                  objectPosition: "",
-                });
-                if (imageIndex === 0 && projectHasInfoSlide(entry.id)) {
-                  items.push({
-                    isInfo: true,
-                    projectId: entry.id,
-                    kachelLabelDe: getProjectKachelLabel(project, "de"),
-                    kachelLabelEn: getProjectKachelLabel(project, "en"),
-                  });
-                }
-              });
-              return;
-            }
-            if (entry.type === "hochbau") {
-              HOCHBAU_IDS.forEach(function (id, hochbauIndex) {
-                var project = PROJECTS[id];
-                if (!project || !project.images || !project.images.length) return;
-                project.images.forEach(function (src, imageIndex) {
-                  items.push({
-                    src: src,
-                    projectId: id,
-                    imageIndex: imageIndex,
-                    hochbauIndex: hochbauIndex,
-                    kachelLabelDe: HOCHBAU_TILE_LABEL.tileLabelDe,
-                    kachelLabelEn: HOCHBAU_TILE_LABEL.tileLabelEn,
-                    projectLabelDe: getProjectImageLabel(project, imageIndex, "de"),
-                    projectLabelEn: getProjectImageLabel(project, imageIndex, "en"),
-                    altDe: getProjectImageLabel(project, imageIndex, "de"),
-                    altEn: getProjectImageLabel(project, imageIndex, "en"),
-                    objectPosition: project.cropPosition || "center center",
-                  });
-                });
-              });
-            }
-          });
-          return items;
-        }
-
-        function ensurePortfolioLightboxItems() {
-          if (!portfolioLightboxItems) {
-            portfolioLightboxItems = buildPortfolioLightboxItems();
-          }
-          return portfolioLightboxItems;
-        }
-
-        function findPortfolioLightboxIndex(projectId, imageIndex) {
-          var items = ensurePortfolioLightboxItems();
+        function findProjectLightboxStartIndex(items, imageIndex) {
           for (var i = 0; i < items.length; i++) {
-            if (items[i].projectId === projectId && items[i].imageIndex === (imageIndex || 0)) {
-              return i;
-            }
-          }
-          for (var j = 0; j < items.length; j++) {
-            if (items[j].projectId === projectId) return j;
+            if (!items[i].isInfo && items[i].imageIndex === (imageIndex || 0)) return i;
           }
           return 0;
         }
 
-        function findHochbauPortfolioIndex(hochbauIndex) {
-          var items = ensurePortfolioLightboxItems();
-          for (var i = 0; i < items.length; i++) {
-            if (items[i].hochbauIndex === hochbauIndex) return i;
+        function buildLightboxItemsForProject(projectId, imageIndex) {
+          return buildMobileProjectLightboxItems(projectId, imageIndex || 0);
+        }
+
+        function rebuildLightboxGalleryFromContext() {
+          if (!lightboxContext) return;
+          if (lightboxContext.type === "project") {
+            lightboxGalleryItems = buildLightboxItemsForProject(
+              lightboxContext.projectId,
+              lightboxContext.imageIndex
+            );
+          } else if (lightboxContext.type === "hochbau") {
+            lightboxGalleryItems = buildMobileHochbauLightboxItems(lightboxContext.index);
           }
-          for (var j = 0; j < items.length; j++) {
-            if (items[j].hochbauIndex != null) return j;
-          }
-          return 0;
         }
 
         function isMobileLightboxViewport() {
@@ -4194,7 +4169,8 @@
         function buildLightboxTrack() {
           if (!lightboxTrack) return;
           var lang = getLang();
-          var items = lightboxGalleryItems || ensurePortfolioLightboxItems();
+          var items = lightboxGalleryItems;
+          if (!items || !items.length) return;
           lightboxTrack.innerHTML = "";
           items.forEach(function (item) {
             if (item.isInfo) {
@@ -4461,15 +4437,11 @@
           closeBuyPopup();
           var project = PROJECTS[projectId];
           if (!lightboxEl || !project || !project.images.length) return;
-          var startIndex = findPortfolioLightboxIndex(projectId, index || 0);
-          if (isMobileLightboxViewport()) {
-            lightboxGalleryItems = buildMobileProjectLightboxItems(projectId, index || 0);
-            lightboxIndex = 0;
-          } else {
-            lightboxGalleryItems = ensurePortfolioLightboxItems();
-            lightboxIndex = startIndex;
-          }
-          if (!lightboxTrackReady) buildLightboxTrack();
+          lightboxContext = { type: "project", projectId: projectId, imageIndex: index || 0 };
+          lightboxGalleryItems = buildLightboxItemsForProject(projectId, index || 0);
+          lightboxIndex = findProjectLightboxStartIndex(lightboxGalleryItems, index || 0);
+          lightboxTrackReady = false;
+          buildLightboxTrack();
           setLightboxSlide(lightboxIndex, false);
           showLightbox();
           initLightboxSwipe();
@@ -4480,15 +4452,11 @@
           closeOfferPopup();
           closeBuyPopup();
           if (!lightboxEl) return;
-          var startIndex = findHochbauPortfolioIndex(index || 0);
-          if (isMobileLightboxViewport()) {
-            lightboxGalleryItems = buildMobileHochbauLightboxItems(index || 0);
-            lightboxIndex = 0;
-          } else {
-            lightboxGalleryItems = ensurePortfolioLightboxItems();
-            lightboxIndex = startIndex;
-          }
-          if (!lightboxTrackReady) buildLightboxTrack();
+          lightboxContext = { type: "hochbau", index: index || 0 };
+          lightboxGalleryItems = buildMobileHochbauLightboxItems(index || 0);
+          lightboxIndex = 0;
+          lightboxTrackReady = false;
+          buildLightboxTrack();
           setLightboxSlide(lightboxIndex, false);
           showLightbox();
           initLightboxSwipe();
@@ -4500,6 +4468,7 @@
           if (lightboxSwipeApi && lightboxSwipeApi.destroy) lightboxSwipeApi.destroy();
           lightboxSwipeApi = null;
           lightboxGalleryItems = null;
+          lightboxContext = null;
           lightboxEl.classList.remove("is-open");
           lightboxEl.hidden = true;
           lightboxEl.setAttribute("aria-hidden", "true");
@@ -4859,6 +4828,18 @@
             img.loading = i === 0 ? "eager" : "lazy";
             img.style.objectPosition = HOCHBAU_THUMB_FOCUS[i] || "center center";
             cell.appendChild(img);
+            var hover = document.createElement("span");
+            hover.className = "bi-hochbau-collage__hover";
+            hover.setAttribute("aria-hidden", "true");
+            var keywordEl = document.createElement("span");
+            keywordEl.className = "bi-tile__keyword";
+            keywordEl.textContent = pick(project, "keyword");
+            var concreteEl = document.createElement("span");
+            concreteEl.className = "bi-tile__concrete";
+            concreteEl.textContent = pick(project, "concrete");
+            hover.appendChild(keywordEl);
+            hover.appendChild(concreteEl);
+            cell.appendChild(hover);
             hochbauCollageInner.appendChild(cell);
           });
         }
@@ -5016,11 +4997,15 @@
             bodyEl.textContent = pick(project, "body");
             buildSlider(project.images, pick(project, "title"), project);
           }
-          if (lightboxEl && !lightboxEl.hidden) {
-            if (!lightboxGalleryItems) lightboxGalleryItems = ensurePortfolioLightboxItems();
+          if (lightboxEl && !lightboxEl.hidden && lightboxContext) {
+            var prevIndex = lightboxIndex;
+            rebuildLightboxGalleryFromContext();
             lightboxTrackReady = false;
             buildLightboxTrack();
-            setLightboxSlide(lightboxIndex, false);
+            setLightboxSlide(
+              Math.min(prevIndex, (lightboxGalleryItems && lightboxGalleryItems.length) || 1) - 1,
+              false
+            );
             initLightboxSwipe();
           }
           if (buyPopup && !buyPopup.hidden) {
