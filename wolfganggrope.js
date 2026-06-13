@@ -1481,6 +1481,16 @@
     renderCatalog();
     initNavOnLight();
     loadBioText();
+    scrollToHashChapter();
+  }
+
+  function scrollToHashChapter() {
+    var id = (location.hash || "").replace(/^#/, "");
+    if (!id || id === "wga-catalog-root" || id === "top") return;
+    if (!document.getElementById(id)) return;
+    window.requestAnimationFrame(function () {
+      scrollToSection(id);
+    });
   }
 
   if (popup) {

@@ -359,6 +359,22 @@ body.kaufen-page {
   background: #1a1a1a;
 }
 
+.kaufen-swatch--chocolate {
+  background: #4e342e;
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.kaufen-product__figure .kaufen-tile__slider {
+  width: 100%;
+  height: 100%;
+}
+
+.kaufen-product__figure .kaufen-tile__nav,
+.kaufen-product__figure .kaufen-tile__dots {
+  z-index: 3;
+}
+
+
 .kaufen-size-grid {
   display: flex;
   flex-wrap: wrap;

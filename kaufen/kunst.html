@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Kunst | Kaufen</title>
-    <meta name="description" content="Kunst von Wolfgang Grope — Auswahl und Weiterleitung zum Katalog." />
+    <meta name="description" content="Originale von Wolfgang Grope — Auswahl und Weiterleitung zum Katalog." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -42,22 +42,19 @@
         <a class="kaufen-back" href="kaufen/index.html#kunst"><span class="de-t">← zurück</span><span class="en-t">← back</span></a>
 
         <div class="kaufen-product">
-          <figure class="kaufen-product__figure">
-            <img
-              src="../assets/wolfgang-grope/02 Knalliges Acryl 1970/WG-Ölmalerei-1960-07.jpg"
-              alt="Wolfgang Grope — Ölmalerei, 1960"
-              width="900"
-              height="900"
-              decoding="async"
-            />
+          <figure class="kaufen-product__figure" id="kaufen-kunst-slider" aria-live="polite">
+            <div class="kaufen-tile__slider" id="kaufen-kunst-slides"></div>
+            <button type="button" class="kaufen-tile__nav kaufen-tile__nav--prev" id="kaufen-kunst-prev" aria-label="Vorheriges Bild" hidden>‹</button>
+            <button type="button" class="kaufen-tile__nav kaufen-tile__nav--next" id="kaufen-kunst-next" aria-label="Nächstes Bild" hidden>›</button>
+            <div class="kaufen-tile__dots" id="kaufen-kunst-dots" aria-hidden="true"></div>
           </figure>
 
           <div class="kaufen-product__info">
             <h1 class="kaufen-product__title">Kunst</h1>
             <p class="kaufen-product__price">300 € – 2.500 €</p>
             <p class="kaufen-product__note">
-              <span class="de-t">Originale und limitierte Drucke aus dem Nachlass Wolfgang Grope (1955–2005).</span>
-              <span class="en-t">Originals and limited prints from the estate of Wolfgang Grope (1955–2005).</span>
+              <span class="de-t">Nur Originale aus dem Nachlass Wolfgang Grope (1955–2005).</span>
+              <span class="en-t">Originals only from the estate of Wolfgang Grope (1955–2005).</span>
             </p>
 
             <div>
@@ -94,8 +91,8 @@
                   <ul>
                     <li><span class="de-t">Grafik & Zeichnung: ab 300 €</span><span class="en-t">Prints & drawing: from €300</span></li>
                     <li><span class="de-t">Malerei & Aquarell: 500 € – 1.200 €</span><span class="en-t">Painting & watercolour: €500 – €1,200</span></li>
-                    <li><span class="de-t">Keramik & Skulptur: 800 € – 2.500 €</span><span class="en-t">Ceramics & sculpture: €800 – €2,500</span></li>
-                    <li><span class="de-t">Jedes Werk im Katalog mit Anfrage-Option</span><span class="en-t">Every work in the catalog with enquiry option</span></li>
+                    <li><span class="de-t">Keramik: 800 € – 2.500 €</span><span class="en-t">Ceramics: €800 – €2,500</span></li>
+                    <li><span class="de-t">Nur Originale — keine Drucke</span><span class="en-t">Originals only — no prints</span></li>
                   </ul>
                 </div>
               </details>
@@ -107,8 +104,8 @@
                 </summary>
                 <div class="kaufen-details__body">
                   <p>
-                    <span class="de-t">Nach der Auswahl wirst Du zum Werkkatalog von Wolfgang Grope Kunstwerke weitergeleitet. Dort kannst Du einzelne Werke anfragen.</span>
-                    <span class="en-t">After selecting a category you will be redirected to the Wolfgang Grope art catalog, where you can enquire about individual works.</span>
+                    <span class="de-t">Nach der Auswahl wirst Du zum Werkkatalog von Wolfgang Grope Kunstwerke weitergeleitet — direkt zum gewählten Kapitel. Dort kannst Du einzelne Werke mit Klick auf den Punkt rechts oben anfragen.</span>
+                    <span class="en-t">After selecting a category you will be redirected to the Wolfgang Grope art catalog — directly to the chosen chapter. There you can enquire about individual works by clicking the dot in the top right.</span>
                   </p>
                 </div>
               </details>
@@ -119,6 +116,7 @@
     </div>
 
     <div id="fc-site-footer"></div>
+    <script src="../data/wga-catalog.js"></script>
     <script src="../nav.js" defer></script>
     <script src="kaufen.js" defer></script>
   </body>

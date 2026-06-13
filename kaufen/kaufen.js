@@ -144,20 +144,141 @@
   function bindKunstPage() {
     var go = document.getElementById("kaufen-kunst-go");
     var options = document.getElementById("kaufen-kunst-options");
-    if (!go || !options) return;
+    var slidesRoot = document.getElementById("kaufen-kunst-slides");
+    var dotsRoot = document.getElementById("kaufen-kunst-dots");
+    var prev = document.getElementById("kaufen-kunst-prev");
+    var next = document.getElementById("kaufen-kunst-next");
+    if (!go || !options || !slidesRoot) return;
+
+    var catalog = window.__WGA_CATALOG__;
+    var categories = {
+      grafik: {
+        chapters: ["03 Frühe Radierungen", "04 Holzschnitte", "06 Mehr Radierungen", "10 2000er Jahre"],
+      },
+      malerei: {
+        chapters: ["01 28 Jahre alt", "02 Knalliges Acryl", "07 Neue Familie", "08 80er Jahre", "09 90er Jahre"],
+      },
+      keramik: {
+        chapters: ["11 Keramik"],
+      },
+    };
 
     var selected = "grafik";
+    var slideIndex = 0;
+    var currentImages = [];
+
+    function workIsAvailable(work) {
+      return work && !work.empty && work.berlinStatus !== "unavailable" && work.images && work.images[0];
+    }
+
+    function sectionIdForCategory(key) {
+      if (!catalog || !catalog.sections) return "";
+      var chapters = categories[key].chapters;
+      for (var i = 0; i < catalog.sections.length; i++) {
+        var section = catalog.sections[i];
+        if (chapters.indexOf(section.chapter) === -1) continue;
+        if ((section.works || []).some(workIsAvailable)) return section.id;
+      }
+      return "";
+    }
+
+    function imagesForCategory(key) {
+      if (!catalog || !catalog.sections) return [];
+      var chapters = categories[key].chapters;
+      var images = [];
+      catalog.sections.forEach(function (section) {
+        if (chapters.indexOf(section.chapter) === -1) return;
+        (section.works || []).forEach(function (work) {
+          if (!workIsAvailable(work)) return;
+          images.push("../" + work.images[0]);
+        });
+      });
+      return images.slice(0, 16);
+    }
+
+    function showKunstSlide(i) {
+      if (!currentImages.length) return;
+      slideIndex = (i + currentImages.length) % currentImages.length;
+      slidesRoot.querySelectorAll(".kaufen-tile__slide").forEach(function (slide, n) {
+        slide.classList.toggle("is-active", n === slideIndex);
+      });
+      if (dotsRoot) {
+        dotsRoot.querySelectorAll(".kaufen-tile__dot").forEach(function (dot, n) {
+          dot.classList.toggle("is-active", n === slideIndex);
+        });
+      }
+    }
+
+    function renderKunstSlider(key) {
+      currentImages = imagesForCategory(key);
+      slidesRoot.innerHTML = "";
+      if (dotsRoot) dotsRoot.innerHTML = "";
+
+      if (!currentImages.length) {
+        var empty = document.createElement("div");
+        empty.className = "kaufen-tile__slide is-active";
+        var emptyImg = document.createElement("img");
+        emptyImg.src = "../assets/wolfgang-grope/placeholder.svg";
+        emptyImg.alt = "";
+        empty.appendChild(emptyImg);
+        slidesRoot.appendChild(empty);
+        if (prev) prev.hidden = true;
+        if (next) next.hidden = true;
+        return;
+      }
+
+      currentImages.forEach(function (src, n) {
+        var slide = document.createElement("div");
+        slide.className = "kaufen-tile__slide" + (n === 0 ? " is-active" : "");
+        var img = document.createElement("img");
+        img.src = src;
+        img.alt = "";
+        img.decoding = "async";
+        slide.appendChild(img);
+        slidesRoot.appendChild(slide);
+
+        if (dotsRoot && currentImages.length > 1) {
+          var dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = "kaufen-tile__dot" + (n === 0 ? " is-active" : "");
+          dot.addEventListener("click", function (e) {
+            e.preventDefault();
+            showKunstSlide(n);
+          });
+          dotsRoot.appendChild(dot);
+        }
+      });
+
+      var multi = currentImages.length > 1;
+      if (prev) prev.hidden = !multi;
+      if (next) next.hidden = !multi;
+      slideIndex = 0;
+    }
+
+    if (prev) {
+      prev.addEventListener("click", function (e) {
+        e.preventDefault();
+        showKunstSlide(slideIndex - 1);
+      });
+    }
+    if (next) {
+      next.addEventListener("click", function (e) {
+        e.preventDefault();
+        showKunstSlide(slideIndex + 1);
+      });
+    }
 
     bindChoiceGroup(options, function (value) {
       selected = value;
+      renderKunstSlider(selected);
     });
 
     go.addEventListener("click", function () {
-      var target = "../wolfganggrope.html#wga-catalog-root";
-      if (selected === "malerei") target += "?focus=malerei";
-      if (selected === "keramik") target += "?focus=keramik";
-      window.location.href = target;
+      var sectionId = sectionIdForCategory(selected);
+      window.location.href = sectionId ? "wolfganggrope.html#" + sectionId : "wolfganggrope.html#wga-catalog-root";
     });
+
+    renderKunstSlider(selected);
   }
 
   document.addEventListener("DOMContentLoaded", function () {
