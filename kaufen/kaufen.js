@@ -312,8 +312,36 @@
     applyFilter("");
   }
 
+  function inquiryRefForWork(work, imageIndex) {
+    if (!work) return "";
+    imageIndex = imageIndex || 0;
+    var id = work.catalogId || work.id || "";
+    var pair = String(id).match(/^(?:wg|WG)-(\d+)-(\d{3})-a$/i);
+    if (pair) {
+      var chapter = pair[1].padStart(2, "0");
+      var view = imageIndex === 1 ? "b" : imageIndex === 0 ? "a" : "";
+      var workNo = view ? pair[2] + "-" + view : pair[2];
+      var yearMatch = work.year && work.year !== "—" ? String(work.year).match(/(\d{4})/) : null;
+      if (yearMatch) return chapter + "-" + workNo + "-" + yearMatch[1];
+      return chapter + "-" + workNo;
+    }
+    var match = String(id).match(/^(?:wg|WG)-(\d+)-(\d{3})$/i);
+    if (!match) return "";
+    var chapterNum = match[1].padStart(2, "0");
+    var workNum = match[2];
+    var year = work.year && work.year !== "—" ? String(work.year).match(/(\d{4})/) : null;
+    if (year) return chapterNum + "-" + workNum + "-" + year[1];
+    return chapterNum + "-" + workNum;
+  }
+
+  function inquirySubjectForWork(work, imageIndex) {
+    var ref = inquiryRefForWork(work, imageIndex);
+    return ref ? "Anfrage " + ref : "Anfrage";
+  }
+
   function bindKunstPage() {
     var go = document.getElementById("kaufen-kunst-go");
+    var order = document.getElementById("kaufen-kunst-order");
     var options = document.getElementById("kaufen-kunst-options");
     var priceEl = document.getElementById("kaufen-kunst-price");
     var sectionLabelEl = document.getElementById("kaufen-kunst-section-label");
@@ -325,6 +353,7 @@
 
     var catalog = window.__WGA_CATALOG__;
     var sectionById = {};
+    var worksById = {};
     var selected = "";
     var slideIndex = 0;
     var currentSlides = [];
@@ -337,7 +366,17 @@
       if (!catalog || !catalog.sections) return;
       catalog.sections.forEach(function (section) {
         sectionById[section.id] = section;
+        (section.works || []).forEach(function (work) {
+          if (work && work.id) worksById[work.id] = work;
+        });
       });
+    }
+
+    function updateOrderMail() {
+      if (!order) return;
+      var slide = currentSlides[slideIndex];
+      var work = slide ? worksById[slide.workId] : null;
+      order.href = "mailto:" + MAIL + "?subject=" + encodeURIComponent(inquirySubjectForWork(work, 0));
     }
 
     function worksForCategory(categoryId) {
@@ -399,6 +438,7 @@
         });
       }
       updateSectionLabel();
+      updateOrderMail();
     }
 
     function renderKunstSlider(categoryId) {
@@ -417,6 +457,7 @@
         if (prev) prev.hidden = true;
         if (next) next.hidden = true;
         updateSectionLabel();
+        updateOrderMail();
         return;
       }
 
@@ -451,6 +492,7 @@
       if (next) next.hidden = !multi;
       slideIndex = 0;
       updateSectionLabel();
+      updateOrderMail();
     }
 
     function selectCategory(categoryId) {
@@ -508,6 +550,7 @@
     } else {
       updatePrice("");
       updateSectionLabel();
+      updateOrderMail();
     }
   }
 
