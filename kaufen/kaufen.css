@@ -385,6 +385,7 @@ body.kaufen-page {
 .kaufen-kunst-media .kaufen-product__figure--slider {
   width: 100%;
   aspect-ratio: 1;
+  border: 0;
 }
 
 .kaufen-product__figure--slider .kaufen-tile__slider,
