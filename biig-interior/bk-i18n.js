@@ -193,6 +193,7 @@ const BK_STRINGS = {
   'alert.contact': { de: 'Bitte Vorname und E-Mail ausfüllen.', en: 'Please enter your first name and email.' },
   'alert.noFormKey': { de: 'E-Mail-Versand ist noch nicht eingerichtet. Bitte Web3Forms Access Key in biig-konfigurator.js eintragen (siehe Anleitung).', en: 'Email sending is not set up yet. Please add the Web3Forms access key in biig-konfigurator.js.' },
   'alert.submitFail': { de: 'Senden fehlgeschlagen. Bitte später erneut versuchen oder mail@bjgrope.de direkt schreiben.', en: 'Sending failed. Please try again later or email mail@bjgrope.de directly.' },
+  'alert.submitPdfFail': { de: 'PDF konnte nicht erstellt werden — Anfrage wird trotzdem per E-Mail gesendet.', en: 'Could not create PDF — your enquiry will still be sent by email.' },
   'submit.sending': { de: 'Wird gesendet …', en: 'Sending …' },
   'submit.pdfName': { de: 'biig-interior-anfrage.pdf', en: 'biig-interior-enquiry.pdf' },
   'submit.pdfTitle': { de: 'biig Interior — Honorarrechner Anfrage', en: 'biig Interior — fee calculator enquiry' },

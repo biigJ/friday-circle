@@ -996,6 +996,32 @@ function bkRenderFinalSummary() {
     </div>`;
 }
 
+function bkEscapeHtml(str) {
+  return String(str || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function bkWithTimeout(promise, ms, label) {
+  return new Promise(function(resolve, reject) {
+    var timer = window.setTimeout(function() {
+      reject(new Error((label || 'timeout') + ' after ' + ms + 'ms'));
+    }, ms);
+    Promise.resolve(promise).then(
+      function(val) {
+        window.clearTimeout(timer);
+        resolve(val);
+      },
+      function(err) {
+        window.clearTimeout(timer);
+        reject(err);
+      }
+    );
+  });
+}
+
 function bkCollectContactFields() {
   return {
     fname: (document.getElementById('bk-fname') && document.getElementById('bk-fname').value.trim()) || '',
@@ -1014,20 +1040,20 @@ function bkSummaryPlainText() {
 }
 
 function bkBuildPdfRoot(contact) {
-  const summaryEl = document.getElementById('bk-final-summary');
   const root = document.createElement('div');
   root.className = 'bk-pdf-root';
   root.setAttribute('aria-hidden', 'true');
   const name = [contact.fname, contact.lname].filter(Boolean).join(' ');
+  const summaryText = bkSummaryPlainText();
   root.innerHTML =
-    '<h2>' + bkT('submit.pdfTitle') + '</h2>' +
-    '<h3>' + bkT('submit.contactBlock') + '</h3>' +
-    '<p><strong>' + bkT('submit.field.name') + ':</strong> ' + name + '</p>' +
-    '<p><strong>' + bkT('submit.field.email') + ':</strong> ' + contact.email + '</p>' +
-    (contact.phone ? '<p><strong>' + bkT('submit.field.phone') + ':</strong> ' + contact.phone + '</p>' : '') +
-    (contact.city ? '<p><strong>' + bkT('submit.field.city') + ':</strong> ' + contact.city + '</p>' : '') +
-    (contact.note ? '<p><strong>' + bkT('submit.field.note') + ':</strong> ' + contact.note + '</p>' : '') +
-    (summaryEl ? summaryEl.innerHTML : '');
+    '<h2>' + bkEscapeHtml(bkT('submit.pdfTitle')) + '</h2>' +
+    '<h3>' + bkEscapeHtml(bkT('submit.contactBlock')) + '</h3>' +
+    '<p><strong>' + bkEscapeHtml(bkT('submit.field.name')) + ':</strong> ' + bkEscapeHtml(name) + '</p>' +
+    '<p><strong>' + bkEscapeHtml(bkT('submit.field.email')) + ':</strong> ' + bkEscapeHtml(contact.email) + '</p>' +
+    (contact.phone ? '<p><strong>' + bkEscapeHtml(bkT('submit.field.phone')) + ':</strong> ' + bkEscapeHtml(contact.phone) + '</p>' : '') +
+    (contact.city ? '<p><strong>' + bkEscapeHtml(bkT('submit.field.city')) + ':</strong> ' + bkEscapeHtml(contact.city) + '</p>' : '') +
+    (contact.note ? '<p><strong>' + bkEscapeHtml(bkT('submit.field.note')) + ':</strong> ' + bkEscapeHtml(contact.note) + '</p>' : '') +
+    (summaryText ? '<pre style="white-space:pre-wrap;font-family:Helvetica,Arial,sans-serif;font-size:11px;line-height:1.45;margin:14px 0 0;padding:0;border:0;background:transparent">' + bkEscapeHtml(summaryText) + '</pre>' : '');
   return root;
 }
 
@@ -1035,16 +1061,26 @@ function bkGenerateSummaryPdf(contact) {
   if (!window.html2pdf) return Promise.reject(new Error('html2pdf missing'));
   const root = bkBuildPdfRoot(contact);
   document.body.appendChild(root);
-  return window.html2pdf()
+  void root.offsetHeight;
+  var worker = window.html2pdf()
     .set({
       margin: [8, 8, 8, 8],
       filename: bkT('submit.pdfName'),
-      image: { type: 'jpeg', quality: 0.92 },
-      html2canvas: { scale: 2, useCORS: true, logging: false },
+      image: { type: 'jpeg', quality: 0.86 },
+      html2canvas: {
+        scale: 1.25,
+        useCORS: true,
+        logging: false,
+        scrollX: 0,
+        scrollY: 0,
+        windowWidth: root.scrollWidth,
+        windowHeight: root.scrollHeight,
+      },
       jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+      pagebreak: { mode: ['avoid-all', 'css', 'legacy'] },
     })
-    .from(root)
-    .outputPdf('blob')
+    .from(root);
+  return bkWithTimeout(worker.outputPdf('blob'), 35000, 'pdf')
     .then(function(blob) {
       root.remove();
       return blob;
@@ -1080,7 +1116,10 @@ function bkSetSubmitBusy(busy) {
   }
   btn.classList.remove('is-submitting');
   btn.disabled = false;
-  if (label && btn.dataset.bkSubmitLabel) label.textContent = btn.dataset.bkSubmitLabel;
+  if (label && btn.dataset.bkSubmitLabel) {
+    label.textContent = btn.dataset.bkSubmitLabel;
+    delete btn.dataset.bkSubmitLabel;
+  }
 }
 
 function bkSendAnfrage(contact, pdfBlob) {
@@ -1097,11 +1136,11 @@ function bkSendAnfrage(contact, pdfBlob) {
   if (contact.city) formData.append('city', contact.city);
   if (contact.note) formData.append('message', contact.note + '\n\n---\n\n' + bkSummaryPlainText());
   else formData.append('message', bkSummaryPlainText());
-  formData.append('attachment', pdfBlob, bkT('submit.pdfName'));
-  return fetch('https://api.web3forms.com/submit', {
+  if (pdfBlob) formData.append('attachment', pdfBlob, bkT('submit.pdfName'));
+  return bkWithTimeout(fetch('https://api.web3forms.com/submit', {
     method: 'POST',
     body: formData,
-  }).then(function(res) {
+  }), 45000, 'submit').then(function(res) {
     return res.json();
   }).then(function(data) {
     if (!data || !data.success) throw new Error((data && data.message) || 'submit failed');
@@ -1119,15 +1158,20 @@ window.bkSubmit = function() {
     alert(bkT('alert.noFormKey'));
     return;
   }
-  if (!window.html2pdf) {
-    alert(bkT('alert.submitFail'));
-    return;
-  }
   bkRenderFinalSummary();
   bkSetSubmitBusy(true);
-  bkGenerateSummaryPdf(contact)
-    .then(function(pdfBlob) {
-      bkDownloadBlob(pdfBlob, bkT('submit.pdfName'));
+  var pdfBlob = null;
+  var pdfPromise = window.html2pdf
+    ? bkGenerateSummaryPdf(contact).catch(function() {
+        window.alert(bkT('alert.submitPdfFail'));
+        return null;
+      })
+    : Promise.resolve(null);
+
+  pdfPromise
+    .then(function(blob) {
+      pdfBlob = blob;
+      if (pdfBlob) bkDownloadBlob(pdfBlob, bkT('submit.pdfName'));
       return bkSendAnfrage(contact, pdfBlob);
     })
     .then(function() {
