@@ -1243,7 +1243,8 @@ html[lang="de"] .en-t {
 }
 
 .fc-program-hero__slide--shop img {
-  object-position: center 94%;
+  object-position: center center;
+  transform: translateY(28%);
 }
 
 .fc-program-hero__panel.fc-program-hero__panel--shop {
