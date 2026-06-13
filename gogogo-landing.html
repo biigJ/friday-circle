@@ -2245,12 +2245,12 @@
         box-sizing: border-box;
       }
       .gogl-program-slide-card--hero .gogl-video-overlay-footer .gogl-slide-footer-chrome {
-        position: relative;
-        left: auto;
-        right: auto;
-        bottom: auto;
-        flex: 0 0 auto;
-        padding-right: 0;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 6;
+        padding-right: clamp(16px, 3vw, 32px);
       }
       .gogl-program-slide-card--hero .gogl-hero-slide__center-headline {
         position: absolute;
@@ -2269,7 +2269,7 @@
         text-shadow: 0 2px 18px rgba(0, 0, 0, 0.65);
         pointer-events: none;
         z-index: 3;
-        width: min(92%, 22ch);
+        width: min(92%, 28ch);
       }
       .gogl-program-slide-card--hero .gogl-hero-cards-block {
         flex: 0 0 auto;
@@ -2278,9 +2278,9 @@
         flex-direction: column;
         align-items: stretch;
         justify-content: flex-end;
-        margin: 0 0 clamp(10px, 1.6vh, 16px);
-        width: 100%;
-        max-width: min(400px, 100%);
+        margin: 0 auto calc(var(--gogl-bar-h) + clamp(34px, 4.8vh, 50px));
+        width: min(94%, var(--content-max));
+        max-width: min(var(--content-max), calc(100% - 2 * clamp(16px, 3vw, 32px)));
         transform: none;
       }
       .gogl-program-slide-card--hero .gogl-hero-cards-block__headline {
@@ -2291,11 +2291,14 @@
         left: auto;
         top: auto;
         transform: none;
-        grid-template-columns: 1fr;
-        gap: clamp(10px, 1.4vh, 14px);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0;
         width: 100%;
         max-width: none;
         align-self: stretch;
+      }
+      .gogl-program-slide-card--hero .gogl-hero-card--group {
+        border-right: 1px solid rgba(255, 255, 255, 0.1);
       }
       .gogl-program-slide-card--hero .gogl-hero-card__title {
         font-size: clamp(0.88rem, 1.1vw, 0.98rem);
@@ -2466,12 +2469,12 @@
           width: 100%;
           max-width: 100%;
           transform: none;
-          margin-bottom: clamp(10px, 1.8vh, 16px);
+          margin-bottom: calc(var(--gogl-bar-h) + clamp(28px, 4vh, 40px));
         }
         .gogl-program-slide-card--hero .gogl-hero-slide__center-headline {
           top: 40%;
-          width: min(94%, 18ch);
-          font-size: clamp(1.35rem, 6vw, 1.85rem);
+          width: min(94%, 22ch);
+          font-size: clamp(1.25rem, 5.5vw, 1.75rem);
         }
         .gogl-program-slide-card__title,
         .gogl-program-slide-card__lede {
@@ -4141,7 +4144,7 @@
         </div>
                     </div>
                     <div class="gogl-video-overlay-footer">
-                      <h2 class="gogl-hero-slide__center-headline">Feste Verabredungen</h2>
+                      <h2 class="gogl-hero-slide__center-headline">Feste Verabredung zum Sport</h2>
                       <div class="gogl-hero-cards-block">
                         <div class="gogl-hero-cards">
                         <a class="gogl-hero-card gogl-hero-card--group" href="register-accountability/index.html">
@@ -4156,7 +4159,7 @@
                         </a>
                       </div>
                       </div>
-                      <div class="gogl-slide-footer-chrome">
+                      <div class="gogl-slide-footer-chrome gogl-slide-footer-chrome--reserve-banderole">
                         <button type="button" class="gogl-hero-slide-next" aria-label="Nächstes Programm: Deine Micro-Bewegung">
                           <span class="gogl-hero-slide-next__label">Bau Deine Micro-Bewegung</span>
                           <span class="gogl-hero-slide-next__arrow" aria-hidden="true">›</span>
