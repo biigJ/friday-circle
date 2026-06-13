@@ -84,7 +84,7 @@ const BK_STRINGS = {
   's5.funk.fitness': { de: 'Hobby / Fitness +8%', en: 'Hobby / fitness +8%' },
   's5.funk.hauswirtschaft': { de: 'Hauswirtschaft', en: 'Utility room' },
   's5.kochen.aufwendig.t': { de: 'Ich koche viel und aufwändig', en: 'I cook a lot and elaborately' },
-  's5.kochen.aufwendig.s': { de: 'Kochen ist Dein Lebensmittelpunkt? Dann planen wir Next Level.', en: 'Is cooking your focal point? Then we plan next level.' },
+  's5.kochen.aufwendig.s': { de: '+8%', en: '+8%' },
   's5.kochen.schnell': { de: 'Schnell & pragmatisch', en: 'Quick & pragmatic' },
   's5.kochen.selten': { de: 'Selten', en: 'Rarely' },
   's5.smh.ja.t': { de: 'Ja, Licht & mehr', en: 'Yes, lighting & more' },
