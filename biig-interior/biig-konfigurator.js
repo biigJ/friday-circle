@@ -368,6 +368,7 @@ window.bkGoTo = function(n, opts) {
   }
   if (n === 8) bkUpdateStep8();
   if (n === 9) bkRenderFinalSummary();
+  if (n === 99) bkUpdateDoneScreen();
   if (bkSt.size) bkSetHeaderBg(bkSt.size);
   bkUpdateCart();
   bkUpdateNavButtons();
@@ -919,7 +920,7 @@ function bkUpdateNavButtons() {
 
 window.bkUpdateNavButtons = bkUpdateNavButtons;
 
-function bkRenderFinalSummary() {
+function bkBuildSummaryData() {
   const zieleL = bkZieleLabels();
   const matL = bkMatLabels();
   const funkL = bkFunkLabels();
@@ -980,6 +981,32 @@ function bkRenderFinalSummary() {
     bkSt.nogo ? {k: bkT('summary.nogo'), v:bkSt.nogo} : null,
   ].filter(Boolean);
 
+  return { hard, soft };
+}
+
+function bkFormatSummaryPlainText(data, contact) {
+  const sep = '──────────────────────────────────────';
+  const row = (k, v) => k + ' · ' + v;
+  const lines = [];
+
+  if (contact && contact.note) {
+    lines.push(bkT('submit.field.note').toUpperCase(), contact.note, '', sep, '');
+  }
+
+  lines.push(bkT('summary.title').toUpperCase(), sep, '');
+  data.hard.forEach(function(r) { lines.push(row(r.k, r.v)); });
+
+  if (data.soft.length) {
+    lines.push('', bkT('summary.details').toUpperCase(), sep, '');
+    data.soft.forEach(function(r) { lines.push(row(r.k, r.v)); });
+  }
+
+  return lines.join('\n');
+}
+
+function bkRenderFinalSummary() {
+  const { hard, soft } = bkBuildSummaryData();
+
   const row = (r, isSoft) =>
     `<div class="bk-sr${isSoft?' soft':''}${r.hl?' highlight':''}">
       <span class="bk-sk">${r.k}</span>
@@ -994,14 +1021,6 @@ function bkRenderFinalSummary() {
       ${soft.length ? '<div class="bk-smr-section-label">' + bkT('summary.details') + '</div>' : ''}
       ${soft.map(r => row(r, true)).join('')}
     </div>`;
-}
-
-function bkEscapeHtml(str) {
-  return String(str || '')
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
 }
 
 function bkWithTimeout(promise, ms, label) {
@@ -1033,63 +1052,76 @@ function bkCollectContactFields() {
   };
 }
 
-function bkSummaryPlainText() {
-  const el = document.getElementById('bk-final-summary');
-  if (!el) return '';
-  return el.innerText.replace(/\s+\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim();
-}
+function bkGenerateSummaryPdf(contact, data) {
+  const jsPDF = window.jspdf && window.jspdf.jsPDF;
+  if (!jsPDF) return Promise.reject(new Error('jspdf missing'));
 
-function bkBuildPdfRoot(contact) {
-  const root = document.createElement('div');
-  root.className = 'bk-pdf-root';
-  root.setAttribute('aria-hidden', 'true');
-  const name = [contact.fname, contact.lname].filter(Boolean).join(' ');
-  const summaryText = bkSummaryPlainText();
-  root.innerHTML =
-    '<h2>' + bkEscapeHtml(bkT('submit.pdfTitle')) + '</h2>' +
-    '<h3>' + bkEscapeHtml(bkT('submit.contactBlock')) + '</h3>' +
-    '<p><strong>' + bkEscapeHtml(bkT('submit.field.name')) + ':</strong> ' + bkEscapeHtml(name) + '</p>' +
-    '<p><strong>' + bkEscapeHtml(bkT('submit.field.email')) + ':</strong> ' + bkEscapeHtml(contact.email) + '</p>' +
-    (contact.phone ? '<p><strong>' + bkEscapeHtml(bkT('submit.field.phone')) + ':</strong> ' + bkEscapeHtml(contact.phone) + '</p>' : '') +
-    (contact.city ? '<p><strong>' + bkEscapeHtml(bkT('submit.field.city')) + ':</strong> ' + bkEscapeHtml(contact.city) + '</p>' : '') +
-    (contact.note ? '<p><strong>' + bkEscapeHtml(bkT('submit.field.note')) + ':</strong> ' + bkEscapeHtml(contact.note) + '</p>' : '') +
-    (summaryText ? '<pre style="white-space:pre-wrap;font-family:Helvetica,Arial,sans-serif;font-size:11px;line-height:1.45;margin:14px 0 0;padding:0;border:0;background:transparent">' + bkEscapeHtml(summaryText) + '</pre>' : '');
-  return root;
-}
+  const doc = new jsPDF({ unit: 'mm', format: 'a4', orientation: 'portrait' });
+  const margin = 14;
+  const maxW = 182;
+  const pageBottom = 283;
+  let y = margin;
+  const rowLine = (k, v) => k + ' · ' + v;
 
-function bkGenerateSummaryPdf(contact) {
-  if (!window.html2pdf) return Promise.reject(new Error('html2pdf missing'));
-  const root = bkBuildPdfRoot(contact);
-  document.body.appendChild(root);
-  void root.offsetHeight;
-  var worker = window.html2pdf()
-    .set({
-      margin: [8, 8, 8, 8],
-      filename: bkT('submit.pdfName'),
-      image: { type: 'jpeg', quality: 0.86 },
-      html2canvas: {
-        scale: 1.25,
-        useCORS: true,
-        logging: false,
-        scrollX: 0,
-        scrollY: 0,
-        windowWidth: root.scrollWidth,
-        windowHeight: root.scrollHeight,
-      },
-      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-      pagebreak: { mode: ['avoid-all', 'css', 'legacy'] },
-    })
-    .from(root);
-  return bkWithTimeout(worker.outputPdf('blob'), 35000, 'pdf')
-    .then(function(blob) {
-      root.remove();
-      return blob;
-    })
-    .catch(function(err) {
-      root.remove();
-      throw err;
+  function ensureSpace(h) {
+    if (y + h > pageBottom) {
+      doc.addPage();
+      y = margin;
+    }
+  }
+
+  function addLines(text, opts) {
+    opts = opts || {};
+    const size = opts.size || 10;
+    const lh = size * 0.48;
+    doc.setFontSize(size);
+    doc.setFont('helvetica', opts.bold ? 'bold' : 'normal');
+    doc.splitTextToSize(String(text || ''), maxW).forEach(function(line) {
+      ensureSpace(lh);
+      doc.text(line, margin, y);
+      y += lh;
     });
+    if (opts.gapAfter) y += opts.gapAfter;
+  }
+
+  addLines(bkT('submit.pdfTitle'), { size: 16, bold: true, gapAfter: 4 });
+  addLines(bkT('submit.contactBlock'), { size: 11, bold: true, gapAfter: 2 });
+  const name = [contact.fname, contact.lname].filter(Boolean).join(' ');
+  addLines(rowLine(bkT('submit.field.name'), name || contact.fname));
+  addLines(rowLine(bkT('submit.field.email'), contact.email));
+  if (contact.phone) addLines(rowLine(bkT('submit.field.phone'), contact.phone));
+  if (contact.city) addLines(rowLine(bkT('submit.field.city'), contact.city));
+  if (contact.note) {
+    y += 2;
+    addLines(bkT('submit.field.note'), { bold: true, gapAfter: 1 });
+    addLines(contact.note);
+  }
+
+  y += 4;
+  addLines(bkT('summary.title'), { size: 11, bold: true, gapAfter: 2 });
+  data.hard.forEach(function(r) { addLines(rowLine(r.k, r.v)); });
+
+  if (data.soft.length) {
+    y += 3;
+    addLines(bkT('summary.details'), { size: 11, bold: true, gapAfter: 2 });
+    data.soft.forEach(function(r) { addLines(rowLine(r.k, r.v)); });
+  }
+
+  return Promise.resolve(doc.output('blob'));
 }
+
+function bkUpdateDoneScreen() {
+  const btn = document.getElementById('bk-done-pdf');
+  if (btn) btn.hidden = !window.bkLastPdfBlob;
+}
+
+window.bkDownloadLastPdf = function() {
+  if (!window.bkLastPdfBlob) {
+    alert(bkT('done.pdfMissing'));
+    return;
+  }
+  bkDownloadBlob(window.bkLastPdfBlob, bkT('submit.pdfName'));
+};
 
 function bkDownloadBlob(blob, filename) {
   const url = URL.createObjectURL(blob);
@@ -1122,7 +1154,7 @@ function bkSetSubmitBusy(busy) {
   }
 }
 
-function bkSendAnfrage(contact, pdfBlob) {
+function bkSendAnfrage(contact, pdfBlob, data) {
   if (!BK_WEB3FORMS_ACCESS_KEY) return Promise.reject(new Error('no access key'));
   const name = [contact.fname, contact.lname].filter(Boolean).join(' ');
   const formData = new FormData();
@@ -1134,17 +1166,16 @@ function bkSendAnfrage(contact, pdfBlob) {
   formData.append('replyto', contact.email);
   if (contact.phone) formData.append('phone', contact.phone);
   if (contact.city) formData.append('city', contact.city);
-  if (contact.note) formData.append('message', contact.note + '\n\n---\n\n' + bkSummaryPlainText());
-  else formData.append('message', bkSummaryPlainText());
+  formData.append('message', bkFormatSummaryPlainText(data, contact));
   if (pdfBlob) formData.append('attachment', pdfBlob, bkT('submit.pdfName'));
   return bkWithTimeout(fetch('https://api.web3forms.com/submit', {
     method: 'POST',
     body: formData,
   }), 45000, 'submit').then(function(res) {
     return res.json();
-  }).then(function(data) {
-    if (!data || !data.success) throw new Error((data && data.message) || 'submit failed');
-    return data;
+  }).then(function(resData) {
+    if (!resData || !resData.success) throw new Error((resData && resData.message) || 'submit failed');
+    return resData;
   });
 }
 
@@ -1159,20 +1190,19 @@ window.bkSubmit = function() {
     return;
   }
   bkRenderFinalSummary();
+  const summaryData = bkBuildSummaryData();
   bkSetSubmitBusy(true);
-  var pdfBlob = null;
-  var pdfPromise = window.html2pdf
-    ? bkGenerateSummaryPdf(contact).catch(function() {
-        window.alert(bkT('alert.submitPdfFail'));
-        return null;
-      })
-    : Promise.resolve(null);
 
-  pdfPromise
+  bkGenerateSummaryPdf(contact, summaryData)
     .then(function(blob) {
-      pdfBlob = blob;
-      if (pdfBlob) bkDownloadBlob(pdfBlob, bkT('submit.pdfName'));
-      return bkSendAnfrage(contact, pdfBlob);
+      window.bkLastPdfBlob = blob;
+      bkDownloadBlob(blob, bkT('submit.pdfName'));
+      return bkSendAnfrage(contact, blob, summaryData);
+    })
+    .catch(function(pdfErr) {
+      console.warn('PDF generation failed', pdfErr);
+      window.alert(bkT('alert.submitPdfFail'));
+      return bkSendAnfrage(contact, null, summaryData);
     })
     .then(function() {
       bkGoTo(99);

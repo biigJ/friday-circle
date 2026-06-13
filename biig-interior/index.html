@@ -2865,6 +2865,9 @@
               <div class="bk-done-icon"><i class="ti ti-check" aria-hidden="true"></i></div>
               <h3 data-bk-i18n="done.title"></h3>
               <p data-bk-i18n="done.body" data-bk-i18n-html="1"></p>
+              <button type="button" class="bk-btn" id="bk-done-pdf" hidden onclick="bkDownloadLastPdf()">
+                <span class="bk-btn__label" data-bk-i18n="done.pdfBtn"></span>
+              </button>
             </div>
           </div>
 
@@ -5200,7 +5203,7 @@
         }
       })();
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.2/html2pdf.bundle.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.2/jspdf.umd.min.js" defer></script>
     <script src="bk-i18n.js" defer></script>
     <script src="biig-konfigurator.js" defer></script>
   </body>
