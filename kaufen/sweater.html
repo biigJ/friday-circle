@@ -42,8 +42,21 @@
         <a class="kaufen-back" href="kaufen/index.html"><span class="de-t">← zurück</span><span class="en-t">← back</span></a>
 
         <div class="kaufen-product">
-          <figure class="kaufen-product__figure">
-            <img src="../assets/biigJ/Sweater.png" alt="Friday Circle Sweater" width="699" height="711" decoding="async" />
+          <figure class="kaufen-product__figure kaufen-product__figure--slider" id="kaufen-sweater-figure" aria-live="polite">
+            <div class="kaufen-tile__slider" id="kaufen-sweater-slider">
+              <div class="kaufen-tile__slide is-active" data-color="chocolate">
+                <img src="../assets/biigJ/Sweater.png" alt="Friday Circle Sweater — Chocolate Braun" width="699" height="711" decoding="async" />
+              </div>
+              <div class="kaufen-tile__slide" data-color="red">
+                <img src="../assets/biigJ/sweater-red.png" alt="Friday Circle Sweater — Dunkelrot" width="2596" height="1351" decoding="async" />
+              </div>
+            </div>
+            <button type="button" class="kaufen-tile__nav kaufen-tile__nav--prev" id="kaufen-sweater-prev" aria-label="Vorheriges Bild">‹</button>
+            <button type="button" class="kaufen-tile__nav kaufen-tile__nav--next" id="kaufen-sweater-next" aria-label="Nächstes Bild">›</button>
+            <div class="kaufen-tile__dots" id="kaufen-sweater-dots" aria-hidden="true">
+              <button type="button" class="kaufen-tile__dot is-active"></button>
+              <button type="button" class="kaufen-tile__dot"></button>
+            </div>
           </figure>
 
           <div class="kaufen-product__info">
@@ -56,8 +69,17 @@
 
             <div>
               <p class="kaufen-field__label"><span class="de-t">Farbe</span><span class="en-t">Color</span></p>
-              <div class="kaufen-swatch kaufen-swatch--chocolate" aria-label="Chocolate Braun" title="Chocolate Braun"></div>
-              <p class="kaufen-product__note" style="margin-top: 8px">
+              <div class="kaufen-swatch-row" id="kaufen-color-grid">
+                <button type="button" class="kaufen-swatch-btn is-active" data-value="chocolate" aria-pressed="true">
+                  <span class="kaufen-swatch kaufen-swatch--chocolate" aria-hidden="true"></span>
+                  <span class="visually-hidden"><span class="de-t">Chocolate Braun</span><span class="en-t">Chocolate brown</span></span>
+                </button>
+                <button type="button" class="kaufen-swatch-btn" data-value="red" aria-pressed="false">
+                  <span class="kaufen-swatch kaufen-swatch--red" aria-hidden="true"></span>
+                  <span class="visually-hidden"><span class="de-t">Dunkelrot</span><span class="en-t">Dark red</span></span>
+                </button>
+              </div>
+              <p class="kaufen-product__note" id="kaufen-color-label" style="margin-top: 8px">
                 <span class="de-t">Chocolate Braun</span>
                 <span class="en-t">Chocolate brown</span>
               </p>

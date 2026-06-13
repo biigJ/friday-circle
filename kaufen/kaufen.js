@@ -65,26 +65,128 @@
     });
   }
 
+  var SWEATER_COLORS = {
+    chocolate: { de: "Chocolate Braun", en: "Chocolate brown", slide: 0 },
+    red: { de: "Dunkelrot", en: "Dark red", slide: 1 },
+  };
+
+  var sweaterState = { size: "M", color: "chocolate", slide: 0 };
+
   function bindSweaterPage() {
     var order = document.getElementById("kaufen-order-link");
-    if (!order) return;
+    var figure = document.getElementById("kaufen-sweater-figure");
+    if (!order || !figure) return;
+
+    var slider = document.getElementById("kaufen-sweater-slider");
+    var slides = slider ? slider.querySelectorAll(".kaufen-tile__slide") : [];
+    var dots = figure.querySelectorAll(".kaufen-tile__dot");
+    var prev = document.getElementById("kaufen-sweater-prev");
+    var next = document.getElementById("kaufen-sweater-next");
     var sizeWrap = document.getElementById("kaufen-size-grid");
-    var selected = "M";
+    var colorWrap = document.getElementById("kaufen-color-grid");
+    var colorLabel = document.getElementById("kaufen-color-label");
+
+    function colorMeta(value) {
+      return SWEATER_COLORS[value] || SWEATER_COLORS.chocolate;
+    }
+
+    function updateColorLabel() {
+      if (!colorLabel) return;
+      var meta = colorMeta(sweaterState.color);
+      colorLabel.querySelectorAll(".de-t").forEach(function (el) {
+        el.textContent = meta.de;
+      });
+      colorLabel.querySelectorAll(".en-t").forEach(function (el) {
+        el.textContent = meta.en;
+      });
+    }
+
+    function updateSwatchAria() {
+      if (!colorWrap) return;
+      colorWrap.querySelectorAll(".kaufen-swatch-btn").forEach(function (btn) {
+        var value = btn.getAttribute("data-value");
+        var meta = colorMeta(value);
+        var active = value === sweaterState.color;
+        btn.classList.toggle("is-active", active);
+        btn.setAttribute("aria-pressed", active ? "true" : "false");
+        btn.setAttribute("aria-label", t(meta.de, meta.en));
+      });
+    }
+
+    function showSlide(index) {
+      if (!slides.length) return;
+      sweaterState.slide = (index + slides.length) % slides.length;
+      slides.forEach(function (slide, n) {
+        slide.classList.toggle("is-active", n === sweaterState.slide);
+      });
+      dots.forEach(function (dot, n) {
+        dot.classList.toggle("is-active", n === sweaterState.slide);
+      });
+      var activeSlide = slides[sweaterState.slide];
+      var slideColor = activeSlide && activeSlide.getAttribute("data-color");
+      if (slideColor && SWEATER_COLORS[slideColor]) {
+        sweaterState.color = slideColor;
+        updateSwatchAria();
+        updateColorLabel();
+        updateMail();
+      }
+    }
+
+    function selectColor(value) {
+      if (!SWEATER_COLORS[value]) return;
+      sweaterState.color = value;
+      showSlide(colorMeta(value).slide);
+    }
 
     function updateMail() {
+      var meta = colorMeta(sweaterState.color);
       order.href =
         "mailto:" +
         MAIL +
         "?subject=" +
         encodeURIComponent(
-          t("Bestellung Friday Circle Sweater Größe " + selected, "Order Friday Circle Sweater size " + selected)
+          t(
+            "Bestellung Friday Circle Sweater Größe " + sweaterState.size + ", " + meta.de,
+            "Order Friday Circle Sweater size " + sweaterState.size + ", " + meta.en
+          )
         );
     }
 
-    bindChoiceGroup(sizeWrap, function (value) {
-      selected = value;
-      updateMail();
-    });
+    if (!figure.dataset.bound) {
+      figure.dataset.bound = "1";
+
+      if (prev) {
+        prev.addEventListener("click", function (e) {
+          e.preventDefault();
+          showSlide(sweaterState.slide - 1);
+        });
+      }
+      if (next) {
+        next.addEventListener("click", function (e) {
+          e.preventDefault();
+          showSlide(sweaterState.slide + 1);
+        });
+      }
+      dots.forEach(function (dot, n) {
+        dot.addEventListener("click", function (e) {
+          e.preventDefault();
+          showSlide(n);
+        });
+      });
+
+      bindChoiceGroup(colorWrap, function (value) {
+        selectColor(value);
+      });
+
+      bindChoiceGroup(sizeWrap, function (value) {
+        sweaterState.size = value;
+        updateMail();
+      });
+    }
+
+    updateColorLabel();
+    updateSwatchAria();
+    showSlide(colorMeta(sweaterState.color).slide);
     updateMail();
   }
 
