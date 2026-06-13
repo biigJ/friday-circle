@@ -800,6 +800,11 @@ body.wga-page {
   cursor: pointer;
 }
 
+.wga-tile.is-shop-highlight {
+  outline: 2px solid color-mix(in srgb, var(--text) 72%, transparent);
+  outline-offset: 3px;
+}
+
 .wga-tile__media {
   position: relative;
   display: block;

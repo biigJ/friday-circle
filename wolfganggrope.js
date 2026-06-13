@@ -1548,6 +1548,37 @@
     scrollToHashChapter();
   }
 
+  function catalogViewWorkId() {
+    try {
+      var work = new URLSearchParams(location.search).get("work");
+      return work ? work.trim() : "";
+    } catch (err) {
+      return "";
+    }
+  }
+
+  function hasCatalogSectionParam() {
+    try {
+      return !!new URLSearchParams(location.search).get("section");
+    } catch (err) {
+      return false;
+    }
+  }
+
+  function highlightCatalogWork(workId) {
+    if (!workId || !catalogRoot) return;
+    catalogRoot.querySelectorAll(".wga-tile.is-shop-highlight").forEach(function (tile) {
+      tile.classList.remove("is-shop-highlight");
+    });
+    var tile = catalogRoot.querySelector('[data-wga-work="' + workId + '"]');
+    if (!tile) return;
+    tile.classList.add("is-shop-highlight");
+    window.requestAnimationFrame(function () {
+      var top = window.scrollY + tile.getBoundingClientRect().top - navHeight() - 16;
+      window.scrollTo({ top: Math.max(0, top), behavior: "auto" });
+    });
+  }
+
   function hashTargetId() {
     var id = (location.hash || "").replace(/^#/, "").trim();
     if (id && id !== "top") {
@@ -1581,10 +1612,17 @@
     }
 
     if (worksById[id]) {
-      window.requestAnimationFrame(function () {
-        openPopup(id);
-      });
-      return;
+      if (hasCatalogSectionParam()) {
+        try {
+          var sectionFromQuery = new URLSearchParams(location.search).get("section");
+          if (sectionFromQuery) id = sectionFromQuery.trim();
+        } catch (err) {}
+      } else {
+        window.requestAnimationFrame(function () {
+          openPopup(id);
+        });
+        return;
+      }
     }
 
     var sectionEl = document.getElementById(id);
@@ -1597,7 +1635,10 @@
       return;
     }
 
-    scrollToSection(id, { behavior: "auto", settle: true });
+    scrollToSection(id, { behavior: "auto", settle: true }).then(function () {
+      var catalogWork = catalogViewWorkId();
+      if (catalogWork) highlightCatalogWork(catalogWork);
+    });
     if (attempt < 6) {
       pendingHashScroll = window.setTimeout(function () {
         runHashScroll(attempt + 1);

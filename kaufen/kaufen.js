@@ -339,14 +339,11 @@
     return ref ? "Anfrage " + ref : "Anfrage";
   }
 
-  function wgaCatalogHref(sectionId) {
+  function wgaCatalogHref(sectionId, workId) {
     if (!sectionId) return "wolfganggrope.html#wga-catalog-root";
-    return (
-      "wolfganggrope.html?section=" +
-      encodeURIComponent(sectionId) +
-      "#" +
-      encodeURIComponent(sectionId)
-    );
+    var qs = "section=" + encodeURIComponent(sectionId);
+    if (workId) qs += "&work=" + encodeURIComponent(workId);
+    return "wolfganggrope.html?" + qs + "#" + encodeURIComponent(sectionId);
   }
 
   function bindKunstPage() {
@@ -482,7 +479,9 @@
         var slide = document.createElement("div");
         slide.className = "kaufen-tile__slide" + (n === 0 ? " is-active" : "");
         var link = document.createElement("a");
-        link.href = "wolfganggrope.html#" + item.workId;
+        link.href = wgaCatalogHref(item.sectionId, item.workId);
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
         link.setAttribute("aria-label", t("Werk im Katalog öffnen", "Open work in catalog"));
         var img = document.createElement("img");
         img.src = item.src;
