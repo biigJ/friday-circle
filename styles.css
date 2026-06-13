@@ -1242,25 +1242,8 @@ html[lang="de"] .en-t {
   border-color: #fff;
 }
 
-.fc-program-hero__slide--shop {
-  overflow: hidden;
-}
-
-.fc-program-hero__shop-media {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  top: -28%;
-  height: calc(100% + 28%);
-}
-
-.fc-program-hero__shop-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.fc-program-hero__slide--shop img {
   object-position: center center;
-  display: block;
-  filter: saturate(1.08) contrast(1.04) brightness(0.92);
 }
 
 .fc-program-hero__panel.fc-program-hero__panel--shop {
