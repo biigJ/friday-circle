@@ -4,7 +4,7 @@
 
   var SLIDE_LABELS_DE = [
     "Was fehlt Dir neben App und Fitness Studio?",
-    "Deine Micro-Bewegung",
+    "Re-Start mit Buddys",
     "Expertise für Deine Aktivitäten",
     "ZIRKELTRAINING",
     "Factfulness",
@@ -14,7 +14,7 @@
   ];
   var SLIDE_LABELS_EN = [
     "What are you missing besides the app and the gym?",
-    "Your micro-movement",
+    "Restart with buddies",
     "Expertise for your activities",
     "CIRCUIT TRAINING",
     "Factfulness",
