@@ -1242,7 +1242,12 @@ html[lang="de"] .en-t {
   border-color: #fff;
 }
 
+.fc-program-hero__slide--shop {
+  background: #0a0a0a;
+}
+
 .fc-program-hero__slide--shop img {
+  object-fit: contain;
   object-position: center center;
 }
 
