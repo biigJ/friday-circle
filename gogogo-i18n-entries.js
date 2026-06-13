@@ -2,7 +2,7 @@
 window.GOGL_I18N_ENTRIES = [
   { s: "#gogl-hero-title .gogl-hero-intro__title-strong", de: "Bewegung ist erste Priorität", en: "Movement is the first priority" },
   { s: "#gogl-hero-title .gogl-hero-intro__title-light", de: "Dein Mini Workshop mit Gym-Buddy, um Dein Fitness-Game zu starten oder zu stärken.", en: "Your mini workshop with a gym buddy to start or strengthen your fitness game." },
-  { s: "#gogl-program-slider-title", de: "genügend Bewegung für Dich", en: "enough movement for you" },
+  { s: "#gogl-program-slider-title", de: "Was fehlt Dir neben App und Fitness Studio?", en: "What are you missing besides the app and the gym?" },
   { s: '.gogl-program-slider__slide[data-slide="0"] .gogl-hero-cards-block__headline', de: "Mitgliedschaften, Apps, Trainer gibt es genug. Was fehlt sind Deine verbindlichen Freunde. Gründe Deinen Micro-Kurs mit Leuten oder einem Coach.", en: "Memberships, apps, trainers — there are plenty. What is missing are your committed friends. Start your micro-course with people or a coach." },
   { s: '.gogl-program-slider__slide[data-slide="0"] .gogl-hero-card--left .gogl-hero-card__label', de: "VOR ORT IN BERLIN", en: "IN PERSON IN BERLIN" },
   { s: '.gogl-program-slider__slide[data-slide="0"] .gogl-hero-card--left .gogl-hero-card__title', de: "Einen Experten finden", en: "Find an expert" },

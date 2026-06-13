@@ -3,7 +3,7 @@
   if (!root || !root.classList.contains("gogl-program-slider")) return;
 
   var SLIDE_LABELS_DE = [
-    "genügend Bewegung für Dich",
+    "Was fehlt Dir neben App und Fitness Studio?",
     "Deine Micro-Bewegung",
     "Expertise für Deine Aktivitäten",
     "ZIRKELTRAINING",
@@ -13,7 +13,7 @@
     "Das Naheliegende wirkt oft so fern.",
   ];
   var SLIDE_LABELS_EN = [
-    "enough movement for you",
+    "What are you missing besides the app and the gym?",
     "Your micro-movement",
     "Expertise for your activities",
     "CIRCUIT TRAINING",
@@ -22,8 +22,8 @@
     "Mobility routine",
     "What seems obvious often feels so far away.",
   ];
-  var SLIDE_DEFAULT_DE = "genügend Bewegung für Dich";
-  var SLIDE_DEFAULT_EN = "enough movement for you";
+  var SLIDE_DEFAULT_DE = "Was fehlt Dir neben App und Fitness Studio?";
+  var SLIDE_DEFAULT_EN = "What are you missing besides the app and the gym?";
 
   var DISPLAY_ORDER = [0, 1, 2, 4, 3, 6, 7, 5];
 
