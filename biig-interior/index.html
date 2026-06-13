@@ -2415,11 +2415,12 @@
                 </button>
               </div>
             </div>
-            <button
-              type="button"
+            <div
               class="bi-tile bi-tile--project bi-tile--hochbau-collage"
               id="bi-hochbau-collage"
               data-bi-hochbau-gallery
+              role="button"
+              tabindex="0"
               aria-label="Hochbauprojekte"
             >
               <span class="bi-hochbau-collage" id="bi-hochbau-collage-inner"></span>
@@ -2427,7 +2428,7 @@
                 <span class="de-t">Bauprojekte</span>
                 <span class="en-t">Building projects</span>
               </span>
-            </button>
+            </div>
             <div class="bi-tile bi-tile--offer bi-tile--offer-compact">
               <h3 class="bi-tile__headline">
                 <span class="de-t">Möbeldesign auf Deinen Raum angepasst.</span>
@@ -3791,16 +3792,17 @@
         function buildHochbauGalleryItems() {
           return HOCHBAU_IDS.map(function (id, i) {
             var project = PROJECTS[id];
+            if (!project || !project.images || !project.images.length) return null;
             return {
               src: project.images[0],
               captionDe: project.titleDe,
               captionEn: project.titleEn,
               altDe: project.titleDe,
               altEn: project.titleEn,
-              objectPosition: project.cropPosition || "center center",
+              objectPosition: HOCHBAU_THUMB_FOCUS[i] || project.cropPosition || "center center",
               thumbPosition: HOCHBAU_THUMB_FOCUS[i] || "center center",
             };
-          });
+          }).filter(Boolean);
         }
 
         function getProjectKachelLabel(project, lang) {
@@ -4856,7 +4858,11 @@
         }
 
         function normalizeProjectTileElements() {
-          document.querySelectorAll("button.bi-tile--project[data-bi-project]").forEach(function (button) {
+          document
+            .querySelectorAll(
+              "button.bi-tile--project[data-bi-project], button.bi-tile--hochbau-collage[data-bi-hochbau-gallery]"
+            )
+            .forEach(function (button) {
             var tile = document.createElement("div");
             Array.prototype.slice.call(button.attributes).forEach(function (attr) {
               if (attr.name !== "type") tile.setAttribute(attr.name, attr.value);
@@ -4985,9 +4991,9 @@
           applyAria();
           normalizeProjectTileElements();
           applyTileLabels();
+          initHochbauCollage();
           initMobileTileCarousels({ force: true });
           initHeroSlider();
-          initHochbauCollage();
           if (openOfferId) {
             openOfferPopup(openOfferId);
           }
@@ -5031,9 +5037,16 @@
         if (gridEl) {
           gridEl.addEventListener("click", function (e) {
             if (e.target.closest(".bi-tile__more, a, [data-bi-buy]")) return;
-            if (isMobileLightboxViewport() && e.target.closest(".bi-mobile-tile-carousel")) return;
+            if (isInlineMobileCarouselViewport() && e.target.closest(".bi-mobile-tile-carousel")) return;
+            if (
+              isInlineMobileCarouselViewport() &&
+              e.target.closest("#bi-hochbau-collage.has-mobile-carousel")
+            ) {
+              return;
+            }
             var hochbauGalleryBtn = e.target.closest("[data-bi-hochbau-gallery]");
             if (hochbauGalleryBtn) {
+              if (hochbauGalleryBtn.classList.contains("has-mobile-carousel")) return;
               var cell = e.target.closest("[data-hochbau-index]");
               var index = cell ? parseInt(cell.getAttribute("data-hochbau-index"), 10) : 0;
               openHochbauGallery(index);
@@ -5046,6 +5059,12 @@
           });
           gridEl.addEventListener("keydown", function (e) {
             if (e.key !== "Enter" && e.key !== " ") return;
+            var hochbauTile = e.target.closest("[data-bi-hochbau-gallery][tabindex]");
+            if (hochbauTile && !hochbauTile.classList.contains("has-mobile-carousel")) {
+              e.preventDefault();
+              openHochbauGallery(0);
+              return;
+            }
             var tile = e.target.closest("[data-bi-project][tabindex]");
             if (!tile || e.target.closest("[data-bi-buy]")) return;
             e.preventDefault();
