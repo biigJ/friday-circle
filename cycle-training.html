@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>cycle training · Friday Circle</title>
-    <meta name="description" content="Freitags in Prenzlauer Berg — gemeinsames Training als Dreh- und Angelpunkt der Woche." />
+    <title>FRIDAY TRAINING · Friday Circle</title>
+    <meta name="description" content="Verbindlich in der Gruppe — offline in Berlin und über die Stadtgrenzen hinaus." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,72 +14,53 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="program-landing.css" />
   </head>
-  <body class="gogogo-page gogl-program">
-    <header class="nav" aria-label="Hauptnavigation">
+  <body class="gogogo-page gogl-program cycl-page">
+    <header class="nav cycl-nav" aria-label="Hauptnavigation">
       <div class="nav__inner">
-        <div class="pgl-brand-stack">
-          <a href="#top" class="nav__logo gogogo-landing__logo">cycle training</a>
-          <p class="pgl-parent">
-            Ein Programm bei <a href="https://fridaycircle.club" rel="noopener noreferrer">fridaycircle.club</a>
-          </p>
-        </div>
-        <nav class="nav__links nav__links--empty" aria-hidden="true"></nav>
+        <a href="#top" class="nav__logo cycl-brand-logo" aria-label="FRIDAY TRAINING — Seitenanfang">
+          <span class="cycl-brand-logo__strong">FRIDAY</span>
+          <span class="cycl-brand-logo__light">TRAINING</span>
+        </a>
+        <nav class="nav__links" aria-label="Seitenabschnitte">
+          <a href="#motivation">Motivation</a>
+          <a href="#disziplin">Disziplin</a>
+          <a href="#tabelle">Tabelle</a>
+        </nav>
         <div class="nav__cta-bucket">
-          <a class="gogogo-landing__header-cta" href="#outro">Dabei sein →</a>
+          <a class="cycl-header-cta" href="#programm">Programm</a>
         </div>
       </div>
     </header>
 
-    <div class="gogl-banderole" aria-label="Hinweis">
-      <p>Freitags. Prenzlauer Berg. 13:15 Uhr. · Wer kommt, kommt wieder.</p>
-    </div>
-
     <main id="top">
-      <section class="pgl-hero" aria-labelledby="cycl-hero">
-        <!-- TODO: Replace gradient with full-width photo / Video when asset available -->
-        <div class="pgl-hero__media" style="background-image: linear-gradient(115deg, #0f1c18 0%, #1b2e28 45%, #0a1210 100%)" role="img" aria-hidden="true"></div>
-        <div class="pgl-hero__overlay"></div>
-        <div class="pgl-hero__wrap">
-          <div class="pgl-hero__center">
-            <div style="width: 100%">
-              <h1 id="cycl-hero" class="pgl-hero__title">
-                Der Freitag gehört dir.<br />Die ganze Woche auch.
-              </h1>
-              <p class="pgl-hero__sub">
-                Wer sich freitags verausgabt, hat einen Grund, sich die restliche Woche zu bemühen. Ein Dreh- und Angelpunkt.
+      <section class="pgl-hero cycl-hero" id="motivation" aria-labelledby="cycl-hero">
+        <div
+          class="pgl-hero__media cycl-hero__media"
+          style="background-image: url('assets/gogogo/SledHoodie.png')"
+          role="img"
+          aria-label=""
+        ></div>
+        <div class="pgl-hero__overlay cycl-hero__overlay"></div>
+        <div class="pgl-hero__wrap cycl-hero__wrap">
+          <div class="pgl-hero__center cycl-hero__center">
+            <div class="cycl-hero__copy">
+              <h1 id="cycl-hero" class="pgl-hero__title cycl-hero__title">It's Friday yeah ...</h1>
+              <p class="pgl-hero__sub cycl-hero__sub">
+                Verbindlich in der Gruppe - offline in Berlin und über die Stadtgrenzen hinaus.
               </p>
-              <div class="pgl-cta-row">
-                <a class="pgl-cta pgl-cta--primary" href="#outro">Dabei sein →</a>
-                <a class="pgl-cta pgl-cta--ghost" href="#wie">Wie es funktioniert</a>
+              <div class="pgl-cta-row cycl-hero__cta-row">
+                <a class="pgl-cta pgl-cta--primary cycl-hero__cta" href="kontakt/index.html">Kontakt</a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="wie" class="pgl-section" style="background: #f0eee6">
-        <div class="gogl-slab-pl">
-          <h2 class="pgl-section-title">Warum Freitagmittag?</h2>
-          <div class="pgl-cards-2">
-            <article class="pgl-card">
-              <p class="pgl-card__kicker">Struktur</p>
-              <h3>Der beste Zeitpunkt der Woche</h3>
-              <p>Vor dem Wochenende, nach der Arbeitswoche. Wer hier Gas gibt, startet anders ins Wochenende – und anders in den Montag.</p>
-            </article>
-            <article class="pgl-card">
-              <p class="pgl-card__kicker">Energie</p>
-              <h3>Gruppe schlägt Solo</h3>
-              <p>Nicht wegen Druck. Wegen Energie. Eine Gruppe zieht dich, auch wenn du alleine nicht gekommen wärst.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="pgl-products" id="pakete">
-        <div class="gogl-slab-pl">
-          <h2 class="pgl-section-title">Was du bekommst</h2>
-          <p class="pgl-products-muted">Alles zusammen — damit ein Freitag zu deinem Ankerpunkt wird.</p>
-          <div class="pgl-prod-grid">
+      <section class="pgl-products cycl-products" id="programm">
+        <div class="gogl-slab-pl" id="disziplin">
+          <h2 class="pgl-section-title cycl-section-title">Organisiertes Leiden, Lernen, Wachsen</h2>
+          <p class="pgl-products-muted cycl-section-sub">Mit Plan, Tracking und Belohnung</p>
+          <div class="pgl-prod-grid" id="tabelle">
             <article class="pgl-prod-card">
               <p class="pgl-prod-card__lab">Material</p>
               <h3>CYCLE PDF</h3>
@@ -103,15 +84,9 @@
           </div>
         </div>
       </section>
-
-      <section id="outro" class="pgl-outro">
-        <h2>Jetzt dabei sein – kostenlos starten</h2>
-        <a class="pgl-cta pgl-cta--primary" href="kontakt/index.html">Kontakt aufnehmen</a>
-        <p>Kein Abo. Kein Vertrag. Einfach kommen.</p>
-      </section>
     </main>
 
-    <footer class="footer" aria-label="Seitenfuß">
+    <footer class="footer cycl-footer" aria-label="Seitenfuß">
       <div class="footer__inner">
         <a href="index.html" class="footer__logo">FRIDAY CIRCLE</a>
         <nav class="footer__links" aria-label="Rechtliches und Über uns">

@@ -609,3 +609,206 @@ body.gogl-program {
   border-color: rgba(180, 50, 50, 0.35);
   color: #5c1a1a;
 }
+
+/* cycle-training.html */
+.cycl-page {
+  --cycl-red: #c8312a;
+  --cycl-black: #0a0a0a;
+  background: var(--cycl-black);
+  color: #fff;
+  font-family: var(--font-sans);
+}
+
+.cycl-page,
+.cycl-page .pgl-section-title,
+.cycl-page .pgl-prod-card h3,
+.cycl-page .pgl-prod-card p,
+.cycl-page .pgl-prod-card__lab,
+.cycl-page .pgl-products-muted,
+.cycl-page .footer {
+  font-family: var(--font-sans);
+  font-style: normal;
+}
+
+.cycl-page .cycl-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 120;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.cycl-page .cycl-nav .nav__inner {
+  align-items: flex-end;
+}
+
+.cycl-page .cycl-brand-logo {
+  font-family: var(--font-sans);
+  font-size: clamp(1.1rem, 2.2vw, 1.55rem);
+  font-weight: 200;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  line-height: 1;
+}
+
+.cycl-page .cycl-brand-logo__strong {
+  font-weight: 700;
+}
+
+.cycl-page .cycl-brand-logo__light {
+  font-weight: 200;
+}
+
+.cycl-page .cycl-nav .nav__links a {
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 300;
+}
+
+.cycl-page .cycl-header-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: var(--cycl-red);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 10px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.cycl-page .cycl-header-cta:hover,
+.cycl-page .cycl-header-cta:focus-visible {
+  filter: brightness(1.08);
+  outline: none;
+}
+
+.cycl-page .cycl-hero {
+  min-height: 100dvh;
+  min-height: 100vh;
+  margin: 0;
+  background: var(--cycl-black);
+}
+
+.cycl-page .cycl-hero__media {
+  background-position: center;
+  background-size: cover;
+  filter: brightness(0.55) contrast(1.06) saturate(0.85);
+}
+
+.cycl-page .cycl-hero__overlay {
+  background: rgba(0, 0, 0, 0.42);
+}
+
+.cycl-page .cycl-hero__wrap {
+  max-width: none;
+  padding-left: var(--nav-pad-x);
+  padding-right: var(--nav-pad-x);
+}
+
+.cycl-page .cycl-hero__center {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: clamp(72px, 10vh, 96px);
+}
+
+.cycl-page .cycl-hero__copy {
+  width: min(100%, 42rem);
+  margin: 0 auto;
+}
+
+.cycl-page .cycl-hero__title {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.08;
+  text-align: center;
+  margin: 0 auto 16px;
+  max-width: 18ch;
+}
+
+.cycl-page .cycl-hero__sub {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 300;
+  font-size: clamp(1rem, 2.5vw, 1.75rem);
+  line-height: 1.45;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 34rem;
+  margin: 0 auto 28px;
+  text-align: center;
+}
+
+.cycl-page .cycl-hero__cta-row {
+  justify-content: center;
+}
+
+.cycl-page .cycl-hero__cta {
+  background: #fff;
+  color: var(--cycl-black);
+  font-family: var(--font-sans);
+  font-weight: 600;
+}
+
+.cycl-page .cycl-hero__cta:hover,
+.cycl-page .cycl-hero__cta:focus-visible {
+  filter: brightness(0.94);
+}
+
+.cycl-page .cycl-products {
+  background: var(--cycl-black);
+  padding-top: clamp(48px, 8vw, 72px);
+}
+
+.cycl-page .cycl-section-title {
+  font-weight: 600;
+  font-size: clamp(1.5rem, 3.2vw, 2.35rem);
+  color: #fff;
+}
+
+.cycl-page .cycl-section-sub {
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 300;
+  font-size: clamp(0.95rem, 1.5vw, 1.08rem);
+  color: rgba(255, 255, 255, 0.72);
+  margin: 0 0 40px;
+}
+
+.cycl-page .cycl-footer {
+  background: var(--cycl-black);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.cycl-page .cycl-footer .footer__logo,
+.cycl-page .cycl-footer .footer__links a {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+@media (max-width: 760px) {
+  .cycl-page .cycl-nav .nav__inner {
+    grid-template-columns: 1fr auto;
+    row-gap: 12px;
+  }
+
+  .cycl-page .cycl-nav .nav__links {
+    grid-column: 1 / -1;
+    justify-self: start;
+    gap: clamp(18px, 5vw, 28px);
+    font-size: 0.82rem;
+  }
+
+  .cycl-page .cycl-brand-logo {
+    font-size: clamp(0.95rem, 4.2vw, 1.15rem);
+  }
+}
