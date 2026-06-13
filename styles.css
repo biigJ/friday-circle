@@ -1242,6 +1242,41 @@ html[lang="de"] .en-t {
   border-color: #fff;
 }
 
+.fc-program-hero__panel.fc-program-hero__panel--shop {
+  max-width: 100%;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.fc-program-hero__title.fc-program-hero__title--shop {
+  max-width: min(90%, 42rem);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-size: clamp(1.35rem, 3.6vw, 2.35rem);
+  line-height: 1.12;
+}
+
+.fc-program-hero__panel.fc-program-hero__panel--shop .fc-program-hero__cta {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fc-program-hero__cta--shop {
+  background: #fff;
+  color: #0a0a0a;
+  border-color: #fff;
+}
+
+.fc-program-hero__cta--shop:hover,
+.fc-program-hero__cta--shop:focus-visible {
+  background: #2a2a2a;
+  color: #fff;
+  border-color: #fff;
+}
+
 .fc-program-hero__cta:hover,
 .fc-program-hero__cta:focus-visible {
   transform: translateY(-1px);

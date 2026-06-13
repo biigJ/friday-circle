@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kaufen | FRIDAY CIRCLE</title>
+    <meta name="description" content="Kunst, Möbel und Kleidung von Friday Circle — direkt bestellen." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="kaufen.css" />
+  </head>
+  <body class="kaufen-page" id="top">
+    <header class="kaufen-header" aria-label="Hauptnavigation">
+      <nav class="kaufen-header__links" aria-label="Friday Circle Seiten">
+        <a class="kaufen-header__logo kaufen-header__logo--fc" href="../index.html">FRIDAY CIRCLE</a>
+        <a class="kaufen-header__logo kaufen-header__logo--gogogo" href="../gogogo-landing.html">gogogo</a>
+        <a class="kaufen-header__logo kaufen-header__logo--biig" href="../biig-interior/index.html">BIIG INTERIOR</a>
+        <a class="kaufen-header__logo kaufen-header__logo--bat" href="../berlinarchtour.html"><strong>BERLIN</strong> ARCHITECTURE <strong>TOUR</strong></a>
+        <a class="kaufen-header__logo kaufen-header__logo--wolfgang" href="../wolfganggrope.html">WOLFGANG GROPE KUNSTWERKE</a>
+      </nav>
+      <div class="kaufen-lang" role="group" aria-label="Sprache">
+        <button type="button" class="is-active" data-fc-lang="de">DE</button>
+        <button type="button" data-fc-lang="en">EN</button>
+      </div>
+    </header>
+
+    <div class="kaufen-layout">
+      <aside class="kaufen-sidebar" aria-label="Shop Kategorien">
+        <ul class="kaufen-sidebar__nav">
+          <li><a class="kaufen-sidebar__link is-active" href="index.html#moebel"><span class="de-t">Möbel</span><span class="en-t">Furniture</span></a></li>
+          <li><a class="kaufen-sidebar__link" href="index.html#kleidung"><span class="de-t">Kleidung</span><span class="en-t">Clothing</span></a></li>
+          <li><a class="kaufen-sidebar__link" href="index.html#kunst"><span class="de-t">Kunst</span><span class="en-t">Art</span></a></li>
+        </ul>
+      </aside>
+
+      <main class="kaufen-main">
+        <h1 class="kaufen-main__headline">
+          <span class="de-t">Kauf Kunst, Tisch, FC-Sweater</span>
+          <span class="en-t">Buy art, table, FC sweater</span>
+        </h1>
+
+        <div class="kaufen-grid">
+          <article class="kaufen-tile" id="moebel">
+            <div class="kaufen-tile__media" id="kaufen-tisch-tile">
+              <a class="kaufen-tile__link" href="tisch.html" aria-label="Frei Von Ecken Tisch">
+                <div class="kaufen-tile__slider">
+                  <div class="kaufen-tile__slide is-active">
+                    <img src="../assets/interior/tisch-aufgruenemkaro.png" alt="" width="800" height="800" decoding="async" />
+                  </div>
+                  <div class="kaufen-tile__slide">
+                    <img src="../assets/interior/tisch-250.png" alt="" width="800" height="800" decoding="async" />
+                  </div>
+                </div>
+              </a>
+              <button type="button" class="kaufen-tile__nav kaufen-tile__nav--prev" aria-label="Vorheriges Bild">‹</button>
+              <button type="button" class="kaufen-tile__nav kaufen-tile__nav--next" aria-label="Nächstes Bild">›</button>
+              <div class="kaufen-tile__dots" aria-hidden="true">
+                <button type="button" class="kaufen-tile__dot is-active"></button>
+                <button type="button" class="kaufen-tile__dot"></button>
+              </div>
+            </div>
+            <a class="kaufen-tile__meta" href="tisch.html">
+              <h2 class="kaufen-tile__title">Frei Von Ecken Tisch</h2>
+              <p class="kaufen-tile__price">950 € / 1.800 €</p>
+            </a>
+          </article>
+
+          <article class="kaufen-tile" id="kunst">
+            <a class="kaufen-tile__media" href="kunst.html">
+              <img
+                src="../assets/wolfgang-grope/02 Knalliges Acryl 1970/WG-Ölmalerei-1960-07.jpg"
+                alt=""
+                width="800"
+                height="800"
+                decoding="async"
+              />
+            </a>
+            <a class="kaufen-tile__meta" href="kunst.html">
+              <h2 class="kaufen-tile__title">Kunst</h2>
+              <p class="kaufen-tile__price">300 € – 2.500 €</p>
+            </a>
+          </article>
+
+          <article class="kaufen-tile" id="kleidung">
+            <a class="kaufen-tile__media" href="sweater.html">
+              <img src="../assets/biigJ/FC-sweater.png" alt="" width="800" height="800" decoding="async" />
+            </a>
+            <a class="kaufen-tile__meta" href="sweater.html">
+              <h2 class="kaufen-tile__title">Friday Circle Sweater</h2>
+              <p class="kaufen-tile__price">120 €</p>
+            </a>
+          </article>
+        </div>
+      </main>
+    </div>
+
+    <div id="fc-site-footer"></div>
+    <script src="../nav.js" defer></script>
+    <script src="kaufen.js" defer></script>
+  </body>
+</html>
