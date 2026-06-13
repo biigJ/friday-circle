@@ -39,10 +39,10 @@
       </aside>
 
       <main class="kaufen-main">
-        <a class="kaufen-back" href="kaufen/index.html#kunst"><span class="de-t">← zurück</span><span class="en-t">← back</span></a>
+        <a class="kaufen-back" href="kaufen/index.html"><span class="de-t">← zurück</span><span class="en-t">← back</span></a>
 
         <div class="kaufen-product">
-          <figure class="kaufen-product__figure" id="kaufen-kunst-slider" aria-live="polite">
+          <figure class="kaufen-product__figure kaufen-product__figure--slider" id="kaufen-kunst-slider" aria-live="polite">
             <div class="kaufen-tile__slider" id="kaufen-kunst-slides"></div>
             <button type="button" class="kaufen-tile__nav kaufen-tile__nav--prev" id="kaufen-kunst-prev" aria-label="Vorheriges Bild" hidden>‹</button>
             <button type="button" class="kaufen-tile__nav kaufen-tile__nav--next" id="kaufen-kunst-next" aria-label="Nächstes Bild" hidden>›</button>
@@ -51,29 +51,17 @@
 
           <div class="kaufen-product__info">
             <h1 class="kaufen-product__title">Kunst</h1>
-            <p class="kaufen-product__price">300 € – 2.500 €</p>
             <p class="kaufen-product__note">
               <span class="de-t">Nur Originale aus dem Nachlass Wolfgang Grope (1955–2005).</span>
               <span class="en-t">Originals only from the estate of Wolfgang Grope (1955–2005).</span>
             </p>
 
             <div>
-              <p class="kaufen-field__label"><span class="de-t">Kategorie wählen</span><span class="en-t">Choose category</span></p>
-              <div class="kaufen-size-grid" id="kaufen-kunst-options">
-                <button type="button" class="kaufen-kunst-btn is-active" data-value="grafik">
-                  <span class="de-t">Grafik & Zeichnung</span>
-                  <span class="en-t">Prints & drawing</span>
-                </button>
-                <button type="button" class="kaufen-kunst-btn" data-value="malerei">
-                  <span class="de-t">Malerei</span>
-                  <span class="en-t">Painting</span>
-                </button>
-                <button type="button" class="kaufen-kunst-btn" data-value="keramik">
-                  <span class="de-t">Keramik</span>
-                  <span class="en-t">Ceramics</span>
-                </button>
-              </div>
+              <p class="kaufen-field__label"><span class="de-t">Kapitel wählen</span><span class="en-t">Choose chapter</span></p>
+              <div class="kaufen-kunst-chapters" id="kaufen-kunst-options"></div>
             </div>
+
+            <p class="kaufen-product__price" id="kaufen-kunst-price">—</p>
 
             <button type="button" class="kaufen-order-btn" id="kaufen-kunst-go">
               <span class="de-t">Zum Werkkatalog</span>
@@ -89,10 +77,8 @@
                 </summary>
                 <div class="kaufen-details__body">
                   <ul>
-                    <li><span class="de-t">Grafik & Zeichnung: ab 300 €</span><span class="en-t">Prints & drawing: from €300</span></li>
-                    <li><span class="de-t">Malerei & Aquarell: 500 € – 1.200 €</span><span class="en-t">Painting & watercolour: €500 – €1,200</span></li>
-                    <li><span class="de-t">Keramik: 800 € – 2.500 €</span><span class="en-t">Ceramics: €800 – €2,500</span></li>
                     <li><span class="de-t">Nur Originale — keine Drucke</span><span class="en-t">Originals only — no prints</span></li>
+                    <li><span class="de-t">Bild klicken öffnet das Werk im Katalog</span><span class="en-t">Click an image to open the work in the catalog</span></li>
                   </ul>
                 </div>
               </details>
@@ -105,7 +91,7 @@
                 <div class="kaufen-details__body">
                   <p>
                     <span class="de-t">Nach der Auswahl wirst Du zum Werkkatalog von Wolfgang Grope Kunstwerke weitergeleitet — direkt zum gewählten Kapitel. Dort kannst Du einzelne Werke mit Klick auf den Punkt rechts oben anfragen.</span>
-                    <span class="en-t">After selecting a category you will be redirected to the Wolfgang Grope art catalog — directly to the chosen chapter. There you can enquire about individual works by clicking the dot in the top right.</span>
+                    <span class="en-t">After selecting a chapter you will be redirected to the Wolfgang Grope art catalog — directly to the chosen chapter. There you can enquire about individual works by clicking the dot in the top right.</span>
                   </p>
                 </div>
               </details>

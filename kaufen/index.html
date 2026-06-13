@@ -31,10 +31,10 @@
 
     <div class="kaufen-layout">
       <aside class="kaufen-sidebar" aria-label="Shop Kategorien">
-        <ul class="kaufen-sidebar__nav">
-          <li><a class="kaufen-sidebar__link is-active" href="kaufen/index.html#moebel"><span class="de-t">Möbel</span><span class="en-t">Furniture</span></a></li>
-          <li><a class="kaufen-sidebar__link" href="kaufen/index.html#kleidung"><span class="de-t">Kleidung</span><span class="en-t">Clothing</span></a></li>
-          <li><a class="kaufen-sidebar__link" href="kaufen/index.html#kunst"><span class="de-t">Kunst</span><span class="en-t">Art</span></a></li>
+        <ul class="kaufen-sidebar__nav" id="kaufen-shop-nav">
+          <li><a class="kaufen-sidebar__link" href="kaufen/index.html" data-shop-filter="moebel"><span class="de-t">Möbel</span><span class="en-t">Furniture</span></a></li>
+          <li><a class="kaufen-sidebar__link" href="kaufen/index.html" data-shop-filter="kleidung"><span class="de-t">Kleidung</span><span class="en-t">Clothing</span></a></li>
+          <li><a class="kaufen-sidebar__link" href="kaufen/index.html" data-shop-filter="kunst"><span class="de-t">Kunst</span><span class="en-t">Art</span></a></li>
         </ul>
       </aside>
 
@@ -44,8 +44,8 @@
           <span class="en-t">Buy art, table, FC sweater</span>
         </h1>
 
-        <div class="kaufen-grid">
-          <article class="kaufen-tile" id="moebel">
+        <div class="kaufen-grid" id="kaufen-shop-grid">
+          <article class="kaufen-tile" id="moebel" data-shop-group="moebel">
             <div class="kaufen-tile__media" id="kaufen-tisch-tile">
               <a class="kaufen-tile__link" href="kaufen/tisch.html" aria-label="Frei Von Ecken Tisch">
                 <div class="kaufen-tile__slider">
@@ -70,10 +70,10 @@
             </a>
           </article>
 
-          <article class="kaufen-tile" id="kunst">
+          <article class="kaufen-tile" id="kunst" data-shop-group="kunst">
             <a class="kaufen-tile__media" href="kaufen/kunst.html">
               <img
-                src="../assets/wolfgang-grope/02 Knalliges Acryl 1970/WG-Ölmalerei-1960-07.jpg"
+                src="../assets/wolfgang-grope/03 früher Radierungen 1972-1974/WG-Grafik-1972-1974-10.jpg"
                 alt=""
                 width="800"
                 height="800"
@@ -86,7 +86,7 @@
             </a>
           </article>
 
-          <article class="kaufen-tile" id="kleidung">
+          <article class="kaufen-tile" id="kleidung" data-shop-group="kleidung">
             <a class="kaufen-tile__media" href="kaufen/sweater.html">
               <img src="../assets/biigJ/FC-sweater.png" alt="" width="800" height="800" decoding="async" />
             </a>

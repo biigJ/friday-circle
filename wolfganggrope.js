@@ -1487,6 +1487,12 @@
   function scrollToHashChapter() {
     var id = (location.hash || "").replace(/^#/, "");
     if (!id || id === "wga-catalog-root" || id === "top") return;
+    if (worksById[id]) {
+      window.requestAnimationFrame(function () {
+        openPopup(id);
+      });
+      return;
+    }
     if (!document.getElementById(id)) return;
     window.requestAnimationFrame(function () {
       scrollToSection(id);

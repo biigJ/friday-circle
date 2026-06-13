@@ -141,9 +141,66 @@
     render();
   }
 
+  function chapterLabel(chapter) {
+    return String(chapter || "")
+      .replace(/^\d{2}\s+/, "")
+      .toLowerCase();
+  }
+
+  function priceForChapter(chapter) {
+    if (chapter === "11 Keramik") {
+      return { de: "800 € – 2.500 €", en: "€800 – €2,500" };
+    }
+    if (
+      chapter === "01 28 Jahre alt" ||
+      chapter === "02 Knalliges Acryl" ||
+      chapter === "05 Ölmalerei 1974" ||
+      chapter === "07 Neue Familie" ||
+      chapter === "08 80er Jahre" ||
+      chapter === "09 90er Jahre"
+    ) {
+      return { de: "500 € – 1.200 €", en: "€500 – €1,200" };
+    }
+    return { de: "ab 300 €", en: "from €300" };
+  }
+
+  function bindIndexFilter() {
+    var grid = document.getElementById("kaufen-shop-grid");
+    var nav = document.getElementById("kaufen-shop-nav");
+    if (!grid || !nav) return;
+
+    var tiles = grid.querySelectorAll("[data-shop-group]");
+    var links = nav.querySelectorAll("[data-shop-filter]");
+    var activeFilter = "";
+
+    function applyFilter(filter) {
+      activeFilter = filter || "";
+      links.forEach(function (link) {
+        link.classList.toggle("is-active", link.getAttribute("data-shop-filter") === activeFilter);
+      });
+      tiles.forEach(function (tile) {
+        var group = tile.getAttribute("data-shop-group");
+        var show = !activeFilter || group === activeFilter;
+        tile.classList.toggle("is-filtered-out", !show);
+      });
+      grid.classList.toggle("is-filtered", !!activeFilter);
+    }
+
+    links.forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        var filter = link.getAttribute("data-shop-filter");
+        applyFilter(activeFilter === filter ? "" : filter);
+      });
+    });
+
+    applyFilter("");
+  }
+
   function bindKunstPage() {
     var go = document.getElementById("kaufen-kunst-go");
     var options = document.getElementById("kaufen-kunst-options");
+    var priceEl = document.getElementById("kaufen-kunst-price");
     var slidesRoot = document.getElementById("kaufen-kunst-slides");
     var dotsRoot = document.getElementById("kaufen-kunst-dots");
     var prev = document.getElementById("kaufen-kunst-prev");
@@ -151,54 +208,70 @@
     if (!go || !options || !slidesRoot) return;
 
     var catalog = window.__WGA_CATALOG__;
-    var categories = {
-      grafik: {
-        chapters: ["03 Frühe Radierungen", "04 Holzschnitte", "06 Mehr Radierungen", "10 2000er Jahre"],
-      },
-      malerei: {
-        chapters: ["01 28 Jahre alt", "02 Knalliges Acryl", "07 Neue Familie", "08 80er Jahre", "09 90er Jahre"],
-      },
-      keramik: {
-        chapters: ["11 Keramik"],
-      },
-    };
-
-    var selected = "grafik";
+    var chapters = [];
+    var chapterMap = {};
+    var selected = "";
     var slideIndex = 0;
-    var currentImages = [];
+    var currentSlides = [];
 
     function workIsAvailable(work) {
       return work && !work.empty && work.berlinStatus !== "unavailable" && work.images && work.images[0];
     }
 
-    function sectionIdForCategory(key) {
-      if (!catalog || !catalog.sections) return "";
-      var chapters = categories[key].chapters;
-      for (var i = 0; i < catalog.sections.length; i++) {
-        var section = catalog.sections[i];
-        if (chapters.indexOf(section.chapter) === -1) continue;
-        if ((section.works || []).some(workIsAvailable)) return section.id;
-      }
-      return "";
+    function buildChapters() {
+      if (!catalog || !catalog.sections) return;
+      var seen = new Set();
+      catalog.sections.forEach(function (section) {
+        var chapter = section.chapter;
+        if (!chapter || seen.has(chapter) || !/^\d{2}\s/.test(chapter)) return;
+        seen.add(chapter);
+        var entry = {
+          chapter: chapter,
+          sectionId: section.id,
+          label: chapterLabel(chapter),
+        };
+        chapters.push(entry);
+        chapterMap[chapter] = entry;
+      });
     }
 
-    function imagesForCategory(key) {
-      if (!catalog || !catalog.sections) return [];
-      var chapters = categories[key].chapters;
-      var images = [];
+    function worksForChapter(chapter) {
+      var items = [];
+      if (!catalog || !catalog.sections) return items;
       catalog.sections.forEach(function (section) {
-        if (chapters.indexOf(section.chapter) === -1) return;
+        if (section.chapter !== chapter) return;
         (section.works || []).forEach(function (work) {
           if (!workIsAvailable(work)) return;
-          images.push("../" + work.images[0]);
+          items.push({
+            src: "../" + work.images[0],
+            workId: work.id,
+          });
         });
       });
-      return images.slice(0, 16);
+      if (chapter === "03 Frühe Radierungen") {
+        items.sort(function (a, b) {
+          var aPin = a.src.indexOf("WG-Grafik-1972-1974-10") >= 0;
+          var bPin = b.src.indexOf("WG-Grafik-1972-1974-10") >= 0;
+          if (aPin && !bPin) return -1;
+          if (!aPin && bPin) return 1;
+          return 0;
+        });
+      }
+      return items;
+    }
+
+    function updatePrice(chapter) {
+      if (!priceEl || !chapter) {
+        if (priceEl) priceEl.textContent = "—";
+        return;
+      }
+      var p = priceForChapter(chapter);
+      priceEl.textContent = t(p.de, p.en);
     }
 
     function showKunstSlide(i) {
-      if (!currentImages.length) return;
-      slideIndex = (i + currentImages.length) % currentImages.length;
+      if (!currentSlides.length) return;
+      slideIndex = (i + currentSlides.length) % currentSlides.length;
       slidesRoot.querySelectorAll(".kaufen-tile__slide").forEach(function (slide, n) {
         slide.classList.toggle("is-active", n === slideIndex);
       });
@@ -209,12 +282,12 @@
       }
     }
 
-    function renderKunstSlider(key) {
-      currentImages = imagesForCategory(key);
+    function renderKunstSlider(chapter) {
+      currentSlides = worksForChapter(chapter);
       slidesRoot.innerHTML = "";
       if (dotsRoot) dotsRoot.innerHTML = "";
 
-      if (!currentImages.length) {
+      if (!currentSlides.length) {
         var empty = document.createElement("div");
         empty.className = "kaufen-tile__slide is-active";
         var emptyImg = document.createElement("img");
@@ -227,17 +300,21 @@
         return;
       }
 
-      currentImages.forEach(function (src, n) {
+      currentSlides.forEach(function (item, n) {
         var slide = document.createElement("div");
         slide.className = "kaufen-tile__slide" + (n === 0 ? " is-active" : "");
+        var link = document.createElement("a");
+        link.href = "wolfganggrope.html#" + item.workId;
+        link.setAttribute("aria-label", t("Werk im Katalog öffnen", "Open work in catalog"));
         var img = document.createElement("img");
-        img.src = src;
+        img.src = item.src;
         img.alt = "";
         img.decoding = "async";
-        slide.appendChild(img);
+        link.appendChild(img);
+        slide.appendChild(link);
         slidesRoot.appendChild(slide);
 
-        if (dotsRoot && currentImages.length > 1) {
+        if (dotsRoot && currentSlides.length > 1) {
           var dot = document.createElement("button");
           dot.type = "button";
           dot.className = "kaufen-tile__dot" + (n === 0 ? " is-active" : "");
@@ -249,10 +326,36 @@
         }
       });
 
-      var multi = currentImages.length > 1;
+      var multi = currentSlides.length > 1;
       if (prev) prev.hidden = !multi;
       if (next) next.hidden = !multi;
       slideIndex = 0;
+    }
+
+    function selectChapter(chapter) {
+      selected = chapter;
+      options.querySelectorAll(".kaufen-kunst-btn").forEach(function (btn) {
+        btn.classList.toggle("is-active", btn.getAttribute("data-value") === chapter);
+      });
+      updatePrice(chapter);
+      renderKunstSlider(chapter);
+    }
+
+    function renderChapterButtons() {
+      options.innerHTML = "";
+      chapters.forEach(function (entry) {
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "kaufen-kunst-btn";
+        btn.setAttribute("data-value", entry.chapter);
+        btn.textContent = entry.label;
+        var hasWorks = worksForChapter(entry.chapter).length > 0;
+        if (!hasWorks) btn.disabled = true;
+        btn.addEventListener("click", function () {
+          selectChapter(entry.chapter);
+        });
+        options.appendChild(btn);
+      });
     }
 
     if (prev) {
@@ -268,21 +371,27 @@
       });
     }
 
-    bindChoiceGroup(options, function (value) {
-      selected = value;
-      renderKunstSlider(selected);
-    });
-
     go.addEventListener("click", function () {
-      var sectionId = sectionIdForCategory(selected);
+      var entry = chapterMap[selected];
+      var sectionId = entry ? entry.sectionId : "";
       window.location.href = sectionId ? "wolfganggrope.html#" + sectionId : "wolfganggrope.html#wga-catalog-root";
     });
 
-    renderKunstSlider(selected);
+    buildChapters();
+    renderChapterButtons();
+    var firstWithWorks = chapters.find(function (entry) {
+      return worksForChapter(entry.chapter).length > 0;
+    });
+    if (firstWithWorks) {
+      selectChapter(firstWithWorks.chapter);
+    } else {
+      updatePrice("");
+    }
   }
 
   document.addEventListener("DOMContentLoaded", function () {
     bindTileSlider(document.getElementById("kaufen-tisch-tile"));
+    bindIndexFilter();
     bindSweaterPage();
     bindTischPage();
     bindKunstPage();
@@ -291,5 +400,11 @@
   document.addEventListener("fc-lang-change", function () {
     bindSweaterPage();
     bindTischPage();
+    var priceEl = document.getElementById("kaufen-kunst-price");
+    var active = document.querySelector(".kaufen-kunst-btn.is-active");
+    if (priceEl && active) {
+      var p = priceForChapter(active.getAttribute("data-value"));
+      priceEl.textContent = t(p.de, p.en);
+    }
   });
 })();
