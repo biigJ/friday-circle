@@ -242,9 +242,9 @@
             altEn: "Dining table on green carom pattern",
           },
           {
-            src: "../assets/interior/tisch-130-strichzeichnung.png",
-            altDe: "Frei Von Ecken Esstisch, Strichzeichnung 85 x 130 cm",
-            altEn: "Frei Von Ecken dining table, line drawing 85 x 130 cm",
+            src: "../assets/interior/freivonecken130-lager.png",
+            altDe: "Frei Von Ecken Esstisch im Lager, 85 x 130 cm",
+            altEn: "Frei Von Ecken dining table in warehouse, 85 x 130 cm",
           },
         ],
       },
