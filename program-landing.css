@@ -646,6 +646,32 @@ body.gogl-program {
   align-items: center;
 }
 
+.cycl-page .cycl-nav__brand-group {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 2.2vw, 22px);
+  justify-self: start;
+  min-width: 0;
+}
+
+.cycl-page .cycl-gogogo-logo {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: clamp(0.88rem, 1.75vw, 1.08rem);
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cycl-page .cycl-gogogo-logo:hover,
+.cycl-page .cycl-gogogo-logo:focus-visible {
+  color: rgba(255, 255, 255, 0.88);
+  outline: none;
+}
+
 .cycl-page .cycl-brand-logo {
   font-family: var(--font-sans);
   font-size: clamp(1.1rem, 2.2vw, 1.55rem);
@@ -867,12 +893,21 @@ body.gogl-program {
     align-items: center;
   }
 
-  .cycl-page .cycl-brand-logo {
+  .cycl-page .cycl-nav__brand-group {
     grid-column: 1;
     grid-row: 1;
     justify-self: start;
+    gap: clamp(8px, 2.5vw, 14px);
+    max-width: 100%;
+  }
+
+  .cycl-page .cycl-brand-logo {
     font-size: clamp(0.68rem, 3vw, 0.92rem);
     letter-spacing: 0.05em;
+  }
+
+  .cycl-page .cycl-gogogo-logo {
+    font-size: clamp(0.72rem, 2.8vw, 0.88rem);
   }
 
   .cycl-page .cycl-nav .nav__inner > .nav__cta-bucket {
