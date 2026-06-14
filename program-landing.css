@@ -655,6 +655,7 @@ body.gogl-program {
   text-decoration: none;
   color: #fff;
   line-height: 1;
+  white-space: nowrap;
 }
 
 .cycl-page .cycl-brand-logo__strong {
@@ -685,6 +686,8 @@ body.gogl-program {
 
 .cycl-page .cycl-nav .nav__cta-bucket {
   align-items: center;
+  justify-content: flex-end;
+  gap: clamp(8px, 1.5vw, 14px);
 }
 
 .cycl-page .cycl-header-cta {
@@ -858,11 +861,33 @@ body.gogl-program {
 
 @media (max-width: 760px) {
   .cycl-page .cycl-nav .nav__inner {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: auto;
     row-gap: 0;
+    align-items: center;
   }
 
   .cycl-page .cycl-brand-logo {
-    font-size: clamp(0.95rem, 4.2vw, 1.15rem);
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+    font-size: clamp(0.68rem, 3vw, 0.92rem);
+    letter-spacing: 0.05em;
+  }
+
+  .cycl-page .cycl-nav .nav__inner > .nav__cta-bucket {
+    display: flex;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: end;
+    align-items: center;
+    gap: clamp(8px, 2.5vw, 12px);
+  }
+
+  .cycl-page .cycl-nav .nav__inner > .nav__cta-bucket .nav__lang {
+    grid-column: unset;
+    grid-row: unset;
+    justify-self: unset;
+    flex-shrink: 0;
   }
 }
