@@ -868,6 +868,58 @@ body.gogl-program {
   border-color: rgba(255, 255, 255, 0.45);
 }
 
+.cycl-page .pgl-prod-card__cta--download {
+  background: #fff;
+  color: var(--cycl-black);
+  border-color: #fff;
+}
+
+.cycl-page .pgl-prod-card__cta--download:hover,
+.cycl-page .pgl-prod-card__cta--download:focus-visible {
+  filter: brightness(0.94);
+}
+
+.cycl-page .pgl-prod-card--bottom .pgl-prod-card__cta {
+  background: transparent;
+  border-radius: 0;
+  border: 1.5px solid rgba(255, 255, 255, 0.72);
+  color: #fff;
+}
+
+.cycl-page .pgl-prod-card--bottom .pgl-prod-card__cta:hover,
+.cycl-page .pgl-prod-card--bottom .pgl-prod-card__cta:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+  filter: none;
+}
+
+.cycl-page .pgl-prod-card--towel {
+  position: relative;
+  overflow: hidden;
+  background-color: #141414;
+  background-image: url("assets/biigJ/towelxtreatmill-schmal.png");
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+
+.cycl-page .pgl-prod-card--towel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 10, 0.94) 0%,
+    rgba(10, 10, 10, 0.72) 42%,
+    rgba(10, 10, 10, 0.38) 100%
+  );
+  pointer-events: none;
+}
+
+.cycl-page .pgl-prod-card--towel > * {
+  position: relative;
+  z-index: 1;
+}
+
 .cycl-page .pgl-prod-card__cta:hover,
 .cycl-page .pgl-prod-card__cta:focus-visible {
   filter: brightness(1.08);
