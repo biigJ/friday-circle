@@ -876,4 +876,9 @@ body.kaufen-page {
   .kaufen-product__slider-stage {
     touch-action: pan-y pinch-zoom;
   }
+
+  .kaufen-product__figure--slider .kaufen-tile__slide img {
+    -webkit-user-drag: none;
+    user-select: none;
+  }
 }

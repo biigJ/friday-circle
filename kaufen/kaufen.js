@@ -67,6 +67,7 @@
     function finishSwipe(e) {
       if (!dragging || e.pointerId !== pointerId) return;
       var dx = e.clientX - startX;
+      var locked = axisLocked;
       if (zone.releasePointerCapture) {
         try {
           zone.releasePointerCapture(pointerId);
@@ -75,7 +76,7 @@
         }
       }
       resetPointer();
-      if (axisLocked !== "x" || Math.abs(dx) < threshold) return;
+      if (locked !== "x" || Math.abs(dx) < threshold) return;
       if (dx < 0) {
         if (options.onNext) options.onNext();
       } else if (options.onPrev) {
