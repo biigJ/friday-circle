@@ -426,9 +426,9 @@
         subjectEn: "Order Frei Von Ecken table 85 x 130 cm",
         slides: [
           {
-            src: "../assets/interior/tisch-aufgruenemkaro.png",
-            altDe: "Esstisch auf grünem Karomuster",
-            altEn: "Dining table on green carom pattern",
+            src: "../assets/interior/freivonecken130-villaecke.png",
+            altDe: "Frei Von Ecken Esstisch in der Villaecke, 85 x 130 cm",
+            altEn: "Frei Von Ecken dining table in the villa corner, 85 x 130 cm",
           },
           {
             src: "../assets/interior/freivonecken130-lager.png",
@@ -459,11 +459,6 @@
             src: "../assets/interior/freiVonEcken240-studioweiss.png",
             altDe: "Frei Von Ecken Esstisch im Studio, 90 x 240 cm",
             altEn: "Frei Von Ecken dining table in studio, 90 x 240 cm",
-          },
-          {
-            src: "../assets/interior/tisch-250.png",
-            altDe: "Großer Esstisch",
-            altEn: "Large dining table",
           },
         ],
       },

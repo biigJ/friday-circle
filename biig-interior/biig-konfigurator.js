@@ -149,7 +149,7 @@ function bkKoordLabels() {
 const BK_SIZE_BG = {
   kl_zimmer: '../assets/interior/oase-neopainting.png',
   gr_zimmer: '../assets/interior/blauesgemälde.png',
-  teile: '../assets/interior/table_bronce.png',
+  teile: '../assets/interior/ordnung-01.png',
   etage: '../assets/interior/dieffe33-vombett.png',
   haus: '../assets/interior/rene-möbliert-01.png?v=2',
   haus_garten: '../assets/interior/Neubauhaus.png',
