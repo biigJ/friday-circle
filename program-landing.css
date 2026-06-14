@@ -784,6 +784,41 @@ body.gogl-program {
   margin: 0 0 40px;
 }
 
+.cycl-page .pgl-prod-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.cycl-page .pgl-prod-card__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1.5px solid var(--cycl-red);
+  background: var(--cycl-red);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+}
+
+.cycl-page .pgl-prod-card__cta--ghost {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.cycl-page .pgl-prod-card__cta:hover,
+.cycl-page .pgl-prod-card__cta:focus-visible {
+  filter: brightness(1.08);
+  outline: none;
+}
+
 .cycl-page .cycl-footer {
   background: var(--cycl-black);
   border-top: 1px solid rgba(255, 255, 255, 0.12);

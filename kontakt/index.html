@@ -18,7 +18,7 @@
         --kontakt-black: #0a0a0a;
         --kontakt-red: #ff2f3a;
         --kontakt-red-dark: #a4141c;
-        --kontakt-gold: #c9a962;
+        --kontakt-blue: #1a4fd6;
         --kontakt-shell: min(100% - 2 * var(--nav-pad-x, clamp(16px, 4vw, 44px)), var(--content-max, 1180px));
         --kontakt-header-pad: var(--nav-pad-x, clamp(16px, 4vw, 44px));
       }
@@ -231,8 +231,8 @@
         grid-column: 1;
         grid-row: 2;
         display: grid;
-        grid-template-columns: 1fr;
-        background: var(--kontakt-red);
+        grid-template-columns: 1fr 1fr;
+        background: transparent;
         color: #fff0f0;
         font-family: var(--font-sans);
         text-align: center;
@@ -243,18 +243,29 @@
         align-items: center;
         justify-content: center;
         min-height: clamp(72px, 8vw, 96px);
-        padding: 18px 24px 12px;
+        padding: 18px 24px;
         color: #fff0f0;
         font-size: clamp(1.02rem, 2vw, 1.5rem);
         font-weight: 700;
         letter-spacing: 0.04em;
         text-decoration: none;
+        background: var(--kontakt-red);
       }
 
       .kontakt-mail__link:hover,
       .kontakt-mail__link:focus-visible {
         background: color-mix(in srgb, var(--kontakt-red) 82%, #000);
         outline: none;
+      }
+
+      .kontakt-mail__link--calendly {
+        background: var(--kontakt-blue);
+        color: #f4f8ff;
+      }
+
+      .kontakt-mail__link--calendly:hover,
+      .kontakt-mail__link--calendly:focus-visible {
+        background: color-mix(in srgb, var(--kontakt-blue) 82%, #000);
       }
 
       .kontakt-mail__note {
@@ -358,6 +369,7 @@
         .kontakt-mail {
           grid-column: 1;
           grid-row: 2;
+          grid-template-columns: 1fr;
         }
       }
     </style>
@@ -392,6 +404,7 @@
           </div>
           <div class="kontakt-mail">
             <a class="kontakt-mail__link" href="mailto:mail@bjgrope.de">mail@bjgrope.de</a>
+            <a class="kontakt-mail__link kontakt-mail__link--calendly" href="#">Calendly</a>
           </div>
         </div>
       </section>
