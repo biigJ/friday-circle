@@ -323,7 +323,6 @@ body.kaufen-page {
   margin: 0;
   aspect-ratio: 1;
   background: #111;
-  border: 1px solid var(--kaufen-line);
   overflow: hidden;
 }
 
@@ -469,7 +468,6 @@ body.kaufen-page {
   aspect-ratio: 1;
   width: 100%;
   background: #111;
-  border: 1px solid var(--kaufen-line);
   overflow: hidden;
 }
 
