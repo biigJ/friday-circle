@@ -154,11 +154,36 @@
         letter-spacing: 0.018em;
         color: var(--logo);
       }
-      .gogogo-page .nav__links--empty {
-        min-width: 0;
-        min-height: 0;
-        visibility: hidden;
-        pointer-events: none;
+      .gogogo-page .nav__links {
+        gap: clamp(20px, 3.5vw, 48px);
+        font-size: clamp(0.78rem, 1vw, 0.92rem);
+        font-weight: 400;
+      }
+      @media (max-width: 760px) {
+        .gogogo-page .nav__links {
+          position: static;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: flex-start;
+          grid-column: 1 / -1;
+          width: 100%;
+          max-width: none;
+          min-width: 0;
+          padding: 0;
+          margin: 0;
+          background: transparent;
+          box-shadow: none;
+          gap: clamp(12px, 3.5vw, 20px);
+          font-size: clamp(0.72rem, 2.8vw, 0.86rem);
+        }
+        .gogogo-page .nav__links a {
+          color: var(--text);
+          width: auto;
+          text-align: left;
+          padding: 4px 0;
+        }
       }
       .gogogo-landing__header-cta {
         border: 1.5px solid var(--text);
@@ -4086,7 +4111,11 @@
     <header class="nav" aria-label="Hauptnavigation">
       <div class="nav__inner">
         <a href="#top" class="nav__logo gogogo-landing__logo" aria-label="gogogo — zum Seitenanfang">gogogo</a>
-        <nav class="nav__links nav__links--empty" aria-hidden="true"></nav>
+        <nav class="nav__links gogogo-landing__nav" aria-label="Angebote">
+          <a href="register-accountability/index.html"><span class="de-t">Buddy-Gruppe</span><span class="en-t">Buddy group</span></a>
+          <a href="register-training/index.html"><span class="de-t">Buddy-Experte</span><span class="en-t">Buddy expert</span></a>
+          <a href="cycle-training.html"><span class="de-t">Friday Training</span><span class="en-t">Friday Training</span></a>
+        </nav>
         <div class="nav__cta-bucket">
           <div class="nav__lang" role="group" aria-label="Sprache">
             <button type="button" class="is-active" data-fc-lang="de">DE</button>
