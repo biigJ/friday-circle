@@ -19,8 +19,8 @@
     { de: "Einordnung ins große Ganze für mehr Gelassenheit", en: "Context for the bigger picture — more calm" },
     { de: "Eine Tour durch Berlin als open Source Plattform", en: "A tour through Berlin as an open-source platform" },
     {
-      de: "Dein buchstäblich einzigartiges Produkte — Zufriedenheitsgarantie",
-      en: "Your literally unique products — satisfaction guarantee",
+      de: "Deine buchstäblich einzigartigen Produkte mit Zufriedenheitsgarantie",
+      en: "Your literally unique products with satisfaction guarantee",
     },
   ];
 
