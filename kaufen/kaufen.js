@@ -68,6 +68,7 @@
   var SWEATER_COLORS = {
     chocolate: { de: "Chocolate Braun", en: "Chocolate brown", slide: 0 },
     red: { de: "Dunkelrot", en: "Dark red", slide: 1 },
+    darkgrey: { de: "Dunkelgrau", en: "Dark grey", slide: 2 },
   };
 
   var sweaterState = { size: "M", color: "chocolate", slide: 0 };

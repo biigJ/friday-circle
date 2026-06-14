@@ -405,6 +405,11 @@ body.kaufen-page {
   border-color: rgba(255, 255, 255, 0.55);
 }
 
+.kaufen-swatch--darkgrey {
+  background: #3a3a3a;
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
 .kaufen-swatch-btn .visually-hidden {
   position: absolute;
   width: 1px;
