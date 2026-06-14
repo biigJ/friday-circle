@@ -383,6 +383,7 @@
     var path = (location.pathname || "").toLowerCase();
     if (path.indexOf("/tisch.html") >= 0) return "moebel";
     if (path.indexOf("/sweater.html") >= 0) return "kleidung";
+    if (path.indexOf("/handtuch.html") >= 0) return "kleidung";
     if (path.indexOf("/kunst.html") >= 0) return "kunst";
     if (path.indexOf("/modernmen.html") >= 0) return "buch";
     return "all";
@@ -657,6 +658,8 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     bindTileSlider(document.getElementById("kaufen-tisch-tile"));
+    bindTileSlider(document.getElementById("kaufen-handtuch-tile"));
+    bindTileSlider(document.getElementById("kaufen-handtuch-product-slider"));
     bindShopNav();
     bindSweaterPage();
     bindTischPage();
