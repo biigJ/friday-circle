@@ -20,6 +20,13 @@
     return zone ? zone.querySelector(".kaufen-tile__slider") : null;
   }
 
+  function clampSlideIndex(index, count) {
+    if (count < 1) return 0;
+    if (index < 0) return 0;
+    if (index >= count) return count - 1;
+    return index;
+  }
+
   function syncMobileProductSlider(track, index, dragPx, animate) {
     if (!track) return;
     if (!isMobileProductSliderViewport()) {
@@ -110,8 +117,9 @@
       }
       resetPointer();
       if (locked === "x" && Math.abs(dx) >= threshold) {
-        if (dx < 0 && options.onNext) options.onNext();
-        else if (dx > 0 && options.onPrev) options.onPrev();
+        var count = typeof options.getCount === "function" ? options.getCount() : 0;
+        if (dx < 0 && startIndex < count - 1 && options.onNext) options.onNext();
+        else if (dx > 0 && startIndex > 0 && options.onPrev) options.onPrev();
         syncMobileProductSlider(
           track,
           typeof options.getIndex === "function" ? options.getIndex() : startIndex,
@@ -165,7 +173,7 @@
     var stage = root.querySelector(".kaufen-product__slider-stage");
 
     function show(i, animate) {
-      index = (i + slides.length) % slides.length;
+      index = clampSlideIndex(i, slides.length);
       slides.forEach(function (slide, n) {
         slide.classList.toggle("is-active", n === index);
       });
@@ -282,7 +290,7 @@
 
     function showSlide(index, animate) {
       if (!slides.length) return;
-      sweaterState.slide = (index + slides.length) % slides.length;
+      sweaterState.slide = clampSlideIndex(index, slides.length);
       slides.forEach(function (slide, n) {
         slide.classList.toggle("is-active", n === sweaterState.slide);
       });
@@ -474,7 +482,7 @@
       var slides = slider.querySelectorAll(".kaufen-tile__slide");
       var dots = dotsWrap ? dotsWrap.querySelectorAll(".kaufen-tile__dot") : [];
       if (!slides.length) return;
-      tischState.slide = (index + slides.length) % slides.length;
+      tischState.slide = clampSlideIndex(index, slides.length);
       slides.forEach(function (slide, n) {
         slide.classList.toggle("is-active", n === tischState.slide);
       });
@@ -723,7 +731,7 @@
 
     function showSlide(index, animate) {
       if (!slides.length) return;
-      sportState.slide = (index + slides.length) % slides.length;
+      sportState.slide = clampSlideIndex(index, slides.length);
       slides.forEach(function (slide, n) {
         slide.classList.toggle("is-active", n === sportState.slide);
       });
@@ -1017,7 +1025,7 @@
 
     function showKunstSlide(i, animate) {
       if (!currentSlides.length) return;
-      slideIndex = (i + currentSlides.length) % currentSlides.length;
+      slideIndex = clampSlideIndex(i, currentSlides.length);
       slidesRoot.querySelectorAll(".kaufen-tile__slide").forEach(function (slide, n) {
         slide.classList.toggle("is-active", n === slideIndex);
       });
