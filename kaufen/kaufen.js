@@ -272,11 +272,6 @@
             altEn: "Frei Von Ecken dining table in studio, 90 x 240 cm",
           },
           {
-            src: "../assets/interior/freiVonEcken240-strich.png",
-            altDe: "Frei Von Ecken Esstisch, Strichzeichnung 90 x 240 cm",
-            altEn: "Frei Von Ecken dining table, line drawing 90 x 240 cm",
-          },
-          {
             src: "../assets/interior/tisch-250.png",
             altDe: "Großer Esstisch",
             altEn: "Large dining table",
