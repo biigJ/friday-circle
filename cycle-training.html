@@ -13,6 +13,7 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="program-landing.css" />
+    <script src="fc-lang.js" defer></script>
   </head>
   <body class="gogogo-page gogl-program cycl-page">
     <header class="nav cycl-nav" aria-label="Hauptnavigation">
@@ -21,19 +22,21 @@
           <span class="cycl-brand-logo__strong">FRIDAY</span>
           <span class="cycl-brand-logo__light">TRAINING</span>
         </a>
-        <nav class="nav__links" aria-label="Seitenabschnitte">
-          <a href="#motivation">Motivation</a>
-          <a href="#disziplin">Disziplin</a>
-          <a href="#tabelle">Tabelle</a>
-        </nav>
         <div class="nav__cta-bucket">
-          <a class="cycl-header-cta" href="#programm">Programm</a>
+          <div class="nav__lang cycl-nav__lang" role="group" aria-label="Sprache">
+            <button type="button" class="is-active" data-fc-lang="de">DE</button>
+            <button type="button" data-fc-lang="en">EN</button>
+          </div>
+          <a class="cycl-header-cta" href="#programm">
+            <span class="de-t">Programm</span>
+            <span class="en-t">Program</span>
+          </a>
         </div>
       </div>
     </header>
 
     <main id="top">
-      <section class="pgl-hero cycl-hero" id="motivation" aria-labelledby="cycl-hero">
+      <section class="pgl-hero cycl-hero" aria-labelledby="cycl-hero">
         <div
           class="pgl-hero__media cycl-hero__media"
           style="background-image: url('assets/gogogo/SledHoodie.png')"
@@ -46,11 +49,18 @@
             <div class="cycl-hero__copy">
               <h1 id="cycl-hero" class="pgl-hero__title cycl-hero__title">It's Friday yeah ...</h1>
               <p class="pgl-hero__sub cycl-hero__sub">
-                Verbindlichkeit im Kreis von guten Menschen.<br />
-                Wöchentliche Challenges ohne im Wettbewerb zu stehen.
+                <span class="cycl-hero__sub-lead">
+                  <span class="de-t">Verbindlichkeit im Kreis von guten Menschen.</span>
+                  <span class="en-t">Accountability in a circle of good people.</span>
+                </span><br />
+                <span class="de-t">Wöchentliche Challenges ohne im Wettbewerb zu stehen.</span>
+                <span class="en-t">Weekly challenges without standing in competition.</span>
               </p>
               <div class="pgl-cta-row cycl-hero__cta-row">
-                <a class="pgl-cta pgl-cta--primary cycl-hero__cta" href="#programm">Mach mit</a>
+                <a class="pgl-cta pgl-cta--primary cycl-hero__cta" href="#programm">
+                  <span class="de-t">Mach mit</span>
+                  <span class="en-t">Join in</span>
+                </a>
               </div>
             </div>
           </div>
@@ -58,29 +68,64 @@
       </section>
 
       <section class="pgl-products cycl-products" id="programm">
-        <div class="gogl-slab-pl" id="disziplin">
-          <h2 class="pgl-section-title cycl-section-title">Organisiertes Leiden, Lernen, Wachsen</h2>
-          <p class="pgl-products-muted cycl-section-sub">Mit Plan, Tracking und Belohnung</p>
+        <div class="gogl-slab-pl">
+          <h2 class="pgl-section-title cycl-section-title">
+            <span class="de-t">Organisiertes Leiden, Lernen, Wachsen</span>
+            <span class="en-t">Organized suffering, learning, growth</span>
+          </h2>
+          <p class="pgl-products-muted cycl-section-sub">
+            <span class="de-t">Mit Plan, Tracking und Belohnung</span>
+            <span class="en-t">With plan, tracking, and reward</span>
+          </p>
           <div class="pgl-prod-grid" id="tabelle">
             <article class="pgl-prod-card">
               <h3>WEEKLY CYCLE PDF</h3>
-              <p>Hybrid Trainingsplan Blueprint Download für eine Woche. (Für Deine Individualisierung buch einen Termin)</p>
-              <div class="pgl-prod-card__actions">
-                <a class="pgl-prod-card__cta" href="#download">Download</a>
-                <a class="pgl-prod-card__cta pgl-prod-card__cta--ghost" href="#calendly">Calendly</a>
-              </div>
+              <p>
+                <span class="de-t">Hybrid Trainingsplan Blueprint Download für eine Woche. (Für Deine Individualisierung buch einen Termin)</span>
+                <span class="en-t">Hybrid training plan blueprint download for one week. (Book a session for your individualization)</span>
+              </p>
             </article>
             <article class="pgl-prod-card">
               <h3>FRIDAY CYCLE TABELLE</h3>
-              <p>Setz Dir für Freitag den Reminder und schau Dir die Challenge an. Mach sie und trag Deine Daten ein. Wer 10 Wochen durchhält und sich verbessert, erhält ein FRIDAY CIRCLE Shirt.</p>
+              <p>
+                <span class="de-t">Setz Dir für Freitag den Reminder und schau Dir die Challenge an. Mach sie und trag Deine Daten ein. Wer 10 Wochen durchhält und sich verbessert, erhält ein FRIDAY CIRCLE Shirt.</span>
+                <span class="en-t">Set a Friday reminder and check the challenge. Do it and log your data. Anyone who holds 10 weeks and improves gets a FRIDAY CIRCLE shirt.</span>
+              </p>
+              <div class="pgl-prod-card__actions">
+                <a class="pgl-prod-card__cta" href="#tabelle">
+                  <span class="de-t">Anschauen</span>
+                  <span class="en-t">View</span>
+                </a>
+              </div>
             </article>
             <article class="pgl-prod-card">
-              <h3>BESTELL DEIN CIRCLE HANDTUCH</h3>
-              <p>Damit Du während des 1-stündigen Friday Workouts im Gym stilvoll Dein Laufband reservieren kannst.</p>
+              <h3>
+                <span class="de-t">BESTELL DEIN CIRCLE HANDTUCH</span>
+                <span class="en-t">ORDER YOUR CIRCLE TOWEL</span>
+              </h3>
+              <p>
+                <span class="de-t">Damit Du während des 1-stündigen Friday Workouts im Gym stilvoll Dein Laufband reservieren kannst.</span>
+                <span class="en-t">So you can stylishly reserve your treadmill during the one-hour Friday workout at the gym.</span>
+              </p>
+              <div class="pgl-prod-card__actions">
+                <a class="pgl-prod-card__cta" href="kaufen/index.html">
+                  <span class="de-t">Kaufen</span>
+                  <span class="en-t">Buy</span>
+                </a>
+              </div>
             </article>
             <article class="pgl-prod-card">
               <h3>FRIDAY CIRCLE Hoodie</h3>
-              <p>Erste Produktion startet wenn 10 Bestellungen drin sind. Danach läuft die Challenge über die Tabelle.</p>
+              <p>
+                <span class="de-t">Erste Produktion startet wenn 10 Bestellungen drin sind. Danach läuft die Challenge über die Tabelle.</span>
+                <span class="en-t">First production starts when 10 orders are in. After that, the challenge runs through the table.</span>
+              </p>
+              <div class="pgl-prod-card__actions">
+                <a class="pgl-prod-card__cta" href="kaufen/sweater.html">
+                  <span class="de-t">Kaufen</span>
+                  <span class="en-t">Buy</span>
+                </a>
+              </div>
             </article>
           </div>
         </div>

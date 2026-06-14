@@ -642,7 +642,8 @@ body.gogl-program {
 }
 
 .cycl-page .cycl-nav .nav__inner {
-  align-items: flex-end;
+  grid-template-columns: 1fr auto;
+  align-items: center;
 }
 
 .cycl-page .cycl-brand-logo {
@@ -669,6 +670,23 @@ body.gogl-program {
   font-weight: 300;
 }
 
+.cycl-page .cycl-nav .nav__lang {
+  border-color: rgba(255, 255, 255, 0.38);
+}
+
+.cycl-page .cycl-nav .nav__lang button {
+  color: #fff;
+}
+
+.cycl-page .cycl-nav .nav__lang button.is-active {
+  background: #fff;
+  color: var(--cycl-black);
+}
+
+.cycl-page .cycl-nav .nav__cta-bucket {
+  align-items: center;
+}
+
 .cycl-page .cycl-header-cta {
   display: inline-flex;
   align-items: center;
@@ -678,8 +696,9 @@ body.gogl-program {
   color: #fff;
   font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 0.85rem;
-  padding: 10px 22px;
+  font-size: clamp(0.78rem, 1.45vw, 0.85rem);
+  line-height: 1;
+  padding: 0.42em 1.35em;
   border-radius: 999px;
   text-decoration: none;
   white-space: nowrap;
@@ -722,7 +741,7 @@ body.gogl-program {
 }
 
 .cycl-page .cycl-hero__copy {
-  width: min(100%, 42rem);
+  width: min(100%, 56rem);
   margin: 0 auto;
 }
 
@@ -740,12 +759,19 @@ body.gogl-program {
   font-family: var(--font-sans);
   font-style: normal;
   font-weight: 300;
-  font-size: clamp(1rem, 2.5vw, 1.75rem);
+  font-size: clamp(0.95rem, 2.2vw, 1.65rem);
   line-height: 1.45;
   color: rgba(255, 255, 255, 0.88);
-  max-width: 34rem;
+  max-width: min(100%, 54rem);
+  width: 100%;
   margin: 0 auto 28px;
   text-align: center;
+}
+
+@media (min-width: 760px) {
+  .cycl-page .cycl-hero__sub-lead {
+    white-space: nowrap;
+  }
 }
 
 .cycl-page .cycl-hero__cta-row {
@@ -833,14 +859,7 @@ body.gogl-program {
 @media (max-width: 760px) {
   .cycl-page .cycl-nav .nav__inner {
     grid-template-columns: 1fr auto;
-    row-gap: 12px;
-  }
-
-  .cycl-page .cycl-nav .nav__links {
-    grid-column: 1 / -1;
-    justify-self: start;
-    gap: clamp(18px, 5vw, 28px);
-    font-size: 0.82rem;
+    row-gap: 0;
   }
 
   .cycl-page .cycl-brand-logo {
