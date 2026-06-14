@@ -9,6 +9,31 @@
     return lang() === "en" ? en : de;
   }
 
+  function bindTileAutoplay(root, intervalMs) {
+    if (!root || root.dataset.autoplayBound) return;
+    var slides = root.querySelectorAll(".kaufen-tile__slide");
+    if (slides.length < 2) return;
+
+    root.dataset.autoplayBound = "1";
+    var index = 0;
+    slides.forEach(function (slide, n) {
+      if (slide.classList.contains("is-active")) index = n;
+    });
+
+    function show(i) {
+      index = (i + slides.length) % slides.length;
+      slides.forEach(function (slide, n) {
+        slide.classList.toggle("is-active", n === index);
+      });
+    }
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    setInterval(function () {
+      show(index + 1);
+    }, intervalMs || 3000);
+  }
+
   function bindTileSlider(root) {
     if (!root) return;
     var slides = root.querySelectorAll(".kaufen-tile__slide");
@@ -816,6 +841,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
+    bindTileAutoplay(document.getElementById("kaufen-sport-preview-slider"), 3000);
     bindTileSlider(document.getElementById("kaufen-handtuch-product-slider"));
     bindShopNav();
     bindSweaterPage();

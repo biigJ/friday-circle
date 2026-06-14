@@ -201,25 +201,18 @@ body.kaufen-page {
   display: block;
 }
 
-.kaufen-tile__media--split-diagonal {
-  display: block;
-}
-
-.kaufen-tile__split-img {
+.kaufen-tile__media > .kaufen-tile__slider {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+}
+
+.kaufen-tile__media .kaufen-tile__slide img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   display: block;
-}
-
-.kaufen-tile__split-img--a {
-  clip-path: polygon(0 0, 100% 0, 0 100%);
-}
-
-.kaufen-tile__split-img--b {
-  clip-path: polygon(100% 0, 100% 100%, 0 100%);
 }
 
 .kaufen-product__note--sport-detail {
