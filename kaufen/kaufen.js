@@ -408,17 +408,15 @@
       labelEn: "Sports shirt",
       mailDe: "Vorbestellung Friday Circle Sportshirt",
       mailEn: "Pre-order Friday Circle sports shirt",
-      showDetail: false,
     },
     frau: {
       slide: 0,
       priceDe: "49 €",
       priceEn: "€49",
-      labelDe: "Sport-BH",
-      labelEn: "Sports bra",
+      labelDe: "Sport-BH mit starkem Halt",
+      labelEn: "Sports bra with strong support",
       mailDe: "Vorbestellung Friday Circle Sport-BH",
       mailEn: "Pre-order Friday Circle sports bra",
-      showDetail: true,
     },
   };
 
@@ -435,7 +433,6 @@
     var genderWrap = document.getElementById("kaufen-sport-gender");
     var priceEl = document.getElementById("kaufen-sport-price");
     var variantLabel = document.getElementById("kaufen-sport-variant-label");
-    var detailEl = document.getElementById("kaufen-sport-detail");
 
     function variantMeta(value) {
       return SPORT_VARIANTS[value] || SPORT_VARIANTS.mann;
@@ -468,7 +465,6 @@
           el.textContent = meta.labelEn;
         });
       }
-      if (detailEl) detailEl.hidden = !meta.showDetail;
       order.setAttribute(
         "href",
         "mailto:" +
