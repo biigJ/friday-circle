@@ -13,12 +13,31 @@
     return window.matchMedia("(max-width: 900px)").matches;
   }
 
+  var PRODUCT_SLIDER_TRANSITION = "transform 0.58s cubic-bezier(0.22, 1, 0.36, 1)";
+
+  function getProductSliderTrack(zone, options) {
+    if (options && options.getSlider) return options.getSlider();
+    return zone ? zone.querySelector(".kaufen-tile__slider") : null;
+  }
+
+  function syncMobileProductSlider(track, index, dragPx, animate) {
+    if (!track) return;
+    if (!isMobileProductSliderViewport()) {
+      track.style.transform = "";
+      track.style.transition = "";
+      return;
+    }
+    var drag = dragPx || 0;
+    track.style.transition = animate ? PRODUCT_SLIDER_TRANSITION : "none";
+    track.style.transform = "translateX(calc(-" + index * 100 + "% + " + drag + "px))";
+  }
+
   function bindProductSliderSwipe(zone, options) {
     if (!zone || zone.dataset.productSwipeBound) return;
     options = options || {};
     zone.dataset.productSwipeBound = "1";
 
-    var threshold = options.threshold || 52;
+    var threshold = options.threshold || 38;
     var ignore =
       options.ignore ||
       function (target) {
@@ -28,6 +47,7 @@
     var dragging = false;
     var startX = 0;
     var startY = 0;
+    var startIndex = 0;
     var pointerId = null;
     var axisLocked = null;
 
@@ -35,6 +55,7 @@
       dragging = false;
       pointerId = null;
       axisLocked = null;
+      zone.classList.remove("is-product-swipe-dragging");
     }
 
     zone.addEventListener("pointerdown", function (e) {
@@ -45,7 +66,9 @@
       pointerId = e.pointerId;
       startX = e.clientX;
       startY = e.clientY;
+      startIndex = typeof options.getIndex === "function" ? options.getIndex() : 0;
       axisLocked = null;
+      zone.classList.add("is-product-swipe-dragging");
       if (zone.setPointerCapture) zone.setPointerCapture(pointerId);
     });
 
@@ -59,7 +82,16 @@
           if (Math.abs(dx) < 8 && Math.abs(dy) < 8) return;
           axisLocked = Math.abs(dx) > Math.abs(dy) ? "x" : "y";
         }
-        if (axisLocked === "x" && Math.abs(dx) > 10) e.preventDefault();
+        if (axisLocked === "x") {
+          if (e.cancelable) e.preventDefault();
+          var resisted = dx;
+          var count = typeof options.getCount === "function" ? options.getCount() : 0;
+          if (count > 1) {
+            if (startIndex <= 0 && dx > 0) resisted = dx * 0.34;
+            if (startIndex >= count - 1 && dx < 0) resisted = dx * 0.34;
+          }
+          syncMobileProductSlider(getProductSliderTrack(zone, options), startIndex, resisted, false);
+        }
       },
       { passive: false }
     );
@@ -68,6 +100,7 @@
       if (!dragging || e.pointerId !== pointerId) return;
       var dx = e.clientX - startX;
       var locked = axisLocked;
+      var track = getProductSliderTrack(zone, options);
       if (zone.releasePointerCapture) {
         try {
           zone.releasePointerCapture(pointerId);
@@ -76,12 +109,18 @@
         }
       }
       resetPointer();
-      if (locked !== "x" || Math.abs(dx) < threshold) return;
-      if (dx < 0) {
-        if (options.onNext) options.onNext();
-      } else if (options.onPrev) {
-        options.onPrev();
+      if (locked === "x" && Math.abs(dx) >= threshold) {
+        if (dx < 0 && options.onNext) options.onNext();
+        else if (dx > 0 && options.onPrev) options.onPrev();
+        syncMobileProductSlider(
+          track,
+          typeof options.getIndex === "function" ? options.getIndex() : startIndex,
+          0,
+          true
+        );
+        return;
       }
+      syncMobileProductSlider(track, startIndex, 0, true);
     }
 
     zone.addEventListener("pointerup", finishSwipe);
@@ -122,8 +161,10 @@
     if (!slides.length) return;
 
     var index = 0;
+    var track = root.querySelector(".kaufen-tile__slider");
+    var stage = root.querySelector(".kaufen-product__slider-stage");
 
-    function show(i) {
+    function show(i, animate) {
       index = (i + slides.length) % slides.length;
       slides.forEach(function (slide, n) {
         slide.classList.toggle("is-active", n === index);
@@ -131,6 +172,7 @@
       dots.forEach(function (dot, n) {
         dot.classList.toggle("is-active", n === index);
       });
+      syncMobileProductSlider(track, index, 0, animate !== false);
     }
 
     if (prev) {
@@ -155,7 +197,13 @@
       });
     });
 
-    bindProductSliderSwipe(root.querySelector(".kaufen-product__slider-stage"), {
+    bindProductSliderSwipe(stage, {
+      getSlider: function () {
+        return track;
+      },
+      getIndex: function () {
+        return index;
+      },
       getCount: function () {
         return slides.length;
       },
@@ -166,6 +214,8 @@
         show(index + 1);
       },
     });
+
+    show(0, false);
   }
 
   function bindChoiceGroup(container, onChange) {
@@ -230,7 +280,7 @@
       });
     }
 
-    function showSlide(index) {
+    function showSlide(index, animate) {
       if (!slides.length) return;
       sweaterState.slide = (index + slides.length) % slides.length;
       slides.forEach(function (slide, n) {
@@ -239,6 +289,7 @@
       dots.forEach(function (dot, n) {
         dot.classList.toggle("is-active", n === sweaterState.slide);
       });
+      syncMobileProductSlider(slider, sweaterState.slide, 0, animate !== false);
       var activeSlide = slides[sweaterState.slide];
       var slideColor = activeSlide && activeSlide.getAttribute("data-color");
       if (slideColor && SWEATER_COLORS[slideColor]) {
@@ -301,6 +352,12 @@
       });
 
       bindProductSliderSwipe(figure.querySelector(".kaufen-product__slider-stage"), {
+        getSlider: function () {
+          return slider;
+        },
+        getIndex: function () {
+          return sweaterState.slide;
+        },
         getCount: function () {
           return slides.length;
         },
@@ -315,7 +372,7 @@
 
     updateColorLabel();
     updateSwatchAria();
-    showSlide(colorMeta(sweaterState.color).slide);
+    showSlide(colorMeta(sweaterState.color).slide, false);
     updateMail();
   }
 
@@ -410,9 +467,10 @@
         }
       });
       tischState.slide = 0;
+      syncMobileProductSlider(slider, 0, 0, false);
     }
 
-    function showSlide(index) {
+    function showSlide(index, animate) {
       var slides = slider.querySelectorAll(".kaufen-tile__slide");
       var dots = dotsWrap ? dotsWrap.querySelectorAll(".kaufen-tile__dot") : [];
       if (!slides.length) return;
@@ -423,6 +481,7 @@
       dots.forEach(function (dot, n) {
         dot.classList.toggle("is-active", n === tischState.slide);
       });
+      syncMobileProductSlider(slider, tischState.slide, 0, animate !== false);
     }
 
     function updateVariantUi() {
@@ -472,6 +531,12 @@
         setVariant(value);
       });
       bindProductSliderSwipe(sliderRoot.querySelector(".kaufen-product__slider-stage"), {
+        getSlider: function () {
+          return slider;
+        },
+        getIndex: function () {
+          return tischState.slide;
+        },
         getCount: function () {
           return slider.querySelectorAll(".kaufen-tile__slide").length;
         },
@@ -656,7 +721,7 @@
       return SPORT_VARIANTS[value] || SPORT_VARIANTS.mann;
     }
 
-    function showSlide(index) {
+    function showSlide(index, animate) {
       if (!slides.length) return;
       sportState.slide = (index + slides.length) % slides.length;
       slides.forEach(function (slide, n) {
@@ -665,6 +730,12 @@
       dots.forEach(function (dot, n) {
         dot.classList.toggle("is-active", n === sportState.slide);
       });
+      syncMobileProductSlider(
+        sliderRoot ? sliderRoot.querySelector(".kaufen-tile__slider") : null,
+        sportState.slide,
+        0,
+        animate !== false
+      );
       var activeSlide = slides[sportState.slide];
       var slideVariant = activeSlide && activeSlide.getAttribute("data-variant");
       if (slideVariant && slideVariant !== sportState.gender) {
@@ -699,10 +770,10 @@
       }
     }
 
-    function setGender(value, syncSlide) {
+    function setGender(value, syncSlide, animate) {
       sportState.gender = value;
       updateVariantUi();
-      if (syncSlide !== false) showSlide(variantMeta(value).slide);
+      if (syncSlide !== false) showSlide(variantMeta(value).slide, animate);
     }
 
     if (!figure.dataset.sportBound) {
@@ -729,6 +800,12 @@
         });
       });
       bindProductSliderSwipe(sliderRoot.querySelector(".kaufen-product__slider-stage"), {
+        getSlider: function () {
+          return sliderRoot ? sliderRoot.querySelector(".kaufen-tile__slider") : null;
+        },
+        getIndex: function () {
+          return sportState.slide;
+        },
         getCount: function () {
           return slides.length;
         },
@@ -739,7 +816,7 @@
           showSlide(sportState.slide + 1);
         },
       });
-      setGender(sportState.gender, true);
+      setGender(sportState.gender, true, false);
     } else {
       updateVariantUi();
     }
@@ -938,7 +1015,7 @@
       sectionLabelEl.textContent = slide ? slide.sectionLabel : "";
     }
 
-    function showKunstSlide(i) {
+    function showKunstSlide(i, animate) {
       if (!currentSlides.length) return;
       slideIndex = (i + currentSlides.length) % currentSlides.length;
       slidesRoot.querySelectorAll(".kaufen-tile__slide").forEach(function (slide, n) {
@@ -949,6 +1026,7 @@
           dot.classList.toggle("is-active", n === slideIndex);
         });
       }
+      syncMobileProductSlider(slidesRoot, slideIndex, 0, animate !== false);
       updateSectionLabel();
       updateOrderMail();
       updateCatalogLink();
@@ -1006,6 +1084,7 @@
       if (prev) prev.hidden = !multi;
       if (next) next.hidden = !multi;
       slideIndex = 0;
+      syncMobileProductSlider(slidesRoot, 0, 0, false);
       updateSectionLabel();
       updateOrderMail();
       updateCatalogLink();
@@ -1054,6 +1133,12 @@
     bindProductSliderSwipe(
       kunstSlider ? kunstSlider.querySelector(".kaufen-product__slider-stage") : null,
       {
+        getSlider: function () {
+          return slidesRoot;
+        },
+        getIndex: function () {
+          return slideIndex;
+        },
         getCount: function () {
           return currentSlides.length;
         },
@@ -1081,6 +1166,17 @@
     }
   }
 
+  function syncAllMobileProductSliders(animate) {
+    document.querySelectorAll(".kaufen-product__slider-stage .kaufen-tile__slider").forEach(function (track) {
+      var slides = track.querySelectorAll(".kaufen-tile__slide");
+      var idx = 0;
+      slides.forEach(function (slide, n) {
+        if (slide.classList.contains("is-active")) idx = n;
+      });
+      syncMobileProductSlider(track, idx, 0, animate !== false);
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     bindTileAutoplay(document.getElementById("kaufen-sport-preview-slider"), 3000);
     bindTileSlider(document.getElementById("kaufen-handtuch-product-slider"));
@@ -1089,6 +1185,16 @@
     bindSportPage();
     bindTischPage();
     bindKunstPage();
+    if (isMobileProductSliderViewport()) syncAllMobileProductSliders(false);
+    window.matchMedia("(max-width: 900px)").addEventListener("change", function () {
+      if (isMobileProductSliderViewport()) syncAllMobileProductSliders(false);
+      else {
+        document.querySelectorAll(".kaufen-tile__slider").forEach(function (track) {
+          track.style.transform = "";
+          track.style.transition = "";
+        });
+      }
+    });
   });
 
   document.addEventListener("fc-lang-change", function () {

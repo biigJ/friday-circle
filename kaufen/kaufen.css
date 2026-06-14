@@ -238,7 +238,7 @@ body.kaufen-page {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity 0.35s ease;
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .kaufen-tile__slide.is-active {
@@ -875,6 +875,31 @@ body.kaufen-page {
 
   .kaufen-product__slider-stage {
     touch-action: pan-y pinch-zoom;
+  }
+
+  .kaufen-product__slider-stage.is-product-swipe-dragging {
+    cursor: grabbing;
+  }
+
+  .kaufen-product__slider-stage .kaufen-tile__slider {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: 100%;
+    will-change: transform;
+  }
+
+  .kaufen-product__slider-stage .kaufen-tile__slide {
+    position: relative;
+    inset: auto;
+    flex: 0 0 100%;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition: none;
   }
 
   .kaufen-product__figure--slider .kaufen-tile__slide img {
