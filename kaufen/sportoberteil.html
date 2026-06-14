@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Friday Circle Sportoberteil | Kaufen</title>
+    <meta name="description" content="Friday Circle Sportoberteil — Sport-BH und Sportshirt, Vorbestellung per E-Mail." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="kaufen.css" />
+  </head>
+  <body class="kaufen-page">
+    <header class="kaufen-header" aria-label="Hauptnavigation">
+      <nav class="kaufen-header__links" aria-label="Friday Circle Seiten">
+        <a class="kaufen-header__logo kaufen-header__logo--fc" href="../index.html">FRIDAY CIRCLE</a>
+        <a class="kaufen-header__logo kaufen-header__logo--gogogo" href="../gogogo-landing.html">gogogo</a>
+        <a class="kaufen-header__logo kaufen-header__logo--biig" href="../biig-interior/index.html">BIIG INTERIOR</a>
+        <a class="kaufen-header__logo kaufen-header__logo--bat" href="../berlinarchtour.html"><strong>BERLIN</strong> ARCHITECTURE <strong>TOUR</strong></a>
+        <a class="kaufen-header__logo kaufen-header__logo--wolfgang" href="../wolfganggrope.html">WOLFGANG GROPE KUNSTWERKE</a>
+      </nav>
+      <div class="kaufen-lang" role="group" aria-label="Sprache">
+        <button type="button" class="is-active" data-fc-lang="de">DE</button>
+        <button type="button" data-fc-lang="en">EN</button>
+      </div>
+    </header>
+
+    <div class="kaufen-layout">
+      <aside class="kaufen-sidebar" aria-label="Shop Kategorien">
+        <ul class="kaufen-sidebar__nav" id="kaufen-shop-nav">
+          <li><a class="kaufen-sidebar__link" href="kaufen/index.html" data-shop-nav="all"><span class="de-t">Alles</span><span class="en-t">All</span></a></li>
+          <li><a class="kaufen-sidebar__link" href="kaufen/index.html#moebel" data-shop-nav="moebel"><span class="de-t">Möbel</span><span class="en-t">Furniture</span></a></li>
+          <li><a class="kaufen-sidebar__link" href="kaufen/index.html#textilien" data-shop-nav="textilien"><span class="de-t">Textilien</span><span class="en-t">Textiles</span></a></li>
+          <li><a class="kaufen-sidebar__link" href="kaufen/index.html#kunst" data-shop-nav="kunst"><span class="de-t">Kunst</span><span class="en-t">Art</span></a></li>
+          <li><a class="kaufen-sidebar__link" href="kaufen/index.html#buch" data-shop-nav="buch"><span class="de-t">Bücher</span><span class="en-t">Books</span></a></li>
+        </ul>
+      </aside>
+
+      <main class="kaufen-main">
+        <a class="kaufen-back" href="kaufen/index.html#textilien"><span class="de-t">← zurück</span><span class="en-t">← back</span></a>
+
+        <div class="kaufen-product">
+          <figure class="kaufen-product__figure kaufen-product__figure--slider" id="kaufen-sport-figure" aria-live="polite">
+            <div class="kaufen-product__slider-wrap" id="kaufen-sport-product-slider">
+              <div class="kaufen-product__slider-stage">
+                <div class="kaufen-tile__slider">
+                  <div class="kaufen-tile__slide is-active" data-variant="frau">
+                    <img src="../assets/biigJ/sportbra.png" alt="Friday Circle Sport-BH" width="1792" height="2390" decoding="async" />
+                  </div>
+                  <div class="kaufen-tile__slide" data-variant="mann">
+                    <img src="../assets/biigJ/sportshirt.png" alt="Friday Circle Sportshirt" width="1792" height="2390" decoding="async" />
+                  </div>
+                </div>
+                <button type="button" class="kaufen-tile__nav kaufen-tile__nav--prev" aria-label="Vorheriges Bild">‹</button>
+                <button type="button" class="kaufen-tile__nav kaufen-tile__nav--next" aria-label="Nächstes Bild">›</button>
+              </div>
+              <div class="kaufen-tile__dots" aria-hidden="true">
+                <button type="button" class="kaufen-tile__dot is-active"></button>
+                <button type="button" class="kaufen-tile__dot"></button>
+              </div>
+            </div>
+          </figure>
+
+          <div class="kaufen-product__info">
+            <h1 class="kaufen-product__title">Friday Circle Sportoberteil</h1>
+            <p class="kaufen-product__price" id="kaufen-sport-price">69 €</p>
+            <p class="kaufen-product__note" id="kaufen-sport-variant-label">
+              <span class="de-t">Sportshirt</span>
+              <span class="en-t">Sports shirt</span>
+            </p>
+            <p class="kaufen-product__note kaufen-product__note--sport-detail" id="kaufen-sport-detail" hidden>
+              <span class="de-t">Starker Halt</span>
+              <span class="en-t">Strong support</span>
+            </p>
+
+            <div>
+              <p class="kaufen-field__label"><span class="de-t">Auswahl</span><span class="en-t">Selection</span></p>
+              <div class="kaufen-size-grid" id="kaufen-sport-gender">
+                <button type="button" class="kaufen-size-btn is-active" data-value="mann" aria-pressed="true">
+                  <span class="de-t">Mann</span>
+                  <span class="en-t">Man</span>
+                </button>
+                <button type="button" class="kaufen-size-btn" data-value="frau" aria-pressed="false">
+                  <span class="de-t">Frau</span>
+                  <span class="en-t">Woman</span>
+                </button>
+              </div>
+            </div>
+
+            <a class="kaufen-order-btn" id="kaufen-sport-order" href="mailto:mail@bjgrope.de?subject=Vorbestellung%20Friday%20Circle%20Sportshirt">
+              <span class="de-t">Vorbestellen</span>
+              <span class="en-t">Pre-order</span>
+            </a>
+
+            <p class="kaufen-product__preorder-note">
+              <span class="de-t">Lieferung &amp; Hinweis: erst ab 10 Bestellungen pro Variante geht die Produktion los — danach Lieferung.</span>
+              <span class="en-t">Delivery &amp; note: production starts once 10 orders per variant are in — then delivery.</span>
+            </p>
+
+            <div class="kaufen-details">
+              <details class="kaufen-details__item" open>
+                <summary class="kaufen-details__summary">
+                  <span class="de-t">Details</span>
+                  <span class="en-t">Details</span>
+                  <span aria-hidden="true">⌃</span>
+                </summary>
+                <div class="kaufen-details__body">
+                  <ul>
+                    <li><span class="de-t">Sportshirt (Mann): 69 €</span><span class="en-t">Sports shirt (men): €69</span></li>
+                    <li><span class="de-t">Sport-BH (Frau): 49 € · Starker Halt</span><span class="en-t">Sports bra (women): €49 · strong support</span></li>
+                    <li><span class="de-t">FRIDAY CIRCLE Logo</span><span class="en-t">FRIDAY CIRCLE logo</span></li>
+                    <li><span class="de-t">Produktion on demand in Berlin</span><span class="en-t">Made on demand in Berlin</span></li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div id="fc-site-footer"></div>
+    <script src="../nav.js" defer></script>
+    <script src="kaufen.js" defer></script>
+  </body>
+</html>

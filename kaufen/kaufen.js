@@ -372,6 +372,129 @@
     return { de: "ab 300 €", en: "from €300" };
   }
 
+  var sportState = { gender: "mann", slide: 1 };
+
+  var SPORT_VARIANTS = {
+    mann: {
+      slide: 1,
+      priceDe: "69 €",
+      priceEn: "€69",
+      labelDe: "Sportshirt",
+      labelEn: "Sports shirt",
+      mailDe: "Vorbestellung Friday Circle Sportshirt",
+      mailEn: "Pre-order Friday Circle sports shirt",
+      showDetail: false,
+    },
+    frau: {
+      slide: 0,
+      priceDe: "49 €",
+      priceEn: "€49",
+      labelDe: "Sport-BH",
+      labelEn: "Sports bra",
+      mailDe: "Vorbestellung Friday Circle Sport-BH",
+      mailEn: "Pre-order Friday Circle sports bra",
+      showDetail: true,
+    },
+  };
+
+  function bindSportPage() {
+    var order = document.getElementById("kaufen-sport-order");
+    var figure = document.getElementById("kaufen-sport-figure");
+    if (!order || !figure) return;
+
+    var sliderRoot = document.getElementById("kaufen-sport-product-slider");
+    var slides = sliderRoot ? sliderRoot.querySelectorAll(".kaufen-tile__slide") : [];
+    var dots = sliderRoot ? sliderRoot.querySelectorAll(".kaufen-tile__dot") : [];
+    var prev = sliderRoot ? sliderRoot.querySelector(".kaufen-tile__nav--prev") : null;
+    var next = sliderRoot ? sliderRoot.querySelector(".kaufen-tile__nav--next") : null;
+    var genderWrap = document.getElementById("kaufen-sport-gender");
+    var priceEl = document.getElementById("kaufen-sport-price");
+    var variantLabel = document.getElementById("kaufen-sport-variant-label");
+    var detailEl = document.getElementById("kaufen-sport-detail");
+
+    function variantMeta(value) {
+      return SPORT_VARIANTS[value] || SPORT_VARIANTS.mann;
+    }
+
+    function showSlide(index) {
+      if (!slides.length) return;
+      sportState.slide = (index + slides.length) % slides.length;
+      slides.forEach(function (slide, n) {
+        slide.classList.toggle("is-active", n === sportState.slide);
+      });
+      dots.forEach(function (dot, n) {
+        dot.classList.toggle("is-active", n === sportState.slide);
+      });
+      var activeSlide = slides[sportState.slide];
+      var slideVariant = activeSlide && activeSlide.getAttribute("data-variant");
+      if (slideVariant && slideVariant !== sportState.gender) {
+        setGender(slideVariant, false);
+      }
+    }
+
+    function updateVariantUi() {
+      var meta = variantMeta(sportState.gender);
+      if (priceEl) priceEl.textContent = t(meta.priceDe, meta.priceEn);
+      if (variantLabel) {
+        variantLabel.querySelectorAll(".de-t").forEach(function (el) {
+          el.textContent = meta.labelDe;
+        });
+        variantLabel.querySelectorAll(".en-t").forEach(function (el) {
+          el.textContent = meta.labelEn;
+        });
+      }
+      if (detailEl) detailEl.hidden = !meta.showDetail;
+      order.setAttribute(
+        "href",
+        "mailto:" +
+          MAIL +
+          "?subject=" +
+          encodeURIComponent(t(meta.mailDe, meta.mailEn))
+      );
+      if (genderWrap) {
+        genderWrap.querySelectorAll("button[data-value]").forEach(function (btn) {
+          var active = btn.getAttribute("data-value") === sportState.gender;
+          btn.classList.toggle("is-active", active);
+          btn.setAttribute("aria-pressed", active ? "true" : "false");
+        });
+      }
+    }
+
+    function setGender(value, syncSlide) {
+      sportState.gender = value;
+      updateVariantUi();
+      if (syncSlide !== false) showSlide(variantMeta(value).slide);
+    }
+
+    if (!figure.dataset.sportBound) {
+      figure.dataset.sportBound = "1";
+      bindChoiceGroup(genderWrap, function (value) {
+        setGender(value, true);
+      });
+      if (prev) {
+        prev.addEventListener("click", function (e) {
+          e.preventDefault();
+          showSlide(sportState.slide - 1);
+        });
+      }
+      if (next) {
+        next.addEventListener("click", function (e) {
+          e.preventDefault();
+          showSlide(sportState.slide + 1);
+        });
+      }
+      dots.forEach(function (dot, n) {
+        dot.addEventListener("click", function (e) {
+          e.preventDefault();
+          showSlide(n);
+        });
+      });
+      setGender(sportState.gender, true);
+    } else {
+      updateVariantUi();
+    }
+  }
+
   function normalizeShopCategory(value) {
     if (!value || value === "all") return "all";
     if (value === "kleidung") return "textilien";
@@ -387,6 +510,7 @@
     if (path.indexOf("/tisch.html") >= 0) return "moebel";
     if (path.indexOf("/sweater.html") >= 0) return "textilien";
     if (path.indexOf("/handtuch.html") >= 0) return "textilien";
+    if (path.indexOf("/sportoberteil.html") >= 0) return "textilien";
     if (path.indexOf("/kunst.html") >= 0) return "kunst";
     if (path.indexOf("/modernmen.html") >= 0) return "buch";
     if (document.getElementById("kaufen-shop-grid")) return shopCategoryFromLocation();
@@ -695,12 +819,14 @@
     bindTileSlider(document.getElementById("kaufen-handtuch-product-slider"));
     bindShopNav();
     bindSweaterPage();
+    bindSportPage();
     bindTischPage();
     bindKunstPage();
   });
 
   document.addEventListener("fc-lang-change", function () {
     bindSweaterPage();
+    bindSportPage();
     bindTischPage();
     var priceEl = document.getElementById("kaufen-kunst-price");
     var active = document.querySelector(".kaufen-kunst-btn.is-active");
