@@ -717,6 +717,11 @@ body.kaufen-page {
   color: var(--kaufen-muted);
 }
 
+.kaufen-book-toc__intro {
+  margin: 0 0 16px;
+  line-height: 1.6;
+}
+
 .kaufen-back {
   display: inline-block;
   margin-bottom: 24px;
