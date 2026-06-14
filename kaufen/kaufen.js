@@ -375,6 +375,7 @@
     moebel: "kaufen/tisch.html",
     kleidung: "kaufen/sweater.html",
     kunst: "kaufen/kunst.html",
+    buch: "kaufen/modernmen.html",
   };
 
   function shopNavKeyFromPath() {
@@ -382,6 +383,7 @@
     if (path.indexOf("/tisch.html") >= 0) return "moebel";
     if (path.indexOf("/sweater.html") >= 0) return "kleidung";
     if (path.indexOf("/kunst.html") >= 0) return "kunst";
+    if (path.indexOf("/modernmen.html") >= 0) return "buch";
     return "all";
   }
 

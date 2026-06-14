@@ -678,6 +678,45 @@ body.kaufen-page {
   padding-left: 1.1rem;
 }
 
+.kaufen-book-toc__block {
+  border-top: 1px solid var(--kaufen-line);
+}
+
+.kaufen-book-toc__block:first-child {
+  border-top: 0;
+}
+
+.kaufen-book-toc__block > summary {
+  padding: 10px 0;
+  cursor: pointer;
+  font-size: 0.74rem;
+  font-weight: 600;
+  list-style: none;
+}
+
+.kaufen-book-toc__block > summary::-webkit-details-marker {
+  display: none;
+}
+
+.kaufen-book-toc__content {
+  margin: 0 0 12px;
+  padding-left: 0.4rem;
+}
+
+.kaufen-book-toc__content ol {
+  margin: 0 0 10px;
+  padding-left: 1.2rem;
+}
+
+.kaufen-book-toc__content p {
+  margin: 0 0 8px;
+}
+
+.kaufen-book-toc__goal {
+  margin-bottom: 8px;
+  color: var(--kaufen-muted);
+}
+
 .kaufen-back {
   display: inline-block;
   margin-bottom: 24px;
