@@ -51,7 +51,7 @@ window.GOGL_I18N_ENTRIES = [
   { s: "#card-accountability .card-expanded p:nth-of-type(1)", de: "Zielanalyse & Gruppe erstellen. 30 Tage kostenlos jeden Tag ein echter Check-in. Game-Changer.", en: "Goal analysis & create a group. 30 days free — a real check-in every day. Game-changer." },
   { s: "#card-accountability .card-expanded p:nth-of-type(2)", de: "30 Tage kostenloser Test", en: "30-day free trial" },
   { s: '#card-training [style*="top:20px"] span', de: "personal training", en: "personal training" },
-  { s: "#card-training h3", de: "Gym-Experten-Buddy", en: "Gym expert buddy" },
+  { s: "#card-training h3", html: true, de: "Gym-Experten-Buddy<br><span style=\"font-size:0.72em;letter-spacing:0.04em;font-weight:500;\">vor Ort oder online</span>", en: "Gym expert buddy<br><span style=\"font-size:0.72em;letter-spacing:0.04em;font-weight:500;\">in person or online</span>" },
   { s: "#card-training .card-expanded p:nth-of-type(1)", de: "Termine mit Joscha oder einem anderen Experten in Berlin. Grundlagen, Analyse, Zielsetzung, tägliche Begleitung, regelmäßige Termine, persönlich zugeschnittene Einheiten.", en: "Sessions with Joscha or another expert in Berlin. Basics, analysis, goal setting, daily support, regular appointments, personally tailored units." },
   { s: "#card-training .card-expanded p:nth-of-type(2)", de: "Kennenlerntermin 39€", en: "Intro session €39" },
   { s: "#einstieg .gogl-section-title", de: "Wenn man wieder startet", en: "When you start again" },
