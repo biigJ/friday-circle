@@ -184,8 +184,43 @@
           text-align: left;
           padding: 4px 0;
         }
+        .gogogo-page .nav__inner {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto auto auto;
+          row-gap: 10px;
+        }
+        .gogogo-page .nav__logo {
+          grid-column: 1;
+          grid-row: 1;
+          justify-self: center;
+        }
+        .gogogo-page .nav__links {
+          grid-column: 1;
+          grid-row: 2;
+        }
+        .gogogo-page .nav__inner > .nav__cta-bucket {
+          display: flex;
+          grid-column: 1;
+          grid-row: 3;
+          justify-self: end;
+          justify-content: flex-end;
+          align-items: center;
+          gap: clamp(8px, 2.5vw, 14px);
+          width: 100%;
+        }
+        .gogogo-page .nav__inner > .nav__cta-bucket .nav__lang {
+          grid-column: unset;
+          grid-row: unset;
+          justify-self: unset;
+          flex-shrink: 0;
+        }
+        .gogogo-page .gogogo-landing__header-cta {
+          padding: 8px 16px;
+          font-size: clamp(0.76rem, 2.8vw, 0.86rem);
+          flex-shrink: 0;
+        }
         .gogogo-page {
-          --fc-nav-h: clamp(108px, 26vw, 136px);
+          --fc-nav-h: clamp(120px, 30vw, 152px);
         }
       }
       .gogogo-landing__header-cta {
@@ -1792,6 +1827,23 @@
         }
         .gogl-program-slide-card__media {
           max-width: 52%;
+        }
+        .gogl-program-slider__slide[data-slide="7"] .gogl-program-slide-card--mobility {
+          --gogl-media-w: clamp(92px, 26vw, 140px);
+        }
+        .gogl-program-slider__slide[data-slide="7"] .gogl-program-slide-card__media {
+          max-width: 40%;
+        }
+        .gogl-program-slider__slide[data-slide="7"] .gogl-program-slide-card__inner {
+          padding-right: calc(var(--gogl-media-w) + var(--gogl-frame-inset-x) + 6px);
+        }
+        .gogl-program-slider__slide[data-slide="7"] .gogl-program-slide-card__title {
+          white-space: nowrap;
+          max-width: none;
+        }
+        .gogl-program-slider__slide[data-slide="7"] .gogl-program-slide-card__lede {
+          max-width: none;
+          width: 100%;
         }
       }
       .gogl-joscha-panel {
