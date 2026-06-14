@@ -431,10 +431,6 @@ body.kaufen-page {
   display: none;
 }
 
-.kaufen-grid.is-filtered {
-  grid-template-columns: minmax(0, 420px);
-}
-
 .kaufen-product__figure--slider {
   display: flex;
   flex-direction: column;
