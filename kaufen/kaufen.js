@@ -35,7 +35,16 @@
       return;
     }
     var drag = dragPx || 0;
+    var slideWidth = track.clientWidth;
+    if (!slideWidth) {
+      var stage = track.closest(".kaufen-product__slider-stage");
+      if (stage) slideWidth = stage.clientWidth;
+    }
     track.style.transition = animate ? PRODUCT_SLIDER_TRANSITION : "none";
+    if (slideWidth) {
+      track.style.transform = "translate3d(" + (-index * slideWidth + drag) + "px, 0, 0)";
+      return;
+    }
     track.style.transform = "translateX(calc(-" + index * 100 + "% + " + drag + "px))";
   }
 
@@ -1105,6 +1114,9 @@
       if (next) next.hidden = !multi;
       slideIndex = 0;
       syncMobileProductSlider(slidesRoot, 0, 0, false);
+      requestAnimationFrame(function () {
+        syncMobileProductSlider(slidesRoot, slideIndex, 0, false);
+      });
       updateSectionLabel();
       updateOrderMail();
       updateCatalogLink();
@@ -1214,6 +1226,9 @@
           track.style.transition = "";
         });
       }
+    });
+    window.addEventListener("resize", function () {
+      if (isMobileProductSliderViewport()) syncAllMobileProductSliders(false);
     });
   });
 

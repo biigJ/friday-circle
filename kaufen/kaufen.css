@@ -471,14 +471,24 @@ body.kaufen-page {
   overflow: hidden;
 }
 
-.kaufen-kunst-media .kaufen-product__slider-stage {
+.kaufen-product__figure--kunst .kaufen-product__slider-stage {
   box-sizing: border-box;
-  padding: clamp(14px, 4.5vw, 32px);
   background: #0a0a0a;
 }
 
-.kaufen-kunst-media .kaufen-product__figure--slider {
+.kaufen-product__figure--kunst .kaufen-tile__slider {
+  inset: clamp(14px, 4.5vw, 32px);
+}
+
+.kaufen-product__figure--kunst {
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.kaufen-product__figure--kunst .kaufen-product__slider-wrap {
+  width: 100%;
+  min-width: 0;
 }
 
 .kaufen-product__figure--slider .kaufen-tile__slider {
@@ -503,8 +513,8 @@ body.kaufen-page {
   object-position: center center;
 }
 
-.kaufen-kunst-media .kaufen-product__figure--slider .kaufen-tile__slide,
-.kaufen-kunst-media .kaufen-product__figure--slider .kaufen-tile__slide a {
+.kaufen-product__figure--kunst .kaufen-tile__slide,
+.kaufen-product__figure--kunst .kaufen-tile__slide a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -512,7 +522,8 @@ body.kaufen-page {
   background: transparent;
 }
 
-.kaufen-kunst-media .kaufen-product__figure--slider .kaufen-tile__slide img {
+.kaufen-product__figure--kunst .kaufen-tile__slide img {
+  display: block;
   width: auto;
   height: auto;
   max-width: 100%;
@@ -546,42 +557,46 @@ body.kaufen-page {
   padding-right: 4px;
 }
 
-.kaufen-kunst-media {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: clamp(10px, 2vw, 16px);
-  align-items: center;
-}
-
 .kaufen-kunst-section-label {
   margin: 0;
-  max-width: 7.5rem;
   color: var(--kaufen-muted);
   font-size: 0.72rem;
   line-height: 1.45;
   letter-spacing: 0.01em;
   text-transform: lowercase;
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
+  text-align: center;
+}
+
+@media (min-width: 901px) {
+  .kaufen-product__figure--kunst .kaufen-product__slider-wrap {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: clamp(10px, 2vw, 16px);
+    align-items: center;
+  }
+
+  .kaufen-product__figure--kunst .kaufen-product__slider-stage {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .kaufen-product__figure--kunst .kaufen-tile__dots {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .kaufen-product__figure--kunst .kaufen-kunst-section-label {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    max-width: 7.5rem;
+    text-align: left;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
 }
 
 @media (max-width: 900px) {
-  .kaufen-kunst-media {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .kaufen-kunst-media .kaufen-product__slider-stage {
-    aspect-ratio: 4 / 5;
-    max-height: min(72vh, 520px);
-    padding: clamp(16px, 5vw, 28px);
-  }
-
-  .kaufen-kunst-section-label {
-    writing-mode: horizontal-tb;
-    transform: none;
-    max-width: none;
-    text-align: center;
+  .kaufen-product__figure--kunst .kaufen-kunst-section-label {
     font-size: 0.78rem;
     padding: 0 2px;
   }
@@ -926,8 +941,8 @@ body.kaufen-page {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    position: relative;
-    inset: auto;
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     will-change: transform;
@@ -948,15 +963,21 @@ body.kaufen-page {
     user-select: none;
   }
 
-  .kaufen-kunst-media .kaufen-product__slider-stage .kaufen-tile__slide,
-  .kaufen-kunst-media .kaufen-product__figure--slider .kaufen-tile__slide a {
+  .kaufen-product__figure--kunst .kaufen-tile__slider {
+    inset: clamp(14px, 4.5vw, 32px);
+  }
+
+  .kaufen-product__figure--kunst .kaufen-tile__slide,
+  .kaufen-product__figure--kunst .kaufen-tile__slide a {
     display: flex;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    min-width: 0;
   }
 
-  .kaufen-kunst-media .kaufen-product__figure--slider .kaufen-tile__slide img {
+  .kaufen-product__figure--kunst .kaufen-tile__slide img {
+    display: block;
     width: auto;
     height: auto;
     max-width: 100%;
