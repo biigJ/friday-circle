@@ -872,4 +872,8 @@ body.kaufen-page {
   .kaufen-product {
     grid-template-columns: 1fr;
   }
+
+  .kaufen-product__slider-stage {
+    touch-action: pan-y pinch-zoom;
+  }
 }
