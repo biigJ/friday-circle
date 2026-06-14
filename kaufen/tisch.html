@@ -44,15 +44,15 @@
         <a class="kaufen-back" href="kaufen/index.html"><span class="de-t">← zurück</span><span class="en-t">← back</span></a>
 
         <div class="kaufen-product">
-          <figure class="kaufen-product__figure">
-            <img
-              id="kaufen-product-img"
-              src="../assets/interior/tisch-aufgruenemkaro.png"
-              alt="Esstisch auf grünem Karomuster"
-              width="900"
-              height="900"
-              decoding="async"
-            />
+          <figure class="kaufen-product__figure kaufen-product__figure--slider" id="kaufen-tisch-figure" aria-live="polite">
+            <div class="kaufen-product__slider-wrap" id="kaufen-tisch-product-slider">
+              <div class="kaufen-product__slider-stage">
+                <div class="kaufen-tile__slider" id="kaufen-tisch-slider"></div>
+                <button type="button" class="kaufen-tile__nav kaufen-tile__nav--prev" aria-label="Vorheriges Bild">‹</button>
+                <button type="button" class="kaufen-tile__nav kaufen-tile__nav--next" aria-label="Nächstes Bild">›</button>
+              </div>
+              <div class="kaufen-tile__dots" id="kaufen-tisch-dots" aria-hidden="true"></div>
+            </div>
           </figure>
 
           <div class="kaufen-product__info">

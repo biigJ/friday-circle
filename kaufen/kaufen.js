@@ -218,55 +218,164 @@
 
   function bindTischPage() {
     var order = document.getElementById("kaufen-order-link");
-    var img = document.getElementById("kaufen-product-img");
+    var figure = document.getElementById("kaufen-tisch-figure");
+    var sliderRoot = document.getElementById("kaufen-tisch-product-slider");
+    var slider = document.getElementById("kaufen-tisch-slider");
+    var dotsWrap = document.getElementById("kaufen-tisch-dots");
     var price = document.getElementById("kaufen-product-price");
     var note = document.getElementById("kaufen-product-note");
     var variantWrap = document.getElementById("kaufen-variant-grid");
-    if (!order || !variantWrap) return;
+    if (!order || !figure || !slider || !variantWrap) return;
 
     var variants = {
       small: {
-        img: "../assets/interior/tisch-aufgruenemkaro.png",
-        altDe: "Esstisch auf grünem Karomuster",
-        altEn: "Dining table on green carom pattern",
         priceDe: "950 €",
         priceEn: "€950",
         noteDe: "Frei Von Ecken, 4-Sitzer · 85 × 130 cm",
         noteEn: "Frei Von Ecken, 4-seater · 85 × 130 cm",
         subjectDe: "Bestellung Frei Von Ecken Tisch 85 x 130 cm",
         subjectEn: "Order Frei Von Ecken table 85 x 130 cm",
+        slides: [
+          {
+            src: "../assets/interior/tisch-aufgruenemkaro.png",
+            altDe: "Esstisch auf grünem Karomuster",
+            altEn: "Dining table on green carom pattern",
+          },
+          {
+            src: "../assets/interior/tisch-130-strichzeichnung.png",
+            altDe: "Frei Von Ecken Esstisch, Strichzeichnung 85 x 130 cm",
+            altEn: "Frei Von Ecken dining table, line drawing 85 x 130 cm",
+          },
+        ],
       },
       large: {
-        img: "../assets/interior/tisch-250.png",
-        altDe: "Großer Esstisch",
-        altEn: "Large dining table",
         priceDe: "1.800 €",
         priceEn: "€1,800",
         noteDe: "Frei Von Ecken, 8-Sitzer · 90 × 240 cm",
         noteEn: "Frei Von Ecken, 8-seater · 90 × 240 cm",
         subjectDe: "Bestellung Frei Von Ecken Tisch 90 x 240 cm",
         subjectEn: "Order Frei Von Ecken table 90 x 240 cm",
+        slides: [
+          {
+            src: "../assets/interior/freiVonEcken250-saal.png",
+            altDe: "Frei Von Ecken Esstisch im Saal, 90 x 240 cm",
+            altEn: "Frei Von Ecken dining table in hall, 90 x 240 cm",
+          },
+          {
+            src: "../assets/interior/freiVonEcken240-terrazzo.png",
+            altDe: "Frei Von Ecken Esstisch auf Terrazzo, 90 x 240 cm",
+            altEn: "Frei Von Ecken dining table on terrazzo, 90 x 240 cm",
+          },
+          {
+            src: "../assets/interior/freiVonEcken240-studioweiss.png",
+            altDe: "Frei Von Ecken Esstisch im Studio, 90 x 240 cm",
+            altEn: "Frei Von Ecken dining table in studio, 90 x 240 cm",
+          },
+          {
+            src: "../assets/interior/freiVonEcken240-strich.png",
+            altDe: "Frei Von Ecken Esstisch, Strichzeichnung 90 x 240 cm",
+            altEn: "Frei Von Ecken dining table, line drawing 90 x 240 cm",
+          },
+          {
+            src: "../assets/interior/tisch-250.png",
+            altDe: "Großer Esstisch",
+            altEn: "Large dining table",
+          },
+        ],
       },
     };
 
-    var selected = "small";
+    var tischState = { variant: "small", slide: 0 };
 
-    function render() {
-      var v = variants[selected];
-      if (img) {
-        img.src = v.img;
-        img.alt = t(v.altDe, v.altEn);
-      }
-      if (price) price.textContent = t(v.priceDe, v.priceEn);
-      if (note) note.textContent = t(v.noteDe, v.noteEn);
-      order.href = "mailto:" + MAIL + "?subject=" + encodeURIComponent(t(v.subjectDe, v.subjectEn));
+    function variantMeta(value) {
+      return variants[value] || variants.small;
     }
 
-    bindChoiceGroup(variantWrap, function (value) {
-      selected = value;
-      render();
-    });
-    render();
+    function renderSlider(slides) {
+      slider.innerHTML = "";
+      if (dotsWrap) dotsWrap.innerHTML = "";
+      slides.forEach(function (slide, index) {
+        var slideEl = document.createElement("div");
+        slideEl.className = "kaufen-tile__slide" + (index === 0 ? " is-active" : "");
+        var img = document.createElement("img");
+        img.src = slide.src;
+        img.alt = t(slide.altDe, slide.altEn);
+        img.decoding = "async";
+        slideEl.appendChild(img);
+        slider.appendChild(slideEl);
+
+        if (dotsWrap) {
+          var dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = "kaufen-tile__dot" + (index === 0 ? " is-active" : "");
+          dotsWrap.appendChild(dot);
+        }
+      });
+      tischState.slide = 0;
+    }
+
+    function showSlide(index) {
+      var slides = slider.querySelectorAll(".kaufen-tile__slide");
+      var dots = dotsWrap ? dotsWrap.querySelectorAll(".kaufen-tile__dot") : [];
+      if (!slides.length) return;
+      tischState.slide = (index + slides.length) % slides.length;
+      slides.forEach(function (slide, n) {
+        slide.classList.toggle("is-active", n === tischState.slide);
+      });
+      dots.forEach(function (dot, n) {
+        dot.classList.toggle("is-active", n === tischState.slide);
+      });
+    }
+
+    function updateVariantUi() {
+      var meta = variantMeta(tischState.variant);
+      if (price) price.textContent = t(meta.priceDe, meta.priceEn);
+      if (note) note.textContent = t(meta.noteDe, meta.noteEn);
+      order.href = "mailto:" + MAIL + "?subject=" + encodeURIComponent(t(meta.subjectDe, meta.subjectEn));
+      variantWrap.querySelectorAll("button[data-value]").forEach(function (btn) {
+        var active = btn.getAttribute("data-value") === tischState.variant;
+        btn.classList.toggle("is-active", active);
+      });
+    }
+
+    function setVariant(value) {
+      tischState.variant = value;
+      renderSlider(variantMeta(value).slides);
+      updateVariantUi();
+      bindTischSliderControls();
+    }
+
+    function bindTischSliderControls() {
+      var prev = sliderRoot ? sliderRoot.querySelector(".kaufen-tile__nav--prev") : null;
+      var next = sliderRoot ? sliderRoot.querySelector(".kaufen-tile__nav--next") : null;
+      var dots = dotsWrap ? dotsWrap.querySelectorAll(".kaufen-tile__dot") : [];
+      if (prev && !sliderRoot.dataset.tischNavBound) {
+        sliderRoot.dataset.tischNavBound = "1";
+        prev.addEventListener("click", function (e) {
+          e.preventDefault();
+          showSlide(tischState.slide - 1);
+        });
+        next.addEventListener("click", function (e) {
+          e.preventDefault();
+          showSlide(tischState.slide + 1);
+        });
+      }
+      dots.forEach(function (dot, n) {
+        dot.addEventListener("click", function (e) {
+          e.preventDefault();
+          showSlide(n);
+        });
+      });
+    }
+
+    if (!figure.dataset.tischBound) {
+      figure.dataset.tischBound = "1";
+      bindChoiceGroup(variantWrap, function (value) {
+        setVariant(value);
+      });
+    }
+
+    setVariant(tischState.variant);
   }
 
   var KUNST_CATEGORIES = [
