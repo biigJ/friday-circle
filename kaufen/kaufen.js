@@ -372,33 +372,68 @@
     return { de: "ab 300 €", en: "from €300" };
   }
 
-  var SHOP_NAV_REDIRECTS = {
-    moebel: "kaufen/tisch.html",
-    kleidung: "kaufen/sweater.html",
-    kunst: "kaufen/kunst.html",
-    buch: "kaufen/modernmen.html",
-  };
+  function normalizeShopCategory(value) {
+    if (!value || value === "all") return "all";
+    if (value === "kleidung") return "textilien";
+    return value;
+  }
+
+  function shopCategoryFromLocation() {
+    return normalizeShopCategory((location.hash || "").replace(/^#/, ""));
+  }
 
   function shopNavKeyFromPath() {
     var path = (location.pathname || "").toLowerCase();
     if (path.indexOf("/tisch.html") >= 0) return "moebel";
-    if (path.indexOf("/sweater.html") >= 0) return "kleidung";
-    if (path.indexOf("/handtuch.html") >= 0) return "kleidung";
+    if (path.indexOf("/sweater.html") >= 0) return "textilien";
+    if (path.indexOf("/handtuch.html") >= 0) return "textilien";
     if (path.indexOf("/kunst.html") >= 0) return "kunst";
     if (path.indexOf("/modernmen.html") >= 0) return "buch";
+    if (document.getElementById("kaufen-shop-grid")) return shopCategoryFromLocation();
     return "all";
   }
 
+  function applyShopFilter(category) {
+    var grid = document.getElementById("kaufen-shop-grid");
+    if (!grid) return;
+    var normalized = normalizeShopCategory(category);
+    var isFiltered = normalized !== "all";
+    grid.classList.toggle("is-filtered", isFiltered);
+    grid.querySelectorAll(".kaufen-tile[data-shop-group]").forEach(function (tile) {
+      tile.classList.toggle("is-filtered-out", isFiltered && tile.getAttribute("data-shop-group") !== normalized);
+    });
+    document.querySelectorAll(".kaufen-sidebar__nav [data-shop-nav]").forEach(function (link) {
+      link.classList.toggle("is-active", link.getAttribute("data-shop-nav") === normalized);
+    });
+  }
+
   function bindShopNav() {
-    var hash = (location.hash || "").replace(/^#/, "");
-    if (shopNavKeyFromPath() === "all" && SHOP_NAV_REDIRECTS[hash]) {
-      location.replace(SHOP_NAV_REDIRECTS[hash]);
-      return;
+    var grid = document.getElementById("kaufen-shop-grid");
+    var active = shopNavKeyFromPath();
+
+    if (grid) {
+      applyShopFilter(active);
+    } else {
+      document.querySelectorAll(".kaufen-sidebar__nav [data-shop-nav]").forEach(function (link) {
+        link.classList.toggle("is-active", link.getAttribute("data-shop-nav") === active);
+      });
     }
 
-    var active = shopNavKeyFromPath();
     document.querySelectorAll(".kaufen-sidebar__nav [data-shop-nav]").forEach(function (link) {
-      link.classList.toggle("is-active", link.getAttribute("data-shop-nav") === active);
+      link.addEventListener("click", function (e) {
+        if (!grid) return;
+        e.preventDefault();
+        var category = normalizeShopCategory(link.getAttribute("data-shop-nav"));
+        var nextHash = category === "all" ? "" : "#" + category;
+        if (location.hash !== nextHash) {
+          history.replaceState(null, "", location.pathname + location.search + nextHash);
+        }
+        applyShopFilter(category);
+      });
+    });
+
+    window.addEventListener("hashchange", function () {
+      if (grid) applyShopFilter(shopCategoryFromLocation());
     });
   }
 
@@ -657,8 +692,6 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    bindTileSlider(document.getElementById("kaufen-tisch-tile"));
-    bindTileSlider(document.getElementById("kaufen-handtuch-tile"));
     bindTileSlider(document.getElementById("kaufen-handtuch-product-slider"));
     bindShopNav();
     bindSweaterPage();

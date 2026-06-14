@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Kaufen | FRIDAY CIRCLE</title>
-    <meta name="description" content="Kunst, Möbel und Kleidung von Friday Circle — direkt bestellen." />
+    <meta name="description" content="Kunst, Möbel und Textilien von Friday Circle — direkt bestellen." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -33,10 +33,10 @@
       <aside class="kaufen-sidebar" aria-label="Shop Kategorien">
         <ul class="kaufen-sidebar__nav" id="kaufen-shop-nav">
           <li><a class="kaufen-sidebar__link" href="kaufen/index.html" data-shop-nav="all"><span class="de-t">Alles</span><span class="en-t">All</span></a></li>
-          <li><a class="kaufen-sidebar__link" href="kaufen/tisch.html" data-shop-nav="moebel"><span class="de-t">Möbel</span><span class="en-t">Furniture</span></a></li>
-          <li><a class="kaufen-sidebar__link" href="kaufen/sweater.html" data-shop-nav="kleidung"><span class="de-t">Kleidung</span><span class="en-t">Clothing</span></a></li>
-          <li><a class="kaufen-sidebar__link" href="kaufen/kunst.html" data-shop-nav="kunst"><span class="de-t">Kunst</span><span class="en-t">Art</span></a></li>
-          <li><a class="kaufen-sidebar__link" href="kaufen/modernmen.html" data-shop-nav="buch"><span class="de-t">Bücher</span><span class="en-t">Books</span></a></li>
+          <li><a class="kaufen-sidebar__link" href="kaufen/index.html#moebel" data-shop-nav="moebel"><span class="de-t">Möbel</span><span class="en-t">Furniture</span></a></li>
+          <li><a class="kaufen-sidebar__link" href="kaufen/index.html#textilien" data-shop-nav="textilien"><span class="de-t">Textilien</span><span class="en-t">Textiles</span></a></li>
+          <li><a class="kaufen-sidebar__link" href="kaufen/index.html#kunst" data-shop-nav="kunst"><span class="de-t">Kunst</span><span class="en-t">Art</span></a></li>
+          <li><a class="kaufen-sidebar__link" href="kaufen/index.html#buch" data-shop-nav="buch"><span class="de-t">Bücher</span><span class="en-t">Books</span></a></li>
         </ul>
       </aside>
 
@@ -48,26 +48,9 @@
 
         <div class="kaufen-grid" id="kaufen-shop-grid">
           <article class="kaufen-tile" id="moebel" data-shop-group="moebel">
-            <div class="kaufen-tile__slider-wrap" id="kaufen-tisch-tile">
-              <div class="kaufen-tile__media">
-                <a class="kaufen-tile__link" href="kaufen/tisch.html" aria-label="Frei Von Ecken Tisch">
-                  <div class="kaufen-tile__slider">
-                    <div class="kaufen-tile__slide is-active">
-                      <img src="../assets/interior/tisch-aufgruenemkaro.png" alt="" width="800" height="800" decoding="async" />
-                    </div>
-                    <div class="kaufen-tile__slide">
-                      <img src="../assets/interior/tisch-250.png" alt="" width="800" height="800" decoding="async" />
-                    </div>
-                  </div>
-                </a>
-                <button type="button" class="kaufen-tile__nav kaufen-tile__nav--prev" aria-label="Vorheriges Bild">‹</button>
-                <button type="button" class="kaufen-tile__nav kaufen-tile__nav--next" aria-label="Nächstes Bild">›</button>
-              </div>
-              <div class="kaufen-tile__dots" aria-hidden="true">
-                <button type="button" class="kaufen-tile__dot is-active"></button>
-                <button type="button" class="kaufen-tile__dot"></button>
-              </div>
-            </div>
+            <a class="kaufen-tile__media" href="kaufen/tisch.html">
+              <img src="../assets/interior/tisch-aufgruenemkaro.png" alt="" width="800" height="800" decoding="async" />
+            </a>
             <a class="kaufen-tile__meta" href="kaufen/tisch.html">
               <h2 class="kaufen-tile__title">Frei Von Ecken Tisch</h2>
               <p class="kaufen-tile__price">950 € / 1.800 €</p>
@@ -90,7 +73,7 @@
             </a>
           </article>
 
-          <article class="kaufen-tile" id="kleidung" data-shop-group="kleidung">
+          <article class="kaufen-tile" id="sweater" data-shop-group="textilien">
             <a class="kaufen-tile__media" href="kaufen/sweater.html">
               <img src="../assets/biigJ/Sweater.png" alt="" width="699" height="711" decoding="async" />
             </a>
@@ -100,27 +83,10 @@
             </a>
           </article>
 
-          <article class="kaufen-tile" id="handtuch" data-shop-group="kleidung">
-            <div class="kaufen-tile__slider-wrap" id="kaufen-handtuch-tile">
-              <div class="kaufen-tile__media">
-                <a class="kaufen-tile__link" href="kaufen/handtuch.html" aria-label="FRIDAY CIRCLE Handtuch">
-                  <div class="kaufen-tile__slider">
-                    <div class="kaufen-tile__slide is-active">
-                      <img src="../assets/biigJ/towelxtreatmill.png" alt="" width="1664" height="1720" decoding="async" />
-                    </div>
-                    <div class="kaufen-tile__slide">
-                      <img src="../assets/biigJ/towelxtable.png" alt="" width="1664" height="2532" decoding="async" />
-                    </div>
-                  </div>
-                </a>
-                <button type="button" class="kaufen-tile__nav kaufen-tile__nav--prev" aria-label="Vorheriges Bild">‹</button>
-                <button type="button" class="kaufen-tile__nav kaufen-tile__nav--next" aria-label="Nächstes Bild">›</button>
-              </div>
-              <div class="kaufen-tile__dots" aria-hidden="true">
-                <button type="button" class="kaufen-tile__dot is-active"></button>
-                <button type="button" class="kaufen-tile__dot"></button>
-              </div>
-            </div>
+          <article class="kaufen-tile" id="handtuch" data-shop-group="textilien">
+            <a class="kaufen-tile__media" href="kaufen/handtuch.html">
+              <img src="../assets/biigJ/towelxtreatmill.png" alt="" width="1664" height="1720" decoding="async" />
+            </a>
             <a class="kaufen-tile__meta" href="kaufen/handtuch.html">
               <h2 class="kaufen-tile__title">FRIDAY CIRCLE Handtuch</h2>
               <p class="kaufen-tile__price">59 €</p>

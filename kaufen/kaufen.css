@@ -436,28 +436,50 @@ body.kaufen-page {
 }
 
 .kaufen-product__figure--slider {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  aspect-ratio: auto;
+  background: transparent;
+  border: none;
+  overflow: visible;
+}
+
+.kaufen-product__slider-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  width: 100%;
+}
+
+.kaufen-product__slider-stage {
   position: relative;
-  background: #000;
+  aspect-ratio: 1;
+  width: 100%;
+  background: #111;
+  border: 1px solid var(--kaufen-line);
+  overflow: hidden;
 }
 
 .kaufen-kunst-media .kaufen-product__figure--slider {
   width: 100%;
-  aspect-ratio: 1;
-  border: 0;
 }
 
-.kaufen-product__figure--slider .kaufen-tile__slider,
+.kaufen-product__figure--slider .kaufen-tile__slider {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .kaufen-product__figure--slider .kaufen-tile__slide,
 .kaufen-product__figure--slider .kaufen-tile__slide a {
   width: 100%;
   height: 100%;
   display: block;
   background: #000;
-}
-
-.kaufen-product__figure--slider .kaufen-tile__slider {
-  position: absolute;
-  inset: 0;
 }
 
 .kaufen-product__figure--slider .kaufen-tile__slide img {
@@ -473,11 +495,14 @@ body.kaufen-page {
 }
 
 .kaufen-product__figure--slider .kaufen-tile__dots {
-  left: 50%;
+  position: static;
+  left: auto;
   right: auto;
-  transform: translateX(-50%);
-  bottom: 12px;
-  width: max-content;
+  bottom: auto;
+  transform: none;
+  justify-content: center;
+  width: 100%;
+  margin: 0;
 }
 
 .kaufen-kunst-chapters {

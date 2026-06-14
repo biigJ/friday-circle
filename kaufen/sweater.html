@@ -33,10 +33,10 @@
       <aside class="kaufen-sidebar" aria-label="Shop Kategorien">
         <ul class="kaufen-sidebar__nav" id="kaufen-shop-nav">
           <li><a class="kaufen-sidebar__link" href="kaufen/index.html" data-shop-nav="all"><span class="de-t">Alles</span><span class="en-t">All</span></a></li>
-          <li><a class="kaufen-sidebar__link" href="kaufen/tisch.html" data-shop-nav="moebel"><span class="de-t">Möbel</span><span class="en-t">Furniture</span></a></li>
-          <li><a class="kaufen-sidebar__link" href="kaufen/sweater.html" data-shop-nav="kleidung"><span class="de-t">Kleidung</span><span class="en-t">Clothing</span></a></li>
-          <li><a class="kaufen-sidebar__link" href="kaufen/kunst.html" data-shop-nav="kunst"><span class="de-t">Kunst</span><span class="en-t">Art</span></a></li>
-          <li><a class="kaufen-sidebar__link" href="kaufen/modernmen.html" data-shop-nav="buch"><span class="de-t">Bücher</span><span class="en-t">Books</span></a></li>
+          <li><a class="kaufen-sidebar__link" href="kaufen/index.html#moebel" data-shop-nav="moebel"><span class="de-t">Möbel</span><span class="en-t">Furniture</span></a></li>
+          <li><a class="kaufen-sidebar__link" href="kaufen/index.html#textilien" data-shop-nav="textilien"><span class="de-t">Textilien</span><span class="en-t">Textiles</span></a></li>
+          <li><a class="kaufen-sidebar__link" href="kaufen/index.html#kunst" data-shop-nav="kunst"><span class="de-t">Kunst</span><span class="en-t">Art</span></a></li>
+          <li><a class="kaufen-sidebar__link" href="kaufen/index.html#buch" data-shop-nav="buch"><span class="de-t">Bücher</span><span class="en-t">Books</span></a></li>
         </ul>
       </aside>
 
@@ -45,19 +45,21 @@
 
         <div class="kaufen-product">
           <figure class="kaufen-product__figure kaufen-product__figure--slider" id="kaufen-sweater-figure" aria-live="polite">
-            <div class="kaufen-tile__slider" id="kaufen-sweater-slider">
-              <div class="kaufen-tile__slide is-active" data-color="chocolate">
-                <img src="../assets/biigJ/Sweater.png" alt="Friday Circle Sweater — Chocolate Braun" width="699" height="711" decoding="async" />
+            <div class="kaufen-product__slider-stage">
+              <div class="kaufen-tile__slider" id="kaufen-sweater-slider">
+                <div class="kaufen-tile__slide is-active" data-color="chocolate">
+                  <img src="../assets/biigJ/Sweater.png" alt="Friday Circle Sweater — Chocolate Braun" width="699" height="711" decoding="async" />
+                </div>
+                <div class="kaufen-tile__slide" data-color="red">
+                  <img src="../assets/biigJ/sweater-red-ausschnitt.png?v=2" alt="Friday Circle Sweater — Dunkelrot" width="748" height="754" decoding="async" />
+                </div>
+                <div class="kaufen-tile__slide" data-color="darkgrey">
+                  <img src="../assets/biigJ/sweater-darkgrey.png" alt="Friday Circle Sweater — Dunkelgrau" width="2048" height="2084" decoding="async" />
+                </div>
               </div>
-              <div class="kaufen-tile__slide" data-color="red">
-                <img src="../assets/biigJ/sweater-red-ausschnitt.png?v=2" alt="Friday Circle Sweater — Dunkelrot" width="748" height="754" decoding="async" />
-              </div>
-              <div class="kaufen-tile__slide" data-color="darkgrey">
-                <img src="../assets/biigJ/sweater-darkgrey.png" alt="Friday Circle Sweater — Dunkelgrau" width="2048" height="2084" decoding="async" />
-              </div>
+              <button type="button" class="kaufen-tile__nav kaufen-tile__nav--prev" id="kaufen-sweater-prev" aria-label="Vorheriges Bild">‹</button>
+              <button type="button" class="kaufen-tile__nav kaufen-tile__nav--next" id="kaufen-sweater-next" aria-label="Nächstes Bild">›</button>
             </div>
-            <button type="button" class="kaufen-tile__nav kaufen-tile__nav--prev" id="kaufen-sweater-prev" aria-label="Vorheriges Bild">‹</button>
-            <button type="button" class="kaufen-tile__nav kaufen-tile__nav--next" id="kaufen-sweater-next" aria-label="Nächstes Bild">›</button>
             <div class="kaufen-tile__dots" id="kaufen-sweater-dots" aria-hidden="true">
               <button type="button" class="kaufen-tile__dot is-active"></button>
               <button type="button" class="kaufen-tile__dot"></button>
