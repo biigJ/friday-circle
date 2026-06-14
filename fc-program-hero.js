@@ -10,14 +10,27 @@
   var slides = root.querySelectorAll(".fc-program-hero__slide");
   var panels = root.querySelectorAll(".fc-program-hero__panel");
   var dots = root.querySelectorAll(".fc-program-hero__dot");
+  var titleEl = document.getElementById("fc-program-hero-title");
   if (!slides.length) return;
 
-  var index = 0;
-  var timer;
-  var paused = false;
-  var visible = false;
-  var mqFlush = window.matchMedia("(max-width: 760px)");
-  var navEl = document.querySelector("header.nav");
+  var SLIDE_LABELS = [
+    { de: "gogogo Gym Buddys", en: "gogogo gym buddies" },
+    { de: "Dein Interior Game auf das nächste Level", en: "Take your interior game to the next level" },
+    { de: "Einordnung ins große Ganze für mehr Gelassenheit", en: "Context for the bigger picture — more calm" },
+    { de: "Eine Tour durch Berlin als open Source Plattform", en: "A tour through Berlin as an open-source platform" },
+    {
+      de: "Dein buchstäblich einzigartiges Produkte — Zufriedenheitsgarantie",
+      en: "Your literally unique products — satisfaction guarantee",
+    },
+  ];
+
+  function updateTitle() {
+    if (!titleEl || !SLIDE_LABELS[index]) return;
+    var de = titleEl.querySelector(".de-t");
+    var en = titleEl.querySelector(".en-t");
+    if (de) de.textContent = SLIDE_LABELS[index].de;
+    if (en) en.textContent = SLIDE_LABELS[index].en;
+  }
 
   function show(i) {
     index = (i + slides.length) % slides.length;
@@ -32,7 +45,15 @@
       d.setAttribute("aria-selected", n === index ? "true" : "false");
     });
     root.classList.toggle("is-lebensjahre", index === 2);
+    updateTitle();
   }
+
+  var index = 0;
+  var timer;
+  var paused = false;
+  var visible = false;
+  var mqFlush = window.matchMedia("(max-width: 760px)");
+  var navEl = document.querySelector("header.nav");
 
   function next() {
     show(index + 1);

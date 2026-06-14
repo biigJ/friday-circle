@@ -255,15 +255,18 @@ body.kaufen-page {
   right: 8px;
 }
 
+.kaufen-tile__slider-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .kaufen-tile__dots {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 10px;
+  position: static;
   display: flex;
   justify-content: center;
   gap: 6px;
-  z-index: 2;
+  padding: 0;
 }
 
 .kaufen-tile__dot {
@@ -341,8 +344,15 @@ body.kaufen-page {
 .kaufen-product__note {
   margin: 0;
   color: var(--kaufen-muted);
-  font-size: 0.78rem;
+  font-size: 0.74rem;
   line-height: 1.5;
+}
+
+.kaufen-product__preorder-note {
+  margin: 12px 0 0;
+  color: var(--kaufen-muted);
+  font-size: 0.74rem;
+  line-height: 1.55;
 }
 
 .kaufen-field__label {
@@ -717,6 +727,11 @@ body.kaufen-page {
   color: var(--kaufen-muted);
 }
 
+.kaufen-book-toc__content .de-t,
+.kaufen-book-toc__content .en-t {
+  display: block;
+}
+
 .kaufen-book-toc__intro {
   margin: 0 0 16px;
   line-height: 1.6;
@@ -746,6 +761,57 @@ body.kaufen-page {
   color: rgba(255, 255, 255, 0.72);
 }
 
+@media (max-width: 860px) {
+  .kaufen-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    padding: 14px var(--kaufen-header-pad);
+  }
+
+  .kaufen-header__links {
+    order: 1;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 8px 18px;
+    overflow: visible;
+  }
+
+  .kaufen-lang {
+    order: 2;
+    align-self: flex-start;
+  }
+
+  .kaufen-header__logo {
+    font-size: clamp(0.54rem, 2.2vw, 0.68rem);
+    letter-spacing: 0.04em;
+  }
+
+  .kaufen-header__logo--fc,
+  .kaufen-header__logo--gogogo {
+    font-size: clamp(0.72rem, 3.15vw, 0.94rem);
+  }
+
+  .kaufen-header__logo--biig {
+    font-size: clamp(0.62rem, 2.45vw, 0.82rem);
+    letter-spacing: 0.18em;
+  }
+
+  .kaufen-header__logo--bat {
+    font-size: clamp(0.44rem, 1.72vw, 0.58rem);
+    letter-spacing: 0.055em;
+    flex: 1 1 0;
+  }
+
+  .kaufen-header__logo--wolfgang {
+    font-size: clamp(0.41rem, 1.56vw, 0.51rem);
+    letter-spacing: 0.04em;
+    flex: 1 1 0;
+    text-align: right;
+  }
+}
+
 @media (max-width: 900px) {
   .kaufen-layout {
     grid-template-columns: 1fr;
@@ -767,21 +833,5 @@ body.kaufen-page {
 
   .kaufen-product {
     grid-template-columns: 1fr;
-  }
-
-  .kaufen-header__links {
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-
-  .kaufen-header__links::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-@media (max-width: 640px) {
-  .kaufen-header {
-    flex-wrap: wrap;
-    padding-bottom: 8px;
   }
 }
