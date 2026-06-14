@@ -497,6 +497,25 @@ body.kaufen-page {
   object-position: center center;
 }
 
+.kaufen-kunst-media .kaufen-product__figure--slider .kaufen-tile__slide,
+.kaufen-kunst-media .kaufen-product__figure--slider .kaufen-tile__slide a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: clamp(12px, 4vw, 28px);
+  background: #0a0a0a;
+}
+
+.kaufen-kunst-media .kaufen-product__figure--slider .kaufen-tile__slide img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
 .kaufen-product__figure--slider .kaufen-tile__nav {
   top: 50%;
   transform: translateY(-50%);
@@ -905,5 +924,20 @@ body.kaufen-page {
   .kaufen-product__figure--slider .kaufen-tile__slide img {
     -webkit-user-drag: none;
     user-select: none;
+  }
+
+  .kaufen-kunst-media .kaufen-product__slider-stage .kaufen-tile__slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: clamp(12px, 4vw, 28px);
+  }
+
+  .kaufen-kunst-media .kaufen-product__figure--slider .kaufen-tile__slide img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
   }
 }
