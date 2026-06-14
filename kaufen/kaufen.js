@@ -116,6 +116,7 @@
         }
       }
       resetPointer();
+      if (locked === "x" && Math.abs(dx) >= 8) zone.dataset.recentSwipe = "1";
       if (locked === "x" && Math.abs(dx) >= threshold) {
         var count = typeof options.getCount === "function" ? options.getCount() : 0;
         if (dx < 0 && startIndex < count - 1 && options.onNext) options.onNext();
@@ -133,6 +134,17 @@
 
     zone.addEventListener("pointerup", finishSwipe);
     zone.addEventListener("pointercancel", finishSwipe);
+
+    zone.addEventListener(
+      "click",
+      function (e) {
+        if (zone.dataset.recentSwipe !== "1") return;
+        e.preventDefault();
+        e.stopPropagation();
+        zone.dataset.recentSwipe = "";
+      },
+      true
+    );
   }
 
   function bindTileAutoplay(root, intervalMs) {

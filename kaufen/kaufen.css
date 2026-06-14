@@ -563,16 +563,72 @@ body.kaufen-page {
 @media (max-width: 900px) {
   .kaufen-kunst-media {
     grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .kaufen-kunst-media .kaufen-product__slider-stage {
+    aspect-ratio: 4 / 5;
+    max-height: min(72vh, 520px);
   }
 
   .kaufen-kunst-section-label {
     writing-mode: horizontal-tb;
     transform: none;
     max-width: none;
+    text-align: center;
+    font-size: 0.78rem;
+    padding: 0 2px;
   }
 
   .kaufen-kunst-chapters {
     grid-template-columns: 1fr;
+    max-height: none;
+    overflow: visible;
+    padding-right: 0;
+  }
+
+  .kaufen-product--kunst {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .kaufen-product--kunst .kaufen-product__info {
+    display: contents;
+  }
+
+  .kaufen-product--kunst .kaufen-product__title {
+    order: 1;
+  }
+
+  .kaufen-product--kunst .kaufen-kunst-chapters {
+    order: 2;
+  }
+
+  .kaufen-product--kunst .kaufen-kunst-media {
+    order: 3;
+  }
+
+  .kaufen-product--kunst #kaufen-kunst-price {
+    order: 4;
+    margin-top: 0;
+  }
+
+  .kaufen-product--kunst .kaufen-kunst-actions {
+    order: 5;
+    margin-top: 0;
+  }
+
+  .kaufen-product--kunst .kaufen-details {
+    order: 6;
+  }
+
+  .kaufen-product--kunst .kaufen-kunst-intro {
+    order: 7;
+  }
+
+  .kaufen-product--kunst .kaufen-kunst-actions .kaufen-order-btn {
+    max-width: none;
   }
 }
 
