@@ -790,11 +790,27 @@ body.kaufen-page {
 }
 
 .kaufen-book-toc__block > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
   padding: 10px 0;
   cursor: pointer;
   font-size: 0.74rem;
   font-weight: 600;
   list-style: none;
+}
+
+.kaufen-book-toc__block > summary::after {
+  flex-shrink: 0;
+  color: var(--kaufen-muted);
+  font-size: 0.85rem;
+  line-height: 1;
+  content: "⌄";
+}
+
+.kaufen-book-toc__block[open] > summary::after {
+  content: "⌃";
 }
 
 .kaufen-book-toc__block > summary::-webkit-details-marker {
