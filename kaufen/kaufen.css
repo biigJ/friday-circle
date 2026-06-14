@@ -471,6 +471,12 @@ body.kaufen-page {
   overflow: hidden;
 }
 
+.kaufen-kunst-media .kaufen-product__slider-stage {
+  box-sizing: border-box;
+  padding: clamp(14px, 4.5vw, 32px);
+  background: #0a0a0a;
+}
+
 .kaufen-kunst-media .kaufen-product__figure--slider {
   width: 100%;
 }
@@ -503,8 +509,7 @@ body.kaufen-page {
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  padding: clamp(12px, 4vw, 28px);
-  background: #0a0a0a;
+  background: transparent;
 }
 
 .kaufen-kunst-media .kaufen-product__figure--slider .kaufen-tile__slide img {
@@ -569,6 +574,7 @@ body.kaufen-page {
   .kaufen-kunst-media .kaufen-product__slider-stage {
     aspect-ratio: 4 / 5;
     max-height: min(72vh, 520px);
+    padding: clamp(16px, 5vw, 28px);
   }
 
   .kaufen-kunst-section-label {
@@ -587,47 +593,7 @@ body.kaufen-page {
     padding-right: 0;
   }
 
-  .kaufen-product--kunst {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-  }
-
-  .kaufen-product--kunst .kaufen-product__info {
-    display: contents;
-  }
-
-  .kaufen-product--kunst .kaufen-product__title {
-    order: 1;
-  }
-
-  .kaufen-product--kunst .kaufen-kunst-chapters {
-    order: 2;
-  }
-
-  .kaufen-product--kunst .kaufen-kunst-media {
-    order: 3;
-  }
-
-  .kaufen-product--kunst #kaufen-kunst-price {
-    order: 4;
-    margin-top: 0;
-  }
-
-  .kaufen-product--kunst .kaufen-kunst-actions {
-    order: 5;
-    margin-top: 0;
-  }
-
-  .kaufen-product--kunst .kaufen-details {
-    order: 6;
-  }
-
-  .kaufen-product--kunst .kaufen-kunst-intro {
-    order: 7;
-  }
-
-  .kaufen-product--kunst .kaufen-kunst-actions .kaufen-order-btn {
+  .kaufen-kunst-actions .kaufen-order-btn {
     max-width: none;
   }
 }
@@ -982,12 +948,12 @@ body.kaufen-page {
     user-select: none;
   }
 
-  .kaufen-kunst-media .kaufen-product__slider-stage .kaufen-tile__slide {
+  .kaufen-kunst-media .kaufen-product__slider-stage .kaufen-tile__slide,
+  .kaufen-kunst-media .kaufen-product__figure--slider .kaufen-tile__slide a {
     display: flex;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
-    padding: clamp(12px, 4vw, 28px);
   }
 
   .kaufen-kunst-media .kaufen-product__figure--slider .kaufen-tile__slide img {
@@ -995,5 +961,7 @@ body.kaufen-page {
     height: auto;
     max-width: 100%;
     max-height: 100%;
+    object-fit: contain;
+    object-position: center;
   }
 }
