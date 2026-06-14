@@ -47,7 +47,7 @@ window.GOGL_I18N_ENTRIES = [
   { s: '.gogl-program-slider__slide[data-slide="7"] .gogl-hero-slide-next__label', de: "Joscha", en: "Joscha" },
   { s: "#gogl-member-cards-section .gogl-section-title", de: "Wähle eine Variante deines Gym-Buddys", en: "Choose your Gym Buddy variant" },
   { s: '#card-accountability [style*="top:20px"] span', de: "gogogo member", en: "gogogo member" },
-  { s: "#card-accountability h3", html: true, de: "Mit mir zusammen und ein oder zwei Freunden Verbindlichkeit<br><span style=\"font-size:0.72em;letter-spacing:0.04em;font-weight:500;\">eine WhatsApp-Gruppe</span>", en: "Accountability with me and one or two friends<br><span style=\"font-size:0.72em;letter-spacing:0.04em;font-weight:500;\">a WhatsApp group</span>" },
+  { s: "#card-accountability h3", html: true, de: "Mit mir zusammen und ein oder zwei Freunden Verbindlichkeit in einer Gruppe<br><span style=\"font-size:0.72em;letter-spacing:0.04em;font-weight:500;\">auf WhatsApp</span>", en: "Accountability in a group with me and one or two friends<br><span style=\"font-size:0.72em;letter-spacing:0.04em;font-weight:500;\">on WhatsApp</span>" },
   { s: "#card-accountability .card-expanded p:nth-of-type(1)", de: "Zielanalyse & Gruppe erstellen. 30 Tage kostenlos jeden Tag ein echter Check-in. Game-Changer.", en: "Goal analysis & create a group. 30 days free — a real check-in every day. Game-changer." },
   { s: "#card-accountability .card-expanded p:nth-of-type(2)", de: "30 Tage kostenloser Test", en: "30-day free trial" },
   { s: '#card-training [style*="top:20px"] span', de: "personal training", en: "personal training" },

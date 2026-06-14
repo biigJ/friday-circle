@@ -184,6 +184,9 @@
           text-align: left;
           padding: 4px 0;
         }
+        .gogogo-page {
+          --fc-nav-h: clamp(108px, 26vw, 136px);
+        }
       }
       .gogogo-landing__header-cta {
         border: 1.5px solid var(--text);
@@ -2452,16 +2455,19 @@
           padding-right: var(--page-x);
           box-sizing: border-box;
         }
+        .gogl-showcase-pin {
+          --gogl-showcase-chrome: clamp(52px, 7.5vh, 68px);
+        }
         .gogl-joscha-grow {
           position: relative;
           top: auto;
           width: 100% !important;
           max-width: 100%;
           border-radius: clamp(10px, 1.2vw, 14px);
-          --gogl-grow-h: min(72svh, calc(100svh - var(--fc-nav-h, 72px) - 112px));
+          --gogl-grow-h: min(80svh, calc(100svh - var(--fc-nav-h, 108px) - var(--gogl-showcase-chrome, 56px) - 8px));
           height: var(--gogl-grow-h);
-          min-height: min(420px, 72svh);
-          max-height: var(--gogl-grow-h);
+          min-height: min(480px, 80svh);
+          max-height: min(85svh, calc(100svh - var(--fc-nav-h, 108px) - 48px));
         }
         .gogl-showcase-slider-ui {
           padding-left: 0;
@@ -2525,9 +2531,12 @@
         .gogl-cycle-body__lines p {
           white-space: normal;
         }
-        /* Factfulness (Slide 6 / data-slide="3") — dunkles Foto rechts, Text-Pills, Popup mobil */
+        /* Factfulness (data-slide="3") — dunkles Foto rechts, Text-Pills, Popup mobil */
         .gogl-joscha-grow:has(.gogl-program-slider__slide[data-slide="3"].is-active) {
           background: #0a0a0a;
+          --gogl-grow-h: min(84svh, calc(100svh - var(--fc-nav-h, 108px) - 52px));
+          min-height: min(500px, 84svh);
+          max-height: min(88svh, calc(100svh - var(--fc-nav-h, 108px) - 40px));
         }
         .gogl-joscha-grow:has(.gogl-program-slider__slide[data-slide="3"].is-active) .gogl-joscha-grow__photo--factfulness img {
           width: min(58%, 280px);
@@ -2593,13 +2602,13 @@
           grid-row: 1;
           grid-column: 1 / -1;
           justify-self: center;
-          margin: 0 0 clamp(10px, 2.2vh, 18px);
+          margin: 0 0 clamp(6px, 1.2vh, 10px);
           width: 100%;
           max-width: none;
           padding-right: 0;
           color: #f0eee6;
-          font-size: clamp(calc(1rem * 2.2), calc(4.2vw * 2.2), calc(1.3rem * 2.2));
-          line-height: 1;
+          font-size: clamp(1.05rem, 4.8vw, 1.35rem);
+          line-height: 1.05;
           text-align: center;
         }
         .gogl-program-slider__slide[data-slide="3"] .gogl-joscha-copy__sub {
@@ -2626,7 +2635,7 @@
           display: flex;
           flex-direction: column;
           align-items: flex-start;
-          gap: clamp(2px, 0.45vh, 4px);
+          gap: clamp(1px, 0.35vh, 3px);
           width: 100%;
           max-width: 100%;
           transform: none;
@@ -2676,15 +2685,15 @@
         }
         .gogl-program-slider__slide[data-slide="3"] .gogl-tile[data-state="closed"] .gogl-tile__title {
           color: #ffffff;
-          font-size: clamp(calc(0.72rem * 0.7 * 1.25), calc(3.1vw * 0.7 * 1.25), calc(0.84rem * 0.7 * 1.25));
+          font-size: clamp(0.62rem, 2.65vw, 0.74rem);
           font-weight: 600;
-          line-height: 1.15;
+          line-height: 1.2;
           text-align: left;
           display: block;
           -webkit-line-clamp: unset;
           overflow: visible;
           text-overflow: unset;
-          white-space: nowrap;
+          white-space: normal;
         }
         .gogl-program-slider__slide[data-slide="3"] .gogl-tile[data-state="closed"] .gogl-tile__body {
           display: none;
@@ -4239,7 +4248,7 @@
                     <div class="gogl-gosam-copy">
                       <h2 class="gogl-gosam-copy__title">Re-Start mit Buddys</h2>
                       <div class="gogl-gosam-copy__actions">
-                        <a class="gogl-gosam-copy__cta" href="kontakt/index.html">Kontakt</a>
+                        <a class="gogl-gosam-copy__cta" href="register-accountability/index.html">Kontakt</a>
                         <p class="gogl-gosam-copy__tagline">
                           <span class="gogl-gosam-copy__tagline-line">Zielanalyse &amp; Gruppe erstellen. 30 Tage kostenlos jeden Tag ein echter Check-in.</span>
                           <span class="gogl-gosam-copy__tagline-line">Game-Changer.</span>
@@ -4265,7 +4274,7 @@
                       <h2 class="gogl-trainer-head__line gogl-trainer-head__line--main gogl-trainer-head__line--title">Expertise für Deine Aktivitäten</h2>
                     </div>
                     <p class="gogl-program-slide-card__lede gogl-program-slide-card__lede--trainer">Termine mit Joscha oder anderen Experten in Berlin. Grundlagen, Analyse, Zielsetzung, tägliche Begleitung, regelmäßige Termine, persönlich zugeschnittene Bewegungseinheiten.</p>
-                    <a class="gogl-program-slide-card__cta gogl-program-slide-card__cta--trainer" href="kontakt/index.html">Kontakt</a>
+                    <a class="gogl-program-slide-card__cta gogl-program-slide-card__cta--trainer" href="register-training/index.html">Kontakt</a>
                   </div>
                   <div class="gogl-slide-footer-chrome gogl-slide-footer-chrome--reserve-banderole">
                     <button type="button" class="gogl-hero-slide-next" aria-label="Nächstes Programm: FRIDAY CIRCLE">
@@ -4778,7 +4787,7 @@
             font-family:'Helvetica Neue',sans-serif;
             font-weight:700;font-size:1.3rem;
             color:#ffffff;margin:0 0 8px 0;line-height:1.2;
-          ">Mit mir zusammen und ein oder zwei Freunden Verbindlichkeit<br><span style="font-size:0.72em;letter-spacing:0.04em;font-weight:500;">eine WhatsApp-Gruppe</span></h3>
+          ">Mit mir zusammen und ein oder zwei Freunden Verbindlichkeit in einer Gruppe<br><span style="font-size:0.72em;letter-spacing:0.04em;font-weight:500;">auf WhatsApp</span></h3>
           <div class="card-expanded" style="
             max-height:0;overflow:hidden;
             transition:max-height 0.4s ease;
@@ -5040,7 +5049,7 @@
               font-size:0.9rem;color:#cccccc;
               line-height:1.75;margin:0 0 20px 0;
             ">Podcast gehört, Mitgliedschaft abgeschlossen, Plan gemacht. Und trotzdem passiert wenig. Das ist kein Willensproblem. Dir fehlt ein System das zu Deinem Alltag passt.</p>
-            <a href="kontakt/index.html" style="
+            <a href="register-accountability/index.html" style="
               font-family:'Helvetica Neue',sans-serif;
               font-weight:600;font-size:0.85rem;
               color:#2d9e8f;text-decoration:none;
@@ -5098,7 +5107,7 @@
           </div>
           <div style="width:50%;">
             <p style="font-family:Georgia,serif;font-style:italic;font-size:0.9rem;color:#cccccc;line-height:1.75;margin:0 0 20px 0;">Wir bauen mit Dir eine kleine Gruppe die sich gegenseitig in Bewegung hält. Täglich. Ohne App, ohne Aufwand. Ein kurzes Check-in reicht.</p>
-            <a href="kontakt/index.html" style="font-family:'Helvetica Neue',sans-serif;font-weight:600;font-size:0.85rem;color:#2d9e8f;text-decoration:none;background:rgba(255,255,255,0.1);padding:10px 20px;border-radius:999px;display:inline-block;">Erstgespräch buchen →</a>
+            <a href="register-accountability/index.html" style="font-family:'Helvetica Neue',sans-serif;font-weight:600;font-size:0.85rem;color:#2d9e8f;text-decoration:none;background:rgba(255,255,255,0.1);padding:10px 20px;border-radius:999px;display:inline-block;">Erstgespräch buchen →</a>
           </div>
         </div>
       </div>
@@ -5130,7 +5139,7 @@
           </div>
           <div style="width:50%;">
             <p style="font-family:Georgia,serif;font-style:italic;font-size:0.9rem;color:#cccccc;line-height:1.75;margin:0 0 20px 0;">Wir schauen gemeinsam was zu Dir passt. Ob Du mit Freunden startest oder erst mit mir allein. Ob Laufen, Gym oder einfach täglich rausgehen. Du entscheidest, wir sorgen dafür dass Du dranbleibst.</p>
-            <a href="kontakt/index.html" style="font-family:'Helvetica Neue',sans-serif;font-weight:600;font-size:0.85rem;color:#2d9e8f;text-decoration:none;background:rgba(255,255,255,0.1);padding:10px 20px;border-radius:999px;display:inline-block;">Erstgespräch buchen →</a>
+            <a href="register-accountability/index.html" style="font-family:'Helvetica Neue',sans-serif;font-weight:600;font-size:0.85rem;color:#2d9e8f;text-decoration:none;background:rgba(255,255,255,0.1);padding:10px 20px;border-radius:999px;display:inline-block;">Erstgespräch buchen →</a>
           </div>
         </div>
       </div>
@@ -5162,7 +5171,7 @@
           </div>
           <div style="width:50%;">
             <p style="font-family:Georgia,serif;font-style:italic;font-size:0.9rem;color:#cccccc;line-height:1.75;margin:0 0 20px 0;">gogogo existiert um sich selbst überflüssig zu machen. Wenn Bewegung Dein Alltag geworden ist, brauchst Du uns nicht mehr. Das ist das Ziel.</p>
-            <a href="kontakt/index.html" style="font-family:'Helvetica Neue',sans-serif;font-weight:600;font-size:0.85rem;color:#2d9e8f;text-decoration:none;background:rgba(255,255,255,0.1);padding:10px 20px;border-radius:999px;display:inline-block;">Erstgespräch buchen →</a>
+            <a href="register-accountability/index.html" style="font-family:'Helvetica Neue',sans-serif;font-weight:600;font-size:0.85rem;color:#2d9e8f;text-decoration:none;background:rgba(255,255,255,0.1);padding:10px 20px;border-radius:999px;display:inline-block;">Erstgespräch buchen →</a>
           </div>
         </div>
       </div>

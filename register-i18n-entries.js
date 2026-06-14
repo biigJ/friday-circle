@@ -70,8 +70,8 @@ window.REGISTER_I18N = {
       ["Ich benötige einen ausgewogenen Bewegungsplan", "I need a balanced movement plan"],
       ["Ich brauche tägliche Motivation", "I need daily motivation"],
       [
-        "Ich interessiere mich für eine dt. Social Media Alternative mit exkl. von mir ausgewählten Freunden für mentalen und fachlichen Support.",
-        "I am interested in a German social media alternative with friends I choose for mental and expert support.",
+        "ich möchte mich mit einem oder zwei Freunden regelmäßig und verbindlich motivieren",
+        "I want to stay regularly and accountably motivated with one or two friends",
       ],
       ["Ich hatte eine Verletzung", "I had an injury"],
       ["Ich trainiere auf hohem Niveau", "I train at a high level"],
