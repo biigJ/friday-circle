@@ -602,7 +602,6 @@ body.kaufen-page {
   }
 
   .kaufen-kunst-chapters {
-    grid-template-columns: 1fr;
     max-height: none;
     overflow: visible;
     padding-right: 0;
