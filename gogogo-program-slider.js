@@ -275,8 +275,6 @@
     scaler.appendChild(iframe);
     media.appendChild(wrap);
     media.classList.add("is-playing");
-    var card = media.closest(".gogl-program-slide-card--upper");
-    if (card) card.classList.add("is-video-playing");
   }
 
   root.addEventListener(
