@@ -241,21 +241,42 @@
     if (!youtubeId) return;
     var wrap = document.createElement("div");
     wrap.className = "gogl-program-slide-card__youtube-wrap";
+    var scaler = document.createElement("div");
+    scaler.className = "gogl-program-slide-card__youtube-scaler";
     var iframe = document.createElement("iframe");
     iframe.className = "gogl-program-slide-card__youtube";
+    var embedParams =
+      "autoplay=1&controls=1&rel=0&playsinline=1&modestbranding=0&fs=1&enablejsapi=1&origin=" +
+      encodeURIComponent(window.location.origin);
     iframe.src =
       "https://www.youtube-nocookie.com/embed/" +
       encodeURIComponent(youtubeId) +
-      "?autoplay=1&mute=1&controls=1&rel=0&playsinline=1&modestbranding=0";
+      "?" +
+      embedParams;
     iframe.title = "Upper Body Basics Video";
     iframe.setAttribute(
       "allow",
       "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     );
     iframe.setAttribute("allowfullscreen", "");
-    wrap.appendChild(iframe);
+    iframe.addEventListener("load", function () {
+      try {
+        iframe.contentWindow.postMessage(
+          '{"event":"command","func":"unMute","args":""}',
+          "*"
+        );
+        iframe.contentWindow.postMessage(
+          '{"event":"command","func":"setVolume","args":[100]}',
+          "*"
+        );
+      } catch (err) {}
+    });
+    wrap.appendChild(scaler);
+    scaler.appendChild(iframe);
     media.appendChild(wrap);
     media.classList.add("is-playing");
+    var card = media.closest(".gogl-program-slide-card--upper");
+    if (card) card.classList.add("is-video-playing");
   }
 
   root.addEventListener(
