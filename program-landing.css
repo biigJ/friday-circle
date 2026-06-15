@@ -1110,6 +1110,10 @@ body.gogl-program {
 }
 
 .cycl-table-subhead__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(12px, 3vw, 24px);
   padding-top: clamp(14px, 2.2vw, 18px);
   padding-bottom: clamp(14px, 2.2vw, 18px);
 }
@@ -1759,6 +1763,11 @@ body.cycl-date-wheel-open {
   .cycl-table-head__meta {
     align-items: flex-start;
     width: 100%;
+  }
+
+  .cycl-table-subhead__inner {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .cycl-date-trigger {

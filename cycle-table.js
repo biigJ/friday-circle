@@ -338,11 +338,11 @@
         t("Pos.-Faktor", "Pos. factor") +
         '</span><input type="text" data-ex-pos-factor /></label>' +
         '<label class="cycl-admin-field"><span class="cycl-admin-field__lab">' +
-        t("Wert-Vorgabe", "Value preset") +
-        '</span><input type="text" data-ex-value-preset /></label>' +
+        t("Einheit", "Unit") +
+        '</span><input type="text" data-ex-unit placeholder="kg / sec / m" /></label>' +
         '<label class="cycl-admin-field"><span class="cycl-admin-field__lab">' +
-        t("Einheit Vorgabe", "Unit preset") +
-        '</span><input type="text" data-ex-unit placeholder="kg / sec / m" /></label>';
+        t("Wert-Vorgabe", "Value preset") +
+        '</span><input type="text" data-ex-value-preset /></label>';
       wrap.appendChild(block);
     }
   }
@@ -456,16 +456,16 @@
         preset("positionFactor", exercise.positionFactor) +
         "</td>" +
         '<td class="cycl-table__cell">' +
-        preset("valuePreset", exercise.valuePreset) +
-        "</td>" +
-        '<td class="cycl-table__cell">' +
-        userField("handicapIndividual", ud.handicapIndividual) +
-        "</td>" +
-        '<td class="cycl-table__cell">' +
         preset("unitPreset", exercise.unitPreset) +
         "</td>" +
         '<td class="cycl-table__cell">' +
+        preset("valuePreset", exercise.valuePreset) +
+        "</td>" +
+        '<td class="cycl-table__cell">' +
         userField("result", ud.result) +
+        "</td>" +
+        '<td class="cycl-table__cell">' +
+        userField("handicapIndividual", ud.handicapIndividual) +
         "</td>" +
         '<td class="cycl-table__cell cycl-table__cell--num">' +
         userField("points", ud.points) +
