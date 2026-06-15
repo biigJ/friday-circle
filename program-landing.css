@@ -631,14 +631,44 @@ body.gogl-program {
 }
 
 .cycl-page .cycl-nav {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 120;
+  position: relative;
+  top: auto;
+  left: auto;
+  right: auto;
+  z-index: 1;
   background: transparent;
   backdrop-filter: none;
   -webkit-backdrop-filter: none;
+}
+
+.cycl-page-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 130;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 10, 0.88) 0%,
+    rgba(10, 10, 10, 0.72) 72%,
+    rgba(10, 10, 10, 0.42) 100%
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.cycl-page-header--solo {
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 10, 0.82) 0%,
+    rgba(10, 10, 10, 0.52) 78%,
+    transparent 100%
+  );
+}
+
+.cycl-table-page .cycl-page-header-spacer {
+  height: clamp(152px, 17.5vh, 200px);
+  flex-shrink: 0;
 }
 
 .cycl-page .cycl-nav .nav__inner {
@@ -1023,7 +1053,7 @@ body.gogl-program {
 .cycl-table-head {
   position: relative;
   z-index: 2;
-  padding: clamp(72px, 10vh, 96px) 0 0;
+  padding: 0;
   background: transparent;
 }
 
@@ -1064,7 +1094,7 @@ body.gogl-program {
 }
 
 .cycl-table-page .cycl-nav {
-  z-index: 120;
+  z-index: 1;
 }
 
 .cycl-table-page main {
@@ -1272,7 +1302,8 @@ body.cycl-date-wheel-open {
 .cycl-date-wheel__scroller {
   height: 100%;
   overflow-y: auto;
-  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
@@ -1299,11 +1330,22 @@ body.cycl-date-wheel-open {
   font-size: 0.95rem;
   font-weight: 400;
   cursor: pointer;
+  transition: color 0.28s ease, font-weight 0.28s ease, opacity 0.28s ease;
 }
 
 .cycl-date-wheel__item.is-selected {
   color: #fff;
   font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cycl-date-wheel__scroller {
+    scroll-behavior: auto;
+  }
+
+  .cycl-date-wheel__item {
+    transition: none;
+  }
 }
 
 .cycl-date-wheel__done {

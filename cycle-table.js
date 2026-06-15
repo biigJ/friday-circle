@@ -655,7 +655,7 @@
       requestAnimationFrame(function () {
         var initial = state.selectedDate || state.wheelDates[0];
         state.wheelPreviewDate = initial;
-        scrollWheelToDate(initial, false);
+        scrollWheelToDate(initial, true);
       });
     });
 
