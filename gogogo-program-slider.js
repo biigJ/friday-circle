@@ -239,19 +239,22 @@
     if (!media || media.classList.contains("is-playing")) return;
     var youtubeId = media.getAttribute("data-youtube-id");
     if (!youtubeId) return;
+    var wrap = document.createElement("div");
+    wrap.className = "gogl-program-slide-card__youtube-wrap";
     var iframe = document.createElement("iframe");
     iframe.className = "gogl-program-slide-card__youtube";
     iframe.src =
       "https://www.youtube-nocookie.com/embed/" +
       encodeURIComponent(youtubeId) +
-      "?autoplay=1&mute=1&rel=0&playsinline=1&modestbranding=1";
-    iframe.title = "YouTube video player";
+      "?autoplay=1&mute=1&controls=1&rel=0&playsinline=1&modestbranding=0";
+    iframe.title = "Upper Body Basics Video";
     iframe.setAttribute(
       "allow",
       "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     );
     iframe.setAttribute("allowfullscreen", "");
-    media.appendChild(iframe);
+    wrap.appendChild(iframe);
+    media.appendChild(wrap);
     media.classList.add("is-playing");
   }
 
