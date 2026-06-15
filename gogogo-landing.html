@@ -44,6 +44,8 @@
         --font-sans: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
         --gogl-joscha-hellblau: #a8d4f8;
         --gogl-joscha-hellblau-cta: #85c4ea;
+        --gogl-buddy-gruppe: #a45838;
+        --gogl-buddy-experte: #5a7da4;
         color: var(--black);
         background: #f0eee6;
         font-family: var(--font-body);
@@ -171,6 +173,14 @@
       }
       .gogogo-page .gogogo-nav__cycle-light {
         font-weight: 200;
+      }
+      .gogogo-page .gogogo-nav__gruppe {
+        color: var(--gogl-buddy-gruppe) !important;
+        font-weight: 600;
+      }
+      .gogogo-page .gogogo-nav__experte {
+        color: var(--gogl-buddy-experte) !important;
+        font-weight: 600;
       }
       @media (max-width: 760px) {
         .gogogo-page .nav__links {
@@ -950,15 +960,15 @@
         min-width: auto;
         text-transform: none;
         letter-spacing: 0.02em;
-        background: #f0eee6 !important;
-        color: #0a0a0a !important;
-        border: 1px solid #f0eee6 !important;
+        background: var(--gogl-buddy-experte) !important;
+        color: #ffffff !important;
+        border: 1px solid var(--gogl-buddy-experte) !important;
       }
       .gogogo-page main .gogl-program-slide-card--trainer .gogl-program-slide-card__cta:hover,
       .gogogo-page main .gogl-program-slide-card--trainer .gogl-program-slide-card__cta:focus-visible {
-        background: #ffffff !important;
-        color: #0a0a0a !important;
-        border: 1px solid #f0eee6 !important;
+        background: color-mix(in srgb, var(--gogl-buddy-experte) 88%, #ffffff) !important;
+        color: #ffffff !important;
+        border: 1px solid var(--gogl-buddy-experte) !important;
         transform: translateY(-1px);
       }
       .gogl-program-slide-card--trainer::after {
@@ -2392,6 +2402,20 @@
       }
       .gogl-program-slide-card--hero .gogl-hero-card--group {
         border-right: 1px solid rgba(255, 255, 255, 0.1);
+        background: color-mix(in srgb, var(--gogl-buddy-gruppe) 72%, rgba(10, 10, 10, 0.55));
+        border-color: color-mix(in srgb, var(--gogl-buddy-gruppe) 85%, rgba(255, 255, 255, 0.18));
+      }
+      .gogl-program-slide-card--hero .gogl-hero-card--workshop {
+        background: color-mix(in srgb, var(--gogl-buddy-experte) 72%, rgba(10, 10, 10, 0.55));
+        border-color: color-mix(in srgb, var(--gogl-buddy-experte) 85%, rgba(255, 255, 255, 0.18));
+      }
+      .gogl-program-slide-card--hero .gogl-hero-card--group .gogl-hero-card__cta-box {
+        border-color: color-mix(in srgb, var(--gogl-buddy-gruppe) 70%, rgba(255, 255, 255, 0.35));
+        background: color-mix(in srgb, var(--gogl-buddy-gruppe) 35%, rgba(10, 10, 10, 0.2));
+      }
+      .gogl-program-slide-card--hero .gogl-hero-card--workshop .gogl-hero-card__cta-box {
+        border-color: color-mix(in srgb, var(--gogl-buddy-experte) 70%, rgba(255, 255, 255, 0.35));
+        background: color-mix(in srgb, var(--gogl-buddy-experte) 35%, rgba(10, 10, 10, 0.2));
       }
       .gogl-program-slide-card--hero .gogl-hero-card__title {
         font-size: clamp(0.88rem, 1.1vw, 0.98rem);
@@ -4190,8 +4214,8 @@
       <div class="nav__inner">
         <a href="#top" class="nav__logo gogogo-landing__logo" aria-label="gogogo — zum Seitenanfang">gogogo</a>
         <nav class="nav__links gogogo-landing__nav" aria-label="Angebote">
-          <a href="register-accountability/index.html"><span class="de-t">Buddy-Gruppe</span><span class="en-t">Buddy group</span></a>
-          <a href="register-training/index.html"><span class="de-t">Buddy-Experte</span><span class="en-t">Buddy expert</span></a>
+          <a href="register-accountability/index.html" class="gogogo-nav__gruppe"><span class="de-t">Buddy-Gruppe</span><span class="en-t">Buddy group</span></a>
+          <a href="register-training/index.html" class="gogogo-nav__experte"><span class="de-t">Buddy-Experte</span><span class="en-t">Buddy expert</span></a>
           <a href="cycle-training.html" class="gogogo-nav__cycle">
             <span class="de-t"><span class="gogogo-nav__cycle-strong">FRIDAY</span><span class="gogogo-nav__cycle-light"> TRAINING</span></span>
             <span class="en-t"><span class="gogogo-nav__cycle-strong">FRIDAY</span><span class="gogogo-nav__cycle-light"> TRAINING</span></span>
@@ -4342,7 +4366,7 @@
                       <h2 class="gogl-trainer-head__line gogl-trainer-head__line--main gogl-trainer-head__line--title">Expertise für Deine Aktivitäten</h2>
                     </div>
                     <p class="gogl-program-slide-card__lede gogl-program-slide-card__lede--trainer">Termine mit Joscha oder anderen Experten in Berlin. Grundlagen, Analyse, Zielsetzung, tägliche Begleitung, regelmäßige Termine, persönlich zugeschnittene Bewegungseinheiten.</p>
-                    <a class="gogl-program-slide-card__cta gogl-program-slide-card__cta--trainer" href="register-training/index.html">Kontakt</a>
+                    <a class="gogl-program-slide-card__cta gogl-program-slide-card__cta--trainer" href="register-training/index.html"><span class="de-t">Buddy Experte</span><span class="en-t">Buddy Expert</span></a>
                   </div>
                   <div class="gogl-slide-footer-chrome gogl-slide-footer-chrome--reserve-banderole">
                     <button type="button" class="gogl-hero-slide-next" aria-label="Nächstes Programm: FRIDAY CIRCLE">
@@ -4829,20 +4853,20 @@
         <div style="
           position:absolute;
           top:20px;left:20px;
-          background:rgba(0,0,0,0.4);
+          background:var(--gogl-buddy-gruppe);
           backdrop-filter:blur(8px);
           border-radius:999px;
           padding:6px 14px;
           display:flex;align-items:center;gap:8px;
         ">
-          <span style="font-family:'Helvetica Neue',sans-serif;font-size:0.75rem;color:#ffffff;letter-spacing:0.05em;">gogogo member</span>
+          <span style="font-family:'Helvetica Neue',sans-serif;font-size:0.75rem;color:#ffffff;letter-spacing:0.05em;">Buddy Gruppe</span>
         </div>
         <!-- Plus button top right -->
         <button type="button" onclick="toggleCard('card-accountability')" style="
           position:absolute;top:16px;right:16px;
           width:36px;height:36px;
           border-radius:50%;
-          background:rgba(255,255,255,0.15);
+          background:var(--gogl-buddy-gruppe);
           backdrop-filter:blur(8px);
           border:none;cursor:pointer;
           color:#ffffff;font-size:1.2rem;
@@ -4878,8 +4902,8 @@
               font-weight:600;font-size:0.85rem;
               color:#ffffff;text-decoration:none;
               display:inline-block;
-              background:#2d9e8f;
-              border:1.5px solid #2d9e8f;
+              background:var(--gogl-buddy-gruppe);
+              border:1.5px solid var(--gogl-buddy-gruppe);
               padding:10px 20px;border-radius:999px;
             ">Join</a>
           </div>
@@ -4918,19 +4942,19 @@
         <!-- Label top left -->
         <div style="
           position:absolute;top:20px;left:20px;
-          background:rgba(0,0,0,0.4);
+          background:var(--gogl-buddy-experte);
           backdrop-filter:blur(8px);
           border-radius:999px;
           padding:6px 14px;
           display:flex;align-items:center;gap:8px;
         ">
-          <span style="font-family:'Helvetica Neue',sans-serif;font-size:0.75rem;color:#ffffff;letter-spacing:0.05em;">personal training</span>
+          <span style="font-family:'Helvetica Neue',sans-serif;font-size:0.75rem;color:#ffffff;letter-spacing:0.05em;">Buddy Experte</span>
         </div>
         <!-- Plus button -->
         <button type="button" onclick="toggleCard('card-training')" style="
           position:absolute;top:16px;right:16px;
           width:36px;height:36px;border-radius:50%;
-          background:rgba(255,255,255,0.15);
+          background:var(--gogl-buddy-experte);
           backdrop-filter:blur(8px);
           border:none;cursor:pointer;
           color:#ffffff;font-size:1.2rem;
@@ -4966,8 +4990,8 @@
               font-weight:600;font-size:0.85rem;
               color:#ffffff;text-decoration:none;
               display:inline-block;
-              background:transparent;
-              border:1.5px solid rgba(255,255,255,0.55);
+              background:var(--gogl-buddy-experte);
+              border:1.5px solid var(--gogl-buddy-experte);
               padding:10px 20px;border-radius:999px;
             ">Optionen</a>
           </div>
