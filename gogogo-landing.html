@@ -44,10 +44,8 @@
         --font-sans: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
         --gogl-joscha-hellblau: #a8d4f8;
         --gogl-joscha-hellblau-cta: #85c4ea;
-        --gogl-buddy-gruppe: #a45838;
-        --gogl-buddy-experte: #5a7da4;
-        --gogl-buddy-gruppe-bright: #d8734a;
-        --gogl-buddy-experte-bright: #73aae0;
+        --gogl-buddy-gruppe: #d9481a;
+        --gogl-buddy-experte: #1868c7;
         color: var(--black);
         background: #f0eee6;
         font-family: var(--font-body);
@@ -177,14 +175,12 @@
         font-weight: 200;
       }
       .gogogo-page .gogogo-nav__gruppe {
-        color: var(--gogl-buddy-gruppe-bright) !important;
+        color: var(--gogl-buddy-gruppe) !important;
         font-weight: 600;
-        text-shadow: 0 0 14px color-mix(in srgb, var(--gogl-buddy-gruppe) 72%, transparent);
       }
       .gogogo-page .gogogo-nav__experte {
-        color: var(--gogl-buddy-experte-bright) !important;
+        color: var(--gogl-buddy-experte) !important;
         font-weight: 600;
-        text-shadow: 0 0 14px color-mix(in srgb, var(--gogl-buddy-experte) 72%, transparent);
       }
       @media (max-width: 760px) {
         .gogogo-page .nav__links {
@@ -2405,21 +2401,21 @@
         align-self: stretch;
       }
       .gogl-program-slide-card--hero .gogl-hero-card--group {
-        border-right: 1px solid rgba(255, 255, 255, 0.1);
-        background: color-mix(in srgb, var(--gogl-buddy-gruppe) 72%, rgba(10, 10, 10, 0.55));
-        border-color: color-mix(in srgb, var(--gogl-buddy-gruppe) 85%, rgba(255, 255, 255, 0.18));
+        border-right: 1px solid rgba(255, 255, 255, 0.12);
+        background: color-mix(in srgb, var(--gogl-buddy-gruppe) 90%, #141414);
+        border-color: var(--gogl-buddy-gruppe);
       }
       .gogl-program-slide-card--hero .gogl-hero-card--workshop {
-        background: color-mix(in srgb, var(--gogl-buddy-experte) 72%, rgba(10, 10, 10, 0.55));
-        border-color: color-mix(in srgb, var(--gogl-buddy-experte) 85%, rgba(255, 255, 255, 0.18));
+        background: color-mix(in srgb, var(--gogl-buddy-experte) 90%, #141414);
+        border-color: var(--gogl-buddy-experte);
       }
       .gogl-program-slide-card--hero .gogl-hero-card--group .gogl-hero-card__cta-box {
-        border-color: color-mix(in srgb, var(--gogl-buddy-gruppe) 70%, rgba(255, 255, 255, 0.35));
-        background: color-mix(in srgb, var(--gogl-buddy-gruppe) 35%, rgba(10, 10, 10, 0.2));
+        border-color: color-mix(in srgb, var(--gogl-buddy-gruppe) 78%, #ffffff);
+        background: color-mix(in srgb, var(--gogl-buddy-gruppe) 62%, #0a0a0a);
       }
       .gogl-program-slide-card--hero .gogl-hero-card--workshop .gogl-hero-card__cta-box {
-        border-color: color-mix(in srgb, var(--gogl-buddy-experte) 70%, rgba(255, 255, 255, 0.35));
-        background: color-mix(in srgb, var(--gogl-buddy-experte) 35%, rgba(10, 10, 10, 0.2));
+        border-color: color-mix(in srgb, var(--gogl-buddy-experte) 78%, #ffffff);
+        background: color-mix(in srgb, var(--gogl-buddy-experte) 62%, #0a0a0a);
       }
       .gogl-program-slide-card--hero .gogl-hero-card__title {
         font-size: clamp(0.88rem, 1.1vw, 0.98rem);
