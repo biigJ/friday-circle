@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Freitag Zirkeltraining · Friday Circle</title>
+    <meta
+      name="description"
+      content="Freitag Zirkeltraining — Zeiten tracken, Teilnahme bestätigen, im Kreis wachsen."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="program-landing.css" />
+    <script src="fc-lang.js" defer></script>
+    <script src="cycle-table.js" defer></script>
+  </head>
+  <body class="gogogo-page gogl-program cycl-page cycl-table-page">
+    <div class="cycl-table-stripe" aria-hidden="true"></div>
+
+    <header class="nav cycl-nav" aria-label="Hauptnavigation">
+      <div class="nav__inner">
+        <div class="cycl-nav__brand-group">
+          <a href="cycle-training.html" class="nav__logo cycl-brand-logo" aria-label="FRIDAY TRAINING">
+            <span class="cycl-brand-logo__strong">FRIDAY</span>
+            <span class="cycl-brand-logo__light">TRAINING</span>
+          </a>
+          <a href="gogogo-landing.html" class="nav__logo cycl-gogogo-logo gogogo-landing__logo" aria-label="gogogo Startseite">gogogo</a>
+        </div>
+        <div class="nav__cta-bucket">
+          <div class="nav__lang cycl-nav__lang" role="group" aria-label="Sprache">
+            <button type="button" class="is-active" data-fc-lang="de">DE</button>
+            <button type="button" data-fc-lang="en">EN</button>
+          </div>
+          <a class="cycl-header-cta cycl-header-cta--back" href="cycle-training.html">
+            <span class="de-t">← zurück</span>
+            <span class="en-t">← back</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="cycl-table-head" aria-labelledby="cycl-table-title">
+        <div class="cycl-table-head__inner">
+          <h1 id="cycl-table-title" class="cycl-table-head__title">
+            <span class="cycl-table-head__line">
+              <span class="cycl-table-head__strong">FREITAG</span>
+            </span>
+            <span class="cycl-table-head__line">
+              <span class="cycl-table-head__strong">ZIRKEL</span><span class="cycl-table-head__light">TRAINING</span>
+            </span>
+          </h1>
+        </div>
+      </section>
+
+      <section class="cycl-table-section" aria-labelledby="cycl-table-section-title">
+        <div class="gogl-slab-pl">
+          <div class="cycl-table-toolbar">
+            <h2 id="cycl-table-section-title" class="cycl-table-section__title">
+              <span class="de-t">Result Lists</span>
+              <span class="en-t">Result Lists</span>
+            </h2>
+            <div id="cycl-login-bar" class="cycl-login-bar"></div>
+          </div>
+
+          <div id="cycl-admin-panel" class="cycl-admin-panel" hidden>
+            <h3 class="cycl-admin-panel__title">
+              <span class="de-t">Neues Training anlegen</span>
+              <span class="en-t">Create new session</span>
+            </h3>
+            <form id="cycl-session-form" class="cycl-admin-form">
+              <label class="cycl-admin-field">
+                <span class="cycl-admin-field__lab">
+                  <span class="de-t">Datum</span>
+                  <span class="en-t">Date</span>
+                </span>
+                <input type="date" id="cycl-session-date" required />
+              </label>
+              <label class="cycl-admin-field">
+                <span class="cycl-admin-field__lab">
+                  <span class="de-t">Workoutname</span>
+                  <span class="en-t">Workout name</span>
+                </span>
+                <input type="text" id="cycl-session-workout" required placeholder="Friday Cycle" />
+              </label>
+              <label class="cycl-admin-field">
+                <span class="cycl-admin-field__lab">
+                  <span class="de-t">Anzahl Runden</span>
+                  <span class="en-t">Number of rounds</span>
+                </span>
+                <input type="number" id="cycl-session-rounds" min="1" max="20" value="3" required />
+              </label>
+              <div id="cycl-round-labels" class="cycl-round-labels"></div>
+              <button type="submit" class="cycl-admin-submit">
+                <span class="de-t">Training speichern</span>
+                <span class="en-t">Save session</span>
+              </button>
+            </form>
+            <p class="cycl-admin-hint">
+              <span class="de-t">Admin-Login: beliebiger Name + PIN „friday“.</span>
+              <span class="en-t">Admin sign-in: any name + PIN “friday”.</span>
+            </p>
+          </div>
+
+          <div class="cycl-table-wrap">
+            <table class="cycl-table" aria-describedby="cycl-table-section-title">
+              <thead>
+                <tr>
+                  <th scope="col" class="cycl-table__th cycl-table__th--icon"></th>
+                  <th scope="col" class="cycl-table__th">
+                    <span class="de-t">Datum</span>
+                    <span class="en-t">Date</span>
+                  </th>
+                  <th scope="col" class="cycl-table__th">
+                    <span class="de-t">Teilnehmerzahl</span>
+                    <span class="en-t">Participants</span>
+                  </th>
+                  <th scope="col" class="cycl-table__th">
+                    <span class="de-t">Workoutname</span>
+                    <span class="en-t">Workout</span>
+                  </th>
+                  <th scope="col" class="cycl-table__th">
+                    <span class="de-t">Dauer</span>
+                    <span class="en-t">Duration</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="cycl-table-body"></tbody>
+            </table>
+            <p id="cycl-table-empty" class="cycl-table-empty" hidden>
+              <span class="de-t">Noch keine Trainings — Admin legt das erste an.</span>
+              <span class="en-t">No sessions yet — an admin can create the first one.</span>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="pgl-products cycl-products cycl-table-products">
+        <div class="gogl-slab-pl">
+          <div class="pgl-prod-grid cycl-table-prod-grid">
+            <article class="pgl-prod-card pgl-prod-card--towel pgl-prod-card--bottom">
+              <h3>
+                <span class="de-t">BESTELL DEIN CIRCLE HANDTUCH</span>
+                <span class="en-t">ORDER YOUR CIRCLE TOWEL</span>
+              </h3>
+              <p>
+                <span class="de-t">Damit Du während des 1-stündigen Friday Workouts im Gym stilvoll Dein Laufband reservieren kannst.</span>
+                <span class="en-t">So you can stylishly reserve your treadmill during the one-hour Friday workout at the gym.</span>
+              </p>
+              <div class="pgl-prod-card__actions">
+                <a class="pgl-prod-card__cta" href="kaufen/handtuch.html">
+                  <span class="de-t">Kaufen</span>
+                  <span class="en-t">Buy</span>
+                </a>
+              </div>
+            </article>
+            <article class="pgl-prod-card pgl-prod-card--oberteil pgl-prod-card--bottom">
+              <h3>Friday Circle Oberteil</h3>
+              <p>
+                <span class="de-t">Sportshirt oder Sport-BH — Vorbestellung, Produktion ab 10 Bestellungen pro Variante.</span>
+                <span class="en-t">Sports shirt or sports bra — pre-order, production starts at 10 orders per variant.</span>
+              </p>
+              <div class="pgl-prod-card__actions">
+                <a class="pgl-prod-card__cta" href="kaufen/sportoberteil.html">
+                  <span class="de-t">Kaufen</span>
+                  <span class="en-t">Buy</span>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="cycl-login-modal" class="cycl-login-modal" hidden role="dialog" aria-modal="true" aria-labelledby="cycl-login-title">
+      <div class="cycl-login-modal__backdrop"></div>
+      <div class="cycl-login-modal__panel">
+        <button type="button" class="cycl-login-modal__close" id="cycl-login-close" aria-label="Schließen">×</button>
+        <h2 id="cycl-login-title" class="cycl-login-modal__title">
+          <span class="de-t">Einloggen</span>
+          <span class="en-t">Sign in</span>
+        </h2>
+        <p class="cycl-login-modal__sub">
+          <span class="de-t">Name und PIN — beim ersten Mal legst Du beides fest.</span>
+          <span class="en-t">Name and PIN — on first sign-in you set both.</span>
+        </p>
+        <form id="cycl-login-form" class="cycl-login-form">
+          <label class="cycl-admin-field">
+            <span class="cycl-admin-field__lab">Name</span>
+            <input type="text" id="cycl-login-name" required autocomplete="username" />
+          </label>
+          <label class="cycl-admin-field">
+            <span class="cycl-admin-field__lab">PIN</span>
+            <input type="password" id="cycl-login-pin" required autocomplete="current-password" maxlength="32" />
+          </label>
+          <p id="cycl-login-error" class="cycl-login-error" hidden></p>
+          <button type="submit" class="cycl-admin-submit">
+            <span class="de-t">Weiter</span>
+            <span class="en-t">Continue</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <footer class="footer cycl-footer" aria-label="Seitenfuß">
+      <div class="footer__inner">
+        <a href="index.html" class="footer__logo">FRIDAY CIRCLE</a>
+        <nav class="footer__links" aria-label="Rechtliches und Über uns">
+          <a href="impressum/index.html">Impressum</a>
+          <a href="datenschutz/index.html">Datenschutz</a>
+          <a href="kontakt/index.html">Kontakt</a>
+          <a href="triff-joscha.html#joscha-auswahl">Joscha</a>
+          <a href="wolfganggrope.html">Kunst</a>
+          <a href="kaufen/index.html">Kaufen</a>
+        </nav>
+        <p class="footer__copy">© 2026</p>
+      </div>
+    </footer>
+  </body>
+</html>

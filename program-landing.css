@@ -978,3 +978,464 @@ body.gogl-program {
     flex-shrink: 0;
   }
 }
+
+/* cycle-table.html — Freitag Zirkeltraining */
+.cycl-table-page {
+  padding-top: 6px;
+}
+
+.cycl-table-stripe {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: var(--cycl-red);
+  z-index: 200;
+}
+
+.cycl-table-page .cycl-nav {
+  top: 6px;
+}
+
+.cycl-header-cta--back {
+  background: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.55);
+}
+
+.cycl-table-head {
+  padding: clamp(72px, 12vh, 108px) var(--nav-pad-x) clamp(28px, 4vw, 40px);
+  background: var(--cycl-black);
+}
+
+.cycl-table-head__inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.cycl-table-head__title {
+  margin: 0;
+  font-family: var(--font-sans);
+  line-height: 0.92;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.cycl-table-head__line {
+  display: block;
+  font-size: clamp(2.4rem, 9vw, 5.5rem);
+}
+
+.cycl-table-head__strong {
+  font-weight: 700;
+  color: #fff;
+}
+
+.cycl-table-head__light {
+  font-weight: 200;
+  color: #fff;
+}
+
+.cycl-table-section {
+  background: var(--cycl-black);
+  padding: 0 var(--nav-pad-x) clamp(48px, 8vw, 72px);
+}
+
+.cycl-table-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.cycl-table-section__title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.cycl-login-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cycl-login-bar__user {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.cycl-login-bar__badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--cycl-red);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.cycl-login-bar__btn {
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  background: transparent;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.cycl-login-bar__btn--primary {
+  background: var(--cycl-red);
+  border-color: var(--cycl-red);
+}
+
+.cycl-admin-panel {
+  margin-bottom: 28px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: #121212;
+}
+
+.cycl-admin-panel__title {
+  margin: 0 0 16px;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.cycl-admin-form {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  align-items: end;
+}
+
+.cycl-round-labels {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.cycl-admin-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cycl-admin-field__lab {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.cycl-admin-field input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: #0a0a0a;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+}
+
+.cycl-admin-field input:focus {
+  outline: none;
+  border-color: var(--cycl-red);
+}
+
+.cycl-admin-submit {
+  grid-column: 1 / -1;
+  justify-self: start;
+  border: none;
+  background: var(--cycl-red);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 12px 22px;
+  cursor: pointer;
+}
+
+.cycl-admin-hint {
+  margin: 14px 0 0;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.cycl-table-wrap {
+  overflow-x: auto;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.cycl-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+}
+
+.cycl-table__th {
+  padding: 12px 14px;
+  text-align: left;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  color: rgba(255, 255, 255, 0.55);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  background: #101010;
+}
+
+.cycl-table__th--icon {
+  width: 40px;
+}
+
+.cycl-table__cell {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.9);
+  vertical-align: middle;
+}
+
+.cycl-table__cell--num {
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.cycl-table__cell--dur {
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+
+.cycl-table__cell--indent {
+  padding-left: 28px;
+}
+
+.cycl-table__cell--round-label {
+  padding-left: 44px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.82rem;
+}
+
+.cycl-table__cell--muted {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.cycl-table__row--session {
+  background: #141414;
+}
+
+.cycl-table__row--participant {
+  background: #111;
+}
+
+.cycl-table__row--round {
+  background: #0d0d0d;
+}
+
+.cycl-table__expand {
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.cycl-table__name-btn {
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  padding: 0;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.cycl-table__name-btn:hover,
+.cycl-table__name-btn:focus-visible {
+  color: var(--cycl-red);
+  outline: none;
+}
+
+.cycl-time-input {
+  width: 5.5rem;
+  padding: 6px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: #0a0a0a;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+}
+
+.cycl-add-participant {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.cycl-add-participant input {
+  flex: 1;
+  min-width: 140px;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: #0a0a0a;
+  color: #fff;
+}
+
+.cycl-add-participant button,
+.cycl-join-btn {
+  border: none;
+  background: var(--cycl-red);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.78rem;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.cycl-table-empty {
+  margin: 20px 0 0;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+}
+
+.cycl-table-products {
+  padding-top: 0;
+}
+
+.cycl-table-prod-grid {
+  max-width: 900px;
+}
+
+.cycl-page .pgl-prod-card--oberteil {
+  position: relative;
+  overflow: hidden;
+  background-color: #141414;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-image 0.6s ease;
+}
+
+.cycl-page .pgl-prod-card--oberteil::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 10, 0.94) 0%,
+    rgba(10, 10, 10, 0.72) 42%,
+    rgba(10, 10, 10, 0.38) 100%
+  );
+  pointer-events: none;
+}
+
+.cycl-page .pgl-prod-card--oberteil > * {
+  position: relative;
+  z-index: 1;
+}
+
+.cycl-login-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.cycl-login-modal[hidden] {
+  display: none;
+}
+
+.cycl-login-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+}
+
+.cycl-login-modal__panel {
+  position: relative;
+  width: min(100%, 380px);
+  padding: 28px 24px;
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.cycl-login-modal__close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.cycl-login-modal__title {
+  margin: 0 0 8px;
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.cycl-login-modal__sub {
+  margin: 0 0 20px;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.62);
+  line-height: 1.5;
+}
+
+.cycl-login-form {
+  display: grid;
+  gap: 14px;
+}
+
+.cycl-login-error {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #ff8a80;
+}
+
+@media (max-width: 640px) {
+  .cycl-table-head__line {
+    font-size: clamp(2rem, 11vw, 3rem);
+  }
+
+  .cycl-table__cell,
+  .cycl-table__th {
+    padding: 10px 8px;
+    font-size: 0.78rem;
+  }
+}
+
