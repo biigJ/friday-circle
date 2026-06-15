@@ -89,6 +89,16 @@
     return "KW" + getISOWeek(d) + " " + dd + "." + mm + "." + d.getFullYear();
   }
 
+  function toLocalIso(d) {
+    return (
+      d.getFullYear() +
+      "-" +
+      String(d.getMonth() + 1).padStart(2, "0") +
+      "-" +
+      String(d.getDate()).padStart(2, "0")
+    );
+  }
+
   function getNextFridayIso() {
     var now = new Date();
     var fri = new Date(now);
@@ -96,7 +106,7 @@
     var diff = (5 - day + 7) % 7;
     if (diff === 0 && now.getHours() > 20) diff = 7;
     fri.setDate(fri.getDate() + diff);
-    return fri.toISOString().slice(0, 10);
+    return toLocalIso(fri);
   }
 
   function listFridays() {
@@ -107,7 +117,7 @@
     end.setDate(end.getDate() + 7 * 8);
     var cur = new Date(start);
     while (cur <= end) {
-      if (cur.getDay() === 5) out.push(cur.toISOString().slice(0, 10));
+      if (cur.getDay() === 5) out.push(toLocalIso(cur));
       cur.setDate(cur.getDate() + 1);
     }
     state.data.sessions.forEach(function (session) {
@@ -130,6 +140,7 @@
     wheelDates: [],
     wheelAnchorParent: null,
     wheelIgnoreDocClick: false,
+    wheelPreviewDate: "",
   };
 
   var els = {};
@@ -513,30 +524,39 @@
   function paintWheelSelection() {
     if (!els.dateScroller) return;
     var items = els.dateScroller.querySelectorAll(".cycl-date-wheel__item");
-    var mid = els.dateScroller.scrollTop + els.dateScroller.clientHeight / 2;
+    var active = state.wheelPreviewDate;
     items.forEach(function (item) {
-      var center = item.offsetTop + item.offsetHeight / 2;
-      item.classList.toggle("is-selected", Math.abs(center - mid) < wheelItemHeight() / 2);
+      item.classList.toggle("is-selected", item.getAttribute("data-date") === active);
     });
   }
 
   function scrollWheelToDate(iso, smooth) {
-    if (!els.dateScroller) return;
-    var index = state.wheelDates.indexOf(iso);
-    if (index < 0) return;
-    var pad = (els.dateScroller.clientHeight - wheelItemHeight()) / 2;
-    var top = pad + index * wheelItemHeight();
-    els.dateScroller.scrollTo({ top: top, behavior: smooth ? "smooth" : "auto" });
-    paintWheelSelection();
+    if (!els.dateScroller || !iso) return;
+    var item = els.dateScroller.querySelector('.cycl-date-wheel__item[data-date="' + iso + '"]');
+    if (!item) return;
+    state.wheelPreviewDate = iso;
+    item.scrollIntoView({ block: "center", inline: "nearest", behavior: smooth ? "smooth" : "auto" });
+    requestAnimationFrame(function () {
+      paintWheelSelection();
+    });
   }
 
   function nearestWheelDate() {
-    if (!els.dateScroller || !state.wheelDates.length) return state.selectedDate;
+    if (!els.dateScroller) return state.selectedDate;
+    var items = els.dateScroller.querySelectorAll(".cycl-date-wheel__item");
+    if (!items.length) return state.selectedDate;
     var mid = els.dateScroller.scrollTop + els.dateScroller.clientHeight / 2;
-    var pad = (els.dateScroller.clientHeight - wheelItemHeight()) / 2;
-    var index = Math.round((mid - pad) / wheelItemHeight());
-    index = Math.max(0, Math.min(state.wheelDates.length - 1, index));
-    return state.wheelDates[index];
+    var best = items[0];
+    var bestDist = Infinity;
+    items.forEach(function (item) {
+      var center = item.offsetTop + item.offsetHeight / 2;
+      var dist = Math.abs(center - mid);
+      if (dist < bestDist) {
+        bestDist = dist;
+        best = item;
+      }
+    });
+    return best.getAttribute("data-date") || state.selectedDate;
   }
 
   function isDesktopDateWheel() {
@@ -633,14 +653,18 @@
 
     requestAnimationFrame(function () {
       requestAnimationFrame(function () {
-        scrollWheelToDate(state.selectedDate || state.wheelDates[0], false);
-        paintWheelSelection();
+        var initial = state.selectedDate || state.wheelDates[0];
+        state.wheelPreviewDate = initial;
+        scrollWheelToDate(initial, false);
       });
     });
 
     els.dateScroller.querySelectorAll(".cycl-date-wheel__item").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        scrollWheelToDate(btn.getAttribute("data-date"), true);
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var iso = btn.getAttribute("data-date");
+        if (iso) scrollWheelToDate(iso, true);
       });
     });
   }
@@ -648,9 +672,10 @@
   function closeDateWheel(apply) {
     if (!els.dateWheel) return;
     if (apply) {
-      var picked = nearestWheelDate();
+      var picked = state.wheelPreviewDate || nearestWheelDate();
       if (picked) setSelectedDate(picked);
     }
+    state.wheelPreviewDate = "";
     els.dateWheel.hidden = true;
     state.wheelOpen = false;
     document.body.classList.remove("cycl-date-wheel-open");
@@ -696,7 +721,6 @@
       if (e.key === "Escape" && state.wheelOpen) closeDateWheel(false);
     });
     window.addEventListener("resize", onDateWheelResize);
-    window.addEventListener("scroll", onDateWheelResize, true);
     if (els.dateScroller) {
       var raf = 0;
       els.dateScroller.addEventListener(
@@ -705,7 +729,10 @@
           if (raf) return;
           raf = requestAnimationFrame(function () {
             raf = 0;
-            paintWheelSelection();
+            if (state.wheelOpen) {
+              state.wheelPreviewDate = nearestWheelDate();
+              paintWheelSelection();
+            }
           });
         },
         { passive: true }
