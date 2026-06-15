@@ -4808,12 +4808,6 @@
 
 <section id="gogl-member-cards-section" style="background: #f0eee6; padding: 80px 0;">
   <div style="max-width: var(--page-max); margin: 0 auto; padding: 0 var(--page-x);">
-    
-    <h2 class="gogl-section-title" style="
-      color:#0a0a0a;
-      margin:0 0 40px 0;
-    ">Wähle eine Variante deines Gym-Buddys</h2>
-
     <div class="oura-cards" style="
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -5827,12 +5821,9 @@ function toggleCard(id) {
   if (!popup || !popupBody || !sourceSection) return;
 
   function syncPopupContent() {
-    const heading = sourceSection.querySelector('.gogl-section-title');
     const cards = sourceSection.querySelector('.oura-cards');
     if (!cards) return;
-    popupBody.innerHTML =
-      (heading ? heading.outerHTML : '') +
-      cards.outerHTML;
+    popupBody.innerHTML = cards.outerHTML;
 
     const popupCards = popupBody.querySelectorAll('.oura-card');
     popupCards.forEach((card, idx) => {
