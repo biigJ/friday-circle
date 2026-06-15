@@ -1109,6 +1109,9 @@ body.gogl-program {
 .cycl-date-anchor {
   position: relative;
   flex-shrink: 0;
+  width: fit-content;
+  max-width: 100%;
+  align-self: flex-end;
 }
 
 .cycl-table-subhead {
@@ -1130,7 +1133,9 @@ body.gogl-program {
   align-items: center;
   justify-content: space-between;
   gap: 14px;
+  width: 100%;
   min-width: 11.5rem;
+  box-sizing: border-box;
   border: 1.5px solid var(--cycl-red);
   background: rgba(10, 10, 10, 0.35);
   color: #fff;
@@ -1173,41 +1178,46 @@ body.cycl-date-wheel-open {
   justify-content: center;
 }
 
-@media (min-width: 761px) {
-  .cycl-date-wheel {
-    position: absolute;
-    top: calc(100% + 6px);
-    right: 0;
-    left: auto;
-    bottom: auto;
-    width: min(100vw - 2 * var(--nav-pad-x), 300px);
-    min-width: 11.5rem;
-    height: auto;
-    inset: unset;
-    display: block;
-    z-index: 120;
-  }
+.cycl-date-wheel--anchored {
+  inset: auto;
+  display: block;
+  z-index: 250;
+}
 
-  .cycl-date-wheel__backdrop {
-    position: fixed;
-    inset: 0;
-    background: transparent;
-    z-index: 0;
-  }
+.cycl-date-wheel--anchored .cycl-date-wheel__backdrop {
+  position: fixed;
+  inset: 0;
+  background: transparent;
+  z-index: 0;
+}
 
-  .cycl-date-wheel__panel {
-    position: relative;
-    z-index: 1;
-    border-radius: 8px;
-    max-width: none;
-    width: 100%;
-    padding-bottom: 16px;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
-  }
+.cycl-date-wheel--anchored .cycl-date-wheel__panel {
+  position: relative;
+  z-index: 1;
+  border-radius: 8px;
+  width: 100%;
+  max-width: none;
+  padding-bottom: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
 
-  body.cycl-date-wheel-open {
-    overflow: auto;
-  }
+.cycl-date-wheel--sheet {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 200;
+}
+
+.cycl-date-wheel--sheet .cycl-date-wheel__backdrop {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.cycl-date-wheel--sheet .cycl-date-wheel__panel {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 14px 14px 0 0;
 }
 
 .cycl-date-wheel__backdrop {
@@ -1791,6 +1801,7 @@ body.cycl-date-wheel-open {
   height: 100%;
   object-fit: cover;
   object-position: center;
+  filter: grayscale(100%);
 }
 
 .cycl-table-products {
@@ -1910,31 +1921,8 @@ body.cycl-date-wheel-open {
 }
 
 @media (max-width: 760px) {
-  .cycl-date-wheel {
-    position: fixed;
-    inset: 0;
-    top: auto;
-    right: auto;
-    left: auto;
-    bottom: 0;
-    width: auto;
-    min-width: 0;
-    height: auto;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    z-index: 200;
-  }
-
-  .cycl-date-wheel__backdrop {
-    background: rgba(0, 0, 0, 0.55);
-  }
-
-  .cycl-date-wheel__panel {
-    width: 100%;
-    max-width: 420px;
-    border-radius: 14px 14px 0 0;
-    box-shadow: none;
+  body.cycl-date-wheel-open {
+    overflow: hidden;
   }
 }
 

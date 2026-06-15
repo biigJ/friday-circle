@@ -128,6 +128,8 @@
     selectedDate: "",
     wheelOpen: false,
     wheelDates: [],
+    wheelAnchorParent: null,
+    wheelIgnoreDocClick: false,
   };
 
   var els = {};
@@ -541,6 +543,56 @@
     return window.matchMedia("(min-width: 761px)").matches;
   }
 
+  function getDateAnchor() {
+    return qs(".cycl-date-anchor");
+  }
+
+  function mountDateWheel() {
+    if (!els.dateWheel) return;
+    state.wheelAnchorParent = getDateAnchor();
+    if (els.dateWheel.parentElement !== document.body) {
+      document.body.appendChild(els.dateWheel);
+    }
+    els.dateWheel.classList.toggle("cycl-date-wheel--anchored", isDesktopDateWheel());
+    els.dateWheel.classList.toggle("cycl-date-wheel--sheet", !isDesktopDateWheel());
+  }
+
+  function restoreDateWheel() {
+    if (!els.dateWheel || !state.wheelAnchorParent) return;
+    state.wheelAnchorParent.appendChild(els.dateWheel);
+    els.dateWheel.classList.remove("cycl-date-wheel--anchored", "cycl-date-wheel--sheet");
+    els.dateWheel.style.cssText = "";
+  }
+
+  function positionDateWheel() {
+    if (!els.dateWheel || !els.dateTrigger || !isDesktopDateWheel()) return;
+    var rect = els.dateTrigger.getBoundingClientRect();
+    els.dateWheel.style.position = "fixed";
+    els.dateWheel.style.top = rect.bottom + 6 + "px";
+    els.dateWheel.style.right = Math.max(8, window.innerWidth - rect.right) + "px";
+    els.dateWheel.style.left = "auto";
+    els.dateWheel.style.bottom = "auto";
+    els.dateWheel.style.width = rect.width + "px";
+    els.dateWheel.style.minWidth = "0";
+    els.dateWheel.style.maxWidth = "none";
+    els.dateWheel.style.height = "auto";
+    els.dateWheel.style.zIndex = "250";
+  }
+
+  function onDateWheelResize() {
+    if (state.wheelOpen && isDesktopDateWheel()) positionDateWheel();
+  }
+
+  function handleDateTriggerClick(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    if (state.wheelOpen) {
+      closeDateWheel(false);
+      return;
+    }
+    openDateWheel();
+  }
+
   function openDateWheel() {
     if (!els.dateWheel || !els.dateScroller) return;
     state.wheelDates = listFridays();
@@ -565,15 +617,25 @@
       padPx +
       'px"></div>';
 
+    mountDateWheel();
     els.dateWheel.hidden = false;
     state.wheelOpen = true;
+    state.wheelIgnoreDocClick = true;
+    window.setTimeout(function () {
+      state.wheelIgnoreDocClick = false;
+    }, 0);
     if (!isDesktopDateWheel()) {
       document.body.classList.add("cycl-date-wheel-open");
+    } else {
+      positionDateWheel();
     }
     if (els.dateTrigger) els.dateTrigger.setAttribute("aria-expanded", "true");
 
     requestAnimationFrame(function () {
-      scrollWheelToDate(state.selectedDate || state.wheelDates[0], false);
+      requestAnimationFrame(function () {
+        scrollWheelToDate(state.selectedDate || state.wheelDates[0], false);
+        paintWheelSelection();
+      });
     });
 
     els.dateScroller.querySelectorAll(".cycl-date-wheel__item").forEach(function (btn) {
@@ -592,7 +654,15 @@
     els.dateWheel.hidden = true;
     state.wheelOpen = false;
     document.body.classList.remove("cycl-date-wheel-open");
+    restoreDateWheel();
     if (els.dateTrigger) els.dateTrigger.setAttribute("aria-expanded", "false");
+  }
+
+  function handleDocumentClick(e) {
+    if (!state.wheelOpen || state.wheelIgnoreDocClick) return;
+    if (els.dateTrigger && els.dateTrigger.contains(e.target)) return;
+    if (els.dateWheel && els.dateWheel.contains(e.target)) return;
+    closeDateWheel(false);
   }
 
   function initDatePicker() {
@@ -600,19 +670,33 @@
     updateDateLabel();
 
     if (els.dateTrigger) {
-      els.dateTrigger.addEventListener("click", openDateWheel);
+      els.dateTrigger.addEventListener("click", handleDateTriggerClick);
     }
     if (els.dateWheelDone) {
-      els.dateWheelDone.addEventListener("click", function () {
+      els.dateWheelDone.addEventListener("click", function (e) {
+        e.stopPropagation();
         closeDateWheel(true);
       });
     }
     var backdrop = qs(".cycl-date-wheel__backdrop");
     if (backdrop) {
-      backdrop.addEventListener("click", function () {
+      backdrop.addEventListener("click", function (e) {
+        e.stopPropagation();
         closeDateWheel(false);
       });
     }
+    var wheelPanel = qs(".cycl-date-wheel__panel");
+    if (wheelPanel) {
+      wheelPanel.addEventListener("click", function (e) {
+        e.stopPropagation();
+      });
+    }
+    document.addEventListener("click", handleDocumentClick);
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && state.wheelOpen) closeDateWheel(false);
+    });
+    window.addEventListener("resize", onDateWheelResize);
+    window.addEventListener("scroll", onDateWheelResize, true);
     if (els.dateScroller) {
       var raf = 0;
       els.dateScroller.addEventListener(

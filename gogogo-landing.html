@@ -46,6 +46,8 @@
         --gogl-joscha-hellblau-cta: #85c4ea;
         --gogl-buddy-gruppe: #a45838;
         --gogl-buddy-experte: #5a7da4;
+        --gogl-buddy-gruppe-bright: #d8734a;
+        --gogl-buddy-experte-bright: #73aae0;
         color: var(--black);
         background: #f0eee6;
         font-family: var(--font-body);
@@ -175,12 +177,14 @@
         font-weight: 200;
       }
       .gogogo-page .gogogo-nav__gruppe {
-        color: var(--gogl-buddy-gruppe) !important;
+        color: var(--gogl-buddy-gruppe-bright) !important;
         font-weight: 600;
+        text-shadow: 0 0 14px color-mix(in srgb, var(--gogl-buddy-gruppe) 72%, transparent);
       }
       .gogogo-page .gogogo-nav__experte {
-        color: var(--gogl-buddy-experte) !important;
+        color: var(--gogl-buddy-experte-bright) !important;
         font-weight: 600;
+        text-shadow: 0 0 14px color-mix(in srgb, var(--gogl-buddy-experte) 72%, transparent);
       }
       @media (max-width: 760px) {
         .gogogo-page .nav__links {
