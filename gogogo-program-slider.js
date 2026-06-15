@@ -235,27 +235,39 @@
     });
   }
 
-  document.querySelectorAll(".gogl-program-slide-card__media[data-youtube-id]").forEach(function (media) {
-    var playBtn = media.querySelector(".gogl-program-slide-card__play");
-    if (!playBtn) return;
-    playBtn.addEventListener("click", function () {
-      if (media.classList.contains("is-playing")) return;
-      var youtubeId = media.getAttribute("data-youtube-id");
-      if (!youtubeId) return;
-      var iframe = document.createElement("iframe");
-      iframe.className = "gogl-program-slide-card__youtube";
-      iframe.src =
-        "https://www.youtube.com/embed/" +
-        encodeURIComponent(youtubeId) +
-        "?autoplay=1&rel=0&playsinline=1";
-      iframe.title = "YouTube video player";
-      iframe.allow =
-        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-      iframe.allowFullscreen = true;
-      media.appendChild(iframe);
-      media.classList.add("is-playing");
-    });
-  });
+  function playYoutubeMedia(media) {
+    if (!media || media.classList.contains("is-playing")) return;
+    var youtubeId = media.getAttribute("data-youtube-id");
+    if (!youtubeId) return;
+    var iframe = document.createElement("iframe");
+    iframe.className = "gogl-program-slide-card__youtube";
+    iframe.src =
+      "https://www.youtube-nocookie.com/embed/" +
+      encodeURIComponent(youtubeId) +
+      "?autoplay=1&rel=0&playsinline=1&modestbranding=1";
+    iframe.title = "YouTube video player";
+    iframe.setAttribute(
+      "allow",
+      "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    );
+    iframe.setAttribute("allowfullscreen", "");
+    media.appendChild(iframe);
+    media.classList.add("is-playing");
+  }
+
+  root.addEventListener(
+    "click",
+    function (e) {
+      var playBtn = e.target.closest(".gogl-program-slide-card__play");
+      if (!playBtn || !root.contains(playBtn)) return;
+      var media = playBtn.closest(".gogl-program-slide-card__media[data-youtube-id]");
+      if (!media) return;
+      e.preventDefault();
+      e.stopPropagation();
+      playYoutubeMedia(media);
+    },
+    true
+  );
 
   show(0);
 })();

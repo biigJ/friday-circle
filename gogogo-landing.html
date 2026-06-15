@@ -1734,11 +1734,12 @@
         height: 100%;
         width: var(--gogl-media-w);
         max-width: 46%;
-        z-index: 2;
+        z-index: 4;
         margin: 0;
         padding: 0;
         overflow: hidden;
         border-radius: 0;
+        pointer-events: auto;
       }
       @supports not (width: 1cqh) {
         .gogl-program-slide-card--mobility,
@@ -1831,10 +1832,15 @@
       .gogl-program-slide-card--upper .gogl-program-slide-card__inner {
         align-items: flex-start;
         justify-content: flex-start;
+        pointer-events: none;
         padding: var(--gogl-frame-inset-top)
           calc(var(--gogl-media-w) + var(--gogl-frame-inset-x) + clamp(12px, 2vw, 24px))
           var(--gogl-frame-inset-bottom)
           var(--gogl-frame-inset-x);
+      }
+      .gogl-program-slide-card--mobility .gogl-program-slide-card__inner a,
+      .gogl-program-slide-card--upper .gogl-program-slide-card__inner a {
+        pointer-events: auto;
       }
       .gogl-program-slide-card--mobility .gogl-program-slide-card__title,
       .gogl-program-slide-card--upper .gogl-program-slide-card__title {
