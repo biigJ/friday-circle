@@ -244,7 +244,7 @@
     iframe.src =
       "https://www.youtube-nocookie.com/embed/" +
       encodeURIComponent(youtubeId) +
-      "?autoplay=1&rel=0&playsinline=1&modestbranding=1";
+      "?autoplay=1&mute=1&rel=0&playsinline=1&modestbranding=1";
     iframe.title = "YouTube video player";
     iframe.setAttribute(
       "allow",
