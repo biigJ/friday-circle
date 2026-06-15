@@ -159,6 +159,19 @@
         font-size: clamp(0.78rem, 1vw, 0.92rem);
         font-weight: 400;
       }
+      .gogogo-page .gogogo-nav__cycle {
+        color: #c8312a !important;
+        font-family: var(--font-sans);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        text-decoration: none;
+      }
+      .gogogo-page .gogogo-nav__cycle-strong {
+        font-weight: 700;
+      }
+      .gogogo-page .gogogo-nav__cycle-light {
+        font-weight: 200;
+      }
       @media (max-width: 760px) {
         .gogogo-page .nav__links {
           position: static;
@@ -4179,7 +4192,10 @@
         <nav class="nav__links gogogo-landing__nav" aria-label="Angebote">
           <a href="register-accountability/index.html"><span class="de-t">Buddy-Gruppe</span><span class="en-t">Buddy group</span></a>
           <a href="register-training/index.html"><span class="de-t">Buddy-Experte</span><span class="en-t">Buddy expert</span></a>
-          <a href="cycle-training.html"><span class="de-t">Friday Training</span><span class="en-t">Friday Training</span></a>
+          <a href="cycle-training.html" class="gogogo-nav__cycle">
+            <span class="de-t"><span class="gogogo-nav__cycle-strong">FRIDAY</span><span class="gogogo-nav__cycle-light"> TRAINING</span></span>
+            <span class="en-t"><span class="gogogo-nav__cycle-strong">FRIDAY</span><span class="gogogo-nav__cycle-light"> TRAINING</span></span>
+          </a>
         </nav>
         <div class="nav__cta-bucket">
           <div class="nav__lang" role="group" aria-label="Sprache">

@@ -84,6 +84,7 @@
     data: loadData(),
     user: loadUser(),
     admin: false,
+    selectedDate: "",
     expandedSessions: {},
     expandedParticipants: {},
     editingSession: null,
@@ -161,6 +162,16 @@
     render();
   }
 
+  function getNextFridayIso() {
+    var now = new Date();
+    var fri = new Date(now);
+    var day = fri.getDay();
+    var diff = (5 - day + 7) % 7;
+    if (diff === 0 && now.getHours() > 20) diff = 7;
+    fri.setDate(fri.getDate() + diff);
+    return fri.toISOString().slice(0, 10);
+  }
+
   function sortedSessions() {
     return state.data.sessions.slice().sort(function (a, b) {
       return b.date.localeCompare(a.date);
@@ -194,6 +205,9 @@
     saveData(state.data);
     if (els.sessionForm) els.sessionForm.reset();
     buildRoundLabelFields(countEl ? parseInt(countEl.value, 10) || 3 : 3);
+    state.selectedDate = date;
+    var picker = document.getElementById("cycl-date-picker");
+    if (picker) picker.value = date;
     render();
   }
 
@@ -331,9 +345,17 @@
     }
   }
 
+  function visibleSessions() {
+    var sessions = sortedSessions();
+    if (!state.selectedDate) return sessions;
+    return sessions.filter(function (session) {
+      return session.date === state.selectedDate;
+    });
+  }
+
   function renderTable() {
     if (!els.tableBody) return;
-    var sessions = sortedSessions();
+    var sessions = visibleSessions();
     if (els.emptyState) els.emptyState.hidden = sessions.length > 0;
     els.tableBody.innerHTML = "";
 
@@ -507,23 +529,16 @@
     els.adminPanel.hidden = !state.admin;
   }
 
-  function initNextFriday() {
-    var el = document.getElementById("cycl-next-friday");
+  function initDatePicker() {
+    var el = document.getElementById("cycl-date-picker");
     if (!el) return;
-    var now = new Date();
-    var fri = new Date(now);
-    var day = fri.getDay();
-    var diff = (5 - day + 7) % 7;
-    if (diff === 0 && now.getHours() > 20) diff = 7;
-    fri.setDate(fri.getDate() + diff);
-    var iso = fri.toISOString().slice(0, 10);
-    el.setAttribute("datetime", iso);
-    var locale = getLang() === "en" ? "en-GB" : "de-DE";
-    el.textContent = fri.toLocaleDateString(locale, {
-      weekday: "short",
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
+    if (!state.selectedDate) state.selectedDate = getNextFridayIso();
+    el.value = state.selectedDate;
+    el.addEventListener("change", function () {
+      state.selectedDate = el.value;
+      state.expandedSessions = {};
+      state.expandedParticipants = {};
+      renderTable();
     });
   }
 
@@ -531,7 +546,6 @@
     renderLoginBar();
     renderAdmin();
     renderTable();
-    initNextFriday();
   }
 
   function bindStatic() {
@@ -552,18 +566,13 @@
     }
     var dateInput = qs("#cycl-session-date");
     if (dateInput && !dateInput.value) {
-      var now = new Date();
-      var fri = new Date(now);
-      var day = fri.getDay();
-      var diff = (5 - day + 7) % 7;
-      if (diff === 0 && now.getHours() > 20) diff = 7;
-      fri.setDate(fri.getDate() + diff);
-      dateInput.value = fri.toISOString().slice(0, 10);
+      dateInput.value = state.selectedDate || getNextFridayIso();
     }
   }
 
   document.addEventListener("DOMContentLoaded", function () {
     initEls();
+    initDatePicker();
     bindStatic();
     render();
   });

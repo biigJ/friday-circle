@@ -21,14 +21,6 @@
     <script src="cycle-table.js" defer></script>
   </head>
   <body class="gogogo-page gogl-program cycl-page cycl-table-page">
-    <div class="cycl-table-bg" aria-hidden="true">
-      <div
-        class="cycl-table-bg__media"
-        style="background-image: url('assets/gogogo/SledHoodie.png')"
-      ></div>
-      <div class="cycl-table-bg__overlay"></div>
-    </div>
-
     <header class="nav cycl-nav" aria-label="Hauptnavigation">
       <div class="nav__inner">
         <div class="cycl-nav__brand-group">
@@ -52,31 +44,47 @@
     </header>
 
     <main id="top">
-      <section class="cycl-table-head" aria-labelledby="cycl-table-title">
-        <div class="cycl-table-head__rule" aria-hidden="true"></div>
-        <div class="nav__inner cycl-table-head__inner">
-          <h1 id="cycl-table-title" class="cycl-table-head__title">
-            <span class="cycl-table-head__strong">ZIRKEL</span><span class="cycl-table-head__light">TRAINING</span>
-          </h1>
+      <div class="cycl-table-stage">
+        <div class="cycl-table-bg" aria-hidden="true">
+          <div
+            class="cycl-table-bg__media"
+            style="background-image: url('assets/gogogo/SledHoodie.png')"
+          ></div>
+          <div class="cycl-table-bg__overlay"></div>
         </div>
-        <div class="cycl-table-head__rule" aria-hidden="true"></div>
-      </section>
 
-      <div class="cycl-table-subhead">
-        <div class="nav__inner cycl-table-subhead__inner">
-          <h2 id="cycl-table-section-title" class="cycl-table-subhead__title">
-            <span class="de-t">WÖCHENTLICHE CHALLENGE</span>
-            <span class="en-t">WEEKLY CHALLENGE</span>
-          </h2>
-          <time id="cycl-next-friday" class="cycl-table-subhead__date" datetime=""></time>
-        </div>
-      </div>
-
-      <section class="cycl-table-section" aria-labelledby="cycl-table-section-title">
-        <div class="gogl-slab-pl">
-          <div class="cycl-table-toolbar">
-            <div id="cycl-login-bar" class="cycl-login-bar"></div>
+        <section class="cycl-table-head" aria-labelledby="cycl-table-title">
+          <div class="cycl-table-head__rule" aria-hidden="true"></div>
+          <div class="nav__inner cycl-table-head__inner">
+            <h1 id="cycl-table-title" class="cycl-table-head__title">
+              <span class="cycl-table-head__strong">ZIRKEL</span><span class="cycl-table-head__light">TRAINING</span>
+            </h1>
           </div>
+          <div class="cycl-table-head__rule" aria-hidden="true"></div>
+        </section>
+
+        <div class="cycl-table-dark">
+          <div class="cycl-table-subhead">
+            <div class="nav__inner cycl-table-subhead__inner">
+              <h2 id="cycl-table-section-title" class="cycl-table-subhead__title">
+                <span class="de-t">WÖCHENTLICHE CHALLENGE</span>
+                <span class="en-t">WEEKLY CHALLENGE</span>
+              </h2>
+              <label class="cycl-date-picker">
+                <span class="visually-hidden">
+                  <span class="de-t">Datum wählen</span>
+                  <span class="en-t">Choose date</span>
+                </span>
+                <input type="date" id="cycl-date-picker" class="cycl-date-picker__input" />
+              </label>
+            </div>
+          </div>
+
+          <section class="cycl-table-section" aria-labelledby="cycl-table-section-title">
+            <div class="gogl-slab-pl">
+              <div class="cycl-table-toolbar">
+                <div id="cycl-login-bar" class="cycl-login-bar"></div>
+              </div>
 
           <div id="cycl-admin-panel" class="cycl-admin-panel" hidden>
             <h3 class="cycl-admin-panel__title">
@@ -143,12 +151,14 @@
               <tbody id="cycl-table-body"></tbody>
             </table>
             <p id="cycl-table-empty" class="cycl-table-empty" hidden>
-              <span class="de-t">Noch keine Trainings — Admin legt das erste an.</span>
-              <span class="en-t">No sessions yet — an admin can create the first one.</span>
+              <span class="de-t">Für dieses Datum ist noch kein Training eingetragen.</span>
+              <span class="en-t">No session logged for this date yet.</span>
             </p>
           </div>
         </div>
       </section>
+        </div>
+      </div>
 
       <section class="pgl-products cycl-products cycl-table-products">
         <div class="gogl-slab-pl">
