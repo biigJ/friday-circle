@@ -364,7 +364,7 @@
         '<td class="cycl-table__cell">' +
         escapeHtml(session.workoutName) +
         "</td>" +
-        '<td class="cycl-table__cell cycl-table__cell--dur">—</td>";
+        '<td class="cycl-table__cell cycl-table__cell--dur">—</td>';
       els.tableBody.appendChild(tr);
 
       var expandBtn = tr.querySelector(".cycl-table__expand");
@@ -507,25 +507,31 @@
     els.adminPanel.hidden = !state.admin;
   }
 
+  function initNextFriday() {
+    var el = document.getElementById("cycl-next-friday");
+    if (!el) return;
+    var now = new Date();
+    var fri = new Date(now);
+    var day = fri.getDay();
+    var diff = (5 - day + 7) % 7;
+    if (diff === 0 && now.getHours() > 20) diff = 7;
+    fri.setDate(fri.getDate() + diff);
+    var iso = fri.toISOString().slice(0, 10);
+    el.setAttribute("datetime", iso);
+    var locale = getLang() === "en" ? "en-GB" : "de-DE";
+    el.textContent = fri.toLocaleDateString(locale, {
+      weekday: "short",
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    });
+  }
+
   function render() {
     renderLoginBar();
     renderAdmin();
     renderTable();
-  }
-
-  function initOberteilSlideshow() {
-    var card = qs(".pgl-prod-card--oberteil");
-    if (!card) return;
-    var images = [
-      "assets/biigJ/sportshirt.png",
-      "assets/biigJ/sportbra-curls.png",
-    ];
-    var idx = 0;
-    card.style.backgroundImage = "url('" + images[0] + "')";
-    setInterval(function () {
-      idx = (idx + 1) % images.length;
-      card.style.backgroundImage = "url('" + images[idx] + "')";
-    }, 3000);
+    initNextFriday();
   }
 
   function bindStatic() {
@@ -559,7 +565,6 @@
   document.addEventListener("DOMContentLoaded", function () {
     initEls();
     bindStatic();
-    initOberteilSlideshow();
     render();
   });
 })();

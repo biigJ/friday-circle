@@ -981,21 +981,36 @@ body.gogl-program {
 
 /* cycle-table.html — Freitag Zirkeltraining */
 .cycl-table-page {
-  padding-top: 6px;
+  position: relative;
+  background: var(--cycl-black);
 }
 
-.cycl-table-stripe {
+.cycl-table-bg {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 6px;
-  background: var(--cycl-red);
-  z-index: 200;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
 }
 
-.cycl-table-page .cycl-nav {
-  top: 6px;
+.cycl-table-bg__media {
+  position: absolute;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  filter: brightness(0.55) contrast(1.06) saturate(0.85);
+}
+
+.cycl-table-bg__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.48);
+}
+
+.cycl-table-page .cycl-nav,
+.cycl-table-page main,
+.cycl-table-page .cycl-footer {
+  position: relative;
+  z-index: 1;
 }
 
 .cycl-header-cta--back {
@@ -1004,26 +1019,31 @@ body.gogl-program {
 }
 
 .cycl-table-head {
-  padding: clamp(72px, 12vh, 108px) var(--nav-pad-x) clamp(28px, 4vw, 40px);
-  background: var(--cycl-black);
+  padding: clamp(64px, 10vh, 92px) 0 0;
+  background: transparent;
 }
 
 .cycl-table-head__inner {
-  max-width: var(--content-max);
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
+  padding-top: clamp(18px, 3vw, 28px);
+  padding-bottom: clamp(18px, 3vw, 28px);
+}
+
+.cycl-table-head__rule {
+  height: 3px;
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  background: var(--cycl-red);
 }
 
 .cycl-table-head__title {
   margin: 0;
   font-family: var(--font-sans);
-  line-height: 0.92;
+  line-height: 0.95;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-}
-
-.cycl-table-head__line {
-  display: block;
-  font-size: clamp(2.4rem, 9vw, 5.5rem);
+  font-size: clamp(1.68rem, 6.3vw, 3.85rem);
 }
 
 .cycl-table-head__strong {
@@ -1036,28 +1056,54 @@ body.gogl-program {
   color: #fff;
 }
 
+.cycl-table-subhead {
+  border-top: 3px solid var(--cycl-red);
+  border-bottom: 3px solid var(--cycl-red);
+  background: rgba(10, 10, 10, 0.72);
+}
+
+.cycl-table-subhead__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(12px, 3vw, 24px);
+  padding-top: clamp(14px, 2.2vw, 18px);
+  padding-bottom: clamp(14px, 2.2vw, 18px);
+}
+
+.cycl-table-subhead__title {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(1.1rem, 2.2vw, 1.55rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.cycl-table-subhead__date {
+  font-family: var(--font-sans);
+  font-size: clamp(0.78rem, 1.45vw, 0.85rem);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+  white-space: nowrap;
+}
+
 .cycl-table-section {
-  background: var(--cycl-black);
-  padding: 0 var(--nav-pad-x) clamp(48px, 8vw, 72px);
+  background: transparent;
+  padding: clamp(20px, 3vw, 32px) 0 clamp(48px, 8vw, 72px);
 }
 
 .cycl-table-toolbar {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 16px;
-  margin-bottom: 24px;
-}
-
-.cycl-table-section__title {
-  margin: 0;
-  font-family: var(--font-sans);
-  font-size: clamp(1.35rem, 3vw, 2rem);
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: #fff;
+  margin-bottom: 20px;
 }
 
 .cycl-login-bar {
@@ -1327,10 +1373,24 @@ body.gogl-program {
 
 .cycl-table-products {
   padding-top: 0;
+  background: transparent;
 }
 
-.cycl-table-prod-grid {
-  max-width: 900px;
+.cycl-page .pgl-prod-card--oberteil,
+.cycl-page .pgl-prod-card--towel {
+  text-align: left;
+}
+
+.cycl-page .pgl-prod-card--oberteil h3,
+.cycl-page .pgl-prod-card--towel h3,
+.cycl-page .pgl-prod-card--oberteil p,
+.cycl-page .pgl-prod-card--towel p {
+  text-align: left;
+}
+
+.cycl-page .pgl-prod-card--oberteil .pgl-prod-card__actions,
+.cycl-page .pgl-prod-card--towel .pgl-prod-card__actions {
+  justify-content: flex-start;
 }
 
 .cycl-page .pgl-prod-card--oberteil {
@@ -1428,8 +1488,13 @@ body.gogl-program {
 }
 
 @media (max-width: 640px) {
-  .cycl-table-head__line {
-    font-size: clamp(2rem, 11vw, 3rem);
+  .cycl-table-head__title {
+    font-size: clamp(1.45rem, 9vw, 2.2rem);
+  }
+
+  .cycl-table-subhead__inner {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .cycl-table__cell,

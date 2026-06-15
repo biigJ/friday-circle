@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Freitag Zirkeltraining · Friday Circle</title>
+    <title>Zirkeltraining · Friday Circle</title>
     <meta
       name="description"
       content="Freitag Zirkeltraining — Zeiten tracken, Teilnahme bestätigen, im Kreis wachsen."
@@ -17,10 +17,17 @@
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="program-landing.css" />
     <script src="fc-lang.js" defer></script>
+    <script src="cycle-cards.js" defer></script>
     <script src="cycle-table.js" defer></script>
   </head>
   <body class="gogogo-page gogl-program cycl-page cycl-table-page">
-    <div class="cycl-table-stripe" aria-hidden="true"></div>
+    <div class="cycl-table-bg" aria-hidden="true">
+      <div
+        class="cycl-table-bg__media"
+        style="background-image: url('assets/gogogo/SledHoodie.png')"
+      ></div>
+      <div class="cycl-table-bg__overlay"></div>
+    </div>
 
     <header class="nav cycl-nav" aria-label="Hauptnavigation">
       <div class="nav__inner">
@@ -46,25 +53,28 @@
 
     <main id="top">
       <section class="cycl-table-head" aria-labelledby="cycl-table-title">
-        <div class="cycl-table-head__inner">
+        <div class="cycl-table-head__rule" aria-hidden="true"></div>
+        <div class="nav__inner cycl-table-head__inner">
           <h1 id="cycl-table-title" class="cycl-table-head__title">
-            <span class="cycl-table-head__line">
-              <span class="cycl-table-head__strong">FREITAG</span>
-            </span>
-            <span class="cycl-table-head__line">
-              <span class="cycl-table-head__strong">ZIRKEL</span><span class="cycl-table-head__light">TRAINING</span>
-            </span>
+            <span class="cycl-table-head__strong">ZIRKEL</span><span class="cycl-table-head__light">TRAINING</span>
           </h1>
         </div>
+        <div class="cycl-table-head__rule" aria-hidden="true"></div>
       </section>
+
+      <div class="cycl-table-subhead">
+        <div class="nav__inner cycl-table-subhead__inner">
+          <h2 id="cycl-table-section-title" class="cycl-table-subhead__title">
+            <span class="de-t">WÖCHENTLICHE CHALLENGE</span>
+            <span class="en-t">WEEKLY CHALLENGE</span>
+          </h2>
+          <time id="cycl-next-friday" class="cycl-table-subhead__date" datetime=""></time>
+        </div>
+      </div>
 
       <section class="cycl-table-section" aria-labelledby="cycl-table-section-title">
         <div class="gogl-slab-pl">
           <div class="cycl-table-toolbar">
-            <h2 id="cycl-table-section-title" class="cycl-table-section__title">
-              <span class="de-t">Result Lists</span>
-              <span class="en-t">Result Lists</span>
-            </h2>
             <div id="cycl-login-bar" class="cycl-login-bar"></div>
           </div>
 
@@ -142,7 +152,7 @@
 
       <section class="pgl-products cycl-products cycl-table-products">
         <div class="gogl-slab-pl">
-          <div class="pgl-prod-grid cycl-table-prod-grid">
+          <div class="pgl-prod-grid" id="cycl-shop-grid">
             <article class="pgl-prod-card pgl-prod-card--towel pgl-prod-card--bottom">
               <h3>
                 <span class="de-t">BESTELL DEIN CIRCLE HANDTUCH</span>
