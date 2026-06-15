@@ -43,48 +43,45 @@
       </div>
     </header>
 
+    <div class="cycl-table-bg" aria-hidden="true">
+      <div
+        class="cycl-table-bg__media"
+        style="background-image: url('assets/gogogo/SledHoodie.png')"
+      ></div>
+      <div class="cycl-table-bg__overlay"></div>
+    </div>
+
     <main id="top">
       <div class="cycl-table-stage">
-        <div class="cycl-table-bg" aria-hidden="true">
-          <div
-            class="cycl-table-bg__media"
-            style="background-image: url('assets/gogogo/SledHoodie.png')"
-          ></div>
-          <div class="cycl-table-bg__overlay"></div>
-        </div>
-
         <section class="cycl-table-head" aria-labelledby="cycl-table-title">
           <div class="cycl-table-head__rule" aria-hidden="true"></div>
-          <div class="nav__inner cycl-table-head__inner">
+          <div class="cycl-rail cycl-table-head__inner">
             <h1 id="cycl-table-title" class="cycl-table-head__title">
               <span class="cycl-table-head__strong">ZIRKEL</span><span class="cycl-table-head__light">TRAINING</span>
             </h1>
+            <div class="cycl-table-head__meta">
+              <div id="cycl-login-bar" class="cycl-login-bar"></div>
+              <button type="button" class="cycl-date-trigger" id="cycl-date-trigger" aria-haspopup="dialog" aria-expanded="false">
+                <span id="cycl-date-label">—</span>
+                <span class="cycl-date-trigger__arrow" aria-hidden="true">⌄</span>
+              </button>
+            </div>
           </div>
           <div class="cycl-table-head__rule" aria-hidden="true"></div>
         </section>
 
         <div class="cycl-table-dark">
           <div class="cycl-table-subhead">
-            <div class="nav__inner cycl-table-subhead__inner">
+            <div class="cycl-rail cycl-table-subhead__inner">
               <h2 id="cycl-table-section-title" class="cycl-table-subhead__title">
                 <span class="de-t">WÖCHENTLICHE CHALLENGE</span>
                 <span class="en-t">WEEKLY CHALLENGE</span>
               </h2>
-              <label class="cycl-date-picker">
-                <span class="visually-hidden">
-                  <span class="de-t">Datum wählen</span>
-                  <span class="en-t">Choose date</span>
-                </span>
-                <input type="date" id="cycl-date-picker" class="cycl-date-picker__input" />
-              </label>
             </div>
           </div>
 
           <section class="cycl-table-section" aria-labelledby="cycl-table-section-title">
-            <div class="gogl-slab-pl">
-              <div class="cycl-table-toolbar">
-                <div id="cycl-login-bar" class="cycl-login-bar"></div>
-              </div>
+            <div class="cycl-rail">
 
           <div id="cycl-admin-panel" class="cycl-admin-panel" hidden>
             <h3 class="cycl-admin-panel__title">
@@ -108,12 +105,12 @@
               </label>
               <label class="cycl-admin-field">
                 <span class="cycl-admin-field__lab">
-                  <span class="de-t">Anzahl Runden</span>
-                  <span class="en-t">Number of rounds</span>
+                  <span class="de-t">Anzahl Übungen</span>
+                  <span class="en-t">Number of exercises</span>
                 </span>
-                <input type="number" id="cycl-session-rounds" min="1" max="20" value="3" required />
+                <input type="number" id="cycl-session-exercises" min="1" max="24" value="5" required />
               </label>
-              <div id="cycl-round-labels" class="cycl-round-labels"></div>
+              <div id="cycl-exercise-fields" class="cycl-exercise-fields"></div>
               <button type="submit" class="cycl-admin-submit">
                 <span class="de-t">Training speichern</span>
                 <span class="en-t">Save session</span>
@@ -126,25 +123,44 @@
           </div>
 
           <div class="cycl-table-wrap">
-            <table class="cycl-table" aria-describedby="cycl-table-section-title">
+            <table class="cycl-table cycl-table--exercises" aria-describedby="cycl-table-section-title">
               <thead>
                 <tr>
-                  <th scope="col" class="cycl-table__th cycl-table__th--icon"></th>
                   <th scope="col" class="cycl-table__th">
-                    <span class="de-t">Datum</span>
-                    <span class="en-t">Date</span>
+                    <span class="de-t">Übung</span>
+                    <span class="en-t">Exercise</span>
                   </th>
                   <th scope="col" class="cycl-table__th">
-                    <span class="de-t">Teilnehmerzahl</span>
-                    <span class="en-t">Participants</span>
+                    <span class="de-t">Position-Vorgabe</span>
+                    <span class="en-t">Position preset</span>
                   </th>
                   <th scope="col" class="cycl-table__th">
-                    <span class="de-t">Workoutname</span>
-                    <span class="en-t">Workout</span>
+                    <span class="de-t">Pos. indiv.</span>
+                    <span class="en-t">Pos. indiv.</span>
                   </th>
                   <th scope="col" class="cycl-table__th">
-                    <span class="de-t">Dauer</span>
-                    <span class="en-t">Duration</span>
+                    <span class="de-t">Pos.-Faktor</span>
+                    <span class="en-t">Pos. factor</span>
+                  </th>
+                  <th scope="col" class="cycl-table__th">
+                    <span class="de-t">Wert-Vorgabe</span>
+                    <span class="en-t">Value preset</span>
+                  </th>
+                  <th scope="col" class="cycl-table__th">
+                    <span class="de-t">indiv. Handicap</span>
+                    <span class="en-t">Indiv. handicap</span>
+                  </th>
+                  <th scope="col" class="cycl-table__th">
+                    <span class="de-t">Einheit Vorgabe</span>
+                    <span class="en-t">Unit preset</span>
+                  </th>
+                  <th scope="col" class="cycl-table__th">
+                    <span class="de-t">Ergebnis</span>
+                    <span class="en-t">Result</span>
+                  </th>
+                  <th scope="col" class="cycl-table__th">
+                    <span class="de-t">Punkte</span>
+                    <span class="en-t">Points</span>
                   </th>
                 </tr>
               </thead>
@@ -161,7 +177,7 @@
       </div>
 
       <section class="pgl-products cycl-products cycl-table-products">
-        <div class="gogl-slab-pl">
+        <div class="cycl-rail">
           <div class="pgl-prod-grid" id="cycl-shop-grid">
             <article class="pgl-prod-card pgl-prod-card--towel pgl-prod-card--bottom">
               <h3>
@@ -196,6 +212,24 @@
         </div>
       </section>
     </main>
+
+    <div id="cycl-date-wheel" class="cycl-date-wheel" hidden role="dialog" aria-modal="true" aria-labelledby="cycl-date-wheel-title">
+      <button type="button" class="cycl-date-wheel__backdrop" aria-label="Schließen"></button>
+      <div class="cycl-date-wheel__panel">
+        <p id="cycl-date-wheel-title" class="cycl-date-wheel__title">
+          <span class="de-t">Freitag wählen</span>
+          <span class="en-t">Choose Friday</span>
+        </p>
+        <div class="cycl-date-wheel__frame">
+          <div class="cycl-date-wheel__highlight" aria-hidden="true"></div>
+          <div class="cycl-date-wheel__scroller" id="cycl-date-wheel-scroller" tabindex="0"></div>
+        </div>
+        <button type="button" class="cycl-date-wheel__done" id="cycl-date-wheel-done">
+          <span class="de-t">Übernehmen</span>
+          <span class="en-t">Apply</span>
+        </button>
+      </div>
+    </div>
 
     <div id="cycl-login-modal" class="cycl-login-modal" hidden role="dialog" aria-modal="true" aria-labelledby="cycl-login-title">
       <div class="cycl-login-modal__backdrop"></div>
