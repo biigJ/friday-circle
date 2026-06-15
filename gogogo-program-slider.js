@@ -235,6 +235,89 @@
     });
   }
 
+  function youtubeCommand(iframe, func, args) {
+    if (!iframe || !iframe.contentWindow) return;
+    try {
+      iframe.contentWindow.postMessage(
+        JSON.stringify({ event: "command", func: func, args: args || "" }),
+        "*"
+      );
+    } catch (err) {}
+  }
+
+  function createYoutubeChrome(media, iframe) {
+    var chrome = document.createElement("div");
+    chrome.className = "gogl-program-slide-card__youtube-chrome";
+    chrome.setAttribute("role", "toolbar");
+    chrome.setAttribute("aria-label", "Video-Steuerung");
+
+    var pauseBtn = document.createElement("button");
+    pauseBtn.type = "button";
+    pauseBtn.className = "gogl-youtube-chrome__btn gogl-youtube-chrome__btn--pause";
+    pauseBtn.setAttribute("aria-label", "Pause");
+
+    var muteBtn = document.createElement("button");
+    muteBtn.type = "button";
+    muteBtn.className = "gogl-youtube-chrome__btn gogl-youtube-chrome__btn--mute";
+    muteBtn.setAttribute("aria-label", "Ton stummschalten");
+
+    var fsBtn = document.createElement("button");
+    fsBtn.type = "button";
+    fsBtn.className = "gogl-youtube-chrome__btn gogl-youtube-chrome__btn--fs";
+    fsBtn.setAttribute("aria-label", "Vollbild");
+
+    chrome.appendChild(pauseBtn);
+    chrome.appendChild(muteBtn);
+    chrome.appendChild(fsBtn);
+
+    var paused = false;
+    var muted = false;
+
+    pauseBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      youtubeCommand(iframe, paused ? "playVideo" : "pauseVideo");
+      paused = !paused;
+      pauseBtn.setAttribute("aria-label", paused ? "Abspielen" : "Pause");
+      pauseBtn.classList.toggle("is-paused", paused);
+    });
+
+    muteBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (muted) {
+        youtubeCommand(iframe, "unMute");
+        youtubeCommand(iframe, "setVolume", [100]);
+      } else {
+        youtubeCommand(iframe, "mute");
+      }
+      muted = !muted;
+      muteBtn.setAttribute("aria-label", muted ? "Ton einschalten" : "Ton stummschalten");
+      muteBtn.classList.toggle("is-muted", muted);
+    });
+
+    fsBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (document.fullscreenElement) {
+        document.exitFullscreen();
+        return;
+      }
+      var req =
+        media.requestFullscreen ||
+        media.webkitRequestFullscreen ||
+        media.msRequestFullscreen;
+      if (req) req.call(media);
+    });
+
+    chrome.addEventListener("click", function (e) {
+      e.stopPropagation();
+    });
+
+    media.appendChild(chrome);
+    return chrome;
+  }
+
   function playYoutubeMedia(media) {
     if (!media || media.classList.contains("is-playing")) return;
     var youtubeId = media.getAttribute("data-youtube-id");
@@ -246,7 +329,7 @@
     var iframe = document.createElement("iframe");
     iframe.className = "gogl-program-slide-card__youtube";
     var embedParams =
-      "autoplay=1&controls=1&rel=0&playsinline=1&modestbranding=0&fs=1&enablejsapi=1&origin=" +
+      "autoplay=1&controls=0&rel=0&playsinline=1&modestbranding=1&fs=0&enablejsapi=1&origin=" +
       encodeURIComponent(window.location.origin);
     iframe.src =
       "https://www.youtube-nocookie.com/embed/" +
@@ -260,20 +343,13 @@
     );
     iframe.setAttribute("allowfullscreen", "");
     iframe.addEventListener("load", function () {
-      try {
-        iframe.contentWindow.postMessage(
-          '{"event":"command","func":"unMute","args":""}',
-          "*"
-        );
-        iframe.contentWindow.postMessage(
-          '{"event":"command","func":"setVolume","args":[100]}',
-          "*"
-        );
-      } catch (err) {}
+      youtubeCommand(iframe, "unMute");
+      youtubeCommand(iframe, "setVolume", [100]);
     });
     wrap.appendChild(scaler);
     scaler.appendChild(iframe);
     media.appendChild(wrap);
+    createYoutubeChrome(media, iframe);
     media.classList.add("is-playing");
   }
 
