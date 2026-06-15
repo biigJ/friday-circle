@@ -73,10 +73,29 @@
                 <span class="de-t">WÖCHENTLICHE CHALLENGE</span>
                 <span class="en-t">WEEKLY CHALLENGE</span>
               </h2>
-              <button type="button" class="cycl-date-trigger" id="cycl-date-trigger" aria-haspopup="dialog" aria-expanded="false">
-                <span id="cycl-date-label">—</span>
-                <span class="cycl-date-trigger__arrow" aria-hidden="true">⌄</span>
-              </button>
+              <div class="cycl-date-anchor">
+                <button type="button" class="cycl-date-trigger" id="cycl-date-trigger" aria-haspopup="dialog" aria-expanded="false">
+                  <span id="cycl-date-label">—</span>
+                  <span class="cycl-date-trigger__arrow" aria-hidden="true">⌄</span>
+                </button>
+                <div id="cycl-date-wheel" class="cycl-date-wheel" hidden role="dialog" aria-modal="true" aria-labelledby="cycl-date-wheel-title">
+                  <button type="button" class="cycl-date-wheel__backdrop" aria-label="Schließen"></button>
+                  <div class="cycl-date-wheel__panel">
+                    <p id="cycl-date-wheel-title" class="cycl-date-wheel__title">
+                      <span class="de-t">Freitag wählen</span>
+                      <span class="en-t">Choose Friday</span>
+                    </p>
+                    <div class="cycl-date-wheel__frame">
+                      <div class="cycl-date-wheel__highlight" aria-hidden="true"></div>
+                      <div class="cycl-date-wheel__scroller" id="cycl-date-wheel-scroller" tabindex="0"></div>
+                    </div>
+                    <button type="button" class="cycl-date-wheel__done" id="cycl-date-wheel-done">
+                      <span class="de-t">Übernehmen</span>
+                      <span class="en-t">Apply</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -131,8 +150,8 @@
                     <span class="en-t">Exercise</span>
                   </th>
                   <th scope="col" class="cycl-table__th">
-                    <span class="de-t">Position-Vorgabe</span>
-                    <span class="en-t">Position preset</span>
+                    <span class="de-t">Position</span>
+                    <span class="en-t">Position</span>
                   </th>
                   <th scope="col" class="cycl-table__th">
                     <span class="de-t">Pos. indiv.</span>
@@ -171,6 +190,36 @@
               <span class="en-t">No session logged for this date yet.</span>
             </p>
           </div>
+
+          <section class="cycl-promo" aria-labelledby="cycl-promo-badge">
+            <div class="cycl-rail cycl-promo__inner">
+              <a href="register-accountability/index.html" class="cycl-promo__badge" id="cycl-promo-badge">
+                <span class="cycl-promo__badge-line">Teilnahme</span>
+                <span class="cycl-promo__badge-line cycl-promo__badge-line--action">&gt; Registrieren</span>
+              </a>
+              <div class="cycl-promo__grid">
+                <div class="cycl-promo__copy">
+                  <p class="cycl-promo__text">
+                    <span class="de-t">Wir starten als Gruppe in Berlin und wollen andere motivieren, einmal in der Woche ein hartes Intervalltraining zu machen. Verabredung ist, verbindlich, einmal gemeinsam reinzuhauen. Danach ausruhen. Die anderen Tage gestaltest Du selbst. Wenn Du willst, entwickeln wir für Dich ein Trainingsprogramm drumherum oder als gezielte Unterstützung. Je nach Deinen Zielen. Wir trainieren in Berlin in einem Fitnessstudio ohne, dass wir als finanziell organisierte Gruppe bestehen. Was aber etwas kosten soll, ist unsere Motivation. Wir wollen alles gamifizieren. Also, wer will, zahlt hier sein Handtuch für 89€ – und wenn man 10 Einträge in der Tabelle gesammelt hat, dann erhält man ein Oberteil. Schreib uns für gesonderte Konditionen an.</span>
+                    <span class="en-t">We’re starting as a group in Berlin and want to motivate others to do one hard interval session a week. The deal is simple: show up once a week and go all in together. Then rest. You shape the other days yourself. If you want, we’ll build a training program around it—or targeted support—based on your goals. We train in Berlin at a gym without being a financially organized group. What should cost something is our motivation. We want to gamify everything. So if you’re in, pay for your towel here for €89—and after 10 entries in the table, you get a top. Contact us for special terms.</span>
+                  </p>
+                  <a class="cycl-promo__cta" href="cycle-training.html#download">
+                    <span class="de-t">Download Programm</span>
+                    <span class="en-t">Download program</span>
+                  </a>
+                </div>
+                <figure class="cycl-promo__media">
+                  <img
+                    src="assets/biigJ/towelxtreatmill.png"
+                    alt=""
+                    width="1664"
+                    height="1720"
+                    decoding="async"
+                  />
+                </figure>
+              </div>
+            </div>
+          </section>
         </div>
       </section>
         </div>
@@ -212,24 +261,6 @@
         </div>
       </section>
     </main>
-
-    <div id="cycl-date-wheel" class="cycl-date-wheel" hidden role="dialog" aria-modal="true" aria-labelledby="cycl-date-wheel-title">
-      <button type="button" class="cycl-date-wheel__backdrop" aria-label="Schließen"></button>
-      <div class="cycl-date-wheel__panel">
-        <p id="cycl-date-wheel-title" class="cycl-date-wheel__title">
-          <span class="de-t">Freitag wählen</span>
-          <span class="en-t">Choose Friday</span>
-        </p>
-        <div class="cycl-date-wheel__frame">
-          <div class="cycl-date-wheel__highlight" aria-hidden="true"></div>
-          <div class="cycl-date-wheel__scroller" id="cycl-date-wheel-scroller" tabindex="0"></div>
-        </div>
-        <button type="button" class="cycl-date-wheel__done" id="cycl-date-wheel-done">
-          <span class="de-t">Übernehmen</span>
-          <span class="en-t">Apply</span>
-        </button>
-      </div>
-    </div>
 
     <div id="cycl-login-modal" class="cycl-login-modal" hidden role="dialog" aria-modal="true" aria-labelledby="cycl-login-title">
       <div class="cycl-login-modal__backdrop"></div>

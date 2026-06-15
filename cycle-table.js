@@ -332,7 +332,7 @@
         (i + 1) +
         '" /></label>' +
         '<label class="cycl-admin-field"><span class="cycl-admin-field__lab">' +
-        t("Position-Vorgabe", "Position preset") +
+        t("Position", "Position") +
         '</span><input type="text" data-ex-pos-preset /></label>' +
         '<label class="cycl-admin-field"><span class="cycl-admin-field__lab">' +
         t("Pos.-Faktor", "Pos. factor") +
@@ -537,6 +537,10 @@
     return state.wheelDates[index];
   }
 
+  function isDesktopDateWheel() {
+    return window.matchMedia("(min-width: 761px)").matches;
+  }
+
   function openDateWheel() {
     if (!els.dateWheel || !els.dateScroller) return;
     state.wheelDates = listFridays();
@@ -563,7 +567,9 @@
 
     els.dateWheel.hidden = false;
     state.wheelOpen = true;
-    document.body.classList.add("cycl-date-wheel-open");
+    if (!isDesktopDateWheel()) {
+      document.body.classList.add("cycl-date-wheel-open");
+    }
     if (els.dateTrigger) els.dateTrigger.setAttribute("aria-expanded", "true");
 
     requestAnimationFrame(function () {

@@ -1051,6 +1051,7 @@ body.gogl-program {
   display: flex;
   flex-direction: column;
   background: rgba(10, 10, 10, 0.72);
+  overflow: visible;
 }
 
 .cycl-table-stage {
@@ -1097,16 +1098,22 @@ body.gogl-program {
 
 .cycl-table-head__strong {
   font-weight: 700;
-  color: #fff;
+  color: var(--cycl-red);
 }
 
 .cycl-table-head__light {
   font-weight: 200;
-  color: #fff;
+  color: var(--cycl-red);
+}
+
+.cycl-date-anchor {
+  position: relative;
+  flex-shrink: 0;
 }
 
 .cycl-table-subhead {
   background: transparent;
+  overflow: visible;
 }
 
 .cycl-table-subhead__inner {
@@ -1164,6 +1171,43 @@ body.cycl-date-wheel-open {
   display: flex;
   align-items: flex-end;
   justify-content: center;
+}
+
+@media (min-width: 761px) {
+  .cycl-date-wheel {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    left: auto;
+    bottom: auto;
+    width: min(100vw - 2 * var(--nav-pad-x), 300px);
+    min-width: 11.5rem;
+    height: auto;
+    inset: unset;
+    display: block;
+    z-index: 120;
+  }
+
+  .cycl-date-wheel__backdrop {
+    position: fixed;
+    inset: 0;
+    background: transparent;
+    z-index: 0;
+  }
+
+  .cycl-date-wheel__panel {
+    position: relative;
+    z-index: 1;
+    border-radius: 8px;
+    max-width: none;
+    width: 100%;
+    padding-bottom: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+  }
+
+  body.cycl-date-wheel-open {
+    overflow: auto;
+  }
 }
 
 .cycl-date-wheel__backdrop {
@@ -1638,6 +1682,117 @@ body.cycl-date-wheel-open {
   font-size: 0.9rem;
 }
 
+.cycl-promo {
+  margin-top: clamp(40px, 6vw, 64px);
+  padding-bottom: clamp(32px, 5vw, 48px);
+}
+
+.cycl-promo__inner {
+  position: relative;
+  padding-top: clamp(28px, 4vw, 40px);
+}
+
+.cycl-promo__badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-width: clamp(9rem, 18vw, 12rem);
+  padding: clamp(10px, 1.4vw, 14px) clamp(18px, 2.5vw, 28px);
+  background: var(--cycl-red);
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: clamp(0.82rem, 1.5vw, 0.95rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.15;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+}
+
+.cycl-promo__badge:hover,
+.cycl-promo__badge:focus-visible {
+  filter: brightness(1.06);
+  outline: none;
+}
+
+.cycl-promo__badge-line--action {
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.cycl-promo__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(20px, 3vw, 36px);
+  align-items: stretch;
+  background: #0a0a0a;
+}
+
+.cycl-promo__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(20px, 3vw, 28px);
+  padding: clamp(28px, 4vw, 44px) clamp(20px, 3vw, 32px);
+}
+
+.cycl-promo__text {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(0.82rem, 1.35vw, 0.92rem);
+  font-weight: 400;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.cycl-promo__cta {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border: 1.5px solid #fff;
+  border-radius: 999px;
+  background: transparent;
+  color: #fff;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.cycl-promo__cta:hover,
+.cycl-promo__cta:focus-visible {
+  background: #fff;
+  color: #0a0a0a;
+  outline: none;
+}
+
+.cycl-promo__media {
+  margin: 0;
+  min-height: clamp(260px, 38vw, 420px);
+  overflow: hidden;
+  background: #111;
+}
+
+.cycl-promo__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
 .cycl-table-products {
   padding-top: 0;
   background: transparent;
@@ -1754,6 +1909,35 @@ body.cycl-date-wheel-open {
   color: #ff8a80;
 }
 
+@media (max-width: 760px) {
+  .cycl-date-wheel {
+    position: fixed;
+    inset: 0;
+    top: auto;
+    right: auto;
+    left: auto;
+    bottom: 0;
+    width: auto;
+    min-width: 0;
+    height: auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 200;
+  }
+
+  .cycl-date-wheel__backdrop {
+    background: rgba(0, 0, 0, 0.55);
+  }
+
+  .cycl-date-wheel__panel {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 14px 14px 0 0;
+    box-shadow: none;
+  }
+}
+
 @media (max-width: 640px) {
   .cycl-table-head__inner {
     flex-direction: column;
@@ -1768,6 +1952,20 @@ body.cycl-date-wheel-open {
   .cycl-table-subhead__inner {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .cycl-date-anchor,
+  .cycl-date-trigger {
+    width: 100%;
+  }
+
+  .cycl-promo__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cycl-promo__media {
+    min-height: clamp(220px, 55vw, 320px);
+    order: -1;
   }
 
   .cycl-date-trigger {
