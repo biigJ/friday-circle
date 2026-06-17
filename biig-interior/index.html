@@ -41,8 +41,31 @@
         left: 0;
         right: 0;
         z-index: 120;
-        background: var(--bi-nav-beige);
-        border-bottom: 1px solid color-mix(in srgb, var(--text) 10%, transparent);
+        background: transparent;
+        border-bottom: 0;
+        transition: color 0.18s ease, background-color 0.18s ease;
+      }
+
+      .biig-interior-page:not(.bi-nav-past-hero) .nav .bi-brand-logo,
+      .biig-interior-page:not(.bi-nav-past-hero) .bi-nav__service-toggle,
+      .biig-interior-page:not(.bi-nav-past-hero) .nav__lang button {
+        color: #ffffff;
+      }
+
+      .biig-interior-page:not(.bi-nav-past-hero) .bi-nav__cta--calendly {
+        border-color: #ffffff;
+        background: transparent;
+        color: #ffffff;
+      }
+
+      .biig-interior-page:not(.bi-nav-past-hero) .bi-nav__cta--calendly:hover,
+      .biig-interior-page:not(.bi-nav-past-hero) .bi-nav__cta--calendly:focus-visible {
+        background: #ffffff;
+        color: #0a0a0a;
+      }
+
+      .biig-interior-page:not(.bi-nav-past-hero) .nav__lang button.is-active {
+        background: rgba(255, 255, 255, 0.16);
       }
 
       .biig-interior-page .bi-nav__inner {
@@ -90,10 +113,10 @@
         left: 50%;
         transform: translateX(-50%);
         width: min(36rem, calc(100vw - 2 * var(--nav-pad-x)));
-        padding: clamp(10px, 1.5vw, 14px);
-        background: var(--bi-nav-beige);
-        border: 1px solid color-mix(in srgb, var(--text) 14%, transparent);
-        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+        padding: 0;
+        background: transparent;
+        border: 0;
+        box-shadow: none;
         z-index: 130;
       }
 
@@ -272,7 +295,7 @@
         margin: 0;
         overflow: hidden;
         line-height: 0;
-        min-height: clamp(440px, 78vh, 760px);
+        min-height: clamp(520px, 88vh, 920px);
         aspect-ratio: auto;
         background: #1a1a1a;
       }
@@ -285,7 +308,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: clamp(16px, 2.5vw, 24px);
+        gap: clamp(18px, 2.8vw, 28px);
         padding: calc(var(--fc-nav-h, 72px) + clamp(20px, 3vw, 32px)) var(--nav-pad-x)
           clamp(20px, 3vw, 28px);
         pointer-events: none;
@@ -298,7 +321,7 @@
 
       .bi-hero__headline {
         margin: 0;
-        max-width: 18ch;
+        max-width: min(52rem, 96%);
         font-family: var(--font-sans);
         font-size: clamp(1.35rem, 2.8vw, 2.35rem);
         font-weight: 200;
@@ -314,21 +337,22 @@
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-        gap: clamp(6px, 1vw, 10px);
+        gap: clamp(10px, 1.6vw, 16px);
         margin: 0;
-        padding: 0;
+        padding: clamp(28px, 4vw, 48px) var(--nav-pad-x);
         list-style: none;
-        max-width: min(40rem, 100%);
+        max-width: min(56rem, 100%);
+        margin-inline: auto;
       }
 
       .bi-hero__wordbox {
         display: inline-flex;
         align-items: center;
-        padding: 6px 12px;
-        background: rgba(190, 185, 170, 0.92);
-        color: #0a0a0a;
+        padding: clamp(10px, 1.4vw, 14px) clamp(16px, 2.2vw, 24px);
+        background: #0a0a0a;
+        color: #ffffff;
         font-family: var(--font-sans);
-        font-size: clamp(0.62rem, 0.85vw, 0.74rem);
+        font-size: clamp(0.68rem, 0.95vw, 0.82rem);
         font-weight: 500;
         letter-spacing: 0.08em;
         text-transform: uppercase;
@@ -337,15 +361,16 @@
       .bi-hero__paths {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: clamp(10px, 1.5vw, 14px);
-        width: min(44rem, 100%);
-        margin-top: clamp(8px, 1.5vw, 16px);
+        gap: clamp(12px, 2vw, 18px);
+        width: min(72rem, 100%);
+        margin-top: clamp(4px, 1vw, 10px);
       }
 
       .bi-hero__mission-wrap {
-        max-width: var(--content-max);
+        max-width: min(52rem, var(--content-max));
         margin: 0 auto;
         padding: clamp(28px, 4vw, 48px) var(--nav-pad-x);
+        text-align: center;
       }
 
       .bi-section {
@@ -354,6 +379,28 @@
 
       .bi-section--tight-top {
         padding-top: clamp(20px, 3vw, 36px);
+      }
+
+      .bi-section--compare .bi-section__title {
+        max-width: none;
+      }
+
+      @media (min-width: 900px) {
+        .bi-section--compare .bi-section__title {
+          white-space: nowrap;
+        }
+
+        .bi-section--compare .bi-section__lede {
+          max-width: none;
+        }
+      }
+
+      .bi-section--compare .bi-compare__list li {
+        padding-left: 0;
+      }
+
+      .bi-section--compare .bi-compare__list li::before {
+        content: none;
       }
 
       .bi-section__eyebrow {
@@ -557,6 +604,7 @@
 
       .bi-pricing-card__note {
         margin: 0;
+        min-height: calc(2 * 1.45em);
         font-family: var(--font-sans);
         font-size: clamp(0.78rem, 0.95vw, 0.86rem);
         font-weight: 300;
@@ -600,10 +648,39 @@
       }
 
       .bi-hero__paths .bi-path-card {
-        min-height: auto;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        grid-template-rows: auto auto;
+        align-items: end;
+        gap: 6px clamp(16px, 3vw, 32px);
+        min-height: 0;
+        padding: clamp(14px, 2vw, 18px) clamp(20px, 3vw, 32px);
         background: color-mix(in srgb, #ffffff 92%, transparent);
         border-color: color-mix(in srgb, #ffffff 40%, transparent);
         text-align: left;
+      }
+
+      .bi-hero__paths .bi-path-card > div {
+        display: contents;
+      }
+
+      .bi-hero__paths .bi-path-card__title {
+        grid-column: 1;
+        grid-row: 1;
+        margin: 0;
+      }
+
+      .bi-hero__paths .bi-path-card__text {
+        grid-column: 1;
+        grid-row: 2;
+        margin: 0;
+      }
+
+      .bi-hero__paths .bi-path-card__link {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        align-self: center;
+        white-space: nowrap;
       }
 
       .bi-pricing-card__cta,
@@ -751,6 +828,21 @@
         .bi-pricing__grid,
         .bi-hero__paths {
           grid-template-columns: 1fr;
+        }
+
+        .bi-hero__paths .bi-path-card {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: clamp(10px, 2vw, 14px);
+        }
+
+        .bi-hero__paths .bi-path-card > div {
+          display: block;
+        }
+
+        .bi-hero__paths .bi-path-card__link {
+          align-self: flex-start;
         }
       }
 
@@ -951,7 +1043,7 @@
       }
 
       .bi-hero__mission {
-        margin: clamp(14px, 2vw, 22px) 0 0;
+        margin: 0;
         display: grid;
         grid-template-columns: 1fr;
         gap: clamp(16px, 2.4vw, 24px);
@@ -963,15 +1055,9 @@
         color: color-mix(in srgb, var(--text) 78%, #ffffff);
       }
 
-      @media (min-width: 960px) {
-        .bi-hero__mission {
-          grid-template-columns: 1fr 1fr;
-          gap: clamp(28px, 4vw, 56px);
-        }
-      }
-
       .bi-hero__mission p {
-        margin: 0;
+        margin: 0 auto;
+        max-width: 42ch;
       }
 
       @media (max-width: 760px) {
@@ -996,7 +1082,7 @@
 
       /* -- Portfolio grid -- */
       .bi-portfolio {
-        padding: clamp(28px, 4.5vw, 56px) 0 clamp(72px, 10vw, 140px);
+        padding: clamp(28px, 4.5vw, 56px) 0 clamp(32px, 5vw, 56px);
       }
 
       .bi-portfolio__title {
@@ -2084,16 +2170,16 @@
         .biig-interior-page .nav {
           position: fixed;
           inset: 0 0 auto;
-          background: color-mix(in srgb, #ffffff 92%, transparent);
-          background-color: color-mix(in srgb, #ffffff 92%, transparent);
+          background: transparent;
+          background-color: transparent;
+          -webkit-backdrop-filter: none;
+          backdrop-filter: none;
           transition: background-color 0.18s ease, background 0.18s ease;
         }
 
         .biig-interior-page.bi-nav-over-tiles .nav {
-          background: var(--bi-nav-beige);
-          background-color: var(--bi-nav-beige);
-          -webkit-backdrop-filter: none;
-          backdrop-filter: none;
+          background: transparent;
+          background-color: transparent;
         }
 
         .biig-interior-page .bi-nav__inner {
@@ -2662,13 +2748,6 @@
                 <span class="de-t">Finde die richtigen Mittel für Deine Alltagsarchitektur. Umsetzungsstark &amp; Authentisch.</span>
                 <span class="en-t">Find the right tools for your everyday architecture. Strong in execution &amp; authentic.</span>
               </h1>
-              <ul class="bi-hero__wordboxes" aria-label="Leistungen">
-                <li class="bi-hero__wordbox"><span class="de-t">Sortieren</span><span class="en-t">Sorting</span></li>
-                <li class="bi-hero__wordbox"><span class="de-t">Design</span><span class="en-t">Design</span></li>
-                <li class="bi-hero__wordbox"><span class="de-t">Handwerker</span><span class="en-t">Trades</span></li>
-                <li class="bi-hero__wordbox"><span class="de-t">Hochbau</span><span class="en-t">Structural</span></li>
-                <li class="bi-hero__wordbox"><span class="de-t">Möbel</span><span class="en-t">Furniture</span></li>
-              </ul>
               <div class="bi-hero__paths">
                 <a class="bi-path-card" href="#biig-konfigurator" onclick="return bkStartWithTrack('arrangement');">
                   <div>
@@ -2709,6 +2788,13 @@
               <span class="bi-hero__sound-icon" aria-hidden="true">♪</span>
             </button>
           </figure>
+          <ul class="bi-hero__wordboxes" aria-label="Leistungen">
+            <li class="bi-hero__wordbox"><span class="de-t">Sortieren</span><span class="en-t">Sorting</span></li>
+            <li class="bi-hero__wordbox"><span class="de-t">Design</span><span class="en-t">Design</span></li>
+            <li class="bi-hero__wordbox"><span class="de-t">Handwerker</span><span class="en-t">Trades</span></li>
+            <li class="bi-hero__wordbox"><span class="de-t">Hochbau</span><span class="en-t">Structural</span></li>
+            <li class="bi-hero__wordbox"><span class="de-t">Möbel</span><span class="en-t">Furniture</span></li>
+          </ul>
           <div class="bi-hero__mission-wrap bi-hero__mission">
             <p>
               <span class="de-t"
@@ -2734,7 +2820,7 @@
         </div>
       </section>
 
-      <section class="bi-section" aria-labelledby="bi-compare-title">
+      <section class="bi-section bi-section--compare" aria-labelledby="bi-compare-title">
         <div class="bi-shell">
           <p class="bi-section__eyebrow">
             <span class="de-t">Warum biig Interior</span>
@@ -2974,7 +3060,7 @@
         </div>
       </section>
 
-      <section class="bi-section" aria-labelledby="bi-process-title">
+      <section class="bi-section bi-section--tight-top" aria-labelledby="bi-process-title">
         <div class="bi-shell">
           <p class="bi-section__eyebrow">
             <span class="de-t">Ablauf</span>
@@ -3013,7 +3099,7 @@
         </div>
       </section>
 
-      <section class="bi-section" id="bi-pricing" aria-labelledby="bi-pricing-title">
+      <section class="bi-section bi-section--tight-top" id="bi-pricing" aria-labelledby="bi-pricing-title">
         <div class="bi-shell">
           <p class="bi-section__eyebrow">
             <span class="de-t">Honorar</span>
@@ -4563,6 +4649,12 @@
         var openBuyId = null;
         var buyIndex = 0;
 
+        function updateNavHeroState() {
+          var figure = document.querySelector(".bi-hero__figure");
+          if (!figure) return;
+          document.body.classList.toggle("bi-nav-past-hero", figure.getBoundingClientRect().bottom < 80);
+        }
+
         function updateMobileNavTransparency() {
           var mobile = window.matchMedia("(max-width: 520px) and (orientation: portrait)").matches;
           var firstTile = document.querySelector(".bi-grid .bi-tile");
@@ -5992,9 +6084,13 @@
           });
         }
 
-        window.addEventListener("scroll", updateMobileNavTransparency, { passive: true });
+        window.addEventListener("scroll", function () {
+          updateNavHeroState();
+          updateMobileNavTransparency();
+        }, { passive: true });
         window.addEventListener("resize", function () {
           placeHeroSoundControl();
+          updateNavHeroState();
           updateMobileNavTransparency();
           initMobileTileCarousels();
         });
@@ -6005,11 +6101,13 @@
           document.addEventListener("DOMContentLoaded", function () {
             placeHeroSoundControl();
             applyLang();
+            updateNavHeroState();
             updateMobileNavTransparency();
           });
         } else {
           placeHeroSoundControl();
           applyLang();
+          updateNavHeroState();
           updateMobileNavTransparency();
         }
       })();
