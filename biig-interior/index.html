@@ -1179,16 +1179,52 @@
         margin-top: 1.1em;
       }
 
-      .bi-portfolio .bi-tile--hochbau-collage {
+      .bi-portfolio .bi-tile--hochbau-collage,
+      .bi-hochbau-tiles-row {
         display: none;
       }
 
-      .bi-portfolio.bi-portfolio--hochbau .bi-tile--hochbau-collage {
+      .bi-portfolio.bi-portfolio--service-filter .bi-tile--project {
+        display: none;
+      }
+
+      .bi-portfolio.bi-portfolio--service-filter .bi-tile--project.bi-tile--service-visible {
         display: block;
       }
 
-      .bi-portfolio.bi-portfolio--hochbau .bi-tile--project:not(.bi-tile--hochbau-collage) {
+      .bi-portfolio.bi-portfolio--service-filter.bi-portfolio--hochbau-expanded .bi-hochbau-tiles-row {
+        display: block;
+      }
+
+      .bi-portfolio.bi-portfolio--service-filter .bi-image-row:not(:has(.bi-tile--service-visible)) {
         display: none;
+      }
+
+      .bi-portfolio.bi-portfolio--service-filter .bi-tile--hochbau-collage {
+        display: none !important;
+      }
+
+      .bi-portfolio.bi-portfolio--service-filter .bi-portfolio__lede {
+        display: none;
+      }
+
+      .bi-section--pricing.is-service-hidden {
+        display: none;
+      }
+
+      .bi-konfigurator-lede {
+        display: none;
+        margin: 0 0 clamp(20px, 3vw, 32px);
+        font-family: var(--font-sans);
+        font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+        font-weight: 200;
+        letter-spacing: -0.01em;
+        line-height: 1.1;
+        color: var(--text);
+      }
+
+      .bi-konfigurator-lede.is-visible {
+        display: block;
       }
 
       .bi-grid {
@@ -2865,23 +2901,23 @@
             <span class="en-t">Services</span>
           </button>
           <div id="bi-service-panel" class="bi-service-panel" hidden>
-            <a class="bi-service-panel__item" href="#bi-pricing-ordnung">
+            <a class="bi-service-panel__item" href="#bi-portfolio" data-bi-service="bi-pricing-ordnung">
               <span class="bi-service-panel__title"><span class="de-t">Aufräumen</span><span class="en-t">Decluttering</span></span>
               <span class="bi-service-panel__sub"><span class="de-t">Hilfe beim Sortieren Deiner Ideen und/oder Deines Hab &amp; Guts.</span><span class="en-t">Help sorting your ideas and/or what you own.</span></span>
             </a>
-            <a class="bi-service-panel__item" href="#bi-pricing-design">
+            <a class="bi-service-panel__item" href="#bi-portfolio" data-bi-service="bi-pricing-design">
               <span class="bi-service-panel__title"><span class="de-t">Design</span><span class="en-t">Design</span></span>
               <span class="bi-service-panel__sub"><span class="de-t">Von Zimmerecke bis Villa. Von Computertisch bis Headquarter.</span><span class="en-t">From a room corner to a villa. From a desk to headquarters.</span></span>
             </a>
-            <a class="bi-service-panel__item" href="#bi-pricing-handwerker">
+            <a class="bi-service-panel__item" href="#bi-portfolio" data-bi-service="bi-pricing-handwerker">
               <span class="bi-service-panel__title"><span class="de-t">Konstruktionszeichnungen</span><span class="en-t">Construction drawings</span></span>
               <span class="bi-service-panel__sub"><span class="de-t">Du: Wunsch. Ich: Plan für den Handwerker.</span><span class="en-t">You: the vision. Me: the plan for the trades.</span></span>
             </a>
-            <a class="bi-service-panel__item" href="#bi-pricing-hochbau">
+            <a class="bi-service-panel__item" href="#bi-portfolio" data-bi-service="bi-pricing-hochbau">
               <span class="bi-service-panel__title"><span class="de-t">Gebäudeplanung</span><span class="en-t">Building planning</span></span>
               <span class="bi-service-panel__sub"><span class="de-t">Bauantragsrelevante Projekte setze ich heute mit einem Partnerbüro um.</span><span class="en-t">Planning permit projects I deliver today with a partner office.</span></span>
             </a>
-            <a class="bi-service-panel__item" href="#bi-pricing-moebel">
+            <a class="bi-service-panel__item" href="#bi-portfolio" data-bi-service="bi-pricing-moebel">
               <span class="bi-service-panel__title"><span class="de-t">Möbelentwürfe</span><span class="en-t">Furniture design</span></span>
               <span class="bi-service-panel__sub"><span class="de-t">Möbel an Deinen Ort angepasst. Vom IKEA Hack bis zur hochwertigen Tischlerarbeit.</span><span class="en-t">Furniture tailored to your place. From IKEA hacks to high quality joinery.</span></span>
             </a>
@@ -3026,11 +3062,17 @@
         </div>
       </section>
 
-      <section class="bi-portfolio bi-portfolio--standard" aria-labelledby="bi-portfolio-title">
+      <section class="bi-portfolio bi-portfolio--standard" id="bi-portfolio" aria-labelledby="bi-portfolio-title">
         <div class="bi-shell">
           <h2 id="bi-portfolio-title" class="bi-portfolio__title">
-            <span class="de-t">Projekte aus der Praxis</span>
-            <span class="en-t">Projects from practice</span>
+            <span class="bi-portfolio__title-default">
+              <span class="de-t">Projekte aus der Praxis</span>
+              <span class="en-t">Projects from practice</span>
+            </span>
+            <span class="bi-portfolio__title-service" hidden>
+              <span class="de-t"></span>
+              <span class="en-t"></span>
+            </span>
           </h2>
           <div class="bi-portfolio__lede" id="bi-space-anpassen">
             <p>
@@ -3294,6 +3336,9 @@
             </div>
               </div>
             </div>
+            <div class="bi-image-row bi-hochbau-tiles-row" id="bi-hochbau-tiles-row">
+              <div class="bi-image-row__scroll" id="bi-hochbau-tiles-inner"></div>
+            </div>
           </div>
         </div>
       </section>
@@ -3384,8 +3429,12 @@
         </div>
       </section>
 
-      <section class="bi-konfigurator-section" aria-labelledby="bi-konfigurator-title">
+      <section class="bi-konfigurator-section" aria-labelledby="bi-konfigurator-lede">
       <div class="bi-shell">
+        <h2 id="bi-konfigurator-lede" class="bi-konfigurator-lede">
+          <span class="de-t">Klick Dich in 2 Minuten für eine erste Kosteneinschätzung durch</span>
+          <span class="en-t">Click through in 2 minutes for an initial cost estimate</span>
+        </h2>
         <h2 id="bi-konfigurator-title" class="visually-hidden">
           <span class="de-t">Ein Gespräch. Ein Plan. Los.</span>
           <span class="en-t">One conversation. One plan. Let's go.</span>
@@ -4024,23 +4073,19 @@
             setServiceOpen(servicePanel.hasAttribute("hidden"));
           });
           servicePanel.querySelectorAll("a").forEach(function (link) {
-            link.addEventListener("click", function () {
+            link.addEventListener("click", function (e) {
               setServiceOpen(false);
-              var href = link.getAttribute("href") || "";
-              var portfolio = document.querySelector(".bi-portfolio");
-              if (!portfolio) return;
-              if (href === "#bi-pricing-hochbau") {
-                portfolio.classList.remove("bi-portfolio--standard");
-                portfolio.classList.add("bi-portfolio--hochbau");
-                var hochbauTile = document.getElementById("bi-hochbau-collage");
-                if (hochbauTile) {
-                  window.requestAnimationFrame(function () {
-                    hochbauTile.scrollIntoView({ behavior: "smooth", block: "center" });
-                  });
-                }
-              } else if (href.indexOf("#bi-pricing") === 0) {
-                portfolio.classList.remove("bi-portfolio--hochbau");
-                portfolio.classList.add("bi-portfolio--standard");
+              var serviceKey = link.getAttribute("data-bi-service");
+              if (!serviceKey) return;
+              e.preventDefault();
+              if (window.biApplyServiceFilter) {
+                window.biApplyServiceFilter(serviceKey);
+              }
+              var portfolio = document.getElementById("bi-portfolio");
+              if (portfolio) {
+                window.requestAnimationFrame(function () {
+                  portfolio.scrollIntoView({ behavior: "smooth", block: "start" });
+                });
               }
             });
           });
@@ -4949,6 +4994,47 @@
         };
 
         var HOCHBAU_IDS = ["klinker", "rothestr", "graefe", "destijl", "schleswig", "wedel", "neubauhausstrasse"];
+
+        var SERVICE_FILTERS = {
+          "bi-pricing-ordnung": {
+            tiles: ["dieffe33", "altbau2", "ordnung", "oase"],
+            titleDe: "Aufräumservice oder Ideen sortieren",
+            titleEn: "Decluttering service or sorting ideas",
+          },
+          "bi-pricing-design": {
+            tiles: [
+              "dieffe33",
+              "altbau1",
+              "altbau2",
+              "homeoffice1",
+              "homeoffice2",
+              "hausA",
+              "hausB",
+              "ordnung",
+              "kueche",
+              "kochinsel",
+              "oase",
+              "vinothekGeo",
+              "vinothekAlpen",
+              "moebel",
+            ],
+            titleDe: "Du bekommst Plan, Visu, Tabelle",
+            titleEn: "You get plan, visual, spreadsheet",
+          },
+          "bi-pricing-handwerker": {
+            tiles: ["dieffe33", "homeoffice1", "hausA", "vinothekGeo"],
+            titleDe: "Vom baubarer Entwurf bis alles inklusive",
+            titleEn: "From buildable design to all-inclusive",
+          },
+          "bi-pricing-hochbau": {
+            hochbau: true,
+          },
+          "bi-pricing-moebel": {
+            tiles: ["moebel"],
+            titleDe: "Im Projekt des Mini-Apartements entstanden",
+            titleEn: "Created in the mini-apartment project",
+          },
+        };
 
         var INFO_LEISTUNG = {
           de: "Auf einem Bestandsgrundriss aufbauend erstelle ich Dir einen Plan nach Deinen Wünschen, Vorstellungen und Ressourcen. Für die Umsetzung begleite ich Materialwahl, Details und die Abstimmung mit Handwerk Schritt für Schritt bis zur belastbaren Vorlage.",
@@ -6227,6 +6313,101 @@
           });
         }
 
+        function initHochbauIndividualTiles() {
+          var container = document.getElementById("bi-hochbau-tiles-inner");
+          if (!container) return;
+          container.innerHTML = "";
+          HOCHBAU_IDS.forEach(function (id, i) {
+            var project = PROJECTS[id];
+            if (!project) return;
+            var tile = document.createElement("div");
+            tile.className = "bi-tile bi-tile--project bi-tile--hochbau-item";
+            tile.setAttribute("data-bi-project", id);
+            tile.setAttribute("role", "button");
+            tile.setAttribute("tabindex", "0");
+            var media = document.createElement("span");
+            media.className = "bi-tile__media";
+            var img = document.createElement("img");
+            img.src = project.images[0];
+            img.alt = pick(project, "title");
+            img.decoding = "async";
+            img.loading = i < 4 ? "eager" : "lazy";
+            img.style.objectPosition = HOCHBAU_THUMB_FOCUS[i] || project.cropPosition || "center center";
+            media.appendChild(img);
+            tile.appendChild(media);
+            var label = document.createElement("span");
+            label.className = "bi-tile__label";
+            var labelDe = document.createElement("span");
+            labelDe.className = "de-t";
+            labelDe.textContent = pick(project, "concrete");
+            var labelEn = document.createElement("span");
+            labelEn.className = "en-t";
+            labelEn.textContent = pick(project, "concrete");
+            label.appendChild(labelDe);
+            label.appendChild(labelEn);
+            tile.appendChild(label);
+            var hover = document.createElement("span");
+            hover.className = "bi-tile__hover";
+            var keywordEl = document.createElement("span");
+            keywordEl.className = "bi-tile__keyword";
+            keywordEl.textContent = pick(project, "keyword");
+            var concreteEl = document.createElement("span");
+            concreteEl.className = "bi-tile__concrete";
+            concreteEl.textContent = pick(project, "concrete");
+            hover.appendChild(keywordEl);
+            hover.appendChild(concreteEl);
+            tile.appendChild(hover);
+            container.appendChild(tile);
+          });
+        }
+
+        function applyServiceFilter(serviceKey) {
+          var portfolio = document.getElementById("bi-portfolio");
+          var pricing = document.getElementById("bi-pricing");
+          var konfiguratorLede = document.getElementById("bi-konfigurator-lede");
+          var titleDefault = document.querySelector(".bi-portfolio__title-default");
+          var titleService = document.querySelector(".bi-portfolio__title-service");
+          var filter = SERVICE_FILTERS[serviceKey];
+          if (!portfolio || !filter) return;
+
+          portfolio.classList.add("bi-portfolio--service-filter");
+          portfolio.classList.remove("bi-portfolio--hochbau-expanded");
+          document.querySelectorAll(".bi-tile--project").forEach(function (tile) {
+            tile.classList.remove("bi-tile--service-visible");
+          });
+
+          if (filter.hochbau) {
+            portfolio.classList.add("bi-portfolio--hochbau-expanded");
+            document.querySelectorAll(".bi-tile--hochbau-item").forEach(function (tile) {
+              tile.classList.add("bi-tile--service-visible");
+            });
+          } else if (filter.tiles) {
+            filter.tiles.forEach(function (projectId) {
+              var tile = portfolio.querySelector('[data-bi-project="' + projectId + '"]');
+              if (tile) tile.classList.add("bi-tile--service-visible");
+            });
+          }
+
+          if (titleDefault && titleService) {
+            if (filter.titleDe) {
+              titleDefault.hidden = true;
+              titleService.hidden = false;
+              titleService.querySelector(".de-t").textContent = filter.titleDe;
+              titleService.querySelector(".en-t").textContent = filter.titleEn || filter.titleDe;
+            } else {
+              titleDefault.hidden = false;
+              titleService.hidden = true;
+            }
+          }
+
+          if (pricing) pricing.classList.add("is-service-hidden");
+          if (konfiguratorLede) konfiguratorLede.classList.add("is-visible");
+
+          initMobileTileCarousels({ force: true });
+        }
+
+        window.biApplyServiceFilter = applyServiceFilter;
+
         function applyTileLabels() {
           document.querySelectorAll("[data-bi-project]").forEach(function (btn) {
             var project = PROJECTS[btn.getAttribute("data-bi-project")];
@@ -6373,6 +6554,7 @@
           normalizeProjectTileElements();
           applyTileLabels();
           initHochbauCollage();
+          initHochbauIndividualTiles();
           initMobileTileCarousels({ force: true });
           initHeroSlider();
           if (openOfferId) {
@@ -6568,12 +6750,20 @@
             applyLang();
             updateNavHeroState();
             updateMobileNavTransparency();
+            var hashService = location.hash && location.hash.slice(1);
+            if (hashService && SERVICE_FILTERS[hashService] && window.biApplyServiceFilter) {
+              window.biApplyServiceFilter(hashService);
+            }
           });
         } else {
           placeHeroSoundControl();
           applyLang();
           updateNavHeroState();
           updateMobileNavTransparency();
+          var hashService = location.hash && location.hash.slice(1);
+          if (hashService && SERVICE_FILTERS[hashService] && window.biApplyServiceFilter) {
+            window.biApplyServiceFilter(hashService);
+          }
         }
       })();
     </script>
