@@ -325,7 +325,7 @@
         inset: 0;
         z-index: 3;
         display: grid;
-        grid-template-rows: auto auto 1fr;
+        grid-template-rows: auto 1fr auto;
         align-items: center;
         justify-items: center;
         gap: clamp(12px, 2vw, 20px);
@@ -346,6 +346,8 @@
         align-items: center;
         gap: clamp(16px, 2.5vw, 28px);
         width: 100%;
+        grid-row: 1;
+        align-self: start;
       }
 
       .bi-hero__headline {
@@ -365,18 +367,20 @@
         margin: 0;
         padding: 0;
         list-style: none;
-        max-width: min(52rem, 96%);
+        max-width: min(72rem, 100%);
         font-family: var(--font-sans);
-        font-size: clamp(1.35rem, 2.8vw, 2.35rem);
-        font-weight: 200;
-        line-height: 1.12;
-        letter-spacing: -0.02em;
+        font-size: clamp(1.1rem, 1.8vw, 1.45rem);
+        font-weight: 300;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
         text-transform: uppercase;
         color: #ffffff;
         text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55);
         display: flex;
-        flex-direction: column;
-        gap: 5ch;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4ch;
         align-items: center;
       }
 
@@ -389,7 +393,8 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: clamp(12px, 2vw, 18px);
         width: min(72rem, 100%);
-        align-self: center;
+        grid-row: 3;
+        align-self: end;
       }
 
       .bi-section {
@@ -2224,16 +2229,40 @@
         .biig-interior-page .nav {
           position: fixed;
           inset: 0 0 auto;
-          background: transparent;
-          background-color: transparent;
+          background: #ffffff;
+          background-color: #ffffff;
+          border-bottom: 1px solid color-mix(in srgb, var(--text) 8%, transparent);
           -webkit-backdrop-filter: none;
           backdrop-filter: none;
-          transition: background-color 0.18s ease, background 0.18s ease;
+          transition: background-color 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+        }
+
+        .biig-interior-page:not(.bi-nav-over-tiles):not(.bi-nav-past-hero) .nav .bi-brand-logo,
+        .biig-interior-page:not(.bi-nav-over-tiles):not(.bi-nav-past-hero) .bi-nav__service-toggle,
+        .biig-interior-page:not(.bi-nav-over-tiles):not(.bi-nav-past-hero) .nav__lang button {
+          color: var(--text);
+        }
+
+        .biig-interior-page:not(.bi-nav-over-tiles):not(.bi-nav-past-hero) .bi-nav__cta--calendly {
+          border-color: var(--text);
+          background: var(--text);
+          color: #ffffff;
+        }
+
+        .biig-interior-page:not(.bi-nav-over-tiles):not(.bi-nav-past-hero) .bi-nav__cta--calendly:hover,
+        .biig-interior-page:not(.bi-nav-over-tiles):not(.bi-nav-past-hero) .bi-nav__cta--calendly:focus-visible {
+          background: transparent;
+          color: var(--text);
+        }
+
+        .biig-interior-page:not(.bi-nav-over-tiles):not(.bi-nav-past-hero) .nav__lang button.is-active {
+          background: color-mix(in srgb, var(--text) 10%, transparent);
         }
 
         .biig-interior-page.bi-nav-over-tiles .nav {
           background: transparent;
           background-color: transparent;
+          border-bottom: 0;
         }
 
         .biig-interior-page .bi-nav__inner {
@@ -2243,16 +2272,16 @@
           padding-bottom: 12px;
         }
 
-        .biig-interior-page .bi-nav__service-wrap {
-          grid-column: 1 / -1;
-          grid-row: 1;
-          justify-self: center;
-          width: auto;
-        }
-
         .biig-interior-page .bi-nav__brand {
           grid-column: 1;
+          grid-row: 1;
+        }
+
+        .biig-interior-page .bi-nav__service-wrap {
+          grid-column: 1 / -1;
           grid-row: 2;
+          justify-self: center;
+          width: auto;
         }
 
         .biig-interior-page .bi-nav__right {
@@ -2261,13 +2290,14 @@
 
         .biig-interior-page .bi-nav__actions {
           grid-column: 2;
-          grid-row: 2;
+          grid-row: 1;
           justify-self: end;
         }
 
         .bi-nav__utilities {
           grid-column: 1 / -1;
           grid-row: 3;
+          display: flex;
           justify-content: center;
         }
 
@@ -2293,7 +2323,7 @@
         }
 
         .bi-hero {
-          padding-top: 0;
+          padding-top: var(--bi-mobile-header-h, calc(88px + env(safe-area-inset-top, 0px)));
         }
 
         .bi-grid {
@@ -2309,8 +2339,10 @@
         }
 
         .bi-hero__overlay {
+          padding-top: clamp(12px, 3vw, 20px);
           padding-left: var(--nav-pad-x);
           padding-right: var(--nav-pad-x);
+          padding-bottom: clamp(44px, 8vw, 56px);
           width: 100%;
           max-width: 100vw;
           box-sizing: border-box;
@@ -2322,8 +2354,11 @@
         }
 
         .bi-hero__services {
-          font-size: clamp(1rem, 4.8vw, 1.35rem);
-          gap: 3ch;
+          font-size: clamp(0.52rem, 2.4vw, 0.68rem);
+          font-weight: 400;
+          letter-spacing: 0.04em;
+          gap: 2ch 2.5ch;
+          max-width: 100%;
         }
 
         .bi-portfolio > .bi-shell {
@@ -2912,8 +2947,8 @@
       <section class="bi-section bi-section--compare" aria-labelledby="bi-compare-title">
         <div class="bi-shell">
           <h2 class="bi-section__title" id="bi-compare-title">
-            <span class="de-t">Wir waren als Architekten schon in allen Phasen und Konstellationen. Wir wissen was entscheidend ist und liefern.</span>
-            <span class="en-t">As architects we have been through every phase and setup. We know what matters and we deliver.</span>
+            <span class="de-t">Wir waren als Architekten in allen Phasen und Konstellationen, wissen was entscheidend ist und liefern.</span>
+            <span class="en-t">As architects we have been through every phase and setup, know what matters and deliver.</span>
           </h2>
           <div class="bi-compare">
             <div class="bi-compare__col">
@@ -2938,7 +2973,7 @@
               </ul>
             </div>
             <div class="bi-compare__col">
-              <h3 class="bi-compare__head"><span class="de-t">Klassisches Planungsbüro</span><span class="en-t">Classic planning office</span></h3>
+              <h3 class="bi-compare__head"><span class="de-t">Planungsbüro</span><span class="en-t">Planning office</span></h3>
               <ul class="bi-compare__list">
                 <li><span class="de-t">Einschränkung von Design Doktrin des Inhabers</span><span class="en-t">Limited by the owner's design doctrine</span></li>
                 <li><span class="de-t">Hohes Honorar</span><span class="en-t">High fees</span></li>
@@ -3311,68 +3346,6 @@
           </div>
         </div>
       </section>
-
-      <section class="bi-section bi-faq--static" aria-labelledby="bi-faq-title">
-        <div class="bi-shell">
-          <h2 class="bi-section__title" id="bi-faq-title">
-            <span class="de-t">Häufig gestellte Fragen</span>
-            <span class="en-t">Frequently asked questions</span>
-          </h2>
-          <ul class="bi-faq__list">
-            <li class="bi-faq__item">
-              <button type="button" class="bi-faq__q" aria-expanded="false">
-                <span class="de-t">Was kostet ein Projekt?</span>
-                <span class="en-t">What does a project cost?</span>
-              </button>
-              <p class="bi-faq__a">
-                <span class="de-t">Das hängt von Größe und Leistung ab. Design startet ab 450 €, Sortieren ab 200 €, Handwerker-Plan ab 1.000 €. Der Kostenrechner auf dieser Seite gibt Dir eine erste Orientierung.</span>
-                <span class="en-t">It depends on size and service. Design starts from €450, sorting from €200, trades plan from €1,000. The fee calculator on this page gives you a first orientation.</span>
-              </p>
-            </li>
-            <li class="bi-faq__item">
-              <button type="button" class="bi-faq__q" aria-expanded="false">
-                <span class="de-t">Brauche ich einen Architekten?</span>
-                <span class="en-t">Do I need an architect?</span>
-              </button>
-              <p class="bi-faq__a">
-                <span class="de-t">Nicht für jedes Interior-Projekt. Für bauantragsrelevante Hochbau-Themen arbeite ich mit einem Partnerbüro, weil Kammerzugehörigkeit dort nötig ist.</span>
-                <span class="en-t">Not for every interior project. For structural work requiring permits I work with a partner office, because chamber membership is required there.</span>
-              </p>
-            </li>
-            <li class="bi-faq__item">
-              <button type="button" class="bi-faq__q" aria-expanded="false">
-                <span class="de-t">Wie läuft das erste Gespräch?</span>
-                <span class="en-t">How does the first conversation work?</span>
-              </button>
-              <p class="bi-faq__a">
-                <span class="de-t">Du holst mich ab, wo Du stehst: konkret oder vage. Wir klären Ziele, Kapazitäten und ob wir zusammenkommen. Berlin, telefonisch oder remote.</span>
-                <span class="en-t">You meet me where you are: concrete or vague. We clarify goals, capacity, and whether we fit. Berlin, by phone, or remote.</span>
-              </p>
-            </li>
-            <li class="bi-faq__item">
-              <button type="button" class="bi-faq__q" aria-expanded="false">
-                <span class="de-t">Was liefert der Kostenrechner?</span>
-                <span class="en-t">What does the fee calculator deliver?</span>
-              </button>
-              <p class="bi-faq__a">
-                <span class="de-t">Eine erste Einschätzung von Honorar und optionalem Bauvolumen, basierend auf Deinen Angaben zu Größe, Leistung und Zielen. Keine Verpflichtung.</span>
-                <span class="en-t">A first estimate of fee and optional build volume, based on your inputs on size, service, and goals. No obligation.</span>
-              </p>
-            </li>
-            <li class="bi-faq__item">
-              <button type="button" class="bi-faq__q" aria-expanded="false">
-                <span class="de-t">Arbeitest Du auch außerhalb Berlins?</span>
-                <span class="en-t">Do you also work outside Berlin?</span>
-              </button>
-              <p class="bi-faq__a">
-                <span class="de-t">Ja, viele Schritte lassen sich remote machen. Vor-Ort-Termine sind je nach Projekt und Entfernung möglich.</span>
-                <span class="en-t">Yes, many steps can be done remotely. On-site visits are possible depending on project and distance.</span>
-              </p>
-            </li>
-          </ul>
-        </div>
-      </section>
-    </main>
 
     <section class="bi-konfigurator-section" aria-labelledby="bi-konfigurator-title">
       <div class="bi-shell">
@@ -3796,6 +3769,69 @@
         </div>
       </div>
     </section>
+
+      <section class="bi-section bi-faq--static" aria-labelledby="bi-faq-title">
+        <div class="bi-shell">
+          <h2 class="bi-section__title" id="bi-faq-title">
+            <span class="de-t">Häufig gestellte Fragen</span>
+            <span class="en-t">Frequently asked questions</span>
+          </h2>
+          <ul class="bi-faq__list">
+            <li class="bi-faq__item">
+              <button type="button" class="bi-faq__q" aria-expanded="false">
+                <span class="de-t">Was kostet ein Projekt?</span>
+                <span class="en-t">What does a project cost?</span>
+              </button>
+              <p class="bi-faq__a">
+                <span class="de-t">Das hängt von Größe und Leistung ab. Design startet ab 450 €, Sortieren ab 200 €, Handwerker-Plan ab 1.000 €. Der Kostenrechner auf dieser Seite gibt Dir eine erste Orientierung.</span>
+                <span class="en-t">It depends on size and service. Design starts from €450, sorting from €200, trades plan from €1,000. The fee calculator on this page gives you a first orientation.</span>
+              </p>
+            </li>
+            <li class="bi-faq__item">
+              <button type="button" class="bi-faq__q" aria-expanded="false">
+                <span class="de-t">Brauche ich einen Architekten?</span>
+                <span class="en-t">Do I need an architect?</span>
+              </button>
+              <p class="bi-faq__a">
+                <span class="de-t">Nicht für jedes Interior-Projekt. Für bauantragsrelevante Hochbau-Themen arbeite ich mit einem Partnerbüro, weil Kammerzugehörigkeit dort nötig ist.</span>
+                <span class="en-t">Not for every interior project. For structural work requiring permits I work with a partner office, because chamber membership is required there.</span>
+              </p>
+            </li>
+            <li class="bi-faq__item">
+              <button type="button" class="bi-faq__q" aria-expanded="false">
+                <span class="de-t">Wie läuft das erste Gespräch?</span>
+                <span class="en-t">How does the first conversation work?</span>
+              </button>
+              <p class="bi-faq__a">
+                <span class="de-t">Du holst mich ab, wo Du stehst: konkret oder vage. Wir klären Ziele, Kapazitäten und ob wir zusammenkommen. Berlin, telefonisch oder remote.</span>
+                <span class="en-t">You meet me where you are: concrete or vague. We clarify goals, capacity, and whether we fit. Berlin, by phone, or remote.</span>
+              </p>
+            </li>
+            <li class="bi-faq__item">
+              <button type="button" class="bi-faq__q" aria-expanded="false">
+                <span class="de-t">Was liefert der Kostenrechner?</span>
+                <span class="en-t">What does the fee calculator deliver?</span>
+              </button>
+              <p class="bi-faq__a">
+                <span class="de-t">Eine erste Einschätzung von Honorar und optionalem Bauvolumen, basierend auf Deinen Angaben zu Größe, Leistung und Zielen. Keine Verpflichtung.</span>
+                <span class="en-t">A first estimate of fee and optional build volume, based on your inputs on size, service, and goals. No obligation.</span>
+              </p>
+            </li>
+            <li class="bi-faq__item">
+              <button type="button" class="bi-faq__q" aria-expanded="false">
+                <span class="de-t">Arbeitest Du auch außerhalb Berlins?</span>
+                <span class="en-t">Do you also work outside Berlin?</span>
+              </button>
+              <p class="bi-faq__a">
+                <span class="de-t">Ja, viele Schritte lassen sich remote machen. Vor-Ort-Termine sind je nach Projekt und Entfernung möglich.</span>
+                <span class="en-t">Yes, many steps can be done remotely. On-site visits are possible depending on project and distance.</span>
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
 
     <aside
       id="bi-project-popup"
@@ -5018,16 +5054,20 @@
         }
 
         function updateMobileNavTransparency() {
-          var mobile = window.matchMedia("(max-width: 520px) and (orientation: portrait)").matches;
+          var mobile = window.matchMedia("(max-width: 520px)").matches;
           var firstTile = document.querySelector(".bi-grid .bi-tile");
           var portfolio = document.querySelector(".bi-portfolio");
           var nav = document.querySelector(".biig-interior-page .nav");
-          if (!mobile || !firstTile || !portfolio || !nav) {
+          if (!mobile || !nav) {
             document.body.style.removeProperty("--bi-mobile-header-h");
             document.body.classList.remove("bi-nav-over-tiles");
             return;
           }
           document.body.style.setProperty("--bi-mobile-header-h", nav.offsetHeight + "px");
+          if (!firstTile || !portfolio) {
+            document.body.classList.remove("bi-nav-over-tiles");
+            return;
+          }
           var navBottom = nav.getBoundingClientRect().bottom;
           var tileTop = firstTile.getBoundingClientRect().top;
           var portfolioBottom = portfolio.getBoundingClientRect().bottom;
