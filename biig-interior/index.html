@@ -78,11 +78,27 @@
       .biig-interior-page .bi-nav__brand {
         justify-self: start;
         min-width: 0;
+        grid-column: 1;
       }
 
       .biig-interior-page .bi-nav__service-wrap {
         justify-self: center;
         position: relative;
+        grid-column: 2;
+      }
+
+      .biig-interior-page .bi-nav__right {
+        justify-self: end;
+        display: flex;
+        align-items: center;
+        gap: clamp(10px, 1.6vw, 14px);
+        grid-column: 3;
+      }
+
+      .bi-nav__utilities {
+        display: flex;
+        align-items: center;
+        gap: clamp(10px, 1.6vw, 14px);
       }
 
       .bi-nav__service-toggle {
@@ -247,6 +263,10 @@
         }
       }
 
+      .bi-nav__utilities {
+        display: contents;
+      }
+
       .bi-shell {
         max-width: var(--content-max);
         margin: 0 auto;
@@ -304,19 +324,28 @@
         position: absolute;
         inset: 0;
         z-index: 3;
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-rows: auto auto 1fr;
         align-items: center;
-        justify-content: center;
-        gap: clamp(18px, 2.8vw, 28px);
-        padding: calc(var(--fc-nav-h, 72px) + clamp(20px, 3vw, 32px)) var(--nav-pad-x)
-          clamp(20px, 3vw, 28px);
+        justify-items: center;
+        gap: clamp(12px, 2vw, 20px);
+        padding: calc(var(--fc-nav-h, 72px) + clamp(16px, 2.5vw, 28px)) var(--nav-pad-x)
+          clamp(52px, 7vw, 72px);
         pointer-events: none;
         text-align: center;
+        box-sizing: border-box;
       }
 
       .bi-hero__overlay > * {
         pointer-events: auto;
+      }
+
+      .bi-hero__overlay-head {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: clamp(16px, 2.5vw, 28px);
+        width: 100%;
       }
 
       .bi-hero__headline {
@@ -332,30 +361,27 @@
         text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55);
       }
 
-      .bi-hero__wordboxes {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: center;
-        gap: clamp(10px, 1.6vw, 16px);
+      .bi-hero__services {
         margin: 0;
-        padding: clamp(28px, 4vw, 48px) var(--nav-pad-x);
+        padding: 0;
         list-style: none;
-        max-width: min(56rem, 100%);
-        margin-inline: auto;
+        max-width: min(52rem, 96%);
+        font-family: var(--font-sans);
+        font-size: clamp(1.35rem, 2.8vw, 2.35rem);
+        font-weight: 200;
+        line-height: 1.12;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+        color: #ffffff;
+        text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55);
+        display: flex;
+        flex-direction: column;
+        gap: 5ch;
+        align-items: center;
       }
 
-      .bi-hero__wordbox {
-        display: inline-flex;
-        align-items: center;
-        padding: clamp(10px, 1.4vw, 14px) clamp(16px, 2.2vw, 24px);
-        background: #0a0a0a;
-        color: #ffffff;
-        font-family: var(--font-sans);
-        font-size: clamp(0.68rem, 0.95vw, 0.82rem);
-        font-weight: 500;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
+      .bi-hero__services li {
+        margin: 0;
       }
 
       .bi-hero__paths {
@@ -363,14 +389,7 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: clamp(12px, 2vw, 18px);
         width: min(72rem, 100%);
-        margin-top: clamp(4px, 1vw, 10px);
-      }
-
-      .bi-hero__mission-wrap {
-        max-width: min(52rem, var(--content-max));
-        margin: 0 auto;
-        padding: clamp(28px, 4vw, 48px) var(--nav-pad-x);
-        text-align: center;
+        align-self: center;
       }
 
       .bi-section {
@@ -386,10 +405,6 @@
       }
 
       @media (min-width: 900px) {
-        .bi-section--compare .bi-section__title {
-          white-space: nowrap;
-        }
-
         .bi-section--compare .bi-section__lede {
           max-width: none;
         }
@@ -490,7 +505,7 @@
 
       .bi-compare {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: clamp(10px, 1.5vw, 16px);
       }
 
@@ -571,7 +586,7 @@
 
       .bi-pricing__grid {
         display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: clamp(10px, 1.5vw, 16px);
       }
 
@@ -639,7 +654,7 @@
       }
 
       .bi-pricing__footer {
-        margin-top: clamp(24px, 3vw, 36px);
+        margin-top: clamp(16px, 2.5vw, 24px);
         text-align: center;
       }
 
@@ -751,6 +766,37 @@
         gap: 12px;
       }
 
+      .bi-section--process .bi-section__title {
+        max-width: none;
+      }
+
+      @media (min-width: 900px) {
+        .bi-section--process .bi-section__title {
+          white-space: nowrap;
+        }
+      }
+
+      .bi-section--pricing .bi-section__title {
+        max-width: none;
+      }
+
+      .bi-faq--static .bi-faq__q {
+        cursor: default;
+        pointer-events: none;
+      }
+
+      .bi-faq--static .bi-faq__q::after {
+        display: none;
+      }
+
+      .bi-faq--static .bi-faq__item .bi-faq__a {
+        display: block;
+      }
+
+      .bi-faq--static .bi-faq__item {
+        border-bottom: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+      }
+
       .bi-faq__list {
         margin: 0;
         padding: 0;
@@ -808,8 +854,12 @@
       }
 
       @media (max-width: 1200px) {
+        .bi-compare {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
         .bi-pricing__grid {
-          grid-template-columns: repeat(3, minmax(0, 1fr));
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
 
@@ -2167,6 +2217,10 @@
       }
 
       @media (max-width: 520px) {
+        .biig-interior-page {
+          overflow-x: clip;
+        }
+
         .biig-interior-page .nav {
           position: fixed;
           inset: 0 0 auto;
@@ -2183,8 +2237,38 @@
         }
 
         .biig-interior-page .bi-nav__inner {
+          grid-template-columns: 1fr auto;
+          grid-template-rows: auto auto auto;
           padding-top: calc(12px + env(safe-area-inset-top, 0px));
           padding-bottom: 12px;
+        }
+
+        .biig-interior-page .bi-nav__service-wrap {
+          grid-column: 1 / -1;
+          grid-row: 1;
+          justify-self: center;
+          width: auto;
+        }
+
+        .biig-interior-page .bi-nav__brand {
+          grid-column: 1;
+          grid-row: 2;
+        }
+
+        .biig-interior-page .bi-nav__right {
+          display: contents;
+        }
+
+        .biig-interior-page .bi-nav__actions {
+          grid-column: 2;
+          grid-row: 2;
+          justify-self: end;
+        }
+
+        .bi-nav__utilities {
+          grid-column: 1 / -1;
+          grid-row: 3;
+          justify-content: center;
         }
 
         .bi-nav__sound-slot {
@@ -2219,6 +2303,27 @@
 
         .bi-hero__figure {
           aspect-ratio: 4 / 3;
+          min-height: 0;
+          width: 100%;
+          max-width: 100%;
+        }
+
+        .bi-hero__overlay {
+          padding-left: var(--nav-pad-x);
+          padding-right: var(--nav-pad-x);
+          width: 100%;
+          max-width: 100vw;
+          box-sizing: border-box;
+        }
+
+        .bi-hero__paths {
+          width: 100%;
+          max-width: 100%;
+        }
+
+        .bi-hero__services {
+          font-size: clamp(1rem, 4.8vw, 1.35rem);
+          gap: 3ch;
         }
 
         .bi-portfolio > .bi-shell {
@@ -2696,7 +2801,7 @@
           </button>
           <div id="bi-service-panel" class="bi-service-panel" hidden>
             <a class="bi-service-panel__item" href="#bi-pricing-ordnung">
-              <span class="bi-service-panel__title"><span class="de-t">Sortieren &amp; Ordnung</span><span class="en-t">Sorting &amp; order</span></span>
+              <span class="bi-service-panel__title"><span class="de-t">Aufräumen</span><span class="en-t">Decluttering</span></span>
               <span class="bi-service-panel__sub"><span class="de-t">Hilfe beim Sortieren Deiner Ideen und/oder Deines Hab &amp; Guts.</span><span class="en-t">Help sorting your ideas and/or what you own.</span></span>
             </a>
             <a class="bi-service-panel__item" href="#bi-pricing-design">
@@ -2704,28 +2809,32 @@
               <span class="bi-service-panel__sub"><span class="de-t">Von Zimmerecke bis Villa. Von Computertisch bis Headquarter.</span><span class="en-t">From a room corner to a villa. From a desk to headquarters.</span></span>
             </a>
             <a class="bi-service-panel__item" href="#bi-pricing-handwerker">
-              <span class="bi-service-panel__title"><span class="de-t">Plan für Handwerker</span><span class="en-t">Trades plan</span></span>
+              <span class="bi-service-panel__title"><span class="de-t">Konstruktionszeichnungen</span><span class="en-t">Construction drawings</span></span>
               <span class="bi-service-panel__sub"><span class="de-t">Du: Wunsch. Ich: Plan für den Handwerker.</span><span class="en-t">You: the vision. Me: the plan for the trades.</span></span>
             </a>
             <a class="bi-service-panel__item" href="#bi-pricing-hochbau">
-              <span class="bi-service-panel__title"><span class="de-t">Hochbau</span><span class="en-t">Structural work</span></span>
+              <span class="bi-service-panel__title"><span class="de-t">Gebäudeplanung</span><span class="en-t">Building planning</span></span>
               <span class="bi-service-panel__sub"><span class="de-t">Bauantragsrelevante Projekte setze ich heute mit einem Partnerbüro um.</span><span class="en-t">Planning permit projects I deliver today with a partner office.</span></span>
             </a>
             <a class="bi-service-panel__item" href="#bi-pricing-moebel">
-              <span class="bi-service-panel__title"><span class="de-t">Möbel</span><span class="en-t">Furniture</span></span>
+              <span class="bi-service-panel__title"><span class="de-t">Möbelentwürfe</span><span class="en-t">Furniture design</span></span>
               <span class="bi-service-panel__sub"><span class="de-t">Möbel an Deinen Ort angepasst. Vom IKEA Hack bis zur hochwertigen Tischlerarbeit.</span><span class="en-t">Furniture tailored to your place. From IKEA hacks to high quality joinery.</span></span>
             </a>
           </div>
         </div>
-        <div class="nav__cta-bucket bi-nav__actions">
-          <a class="bi-nav__cta bi-nav__cta--calendly" href="../kontakt/index.html" data-bi-calendly>
-            <span class="de-t">Termin buchen</span>
-            <span class="en-t">Book a call</span>
-          </a>
-          <span class="bi-nav__sound-slot" id="bi-nav-sound-slot" aria-hidden="true"></span>
-          <div class="nav__lang" role="group" aria-label="Sprache">
-            <button type="button" class="is-active" data-fc-lang="de">DE</button>
-            <button type="button" data-fc-lang="en">EN</button>
+        <div class="bi-nav__right">
+          <div class="nav__cta-bucket bi-nav__actions">
+            <a class="bi-nav__cta bi-nav__cta--calendly" href="../kontakt/index.html" data-bi-calendly>
+              <span class="de-t">Termin buchen</span>
+              <span class="en-t">Book a call</span>
+            </a>
+          </div>
+          <div class="bi-nav__utilities">
+            <span class="bi-nav__sound-slot" id="bi-nav-sound-slot" aria-hidden="true"></span>
+            <div class="nav__lang" role="group" aria-label="Sprache">
+              <button type="button" class="is-active" data-fc-lang="de">DE</button>
+              <button type="button" data-fc-lang="en">EN</button>
+            </div>
           </div>
         </div>
       </div>
@@ -2744,33 +2853,42 @@
               </div>
             </div>
             <div class="bi-hero__overlay">
-              <h1 id="bi-hero-headline" class="bi-hero__headline">
-                <span class="de-t">Finde die richtigen Mittel für Deine Alltagsarchitektur. Umsetzungsstark &amp; Authentisch.</span>
-                <span class="en-t">Find the right tools for your everyday architecture. Strong in execution &amp; authentic.</span>
-              </h1>
+              <div class="bi-hero__overlay-head">
+                <h1 id="bi-hero-headline" class="bi-hero__headline">
+                  <span class="de-t">Finde die richtigen Mittel<br />für deine Alltagsarchitektur.<br />Umsetzungsstark &amp; authentisch.</span>
+                  <span class="en-t">Find the right tools<br />for your everyday architecture.<br />Strong in execution &amp; authentic.</span>
+                </h1>
+                <ul class="bi-hero__services" aria-label="Leistungen">
+                  <li><span class="de-t">Aufräumservice</span><span class="en-t">Decluttering service</span></li>
+                  <li><span class="de-t">Interiordesign</span><span class="en-t">Interior design</span></li>
+                  <li><span class="de-t">Ausführungsplanung</span><span class="en-t">Execution planning</span></li>
+                  <li><span class="de-t">Bauleitung</span><span class="en-t">Site management</span></li>
+                  <li><span class="de-t">Rund-um-Sorglos-Paket</span><span class="en-t">All-inclusive package</span></li>
+                </ul>
+              </div>
               <div class="bi-hero__paths">
                 <a class="bi-path-card" href="#biig-konfigurator" onclick="return bkStartWithTrack('arrangement');">
                   <div>
                     <h2 class="bi-path-card__title">
-                      <span class="de-t">Vom Gefühl zum Plan</span>
-                      <span class="en-t">From feeling to plan</span>
+                      <span class="de-t">Kostenrechner: Vom Gefühl zum Plan</span>
+                      <span class="en-t">Fee calculator: From feeling to plan</span>
                     </h2>
                     <p class="bi-path-card__text">
-                      <span class="de-t">Du hast eine Idee oder nur ein Gefühl? Wir sammeln alles und entwickeln ein umsetzbares Konzept aus Deinen Zielen und Ressourcen.</span>
-                      <span class="en-t">You have an idea or just a feeling? We gather everything and develop an actionable concept from your goals and resources.</span>
+                      <span class="de-t">Klick Dich in zwei Minuten durch unseren Kostenrechner damit Du ein besseres Gefühl für die Umsetzung bekommst. Wenn Du dann möchtest, stellen wir Dir alles zur Verfügung, um sich für das Projekt zu entscheiden.</span>
+                      <span class="en-t">Click through our fee calculator in two minutes to get a better feel for what implementation involves. If you then want to, we provide everything you need to decide on the project.</span>
                     </p>
                   </div>
-                  <span class="bi-path-card__link"><span class="de-t">Projekt starten</span><span class="en-t">Start project</span> ›</span>
+                  <span class="bi-path-card__link"><span class="de-t">Kostenrechner</span><span class="en-t">Calculator</span> ›</span>
                 </a>
                 <a class="bi-path-card" href="../kontakt/index.html" data-bi-calendly>
                   <div>
                     <h2 class="bi-path-card__title">
-                      <span class="de-t">Erstgespräch buchen</span>
-                      <span class="en-t">Book an intro call</span>
+                      <span class="de-t">Kostenloses Erstgespräch</span>
+                      <span class="en-t">Free intro call</span>
                     </h2>
                     <p class="bi-path-card__text">
-                      <span class="de-t">Kurz austauschen, wo Du stehst. Ob mit Plan oder nur einem vagen Gedanken. Berlin oder remote.</span>
-                      <span class="en-t">A short exchange about where you are. With a plan or just a vague thought. Berlin or remote.</span>
+                      <span class="de-t">Lass uns direkt einsteigen und Deine Idee zu Deinen Räumen gemeinsam in einem 30-minütigen Gespräch anschauen. Du bekommst im Anschluss ein sauber strukturiertes Protokoll mit Zieldefinition, Briefing und Zahlen.</span>
+                      <span class="en-t">Let us dive straight in and look at your idea for your spaces together in a 30-minute call. Afterwards you receive a clearly structured protocol with goals, briefing, and numbers.</span>
                     </p>
                   </div>
                   <span class="bi-path-card__link"><span class="de-t">Termin buchen</span><span class="en-t">Book a call</span> ›</span>
@@ -2788,78 +2906,55 @@
               <span class="bi-hero__sound-icon" aria-hidden="true">♪</span>
             </button>
           </figure>
-          <ul class="bi-hero__wordboxes" aria-label="Leistungen">
-            <li class="bi-hero__wordbox"><span class="de-t">Sortieren</span><span class="en-t">Sorting</span></li>
-            <li class="bi-hero__wordbox"><span class="de-t">Design</span><span class="en-t">Design</span></li>
-            <li class="bi-hero__wordbox"><span class="de-t">Handwerker</span><span class="en-t">Trades</span></li>
-            <li class="bi-hero__wordbox"><span class="de-t">Hochbau</span><span class="en-t">Structural</span></li>
-            <li class="bi-hero__wordbox"><span class="de-t">Möbel</span><span class="en-t">Furniture</span></li>
-          </ul>
-          <div class="bi-hero__mission-wrap bi-hero__mission">
-            <p>
-              <span class="de-t"
-                >Mission von biig Interior ist es, jedem Menschen zu helfen, der den Wunsch hat, die persönliche
-                Umgebung für sich besser zu machen. Auch ohne Architekten und ohne Angst vorm Scheitern.</span
-              >
-              <span class="en-t"
-                >biig Interior's mission is to help everyone who wants to improve their personal environment for
-                themselves. Even without architects and without fear of failure.</span
-              >
-            </p>
-            <p>
-              <span class="de-t"
-                >Die Räume, in denen wir leben und arbeiten, beeinflussen genau das. Interior Design als First Principle
-                Thinking. An deine Lebensgestaltung angepasst, lebensnah, pragmatisch und ästhetisch funktional.</span
-              >
-              <span class="en-t"
-                >The spaces in which we live and work influence exactly that. Interior design as first principles
-                thinking. Adapted to your life design, close to life, pragmatic, and aesthetically functional.</span
-              >
-            </p>
-          </div>
         </div>
       </section>
 
       <section class="bi-section bi-section--compare" aria-labelledby="bi-compare-title">
         <div class="bi-shell">
-          <p class="bi-section__eyebrow">
-            <span class="de-t">Warum biig Interior</span>
-            <span class="en-t">Why biig Interior</span>
-          </p>
           <h2 class="bi-section__title" id="bi-compare-title">
-            <span class="de-t">Ohne Plan. Mit Büro. Mit biig.</span>
-            <span class="en-t">Without a plan. With a firm. With biig.</span>
+            <span class="de-t">Wir waren als Architekten schon in allen Phasen und Konstellationen. Wir wissen was entscheidend ist und liefern.</span>
+            <span class="en-t">As architects we have been through every phase and setup. We know what matters and we deliver.</span>
           </h2>
-          <p class="bi-section__lede">
-            <span class="de-t">Interior und Architektur müssen nicht teuer, langsam oder abschreckend sein. Der Unterschied liegt in Tempo, Nähe und Umsetzungsfokus.</span>
-            <span class="en-t">Interior and architecture do not have to be expensive, slow, or intimidating. The difference is pace, closeness, and focus on execution.</span>
-          </p>
           <div class="bi-compare">
             <div class="bi-compare__col">
-              <h3 class="bi-compare__head"><span class="de-t">Allein</span><span class="en-t">On your own</span></h3>
+              <h3 class="bi-compare__head"><span class="de-t">DIY</span><span class="en-t">DIY</span></h3>
               <ul class="bi-compare__list">
-                <li><span class="de-t">Ideen bleiben im Kopf oder in Notizen</span><span class="en-t">Ideas stay in your head or in notes</span></li>
-                <li><span class="de-t">Kein klarer erster Schritt</span><span class="en-t">No clear first step</span></li>
-                <li><span class="de-t">Handwerker ohne Plan beauftragen</span><span class="en-t">Commissioning trades without a plan</span></li>
-                <li><span class="de-t">Hohes Risiko, am Ende nicht zufrieden zu sein</span><span class="en-t">High risk of ending up unsatisfied</span></li>
+                <li><span class="de-t">Geld gespart aber viel Zeit verloren</span><span class="en-t">Money saved but a lot of time lost</span></li>
+                <li><span class="de-t">Freunde gefragt aber Stress am Ende</span><span class="en-t">Asked friends but stress in the end</span></li>
+                <li><span class="de-t">Möbel sahen auf dem Werbefoto viel besser aus</span><span class="en-t">Furniture looked much better in the advert</span></li>
+                <li><span class="de-t">Alles dauert dreimal so lange</span><span class="en-t">Everything takes three times as long</span></li>
+                <li><span class="de-t">Das Leben soll auch gelebt werden und Renovierung gehört nicht dazu</span><span class="en-t">Life is for living and renovation should not get in the way</span></li>
+                <li><span class="de-t">Möbelkatalog</span><span class="en-t">Furniture catalogue</span></li>
               </ul>
             </div>
             <div class="bi-compare__col">
-              <h3 class="bi-compare__head"><span class="de-t">Klassisches Büro</span><span class="en-t">Classic office</span></h3>
+              <h3 class="bi-compare__head"><span class="de-t">Eigene Organisation</span><span class="en-t">Your own organisation</span></h3>
               <ul class="bi-compare__list">
-                <li><span class="de-t">Lange Vorlaufzeiten</span><span class="en-t">Long lead times</span></li>
-                <li><span class="de-t">Hohe Mindesthonorare</span><span class="en-t">High minimum fees</span></li>
-                <li><span class="de-t">Fokus oft auf Entwurf, weniger auf Alltag</span><span class="en-t">Focus often on design, less on daily life</span></li>
-                <li><span class="de-t">Wenig Begleitung bei Umsetzung</span><span class="en-t">Little support during execution</span></li>
+                <li><span class="de-t">Viel Pinterest und Fotosammlungen</span><span class="en-t">Lots of Pinterest and photo collections</span></li>
+                <li><span class="de-t">Unklarheit über den ersten Schritt</span><span class="en-t">Uncertainty about the first step</span></li>
+                <li><span class="de-t">Handwerker durchkreuzen Ideen</span><span class="en-t">Tradespeople derail ideas</span></li>
+                <li><span class="de-t">Kosten laufen aus dem Ruder</span><span class="en-t">Costs get out of hand</span></li>
+                <li><span class="de-t">Ergebnis bleibt meist unfertig</span><span class="en-t">The result usually stays unfinished</span></li>
+              </ul>
+            </div>
+            <div class="bi-compare__col">
+              <h3 class="bi-compare__head"><span class="de-t">Klassisches Planungsbüro</span><span class="en-t">Classic planning office</span></h3>
+              <ul class="bi-compare__list">
+                <li><span class="de-t">Einschränkung von Design Doktrin des Inhabers</span><span class="en-t">Limited by the owner's design doctrine</span></li>
+                <li><span class="de-t">Hohes Honorar</span><span class="en-t">High fees</span></li>
+                <li><span class="de-t">Lange Vorlaufzeiten und De-Priorisierung</span><span class="en-t">Long lead times and de-prioritisation</span></li>
+                <li><span class="de-t">Kleine Projekte werden von Berufsanfängern geleitet</span><span class="en-t">Small projects led by junior staff</span></li>
+                <li><span class="de-t">Gefahr der Preisabsprachen mit Handwerkern</span><span class="en-t">Risk of price fixing with trades</span></li>
               </ul>
             </div>
             <div class="bi-compare__col bi-compare__col--highlight">
               <h3 class="bi-compare__head">biig Interior</h3>
               <ul class="bi-compare__list">
-                <li><span class="de-t">Schnelle, umsetzbare Konzepte</span><span class="en-t">Fast, actionable concepts</span></li>
-                <li><span class="de-t">Transparent ab 200 €, Kostenrechner inklusive</span><span class="en-t">Transparent from €200, fee calculator included</span></li>
-                <li><span class="de-t">First-Principles: angepasst an Deinen Lebensentwurf</span><span class="en-t">First principles: adapted to your life design</span></li>
-                <li><span class="de-t">Begleitung bis zur Übergabe, auch ohne Angst vorm Scheitern</span><span class="en-t">Support through handover, without fear of failure</span></li>
+                <li><span class="de-t">Thinking out of the Box, manchmal braucht es erst einmal Ordnung im Status Quo</span><span class="en-t">Thinking out of the box, sometimes you first need order in the status quo</span></li>
+                <li><span class="de-t">Strukturierte Zieldefinition und fertige Kostengrundlage</span><span class="en-t">Structured goal definition and a ready cost basis</span></li>
+                <li><span class="de-t">Dein Lebensentwurf als Design-First-Principle-Thinking</span><span class="en-t">Your life design as design-first-principles thinking</span></li>
+                <li><span class="de-t">Hoher Anspruch auch wenn man mit unkonventionellen Mitteln arbeiten muss</span><span class="en-t">High standards even when working with unconventional means</span></li>
+                <li><span class="de-t">Kostensicherheit aufgrund von klaren Eckpunkten mit ausführenden Firmen</span><span class="en-t">Cost certainty through clear parameters with executing firms</span></li>
               </ul>
             </div>
           </div>
@@ -2902,7 +2997,7 @@
                 <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
               </span>
             </button>
-            <button type="button" class="bi-tile bi-tile--project" data-bi-project="altbauwohnung">
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="altbau1">
               <span class="bi-tile__media">
                 <img src="../assets/interior/altbau_mitfakekamin-01.png" alt="" width="1536" height="2576" decoding="async" />
               </span>
@@ -2915,7 +3010,20 @@
                 <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
               </span>
             </button>
-            <button type="button" class="bi-tile bi-tile--project" data-bi-project="homeoffice">
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="altbau2">
+              <span class="bi-tile__media">
+                <img src="../assets/interior/altbau-02.png" alt="" width="1536" height="2576" decoding="async" />
+              </span>
+              <span class="bi-tile__label">
+                <span class="de-t">Deine Altbauwohnung</span>
+                <span class="en-t">Your period apartment</span>
+              </span>
+              <span class="bi-tile__hover">
+                <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
+                <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
+              </span>
+            </button>
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="homeoffice1">
               <span class="bi-tile__media">
                 <img src="../assets/interior/homeoffice-mitKunst.png" alt="" width="2174" height="1728" decoding="async" />
               </span>
@@ -2928,7 +3036,25 @@
                 <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
               </span>
             </button>
-            <button type="button" class="bi-tile bi-tile--project" data-bi-project="zweihaeuser">
+              </div>
+            </div>
+
+            <div class="bi-image-row">
+              <div class="bi-image-row__scroll">
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="homeoffice2">
+              <span class="bi-tile__media">
+                <img src="../assets/interior/office-02.png" alt="" width="2174" height="1728" decoding="async" />
+              </span>
+              <span class="bi-tile__label">
+                <span class="de-t">Dein Office</span>
+                <span class="en-t">Your office</span>
+              </span>
+              <span class="bi-tile__hover">
+                <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
+                <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
+              </span>
+            </button>
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="hausA">
               <span class="bi-tile__media">
                 <img src="../assets/interior/traudi-küche.png" alt="" width="2193" height="1606" decoding="async" />
               </span>
@@ -2941,11 +3067,19 @@
                 <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
               </span>
             </button>
-              </div>
-            </div>
-
-            <div class="bi-image-row">
-              <div class="bi-image-row__scroll">
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="hausB">
+              <span class="bi-tile__media">
+                <img src="../assets/interior/Neubauhaus.png" alt="" width="2193" height="1606" decoding="async" />
+              </span>
+              <span class="bi-tile__label">
+                <span class="de-t">Dein Haus</span>
+                <span class="en-t">Your house</span>
+              </span>
+              <span class="bi-tile__hover">
+                <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
+                <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
+              </span>
+            </button>
             <button type="button" class="bi-tile bi-tile--project" data-bi-project="loft">
               <span class="bi-tile__media">
                 <img src="../assets/interior/loftbalkon.png?v=2" alt="" width="1306" height="2430" decoding="async" />
@@ -2959,6 +3093,11 @@
                 <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
               </span>
             </button>
+              </div>
+            </div>
+
+            <div class="bi-image-row">
+              <div class="bi-image-row__scroll">
             <button type="button" class="bi-tile bi-tile--project" data-bi-project="ordnung">
               <span class="bi-tile__media">
                 <img src="../assets/interior/ordnung-01.png" alt="" width="1661" height="2382" decoding="async" />
@@ -2966,6 +3105,19 @@
               <span class="bi-tile__label">
                 <span class="de-t">Deine Ordnung</span>
                 <span class="en-t">Your organisation</span>
+              </span>
+              <span class="bi-tile__hover">
+                <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
+                <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
+              </span>
+            </button>
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="kueche">
+              <span class="bi-tile__media">
+                <img src="../assets/interior/langekochzeile.jpg" alt="" width="2400" height="1600" decoding="async" />
+              </span>
+              <span class="bi-tile__label">
+                <span class="de-t">Deine Küche</span>
+                <span class="en-t">Your kitchen</span>
               </span>
               <span class="bi-tile__hover">
                 <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
@@ -3003,14 +3155,9 @@
 
             <div class="bi-image-row">
               <div class="bi-image-row__scroll">
-            <button type="button" class="bi-tile bi-tile--project" data-bi-project="vinothek">
-              <span class="bi-tile__media bi-tile__media--split">
-                <span class="bi-tile__media-half">
-                  <img src="../assets/interior/geisenheim_blumen.png" alt="" width="800" height="1067" decoding="async" />
-                </span>
-                <span class="bi-tile__media-half">
-                  <img src="../assets/interior/alpenkantine-V01.png?v=2" alt="" width="800" height="1067" decoding="async" />
-                </span>
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="vinothekGeo">
+              <span class="bi-tile__media">
+                <img src="../assets/interior/geisenheim_blumen.png" alt="" width="800" height="1067" decoding="async" />
               </span>
               <span class="bi-tile__label">
                 <span class="de-t">Dein Gastraum</span>
@@ -3021,21 +3168,20 @@
                 <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
               </span>
             </button>
-            <div
-              class="bi-tile bi-tile--project bi-tile--hochbau-collage"
-              id="bi-hochbau-collage"
-              data-bi-hochbau-gallery
-              role="button"
-              tabindex="0"
-              aria-label="Hochbauprojekte"
-            >
-              <span class="bi-hochbau-collage" id="bi-hochbau-collage-inner"></span>
-              <span class="bi-tile__label">
-                <span class="de-t">Bauprojekte</span>
-                <span class="en-t">Building projects</span>
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="vinothekAlpen">
+              <span class="bi-tile__media">
+                <img src="../assets/interior/alpenkantine-V01.png?v=2" alt="" width="800" height="1067" decoding="async" />
               </span>
-            </div>
-            <div class="bi-tile bi-tile--project" data-bi-project="moebel" role="button" tabindex="0">
+              <span class="bi-tile__label">
+                <span class="de-t">Dein Gastraum</span>
+                <span class="en-t">Your dining room</span>
+              </span>
+              <span class="bi-tile__hover">
+                <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
+                <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
+              </span>
+            </button>
+            <div class="bi-tile bi-tile--project" id="bi-pricing-moebel" data-bi-project="moebel" role="button" tabindex="0">
               <span class="bi-tile__media">
                 <img src="../assets/interior/freivonecken130-villaecke.png" alt="" width="1646" height="1697" decoding="async" />
               </span>
@@ -3054,21 +3200,31 @@
                 </a>
               </div>
             </div>
+            <div
+              class="bi-tile bi-tile--project bi-tile--hochbau-collage"
+              id="bi-hochbau-collage"
+              data-bi-hochbau-gallery
+              role="button"
+              tabindex="0"
+              aria-label="Hochbauprojekte"
+            >
+              <span class="bi-hochbau-collage" id="bi-hochbau-collage-inner"></span>
+              <span class="bi-tile__label">
+                <span class="de-t">Bauprojekte</span>
+                <span class="en-t">Building projects</span>
+              </span>
+            </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="bi-section bi-section--tight-top" aria-labelledby="bi-process-title">
+      <section class="bi-section bi-section--tight-top bi-section--process" aria-labelledby="bi-process-title">
         <div class="bi-shell">
-          <p class="bi-section__eyebrow">
-            <span class="de-t">Ablauf</span>
-            <span class="en-t">Process</span>
-          </p>
           <h2 class="bi-section__title" id="bi-process-title">
-            <span class="de-t">Zusammenarbeit in Kurzform</span>
-            <span class="en-t">Working together, briefly</span>
+            <span class="de-t">Projektablauf in Kurzform</span>
+            <span class="en-t">Project process in brief</span>
           </h2>
           <div class="bi-process__grid">
             <article class="bi-process__item">
@@ -3099,20 +3255,12 @@
         </div>
       </section>
 
-      <section class="bi-section bi-section--tight-top" id="bi-pricing" aria-labelledby="bi-pricing-title">
+      <section class="bi-section bi-section--tight-top bi-section--pricing" id="bi-pricing" aria-labelledby="bi-pricing-title">
         <div class="bi-shell">
-          <p class="bi-section__eyebrow">
-            <span class="de-t">Honorar</span>
-            <span class="en-t">Fees</span>
-          </p>
           <h2 class="bi-section__title" id="bi-pricing-title">
             <span class="de-t">Pakete im Überblick</span>
             <span class="en-t">Packages at a glance</span>
           </h2>
-          <p class="bi-section__lede">
-            <span class="de-t">Alle Preise sind Startpunkte. Der Kostenrechner gibt Dir eine erste Orientierung nach Umfang und Leistung.</span>
-            <span class="en-t">All prices are starting points. The fee calculator gives you a first orientation by scope and service.</span>
-          </p>
           <div class="bi-pricing__grid">
             <article class="bi-pricing-card" id="bi-pricing-ordnung">
               <h3 class="bi-pricing-card__title"><span class="de-t">Sortieren &amp; Ordnung</span><span class="en-t">Sorting &amp; order</span></h3>
@@ -3154,16 +3302,6 @@
                 <li><span class="de-t">Persönliches Erstgespräch</span><span class="en-t">Personal intro call</span></li>
               </ul>
             </article>
-            <article class="bi-pricing-card" id="bi-pricing-moebel">
-              <h3 class="bi-pricing-card__title"><span class="de-t">Möbel</span><span class="en-t">Furniture</span></h3>
-              <p class="bi-pricing-card__price"><span class="de-t">ab 450 €</span><span class="en-t">from €450</span></p>
-              <p class="bi-pricing-card__note"><span class="de-t">Vom IKEA Hack bis zur Tischlerarbeit</span><span class="en-t">From IKEA hacks to joinery</span></p>
-              <ul class="bi-pricing-card__list">
-                <li><span class="de-t">Entwurf und Planung</span><span class="en-t">Design and planning</span></li>
-                <li><span class="de-t">An Deinen Ort angepasst</span><span class="en-t">Tailored to your place</span></li>
-                <li><span class="de-t">DIY oder Tischler</span><span class="en-t">DIY or joiner</span></li>
-              </ul>
-            </article>
           </div>
           <div class="bi-pricing__footer">
             <a class="bi-pricing-card__cta" href="#biig-konfigurator" onclick="if(window.bkGoTo){bkGoTo(0);}return false;">
@@ -3174,12 +3312,11 @@
         </div>
       </section>
 
-      <section class="bi-section" aria-labelledby="bi-faq-title">
+      <section class="bi-section bi-faq--static" aria-labelledby="bi-faq-title">
         <div class="bi-shell">
-          <p class="bi-section__eyebrow">FAQ</p>
           <h2 class="bi-section__title" id="bi-faq-title">
-            <span class="de-t">Häufige Fragen</span>
-            <span class="en-t">Common questions</span>
+            <span class="de-t">Häufig gestellte Fragen</span>
+            <span class="en-t">Frequently asked questions</span>
           </h2>
           <ul class="bi-faq__list">
             <li class="bi-faq__item">
@@ -3863,6 +4000,228 @@
               "../assets/interior/altbau-02.png",
             ],
           },
+          altbau1: {
+            tileLabelDe: "Deine Altbauwohnung",
+            tileLabelEn: "Your period apartment",
+            titleDe: "Gestaltung eines 40 qm Zimmers, Berlin 2025",
+            titleEn: "Design of a 40 sqm room, Berlin 2025",
+            bodyDe:
+              "Altbauwohnung mit Charakter, hohe Räume, warme Materialien und ein Kamin als Mittelpunkt.",
+            bodyEn:
+              "Period apartment with character, tall rooms, warm materials, and a fireplace as the focal point.",
+            infoDetailDe:
+              "Hier wurde ein 40-Quadratmeter-Zimmer in einer Altbauwohnung in Berlin gestaltet.",
+            infoDetailEn:
+              "Here, a 40 square metre room in a period apartment in Berlin was designed.",
+            keywordDe: "Altbau",
+            keywordEn: "Period building",
+            concreteDe: "40 qm Zimmer, Berlin 2025",
+            concreteEn: "40 sqm room, Berlin 2025",
+            imageLabelsDe: ["Gestaltung eines 40 qm Zimmers, Berlin 2025"],
+            imageLabelsEn: ["Design of a 40 sqm room, Berlin 2025"],
+            images: ["../assets/interior/altbau_mitfakekamin-01.png"],
+          },
+          altbau2: {
+            tileLabelDe: "Deine Altbauwohnung",
+            tileLabelEn: "Your period apartment",
+            titleDe: "WG-Zimmer für einen IT-Spezialisten, Berlin 2016",
+            titleEn: "Shared room for an IT specialist, Berlin 2016",
+            bodyDe:
+              "Altbauwohnung mit Charakter, hohe Räume, warme Materialien und ein Kamin als Mittelpunkt.",
+            bodyEn:
+              "Period apartment with character, tall rooms, warm materials, and a fireplace as the focal point.",
+            infoDetailDe:
+              "Hier wurde ein WG-Zimmer für einen IT-Spezialisten in Berlin gestaltet.",
+            infoDetailEn:
+              "Here, a shared room for an IT specialist in Berlin was designed.",
+            keywordDe: "Altbau",
+            keywordEn: "Period building",
+            concreteDe: "WG-Zimmer, Berlin 2016",
+            concreteEn: "Shared room, Berlin 2016",
+            imageLabelsDe: ["WG-Zimmer für einen IT-Spezialisten, Berlin 2016"],
+            imageLabelsEn: ["Shared room for an IT specialist, Berlin 2016"],
+            images: ["../assets/interior/altbau-02.png"],
+          },
+          homeoffice1: {
+            tileLabelDe: "Dein Office",
+            tileLabelEn: "Your office",
+            titleDe: "Konzept für ein Bürozimmer, Berlin 2023",
+            titleEn: "Concept for an office room, Berlin 2023",
+            bodyDe:
+              "Arbeitsplatz zu Hause, klar strukturiert, gut belichtet und auf den Alltag abgestimmt.",
+            bodyEn:
+              "Working from home, clearly structured, well lit, and aligned with everyday life.",
+            infoDetailDe: "Hier wurde ein Konzept für ein Bürozimmer in Berlin entwickelt.",
+            infoDetailEn: "Here, a concept for a home office room in Berlin was developed.",
+            keywordDe: "Homeoffice",
+            keywordEn: "Home office",
+            concreteDe: "Bürozimmer, Berlin 2023",
+            concreteEn: "Office room, Berlin 2023",
+            imageLabelsDe: ["Konzept für ein Bürozimmer, Berlin 2023"],
+            imageLabelsEn: ["Concept for an office room, Berlin 2023"],
+            images: ["../assets/interior/homeoffice-mitKunst.png"],
+          },
+          homeoffice2: {
+            tileLabelDe: "Dein Office",
+            tileLabelEn: "Your office",
+            titleDe: "Brass Living, Berlin 2026",
+            titleEn: "Brass Living, Berlin 2026",
+            bodyDe:
+              "Arbeitsplatz zu Hause, klar strukturiert, gut belichtet und auf den Alltag abgestimmt.",
+            bodyEn:
+              "Working from home, clearly structured, well lit, and aligned with everyday life.",
+            infoDetailDe: "Hier wurde ein Arbeitsbereich im Rahmen von Brass Living in Berlin gestaltet.",
+            infoDetailEn: "Here, a workspace was designed as part of Brass Living in Berlin.",
+            keywordDe: "Homeoffice",
+            keywordEn: "Home office",
+            concreteDe: "Brass Living, Berlin 2026",
+            concreteEn: "Brass Living, Berlin 2026",
+            imageLabelsDe: ["Brass Living, Berlin 2026"],
+            imageLabelsEn: ["Brass Living, Berlin 2026"],
+            images: ["../assets/interior/office-02.png"],
+          },
+          hausA: {
+            tileLabelDe: "Dein Haus",
+            tileLabelEn: "Your house",
+            titleDe: "Sanierung Einfamilienhaus, Augsburg 2013",
+            titleEn: "Renovation single-family house, Augsburg 2013",
+            bodyDe:
+              "Umbauten in Hamburg und Augsburg, zwei Häuser, unterschiedliche Orte, gemeinsame Idee: Bestand lesen und neu nutzen.",
+            bodyEn:
+              "Renovations in Hamburg and Augsburg, two houses, different locations, one idea: read the existing fabric and use it anew.",
+            infoDetailDe: "Hier wurde ein Einfamilienhaus in Augsburg saniert.",
+            infoDetailEn: "Here, a single-family house in Augsburg was renovated.",
+            keywordDe: "Umbauten",
+            keywordEn: "Renovations",
+            concreteDe: "Augsburg 2013",
+            concreteEn: "Augsburg 2013",
+            imageLabelsDe: [
+              "Sanierung Einfamilienhaus, Augsburg 2013",
+              "Sanierung Einfamilienhaus, Augsburg 2013",
+            ],
+            imageLabelsEn: [
+              "Renovation single-family house, Augsburg 2013",
+              "Renovation single-family house, Augsburg 2013",
+            ],
+            images: [
+              "../assets/interior/traudi-küche.png",
+              "../assets/interior/traudi_kueche-gr.png",
+            ],
+          },
+          hausB: {
+            tileLabelDe: "Dein Haus",
+            tileLabelEn: "Your house",
+            titleDe: "Konzept Doppelhaushälfte, Hamburg 2012",
+            titleEn: "Duplex half-house concept, Hamburg 2012",
+            bodyDe:
+              "Umbauten in Hamburg und Augsburg, zwei Häuser, unterschiedliche Orte, gemeinsame Idee: Bestand lesen und neu nutzen.",
+            bodyEn:
+              "Renovations in Hamburg and Augsburg, two houses, different locations, one idea: read the existing fabric and use it anew.",
+            infoDetailDe: "Hier wurde eine Doppelhaushälfte in Hamburg konzipiert.",
+            infoDetailEn: "Here, a semi-detached house in Hamburg was conceived.",
+            keywordDe: "Umbauten",
+            keywordEn: "Renovations",
+            concreteDe: "Hamburg 2012",
+            concreteEn: "Hamburg 2012",
+            imageLabelsDe: [
+              "Konzept Doppelhaushälfte, Hamburg 2012",
+              "Konzept Doppelhaushälfte, Hamburg 2012",
+            ],
+            imageLabelsEn: [
+              "Duplex half-house concept, Hamburg 2012",
+              "Duplex half-house concept, Hamburg 2012",
+            ],
+            images: [
+              "../assets/interior/Neubauhaus.png",
+              "../assets/hochbau/doppelhaus-visu-strich.png",
+            ],
+          },
+          kueche: {
+            tileLabelDe: "Deine Küche",
+            tileLabelEn: "Your kitchen",
+            titleDe: "Küchenplanung, Berlin",
+            titleEn: "Kitchen planning, Berlin",
+            bodyDe:
+              "Küchenzeile und Arbeitsbereich, durchdacht geplant und auf Alltag und Raum abgestimmt.",
+            bodyEn:
+              "Kitchen run and workspace, thoughtfully planned and aligned with daily life and space.",
+            infoDetailDe: "Hier wurde eine Küche mit Kochzeile und Arbeitsbereich geplant.",
+            infoDetailEn: "Here, a kitchen with a run of units and workspace was planned.",
+            keywordDe: "Küche",
+            keywordEn: "Kitchen",
+            concreteDe: "Berlin",
+            concreteEn: "Berlin",
+            imageLabelsDe: ["Küchenplanung, Berlin", "Brass Living, Berlin 2026"],
+            imageLabelsEn: ["Kitchen planning, Berlin", "Brass Living, Berlin 2026"],
+            images: [
+              "../assets/interior/langekochzeile.jpg",
+              "../assets/interior/loft-kitchen.png",
+            ],
+          },
+          vinothekGeo: {
+            tileLabelDe: "Dein Gastraum",
+            tileLabelEn: "Your dining room",
+            titleDe: "Umbau eines Weinguts, Geisenheim 2023",
+            titleEn: "Winery renovation, Geisenheim 2023",
+            bodyDe:
+              "Interiordesign für eine Vinothek in Geisenheim, Atmosphäre, Material und Licht für einen Ort zum Verweilen.",
+            bodyEn:
+              "Interior design for a wine bar in Geisenheim, atmosphere, materials, and light for a place to linger.",
+            infoDetailDe:
+              "Hier wurde ein Weingut in Geisenheim zu einem Ort mit Atmosphäre, Material und Licht umgebaut.",
+            infoDetailEn:
+              "Here, a winery in Geisenheim was transformed into a place of atmosphere, material, and light.",
+            keywordDe: "Interiordesign",
+            keywordEn: "Interior design",
+            concreteDe: "Geisenheim, 2023",
+            concreteEn: "Geisenheim, 2023",
+            imageLabelsDe: [
+              "Umbau eines Weinguts, Geisenheim 2023",
+              "Umbau eines Weinguts, Geisenheim 2023",
+              "Umbau eines Weinguts, Geisenheim 2023",
+              "Umbau eines Weinguts, Geisenheim 2023",
+            ],
+            imageLabelsEn: [
+              "Winery renovation, Geisenheim 2023",
+              "Winery renovation, Geisenheim 2023",
+              "Winery renovation, Geisenheim 2023",
+              "Winery renovation, Geisenheim 2023",
+            ],
+            images: [
+              "../assets/interior/geisenheim_blumen.png",
+              "../assets/interior/geisenheim.jpeg",
+              "../assets/interior/geisenheim-gedecktertisch.png",
+              "../assets/interior/geisenheim-sundowner.png",
+            ],
+          },
+          vinothekAlpen: {
+            tileLabelDe: "Dein Gastraum",
+            tileLabelEn: "Your dining room",
+            titleDe: "Restaurant Alpenkantine, Hamburg 2009",
+            titleEn: "Restaurant Alpenkantine, Hamburg 2009",
+            bodyDe:
+              "Gastraum mit Atmosphäre, Material und Licht für einen Ort zum Verweilen.",
+            bodyEn:
+              "Dining space with atmosphere, materials, and light for a place to linger.",
+            infoDetailDe: "Hier wurde das Restaurant Alpenkantine in Hamburg gestaltet.",
+            infoDetailEn: "Here, Restaurant Alpenkantine in Hamburg was designed.",
+            keywordDe: "Gastraum",
+            keywordEn: "Dining room",
+            concreteDe: "Hamburg, 2009",
+            concreteEn: "Hamburg, 2009",
+            imageLabelsDe: [
+              "Restaurant Alpenkantine, Hamburg 2009",
+              "Restaurant Alpenkantine, Hamburg 2009",
+            ],
+            imageLabelsEn: [
+              "Restaurant Alpenkantine, Hamburg 2009",
+              "Restaurant Alpenkantine, Hamburg 2009",
+            ],
+            images: [
+              "../assets/interior/alpenkantine-V01.png?v=2",
+              "../assets/interior/alpenkantine-V2.png",
+            ],
+          },
           zweihaeuser: {
             tileLabelDe: "Dein Haus",
             tileLabelEn: "Your house",
@@ -3945,15 +4304,18 @@
             imageLabelsDe: [
               "Strukturierung einer Wohnung, Berlin 2026",
               "Strukturierung einer Wohnung, Berlin 2026",
+              "Strukturierung einer Wohnung, Berlin 2026",
               "Brass Living",
             ],
             imageLabelsEn: [
+              "Structuring an apartment, Berlin 2026",
               "Structuring an apartment, Berlin 2026",
               "Structuring an apartment, Berlin 2026",
               "Brass Living",
             ],
             images: [
               "../assets/interior/loftbalkon.png?v=2",
+              "../assets/interior/loftliving-daemmerung.jpg",
               "../assets/interior/loft-01.png?v=2",
               "../assets/interior/Loftwardrobe.png",
             ],
@@ -4899,13 +5261,10 @@
           var project = PROJECTS[projectId];
           if (!project || !project.images || !project.images.length) return;
           var startImageIndex = getTileImageIndex(projectId, tile, tile);
-          var coverItem = buildProjectLightboxImageItems(projectId, startImageIndex)[0];
           var lightboxItems = buildProjectLightboxImageItems(projectId, 0);
           var hasInfo = projectHasInfoSlide(projectId);
-          var items = [{ isCover: true, data: coverItem }]
-            .concat(hasInfo ? [{ isInfo: true, projectId: projectId }] : [])
-            .concat(lightboxItems);
-          var initialIndex = 0;
+          var items = lightboxItems.slice().concat(hasInfo ? [{ isInfo: true, projectId: projectId }] : []);
+          var initialIndex = startImageIndex;
           var carousel = document.createElement("div");
           carousel.className = "bi-mobile-tile-carousel";
           var track = document.createElement("div");
@@ -4922,8 +5281,6 @@
           items.forEach(function (item, i) {
             if (item.isInfo) {
               appendMobileTileInfoSlide(track, project);
-            } else if (item.isCover) {
-              appendMobileTileImageSlide(track, item.data, project, true);
             } else {
               appendMobileTileImageSlide(track, item, project, false);
             }
