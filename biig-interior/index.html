@@ -324,10 +324,10 @@
         position: absolute;
         inset: 0;
         z-index: 3;
-        display: grid;
-        grid-template-rows: auto 1fr auto;
+        display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-items: center;
+        justify-content: center;
         gap: clamp(12px, 2vw, 20px);
         padding: calc(var(--fc-nav-h, 72px) + clamp(16px, 2.5vw, 28px)) var(--nav-pad-x)
           clamp(52px, 7vw, 72px);
@@ -346,8 +346,28 @@
         align-items: center;
         gap: clamp(16px, 2.5vw, 28px);
         width: 100%;
-        grid-row: 1;
-        align-self: start;
+        margin: auto 0;
+      }
+
+      .bi-hero__services {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        max-width: min(72rem, 100%);
+        font-family: var(--font-sans);
+        font-size: clamp(0.66rem, 1.08vw, 0.87rem);
+        font-weight: 300;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+        text-transform: uppercase;
+        color: #ffffff;
+        text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55);
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: clamp(1.5ch, 2.5vw, 3.5ch);
+        align-items: center;
       }
 
       .bi-hero__headline {
@@ -363,38 +383,23 @@
         text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55);
       }
 
-      .bi-hero__services {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        max-width: min(72rem, 100%);
-        font-family: var(--font-sans);
-        font-size: clamp(1.1rem, 1.8vw, 1.45rem);
-        font-weight: 300;
-        line-height: 1.2;
-        letter-spacing: -0.01em;
-        text-transform: uppercase;
-        color: #ffffff;
-        text-shadow: 0 2px 18px rgba(0, 0, 0, 0.55);
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 4ch;
-        align-items: center;
-      }
-
       .bi-hero__services li {
         margin: 0;
+        white-space: nowrap;
       }
 
       .bi-hero__paths {
+        position: absolute;
+        left: var(--nav-pad-x);
+        right: var(--nav-pad-x);
+        bottom: clamp(52px, 7vw, 72px);
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: clamp(12px, 2vw, 18px);
-        width: min(72rem, 100%);
-        grid-row: 3;
-        align-self: end;
+        width: min(72rem, calc(100% - 2 * var(--nav-pad-x)));
+        max-width: min(72rem, calc(100% - 2 * var(--nav-pad-x)));
+        margin: 0 auto;
+        pointer-events: auto;
       }
 
       .bi-section {
@@ -1167,6 +1172,18 @@
 
       .bi-portfolio__lede p + p {
         margin-top: 1.1em;
+      }
+
+      .bi-portfolio .bi-tile--hochbau-collage {
+        display: none;
+      }
+
+      .bi-portfolio.bi-portfolio--hochbau .bi-tile--hochbau-collage {
+        display: block;
+      }
+
+      .bi-portfolio.bi-portfolio--hochbau .bi-tile--project:not(.bi-tile--hochbau-collage) {
+        display: none;
       }
 
       .bi-grid {
@@ -2354,11 +2371,19 @@
         }
 
         .bi-hero__services {
-          font-size: clamp(0.52rem, 2.4vw, 0.68rem);
+          font-size: clamp(0.31rem, 1.44vw, 0.41rem);
           font-weight: 400;
           letter-spacing: 0.04em;
-          gap: 2ch 2.5ch;
+          gap: clamp(1ch, 2vw, 1.8ch);
           max-width: 100%;
+        }
+
+        .bi-hero__paths {
+          display: none;
+        }
+
+        .bi-hero__overlay {
+          padding-bottom: clamp(44px, 8vw, 56px);
         }
 
         .bi-portfolio > .bi-shell {
@@ -2905,8 +2930,8 @@
                 <a class="bi-path-card" href="#biig-konfigurator" onclick="return bkStartWithTrack('arrangement');">
                   <div>
                     <h2 class="bi-path-card__title">
-                      <span class="de-t">Kostenrechner: Vom Gefühl zum Plan</span>
-                      <span class="en-t">Fee calculator: From feeling to plan</span>
+                      <span class="de-t">Vom Gefühl zum Plan</span>
+                      <span class="en-t">From feeling to plan</span>
                     </h2>
                     <p class="bi-path-card__text">
                       <span class="de-t">Klick Dich in zwei Minuten durch unseren Kostenrechner damit Du ein besseres Gefühl für die Umsetzung bekommst. Wenn Du dann möchtest, stellen wir Dir alles zur Verfügung, um sich für das Projekt zu entscheiden.</span>
@@ -2996,7 +3021,7 @@
         </div>
       </section>
 
-      <section class="bi-portfolio" aria-labelledby="bi-portfolio-title">
+      <section class="bi-portfolio bi-portfolio--standard" aria-labelledby="bi-portfolio-title">
         <div class="bi-shell">
           <h2 id="bi-portfolio-title" class="bi-portfolio__title">
             <span class="de-t">Projekte aus der Praxis</span>
@@ -3024,8 +3049,8 @@
                 <img src="../assets/interior/Dieffe33-02.png" alt="" width="2162" height="1592" decoding="async" />
               </span>
               <span class="bi-tile__label">
-                <span class="de-t">Dein Mini-Apartement</span>
-                <span class="en-t">Your mini apartment</span>
+                <span class="de-t">Mini-Space</span>
+                <span class="en-t">Mini space</span>
               </span>
               <span class="bi-tile__hover">
                 <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
@@ -3037,8 +3062,8 @@
                 <img src="../assets/interior/altbau_mitfakekamin-01.png" alt="" width="1536" height="2576" decoding="async" />
               </span>
               <span class="bi-tile__label">
-                <span class="de-t">Deine Altbauwohnung</span>
-                <span class="en-t">Your period apartment</span>
+                <span class="de-t">Altbauwohnung</span>
+                <span class="en-t">Period apartment</span>
               </span>
               <span class="bi-tile__hover">
                 <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
@@ -3050,8 +3075,8 @@
                 <img src="../assets/interior/altbau-02.png" alt="" width="1536" height="2576" decoding="async" />
               </span>
               <span class="bi-tile__label">
-                <span class="de-t">Deine Altbauwohnung</span>
-                <span class="en-t">Your period apartment</span>
+                <span class="de-t">WG-Zimmer</span>
+                <span class="en-t">Shared room</span>
               </span>
               <span class="bi-tile__hover">
                 <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
@@ -3063,8 +3088,8 @@
                 <img src="../assets/interior/homeoffice-mitKunst.png" alt="" width="2174" height="1728" decoding="async" />
               </span>
               <span class="bi-tile__label">
-                <span class="de-t">Dein Office</span>
-                <span class="en-t">Your office</span>
+                <span class="de-t">Homeoffice</span>
+                <span class="en-t">Home office</span>
               </span>
               <span class="bi-tile__hover">
                 <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
@@ -3081,8 +3106,8 @@
                 <img src="../assets/interior/office-02.png" alt="" width="2174" height="1728" decoding="async" />
               </span>
               <span class="bi-tile__label">
-                <span class="de-t">Dein Office</span>
-                <span class="en-t">Your office</span>
+                <span class="de-t">Office</span>
+                <span class="en-t">Office</span>
               </span>
               <span class="bi-tile__hover">
                 <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
@@ -3094,8 +3119,8 @@
                 <img src="../assets/interior/traudi-küche.png" alt="" width="2193" height="1606" decoding="async" />
               </span>
               <span class="bi-tile__label">
-                <span class="de-t">Dein Haus</span>
-                <span class="en-t">Your house</span>
+                <span class="de-t">Küche</span>
+                <span class="en-t">Kitchen</span>
               </span>
               <span class="bi-tile__hover">
                 <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
@@ -3107,8 +3132,8 @@
                 <img src="../assets/interior/Neubauhaus.png" alt="" width="2193" height="1606" decoding="async" />
               </span>
               <span class="bi-tile__label">
-                <span class="de-t">Dein Haus</span>
-                <span class="en-t">Your house</span>
+                <span class="de-t">Doppelhaus</span>
+                <span class="en-t">Semi-detached house</span>
               </span>
               <span class="bi-tile__hover">
                 <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
@@ -3120,8 +3145,8 @@
                 <img src="../assets/interior/loftbalkon.png?v=2" alt="" width="1306" height="2430" decoding="async" />
               </span>
               <span class="bi-tile__label">
-                <span class="de-t">Dein Loft</span>
-                <span class="en-t">Your loft</span>
+                <span class="de-t">Loft</span>
+                <span class="en-t">Loft</span>
               </span>
               <span class="bi-tile__hover">
                 <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
@@ -3138,8 +3163,8 @@
                 <img src="../assets/interior/ordnung-01.png" alt="" width="1661" height="2382" decoding="async" />
               </span>
               <span class="bi-tile__label">
-                <span class="de-t">Deine Ordnung</span>
-                <span class="en-t">Your organisation</span>
+                <span class="de-t">Ordnung</span>
+                <span class="en-t">Organisation</span>
               </span>
               <span class="bi-tile__hover">
                 <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
@@ -3151,8 +3176,21 @@
                 <img src="../assets/interior/langekochzeile.jpg" alt="" width="2400" height="1600" decoding="async" />
               </span>
               <span class="bi-tile__label">
-                <span class="de-t">Deine Küche</span>
-                <span class="en-t">Your kitchen</span>
+                <span class="de-t">schmale Küche</span>
+                <span class="en-t">Narrow kitchen</span>
+              </span>
+              <span class="bi-tile__hover">
+                <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
+                <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
+              </span>
+            </button>
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="kochinsel">
+              <span class="bi-tile__media">
+                <img src="../assets/interior/loft-kitchen.png" alt="" width="2400" height="1600" decoding="async" />
+              </span>
+              <span class="bi-tile__label">
+                <span class="de-t">Kochinsel</span>
+                <span class="en-t">Kitchen island</span>
               </span>
               <span class="bi-tile__hover">
                 <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
@@ -3164,8 +3202,8 @@
                 <img src="../assets/interior/oase-neopainting.png" alt="" width="2380" height="1617" decoding="async" />
               </span>
               <span class="bi-tile__label">
-                <span class="de-t">Deine Oase</span>
-                <span class="en-t">Your oasis</span>
+                <span class="de-t">Oase</span>
+                <span class="en-t">Oasis</span>
               </span>
               <span class="bi-tile__hover">
                 <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
@@ -3177,8 +3215,8 @@
                 <img src="../assets/interior/rene-möbliert-01.png" alt="" width="800" height="1067" decoding="async" />
               </span>
               <span class="bi-tile__label">
-                <span class="de-t">Deine Etage</span>
-                <span class="en-t">Your floor</span>
+                <span class="de-t">Etage</span>
+                <span class="en-t">Floor</span>
               </span>
               <span class="bi-tile__hover">
                 <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
@@ -3195,8 +3233,8 @@
                 <img src="../assets/interior/geisenheim_blumen.png" alt="" width="800" height="1067" decoding="async" />
               </span>
               <span class="bi-tile__label">
-                <span class="de-t">Dein Gastraum</span>
-                <span class="en-t">Your dining room</span>
+                <span class="de-t">Vinothek</span>
+                <span class="en-t">Wine bar</span>
               </span>
               <span class="bi-tile__hover">
                 <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
@@ -3208,8 +3246,8 @@
                 <img src="../assets/interior/alpenkantine-V01.png?v=2" alt="" width="800" height="1067" decoding="async" />
               </span>
               <span class="bi-tile__label">
-                <span class="de-t">Dein Gastraum</span>
-                <span class="en-t">Your dining room</span>
+                <span class="de-t">Gastronomie</span>
+                <span class="en-t">Gastronomy</span>
               </span>
               <span class="bi-tile__hover">
                 <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
@@ -3924,14 +3962,13 @@
 
     <footer class="footer" id="bi-site-footer" aria-label="Seitenfuß">
       <div class="footer__inner">
-        <a href="../index.html" class="footer__logo">FRIDAY CIRCLE</a>
+        <a href="index.html" class="footer__logo nav__logo bi-brand-logo">biig Interior</a>
         <nav class="footer__links" id="bi-footer-links" aria-label="Rechtliches und Über uns">
           <a href="../impressum/index.html"><span class="de-t">Impressum</span><span class="en-t">Legal notice</span></a>
           <a href="../datenschutz/index.html"><span class="de-t">Datenschutz</span><span class="en-t">Privacy</span></a>
           <a href="../kontakt/index.html"><span class="de-t">Kontakt</span><span class="en-t">Contact</span></a>
           <a href="../triff-joscha.html#joscha-auswahl"><span class="de-t">Joscha</span><span class="en-t">Joscha</span></a>
           <a href="../wolfganggrope.html"><span class="de-t">Kunst</span><span class="en-t">Art</span></a>
-          <a href="../kaufen/index.html"><span class="de-t">Kaufen</span><span class="en-t">Shop</span></a>
         </nav>
         <p class="footer__copy">© 2026</p>
       </div>
@@ -3990,6 +4027,22 @@
           servicePanel.querySelectorAll("a").forEach(function (link) {
             link.addEventListener("click", function () {
               setServiceOpen(false);
+              var href = link.getAttribute("href") || "";
+              var portfolio = document.querySelector(".bi-portfolio");
+              if (!portfolio) return;
+              if (href === "#bi-pricing-hochbau") {
+                portfolio.classList.remove("bi-portfolio--standard");
+                portfolio.classList.add("bi-portfolio--hochbau");
+                var hochbauTile = document.getElementById("bi-hochbau-collage");
+                if (hochbauTile) {
+                  window.requestAnimationFrame(function () {
+                    hochbauTile.scrollIntoView({ behavior: "smooth", block: "center" });
+                  });
+                }
+              } else if (href.indexOf("#bi-pricing") === 0) {
+                portfolio.classList.remove("bi-portfolio--hochbau");
+                portfolio.classList.add("bi-portfolio--standard");
+              }
             });
           });
           document.addEventListener("click", function (e) {
@@ -4007,8 +4060,8 @@
       (function initBiInterior() {
         var PROJECTS = {
           altbauwohnung: {
-            tileLabelDe: "Deine Altbauwohnung",
-            tileLabelEn: "Your period apartment",
+            tileLabelDe: "Altbauwohnung",
+            tileLabelEn: "Period apartment",
             titleDe: "Gestaltung eines 40 qm Zimmers, Berlin 2025",
             titleEn: "Design of a 40 sqm room, Berlin 2025",
             bodyDe:
@@ -4037,8 +4090,8 @@
             ],
           },
           altbau1: {
-            tileLabelDe: "Deine Altbauwohnung",
-            tileLabelEn: "Your period apartment",
+            tileLabelDe: "Altbauwohnung",
+            tileLabelEn: "Period apartment",
             titleDe: "Gestaltung eines 40 qm Zimmers, Berlin 2025",
             titleEn: "Design of a 40 sqm room, Berlin 2025",
             bodyDe:
@@ -4058,8 +4111,8 @@
             images: ["../assets/interior/altbau_mitfakekamin-01.png"],
           },
           altbau2: {
-            tileLabelDe: "Deine Altbauwohnung",
-            tileLabelEn: "Your period apartment",
+            tileLabelDe: "WG-Zimmer",
+            tileLabelEn: "Shared room",
             titleDe: "WG-Zimmer für einen IT-Spezialisten, Berlin 2016",
             titleEn: "Shared room for an IT specialist, Berlin 2016",
             bodyDe:
@@ -4079,8 +4132,8 @@
             images: ["../assets/interior/altbau-02.png"],
           },
           homeoffice1: {
-            tileLabelDe: "Dein Office",
-            tileLabelEn: "Your office",
+            tileLabelDe: "Homeoffice",
+            tileLabelEn: "Home office",
             titleDe: "Konzept für ein Bürozimmer, Berlin 2023",
             titleEn: "Concept for an office room, Berlin 2023",
             bodyDe:
@@ -4098,8 +4151,8 @@
             images: ["../assets/interior/homeoffice-mitKunst.png"],
           },
           homeoffice2: {
-            tileLabelDe: "Dein Office",
-            tileLabelEn: "Your office",
+            tileLabelDe: "Office",
+            tileLabelEn: "Office",
             titleDe: "Brass Living, Berlin 2026",
             titleEn: "Brass Living, Berlin 2026",
             bodyDe:
@@ -4117,8 +4170,8 @@
             images: ["../assets/interior/office-02.png"],
           },
           hausA: {
-            tileLabelDe: "Dein Haus",
-            tileLabelEn: "Your house",
+            tileLabelDe: "Küche",
+            tileLabelEn: "Kitchen",
             titleDe: "Sanierung Einfamilienhaus, Augsburg 2013",
             titleEn: "Renovation single-family house, Augsburg 2013",
             bodyDe:
@@ -4145,8 +4198,8 @@
             ],
           },
           hausB: {
-            tileLabelDe: "Dein Haus",
-            tileLabelEn: "Your house",
+            tileLabelDe: "Doppelhaus",
+            tileLabelEn: "Semi-detached house",
             titleDe: "Konzept Doppelhaushälfte, Hamburg 2012",
             titleEn: "Duplex half-house concept, Hamburg 2012",
             bodyDe:
@@ -4173,30 +4226,46 @@
             ],
           },
           kueche: {
-            tileLabelDe: "Deine Küche",
-            tileLabelEn: "Your kitchen",
+            tileLabelDe: "schmale Küche",
+            tileLabelEn: "Narrow kitchen",
             titleDe: "Küchenplanung, Berlin",
             titleEn: "Kitchen planning, Berlin",
             bodyDe:
               "Küchenzeile und Arbeitsbereich, durchdacht geplant und auf Alltag und Raum abgestimmt.",
             bodyEn:
               "Kitchen run and workspace, thoughtfully planned and aligned with daily life and space.",
-            infoDetailDe: "Hier wurde eine Küche mit Kochzeile und Arbeitsbereich geplant.",
-            infoDetailEn: "Here, a kitchen with a run of units and workspace was planned.",
+            infoDetailDe: "Hier wurde eine schmale Küchenzeile geplant.",
+            infoDetailEn: "Here, a narrow kitchen run was planned.",
             keywordDe: "Küche",
             keywordEn: "Kitchen",
             concreteDe: "Berlin",
             concreteEn: "Berlin",
-            imageLabelsDe: ["Küchenplanung, Berlin", "Brass Living, Berlin 2026"],
-            imageLabelsEn: ["Kitchen planning, Berlin", "Brass Living, Berlin 2026"],
-            images: [
-              "../assets/interior/langekochzeile.jpg",
-              "../assets/interior/loft-kitchen.png",
-            ],
+            imageLabelsDe: ["Küchenplanung, Berlin"],
+            imageLabelsEn: ["Kitchen planning, Berlin"],
+            images: ["../assets/interior/langekochzeile.jpg"],
+          },
+          kochinsel: {
+            tileLabelDe: "Kochinsel",
+            tileLabelEn: "Kitchen island",
+            titleDe: "Kochinsel, Berlin",
+            titleEn: "Kitchen island, Berlin",
+            bodyDe:
+              "Kochinsel als zentraler Arbeitsbereich, durchdacht geplant und auf Alltag und Raum abgestimmt.",
+            bodyEn:
+              "Kitchen island as a central workspace, thoughtfully planned and aligned with daily life and space.",
+            infoDetailDe: "Hier wurde eine Kochinsel geplant.",
+            infoDetailEn: "Here, a kitchen island was planned.",
+            keywordDe: "Küche",
+            keywordEn: "Kitchen",
+            concreteDe: "Berlin",
+            concreteEn: "Berlin",
+            imageLabelsDe: ["Kochinsel, Berlin"],
+            imageLabelsEn: ["Kitchen island, Berlin"],
+            images: ["../assets/interior/loft-kitchen.png"],
           },
           vinothekGeo: {
-            tileLabelDe: "Dein Gastraum",
-            tileLabelEn: "Your dining room",
+            tileLabelDe: "Vinothek",
+            tileLabelEn: "Wine bar",
             titleDe: "Umbau eines Weinguts, Geisenheim 2023",
             titleEn: "Winery renovation, Geisenheim 2023",
             bodyDe:
@@ -4231,8 +4300,8 @@
             ],
           },
           vinothekAlpen: {
-            tileLabelDe: "Dein Gastraum",
-            tileLabelEn: "Your dining room",
+            tileLabelDe: "Gastronomie",
+            tileLabelEn: "Gastronomy",
             titleDe: "Restaurant Alpenkantine, Hamburg 2009",
             titleEn: "Restaurant Alpenkantine, Hamburg 2009",
             bodyDe:
@@ -4259,8 +4328,8 @@
             ],
           },
           zweihaeuser: {
-            tileLabelDe: "Dein Haus",
-            tileLabelEn: "Your house",
+            tileLabelDe: "Doppelhaus",
+            tileLabelEn: "Semi-detached house",
             titleDe: "Sanierung Einfamilienhaus, Augsburg 2013",
             titleEn: "Renovation single-family house, Augsburg 2013",
             bodyDe:
@@ -4295,8 +4364,8 @@
             ],
           },
           homeoffice: {
-            tileLabelDe: "Dein Office",
-            tileLabelEn: "Your office",
+            tileLabelDe: "Office",
+            tileLabelEn: "Office",
             titleDe: "Konzept für ein Bürozimmer, Berlin 2023",
             titleEn: "Concept for an office room, Berlin 2023",
             bodyDe:
@@ -4323,8 +4392,8 @@
             ],
           },
           loft: {
-            tileLabelDe: "Dein Loft",
-            tileLabelEn: "Your loft",
+            tileLabelDe: "Loft",
+            tileLabelEn: "Loft",
             titleDe: "Strukturierung einer Wohnung, Berlin 2026",
             titleEn: "Structuring an apartment, Berlin 2026",
             bodyDe:
@@ -4357,8 +4426,8 @@
             ],
           },
           ordnung: {
-            tileLabelDe: "Deine Ordnung",
-            tileLabelEn: "Your organisation",
+            tileLabelDe: "Ordnung",
+            tileLabelEn: "Organisation",
             titleDe: "Brass Living, Berlin 2026",
             titleEn: "Brass Living, Berlin 2026",
             bodyDe:
@@ -4393,8 +4462,8 @@
             ],
           },
           oase: {
-            tileLabelDe: "Deine Oase",
-            tileLabelEn: "Your oasis",
+            tileLabelDe: "Oase",
+            tileLabelEn: "Oasis",
             titleDe: "Upgrade Eigentumswohnung, Berlin 2023",
             titleEn: "Condominium upgrade, Berlin 2023",
             bodyDe:
@@ -4421,8 +4490,8 @@
             ],
           },
           dieffe33: {
-            tileLabelDe: "Dein Mini-Apartement",
-            tileLabelEn: "Your mini apartment",
+            tileLabelDe: "Mini-Space",
+            tileLabelEn: "Mini space",
             titleDe: "Eigentumswohnung in Kreuzberg, Berlin 2025",
             titleEn: "Condominium in Kreuzberg, Berlin 2025",
             bodyDe:
@@ -4514,8 +4583,8 @@
             ],
           },
           vinothek: {
-            tileLabelDe: "Dein Gastraum",
-            tileLabelEn: "Your dining room",
+            tileLabelDe: "Vinothek",
+            tileLabelEn: "Wine bar",
             titleDe: "Umbau eines Weinguts, Geisenheim 2023",
             titleEn: "Winery renovation, Geisenheim 2023",
             bodyDe:
@@ -4570,8 +4639,8 @@
             cropPosition: "68% 22%",
           },
           umbauten: {
-            tileLabelDe: "Deine Etage",
-            tileLabelEn: "Your floor",
+            tileLabelDe: "Etage",
+            tileLabelEn: "Floor",
             titleDe: "Sanierung Geschäftshaus, Hamburg-Blankenese 2015",
             titleEn: "Commercial building renovation, Hamburg-Blankenese 2015",
             bodyDe:
