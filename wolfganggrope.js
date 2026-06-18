@@ -9,10 +9,13 @@
 
   function resolveAsset(path) {
     if (!path || /^https?:\/\//i.test(path)) return path;
-    let normalized = String(path).normalize("NFC");
-    const root = typeof window.WGA_ASSET_ROOT === "string" ? window.WGA_ASSET_ROOT : "";
-    if (root && normalized.startsWith("assets/")) {
-      normalized = root + normalized;
+    const normalized = String(path).normalize("NFC");
+    if (normalized.startsWith("assets/")) {
+      try {
+        return new URL("/" + normalized, window.location.origin).href;
+      } catch (e) {
+        return "/" + normalized;
+      }
     }
     try {
       return new URL(normalized, document.baseURI || location.href).href;
