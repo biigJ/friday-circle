@@ -120,3 +120,45 @@
   color: var(--text);
   font-weight: 400;
 }
+
+.wga-page.biig-subpage .wga-nav .nav__inner {
+  grid-template-columns: minmax(0, 1fr) auto auto;
+}
+
+.wga-page.biig-subpage .wga-nav__biig-home {
+  justify-self: end;
+  font-family: var(--font-sans);
+  font-size: clamp(0.58rem, 1vw, 0.78rem);
+  font-weight: 200;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap;
+}
+
+.wga-page.biig-subpage .wga-nav__biig-home:hover,
+.wga-page.biig-subpage .wga-nav__biig-home:focus-visible {
+  opacity: 0.72;
+  outline: none;
+}
+
+@media (max-width: 760px) {
+  .wga-page.biig-subpage .wga-nav .nav__inner {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-areas:
+      "logo logo logo logo logo logo"
+      "chapters bio inspiration shop biig lang";
+  }
+
+  .wga-page.biig-subpage .wga-nav__biig-home {
+    grid-area: biig;
+    justify-self: center;
+    align-self: center;
+    font-size: clamp(0.5rem, 2.1vw, 0.62rem);
+  }
+
+  .wga-page.biig-subpage .wga-nav .nav__lang {
+    grid-area: lang;
+  }
+}

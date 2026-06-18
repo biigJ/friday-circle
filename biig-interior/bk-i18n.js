@@ -2,7 +2,7 @@
 'use strict';
 
 const BK_STRINGS = {
-  'header.title': { de: 'Deine Anfrage', en: 'Your enquiry' },
+  'header.title': { de: 'Kostenrechner', en: 'Fee calculator' },
   'header.honorar': { de: 'Honorar', en: 'Fee' },
   'header.bau': { de: 'Baukosten-Orientierung', en: 'Build cost guide' },
   'nav.start': { de: 'Zum Start', en: 'To start' },
