@@ -1,0 +1,122 @@
+/* Shared styles for biig.works subpages */
+.biig-subpage {
+  --bg: #ffffff;
+  background: #ffffff;
+}
+
+.biig-subpage .biig-subnav {
+  position: sticky;
+  top: 0;
+  z-index: 120;
+  background: color-mix(in srgb, #ffffff 92%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid color-mix(in srgb, var(--text) 8%, transparent);
+}
+
+.biig-subpage .biig-subnav__inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: calc(12px + env(safe-area-inset-top, 0px)) var(--nav-pad-x) 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.biig-subpage .biig-subnav__logo {
+  font-family: var(--font-sans);
+  font-size: clamp(0.68rem, 1.55vw, 1.28rem);
+  font-weight: 200;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--text);
+  line-height: 1.25;
+}
+
+.biig-subpage .biig-subnav__logo:hover,
+.biig-subpage .biig-subnav__logo:focus-visible {
+  opacity: 0.72;
+  outline: none;
+}
+
+.footer .footer__logo.bi-brand-logo {
+  color: var(--bg);
+  font-family: var(--font-sans);
+  font-weight: 200;
+  font-size: clamp(0.68rem, 1.2vw, 0.95rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.biig-legal {
+  padding: clamp(56px, 9vw, 96px) 0 clamp(64px, 10vw, 112px);
+}
+
+.biig-legal__shell {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 0 var(--nav-pad-x);
+}
+
+.biig-legal__title {
+  margin: 0 0 clamp(24px, 4vw, 36px);
+  font-family: var(--font-sans);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 200;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  color: var(--text);
+}
+
+.biig-legal__prose {
+  font-family: var(--font-sans);
+  font-size: clamp(0.85rem, 1.05vw, 0.95rem);
+  font-weight: 300;
+  line-height: 1.65;
+  letter-spacing: 0.02em;
+  color: color-mix(in srgb, var(--text) 78%, #ffffff);
+}
+
+.biig-legal__prose h2 {
+  margin: clamp(28px, 4vw, 40px) 0 10px;
+  font-size: clamp(0.95rem, 1.15vw, 1.05rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.biig-legal__prose p,
+.biig-legal__prose ul {
+  margin: 0 0 14px;
+}
+
+.biig-legal__prose ul {
+  padding-left: 1.25em;
+}
+
+.biig-legal__prose a {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.biig-kontakt-card {
+  margin-top: clamp(20px, 3vw, 32px);
+  padding: clamp(20px, 3vw, 28px);
+  border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+}
+
+.biig-kontakt-card p {
+  margin: 0 0 10px;
+}
+
+.biig-kontakt-card p:last-child {
+  margin-bottom: 0;
+}
+
+.biig-kontakt-card a {
+  color: var(--text);
+  font-weight: 400;
+}

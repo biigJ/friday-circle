@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../styles.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.x/dist/tabler-icons.min.css" />
     <link rel="stylesheet" href="biig-konfigurator.css" />
+    <link rel="stylesheet" href="biig-interior/biig-shared.css" />
     <style>
       body.biig-interior-page {
         --bg: #ffffff;
@@ -291,6 +292,10 @@
       .bi-brand-logo:hover,
       .bi-brand-logo:focus-visible {
         opacity: 0.72;
+      }
+
+      .footer .footer__logo.bi-brand-logo {
+        color: var(--bg);
       }
 
       .bi-nav__sound-slot {
@@ -2884,7 +2889,7 @@
         </div>
         <div class="bi-nav__right">
           <div class="nav__cta-bucket bi-nav__actions">
-            <a class="bi-nav__cta bi-nav__cta--calendly" href="../kontakt/index.html" data-bi-calendly>
+            <a class="bi-nav__cta bi-nav__cta--calendly" href="kontakt/index.html" data-bi-calendly>
               <span class="de-t">Termin buchen</span>
               <span class="en-t">Book a call</span>
             </a>
@@ -2940,7 +2945,7 @@
                   </div>
                   <span class="bi-path-card__link"><span class="de-t">Kostenrechner</span><span class="en-t">Calculator</span> ›</span>
                 </a>
-                <a class="bi-path-card" href="../kontakt/index.html" data-bi-calendly>
+                <a class="bi-path-card" href="kontakt/index.html" data-bi-calendly>
                   <div>
                     <h2 class="bi-path-card__title">
                       <span class="de-t">Kostenloses Erstgespräch</span>
@@ -3376,16 +3381,10 @@
               </ul>
             </article>
           </div>
-          <div class="bi-pricing__footer">
-            <a class="bi-pricing-card__cta" href="#biig-konfigurator" onclick="if(window.bkGoTo){bkGoTo(0);}return false;">
-              <span class="de-t">Kostenrechner starten</span>
-              <span class="en-t">Start fee calculator</span>
-            </a>
-          </div>
         </div>
       </section>
 
-    <section class="bi-konfigurator-section" aria-labelledby="bi-konfigurator-title">
+      <section class="bi-konfigurator-section" aria-labelledby="bi-konfigurator-title">
       <div class="bi-shell">
         <h2 id="bi-konfigurator-title" class="visually-hidden">
           <span class="de-t">Ein Gespräch. Ein Plan. Los.</span>
@@ -3928,7 +3927,7 @@
             <p class="bi-buy-popup__info-body" id="bi-buy-info-body"></p>
             <div class="bi-buy-popup__info-action">
               <p class="bi-buy-popup__info-spec" id="bi-buy-info-spec"></p>
-              <a class="bi-buy-popup__buy-link" id="bi-buy-link" href="../kontakt/index.html">
+              <a class="bi-buy-popup__buy-link" id="bi-buy-link" href="kontakt/index.html">
                 <span class="de-t">Kaufen &gt;</span>
                 <span class="en-t">Buy &gt;</span>
               </a>
@@ -3962,13 +3961,13 @@
 
     <footer class="footer" id="bi-site-footer" aria-label="Seitenfuß">
       <div class="footer__inner">
-        <a href="index.html" class="footer__logo nav__logo bi-brand-logo">biig Interior</a>
+        <a href="index.html" class="footer__logo bi-brand-logo">BIIG INTERIOR</a>
         <nav class="footer__links" id="bi-footer-links" aria-label="Rechtliches und Über uns">
-          <a href="../impressum/index.html"><span class="de-t">Impressum</span><span class="en-t">Legal notice</span></a>
-          <a href="../datenschutz/index.html"><span class="de-t">Datenschutz</span><span class="en-t">Privacy</span></a>
-          <a href="../kontakt/index.html"><span class="de-t">Kontakt</span><span class="en-t">Contact</span></a>
-          <a href="../triff-joscha.html#joscha-auswahl"><span class="de-t">Joscha</span><span class="en-t">Joscha</span></a>
-          <a href="../wolfganggrope.html"><span class="de-t">Kunst</span><span class="en-t">Art</span></a>
+          <a href="impressum/index.html"><span class="de-t">Impressum</span><span class="en-t">Legal notice</span></a>
+          <a href="datenschutz/index.html"><span class="de-t">Datenschutz</span><span class="en-t">Privacy</span></a>
+          <a href="kontakt/index.html"><span class="de-t">Kontakt</span><span class="en-t">Contact</span></a>
+          <a href="joscha/index.html"><span class="de-t">Joscha</span><span class="en-t">Joscha</span></a>
+          <a href="kunst/index.html"><span class="de-t">Kunst</span><span class="en-t">Art</span></a>
         </nav>
         <p class="footer__copy">© 2026</p>
       </div>

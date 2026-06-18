@@ -1,0 +1,916 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Joscha — biig Interior</title>
+    <meta
+      name="description"
+      content="Joscha Grope — Architekt, Interior Design und Bauleitung in Berlin."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../biig-interior/biig-shared.css" />
+    <style>
+      body.triff-joscha-page {
+        --bg: #ffffff;
+        --tj-filter-portrait: saturate(0.76) contrast(0.93) brightness(1.04);
+        /* Etwas gedämpfter für sonnige Render / Architektur-Fotos — wirkt wie echtes Foto, nicht CGI */
+        --tj-filter-story: saturate(0.68) contrast(0.9) brightness(1.02);
+        background: #ffffff;
+      }
+
+      .triff-joscha-page .nav {
+        background: color-mix(in srgb, #ffffff 92%, transparent);
+      }
+
+      .tj-main {
+        background: #ffffff;
+      }
+
+      .tj-shell {
+        max-width: var(--content-max);
+        margin: 0 auto;
+        padding-left: var(--nav-pad-x);
+        padding-right: var(--nav-pad-x);
+        box-sizing: border-box;
+      }
+
+      .tj-prose {
+        margin: 0;
+        font-family: var(--font-sans);
+        font-size: clamp(11.25px, 0.99vw, 14.25px);
+        font-weight: 300;
+        letter-spacing: 0.02em;
+        line-height: 1.42;
+        color: color-mix(in srgb, var(--text) 72%, #ffffff);
+        text-align: left;
+      }
+
+      .tj-prose + .tj-prose {
+        margin-top: clamp(14px, 2vw, 22px);
+      }
+
+      .tj-prose--title {
+        margin-bottom: clamp(14px, 2vw, 22px);
+      }
+
+      .tj-hero {
+        padding: clamp(56px, 9vw, 112px) 0 clamp(22px, 3.3vw, 42px);
+      }
+
+      .tj-hero__grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: clamp(40px, 8vw, 120px);
+        align-items: start;
+      }
+
+      .tj-hero__title {
+        margin: 0 0 clamp(20px, 3vw, 32px);
+        font-family: var(--font-sans);
+        font-size: clamp(11.25px, 0.99vw, 14.25px);
+        font-weight: 300;
+        letter-spacing: 0.02em;
+        line-height: 1.42;
+        color: color-mix(in srgb, var(--text) 72%, #ffffff);
+      }
+
+      .tj-hero__figure {
+        max-width: 82%;
+        margin-left: auto;
+      }
+
+      .tj-figure {
+        margin: 0;
+        min-width: 0;
+      }
+
+      .tj-figure__frame {
+        overflow: hidden;
+        line-height: 0;
+      }
+
+      .tj-figure__frame img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transform: scale(1.15);
+        transform-origin: center center;
+      }
+
+      .tj-figure__frame--portrait-crop img {
+        clip-path: inset(4% 0 17% 0);
+        filter: var(--tj-filter-portrait);
+      }
+
+      .tj-figure__frame--wide {
+        width: 120%;
+        max-width: 120%;
+        transform-origin: left center;
+      }
+
+      .tj-figure__frame--wide img {
+        transform: scale(1.15);
+        transform-origin: left center;
+      }
+
+      .tj-figure__frame--shift-left {
+        position: relative;
+        isolation: isolate;
+      }
+
+      .tj-figure__frame--shift-left::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background: linear-gradient(
+          to bottom,
+          hsl(0 0% 50% / 0.78) 0%,
+          hsl(0 0% 50% / 0.72) 20%,
+          hsl(0 0% 50% / 0.34) 32%,
+          hsl(0 0% 50% / 0) 45%
+        );
+        mix-blend-mode: saturation;
+        pointer-events: none;
+      }
+
+      .tj-figure__frame--shift-left img {
+        transform: scale(1.15) translateX(-3%);
+        transform-origin: left center;
+        clip-path: inset(3% 0 0 0);
+        filter: saturate(1.32) contrast(1.16) brightness(0.95);
+      }
+
+      .tj-figure__frame--gym {
+        position: relative;
+        isolation: isolate;
+      }
+
+      .tj-figure__frame--gym img {
+        filter: grayscale(0.58) sepia(0.36) saturate(0.18) contrast(1.48) brightness(0.86);
+        transform: scale(1.15);
+        transform-origin: center center;
+      }
+
+      .tj-figure__frame--gym::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        opacity: 0.4;
+        pointer-events: none;
+        mix-blend-mode: overlay;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        background-size: 160px 160px;
+      }
+
+      .tj-section {
+        padding: clamp(72px, 11vw, 140px) 0;
+      }
+
+      .tj-section:first-of-type {
+        padding-top: clamp(22px, 3.3vw, 42px);
+      }
+
+      .tj-section__grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+        gap: clamp(32px, 6vw, 96px);
+        align-items: start;
+      }
+
+      .tj-section--wide-left .tj-section__grid {
+        gap: clamp(40px, 7vw, 112px);
+      }
+
+      .tj-section--wide-left .tj-section__copy {
+        position: relative;
+        z-index: 1;
+        margin-left: clamp(24px, 5vw, 64px);
+        padding-left: clamp(8px, 1.5vw, 16px);
+      }
+
+      .tj-section--vinothek .tj-figure__frame--wide {
+        width: 144%;
+        max-width: 144%;
+        position: relative;
+        overflow: hidden;
+        height: 0;
+        padding-top: calc(100% * 1600 / 1200 * 120 / 144);
+        line-height: 0;
+      }
+
+      .tj-section--vinothek .tj-figure__frame--wide img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: left center;
+        transform: scale(1.15);
+        transform-origin: left center;
+        filter: saturate(0.34) contrast(1.3) brightness(1.08) hue-rotate(-12deg);
+      }
+
+      .tj-section--vinothek .tj-section__grid {
+        grid-template-columns: minmax(0, 1.32fr) minmax(0, 0.68fr);
+        grid-template-rows: auto auto;
+        row-gap: clamp(12px, 2vw, 24px);
+        column-gap: clamp(48px, 8vw, 120px);
+        align-items: start;
+      }
+
+      .tj-section--vinothek .tj-section__copy {
+        grid-column: 2;
+        grid-row: 1;
+        margin-left: 0;
+        padding-left: 0;
+        position: static;
+        z-index: auto;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+
+      .tj-section--vinothek .tj-section__copy .tj-prose--title {
+        margin-bottom: 0;
+      }
+
+      .tj-section--vinothek .tj-figure {
+        grid-column: 1;
+        grid-row: 2;
+      }
+
+      .tj-figure__frame--klinker img {
+        filter: saturate(0.34) contrast(1.3) brightness(1.08) hue-rotate(14deg);
+        transform: scale(1.15);
+        transform-origin: center center;
+      }
+
+      .tj-figure__frame--editorial {
+        width: 130%;
+        max-width: 130%;
+        transform-origin: left center;
+      }
+
+      .tj-figure__frame--editorial img {
+        clip-path: inset(3% 2% 2% 0);
+        transform: scale(1.15);
+        transform-origin: left center;
+        filter: var(--tj-filter-story);
+      }
+
+      .tj-figure__frame--editorial-duo {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .tj-figure__frame--editorial-duo img {
+        transform-origin: center center;
+        filter: var(--tj-filter-story);
+      }
+
+      .tj-figure__frame--editorial-duo-destijl {
+        aspect-ratio: 2266 / 1850;
+        overflow: hidden;
+      }
+
+      .tj-figure__frame--editorial-duo-destijl img {
+        width: 100%;
+        height: auto;
+        clip-path: inset(3% 2% 2% 0);
+        transform: scale(1.15);
+        transform-origin: center center;
+        filter: var(--tj-filter-story);
+      }
+
+      .tj-section--rene .tj-section__grid {
+        grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+        gap: clamp(48px, 8vw, 120px);
+      }
+
+      .tj-section--rene .tj-section__copy {
+        position: relative;
+        z-index: 1;
+        margin-left: clamp(56px, 11vw, 128px);
+        padding-left: clamp(12px, 2vw, 24px);
+      }
+
+      .tj-section__duo-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(24px, 4vw, 56px);
+        align-items: start;
+      }
+
+      .tj-duo-item {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(24px, 4vw, 56px);
+        min-width: 0;
+      }
+
+      .tj-duo-block {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(12px, 2vw, 24px);
+        min-width: 0;
+      }
+
+      .tj-duo-item .tj-prose--title,
+      .tj-duo-block .tj-prose--title,
+      .tj-section__media-stack .tj-prose--title {
+        margin-bottom: 0;
+      }
+
+      .tj-section__media-stack {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(12px, 2vw, 24px);
+        min-width: 0;
+      }
+
+      .tj-section__media-stack--right {
+        margin-left: auto;
+        width: min(100%, calc(65% + clamp(48px, 8vw, 120px)));
+        align-items: flex-end;
+      }
+
+      .tj-section--treppe .tj-section__media-stack--right {
+        margin-left: auto;
+        margin-right: 0;
+        width: 60%;
+        max-width: 60%;
+        align-items: flex-end;
+      }
+
+      .tj-section--treppe .tj-section__media-stack .tj-prose--title {
+        width: 100%;
+        text-align: right;
+      }
+
+      .tj-section--treppe .tj-figure__frame--editorial {
+        width: 100%;
+        max-width: 100%;
+        margin-left: 0;
+        transform-origin: right center;
+      }
+
+      .tj-section--treppe .tj-figure__frame--editorial img {
+        transform: scale(1.15);
+        transform-origin: right center;
+        filter: var(--tj-filter-story);
+      }
+
+      .tj-section--wedel .tj-section__media-stack {
+        width: min(100%, 65%);
+      }
+
+      .tj-section--schleswig .tj-section__media-stack {
+        width: 100%;
+      }
+
+      .tj-figure__frame--editorial-full {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .tj-section--schleswig .tj-figure__frame--editorial-full img {
+        clip-path: inset(3% 2% 2% 0);
+        transform: scale(1.15);
+        transform-origin: center center;
+        filter: saturate(0.74) contrast(0.88) brightness(1.07) hue-rotate(5deg);
+      }
+
+      .tj-figure__frame--editorial-full img {
+        clip-path: inset(3% 2% 2% 0);
+        transform: scale(1.15);
+        transform-origin: center center;
+        filter: var(--tj-filter-story);
+      }
+
+      .tj-section--image-right .tj-section__grid {
+        direction: rtl;
+      }
+
+      .tj-section--image-right .tj-section__grid > * {
+        direction: ltr;
+      }
+
+      .tj-section--image-right .tj-section__grid > * {
+        direction: ltr;
+      }
+
+      .tj-joscha-popup[hidden] {
+        display: none !important;
+      }
+
+      .tj-joscha-popup {
+        position: fixed;
+        inset: 0;
+        z-index: 12000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: clamp(12px, 2.6vw, 28px);
+      }
+
+      .tj-joscha-popup__backdrop {
+        position: absolute;
+        inset: 0;
+        background: rgba(10, 10, 10, 0.56);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+      }
+
+      .tj-joscha-popup__panel {
+        position: relative;
+        z-index: 1;
+        width: min(520px, 100%);
+        background: transparent;
+        box-shadow: none;
+        padding: 0;
+      }
+
+      .tj-joscha-popup__actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(14px, 2.4vw, 22px);
+      }
+
+      .tj-joscha-popup__cta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 12px 16px;
+        border-radius: 999px;
+        font-family: var(--font-sans);
+        font-size: clamp(0.72rem, 1.35vw, 0.82rem);
+        font-weight: 500;
+        font-variant: all-small-caps;
+        font-feature-settings: "smcp", "c2sc";
+        letter-spacing: 0.14em;
+        text-decoration: none;
+        text-align: center;
+        line-height: 1.2;
+        transition:
+          background 0.22s ease,
+          color 0.22s ease,
+          border-color 0.22s ease,
+          transform 0.22s ease,
+          box-shadow 0.22s ease;
+      }
+
+      .tj-joscha-popup__cta--body {
+        background: #f0eee6;
+        border: 1.5px solid #f0eee6;
+        color: #0a0a0a;
+      }
+
+      .tj-joscha-popup__cta--body:hover,
+      .tj-joscha-popup__cta--body:focus-visible {
+        background: #ffffff;
+        border-color: #ffffff;
+        color: #0a0a0a;
+        transform: translateY(-3px) scale(1.04);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+      }
+
+      .tj-joscha-popup__cta--mind {
+        background: #0a0a0a;
+        border: 1.5px solid #0a0a0a;
+        color: #f0eee6;
+      }
+
+      .tj-joscha-popup__cta--mind:hover,
+      .tj-joscha-popup__cta--mind:focus-visible {
+        background: #1a1a1a;
+        border-color: #1a1a1a;
+        color: #ffffff;
+        transform: translateY(-3px) scale(1.04);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+      }
+
+      @media (max-width: 480px) {
+        .tj-joscha-popup__actions {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .tj-hero__grid,
+        .tj-section__grid {
+          grid-template-columns: 1fr;
+          gap: clamp(28px, 6vw, 48px);
+        }
+
+        .tj-section--image-right .tj-section__grid {
+          direction: ltr;
+        }
+
+        .tj-figure__frame--wide {
+          width: 100%;
+          max-width: 100%;
+        }
+
+        .tj-section--wide-left .tj-section__copy {
+          margin-left: 0;
+          padding-left: 0;
+        }
+
+        .tj-section--vinothek .tj-figure__frame--wide {
+          width: 100%;
+          max-width: 100%;
+          height: auto;
+          padding-top: 0;
+        }
+
+        .tj-section--vinothek .tj-figure__frame--wide img {
+          position: static;
+          width: 100%;
+          height: auto;
+          object-fit: initial;
+        }
+
+        .tj-section--vinothek .tj-section__grid {
+          grid-template-columns: 1fr;
+          grid-template-rows: auto auto;
+          gap: clamp(28px, 6vw, 48px);
+        }
+
+        .tj-section--vinothek .tj-section__copy {
+          grid-column: 1;
+          grid-row: 1;
+        }
+
+        .tj-section--vinothek .tj-figure {
+          grid-column: 1;
+          grid-row: 2;
+        }
+
+        .tj-section--rene .tj-section__copy {
+          margin-left: 0;
+          padding-left: 0;
+        }
+
+        .tj-figure__frame--editorial {
+          width: 100%;
+          max-width: 100%;
+          margin-left: 0;
+        }
+
+        .tj-section__duo-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .tj-section__media-stack--right {
+          width: 100%;
+          align-items: flex-start;
+        }
+
+        .tj-section--treppe .tj-section__media-stack--right {
+          width: 100%;
+          max-width: 100%;
+        }
+
+        .tj-section--treppe .tj-section__media-stack .tj-prose--title {
+          text-align: left;
+        }
+
+        .tj-section--wedel .tj-section__media-stack {
+          width: 100%;
+        }
+      }
+    </style>
+      <link rel="stylesheet" href="../biig-interior/biig-shared.css" />
+  </head>
+  <body class="triff-joscha-page biig-subpage de">
+    <header class="biig-subnav" aria-label="Navigation">
+      <div class="biig-subnav__inner">
+        <a href="../index.html" class="biig-subnav__logo">BIIG INTERIOR</a>
+      </div>
+    </header>
+
+    <main class="tj-main">
+      <section class="tj-hero" aria-labelledby="tj-hero-title">
+        <div class="tj-shell">
+          <div class="tj-hero__grid">
+            <div class="tj-hero__copy">
+              <h1
+                id="tj-hero-title"
+                class="tj-hero__title"
+                data-i18n-de="Joscha"
+                data-i18n-en="Joscha"
+              >
+                Joscha
+              </h1>
+              <p
+                class="tj-prose"
+                data-i18n-de="Aufgewachsen im Norden, in Flensburg, zog es mich zum Studium nach Hamburg wo ich Architektur studierte und das Bauwesen von Grund auf kennenlernte. Es folgten nach fünf Jahren Arbeit in verschiedenen Büros fünf Jahre als freischaffender Architekt. Später in Berlin gründete ich in der Pandemiezeit mit einem Freund ein Interiordesign-Office. Passend zur Zeit war ich flexibel und hab meinem Bruder und dessen Geschäftspartner beim Aufbau ihres Startups geholfen. Was spürbar im Außen wurde: Gesellschaft im Dauerlärm, Social Media als Zerrspiegel, Polarisierung als Normalzustand. Und im Innen merkte ich, dass ich mich neu positionieren musste, um gesund zu bleiben. Ich begann meine Auszeit als Fitnesscoach und sortierte meine Expertisen. Was muss raus aus meinem Alltag und was kann ich volle Beachtung geben. Somit wuchs ein Selbstverständnis. Besser spät als nie. Hier bin ich nun als Coach und Designer zur Stelle für Dich, um einfache und pragmatische Hilfestellungen zu leisten: mit Bewegung Deinen Körper und mit Design Deinen Ort an Deinen Lebensentwurf anzupassen."
+                data-i18n-en="Raised in the north, in Flensburg, I moved to Hamburg for university where I studied architecture and learned the building trade from the ground up. After five years working in various offices, I spent five years as a freelance architect. Later in Berlin, during the pandemic, I founded an interior design office with a friend. In keeping with the times, I stayed flexible and helped my brother and his business partner build their startup. What became noticeable on the outside: a society in permanent noise, social media as a distorting mirror, polarisation as the norm. And on the inside I realised I had to reposition myself to stay healthy. I began my break as a fitness coach and sorted through my skills. What needs to go from my daily life, and what deserves my full attention. From that, a sense of self grew. Better late than never. Here I am now, as coach and designer, ready to offer you simple, pragmatic support: adapting your body through movement and your space through design to fit your life plan."
+              >
+                Aufgewachsen im Norden, in Flensburg, zog es mich zum Studium nach Hamburg wo ich Architektur studierte und
+                das Bauwesen von Grund auf kennenlernte. Es folgten nach fünf Jahren Arbeit in verschiedenen Büros fünf Jahre als
+                freischaffender Architekt. Später in Berlin gründete ich in der Pandemiezeit mit einem Freund ein
+                Interiordesign-Office. Passend zur Zeit war ich flexibel und hab meinem Bruder und dessen Geschäftspartner beim
+                Aufbau ihres Startups geholfen. Was spürbar im Außen wurde: Gesellschaft im Dauerlärm, Social Media als
+                Zerrspiegel, Polarisierung als Normalzustand. Und im Innen merkte ich, dass ich mich neu positionieren musste, um
+                gesund zu bleiben. Ich begann meine Auszeit als Fitnesscoach und sortierte meine Expertisen. Was muss raus aus
+                meinem Alltag und was kann ich volle Beachtung geben. Somit wuchs ein Selbstverständnis. Besser spät als nie.
+                Hier bin ich nun als Coach und Designer zur Stelle für Dich, um einfache und pragmatische Hilfestellungen zu
+                leisten: mit Bewegung Deinen Körper und mit Design Deinen Ort an Deinen Lebensentwurf anzupassen.
+              </p>
+            </div>
+            <figure class="tj-figure tj-hero__figure">
+              <div class="tj-figure__frame tj-figure__frame--portrait-crop">
+                <img
+                  src="../assets/biigJ/biigJ-kaffeetasse.png"
+                  alt="Joscha mit Kaffeetasse am Fenster"
+                  width="1200"
+                  height="1600"
+                  decoding="async"
+                />
+              </div>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="tj-section tj-section--image-left tj-section--wide-left" aria-labelledby="tj-section-1">
+        <div class="tj-shell">
+          <div class="tj-section__grid">
+            <figure class="tj-figure">
+              <div class="tj-figure__frame tj-figure__frame--wide tj-figure__frame--shift-left">
+                <img src="../assets/interior/freivonecken130-villaecke.png" alt="Arbeitstisch mit Entwürfen" width="1646" height="1697" decoding="async" />
+              </div>
+            </figure>
+            <div class="tj-section__copy">
+              <h2
+                id="tj-section-1"
+                class="tj-prose tj-prose--title"
+                data-i18n-de="Möbeldesign 2026"
+                data-i18n-en="Furniture design 2026"
+              >
+                Möbeldesign 2026
+              </h2>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="tj-section tj-section--image-left tj-section--wide-left tj-section--vinothek"
+        aria-labelledby="tj-section-vinothek"
+      >
+        <div class="tj-shell">
+          <div class="tj-section__grid">
+            <div class="tj-section__copy">
+              <h2
+                id="tj-section-vinothek"
+                class="tj-prose tj-prose--title"
+                data-i18n-de="Interiordesign Vinothek 2023"
+                data-i18n-en="Interior design wine bar 2023"
+              >
+                Interiordesign Vinothek 2023
+              </h2>
+            </div>
+            <figure class="tj-figure">
+              <div class="tj-figure__frame tj-figure__frame--wide">
+                <img
+                  src="../assets/interior/geisenheim_blumen.png"
+                  alt="Interiordesign Vinothek Geisenheim"
+                  width="1200"
+                  height="1600"
+                  decoding="async"
+                />
+              </div>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="tj-section tj-section--image-right" aria-labelledby="tj-section-3">
+        <div class="tj-shell">
+          <div class="tj-section__grid">
+            <figure class="tj-figure">
+              <div class="tj-figure__frame tj-figure__frame--klinker">
+                <img
+                  src="../assets/hochbau/klinkertreppenhaus.png"
+                  alt="Klinkertreppe an einem Wohnhaus in Hamburg"
+                  width="1200"
+                  height="1600"
+                  decoding="async"
+                />
+              </div>
+            </figure>
+            <div class="tj-section__copy">
+              <h2
+                id="tj-section-3"
+                class="tj-prose tj-prose--title"
+                data-i18n-de="Architektur in Hamburg 2016"
+                data-i18n-en="Architecture in Hamburg 2016"
+              >
+                Architektur in Hamburg 2016
+              </h2>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tj-section tj-section--image-left tj-section--rene" aria-labelledby="tj-section-rene">
+        <div class="tj-shell">
+          <div class="tj-section__grid">
+            <figure class="tj-figure">
+              <div class="tj-figure__frame tj-figure__frame--editorial">
+                <img
+                  src="../assets/interior/rene-möbliert-01.png"
+                  alt="Umbauten in Hamburg"
+                  width="1200"
+                  height="1600"
+                  decoding="async"
+                />
+              </div>
+            </figure>
+            <div class="tj-section__copy">
+              <h2
+                id="tj-section-rene"
+                class="tj-prose tj-prose--title"
+                data-i18n-de="Umbauten in Hamburg 2015"
+                data-i18n-en="Renovations in Hamburg 2015"
+              >
+                Umbauten in Hamburg 2015
+              </h2>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tj-section tj-section--treppe" aria-labelledby="tj-section-treppe">
+        <div class="tj-shell">
+          <div class="tj-section__media-stack tj-section__media-stack--right">
+            <h2
+              id="tj-section-treppe"
+              class="tj-prose tj-prose--title"
+              data-i18n-de="Hamburg-Blankenese 2015"
+              data-i18n-en="Hamburg-Blankenese 2015"
+            >
+              Hamburg-Blankenese 2015
+            </h2>
+            <figure class="tj-figure">
+              <div class="tj-figure__frame tj-figure__frame--editorial">
+                <img
+                  src="../assets/interior/treppe.png?v=2"
+                  alt="Treppe in Hamburg-Blankenese"
+                  width="1200"
+                  height="1600"
+                  decoding="async"
+                />
+              </div>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="tj-section tj-section--duo" aria-label="Architektur Hamburg">
+        <div class="tj-shell">
+          <div class="tj-section__duo-grid">
+            <div class="tj-duo-item">
+              <div class="tj-duo-block">
+                <h2
+                  class="tj-prose tj-prose--title"
+                  data-i18n-de="Neubau 11 Wohnungen in der Rothestraße, Hamburg-Ottensen 2015"
+                  data-i18n-en="New construction of 11 apartments on Rothestraße, Hamburg-Ottensen 2015"
+                >
+                  Neubau 11 Wohnungen in der Rothestraße, Hamburg-Ottensen 2015
+                </h2>
+                <figure class="tj-figure">
+                  <div class="tj-figure__frame tj-figure__frame--editorial tj-figure__frame--editorial-duo">
+                    <img
+                      src="../assets/hochbau/Rothestr.png"
+                      alt="Neubau 11 Wohnungen in der Rothestraße, Hamburg-Ottensen"
+                      width="1200"
+                      height="1600"
+                      decoding="async"
+                    />
+                  </div>
+                </figure>
+              </div>
+            </div>
+            <div class="tj-duo-item">
+              <div class="tj-duo-block">
+                <h2
+                  class="tj-prose tj-prose--title"
+                  data-i18n-de="Neubau 2 Wohnungen in der Wrangelstraße, Hamburg-Stellingen 2016"
+                  data-i18n-en="New construction of 2 apartments on Wrangelstraße, Hamburg-Stellingen 2016"
+                >
+                  Neubau 2 Wohnungen in der Wrangelstraße, Hamburg-Stellingen 2016
+                </h2>
+                <figure class="tj-figure">
+                  <div class="tj-figure__frame tj-figure__frame--editorial tj-figure__frame--editorial-duo">
+                    <img
+                      src="../assets/hochbau/graefestrasse-Gklasse.png"
+                      alt="Neubau 2 Wohnungen in der Wrangelstraße, Hamburg-Stellingen"
+                      width="1200"
+                      height="1600"
+                      decoding="async"
+                    />
+                  </div>
+                </figure>
+              </div>
+              <div class="tj-duo-block">
+                <h2
+                  class="tj-prose tj-prose--title"
+                  data-i18n-de="Sanierung einer Fassade und Modernisierung eines Wohnhauses, Hamburg 2016"
+                  data-i18n-en="Facade renovation and modernisation of a residential building, Hamburg 2016"
+                >
+                  Sanierung einer Fassade und Modernisierung eines Wohnhauses, Hamburg 2016
+                </h2>
+                <figure class="tj-figure">
+                  <div class="tj-figure__frame tj-figure__frame--editorial tj-figure__frame--editorial-duo tj-figure__frame--editorial-duo-destijl">
+                    <img
+                      src="../assets/hochbau/fassadensanierung.png"
+                      alt="Sanierung einer Fassade in Hamburg"
+                      width="1200"
+                      height="1600"
+                      decoding="async"
+                    />
+                  </div>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tj-section tj-section--wedel" aria-labelledby="tj-section-wedel">
+        <div class="tj-shell">
+          <div class="tj-section__media-stack">
+            <h2
+              id="tj-section-wedel"
+              class="tj-prose tj-prose--title"
+              data-i18n-de="Entwurf eines Wohnhauses mit 5 WE in Wedel 2016"
+              data-i18n-en="Design for a residential building with 5 units in Wedel 2016"
+            >
+              Entwurf eines Wohnhauses mit 5 WE in Wedel 2016
+            </h2>
+            <figure class="tj-figure">
+              <div class="tj-figure__frame tj-figure__frame--editorial tj-figure__frame--editorial-duo">
+                <img
+                  src="../assets/hochbau/wedel-strasse.png"
+                  alt="Entwurf eines Wohnhauses mit fünf Wohneinheiten in Wedel"
+                  width="1200"
+                  height="1600"
+                  decoding="async"
+                />
+              </div>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="tj-section tj-section--schleswig" aria-labelledby="tj-section-schleswig">
+        <div class="tj-shell">
+          <div class="tj-section__media-stack">
+            <h2
+              id="tj-section-schleswig"
+              class="tj-prose tj-prose--title"
+              data-i18n-de="Wettbewerb für eine Wohnbebauung und Ärztehaus in Schleswig an der Waterkant, 2016"
+              data-i18n-en="Competition for residential development and medical centre in Schleswig on the waterfront, 2016"
+            >
+              Wettbewerb für eine Wohnbebauung und Ärztehaus in Schleswig an der Waterkant, 2016
+            </h2>
+            <figure class="tj-figure">
+              <div class="tj-figure__frame tj-figure__frame--editorial-full">
+                <img
+                  src="../assets/hochbau/schleswig.png"
+                  alt="Wettbewerbsentwurf Wohnbebauung und Ärztehaus in Schleswig"
+                  width="1200"
+                  height="1600"
+                  decoding="async"
+                />
+              </div>
+            </figure>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer" id="bi-site-footer" aria-label="Seitenfuß">
+      <div class="footer__inner">
+        <a href="../index.html" class="footer__logo bi-brand-logo">BIIG INTERIOR</a>
+        <nav class="footer__links" aria-label="Rechtliches und Über uns">
+          <a href="../impressum/index.html"><span class="de-t">Impressum</span><span class="en-t">Legal notice</span></a>
+          <a href="../datenschutz/index.html"><span class="de-t">Datenschutz</span><span class="en-t">Privacy</span></a>
+          <a href="../kontakt/index.html"><span class="de-t">Kontakt</span><span class="en-t">Contact</span></a>
+          <a href="../joscha/index.html"><span class="de-t">Joscha</span><span class="en-t">Joscha</span></a>
+          <a href="../kunst/index.html"><span class="de-t">Kunst</span><span class="en-t">Art</span></a>
+        </nav>
+        <p class="footer__copy">© 2026</p>
+      </div>
+    </footer>
+    <script src="../fc-lang.js" defer></script>
+</body>
+</html>
