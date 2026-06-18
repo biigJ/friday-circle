@@ -125,6 +125,11 @@
 .wga-page.biig-subpage .wga-nav .nav__inner {
   grid-template-columns: minmax(0, 1fr) auto auto;
   column-gap: clamp(16px, 2.5vw, 28px);
+  overflow: visible;
+}
+
+.wga-page.biig-subpage .wga-nav {
+  overflow: visible;
 }
 
 .wga-page.biig-subpage .wga-nav .nav__lang {
@@ -140,8 +145,38 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   text-decoration: none;
-  color: inherit;
   white-space: nowrap;
+}
+
+.wga-page.biig-subpage .wga-nav.wga-nav--on-light .wga-nav__biig-home {
+  color: var(--text);
+  text-shadow: none;
+}
+
+.wga-page.biig-subpage .wga-nav:not(.wga-nav--on-light).wga-nav--logo-light .wga-nav__biig-home {
+  color: #f0eee6;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.45);
+}
+
+.wga-page.biig-subpage .wga-nav:not(.wga-nav--on-light).wga-nav--logo-dark .wga-nav__biig-home {
+  color: var(--text);
+  text-shadow: none;
+}
+
+.wga-page.biig-subpage .wga-nav.wga-nav--on-light .wga-nav__biig-home:hover,
+.wga-page.biig-subpage .wga-nav.wga-nav--on-light .wga-nav__biig-home:focus-visible,
+.wga-page.biig-subpage .wga-nav:not(.wga-nav--on-light).wga-nav--logo-dark .wga-nav__biig-home:hover,
+.wga-page.biig-subpage .wga-nav:not(.wga-nav--on-light).wga-nav--logo-dark .wga-nav__biig-home:focus-visible {
+  color: var(--text);
+  opacity: 0.72;
+  outline: none;
+}
+
+.wga-page.biig-subpage .wga-nav:not(.wga-nav--on-light).wga-nav--logo-light .wga-nav__biig-home:hover,
+.wga-page.biig-subpage .wga-nav:not(.wga-nav--on-light).wga-nav--logo-light .wga-nav__biig-home:focus-visible {
+  color: #ffffff;
+  opacity: 1;
+  outline: none;
 }
 
 .wga-page.biig-subpage .wga-nav__biig-home:hover,
@@ -182,6 +217,18 @@
   .wga-page.biig-subpage .wga-nav .wga-nav__chapters {
     grid-area: chapters;
     justify-self: start;
+    position: static;
+    overflow: visible;
+  }
+
+  .wga-page.biig-subpage .wga-nav .wga-nav__chapters-menu {
+    position: fixed !important;
+    left: var(--nav-pad-x) !important;
+    right: var(--nav-pad-x) !important;
+    transform: none !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
   }
 
   .wga-page.biig-subpage .wga-nav .wga-nav__bio {
