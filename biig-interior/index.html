@@ -1196,6 +1196,26 @@
         display: block;
       }
 
+      .bi-portfolio.bi-portfolio--service-filter .bi-grid {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .bi-portfolio.bi-portfolio--service-filter .bi-image-row,
+      .bi-portfolio.bi-portfolio--service-filter .bi-hochbau-tiles-row {
+        display: contents;
+      }
+
+      .bi-portfolio.bi-portfolio--service-filter .bi-image-row__scroll {
+        display: contents;
+      }
+
+      .bi-portfolio.bi-portfolio--service-filter .bi-tile--project.bi-tile--service-visible {
+        flex: 0 0 auto;
+        width: var(--bi-col);
+        height: var(--bi-tile-h);
+      }
+
       .bi-portfolio.bi-portfolio--service-filter .bi-image-row:not(:has(.bi-tile--service-visible)) {
         display: none;
       }
@@ -3346,35 +3366,10 @@
       <section class="bi-section bi-section--tight-top bi-section--process" aria-labelledby="bi-process-title">
         <div class="bi-shell">
           <h2 class="bi-section__title" id="bi-process-title">
-            <span class="de-t">Projektablauf in Kurzform</span>
-            <span class="en-t">Project process in brief</span>
+            <span class="de-t" id="bi-process-title-de">Projektablauf in Kurzform</span>
+            <span class="en-t" id="bi-process-title-en">Project process in brief</span>
           </h2>
-          <div class="bi-process__grid">
-            <article class="bi-process__item">
-              <h3><span class="de-t">Erstes Gespräch</span><span class="en-t">First conversation</span></h3>
-              <p><span class="de-t">Wo stehst Du? Mit Plan, Gefühl oder konkretem Problem? Wir klären Ziele und nächsten Schritt.</span><span class="en-t">Where are you? With a plan, a feeling, or a concrete problem? We clarify goals and the next step.</span></p>
-            </article>
-            <article class="bi-process__item">
-              <h3><span class="de-t">Kostenrechner</span><span class="en-t">Fee calculator</span></h3>
-              <p><span class="de-t">Honorar und Umfang transparent, bevor Du Dich festlegst. Angepasst an Größe und Leistung.</span><span class="en-t">Fee and scope transparent, before you commit. Adapted to size and service.</span></p>
-            </article>
-            <article class="bi-process__item">
-              <h3><span class="de-t">Konzept</span><span class="en-t">Concept</span></h3>
-              <p><span class="de-t">Aus Deinen Ressourcen entsteht ein rundes Bild: Material, Licht, Möbel, Farbe, Handwerk oder DIY.</span><span class="en-t">From your resources, a complete picture emerges: materials, light, furniture, colour, craft or DIY.</span></p>
-            </article>
-            <article class="bi-process__item">
-              <h3><span class="de-t">Plan für Umsetzung</span><span class="en-t">Plan for execution</span></h3>
-              <p><span class="de-t">Deine Idee wird übersetzt als Zeichnung, Liste und Visualisierung für Handwerker oder Eigenleistung.</span><span class="en-t">Your idea is translated as drawing, list, and visual for trades or DIY.</span></p>
-            </article>
-            <article class="bi-process__item">
-              <h3><span class="de-t">Begleitung</span><span class="en-t">Guidance</span></h3>
-              <p><span class="de-t">Handwerker finden, abstimmen, koordinieren, wenn Du das möchtest, ohne dass Du alles allein tragen musst.</span><span class="en-t">Finding trades, aligning, coordinating, if you want, without carrying everything alone.</span></p>
-            </article>
-            <article class="bi-process__item">
-              <h3><span class="de-t">Übergabe</span><span class="en-t">Handover</span></h3>
-              <p><span class="de-t">Dein Projekt zum Wohlfühlen, zum Zeitpunkt, den Du möchtest.</span><span class="en-t">Your project ready to feel at home, when you want it.</span></p>
-            </article>
-          </div>
+          <div class="bi-process__grid" id="bi-process-grid"></div>
         </div>
       </section>
 
@@ -3432,8 +3427,8 @@
       <section class="bi-konfigurator-section" aria-labelledby="bi-konfigurator-lede">
       <div class="bi-shell">
         <h2 id="bi-konfigurator-lede" class="bi-konfigurator-lede">
-          <span class="de-t">Klick Dich in 2 Minuten für eine erste Kosteneinschätzung durch</span>
-          <span class="en-t">Click through in 2 minutes for an initial cost estimate</span>
+          <span class="de-t">Klick Dich in 2 min zur ersten Kosteneinschätzung durch</span>
+          <span class="en-t">Click through in 2 min for an initial cost estimate</span>
         </h2>
         <h2 id="bi-konfigurator-title" class="visually-hidden">
           <span class="de-t">Ein Gespräch. Ein Plan. Los.</span>
@@ -4767,6 +4762,8 @@
             cropPosition: "48% 18%",
           },
           schleswig: {
+            tileLabelDe: "Schleswig",
+            tileLabelEn: "Schleswig",
             titleDe: "Wettbewerbsbeitrag, Schleswig 2016",
             titleEn: "Competition entry, Schleswig 2016",
             bodyDe:
@@ -4795,6 +4792,8 @@
             cropPosition: "center center",
           },
           neubauhausstrasse: {
+            tileLabelDe: "Neubauhaus",
+            tileLabelEn: "New build house",
             titleDe: "Entwurf Doppelhaus, Hamburg 2013",
             titleEn: "Duplex house design, Hamburg 2013",
             bodyDe:
@@ -5000,6 +4999,8 @@
             tiles: ["dieffe33", "altbau2", "ordnung", "oase"],
             titleDe: "Aufräumservice oder Ideen sortieren",
             titleEn: "Decluttering service or sorting ideas",
+            processTitleDe: "Aufräumen: Ablauf",
+            processTitleEn: "Decluttering: process",
           },
           "bi-pricing-design": {
             tiles: [
@@ -5020,21 +5021,330 @@
             ],
             titleDe: "Du bekommst Plan, Visu, Tabelle",
             titleEn: "You get plan, visual, spreadsheet",
+            processTitleDe: "Design: Ablauf",
+            processTitleEn: "Design: process",
           },
           "bi-pricing-handwerker": {
             tiles: ["dieffe33", "homeoffice1", "hausA", "vinothekGeo"],
             titleDe: "Vom baubarer Entwurf bis alles inklusive",
             titleEn: "From buildable design to all-inclusive",
+            processTitleDe: "Konstruktion: Ablauf",
+            processTitleEn: "Construction drawings: process",
           },
           "bi-pricing-hochbau": {
             hochbau: true,
+            processTitleDe: "Gebäudeplanung: Ablauf",
+            processTitleEn: "Building planning: process",
           },
           "bi-pricing-moebel": {
             tiles: ["moebel"],
             titleDe: "Im Projekt des Mini-Apartements entstanden",
             titleEn: "Created in the mini-apartment project",
+            processTitleDe: "Möbelentwurf: Ablauf",
+            processTitleEn: "Furniture design: process",
           },
         };
+
+        var PROCESS_STEPS = {
+          default: {
+            titleDe: "Projektablauf in Kurzform",
+            titleEn: "Project process in brief",
+            steps: [
+              {
+                titleDe: "Erstes Gespräch",
+                titleEn: "First conversation",
+                bodyDe:
+                  "Wo stehst Du? Mit Plan, Gefühl oder konkretem Problem? Wir klären Ziele und den nächsten Schritt.",
+                bodyEn:
+                  "Where are you? With a plan, a feeling, or a concrete problem? We clarify goals and the next step.",
+              },
+              {
+                titleDe: "Kostenrechner",
+                titleEn: "Fee calculator",
+                bodyDe:
+                  "Honorar und Umfang transparent, bevor Du Dich festlegst. Angepasst an Größe und Leistung.",
+                bodyEn: "Fee and scope transparent, before you commit. Adapted to size and service.",
+              },
+              {
+                titleDe: "Konzept",
+                titleEn: "Concept",
+                bodyDe:
+                  "Aus Deinen Ressourcen entsteht ein rundes Bild: Material, Licht, Möbel, Farbe, Handwerk oder DIY.",
+                bodyEn:
+                  "From your resources, a complete picture emerges: materials, light, furniture, colour, craft or DIY.",
+              },
+              {
+                titleDe: "Plan für Umsetzung",
+                titleEn: "Plan for execution",
+                bodyDe:
+                  "Deine Idee wird übersetzt als Zeichnung, Liste und Visualisierung für Handwerker oder Eigenleistung.",
+                bodyEn:
+                  "Your idea is translated as drawing, list, and visual for trades or DIY.",
+              },
+              {
+                titleDe: "Begleitung",
+                titleEn: "Guidance",
+                bodyDe:
+                  "Handwerker finden, abstimmen, koordinieren, wenn Du das möchtest, ohne dass Du alles allein tragen musst.",
+                bodyEn:
+                  "Finding trades, aligning, coordinating, if you want, without carrying everything alone.",
+              },
+              {
+                titleDe: "Übergabe",
+                titleEn: "Handover",
+                bodyDe: "Dein Projekt zum Wohlfühlen, zum Zeitpunkt, den Du möchtest.",
+                bodyEn: "Your project ready to feel at home, when you want it.",
+              },
+            ],
+          },
+          "bi-pricing-ordnung": {
+            steps: [
+              {
+                titleDe: "30 Min. Kennenlernen",
+                titleEn: "30 min intro call",
+                bodyDe:
+                  "Wir lernen uns kennen: Wo stehst Du, was soll sich ändern, und welcher Schritt macht als Erstes Sinn?",
+                bodyEn:
+                  "We get to know each other: where you are, what should change, and which step makes sense first.",
+              },
+              {
+                titleDe: "Protokoll",
+                titleEn: "Summary",
+                bodyDe: "Deine Ziele, Rahmenbedingungen und nächsten Schritte halten wir schriftlich fest.",
+                bodyEn: "Your goals, constraints, and next steps are captured in writing.",
+              },
+              {
+                titleDe: "Termin vor Ort oder Webcall",
+                titleEn: "On-site visit or web call",
+                bodyDe:
+                  "Je nach Bedarf treffen wir uns vor Ort oder per Video – direkt, ohne Umwege.",
+                bodyEn: "As needed, we meet on site or by video – directly, without detours.",
+              },
+              {
+                titleDe: "Konzept mit Tabelle – ggf. Zeichnung",
+                titleEn: "Concept with spreadsheet – drawing if needed",
+                bodyDe:
+                  "Du bekommst ein sortiertes Konzept mit Übersichtstabelle; wenn nötig ergänzt um eine Skizze.",
+                bodyEn:
+                  "You receive a sorted concept with overview table; if needed, supplemented with a sketch.",
+              },
+              {
+                titleDe: "Ggf. Ortstermin",
+                titleEn: "On-site visit if needed",
+                bodyDe:
+                  "Bei Bedarf schauen wir uns den Ort gemeinsam an, bevor Entscheidungen fallen.",
+                bodyEn: "If needed, we visit the site together before decisions are made.",
+              },
+              {
+                titleDe: "Recap",
+                titleEn: "Recap",
+                bodyDe:
+                  "Abschluss mit klarer Zusammenfassung: Was ist erledigt, was wäre der nächste Schritt?",
+                bodyEn: "Closing with a clear summary: what is done, what would be the next step?",
+              },
+            ],
+          },
+          "bi-pricing-design": {
+            steps: [
+              {
+                titleDe: "30 Min. Gespräch",
+                titleEn: "30 min conversation",
+                bodyDe:
+                  "Ziele, Ressourcen und Umfang klären wir im ersten Gespräch – ob Zimmerecke oder ganze Etage.",
+                bodyEn:
+                  "Goals, resources, and scope in the first conversation – whether a room corner or a full floor.",
+              },
+              {
+                titleDe: "Protokoll",
+                titleEn: "Summary",
+                bodyDe: "Wünsche, Rahmen und nächste Schritte werden festgehalten – Deine Basis für alles Weitere.",
+                bodyEn: "Wishes, scope, and next steps are documented – your basis for everything that follows.",
+              },
+              {
+                titleDe: "Freigabe",
+                titleEn: "Approval",
+                bodyDe: "Du gibst den Kurs frei – dann starten wir mit der Ausarbeitung des Konzepts.",
+                bodyEn: "You approve the direction – then we begin developing the concept.",
+              },
+              {
+                titleDe: "Konzept mit Plan, Visu, Tabelle",
+                titleEn: "Concept with plan, visual, spreadsheet",
+                bodyDe:
+                  "Aus Deinen Zielen entsteht ein rundes Bild: Grundriss, Visualisierung und Materialliste.",
+                bodyEn:
+                  "From your goals, a complete picture emerges: floor plan, visualisation, and material list.",
+              },
+              {
+                titleDe: "Freigabe oder Überarbeitung",
+                titleEn: "Approval or revision",
+                bodyDe:
+                  "Du prüfst das Konzept; wir passen Details an oder geben frei für die Umsetzung.",
+                bodyEn: "You review the concept; we refine details or approve it for execution.",
+              },
+              {
+                titleDe: "Termin mit Recap",
+                titleEn: "Closing call with recap",
+                bodyDe:
+                  "Abschlussgespräch mit Zusammenfassung: Was steht, was folgt als Nächstes?",
+                bodyEn: "Closing conversation with summary: what is done, what comes next?",
+              },
+            ],
+          },
+          "bi-pricing-handwerker": {
+            steps: [
+              {
+                titleDe: "30 Min. Gespräch",
+                titleEn: "30 min conversation",
+                bodyDe:
+                  "Dein Wunsch, der baubare Rahmen und der Umfang der Zeichnung – wir klären alles im Erstgespräch.",
+                bodyEn:
+                  "Your vision, buildable scope, and drawing depth – we clarify everything in the intro call.",
+              },
+              {
+                titleDe: "Protokoll & Freigabe",
+                titleEn: "Summary & approval",
+                bodyDe:
+                  "Wünsche und Leistungsumfang halten wir fest; Du gibst frei, dann geht es in die Ausarbeitung.",
+                bodyEn: "We document wishes and scope; you approve, then we begin the design work.",
+              },
+              {
+                titleDe: "Konzept mit Plan, Visu, Tabelle",
+                titleEn: "Concept with plan, visual, spreadsheet",
+                bodyDe:
+                  "Baubare Entwurfszeichnung, Visualisierung und Leistungsverzeichnis – alles für den Handwerker.",
+                bodyEn:
+                  "Buildable design drawing, visualisation, and specification – everything for the trades.",
+              },
+              {
+                titleDe: "Freigabe oder Überarbeitung",
+                titleEn: "Approval or revision",
+                bodyDe:
+                  "Du prüfst Plan und Details; wir überarbeiten oder geben frei zur Beauftragung.",
+                bodyEn: "You review plan and details; we revise or approve for commissioning.",
+              },
+              {
+                titleDe: "Optional: Ausschreibung & Bauleitung",
+                titleEn: "Optional: tender & site management",
+                bodyDe:
+                  "Auf Wunsch übernehme ich Ausschreibung, Handwerkerabstimmung und Bauleitung bis zur Übergabe.",
+                bodyEn:
+                  "If you want, I handle tendering, trade coordination, and site management through handover.",
+              },
+              {
+                titleDe: "Recap & Übergabe",
+                titleEn: "Recap & handover",
+                bodyDe:
+                  "Abschluss mit Zusammenfassung und belastbarer Vorlage – zum Zeitpunkt, den Du möchtest.",
+                bodyEn:
+                  "Closing with summary and reliable brief – when you want it.",
+              },
+            ],
+          },
+          "bi-pricing-hochbau": {
+            steps: [
+              {
+                titleDe: "30 Min. Gespräch",
+                titleEn: "30 min conversation",
+                bodyDe:
+                  "Projektziele, Standort und bauantragsrelevanter Umfang – wir klären den Rahmen im Erstgespräch.",
+                bodyEn:
+                  "Project goals, site, and permit-relevant scope – we clarify the framework in the intro call.",
+              },
+              {
+                titleDe: "Protokoll & Partnerbüro",
+                titleEn: "Summary & partner office",
+                bodyDe:
+                  "Leistung und Ablauf halten wir fest; ein Architekturbüro wird für Bauantrag und Backup eingebunden.",
+                bodyEn:
+                  "We document scope and process; an architecture office is involved for permits and backup.",
+              },
+              {
+                titleDe: "Konzept mit Plan, Visu, Tabelle",
+                titleEn: "Concept with plan, visual, spreadsheet",
+                bodyDe:
+                  "Entwurf, Visualisierung und Leistungsübersicht – abgestimmt zwischen Design und baurechtlichen Anforderungen.",
+                bodyEn:
+                  "Design, visualisation, and scope overview – aligned between design and planning requirements.",
+              },
+              {
+                titleDe: "Freigabe oder Überarbeitung",
+                titleEn: "Approval or revision",
+                bodyDe:
+                  "Du prüfst den Entwurf; wir passen an oder geben frei für die nächste Planungsphase.",
+                bodyEn: "You review the design; we revise or approve for the next planning phase.",
+              },
+              {
+                titleDe: "Bauantrag & Backup",
+                titleEn: "Planning application & backup",
+                bodyDe:
+                  "Das Partnerbüro begleitet Bauantrag und bietet architektonisches Backup – ich koordiniere den Prozess.",
+                bodyEn:
+                  "The partner office handles the permit application and provides architectural backup – I coordinate the process.",
+              },
+              {
+                titleDe: "Optional: Ausschreibung, Bauleitung & Recap",
+                titleEn: "Optional: tender, site management & recap",
+                bodyDe:
+                  "Auf Wunsch Ausschreibung und Bauleitung; Abschluss mit Recap und Übergabe aller Unterlagen.",
+                bodyEn:
+                  "Tender and site management on request; closing with recap and handover of all documents.",
+              },
+            ],
+          },
+          "bi-pricing-moebel": {
+            steps: [
+              {
+                titleDe: "30 Min. Gespräch",
+                titleEn: "30 min conversation",
+                bodyDe:
+                  "Maße, Material, Stil und Budget – wir klären, was der Möbelentwurf leisten soll.",
+                bodyEn:
+                  "Dimensions, material, style, and budget – we clarify what the furniture design should deliver.",
+              },
+              {
+                titleDe: "Protokoll",
+                titleEn: "Summary",
+                bodyDe:
+                  "Anforderungen und Rahmen halten wir schriftlich fest – Deine Basis für Entwurf und Tischlerabstimmung.",
+                bodyEn:
+                  "Requirements and scope in writing – your basis for design and joiner coordination.",
+              },
+              {
+                titleDe: "Entwurf & Konzept",
+                titleEn: "Design & concept",
+                bodyDe:
+                  "Skizze, Maßzeichnung und Materialvorschlag – angepasst an Deinen Ort und Deine Ressourcen.",
+                bodyEn:
+                  "Sketch, dimension drawing, and material proposal – tailored to your space and resources.",
+              },
+              {
+                titleDe: "Freigabe oder Überarbeitung",
+                titleEn: "Approval or revision",
+                bodyDe:
+                  "Du prüfst den Entwurf; wir passen Details an oder geben frei für die Tischlerarbeit.",
+                bodyEn: "You review the design; we refine details or approve for joinery work.",
+              },
+              {
+                titleDe: "Abstimmung mit Tischler",
+                titleEn: "Coordination with joiner",
+                bodyDe:
+                  "Ich übersetze den Entwurf für den Tischler, kläre Details und begleite die Abstimmung bis zur Umsetzung.",
+                bodyEn:
+                  "I translate the design for the joiner, clarify details, and guide coordination through to execution.",
+              },
+              {
+                titleDe: "Recap & Übergabe",
+                titleEn: "Recap & handover",
+                bodyDe:
+                  "Abschluss mit Zusammenfassung und belastbarer Zeichnung – Dein Möbelstück kann entstehen.",
+                bodyEn:
+                  "Closing with summary and reliable drawing – your piece of furniture can be built.",
+              },
+            ],
+          },
+        };
+
+        var activeServiceKey = null;
 
         var INFO_LEISTUNG = {
           de: "Auf einem Bestandsgrundriss aufbauend erstelle ich Dir einen Plan nach Deinen Wünschen, Vorstellungen und Ressourcen. Für die Umsetzung begleite ich Materialwahl, Details und die Abstimmung mit Handwerk Schritt für Schritt bis zur belastbaren Vorlage.",
@@ -6339,10 +6649,10 @@
             label.className = "bi-tile__label";
             var labelDe = document.createElement("span");
             labelDe.className = "de-t";
-            labelDe.textContent = pick(project, "concrete");
+            labelDe.textContent = project.tileLabelDe || pick(project, "concrete");
             var labelEn = document.createElement("span");
             labelEn.className = "en-t";
-            labelEn.textContent = pick(project, "concrete");
+            labelEn.textContent = project.tileLabelEn || pick(project, "concrete");
             label.appendChild(labelDe);
             label.appendChild(labelEn);
             tile.appendChild(label);
@@ -6361,6 +6671,57 @@
           });
         }
 
+        function renderProcessSteps(serviceKey) {
+          var grid = document.getElementById("bi-process-grid");
+          var titleDe = document.getElementById("bi-process-title-de");
+          var titleEn = document.getElementById("bi-process-title-en");
+          if (!grid) return;
+
+          var filter = serviceKey ? SERVICE_FILTERS[serviceKey] : null;
+          var processData = (serviceKey && PROCESS_STEPS[serviceKey]) || PROCESS_STEPS.default;
+          var steps = processData.steps || PROCESS_STEPS.default.steps;
+
+          if (titleDe && titleEn) {
+            if (filter && filter.processTitleDe) {
+              titleDe.textContent = filter.processTitleDe;
+              titleEn.textContent = filter.processTitleEn || filter.processTitleDe;
+            } else if (processData.titleDe) {
+              titleDe.textContent = processData.titleDe;
+              titleEn.textContent = processData.titleEn || processData.titleDe;
+            } else {
+              titleDe.textContent = PROCESS_STEPS.default.titleDe;
+              titleEn.textContent = PROCESS_STEPS.default.titleEn;
+            }
+          }
+
+          grid.innerHTML = "";
+          steps.forEach(function (step) {
+            var article = document.createElement("article");
+            article.className = "bi-process__item";
+            var h3 = document.createElement("h3");
+            var titleDeSpan = document.createElement("span");
+            titleDeSpan.className = "de-t";
+            titleDeSpan.textContent = step.titleDe;
+            var titleEnSpan = document.createElement("span");
+            titleEnSpan.className = "en-t";
+            titleEnSpan.textContent = step.titleEn || step.titleDe;
+            h3.appendChild(titleDeSpan);
+            h3.appendChild(titleEnSpan);
+            var p = document.createElement("p");
+            var bodyDeSpan = document.createElement("span");
+            bodyDeSpan.className = "de-t";
+            bodyDeSpan.textContent = step.bodyDe;
+            var bodyEnSpan = document.createElement("span");
+            bodyEnSpan.className = "en-t";
+            bodyEnSpan.textContent = step.bodyEn || step.bodyDe;
+            p.appendChild(bodyDeSpan);
+            p.appendChild(bodyEnSpan);
+            article.appendChild(h3);
+            article.appendChild(p);
+            grid.appendChild(article);
+          });
+        }
+
         function applyServiceFilter(serviceKey) {
           var portfolio = document.getElementById("bi-portfolio");
           var pricing = document.getElementById("bi-pricing");
@@ -6369,6 +6730,8 @@
           var titleService = document.querySelector(".bi-portfolio__title-service");
           var filter = SERVICE_FILTERS[serviceKey];
           if (!portfolio || !filter) return;
+
+          activeServiceKey = serviceKey;
 
           portfolio.classList.add("bi-portfolio--service-filter");
           portfolio.classList.remove("bi-portfolio--hochbau-expanded");
@@ -6403,6 +6766,7 @@
           if (pricing) pricing.classList.add("is-service-hidden");
           if (konfiguratorLede) konfiguratorLede.classList.add("is-visible");
 
+          renderProcessSteps(serviceKey);
           initMobileTileCarousels({ force: true });
         }
 
@@ -6556,6 +6920,7 @@
           initHochbauCollage();
           initHochbauIndividualTiles();
           initMobileTileCarousels({ force: true });
+          renderProcessSteps(activeServiceKey);
           initHeroSlider();
           if (openOfferId) {
             openOfferPopup(openOfferId);
