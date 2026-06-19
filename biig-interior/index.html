@@ -1258,6 +1258,22 @@
         display: none;
       }
 
+      .bi-section--pricing.is-service-filter .bi-pricing__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bi-section--pricing.is-service-filter .bi-pricing-card {
+        display: none;
+      }
+
+      .bi-section--pricing.is-service-filter .bi-pricing-card.bi-pricing-card--service-visible {
+        display: flex;
+      }
+
+      .bi-section--pricing.is-service-filter .bi-pricing-card--service-visible .bi-pricing-card__note {
+        min-height: 0;
+      }
+
       .bi-konfigurator-lede {
         display: none;
         margin: 0 0 clamp(20px, 3vw, 32px);
@@ -3449,43 +3465,47 @@
           </h2>
           <div class="bi-pricing__grid">
             <article class="bi-pricing-card" id="bi-pricing-ordnung">
-              <h3 class="bi-pricing-card__title"><span class="de-t">Sortieren &amp; Ordnung</span><span class="en-t">Sorting &amp; order</span></h3>
+              <h3 class="bi-pricing-card__title"><span class="de-t">Sortieren &amp; Orden</span><span class="en-t">Sorting &amp; order</span></h3>
               <p class="bi-pricing-card__price"><span class="de-t">ab 200 €</span><span class="en-t">from €200</span></p>
-              <p class="bi-pricing-card__note"><span class="de-t">Ideen und Hab &amp; Gut sortieren</span><span class="en-t">Sort ideas and belongings</span></p>
+              <p class="bi-pricing-card__note"><span class="de-t">Aufräumservice &amp; Deine Visionen strukturieren</span><span class="en-t">Decluttering service &amp; structuring your vision</span></p>
               <ul class="bi-pricing-card__list">
-                <li><span class="de-t">Ist-Zustand klären</span><span class="en-t">Clarify current state</span></li>
-                <li><span class="de-t">Entscheidungshilfen pro Raum</span><span class="en-t">Decision tools per room</span></li>
-                <li><span class="de-t">Ohne Druck, ohne Vorurteile</span><span class="en-t">Without pressure or judgement</span></li>
+                <li><span class="de-t">Vor Ort mit viel Geduld</span><span class="en-t">On site with plenty of patience</span></li>
+                <li><span class="de-t">Im Webcall mit Plan</span><span class="en-t">Via web call with a plan</span></li>
+                <li><span class="de-t">klare Entscheidungshilfen</span><span class="en-t">Clear decision support</span></li>
+                <li><span class="de-t">Urteilsfrei &amp; diskret</span><span class="en-t">Without judgement &amp; discreet</span></li>
               </ul>
             </article>
             <article class="bi-pricing-card" id="bi-pricing-design">
               <h3 class="bi-pricing-card__title"><span class="de-t">Design</span><span class="en-t">Design</span></h3>
               <p class="bi-pricing-card__price"><span class="de-t">ab 450 €</span><span class="en-t">from €450</span></p>
-              <p class="bi-pricing-card__note"><span class="de-t">Von Zimmerecke bis Villa</span><span class="en-t">From a room corner to a villa</span></p>
+              <p class="bi-pricing-card__note"><span class="de-t">Raumkonzepte &amp; komplexe Strukturen</span><span class="en-t">Room concepts &amp; complex structures</span></p>
               <ul class="bi-pricing-card__list">
-                <li><span class="de-t">Konzept aus Zielen &amp; Ressourcen</span><span class="en-t">Concept from goals &amp; resources</span></li>
-                <li><span class="de-t">Material, Licht, Möbel, Farbe</span><span class="en-t">Materials, light, furniture, colour</span></li>
-                <li><span class="de-t">DIY oder Handwerk</span><span class="en-t">DIY or trades</span></li>
+                <li><span class="de-t">Analyse Deiner Ziele &amp; Ressourcen</span><span class="en-t">Analysis of your goals &amp; resources</span></li>
+                <li><span class="de-t">Abstimmung von allen Schritten</span><span class="en-t">Alignment on every step</span></li>
+                <li><span class="de-t">Material, Farbe, Licht, Funktionen</span><span class="en-t">Materials, colour, light, functions</span></li>
+                <li><span class="de-t">von DIY bis edlen Tischlerarbeiten</span><span class="en-t">From DIY to fine joinery</span></li>
               </ul>
             </article>
             <article class="bi-pricing-card" id="bi-pricing-handwerker">
-              <h3 class="bi-pricing-card__title"><span class="de-t">Plan für Handwerker</span><span class="en-t">Trades plan</span></h3>
+              <h3 class="bi-pricing-card__title"><span class="de-t">Konstruktionsplanung</span><span class="en-t">Construction planning</span></h3>
               <p class="bi-pricing-card__price"><span class="de-t">ab 1.000 €</span><span class="en-t">from €1,000</span></p>
-              <p class="bi-pricing-card__note"><span class="de-t">Baubare Zeichnung &amp; Begleitung</span><span class="en-t">Buildable drawing &amp; guidance</span></p>
+              <p class="bi-pricing-card__note"><span class="de-t">Baubarer Entwurf bis Fertigstellung</span><span class="en-t">Buildable design through to completion</span></p>
               <ul class="bi-pricing-card__list">
-                <li><span class="de-t">Übersetzung Deiner Idee</span><span class="en-t">Translation of your idea</span></li>
-                <li><span class="de-t">Liste, Visu, Entwurfszeichnung</span><span class="en-t">List, visuals, design drawing</span></li>
-                <li><span class="de-t">Begleitung bis zur Übergabe</span><span class="en-t">Support through handover</span></li>
+                <li><span class="de-t">Konzept zu Zeichnung</span><span class="en-t">Concept to drawing</span></li>
+                <li><span class="de-t">alles visualisiert und gelistet</span><span class="en-t">Everything visualised and listed</span></li>
+                <li><span class="de-t">Zeitplanung professionell</span><span class="en-t">Professional scheduling</span></li>
+                <li><span class="de-t">Übergabetermine nach Absprache</span><span class="en-t">Handover dates by agreement</span></li>
               </ul>
             </article>
             <article class="bi-pricing-card" id="bi-pricing-hochbau">
-              <h3 class="bi-pricing-card__title"><span class="de-t">Hochbau</span><span class="en-t">Structural work</span></h3>
+              <h3 class="bi-pricing-card__title"><span class="de-t">Gebäudeplanung</span><span class="en-t">Building planning</span></h3>
               <p class="bi-pricing-card__price"><span class="de-t">auf Anfrage</span><span class="en-t">on request</span></p>
-              <p class="bi-pricing-card__note"><span class="de-t">Mit Partnerbüro bei Bauantrag</span><span class="en-t">With partner office for permits</span></p>
+              <p class="bi-pricing-card__note"><span class="de-t">mit Partnerbüro für Bauantrag</span><span class="en-t">with partner office for planning permits</span></p>
               <ul class="bi-pricing-card__list">
-                <li><span class="de-t">Studierter Architekt mit Bauherfahrung</span><span class="en-t">Trained architect with client-side experience</span></li>
-                <li><span class="de-t">Bauantragsrelevante Projekte</span><span class="en-t">Planning-permit projects</span></li>
-                <li><span class="de-t">Persönliches Erstgespräch</span><span class="en-t">Personal intro call</span></li>
+                <li><span class="de-t">Wir sind Dipl.-Architekten</span><span class="en-t">We are graduate architects</span></li>
+                <li><span class="de-t">Partnerbüro steht zur Seite</span><span class="en-t">Partner office at your side</span></li>
+                <li><span class="de-t">ob privat oder gewerblich</span><span class="en-t">Private or commercial projects</span></li>
+                <li><span class="de-t">alles professionell abgewickelt</span><span class="en-t">Everything handled professionally</span></li>
               </ul>
             </article>
           </div>
@@ -6801,6 +6821,22 @@
           });
         }
 
+        function applyPricingFilter(serviceKey) {
+          var pricing = document.getElementById("bi-pricing");
+          if (!pricing) return;
+          var pricingCard = document.getElementById(serviceKey);
+          pricing.classList.remove("is-service-hidden", "is-service-filter");
+          document.querySelectorAll(".bi-pricing-card").forEach(function (card) {
+            card.classList.remove("bi-pricing-card--service-visible");
+          });
+          if (pricingCard) {
+            pricing.classList.add("is-service-filter");
+            pricingCard.classList.add("bi-pricing-card--service-visible");
+          } else {
+            pricing.classList.add("is-service-hidden");
+          }
+        }
+
         function applyServiceFilter(serviceKey) {
           var portfolio = document.getElementById("bi-portfolio");
           var pricing = document.getElementById("bi-pricing");
@@ -6842,7 +6878,8 @@
             }
           }
 
-          if (pricing) pricing.classList.add("is-service-hidden");
+          if (pricing) pricing.classList.remove("is-service-hidden");
+          applyPricingFilter(serviceKey);
           if (konfiguratorLede) konfiguratorLede.classList.add("is-visible");
 
           renderProcessSteps(serviceKey);
