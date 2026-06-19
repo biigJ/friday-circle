@@ -1218,11 +1218,13 @@
         }
 
         .bi-portfolio.bi-portfolio--service-filter .bi-image-row,
-        .bi-portfolio.bi-portfolio--service-filter .bi-hochbau-tiles-row {
+        .bi-portfolio.bi-portfolio--service-filter .bi-hochbau-tiles-row,
+        .bi-portfolio.bi-portfolio--service-filter.bi-portfolio--hochbau-expanded .bi-hochbau-tiles-row {
           display: contents;
         }
 
-        .bi-portfolio.bi-portfolio--service-filter .bi-image-row__scroll {
+        .bi-portfolio.bi-portfolio--service-filter .bi-image-row__scroll,
+        .bi-portfolio.bi-portfolio--service-filter.bi-portfolio--hochbau-expanded .bi-hochbau-tiles-row .bi-image-row__scroll {
           display: contents;
         }
 
@@ -1234,6 +1236,21 @@
 
         .bi-portfolio.bi-portfolio--service-filter .bi-image-row:not(:has(.bi-tile--service-visible)) {
           display: none;
+        }
+      }
+
+      @media (min-width: 561px) and (max-width: 900px) {
+        .bi-portfolio.bi-portfolio--service-filter.bi-portfolio--hochbau-expanded .bi-hochbau-tiles-row .bi-image-row__scroll {
+          flex-direction: row;
+          flex-wrap: wrap;
+          overflow-x: visible;
+          scroll-snap-type: none;
+        }
+
+        .bi-portfolio.bi-portfolio--service-filter.bi-portfolio--hochbau-expanded .bi-hochbau-tiles-row .bi-tile--hochbau-item.bi-tile--service-visible {
+          width: calc((100cqw - var(--bi-gap)) / 2);
+          height: calc(((100cqw - var(--bi-gap)) / 2) * 4 / 3);
+          flex: none;
         }
       }
 
