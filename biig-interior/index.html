@@ -37,14 +37,20 @@
       }
 
       .biig-interior-page .nav {
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         right: 0;
         z-index: 120;
         background: transparent;
         border-bottom: 0;
-        transition: color 0.18s ease, background-color 0.18s ease;
+        transition: color 0.18s ease, background-color 0.18s ease, border-color 0.18s ease;
+      }
+
+      .biig-interior-page.bi-nav-past-hero .nav {
+        background: #ffffff;
+        background-color: #ffffff;
+        border-bottom: 1px solid color-mix(in srgb, var(--text) 8%, transparent);
       }
 
       .biig-interior-page:not(.bi-nav-past-hero) .nav .bi-brand-logo,
@@ -1274,6 +1280,10 @@
         min-height: 0;
       }
 
+      .bi-section--pricing.is-service-filter #bi-pricing-title {
+        display: none;
+      }
+
       .bi-konfigurator-lede {
         display: none;
         margin: 0 0 clamp(20px, 3vw, 32px);
@@ -2379,7 +2389,7 @@
           background: color-mix(in srgb, var(--text) 10%, transparent);
         }
 
-        .biig-interior-page.bi-nav-over-tiles .nav {
+        .biig-interior-page.bi-nav-over-tiles:not(.bi-nav-past-hero) .nav {
           background: transparent;
           background-color: transparent;
           border-bottom: 0;
@@ -3114,7 +3124,7 @@
         </div>
       </section>
 
-      <section class="bi-section bi-section--compare" aria-labelledby="bi-compare-title">
+      <section class="bi-section bi-section--compare" id="bi-compare" aria-labelledby="bi-compare-title">
         <div class="bi-shell">
           <h2 class="bi-section__title" id="bi-compare-title">
             <span class="de-t">Wir waren als Architekten in allen Phasen und Konstellationen, wissen was entscheidend ist und liefern.</span>
@@ -5575,9 +5585,20 @@
         var buyIndex = 0;
 
         function updateNavHeroState() {
+          var nav = document.querySelector(".biig-interior-page .nav");
+          var compare = document.getElementById("bi-compare");
           var figure = document.querySelector(".bi-hero__figure");
-          if (!figure) return;
-          document.body.classList.toggle("bi-nav-past-hero", figure.getBoundingClientRect().bottom < 80);
+          if (nav) {
+            document.body.style.setProperty("--bi-nav-height", nav.offsetHeight + "px");
+            document.body.style.setProperty("--fc-nav-h", nav.offsetHeight + "px");
+          }
+          var navBottom = nav ? nav.getBoundingClientRect().bottom : 80;
+          var pastSection2 =
+            compare && compare.getBoundingClientRect().top <= navBottom;
+          if (!pastSection2 && figure) {
+            pastSection2 = figure.getBoundingClientRect().bottom < navBottom;
+          }
+          document.body.classList.toggle("bi-nav-past-hero", pastSection2);
         }
 
         function updateMobileNavTransparency() {
