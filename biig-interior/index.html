@@ -1192,12 +1192,9 @@
         display: block;
       }
 
-      .bi-portfolio.bi-portfolio--service-filter.bi-portfolio--hochbau-expanded .bi-hochbau-tiles-row {
-        display: block;
-      }
-
       .bi-portfolio.bi-portfolio--service-filter .bi-grid {
         display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
       }
 
@@ -2282,6 +2279,11 @@
         .bi-grid {
           --bi-col: 100cqw;
           --bi-tile-h: calc(100cqw * 4 / 3);
+        }
+
+        .bi-portfolio.bi-portfolio--service-filter .bi-grid {
+          --bi-col: calc((100cqw - var(--bi-gap)) / 2);
+          --bi-tile-h: calc(var(--bi-col) * 4 / 3);
         }
 
         .bi-image-row__scroll {
