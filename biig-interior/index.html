@@ -3415,7 +3415,7 @@
                 <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
               </span>
             </button>
-            <div class="bi-tile bi-tile--project" id="bi-pricing-moebel" data-bi-project="moebel" role="button" tabindex="0">
+            <div class="bi-tile bi-tile--project" id="bi-tile-moebel" data-bi-project="moebel" role="button" tabindex="0">
               <span class="bi-tile__media">
                 <img src="../assets/interior/freivonecken130-villaecke.png" alt="" width="1646" height="1697" decoding="async" />
               </span>
@@ -3457,7 +3457,7 @@
         </div>
       </section>
 
-      <section class="bi-section bi-section--tight-top bi-section--process" aria-labelledby="bi-process-title">
+      <section class="bi-section bi-section--tight-top bi-section--process" id="bi-process" aria-labelledby="bi-process-title">
         <div class="bi-shell">
           <h2 class="bi-section__title" id="bi-process-title">
             <span class="de-t" id="bi-process-title-de">Projektablauf in Kurzform</span>
@@ -4173,12 +4173,6 @@
               e.preventDefault();
               if (window.biApplyServiceFilter) {
                 window.biApplyServiceFilter(serviceKey);
-              }
-              var portfolio = document.getElementById("bi-portfolio");
-              if (portfolio) {
-                window.requestAnimationFrame(function () {
-                  portfolio.scrollIntoView({ behavior: "smooth", block: "start" });
-                });
               }
             });
           });
@@ -6768,12 +6762,21 @@
 
         function renderProcessSteps(serviceKey) {
           var grid = document.getElementById("bi-process-grid");
+          var processSection = document.getElementById("bi-process");
           var titleDe = document.getElementById("bi-process-title-de");
           var titleEn = document.getElementById("bi-process-title-en");
           if (!grid) return;
 
+          if (processSection) {
+            processSection.hidden = false;
+            processSection.classList.toggle("is-service-process-active", !!serviceKey);
+          }
+
           var filter = serviceKey ? SERVICE_FILTERS[serviceKey] : null;
-          var processData = (serviceKey && PROCESS_STEPS[serviceKey]) || PROCESS_STEPS.default;
+          var processData =
+            serviceKey && PROCESS_STEPS[serviceKey] && PROCESS_STEPS[serviceKey].steps
+              ? PROCESS_STEPS[serviceKey]
+              : PROCESS_STEPS.default;
           var steps = processData.steps || PROCESS_STEPS.default.steps;
 
           if (titleDe && titleEn) {
@@ -6820,9 +6823,9 @@
         function applyPricingFilter(serviceKey) {
           var pricing = document.getElementById("bi-pricing");
           if (!pricing) return;
-          var pricingCard = document.getElementById(serviceKey);
+          var pricingCard = pricing.querySelector('.bi-pricing-card[id="' + serviceKey + '"]');
           pricing.classList.remove("is-service-hidden", "is-service-filter");
-          document.querySelectorAll(".bi-pricing-card").forEach(function (card) {
+          pricing.querySelectorAll(".bi-pricing-card").forEach(function (card) {
             card.classList.remove("bi-pricing-card--service-visible");
           });
           if (pricingCard) {
@@ -6881,6 +6884,16 @@
           renderProcessSteps(serviceKey);
           initMobileTileCarousels({ force: true });
           updateMobileNavTransparency();
+
+          var scrollTarget =
+            serviceKey === "bi-pricing-moebel"
+              ? document.getElementById("bi-process") || portfolio
+              : portfolio;
+          if (scrollTarget) {
+            window.requestAnimationFrame(function () {
+              scrollTarget.scrollIntoView({ behavior: "smooth", block: "start" });
+            });
+          }
         }
 
         window.biApplyServiceFilter = applyServiceFilter;
