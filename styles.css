@@ -1298,6 +1298,19 @@ html[lang="de"] .en-t {
   border-color: #fff;
 }
 
+.fc-program-hero__cta--cardeluxe {
+  background: #fff200;
+  color: #0a0a0a;
+  border-color: #0a0a0a;
+}
+
+.fc-program-hero__cta--cardeluxe:hover,
+.fc-program-hero__cta--cardeluxe:focus-visible {
+  background: #0a0a0a;
+  color: #fff200;
+  border-color: #fff200;
+}
+
 .fc-program-hero__cta:hover,
 .fc-program-hero__cta:focus-visible {
   transform: translateY(-1px);

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>cardeluxe — Car Sharing Deluxe All Inclusive Berlin</title>
+    <meta
+      name="description"
+      content="Null Emotions Cars: Car Sharing Deluxe in Berlin-Kreuzberg. Auto verkaufen, Luxus-Service mit Direct Delivery in 20 Minuten — oder Mitglied werden und Dein Lieblingsauto wählen."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="../program-landing.css" />
+    <link rel="stylesheet" href="cardeluxe.css" />
+    <link rel="preload" href="../assets-mockups/cardeluxe-mockup-hero.jpg" as="image" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+  </head>
+  <body class="gogogo-page gogl-program cardeluxe-page" id="top">
+    <header class="nav" aria-label="Hauptnavigation">
+      <div class="nav__inner">
+        <a href="#top" class="nav__logo" aria-label="cardeluxe — zum Seitenanfang">cardeluxe</a>
+        <nav class="nav__links" aria-label="Seitenabschnitte">
+          <a href="#tarife">Tarife</a>
+          <a href="#karte">Kreuzberg</a>
+          <a href="#ablauf">So funktioniert's</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+        <div class="nav__cta-bucket">
+          <a class="gogogo-landing__header-cta cdx-header-cta" href="#mitglied">Optionen prüfen →</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="gogl-banderole">
+      <p>Berlin-Kreuzberg · All Inclusive · Car Direct Delivery in 20 Minuten</p>
+    </div>
+
+    <main>
+      <section class="cdx-hero-panel" aria-labelledby="cdx-hero-title">
+        <div class="cdx-hero-panel__media" aria-hidden="true">
+          <img
+            src="../assets-mockups/cardeluxe-mockup-hero.jpg"
+            alt=""
+            width="2400"
+            height="1350"
+            decoding="async"
+            fetchpriority="high"
+          />
+        </div>
+        <div class="cdx-hero-panel__overlay" aria-hidden="true"></div>
+        <div class="cdx-hero-panel__inner">
+          <div class="cdx-hero-panel__copy">
+            <h1 id="cdx-hero-title" class="cdx-hero-panel__title">Null Emotions Cars</h1>
+            <p class="cdx-hero-panel__sub">
+              Nimm Deine Emotionen raus aus Deiner Mobilität und nutze sie für Schöneres.
+            </p>
+          </div>
+          <div class="cdx-hero-cards">
+            <a class="cdx-hero-card cdx-hero-card--left" href="#gewinn" id="gewinn">
+              <p class="cdx-hero-card__text">
+                Verkaufe Dein Auto an uns und werde Deine Sorgen und Deinen Stress los — gewinne einen
+                Luxus-Service mit Car Direct Delivery in 20 Minuten dafür.
+              </p>
+              <span class="cdx-hero-card__cta">Gewinn berechnen →</span>
+            </a>
+            <a class="cdx-hero-card" href="#mitglied" id="mitglied">
+              <p class="cdx-hero-card__text">
+                Werde Mitglied und wähle Dein Lieblingsauto — Elektro, gepflegt, versichert, ohne
+                Parkplatzsuche.
+              </p>
+              <span class="cdx-hero-card__cta">Optionen prüfen →</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="cdx-pricing" id="tarife" aria-labelledby="cdx-pricing-title">
+        <div class="gogl-slab-pl">
+          <h2 class="pgl-section-title" id="cdx-pricing-title">Mitgliedschaft</h2>
+          <p class="pgl-section-lead">
+            Car Sharing Deluxe — alles inklusive. Du fährst, wir kümmern uns um den Rest.
+          </p>
+          <div class="cdx-pricing__grid">
+            <article class="cdx-price-card">
+              <p class="cdx-price-card__label">A</p>
+              <h3 class="cdx-price-card__title">Flexible Monatszahlung</h3>
+              <p class="cdx-price-card__body">
+                Monatlich kündbar, voller Service — ideal, wenn Du cardeluxe erst kennenlernen oder
+                flexibel bleiben willst. Stellplätze, Reinigung, Wartung und Direct Delivery inklusive.
+              </p>
+              <p class="cdx-price-card__amount">349 €</p>
+              <p class="cdx-price-card__period">pro Monat</p>
+            </article>
+            <article class="cdx-price-card">
+              <p class="cdx-price-card__label">B</p>
+              <h3 class="cdx-price-card__title">Jahres-Abo</h3>
+              <p class="cdx-price-card__body">
+                Zwölf Monate cardeluxe zum reduzierten Satz. Gleicher Luxus-Service, planbare Kosten —
+                für Städter, die Mobilität ohne Auto-Besitz dauerhaft lösen wollen.
+              </p>
+              <p class="cdx-price-card__amount">199 €</p>
+              <p class="cdx-price-card__period">pro Monat</p>
+            </article>
+            <article class="cdx-price-card">
+              <p class="cdx-price-card__label">C</p>
+              <h3 class="cdx-price-card__title">Lifetime Member</h3>
+              <p class="cdx-price-card__body">
+                Langfristig dabei — niedrigster Monatsbeitrag, Priorität bei Fahrzeugwahl und Delivery.
+                Für alle, die cardeluxe als festen Bestandteil ihres Berliner Alltags verstehen.
+              </p>
+              <p class="cdx-price-card__amount">99 €</p>
+              <p class="cdx-price-card__period">pro Monat</p>
+            </article>
+          </div>
+          <p class="cdx-pricing__note">Hinweis: Die Dienstleistung wird in Raten abgerechnet.</p>
+        </div>
+      </section>
+
+      <section class="cdx-map-section" id="karte" aria-labelledby="cdx-map-title">
+        <div class="gogl-slab-pl cdx-map-section__head">
+          <h2 class="pgl-section-title" id="cdx-map-title">Dein Autobutler für die Stadt</h2>
+        </div>
+        <div class="cdx-map__frame">
+          <div id="cdx-map-canvas" class="cdx-map__canvas" role="img" aria-label="Karte von Berlin-Kreuzberg"></div>
+        </div>
+      </section>
+
+      <section class="cdx-how" id="ablauf" aria-labelledby="cdx-how-title">
+        <div class="gogl-slab-pl">
+          <h2 class="pgl-section-title" id="cdx-how-title">So funktioniert cardeluxe</h2>
+          <p class="cdx-how__lead">
+            cardeluxe ist Car Sharing ohne den üblichen Aufwand. Du brauchst kein eigenes Auto mehr —
+            und trotzdem steht Dir in Kreuzberg innerhalb von 20 Minuten ein gepflegtes E-Auto vor der
+            Tür. Wir übernehmen Stellflächen, Reinigung, Wartung, Steuern und Parkerlaubnisse. Unsere
+            Mitarbeiter liefern das Fahrzeug per Car Direct Delivery, wenn Du es brauchst — und holen es
+            ab, wenn Du fertig bist. Für den Städter, der keine Lust mehr auf Parkplatzsuche hat.
+          </p>
+          <div class="cdx-how__steps">
+            <article class="cdx-step">
+              <span class="cdx-step__n" aria-hidden="true">1</span>
+              <h3>Mitglied werden oder Auto verkaufen</h3>
+              <p>
+                Du wählst Dein Modell und Deinen Tarif — oder verkaufst Dein Auto an uns und wechselst
+                in den Luxus-Service. Beides startet mit einem kurzen Gespräch.
+              </p>
+            </article>
+            <article class="cdx-step">
+              <span class="cdx-step__n" aria-hidden="true">2</span>
+              <h3>App oder Anruf — Auto in 20 Minuten</h3>
+              <p>
+                Brauchst Du ein Fahrzeug, meldest Du Dich. Unser Team fährt Dein gewähltes E-Auto
+                innerhalb von 20 Minuten zu Deiner Adresse in Kreuzberg.
+              </p>
+            </article>
+            <article class="cdx-step">
+              <span class="cdx-step__n" aria-hidden="true">3</span>
+              <h3>Fahren, parken lassen, fertig</h3>
+              <p>
+                Du fährst ohne Sorgen um Versicherung, TÜV oder Stellplatz. Sind Du durch, holen wir
+                das Auto wieder ab — gereinigt, geladen und bereit für den nächsten Einsatz.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="cdx-faq" id="faq" aria-labelledby="cdx-faq-title">
+        <div class="gogl-slab-pl">
+          <h2 class="pgl-section-title" id="cdx-faq-title">Häufige Fragen</h2>
+          <ul class="cdx-faq__list">
+            <li class="cdx-faq__item">
+              <button type="button" class="cdx-faq__q" aria-expanded="false">
+                Was bedeutet „Null Emotions Cars“?
+              </button>
+              <p class="cdx-faq__a">
+                Mobilität ohne emotionale Bindung ans eigene Auto. Du nutzt Fahrzeuge, wenn Du sie
+                brauchst — ohne Kauf, Garage, Reparaturstress oder Parkplatzsuche. Die Emotionen
+                bleiben für das, was Dir wirklich wichtig ist.
+              </p>
+            </li>
+            <li class="cdx-faq__item">
+              <button type="button" class="cdx-faq__q" aria-expanded="false">
+                Was ist im All-Inclusive-Paket enthalten?
+              </button>
+              <p class="cdx-faq__a">
+                E-Fahrzeuge, Stellflächen, Reinigung, Wartung, Steuern, Versicherung und
+                Parkerlaubnisse. Dazu Car Direct Delivery innerhalb von 20 Minuten in Kreuzberg sowie
+                Abholung nach Deiner Fahrt.
+              </p>
+            </li>
+            <li class="cdx-faq__item">
+              <button type="button" class="cdx-faq__q" aria-expanded="false">
+                Wie funktioniert der Auto-Verkauf an cardeluxe?
+              </button>
+              <p class="cdx-faq__a">
+                Wir bewerten Dein Fahrzeug fair und übernehmen es direkt. Du wirst Deines Autos und
+                der laufenden Kosten los und erhältst im Gegenzug Zugang zum cardeluxe-Service —
+                inklusive Direct Delivery. Den möglichen Gewinn rechnest Du mit „Gewinn berechnen“
+                grob vor.
+              </p>
+            </li>
+            <li class="cdx-faq__item">
+              <button type="button" class="cdx-faq__q" aria-expanded="false">
+                Warum nur Kreuzberg?
+              </button>
+              <p class="cdx-faq__a">
+                cardeluxe startet dort, wo Parkplatzsuche und Engpass am spürbarsten sind — und wo
+                20-Minuten-Delivery realistisch planbar bleibt. Weitere Berliner Kieze folgen schrittweise.
+              </p>
+            </li>
+            <li class="cdx-faq__item">
+              <button type="button" class="cdx-faq__q" aria-expanded="false">
+                Was heißt „Dienstleistung wird in Raten abgerechnet“?
+              </button>
+              <p class="cdx-faq__a">
+                Der Mitgliedsbeitrag ist eine monatliche Rate für die Gesamtleistung — nicht der Kauf
+                eines Fahrzeugs. Du zahlst für Service, Verfügbarkeit und Betrieb, nicht für ein Auto
+                in Deinem Eigentum.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer cdx-footer" aria-label="Seitenfuß">
+      <div class="footer__inner">
+        <span class="footer__logo">cardeluxe</span>
+        <nav class="footer__links" aria-label="Rechtliches">
+          <a href="../impressum/index.html">Impressum</a>
+          <a href="../datenschutz/index.html">Datenschutz</a>
+          <a href="../kontakt/index.html">Kontakt</a>
+        </nav>
+        <p class="footer__copy">© 2026</p>
+      </div>
+    </footer>
+
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+      defer
+    ></script>
+    <script defer>
+      (function () {
+        var KREUZBERG = [
+          [52.5068, 13.3884],
+          [52.5074, 13.4045],
+          [52.5058, 13.4188],
+          [52.5032, 13.4325],
+          [52.4998, 13.4438],
+          [52.4945, 13.4475],
+          [52.4892, 13.4462],
+          [52.4848, 13.4395],
+          [52.4818, 13.4288],
+          [52.4812, 13.4142],
+          [52.4835, 13.3995],
+          [52.4888, 13.3905],
+          [52.4948, 13.3872],
+          [52.5012, 13.3868],
+        ];
+
+        function initMap() {
+          var canvas = document.getElementById("cdx-map-canvas");
+          if (!canvas || typeof L === "undefined" || canvas.dataset.mapReady === "1") return;
+          canvas.dataset.mapReady = "1";
+
+          var map = L.map(canvas, {
+            scrollWheelZoom: false,
+            zoomControl: true,
+            attributionControl: true,
+          }).setView([52.4935, 13.421], 14);
+
+          L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+            attribution:
+              '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+            subdomains: "abcd",
+            maxZoom: 19,
+          }).addTo(map);
+
+          L.polygon(KREUZBERG, {
+            color: "#0a0a0a",
+            weight: 2,
+            opacity: 0.5,
+            fillColor: "#fff200",
+            fillOpacity: 0.55,
+          }).addTo(map);
+
+          map.fitBounds(L.polygon(KREUZBERG).getBounds(), { padding: [32, 32] });
+        }
+
+        document.querySelectorAll(".cdx-faq__q").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var item = btn.closest(".cdx-faq__item");
+            var open = item.classList.contains("is-open");
+            document.querySelectorAll(".cdx-faq__item.is-open").forEach(function (el) {
+              el.classList.remove("is-open");
+              el.querySelector(".cdx-faq__q").setAttribute("aria-expanded", "false");
+            });
+            if (!open) {
+              item.classList.add("is-open");
+              btn.setAttribute("aria-expanded", "true");
+            }
+          });
+        });
+
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", initMap);
+        } else {
+          initMap();
+        }
+      })();
+    </script>
+  </body>
+</html>

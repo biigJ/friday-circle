@@ -22,6 +22,10 @@
       de: "Deine buchstäblich einzigartigen Produkte mit Zufriedenheitsgarantie",
       en: "Your literally unique products with satisfaction guarantee",
     },
+    {
+      de: "Null Emotions Cars — Car Sharing Deluxe in Berlin-Kreuzberg",
+      en: "Null Emotions Cars — deluxe car sharing in Berlin-Kreuzberg",
+    },
   ];
 
   function updateTitle() {

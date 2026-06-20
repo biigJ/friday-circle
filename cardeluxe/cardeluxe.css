@@ -1,0 +1,509 @@
+/* cardeluxe — Car Sharing Deluxe (gogogo-aligned) */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;1,400;1,500&display=swap");
+
+body.cardeluxe-page {
+  --cdx-yellow: #fff200;
+  --cdx-gold: #c9a962;
+  --cdx-gold-soft: #e8dcc0;
+  --cdx-ink: #0a0a0a;
+  --cdx-map-fill: rgba(255, 242, 0, 0.55);
+  --cdx-map-stroke: rgba(10, 10, 10, 0.5);
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --cream: var(--cdx-yellow);
+  background: var(--cdx-yellow);
+}
+
+.cardeluxe-page .nav {
+  background: var(--cdx-yellow);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.cardeluxe-page .nav__logo {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: clamp(1.05rem, 1.35vw, 1.35rem);
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
+  color: var(--logo);
+}
+
+.cardeluxe-page .nav__links {
+  gap: clamp(18px, 3vw, 36px);
+  font-size: clamp(0.78rem, 1vw, 0.92rem);
+}
+
+.cardeluxe-page .nav__links a {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+/* Header CTA — gelb, Text vertikal mittig */
+.cardeluxe-page .cdx-header-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  min-height: 42px;
+  padding: 0 22px;
+  background: var(--cdx-yellow);
+  border: 1.5px solid var(--black);
+  color: var(--black);
+  font-weight: 600;
+  transition: background 0.15s ease;
+}
+
+.cardeluxe-page .cdx-header-cta:hover,
+.cardeluxe-page .cdx-header-cta:focus-visible {
+  background: #ffe800;
+  color: var(--black);
+  outline: none;
+}
+
+.cardeluxe-page .nav__cta-bucket {
+  display: flex;
+  align-items: center;
+}
+
+.cdx-footer .footer__logo {
+  text-decoration: none;
+  cursor: default;
+}
+
+/* Hero photo — headline, subline, CTAs */
+.cdx-hero-panel {
+  position: relative;
+  min-height: clamp(480px, 72vh, 720px);
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+  background: #101418;
+}
+
+.cdx-hero-panel__media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.cdx-hero-panel__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 58% center;
+  filter: brightness(0.92) contrast(1.04) saturate(0.96);
+}
+
+.cdx-hero-panel__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(8, 10, 12, 0.28) 0%, rgba(8, 10, 12, 0.12) 38%, rgba(8, 10, 12, 0.45) 100%),
+    linear-gradient(90deg, rgba(8, 10, 12, 0.2) 0%, transparent 40%);
+}
+
+.cdx-hero-panel__inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: clamp(28px, 5vw, 52px) var(--nav-pad-x) clamp(24px, 4vw, 40px);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1 1 auto;
+  min-height: inherit;
+}
+
+.cdx-hero-panel__copy {
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 2 * var(--nav-pad-x));
+  max-width: var(--content-max);
+  text-align: center;
+  padding: 0;
+  pointer-events: none;
+}
+
+.cdx-hero-panel__title {
+  margin: 0;
+  font-family: var(--font-head);
+  font-size: clamp(1.75rem, 3.8vw, 3.1rem);
+  line-height: 1.12;
+  letter-spacing: 0.02em;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+  white-space: nowrap;
+}
+
+.cdx-hero-panel__sub {
+  margin: clamp(10px, 1.6vw, 16px) 0 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(0.82rem, 1.35vw, 1.28rem);
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.94);
+  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.4);
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .cdx-hero-panel__title,
+  .cdx-hero-panel__sub {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 680px) {
+  .cdx-hero-panel__copy {
+    top: 37%;
+  }
+}
+
+.cdx-hero-cards {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 0;
+  width: min(100%, 820px);
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+@media (max-width: 680px) {
+  .cdx-hero-cards {
+    grid-template-columns: 1fr;
+  }
+  .cdx-hero-card--left {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  }
+}
+
+.cdx-hero-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  padding: clamp(20px, 2.5vw, 28px) clamp(22px, 2.8vw, 32px);
+  border: none;
+  text-align: left;
+  text-decoration: none;
+  color: var(--black);
+  transition: background 0.18s ease;
+}
+
+.cdx-hero-card--left {
+  border-right: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.cdx-hero-card:hover,
+.cdx-hero-card:focus-visible {
+  background: rgba(255, 255, 255, 0.62);
+  outline: none;
+}
+
+.cdx-hero-card__text {
+  flex: 1 1 auto;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: clamp(0.88rem, 1.1vw, 0.96rem);
+  color: #1a1a1a;
+  line-height: 1.55;
+  margin: 0 0 16px;
+}
+
+.cdx-hero-card__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  margin-top: auto;
+  flex-shrink: 0;
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.9rem;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  color: var(--black);
+  background: var(--cdx-yellow);
+  border: 1.5px solid rgba(10, 10, 10, 0.45);
+  padding: 0 18px;
+  min-height: 40px;
+  border-radius: 999px;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.cdx-hero-card:hover .cdx-hero-card__cta,
+.cdx-hero-card:focus-visible .cdx-hero-card__cta {
+  background: #ffe800;
+  border-color: rgba(10, 10, 10, 0.6);
+}
+
+/* Pricing */
+.cdx-pricing {
+  background: var(--cdx-yellow);
+  padding: clamp(56px, 9vw, 88px) 0;
+}
+
+.cdx-pricing__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 2vw, 22px);
+  margin-top: clamp(28px, 4vw, 40px);
+}
+
+@media (max-width: 820px) {
+  .cdx-pricing__grid {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.cdx-price-card {
+  background: #fff;
+  border: 1px solid rgba(10, 10, 10, 0.1);
+  padding: clamp(24px, 3vw, 32px) clamp(20px, 2.5vw, 28px);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.cdx-price-card__label {
+  font-family: var(--font-head);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cdx-gold);
+  margin: 0 0 10px;
+}
+
+.cdx-price-card__title {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  margin: 0 0 12px;
+  line-height: 1.25;
+}
+
+.cdx-price-card__body {
+  font-family: var(--font-body);
+  font-size: 0.94rem;
+  color: #444;
+  line-height: 1.65;
+  margin: 0 0 auto;
+  flex: 1 1 auto;
+}
+
+.cdx-price-card__amount {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: clamp(1.6rem, 2.4vw, 2rem);
+  margin: 20px 0 4px;
+  color: var(--black);
+}
+
+.cdx-price-card__period {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: #777;
+  letter-spacing: 0.04em;
+}
+
+.cdx-pricing__note {
+  margin: clamp(24px, 3.5vw, 36px) 0 0;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: #666;
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+/* Map — Berlin Arch Tour style */
+.cdx-map-section {
+  position: relative;
+  background: var(--cdx-yellow);
+  padding: clamp(56px, 9vw, 88px) 0 0;
+}
+
+.cdx-map-section__head {
+  padding-bottom: clamp(20px, 3vw, 32px);
+}
+
+.cdx-map-section__head .pgl-section-title {
+  margin-bottom: 0;
+}
+
+.cdx-map__frame {
+  position: relative;
+}
+
+.cdx-map__canvas {
+  width: 100%;
+  height: min(68vh, 560px);
+  min-height: 320px;
+  position: relative;
+  z-index: 0;
+  background: #fff;
+}
+
+.cdx-map__canvas.leaflet-container {
+  background: #fff;
+  font-family: var(--font-sans);
+}
+
+.cdx-map__canvas .leaflet-tile-pane img.leaflet-tile {
+  filter: grayscale(1) contrast(1.03);
+}
+
+.cdx-map__canvas .leaflet-control-zoom a {
+  background: #fff;
+  color: var(--black);
+  border-color: rgba(13, 13, 13, 0.15);
+}
+
+.cdx-map__canvas .leaflet-bar {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.22);
+}
+
+/* How it works */
+.cdx-how {
+  background: var(--cdx-yellow);
+  padding: clamp(56px, 9vw, 88px) 0;
+}
+
+.cdx-how__steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 2.5vw, 28px);
+  margin-top: clamp(28px, 4vw, 40px);
+}
+
+@media (max-width: 820px) {
+  .cdx-how__steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cdx-step {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(10, 10, 10, 0.08);
+  padding: clamp(22px, 2.8vw, 28px);
+}
+
+.cdx-step__n {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--black);
+  color: var(--cdx-gold-soft);
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 14px;
+}
+
+.cdx-step h3 {
+  font-family: var(--font-head);
+  font-weight: 700;
+  font-size: 1rem;
+  margin: 0 0 10px;
+  line-height: 1.35;
+}
+
+.cdx-step p {
+  font-family: var(--font-body);
+  font-size: 0.94rem;
+  color: #3a3a3a;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.cdx-how__lead {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.2vw, 1.08rem);
+  color: #404040;
+  max-width: 52rem;
+  line-height: 1.72;
+  margin: 0;
+}
+
+/* FAQ */
+.cdx-faq {
+  background: var(--cdx-yellow);
+  padding: clamp(56px, 9vw, 88px) 0;
+}
+
+.cdx-faq__list {
+  list-style: none;
+  margin: clamp(28px, 4vw, 40px) 0 0;
+  padding: 0;
+  max-width: 720px;
+}
+
+.cdx-faq__item {
+  border-bottom: 1px solid rgba(10, 10, 10, 0.12);
+}
+
+.cdx-faq__q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-head);
+  font-weight: 600;
+  font-size: clamp(0.95rem, 1.15vw, 1.05rem);
+  color: var(--black);
+}
+
+.cdx-faq__q::after {
+  content: "+";
+  flex-shrink: 0;
+  font-weight: 300;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: #888;
+  transition: transform 0.2s ease;
+}
+
+.cdx-faq__item.is-open .cdx-faq__q::after {
+  content: "−";
+}
+
+.cdx-faq__a {
+  display: none;
+  margin: 0 0 18px;
+  font-family: var(--font-body);
+  font-size: 0.96rem;
+  color: #444;
+  line-height: 1.68;
+}
+
+.cdx-faq__item.is-open .cdx-faq__a {
+  display: block;
+}
