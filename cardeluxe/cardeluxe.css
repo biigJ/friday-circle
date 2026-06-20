@@ -195,7 +195,7 @@ body.cardeluxe-page {
   display: flex;
   flex-direction: column;
   height: 100%;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.28);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
   padding: clamp(20px, 2.5vw, 28px) clamp(22px, 2.8vw, 32px);
@@ -212,7 +212,7 @@ body.cardeluxe-page {
 
 .cdx-hero-card:hover,
 .cdx-hero-card:focus-visible {
-  background: rgba(255, 255, 255, 0.62);
+  background: rgba(255, 255, 255, 0.38);
   outline: none;
 }
 

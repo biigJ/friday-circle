@@ -387,6 +387,12 @@ body.bat-page .nav__logo {
   color: #fff;
 }
 
+.nav__gogogo-item--cardeluxe:hover,
+.nav__gogogo-item--cardeluxe:focus-visible {
+  background: #fff200;
+  color: #0a0a0a;
+}
+
 .nav__gogogo-item:hover .nav__gogogo-external,
 .nav__gogogo-item:focus-visible .nav__gogogo-external {
   color: inherit;

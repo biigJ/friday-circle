@@ -1,0 +1,85 @@
+.cdx-legal-page {
+  background: var(--cdx-yellow, #fff200);
+}
+
+.cdx-legal-header {
+  border-bottom: 1px solid rgba(10, 10, 10, 0.08);
+}
+
+.cdx-legal-main {
+  padding: clamp(48px, 8vw, 88px) var(--nav-pad-x, clamp(16px, 4vw, 44px));
+}
+
+.cdx-legal-wrap {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.cdx-legal-wrap h1 {
+  font-family: var(--font-head);
+  font-weight: 900;
+  font-size: clamp(1.75rem, 3vw, 2.4rem);
+  margin: 0 0 12px;
+}
+
+.cdx-legal-kicker {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: #555;
+  margin: 0 0 28px;
+  line-height: 1.55;
+}
+
+.cdx-legal-prose h2 {
+  font-family: var(--font-head);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 32px 0 10px;
+}
+
+.cdx-legal-prose p,
+.cdx-legal-prose li {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.72;
+  color: #333;
+}
+
+.cdx-legal-prose p {
+  margin: 0 0 14px;
+}
+
+.cdx-legal-prose ul {
+  margin: 0 0 14px;
+  padding-left: 1.25em;
+}
+
+.cdx-legal-prose a {
+  color: var(--black);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cdx-legal-back {
+  display: inline-block;
+  margin-bottom: 24px;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  color: var(--black);
+  text-decoration: none;
+}
+
+.cdx-legal-back:hover {
+  text-decoration: underline;
+}
+
+.cdx-contact-card {
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(10, 10, 10, 0.1);
+  padding: clamp(20px, 3vw, 28px);
+  margin-top: 24px;
+}
+
+.cdx-contact-card h2 {
+  margin-top: 0;
+}
