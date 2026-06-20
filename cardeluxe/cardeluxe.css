@@ -40,6 +40,17 @@ body.cardeluxe-page {
 }
 
 /* Header CTA — gelb, Text vertikal mittig */
+.cardeluxe-page .nav__cta-bucket > .cdx-header-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardeluxe-page .nav__cta-bucket > .cdx-header-cta::before {
+  content: none;
+  display: none;
+}
+
 .cardeluxe-page .cdx-header-cta {
   display: inline-flex;
   align-items: center;
@@ -51,6 +62,7 @@ body.cardeluxe-page {
   border: 1.5px solid var(--black);
   color: var(--black);
   font-weight: 600;
+  font-family: var(--font-sans);
   transition: background 0.15s ease;
 }
 
