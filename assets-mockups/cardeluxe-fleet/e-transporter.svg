@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="VW E-Transporter">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1f24"/>
+      <stop offset="100%" stop-color="#2d3439"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect x="0" y="520" width="800" height="80" fill="#fff200" opacity="0.18"/>
+  <path d="M120 360h520l40-80 30-40h-80l-20-40H170l-30 40H90l30 80z" fill="#ececec" opacity="0.92"/>
+  <rect x="170" y="300" width="180" height="60" rx="8" fill="#3a4248"/>
+  <rect x="430" y="300" width="150" height="60" rx="8" fill="#3a4248"/>
+  <circle cx="220" cy="380" r="34" fill="#111"/>
+  <circle cx="580" cy="380" r="34" fill="#111"/>
+  <circle cx="220" cy="380" r="16" fill="#666"/>
+  <circle cx="580" cy="380" r="16" fill="#666"/>
+</svg>

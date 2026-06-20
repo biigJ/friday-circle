@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="E-Limousine">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14181c"/>
+      <stop offset="100%" stop-color="#2a3035"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect x="0" y="520" width="800" height="80" fill="#fff200" opacity="0.18"/>
+  <path d="M180 375h440l28-55 18-25h-50l-10-32H230l-22 32H165l15 50z" fill="#efefef" opacity="0.92"/>
+  <path d="M215 305h350l18 25H197z" fill="#3b4248"/>
+  <circle cx="255" cy="388" r="28" fill="#111"/>
+  <circle cx="545" cy="388" r="28" fill="#111"/>
+</svg>
