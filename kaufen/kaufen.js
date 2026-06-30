@@ -325,7 +325,6 @@
         sweaterState.color = slideColor;
         updateSwatchAria();
         updateColorLabel();
-        updateMail();
       }
     }
 
@@ -333,20 +332,6 @@
       if (!SWEATER_COLORS[value]) return;
       sweaterState.color = value;
       showSlide(colorMeta(value).slide);
-    }
-
-    function updateMail() {
-      var meta = colorMeta(sweaterState.color);
-      order.href =
-        "mailto:" +
-        MAIL +
-        "?subject=" +
-        encodeURIComponent(
-          t(
-            "Bestellung Friday Circle Sweater Größe " + sweaterState.size + ", " + meta.de,
-            "Order Friday Circle Sweater size " + sweaterState.size + ", " + meta.en
-          )
-        );
     }
 
     if (!figure.dataset.bound) {
@@ -377,7 +362,6 @@
 
       bindChoiceGroup(sizeWrap, function (value) {
         sweaterState.size = value;
-        updateMail();
       });
 
       bindProductSliderSwipe(figure.querySelector(".kaufen-product__slider-stage"), {
@@ -402,7 +386,6 @@
     updateColorLabel();
     updateSwatchAria();
     showSlide(colorMeta(sweaterState.color).slide, false);
-    updateMail();
   }
 
   function bindTischPage() {
@@ -778,13 +761,6 @@
           el.textContent = meta.labelEn;
         });
       }
-      order.setAttribute(
-        "href",
-        "mailto:" +
-          MAIL +
-          "?subject=" +
-          encodeURIComponent(t(meta.mailDe, meta.mailEn))
-      );
       if (genderWrap) {
         genderWrap.querySelectorAll("button[data-value]").forEach(function (btn) {
           var active = btn.getAttribute("data-value") === sportState.gender;
@@ -1209,10 +1185,6 @@
     return /\/(sweater|sportoberteil|handtuch)\.html/.test(path);
   }
 
-  function shouldShowOutOfSaleBand(index) {
-    return index % 2 === 0;
-  }
-
   function wrapImageWithOutOfSaleBand(img) {
     if (!img || img.closest(".kaufen-img-wrap")) return;
     var wrap = document.createElement("div");
@@ -1231,15 +1203,13 @@
     if (!scope) return;
     var slides = scope.querySelectorAll(".kaufen-tile__slide");
     if (slides.length) {
-      slides.forEach(function (slide, index) {
-        if (!shouldShowOutOfSaleBand(index)) return;
-        var img = slide.querySelector("img");
-        wrapImageWithOutOfSaleBand(img);
+      slides.forEach(function (slide) {
+        wrapImageWithOutOfSaleBand(slide.querySelector("img"));
       });
       return;
     }
     var mediaImg = scope.querySelector(".kaufen-tile__media > img");
-    if (mediaImg && shouldShowOutOfSaleBand(0)) {
+    if (mediaImg) {
       wrapImageWithOutOfSaleBand(mediaImg);
     }
   }
