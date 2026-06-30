@@ -215,6 +215,47 @@ body.kaufen-page {
   display: block;
 }
 
+.kaufen-img-wrap {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.kaufen-tile__media > .kaufen-img-wrap,
+.kaufen-tile__slide > .kaufen-img-wrap,
+.kaufen-tile__slide > a > .kaufen-img-wrap {
+  position: absolute;
+  inset: 0;
+}
+
+.kaufen-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.kaufen-out-of-sale-band {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  z-index: 2;
+  transform: translateY(-50%);
+  padding: 0.55em 0.75em;
+  background: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  font-family: var(--kaufen-mono);
+  font-size: clamp(0.62rem, 1.8vw, 0.78rem);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: lowercase;
+  text-align: center;
+  line-height: 1.2;
+  pointer-events: none;
+}
+
 .kaufen-tile__link {
   display: block;
   width: 100%;
@@ -506,7 +547,8 @@ body.kaufen-page {
   background: #000;
 }
 
-.kaufen-product__figure--slider .kaufen-tile__slide img {
+.kaufen-product__figure--slider .kaufen-tile__slide img,
+.kaufen-product__figure--slider .kaufen-tile__slide .kaufen-img-wrap img {
   width: 100%;
   height: 100%;
   object-fit: contain;

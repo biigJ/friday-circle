@@ -1204,6 +1204,55 @@
     });
   }
 
+  function isTextilienProductPage() {
+    var path = (location.pathname || "").toLowerCase();
+    return /\/(sweater|sportoberteil|handtuch)\.html/.test(path);
+  }
+
+  function shouldShowOutOfSaleBand(index) {
+    return index % 2 === 0;
+  }
+
+  function wrapImageWithOutOfSaleBand(img) {
+    if (!img || img.closest(".kaufen-img-wrap")) return;
+    var wrap = document.createElement("div");
+    wrap.className = "kaufen-img-wrap";
+    var parent = img.parentNode;
+    parent.insertBefore(wrap, img);
+    wrap.appendChild(img);
+    var band = document.createElement("div");
+    band.className = "kaufen-out-of-sale-band";
+    band.setAttribute("aria-hidden", "true");
+    band.textContent = "out of sale";
+    wrap.appendChild(band);
+  }
+
+  function applyOutOfSaleBands(scope) {
+    if (!scope) return;
+    var slides = scope.querySelectorAll(".kaufen-tile__slide");
+    if (slides.length) {
+      slides.forEach(function (slide, index) {
+        if (!shouldShowOutOfSaleBand(index)) return;
+        var img = slide.querySelector("img");
+        wrapImageWithOutOfSaleBand(img);
+      });
+      return;
+    }
+    var mediaImg = scope.querySelector(".kaufen-tile__media > img");
+    if (mediaImg && shouldShowOutOfSaleBand(0)) {
+      wrapImageWithOutOfSaleBand(mediaImg);
+    }
+  }
+
+  function applyOutOfSaleOverlays() {
+    document.querySelectorAll("#kaufen-shop-grid .kaufen-tile[data-shop-group=\"textilien\"]").forEach(function (tile) {
+      applyOutOfSaleBands(tile);
+    });
+    if (isTextilienProductPage()) {
+      applyOutOfSaleBands(document.querySelector(".kaufen-product"));
+    }
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     bindTileAutoplay(document.getElementById("kaufen-sport-preview-slider"), 3000);
     bindTileSlider(document.getElementById("kaufen-handtuch-product-slider"));
@@ -1212,6 +1261,7 @@
     bindSportPage();
     bindTischPage();
     bindKunstPage();
+    applyOutOfSaleOverlays();
     if (isMobileProductSliderViewport()) syncAllMobileProductSliders(false);
     window.matchMedia("(max-width: 900px)").addEventListener("change", function () {
       if (isMobileProductSliderViewport()) syncAllMobileProductSliders(false);
