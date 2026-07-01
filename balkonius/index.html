@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Balkonius · Fertig bepflanzte Balkone · Berlin</title>
+    <meta name="description" content="Balkonius — kuratierte, fertig bepflanzte Balkonkästen und Einrichtungskonzepte in Berlin." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      body.balkonius-page {
+        margin: 0;
+        min-height: 100vh;
+        background: #f0eee6;
+        color: #0a0a0a;
+        font-family: var(--font-serif);
+      }
+      .balkonius-hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+        gap: clamp(24px, 4vw, 48px);
+        width: min(100% - 2 * var(--nav-pad-x, 24px), var(--content-max, 1180px));
+        margin: clamp(32px, 6vw, 72px) auto;
+        align-items: center;
+      }
+      .balkonius-hero__logo {
+        width: min(220px, 60vw);
+        margin-bottom: 1.5rem;
+      }
+      .balkonius-hero h1 {
+        margin: 0 0 1rem;
+        font-family: var(--font-sans);
+        font-size: clamp(1.8rem, 4vw, 2.6rem);
+        font-weight: 300;
+        line-height: 1.15;
+      }
+      .balkonius-hero p {
+        margin: 0 0 1.5rem;
+        max-width: 42ch;
+        line-height: 1.7;
+        font-size: 1rem;
+      }
+      .balkonius-hero__cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 12px 22px;
+        background: #1a3a2a;
+        color: #fff;
+        border: 1px solid #1a3a2a;
+        font-family: var(--font-sans);
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+      .balkonius-hero__cta:hover,
+      .balkonius-hero__cta:focus-visible {
+        background: #2d9e8f;
+        border-color: #2d9e8f;
+        outline: none;
+      }
+      .balkonius-hero__media img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 4px;
+      }
+      @media (max-width: 760px) {
+        .balkonius-hero {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body class="balkonius-page" id="top">
+    <div id="fc-site-header"></div>
+    <main>
+      <section class="balkonius-hero" aria-labelledby="balkonius-title">
+        <div>
+          <img class="balkonius-hero__logo" src="balkonius.svg" alt="Balkonius" width="220" height="48" decoding="async" />
+          <h1 id="balkonius-title">Blumenkästen bepflanzt bekommen.</h1>
+          <p>
+            Kuratierte Pflanzenkombinationen für Balkone in Berlin — fertig bepflanzt, direkt auf Deinen Balkon.
+            Ohne Papiermüll und Dreck. Professionell zusammengestellt.
+          </p>
+          <a class="balkonius-hero__cta" href="../kontakt/index.html">Anfrage stellen</a>
+        </div>
+        <div class="balkonius-hero__media">
+          <img src="../assets/interior/loftbalkon.png" alt="" width="1306" height="2430" decoding="async" />
+        </div>
+      </section>
+    </main>
+    <div id="fc-site-footer"></div>
+    <script src="../nav.js" defer></script>
+  </body>
+</html>

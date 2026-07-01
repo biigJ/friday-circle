@@ -14,8 +14,9 @@
   if (!slides.length) return;
 
   var SLIDE_LABELS = [
-    { de: "gogogo Gym Buddys", en: "gogogo gym buddies" },
+    { de: "Wer Gym-Buddys hat bleibt täglich in Bewegung.", en: "If you have gym buddies, you stay moving every day." },
     { de: "Dein Interior Game auf das nächste Level", en: "Take your interior game to the next level" },
+    { de: "Fertig bepflanzte Balkone in Berlin", en: "Ready-planted balconies in Berlin" },
     { de: "Einordnung ins große Ganze für mehr Gelassenheit", en: "Context for the bigger picture — more calm" },
     { de: "Eine Tour durch Berlin als open Source Plattform", en: "A tour through Berlin as an open-source platform" },
     {
@@ -44,7 +45,7 @@
       d.classList.toggle("is-active", n === index);
       d.setAttribute("aria-selected", n === index ? "true" : "false");
     });
-    root.classList.toggle("is-lebensjahre", index === 2);
+    root.classList.toggle("is-lebensjahre", index === 3);
     updateTitle();
   }
 

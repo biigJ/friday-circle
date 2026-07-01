@@ -375,6 +375,12 @@ body.bat-page .nav__logo {
   color: #c9a962;
 }
 
+.nav__gogogo-item--balkonius:hover,
+.nav__gogogo-item--balkonius:focus-visible {
+  background: #1a3a2a;
+  color: #fff;
+}
+
 .nav__gogogo-item--arch:hover,
 .nav__gogogo-item--arch:focus-visible {
   background: #0a0a0a;
@@ -780,7 +786,7 @@ html[lang="de"] .en-t {
 
 .fc-program-hero-head {
   width: min(100%, var(--content-max));
-  margin: 0 auto clamp(8px, 1.2vw, 11px);
+  margin: clamp(8px, 1.2vw, 11px) auto 0;
   padding: 0 var(--nav-pad-x);
   box-sizing: border-box;
   display: grid;
@@ -1271,6 +1277,12 @@ html[lang="de"] .en-t {
   border-color: #f6f6f6;
 }
 
+.fc-program-hero__cta--balkonius {
+  background: #1a3a2a;
+  color: #fff;
+  border-color: #1a3a2a;
+}
+
 .fc-program-hero__cta--gosam {
   background: #3366ff;
   color: #edf2ff;
@@ -1364,6 +1376,13 @@ html[lang="de"] .en-t {
   background: #2a2a2a;
   color: #fff;
   border-color: #fff;
+}
+
+.fc-program-hero__cta--balkonius:hover,
+.fc-program-hero__cta--balkonius:focus-visible {
+  background: #2d9e8f;
+  color: #fff;
+  border-color: #2d9e8f;
 }
 
 .fc-program-hero__cta--lebensjahre:hover,
