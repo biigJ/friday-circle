@@ -1313,6 +1313,11 @@ let lightboxPhotos = [];
 let lightboxIndex = 0;
 let batMapMarkerEntries = [];
 
+function batImgUrl(src) {
+  if (window.fcOptimizedUrl) return window.fcOptimizedUrl(src, window.fcWidthForSrc ? window.fcWidthForSrc(src) : 1200);
+  return src;
+}
+
 function syncMapTooltips() {
   if (!batMapMarkerEntries.length) return;
   batMapMarkerEntries.forEach(function (entry) {
@@ -1486,7 +1491,7 @@ function initBatStopSliders() {
       const slidePhoto = document.createElement('div');
       slidePhoto.className = 'bat-stop__slide bat-stop__slide--photo';
       slidePhoto.innerHTML =
-        '<img src="' + src.replace(/"/g, '&quot;') + '" alt="" loading="lazy" decoding="async" onerror="this.style.opacity=\'0.35\'">';
+        '<img src="' + batImgUrl(src).replace(/"/g, '&quot;') + '" alt="" loading="lazy" decoding="async" onerror="this.style.opacity=\'0.35\'">';
       slidePhoto.addEventListener('click', function (e) {
         e.stopPropagation();
         openBatLightbox(photos, photoIndex);
@@ -1564,7 +1569,7 @@ function renderBatLightbox() {
         '<div class="bat-lightbox__slide' +
         (i === lightboxIndex ? ' is-active' : '') +
         '"><figure class="bat-lightbox__figure"><img src="' +
-        src.replace(/"/g, '&quot;') +
+        batImgUrl(src).replace(/"/g, '&quot;') +
         '" alt=""><button type="button" class="bat-lightbox__close" data-close-lightbox aria-label="' +
         closeLabel +
         '">×</button>' +
@@ -1914,6 +1919,7 @@ if (document.readyState === 'loading') {
   initBatMapWhenReady();
 }
 </script>
+<script src="fc-image-url.js" defer></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
 <script src="nav.js" defer></script>
 <script src="fc-lang.js" defer></script>

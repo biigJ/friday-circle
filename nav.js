@@ -87,6 +87,10 @@
     loadScript("fc-lang.js");
   }
 
+  function loadFcImageUrl() {
+    loadScript("fc-image-url.js");
+  }
+
   function syncNavLangWidth() {
     var langEl = document.querySelector(".nav__lang");
     if (langEl) {
@@ -210,5 +214,6 @@
     });
   }
 
+  loadFcImageUrl();
   injectSiteChrome();
 })();

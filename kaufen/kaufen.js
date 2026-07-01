@@ -1,6 +1,17 @@
 (function () {
   var MAIL = "mail@bjgrope.de";
 
+  function setProductImg(img, src) {
+    if (!img || !src) return;
+    if (window.fcSetImage) {
+      var width = window.fcWidthForSrc ? window.fcWidthForSrc(src) : 1200;
+      if (img.closest(".kaufen-tile__slide, .kaufen-product__slide") && width === 1400) width = 800;
+      window.fcSetImage(img, src, width);
+      return;
+    }
+    img.src = src;
+  }
+
   function lang() {
     return document.body.classList.contains("en") || document.documentElement.lang === "en" ? "en" : "de";
   }
@@ -460,7 +471,7 @@
         var slideEl = document.createElement("div");
         slideEl.className = "kaufen-tile__slide" + (index === 0 ? " is-active" : "");
         var img = document.createElement("img");
-        img.src = slide.src;
+        setProductImg(img, slide.src);
         img.alt = t(slide.altDe, slide.altEn);
         img.decoding = "async";
         slideEl.appendChild(img);
@@ -1061,7 +1072,7 @@
         link.rel = "noopener noreferrer";
         link.setAttribute("aria-label", t("Werk im Katalog öffnen", "Open work in catalog"));
         var img = document.createElement("img");
-        img.src = item.src;
+        setProductImg(img, item.src);
         img.alt = "";
         img.decoding = "async";
         link.appendChild(img);
