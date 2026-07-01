@@ -5,7 +5,7 @@
   var path = location.pathname.replace(/\/+$/, "") || "/";
   var tail = location.search + location.hash;
   var gogogo = "https://gogogo.social";
-  var kunst = "https://biig.works/kunst/index.html";
+  var kunst = "https://biig.works/kunst/";
   var biig = "https://biig.works";
 
   if (/\/gogogo-landing\.html$/i.test(path) || path.endsWith("/gogogo-landing")) {
@@ -46,7 +46,7 @@
   }
 
   if (/\/wolfganggrope\.html$/i.test(path) || path.endsWith("/wolfganggrope")) {
-    location.replace(kunst + "/" + tail);
+    location.replace(kunst + tail.replace(/^\//, ""));
     return;
   }
 
@@ -56,7 +56,7 @@
     if (sub === "/index.html") sub = "";
     if (sub.endsWith("/index.html")) sub = sub.slice(0, -"/index.html".length);
     if (/^\/kunst(\/|$)/i.test(sub)) {
-      location.replace(kunst + "/" + tail);
+      location.replace(kunst + tail.replace(/^\//, ""));
       return;
     }
     location.replace(biig + (sub || "/") + tail);

@@ -22,7 +22,19 @@
   }
 
   /** Bump when partials/site-footer.html or site-header.html change (cache bust). */
-  var FC_PARTIAL_CACHE = "11";
+  var FC_PARTIAL_CACHE = "12";
+
+  var KUNST_URL = "https://biig.works/kunst/";
+
+  function fixKunstLinks(root) {
+    var scope = root || document;
+    scope.querySelectorAll("a[href]").forEach(function (a) {
+      var href = a.getAttribute("href") || "";
+      if (/kunst\.biig\.works/i.test(href) || /biig\.works\/kunst\/index\.html\/index\.html/i.test(href)) {
+        a.setAttribute("href", KUNST_URL);
+      }
+    });
+  }
 
   function partialCacheUrl(path) {
     var url = new URL(path, partialBaseHref());
@@ -134,6 +146,7 @@
     }
     Promise.all(jobs)
       .then(function () {
+        fixKunstLinks();
         chromeReady();
         bindNav();
       })

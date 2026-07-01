@@ -68,6 +68,9 @@ for BIIG_PAGE in joscha kunst impressum datenschutz kontakt; do
     -e '/fc-canonical-redirect/d' \
     -e '/noindex, nofollow/d' \
     -e "s|href=\"/kaufen/kunst.html\"|href=\"$BIIG_SHOP_URL\"|g" \
+    -e "s|href=\"../kunst/index.html\"|href=\"https://biig.works/kunst/\"|g" \
+    -e "s|href=\"kunst/index.html\"|href=\"https://biig.works/kunst/\"|g" \
+    -e "s|href=\"https://biig.works/kunst/index.html\"|href=\"https://biig.works/kunst/\"|g" \
     "$BIIG_OUT/$BIIG_PAGE/index.html"
 done
 
@@ -85,8 +88,9 @@ sed_inplace \
   -e 's|src="bk-i18n.js"|src="biig-interior/bk-i18n.js"|g' \
   -e 's|src="biig-konfigurator.js"|src="biig-interior/biig-konfigurator.js"|g' \
   -e 's|\.\./assets/|assets/|g' \
-  -e 's|href="../kunst/index.html"|href="https://biig.works/kunst/index.html"|g' \
-  -e 's|href="kunst/index.html"|href="https://biig.works/kunst/index.html"|g' \
+  -e 's|href="../kunst/index.html"|href="https://biig.works/kunst/"|g' \
+  -e 's|href="kunst/index.html"|href="https://biig.works/kunst/"|g' \
+  -e 's|href="https://biig.works/kunst/index.html"|href="https://biig.works/kunst/"|g' \
   "$BIIG_OUT/index.html"
 
 sed_inplace 's|\.\./assets/|assets/|g' "$BIIG_OUT/biig-interior/biig-konfigurator.js"

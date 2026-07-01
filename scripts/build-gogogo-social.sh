@@ -8,7 +8,7 @@ source "$ROOT/scripts/lib/sed-inplace.sh"
 
 GOGOGO_OUT="${GOGOGO_OUT:-$HOME/gogogo-social}"
 FC_URL="${FC_URL:-https://www.fridaycircle.club}"
-KUNST_URL="${KUNST_URL:-https://biig.works/kunst/index.html}"
+KUNST_URL="${KUNST_URL:-https://biig.works/kunst/}"
 
 gogogo_rewrite_fc_links() {
   local f="$1"
