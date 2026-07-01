@@ -27,7 +27,6 @@ gogogo_rewrite_fc_links() {
     -e "s|href=\"kaufen/index.html\"|href=\"${FC_URL}/kaufen/\"|g" \
     -e "s|href=\"kaufen/handtuch.html\"|href=\"${FC_URL}/kaufen/handtuch.html\"|g" \
     -e "s|href=\"kaufen/sportoberteil.html\"|href=\"${FC_URL}/kaufen/sportoberteil.html\"|g" \
-    -e "s|href=\"https://biig.works/kunst/|href=\"${KUNST_URL}/|g" \
     -e 's|gogogo-landing\.html#member-popup|#member-popup|g' \
     -e 's|gogogo-landing\.html|index.html|g' \
     -e 's|https://www\.bjgrope\.de/register-accountability/index\.html|register-accountability/|g' \
