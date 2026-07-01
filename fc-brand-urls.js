@@ -6,5 +6,5 @@ window.FC_BRAND_URLS = {
   impressum: "https://www.fridaycircle.club/impressum/",
   datenschutz: "https://www.fridaycircle.club/datenschutz/",
   kontakt: "https://www.fridaycircle.club/kontakt/",
-  biigKunst: "https://kunst.biig.works/",
+  biigKunst: "https://biig.works/kunst/index.html",
 };

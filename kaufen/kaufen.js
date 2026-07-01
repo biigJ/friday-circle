@@ -927,10 +927,10 @@
   }
 
   function wgaCatalogHref(sectionId, workId) {
-    if (!sectionId) return "https://kunst.biig.works/#wga-catalog-root";
+    if (!sectionId) return "https://biig.works/kunst/index.html#wga-catalog-root";
     var qs = "section=" + encodeURIComponent(sectionId) + "&view=catalog";
     if (workId) qs += "&work=" + encodeURIComponent(workId);
-    return "https://kunst.biig.works/?" + qs + "#" + encodeURIComponent(sectionId);
+    return "https://biig.works/kunst/index.html?" + qs + "#" + encodeURIComponent(sectionId);
   }
 
   function bindKunstPage() {

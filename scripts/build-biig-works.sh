@@ -8,7 +8,7 @@ source "$ROOT/scripts/lib/sed-inplace.sh"
 
 BIIG_OUT="${BIIG_OUT:-$HOME/biig-works}"
 BIIG_SHOP_URL="${BIIG_SHOP_URL:-https://www.fridaycircle.club/kaufen/kunst.html}"
-KUNST_URL="${KUNST_URL:-https://kunst.biig.works}"
+KUNST_URL="${KUNST_URL:-https://biig.works/kunst/index.html}"
 
 echo "==> Building biig.works export at $BIIG_OUT"
 
