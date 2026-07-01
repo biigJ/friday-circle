@@ -4249,6 +4249,7 @@
 
     <script src="../fc-swipe-slider.js" defer></script>
     <script src="../fc-lang.js" defer></script>
+    <script src="../fc-image-url.js" defer></script>
     <script defer>
       (function setupBiLandingExtras() {
         var calendlyUrl = (document.body.getAttribute("data-bi-calendly-url") || "").trim();
@@ -5911,6 +5912,23 @@
           return project.imageAdjust[index] || null;
         }
 
+        var FC_IMG_TILE = 800;
+        var FC_IMG_SLIDE = 1400;
+        var FC_IMG_HERO = 1600;
+
+        function biSetImg(img, src, width) {
+          if (!img) return;
+          if (window.fcSetImage) window.fcSetImage(img, src, width);
+          else img.src = src;
+        }
+
+        function upgradePortfolioTileImages() {
+          document.querySelectorAll(".bi-tile--project .bi-tile__media > img").forEach(function (img) {
+            var src = img.getAttribute("src");
+            if (src) biSetImg(img, src, FC_IMG_TILE);
+          });
+        }
+
         function applyImageAdjust(img, adjust) {
           if (!img) return;
           img.style.transform = "";
@@ -6126,7 +6144,7 @@
           var slide = document.createElement("div");
           slide.className = "bi-mobile-tile-carousel__slide" + (isCover ? " bi-mobile-tile-carousel__slide--cover" : "");
           var img = document.createElement("img");
-          img.src = item.src;
+          biSetImg(img, item.src, FC_IMG_SLIDE);
           img.alt = getLang() === "en" ? item.altEn : item.altDe;
           img.decoding = "async";
           img.loading = "eager";
@@ -6336,7 +6354,7 @@
             var slide = document.createElement("div");
             slide.className = "bi-lightbox__slide";
             var img = document.createElement("img");
-            img.src = item.src;
+            biSetImg(img, item.src, FC_IMG_SLIDE);
             img.alt = lang === "en" ? item.altEn : item.altDe;
             img.decoding = "async";
             img.loading = "eager";
@@ -6741,7 +6759,7 @@
           var slides = BUY_OFFERS[openBuyId].slides;
           var slide = slides[buyIndex];
           if (!slide) return;
-          buyImg.src = slide.src;
+          biSetImg(buyImg, slide.src, FC_IMG_SLIDE);
           buyImg.alt = lang === "en" ? slide.altEn : slide.altDe;
           buyInfoBody.textContent = lang === "en" ? slide.bodyEn : slide.bodyDe;
           buyInfoSpec.textContent = lang === "en" ? slide.specEn : slide.specDe;
@@ -6928,7 +6946,7 @@
             var slideEl = document.createElement("div");
             slideEl.className = "bi-hero__slide";
             var img = document.createElement("img");
-            img.src = slide.src;
+            biSetImg(img, slide.src, FC_IMG_HERO);
             img.alt = lang === "en" ? slide.altEn : slide.altDe;
             img.decoding = "async";
             img.loading = i === 0 ? "eager" : "lazy";
@@ -6986,7 +7004,7 @@
             cell.className = "bi-hochbau-collage__cell";
             cell.setAttribute("data-hochbau-index", String(i));
             var img = document.createElement("img");
-            img.src = project.images[0];
+            biSetImg(img, project.images[0], FC_IMG_TILE);
             img.alt = pick(project, "title");
             img.decoding = "async";
             img.loading = i === 0 ? "eager" : "lazy";
@@ -7023,7 +7041,7 @@
             var media = document.createElement("span");
             media.className = "bi-tile__media";
             var img = document.createElement("img");
-            img.src = project.images[0];
+            biSetImg(img, project.images[0], FC_IMG_TILE);
             img.alt = pick(project, "title");
             img.decoding = "async";
             img.loading = i < 4 ? "eager" : "lazy";
@@ -7260,7 +7278,7 @@
             var fig = document.createElement("figure");
             fig.className = "bi-slider__slide";
             var img = document.createElement("img");
-            img.src = src;
+            biSetImg(img, src, FC_IMG_SLIDE);
             img.alt =
               title +
               ", " +
@@ -7339,6 +7357,7 @@
           applyAria();
           normalizeProjectTileElements();
           applyTileLabels();
+          upgradePortfolioTileImages();
           initHochbauCollage();
           initHochbauIndividualTiles();
           initMobileTileCarousels({ force: true });

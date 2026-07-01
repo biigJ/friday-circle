@@ -344,6 +344,7 @@
       crossorigin=""
       defer
     ></script>
+    <script src="../fc-image-url.js" defer></script>
     <script defer>
       (function () {
         var KREUZBERG = [
@@ -411,6 +412,10 @@
           document.addEventListener("DOMContentLoaded", initMap);
         } else {
           initMap();
+        }
+
+        if (window.fcUpgradeImages) {
+          window.fcUpgradeImages(document, ".cdx-fleet__photo img, .program-hero__media img", 1200);
         }
       })();
     </script>

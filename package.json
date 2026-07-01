@@ -1,0 +1,12 @@
+{
+  "name": "friday-circle",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "optimize:images:force": "node scripts/optimize-images.mjs --force"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  }
+}

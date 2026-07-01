@@ -32,6 +32,15 @@
     return resolveAsset(src);
   }
 
+  const WGA_IMG_TILE = 1000;
+  const WGA_IMG_SLIDE = 1000;
+
+  function wgaSetImg(img, src, width) {
+    if (!img || !src) return;
+    if (window.fcSetImage) window.fcSetImage(img, src, width || WGA_IMG_TILE);
+    else img.src = src;
+  }
+
   const heroTrack = document.getElementById("wga-hero-track");
   const heroDots = document.getElementById("wga-hero-dots");
   const heroCaption = document.getElementById("wga-hero-caption");
@@ -364,7 +373,7 @@
     if (!work || !inquiryPopup || work.berlinStatus === "unavailable") return;
     openInquiryWorkId = id;
     if (inquiryImg) {
-      inquiryImg.src = workImage(work);
+      wgaSetImg(inquiryImg, workImage(work), WGA_IMG_SLIDE);
       inquiryImg.alt = tileLabel(work);
     }
     updateInquiryPopupContent(work);
@@ -498,7 +507,7 @@
       const el = document.createElement("div");
       el.className = "wga-hero__slide";
       const img = document.createElement("img");
-      img.src = resolveAsset(slide.src);
+      wgaSetImg(img, resolveAsset(slide.src), 1200);
       img.alt = slide.alt || "";
       img.decoding = "async";
       img.loading = i === 0 ? "eager" : "lazy";
@@ -731,7 +740,7 @@
     const media = document.createElement("span");
     media.className = "wga-tile__media";
     const img = document.createElement("img");
-    img.src = workImage(work);
+    wgaSetImg(img, workImage(work), WGA_IMG_TILE);
     img.alt = tileLabel(work);
     img.decoding = "async";
     img.loading = "lazy";
@@ -1050,7 +1059,7 @@
     const fig = document.createElement("figure");
     fig.className = "wga-slider__slide";
     const img = document.createElement("img");
-    img.src = src;
+    wgaSetImg(img, src, WGA_IMG_SLIDE);
     img.alt = alt;
     img.decoding = "async";
     fig.appendChild(img);
@@ -1333,7 +1342,7 @@
     if (!slideEl) return null;
     const img = slideEl.querySelector("img");
     if (!img) return null;
-    if (img.getAttribute("src") !== src) img.src = src;
+    if (img.getAttribute("src") !== src) wgaSetImg(img, src, WGA_IMG_SLIDE);
     img.alt = alt;
     return img;
   }
