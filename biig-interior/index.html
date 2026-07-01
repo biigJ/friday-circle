@@ -2820,27 +2820,20 @@
       }
 
       .bi-disclosure-scale {
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 4;
-        padding: 10px 12px 12px;
+        position: relative;
+        width: 100%;
+        z-index: 1;
+        padding: 0;
         pointer-events: none;
         box-sizing: border-box;
       }
 
       .bi-disclosure-scale--dark {
-        background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+        color: rgba(255, 255, 255, 0.82);
       }
 
       .bi-disclosure-scale--light {
-        position: relative;
-        left: auto;
-        right: auto;
-        bottom: auto;
-        padding: 0;
-        background: none;
+        color: rgba(10, 10, 10, 0.42);
       }
 
       .bi-disclosure-scale__label {
@@ -2876,14 +2869,6 @@
         pointer-events: none;
       }
 
-      .bi-disclosure-scale--dark {
-        color: rgba(255, 255, 255, 0.82);
-      }
-
-      .bi-disclosure-scale--light {
-        color: rgba(10, 10, 10, 0.42);
-      }
-
       .bi-disclosure-scale__dot {
         position: relative;
         z-index: 1;
@@ -2901,7 +2886,6 @@
         transform: scale(1.2);
       }
 
-      .bi-slider__info .bi-disclosure-scale,
       .bi-lightbox__info .bi-disclosure-scale,
       .bi-mobile-tile-carousel__info .bi-disclosure-scale {
         position: relative;
@@ -2917,7 +2901,7 @@
         font-weight: 300;
         line-height: 1.45;
         letter-spacing: 0.015em;
-        color: color-mix(in srgb, var(--text) 66%, #ffffff);
+        color: rgba(255, 255, 255, 0.85);
       }
 
       .bi-lightbox__viewport.is-info-slide .bi-lightbox__caption {
@@ -5689,25 +5673,6 @@
           return el;
         }
 
-        function appendDisclosureScaleToSlide(slide, projectId, theme) {
-          if (!slide || !projectId) return;
-          var level = getDisclosureLevel(projectId);
-          if (!level) return;
-          slide.appendChild(createDisclosureScaleElement(level, theme));
-        }
-
-        function applyTileDisclosureScales() {
-          document.querySelectorAll(".bi-tile--project[data-bi-project]").forEach(function (tile) {
-            if (tile.classList.contains("bi-tile--hochbau-collage")) return;
-            var projectId = tile.getAttribute("data-bi-project");
-            var media = tile.querySelector(".bi-tile__media");
-            if (!media) return;
-            var existing = media.querySelector(".bi-disclosure-scale");
-            if (existing) existing.remove();
-            appendDisclosureScaleToSlide(media, projectId, "dark");
-          });
-        }
-
         function projectHasInfoSlide(projectId) {
           return !!projectId && HOCHBAU_IDS.indexOf(projectId) === -1;
         }
@@ -5789,9 +5754,6 @@
 
             card.appendChild(title);
             card.appendChild(sliderBody);
-            if (disclosureLevel) {
-              card.appendChild(createDisclosureScaleElement(disclosureLevel, "light"));
-            }
 
             var sliderFoot = document.createElement("p");
             sliderFoot.className = "bi-slider__info-foot";
@@ -6119,7 +6081,7 @@
           inner.appendChild(body);
           var level = getDisclosureLevel(projectId);
           if (level) {
-            inner.appendChild(createDisclosureScaleElement(level, "light"));
+            inner.appendChild(createDisclosureScaleElement(level, "dark"));
           }
           var foot = document.createElement("p");
           foot.className = "bi-mobile-tile-carousel__info-foot";
@@ -6140,7 +6102,6 @@
           if (isCover) img.style.objectPosition = "left center";
           else if (item.objectPosition) img.style.objectPosition = item.objectPosition;
           slide.appendChild(img);
-          appendDisclosureScaleToSlide(slide, projectId || (item && item.projectId), "dark");
           track.appendChild(slide);
         }
 
@@ -6352,7 +6313,6 @@
             var project = item.projectId ? PROJECTS[item.projectId] : null;
             applyImageAdjust(img, getImageAdjust(project, item.imageIndex));
             slide.appendChild(img);
-            appendDisclosureScaleToSlide(slide, item.projectId, "dark");
             lightboxTrack.appendChild(slide);
           });
           lightboxTrackReady = true;
@@ -7278,7 +7238,6 @@
             img.decoding = "async";
             applyImageAdjust(img, getImageAdjust(project, i));
             fig.appendChild(img);
-            appendDisclosureScaleToSlide(fig, openProjectId, "dark");
             trackEl.appendChild(fig);
 
             if (i === 0 && hasInfo) {
@@ -7349,7 +7308,6 @@
           applyAria();
           normalizeProjectTileElements();
           applyTileLabels();
-          applyTileDisclosureScales();
           initHochbauCollage();
           initHochbauIndividualTiles();
           initMobileTileCarousels({ force: true });
