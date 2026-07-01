@@ -16,7 +16,7 @@
     "index.html": [
       { s: "#service-heading .de-t .nowrap:nth-child(1)", de: "Dein Alltag ist", en: "Your everyday life" },
       { s: "#service-heading .de-t .nowrap:nth-child(2)", de: "gestaltbar", en: "is designable" },
-      { s: ".hero--service .hero__lede .de-t", de: "Bewegung, Gewohnheiten, Umgebungen. Wer in diesen drei Bereichen für sich klar ist, lebt zufriedener. Friday Circle steht dafür, dass das nicht alleine passiert.", en: "Movement, habits, environments. Whoever has clarity in these three areas lives more satisfied. Friday Circle is here so you don't do it alone." },
+      { s: ".hero--service .hero__lede .de-t", de: "Bewegung, Gewohnheiten, Umgebungen. Wer in diesen drei Bereichen für sich klar ist, lebt zufriedener. Friday Circle steht dafür, dass Du Dich dabei nicht allein fühlst.", en: "Movement, habits, environments. Whoever has clarity in these three areas lives more satisfied. Friday Circle is here so you don't feel alone doing it." },
       { s: "#landing-name-heading .nowrap:nth-child(1)", de: "Warum der Name", en: "Why the name" },
       { s: "#landing-name-heading .nowrap:nth-child(2)", de: "FRIDAY CIRCLE?", en: "FRIDAY CIRCLE?" },
     ],
