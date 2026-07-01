@@ -73,6 +73,7 @@ body.wga-page {
 }
 
 .wga-page .wga-nav .wga-nav__bio,
+.wga-page .wga-nav .wga-nav__biig,
 .wga-page .wga-nav .wga-nav__inspiration,
 .wga-page .wga-nav .wga-nav__shop {
   margin: 0;
@@ -87,6 +88,13 @@ body.wga-page {
   text-decoration: none;
 }
 
+.wga-page .wga-nav .wga-nav__biig {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  letter-spacing: 0.18em;
+}
+
 .wga-page .wga-nav .wga-nav__inspiration {
   text-transform: none;
   letter-spacing: 0.04em;
@@ -94,6 +102,8 @@ body.wga-page {
 
 .wga-page .wga-nav .wga-nav__bio:hover,
 .wga-page .wga-nav .wga-nav__bio:focus-visible,
+.wga-page .wga-nav .wga-nav__biig:hover,
+.wga-page .wga-nav .wga-nav__biig:focus-visible,
 .wga-page .wga-nav .wga-nav__inspiration:hover,
 .wga-page .wga-nav .wga-nav__inspiration:focus-visible,
 .wga-page .wga-nav .wga-nav__shop:hover,
@@ -218,6 +228,7 @@ body.wga-page {
 }
 
 .wga-page .wga-nav.wga-nav--on-light .wga-nav__bio,
+.wga-page .wga-nav.wga-nav--on-light .wga-nav__biig,
 .wga-page .wga-nav.wga-nav--on-light .wga-nav__inspiration,
 .wga-page .wga-nav.wga-nav--on-light .wga-nav__shop {
   color: var(--text);
@@ -233,6 +244,8 @@ body.wga-page {
 .wga-page .wga-nav.wga-nav--on-light .wga-nav__text-btn:focus-visible,
 .wga-page .wga-nav.wga-nav--on-light .wga-nav__bio:hover,
 .wga-page .wga-nav.wga-nav--on-light .wga-nav__bio:focus-visible,
+.wga-page .wga-nav.wga-nav--on-light .wga-nav__biig:hover,
+.wga-page .wga-nav.wga-nav--on-light .wga-nav__biig:focus-visible,
 .wga-page .wga-nav.wga-nav--on-light .wga-nav__inspiration:hover,
 .wga-page .wga-nav.wga-nav--on-light .wga-nav__inspiration:focus-visible,
 .wga-page .wga-nav.wga-nav--on-light .wga-nav__shop:hover,
@@ -263,6 +276,7 @@ body.wga-page {
 }
 
 .wga-page .wga-nav:not(.wga-nav--on-light).wga-nav--logo-light .wga-nav__bio,
+.wga-page .wga-nav:not(.wga-nav--on-light).wga-nav--logo-light .wga-nav__biig,
 .wga-page .wga-nav:not(.wga-nav--on-light).wga-nav--logo-light .wga-nav__inspiration,
 .wga-page .wga-nav:not(.wga-nav--on-light).wga-nav--logo-light .wga-nav__shop {
   color: #f0eee6;
@@ -302,6 +316,7 @@ body.wga-page {
 }
 
 .wga-page .wga-nav:not(.wga-nav--on-light).wga-nav--logo-dark .wga-nav__bio,
+.wga-page .wga-nav:not(.wga-nav--on-light).wga-nav--logo-dark .wga-nav__biig,
 .wga-page .wga-nav:not(.wga-nav--on-light).wga-nav--logo-dark .wga-nav__inspiration,
 .wga-page .wga-nav:not(.wga-nav--on-light).wga-nav--logo-dark .wga-nav__shop {
   color: var(--text);
@@ -344,10 +359,10 @@ body.wga-page {
 @media (max-width: 760px) {
   .wga-page .wga-nav .nav__inner {
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     grid-template-areas:
-      "logo logo logo logo logo"
-      "chapters bio inspiration shop lang";
+      "logo logo logo logo logo logo"
+      "chapters bio biig inspiration shop lang";
     align-items: center;
     column-gap: clamp(10px, 3vw, 18px);
     row-gap: clamp(12px, 2.8vw, 18px);
@@ -382,6 +397,12 @@ body.wga-page {
 
   .wga-page .wga-nav .wga-nav__bio {
     grid-area: bio;
+    justify-self: center;
+    align-self: center;
+  }
+
+  .wga-page .wga-nav .wga-nav__biig {
+    grid-area: biig;
     justify-self: center;
     align-self: center;
   }

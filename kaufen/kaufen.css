@@ -41,9 +41,10 @@ body.kaufen-page {
 .kaufen-header__links {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex: 1 1 auto;
-  gap: clamp(12px, 2.2vw, 40px);
+  flex-wrap: wrap;
+  gap: clamp(8px, 1.6vw, 18px) clamp(12px, 2.2vw, 40px);
   min-width: 0;
 }
 
