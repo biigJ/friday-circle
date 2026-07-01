@@ -14,9 +14,10 @@
   /** @type {Record<string, Array<{s:string,de:string,en:string,html?:boolean}>>} */
   var MAP = {
     "index.html": [
-      { s: ".fc-program-hero-eyebrow .de-t", de: "Service", en: "Service" },
-      { s: ".fc-program-hero-headline .de-t", de: "Make everything make sense for you.", en: "Make everything make sense for you." },
-      { s: ".fc-program-hero-subline .de-t", de: "Ich unterstütze Dich. Als Coach und Architekt mit Substanz.", en: "I support you — as a coach and architect with substance." },
+      { s: ".hero--service .fc-program-hero-eyebrow .de-t", de: "Service", en: "Service" },
+      { s: "#service-heading .de-t .nowrap:nth-child(1)", de: "Make everything", en: "Make everything" },
+      { s: "#service-heading .de-t .nowrap:nth-child(2)", de: "make sense for you.", en: "make sense for you." },
+      { s: ".hero--service .hero__lede .de-t", de: "Ich unterstütze Dich. Als Coach und Architekt mit Substanz.", en: "I support you — as a coach and architect with substance." },
       { s: "#landing-name-heading .nowrap:nth-child(1)", de: "Warum der Name", en: "Why the name" },
       { s: "#landing-name-heading .nowrap:nth-child(2)", de: "FRIDAY CIRCLE?", en: "FRIDAY CIRCLE?" },
     ],

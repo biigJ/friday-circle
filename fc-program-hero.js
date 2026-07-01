@@ -14,7 +14,7 @@
   if (!slides.length) return;
 
   var SLIDE_LABELS = [
-    { de: "Wer Gym-Buddys hat bleibt täglich in Bewegung.", en: "If you have gym buddies, you stay moving every day." },
+    { de: "Wer Gym-Buddys hat bleibt täglich in Bewegung", en: "If you have gym buddies, you stay moving every day" },
     { de: "Dein Interior Game auf das nächste Level", en: "Take your interior game to the next level" },
     { de: "Fertig bepflanzte Balkone in Berlin", en: "Ready-planted balconies in Berlin" },
     { de: "Einordnung ins große Ganze für mehr Gelassenheit", en: "Context for the bigger picture — more calm" },
