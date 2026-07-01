@@ -16,7 +16,7 @@
     "index.html": [
       { s: "#service-heading .de-t .nowrap:nth-child(1)", de: "Dein Alltag ist", en: "Your everyday life" },
       { s: "#service-heading .de-t .nowrap:nth-child(2)", de: "gestaltbar", en: "is designable" },
-      { s: ".hero--service .hero__lede .de-t", de: "Umgebung, Gewohnheiten, Bewegung. Wer an diesen drei Dingen arbeitet, lebt bewusster und findet seinen Rhythmus. Friday Circle steht dafür, dass das nicht alleine passiert. Joscha begleitet dich als Architekt und Personal Trainer.", en: "Environment, habits, movement. Working on these three things helps you live more consciously and find your rhythm. Friday Circle is here so you don't do it alone. Joscha supports you as an architect and personal trainer." },
+      { s: ".hero--service .hero__lede .de-t", de: "Umgebung, Gewohnheiten, Bewegung. Wer an diesen drei Dingen arbeitet, lebt bewusster und findet seinen Rhythmus. Friday Circle steht dafür, dass das nicht alleine passiert.", en: "Environment, habits, movement. Working on these three things helps you live more consciously and find your rhythm. Friday Circle is here so you don't do it alone." },
       { s: "#landing-name-heading .nowrap:nth-child(1)", de: "Warum der Name", en: "Why the name" },
       { s: "#landing-name-heading .nowrap:nth-child(2)", de: "FRIDAY CIRCLE?", en: "FRIDAY CIRCLE?" },
     ],
@@ -101,7 +101,7 @@
     "projekte.html": [
       { s: "#projekte-heading .de-t .nowrap:nth-child(1)", de: "Make everything", en: "Make everything" },
       { s: "#projekte-heading .de-t .nowrap:nth-child(2)", de: "make sense", en: "make sense" },
-      { s: ".hero--service .hero__lede .de-t", de: "Ich unterstütze Dich. Als Coach und Architekt mit Substanz.", en: "I support you — as a coach and architect with substance." },
+      { s: ".hero--service .hero__lede .de-t", de: "Ich unterstütze Dich als Coach und Architekt mit viel Erfahrung und Substanz.", en: "I support you as a coach and architect with extensive experience and substance." },
       { s: "#gogogo .product__kicker", de: "Woher Du kommst und was Du willst ist individuell – so auch die echte & menschliche Betreuung.", en: "Where you come from and what you want is individual — and so is genuine human support." },
       { s: "#gogogo .product__tagline", de: "Komm in Bewegung.", en: "Get moving." },
       { s: "#gogogo .product__cta", de: "mehr lesen", en: "read more" },
