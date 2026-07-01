@@ -99,9 +99,9 @@
       },
     ],
     "projekte.html": [
-      { s: "#projekte-heading .nowrap:nth-child(1)", de: "Make everything", en: "Make everything" },
-      { s: "#projekte-heading .nowrap:nth-child(2)", de: "make sense for you.", en: "make sense for you." },
-      { s: ".hero__lede", de: "Make everything make sense for you. Ich unterstütze Dich als Coach und Architekt mit Substanz — hier die Angebote im Überblick.", en: "Make everything make sense for you. I support you as a coach and architect with substance — here is an overview of what's on offer." },
+      { s: "#projekte-heading .de-t .nowrap:nth-child(1)", de: "Make everything", en: "Make everything" },
+      { s: "#projekte-heading .de-t .nowrap:nth-child(2)", de: "make sense", en: "make sense" },
+      { s: ".hero--service .hero__lede .de-t", de: "Ich unterstütze Dich. Als Coach und Architekt mit Substanz.", en: "I support you — as a coach and architect with substance." },
       { s: "#gogogo .product__kicker", de: "Woher Du kommst und was Du willst ist individuell – so auch die echte & menschliche Betreuung.", en: "Where you come from and what you want is individual — and so is genuine human support." },
       { s: "#gogogo .product__tagline", de: "Komm in Bewegung.", en: "Get moving." },
       { s: "#gogogo .product__cta", de: "mehr lesen", en: "read more" },
