@@ -14,9 +14,9 @@
   /** @type {Record<string, Array<{s:string,de:string,en:string,html?:boolean}>>} */
   var MAP = {
     "index.html": [
-      { s: "#hero-heading .nowrap:nth-child(1)", de: "Programme für echten Antrieb", en: "Programs for real momentum" },
-      { s: "#hero-heading .nowrap:nth-child(2)", de: "im Alltag", en: "in everyday life" },
-      { s: ".hero__lede", de: "Digitale Überstimulierung ist das zentrale Problem unserer Zeit. Friday Circle findet menschliche Gegengewichte für Klarheit und Authentizität.", en: "Digital overstimulation is the central problem of our time. Friday Circle finds human counterweights for clarity and authenticity." },
+      { s: "#hero-heading .de-t .nowrap:nth-child(1)", de: "Dein Alltag ist", en: "Your everyday life" },
+      { s: "#hero-heading .de-t .nowrap:nth-child(2)", de: "gestaltbar", en: "is designable" },
+      { s: ".hero__lede .de-t", de: "Umgebung, Gewohnheiten, Bewegung. Wer an diesen drei Dingen arbeitet, lebt bewusster und findet seinen Rhythmus. Friday Circle steht dafür, dass das nicht alleine passiert. Joscha begleitet dich als Architekt und Personal Trainer.", en: "Environment, habits, movement. Working on these three things helps you live more consciously and find your rhythm. Friday Circle is here so you don't do it alone. Joscha supports you as an architect and personal trainer." },
       { s: "#landing-name-heading .nowrap:nth-child(1)", de: "Warum der Name", en: "Why the name" },
       { s: "#landing-name-heading .nowrap:nth-child(2)", de: "FRIDAY CIRCLE?", en: "FRIDAY CIRCLE?" },
     ],
@@ -99,9 +99,9 @@
       },
     ],
     "projekte.html": [
-      { s: "#projekte-heading .nowrap:nth-child(1)", de: "Programme von", en: "Programs from" },
+      { s: "#projekte-heading .nowrap:nth-child(1)", de: "Service von", en: "Service from" },
       { s: "#projekte-heading .nowrap:nth-child(2)", de: "Friday Circle", en: "Friday Circle" },
-      { s: ".hero__lede", de: "Wie wäre es, wenn Du in den nächsten Wochen weniger Screentime hast weil Du mit anderen Menschen Programme startest, die Bereiche in Deinen Alltag schöner machen? Hier erste Vorschläge.", en: "What if, over the next few weeks, you had less screen time because you started programs with other people that make parts of your everyday life better? Here are the first ideas." },
+      { s: ".hero__lede", de: "Make everything make sense for you. Ich unterstütze Dich als Coach und Architekt mit Substanz — hier die Angebote im Überblick.", en: "Make everything make sense for you. I support you as a coach and architect with substance — here is an overview of what's on offer." },
       { s: "#gogogo .product__kicker", de: "Woher Du kommst und was Du willst ist individuell – so auch die echte & menschliche Betreuung.", en: "Where you come from and what you want is individual — and so is genuine human support." },
       { s: "#gogogo .product__tagline", de: "Komm in Bewegung.", en: "Get moving." },
       { s: "#gogogo .product__cta", de: "mehr lesen", en: "read more" },

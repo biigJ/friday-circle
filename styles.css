@@ -783,10 +783,40 @@ html[lang="de"] .en-t {
   margin: 0 auto clamp(8px, 1.2vw, 11px);
   padding: 0 var(--nav-pad-x);
   box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+  align-items: end;
   gap: clamp(12px, 2vw, 20px);
+}
+
+.fc-program-hero-eyebrow {
+  margin: 0 0 0.35em;
+  font-family: var(--font-sans);
+  font-size: clamp(0.62rem, 0.85vw, 0.72rem);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted, #666);
+}
+
+.fc-program-hero-headline {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(1.05rem, 2vw, 1.55rem);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.fc-program-hero-subline {
+  margin: 0;
+  padding-bottom: 0.15em;
+  font-family: var(--font-sans);
+  font-size: clamp(0.78rem, 1.05vw, 0.92rem);
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--text);
+  text-align: right;
 }
 
 .fc-program-hero-title {
