@@ -15,9 +15,9 @@
   var MAP = {
     "index.html": [
       { s: ".hero--service .fc-program-hero-eyebrow .de-t", de: "Service", en: "Service" },
-      { s: "#service-heading .de-t .nowrap:nth-child(1)", de: "Make everything", en: "Make everything" },
-      { s: "#service-heading .de-t .nowrap:nth-child(2)", de: "make sense for you.", en: "make sense for you." },
-      { s: ".hero--service .hero__lede .de-t", de: "Ich unterstütze Dich. Als Coach und Architekt mit Substanz.", en: "I support you — as a coach and architect with substance." },
+      { s: "#service-heading .de-t .nowrap:nth-child(1)", de: "Dein Alltag ist", en: "Your everyday life" },
+      { s: "#service-heading .de-t .nowrap:nth-child(2)", de: "gestaltbar", en: "is designable" },
+      { s: ".hero--service .hero__lede .de-t", de: "Umgebung, Gewohnheiten, Bewegung. Wer an diesen drei Dingen arbeitet, lebt bewusster und findet seinen Rhythmus. Friday Circle steht dafür, dass das nicht alleine passiert. Joscha begleitet dich als Architekt und Personal Trainer.", en: "Environment, habits, movement. Working on these three things helps you live more consciously and find your rhythm. Friday Circle is here so you don't do it alone. Joscha supports you as an architect and personal trainer." },
       { s: "#landing-name-heading .nowrap:nth-child(1)", de: "Warum der Name", en: "Why the name" },
       { s: "#landing-name-heading .nowrap:nth-child(2)", de: "FRIDAY CIRCLE?", en: "FRIDAY CIRCLE?" },
     ],
