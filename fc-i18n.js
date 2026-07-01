@@ -16,14 +16,14 @@
     "index.html": [
       { s: "#service-heading .de-t .nowrap:nth-child(1)", de: "Dein Alltag ist", en: "Your everyday life" },
       { s: "#service-heading .de-t .nowrap:nth-child(2)", de: "gestaltbar", en: "is designable" },
-      { s: ".hero--service .hero__lede .de-t", de: "Umgebung, Gewohnheiten, Bewegung. Wer an diesen drei Dingen arbeitet, lebt bewusster und findet seinen Rhythmus. Friday Circle steht dafür, dass das nicht alleine passiert.", en: "Environment, habits, movement. Working on these three things helps you live more consciously and find your rhythm. Friday Circle is here so you don't do it alone." },
+      { s: ".hero--service .hero__lede .de-t", de: "Bewegung, Gewohnheiten, Umgebungen. Wer in diesen drei Bereichen für sich klar ist, lebt zufriedener. Friday Circle steht dafür, dass das nicht alleine passiert.", en: "Movement, habits, environments. Whoever has clarity in these three areas lives more satisfied. Friday Circle is here so you don't do it alone." },
       { s: "#landing-name-heading .nowrap:nth-child(1)", de: "Warum der Name", en: "Why the name" },
       { s: "#landing-name-heading .nowrap:nth-child(2)", de: "FRIDAY CIRCLE?", en: "FRIDAY CIRCLE?" },
     ],
     "ziele.html": [
       { s: "#ziele-heading .nowrap:nth-child(1)", de: "Ziele von", en: "Goals of" },
       { s: "#ziele-heading .nowrap:nth-child(2)", de: "Friday Circle", en: "Friday Circle" },
-      { s: ".hero__lede", de: "Menschen zusammenbringen, um gemeinsam, undogmatisch und ganz praktisch das Geheimnis eines zufriedenen Lebens zu lüften. Durch Bewegung, Gestalten, Lernen.", en: "Bringing people together to uncover, collectively, undogmatically, and very practically, the secret of a satisfied life. Through movement, design, learning." },
+      { s: ".hero__lede", de: "Menschen zusammenbringen, um gemeinsam, undogmatisch und ganz praktisch das Geheimnis eines zufriedenen Lebens zu lüften.", en: "Bringing people together to uncover, collectively, undogmatically, and very practically, the secret of a satisfied life." },
       { s: ".goals-overlay__copy p:nth-of-type(1)", de: "Wer bewusst lebt, ist zufriedener. Das klingt banal, trifft aber selten den Alltag der meisten Menschen. Zwischen Job, Handy und dem Anspruch, ständig erreichbar und produktiv zu sein, bleibt wenig Raum für Entscheidungen, die wirklich von einem selbst kommen. Die Überzeugung, dass sich der Alltag mit wenigen, einfachen Mitteln wie Luxus anfühlen kann, treibt hier die Ideen an.", en: "Those who live consciously are more satisfied. That sounds banal, but it rarely matches the everyday life of most people. Between work, the phone, and the expectation of being constantly reachable and productive, there is little room for decisions that truly come from yourself. The conviction that everyday life can feel like luxury with a few simple means drives the ideas here." },
     ],
     "loesungen.html": [
