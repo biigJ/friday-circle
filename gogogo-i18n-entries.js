@@ -1,6 +1,8 @@
 /** gogogo-landing.html — selector-based DE/EN (loaded before fc-lang.js) */
 window.GOGL_I18N_ENTRIES = [
   { s: "#gogl-program-slider-title", de: "Was fehlt Dir neben App und Fitness Studio?", en: "What are you missing besides the app and the gym?" },
+  { s: '.gogl-program-slider__slide[data-slide="0"] .gogl-hero-slide__center-headline .de-t', de: "Mit Gym-Buddy nie wieder Stillstand.", en: "With a gym buddy, no more standing still." },
+  { s: '.gogl-program-slider__slide[data-slide="0"] .gogl-hero-slide__center-headline .en-t', de: "Mit Gym-Buddy nie wieder Stillstand.", en: "With a gym buddy, no more standing still." },
   { s: '.gogl-program-slider__slide[data-slide="0"] .gogl-hero-card--group .gogl-hero-card__title', de: "Wir gründen eine Gruppe (WhatsApp)", en: "We're starting a group (WhatsApp)" },
   { s: '.gogl-program-slider__slide[data-slide="0"] .gogl-hero-card--group .gogl-hero-card__text', de: "Zielanalyse & Gruppe erstellen. 30 Tage kostenlos jeden Tag ein echter Check-in. Game-Changer.", en: "Goal analysis & create a group. 30 days free — a real check-in every day. Game-changer." },
   { s: '.gogl-program-slider__slide[data-slide="0"] .gogl-hero-card--group .gogl-hero-card__cta-box', de: "kostenloses Gespräch buchen", en: "Book a free call" },
