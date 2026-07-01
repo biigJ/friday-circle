@@ -20,8 +20,8 @@
     { de: "Eine Tour durch Berlin als open Source Plattform", en: "A tour through Berlin as an open-source platform" },
     { de: "Einordnung ins große Ganze für mehr Gelassenheit", en: "Context for the bigger picture — more calm" },
     {
-      de: "Deine buchstäblich einzigartigen Produkte mit Zufriedenheitsgarantie",
-      en: "Your literally unique products with satisfaction guarantee",
+      de: "Alles Originale. Artikel mit Zufriedenheitsgarantie.",
+      en: "All originals. Products with satisfaction guarantee.",
     },
   ];
 
