@@ -29,7 +29,7 @@
     "loesungen.html": [
       { s: "#loesungen-heading .nowrap:nth-child(1)", de: "Auf der Suche nach", en: "Searching for" },
       { s: "#loesungen-heading .nowrap:nth-child(2)", de: "Lösungen", en: "solutions" },
-      { s: ".hero__lede", de: "Tägliche Bewegung, bewusste Handlungen, Entschleunigung, gestaltete Orte machen einen Unterschied. Alles zusammen verändert, wie sich Alltag anfühlt.", en: "Daily movement, conscious actions, slowing down, and designed spaces make a difference. Together they change how everyday life feels." },
+      { s: ".hero__lede", de: "Tägliche Bewegung, bewusste Handlungen, Entschleunigung, gestaltete Orte machen einen Unterschied. Alles zusammen verändert, dass sich Dein Alltag reicher anfühlt.", en: "Daily movement, conscious actions, slowing down, and designed spaces make a difference. Together they change so your everyday life feels richer." },
       { s: ".fc-loesungen", attr: "aria-label", de: "Lösungen Moodboard", en: "Solutions moodboard" },
       { s: ".fc-loesungen .fc-board > .pin:nth-child(5) small", de: "Bewegung", en: "Movement" },
       { s: ".fc-loesungen .fc-board > .pin:nth-child(5) p", de: "In Bewegung kommen", en: "Get moving" },
