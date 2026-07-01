@@ -7,6 +7,32 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 source "$ROOT/scripts/lib/sed-inplace.sh"
 
 GOGOGO_OUT="${GOGOGO_OUT:-$HOME/gogogo-social}"
+FC_URL="${FC_URL:-https://fridaycircle.club}"
+KUNST_URL="${KUNST_URL:-https://kunst.biig.works}"
+
+gogogo_rewrite_fc_links() {
+  local f="$1"
+  sed_inplace \
+    -e "s|href=\"../index.html\"|href=\"${FC_URL}/\"|g" \
+    -e "s|href=\"index.html\" class=\"footer__logo\"|href=\"${FC_URL}/\" class=\"footer__logo\"|g" \
+    -e "s|href=\"../impressum/index.html\"|href=\"${FC_URL}/impressum/\"|g" \
+    -e "s|href=\"impressum/index.html\"|href=\"${FC_URL}/impressum/\"|g" \
+    -e "s|href=\"../datenschutz/index.html\"|href=\"${FC_URL}/datenschutz/\"|g" \
+    -e "s|href=\"datenschutz/index.html\"|href=\"${FC_URL}/datenschutz/\"|g" \
+    -e "s|href=\"../kontakt/index.html\"|href=\"${FC_URL}/kontakt/\"|g" \
+    -e "s|href=\"kontakt/index.html\"|href=\"${FC_URL}/kontakt/\"|g" \
+    -e "s|href=\"../triff-joscha.html|href=\"${FC_URL}/triff-joscha.html|g" \
+    -e "s|href=\"triff-joscha.html|href=\"${FC_URL}/triff-joscha.html|g" \
+    -e "s|href=\"../kaufen/index.html\"|href=\"${FC_URL}/kaufen/\"|g" \
+    -e "s|href=\"kaufen/index.html\"|href=\"${FC_URL}/kaufen/\"|g" \
+    -e "s|href=\"kaufen/handtuch.html\"|href=\"${FC_URL}/kaufen/handtuch.html\"|g" \
+    -e "s|href=\"kaufen/sportoberteil.html\"|href=\"${FC_URL}/kaufen/sportoberteil.html\"|g" \
+    -e "s|href=\"https://biig.works/kunst/|href=\"${KUNST_URL}/|g" \
+    -e 's|gogogo-landing\.html#member-popup|#member-popup|g' \
+    -e 's|gogogo-landing\.html|index.html|g' \
+    -e 's|https://www\.bjgrope\.de/register-accountability/index\.html|register-accountability/|g' \
+    "$f"
+}
 
 echo "==> Building gogogo.social export at $GOGOGO_OUT"
 
@@ -21,7 +47,8 @@ if [[ -f "$GOGOGO_OUT/CNAME" ]]; then
 fi
 
 rm -rf "$GOGOGO_OUT"
-mkdir -p "$GOGOGO_OUT/assets/gogogo" "$GOGOGO_OUT/assets/biigJ"
+mkdir -p "$GOGOGO_OUT/assets/gogogo" "$GOGOGO_OUT/assets/biigJ" \
+  "$GOGOGO_OUT/register-accountability" "$GOGOGO_OUT/register-training" "$GOGOGO_OUT/start"
 
 if [[ -n "$GOGOGO_GIT_BACKUP" ]]; then
   cp -a "$GOGOGO_GIT_BACKUP/.git" "$GOGOGO_OUT/"
@@ -34,22 +61,54 @@ else
 fi
 
 cp "$ROOT/gogogo-landing.html" "$GOGOGO_OUT/index.html"
+cp "$ROOT/register-accountability/index.html" "$GOGOGO_OUT/register-accountability/index.html"
+cp "$ROOT/register-training/index.html" "$GOGOGO_OUT/register-training/index.html"
+cp "$ROOT/start/index.html" "$GOGOGO_OUT/start/index.html"
+cp "$ROOT/cycle-training.html" "$GOGOGO_OUT/"
+cp "$ROOT/cycle-table.html" "$GOGOGO_OUT/"
+cp "$ROOT/gogogo-quiz.html" "$GOGOGO_OUT/"
+cp "$ROOT/joschaalstrainer.html" "$GOGOGO_OUT/"
+cp "$ROOT/joschaalscoach.html" "$GOGOGO_OUT/"
+cp "$ROOT/register.html" "$GOGOGO_OUT/"
+cp "$ROOT/gogogo.html" "$GOGOGO_OUT/"
+
 cp "$ROOT/styles.css" "$GOGOGO_OUT/"
+cp "$ROOT/program-landing.css" "$GOGOGO_OUT/"
 cp "$ROOT/fc-swipe-slider.js" "$GOGOGO_OUT/"
 cp "$ROOT/fc-lang.js" "$GOGOGO_OUT/"
 cp "$ROOT/fc-i18n.js" "$GOGOGO_OUT/"
+cp "$ROOT/fc-image-url.js" "$GOGOGO_OUT/"
 cp "$ROOT/gogogo-joscha-grow.js" "$GOGOGO_OUT/"
 cp "$ROOT/gogogo-program-slider.js" "$GOGOGO_OUT/"
 cp "$ROOT/gogogo-i18n-entries.js" "$GOGOGO_OUT/"
+cp "$ROOT/register-i18n-entries.js" "$GOGOGO_OUT/"
+cp "$ROOT/cycle-cards.js" "$GOGOGO_OUT/"
+cp "$ROOT/cycle-table.js" "$GOGOGO_OUT/"
 
 rsync -a "$ROOT/assets/gogogo/" "$GOGOGO_OUT/assets/gogogo/"
-cp "$ROOT/assets/biigJ/biigJ01.jpg" "$GOGOGO_OUT/assets/biigJ/"
-cp "$ROOT/assets/biigJ/accountability.png" "$GOGOGO_OUT/assets/biigJ/"
+rsync -a "$ROOT/assets/biigJ/" "$GOGOGO_OUT/assets/biigJ/"
+
+for html in \
+  "$GOGOGO_OUT/index.html" \
+  "$GOGOGO_OUT/register-accountability/index.html" \
+  "$GOGOGO_OUT/register-training/index.html" \
+  "$GOGOGO_OUT/start/index.html" \
+  "$GOGOGO_OUT/cycle-training.html" \
+  "$GOGOGO_OUT/cycle-table.html" \
+  "$GOGOGO_OUT/gogogo-quiz.html" \
+  "$GOGOGO_OUT/joschaalstrainer.html"; do
+  gogogo_rewrite_fc_links "$html"
+done
 
 sed_inplace \
-  -e 's/gogogo-landing\.html#member-popup/#member-popup/g' \
-  -e 's/gogogo-landing\.html/index.html/g' \
-  "$GOGOGO_OUT/index.html"
+  -e 's|href="../register-accountability/index.html"|href="../register-accountability/"|g' \
+  -e 's|href="../register-training/index.html"|href="../register-training/"|g' \
+  "$GOGOGO_OUT/start/index.html"
+
+sed_inplace \
+  -e 's|url=joschaalstrainer\.html|url=joschaalstrainer.html|g' \
+  -e 's|href="joschaalstrainer\.html"|href="joschaalstrainer.html"|g' \
+  "$GOGOGO_OUT/joschaalscoach.html"
 
 cat > "$GOGOGO_OUT/README.md" <<'EOF'
 # gogogo.social

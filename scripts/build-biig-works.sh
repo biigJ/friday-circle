@@ -8,6 +8,7 @@ source "$ROOT/scripts/lib/sed-inplace.sh"
 
 BIIG_OUT="${BIIG_OUT:-$HOME/biig-works}"
 BIIG_SHOP_URL="${BIIG_SHOP_URL:-https://www.fridaycircle.club/kaufen/kunst.html}"
+KUNST_URL="${KUNST_URL:-https://kunst.biig.works}"
 
 echo "==> Building biig.works export at $BIIG_OUT"
 
@@ -23,8 +24,8 @@ fi
 
 rm -rf "$BIIG_OUT"
 mkdir -p "$BIIG_OUT/biig-interior" "$BIIG_OUT/assets/interior" "$BIIG_OUT/assets/hochbau" \
-  "$BIIG_OUT/assets/audio" "$BIIG_OUT/assets/biigJ" "$BIIG_OUT/assets/wolfgang-grope" "$BIIG_OUT/data"
-for BIIG_PAGE in joscha kunst impressum datenschutz kontakt; do
+  "$BIIG_OUT/assets/audio" "$BIIG_OUT/assets/biigJ" "$BIIG_OUT/kunst"
+for BIIG_PAGE in joscha impressum datenschutz kontakt; do
   mkdir -p "$BIIG_OUT/$BIIG_PAGE"
 done
 
@@ -47,32 +48,26 @@ cp "$ROOT/styles.css" "$BIIG_OUT/"
 cp "$ROOT/fc-swipe-slider.js" "$BIIG_OUT/"
 cp "$ROOT/fc-lang.js" "$BIIG_OUT/"
 cp "$ROOT/fc-image-url.js" "$BIIG_OUT/"
-cp "$ROOT/wolfganggrope.css" "$BIIG_OUT/"
-cp "$ROOT/wolfganggrope.js" "$BIIG_OUT/"
-cp "$ROOT/data/wga-catalog.js" "$ROOT/data/wga-bio.js" "$ROOT/data/wga-catalog.json" "$BIIG_OUT/data/"
 
-for BIIG_PAGE in joscha kunst impressum datenschutz kontakt; do
+for BIIG_PAGE in joscha impressum datenschutz kontakt; do
   cp "$ROOT/biig-interior/$BIIG_PAGE/index.html" "$BIIG_OUT/$BIIG_PAGE/index.html"
 done
 
-for BIIG_PAGE in joscha kunst impressum datenschutz kontakt; do
+for BIIG_PAGE in joscha impressum datenschutz kontakt; do
   sed_inplace \
     -e 's|href="/styles.css"|href="../styles.css"|g' \
-    -e 's|href="/wolfganggrope.css"|href="../wolfganggrope.css"|g' \
     -e 's|href="/biig-interior/biig-shared.css"|href="../biig-interior/biig-shared.css"|g' \
     -e 's|src="/fc-image-url.js"|src="../fc-image-url.js"|g' \
     -e 's|src="/fc-lang.js"|src="../fc-lang.js"|g' \
     -e 's|src="/fc-swipe-slider.js"|src="../fc-swipe-slider.js"|g' \
-    -e 's|src="/data/|src="../data/|g' \
-    -e 's|src="/wolfganggrope.js"|src="../wolfganggrope.js"|g' \
     -e "s|href=\"/kaufen/kunst.html\"|href=\"$BIIG_SHOP_URL\"|g" \
+    -e "s|href=\"../kunst/index.html\"|href=\"${KUNST_URL}/\"|g" \
     "$BIIG_OUT/$BIIG_PAGE/index.html"
 done
 
 rsync -a "$ROOT/assets/interior/" "$BIIG_OUT/assets/interior/"
 rsync -a "$ROOT/assets/hochbau/" "$BIIG_OUT/assets/hochbau/"
 rsync -a "$ROOT/assets/biigJ/" "$BIIG_OUT/assets/biigJ/"
-rsync -a "$ROOT/assets/wolfgang-grope/" "$BIIG_OUT/assets/wolfgang-grope/"
 cp "$ROOT/assets/audio/dramatic-motion-watermarked.mp3" "$BIIG_OUT/assets/audio/"
 
 sed_inplace \
@@ -83,9 +78,25 @@ sed_inplace \
   -e 's|src="bk-i18n.js"|src="biig-interior/bk-i18n.js"|g' \
   -e 's|src="biig-konfigurator.js"|src="biig-interior/biig-konfigurator.js"|g' \
   -e 's|\.\./assets/|assets/|g' \
+  -e "s|href=\"../kunst/index.html\"|href=\"${KUNST_URL}/\"|g" \
   "$BIIG_OUT/index.html"
 
 sed_inplace 's|\.\./assets/|assets/|g' "$BIIG_OUT/biig-interior/biig-konfigurator.js"
+
+cat > "$BIIG_OUT/kunst/index.html" <<EOF
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content="0; url=${KUNST_URL}/" />
+    <link rel="canonical" href="${KUNST_URL}/" />
+    <title>Weiterleitung — Kunst</title>
+  </head>
+  <body>
+    <p>Weiterleitung zu <a href="${KUNST_URL}/">kunst.biig.works</a>…</p>
+  </body>
+</html>
+EOF
 
 cat > "$BIIG_OUT/README.md" <<'EOF'
 # biig.works
@@ -96,6 +107,7 @@ Do not edit by hand — run `scripts/deploy-biig-works.sh` from friday-circle in
 ## Deploy
 
 GitHub Pages serves this repository (`CNAME`: biig.works).
+WGA/Kunst lives at [kunst.biig.works](https://kunst.biig.works).
 EOF
 
 echo "==> biig.works export ready ($(find "$BIIG_OUT" -type f | wc -l | tr -d ' ') files)"

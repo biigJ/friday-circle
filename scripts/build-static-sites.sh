@@ -6,5 +6,6 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 
 bash "$ROOT/scripts/build-gogogo-social.sh"
 bash "$ROOT/scripts/build-biig-works.sh"
+bash "$ROOT/scripts/build-biig-kunst.sh"
 
 echo "==> All brand exports built"
