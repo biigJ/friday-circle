@@ -7,7 +7,7 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 source "$ROOT/scripts/lib/sed-inplace.sh"
 
 GOGOGO_OUT="${GOGOGO_OUT:-$HOME/gogogo-social}"
-FC_URL="${FC_URL:-https://fridaycircle.club}"
+FC_URL="${FC_URL:-https://www.fridaycircle.club}"
 KUNST_URL="${KUNST_URL:-https://kunst.biig.works}"
 
 gogogo_rewrite_fc_links() {
