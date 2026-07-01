@@ -22,7 +22,7 @@
   }
 
   /** Bump when partials/site-footer.html or site-header.html change (cache bust). */
-  var FC_PARTIAL_CACHE = "8";
+  var FC_PARTIAL_CACHE = "9";
 
   function partialCacheUrl(path) {
     var url = new URL(path, partialBaseHref());

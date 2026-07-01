@@ -756,7 +756,7 @@ html[lang="de"] .en-t {
 }
 
 .gogogo-page .nav__cta-bucket > .gogogo-landing__header-cta::before {
-  content: "Jetzt starten";
+  content: "Gym Buddy";
   grid-area: 1 / 1;
   visibility: hidden;
   white-space: nowrap;
@@ -786,7 +786,7 @@ html[lang="de"] .en-t {
 
 .fc-program-hero-head {
   width: min(100%, var(--content-max));
-  margin: clamp(8px, 1.2vw, 11px) auto 0;
+  margin: 0 auto clamp(8px, 1.2vw, 11px);
   padding: 0 var(--nav-pad-x);
   box-sizing: border-box;
   display: grid;
