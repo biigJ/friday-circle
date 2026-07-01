@@ -788,33 +788,20 @@ html[lang="de"] .en-t {
   padding: clamp(48px, 9vw, 112px) 0 clamp(20px, 3vw, 40px);
 }
 
-.hero--service .hero__grid {
+.hero--service .hero__grid--service {
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr) auto;
   align-items: end;
-}
-
-.hero__aside {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: clamp(16px, 2.5vw, 28px);
+  gap: clamp(24px, 4vw, 48px) clamp(40px, 8vw, 120px) clamp(12px, 2vw, 20px);
 }
 
 .hero--service .hero__lede {
   max-width: none;
-}
-
-.hero--service .fc-program-hero-eyebrow {
-  margin: 0 0 0.5em;
-  font-family: var(--font-sans);
-  font-size: clamp(0.62rem, 0.85vw, 0.72rem);
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-muted, #666);
+  margin: 0;
 }
 
 .hero--service .fc-program-hero-arrows {
-  margin-left: auto;
+  align-self: end;
+  margin-bottom: 0.15em;
 }
 
 .fc-program-hero-head {
@@ -962,14 +949,15 @@ html[lang="de"] .en-t {
     padding-bottom: clamp(12px, 2vw, 24px);
   }
 
-  .hero__aside {
-    width: 100%;
+  .hero--service .hero__grid--service {
+    grid-template-columns: 1fr;
+    align-items: start;
   }
 
   .hero--service .fc-program-hero-arrows {
-    margin-left: 0;
     width: 100%;
     justify-content: flex-end;
+    margin-bottom: 0;
   }
 
   .fc-program-hero-arrows {
@@ -1117,25 +1105,28 @@ html[lang="de"] .en-t {
 }
 
 .fc-program-hero__content:has(.fc-program-hero__panel--gogogo.is-active) {
-  padding-inline: calc(var(--nav-pad-x) * 1.5);
+  padding-inline: var(--nav-pad-x);
 }
 
 .fc-program-hero__panel.fc-program-hero__panel--gogogo {
-  max-width: 100%;
+  max-width: min(80%, 40rem);
   width: 100%;
-  margin-left: auto;
+  margin-left: 0;
   margin-right: auto;
-  text-align: center;
+  text-align: left;
 }
 
 .fc-program-hero__title.fc-program-hero__title--gogogo {
-  margin-bottom: clamp(22px, 3.5vw, 32px);
-  max-width: min(28ch, 92%);
-  margin-left: auto;
+  max-width: 100%;
+  margin-left: 0;
   margin-right: auto;
-  font-size: clamp(1.05rem, 2.8vw, 1.65rem);
-  line-height: 1.18;
-  text-align: center;
+  margin-bottom: clamp(18px, 3vw, 28px);
+  text-align: left;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: clamp(2rem, 6.5vw, 3.75rem);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
   text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5);
   overflow-wrap: break-word;
 }
@@ -1175,7 +1166,7 @@ html[lang="de"] .en-t {
 }
 
 .fc-program-hero__panel.fc-program-hero__panel--gogogo .fc-program-hero__cta {
-  margin-left: auto;
+  margin-left: 0;
   margin-right: auto;
 }
 

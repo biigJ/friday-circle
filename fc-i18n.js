@@ -14,7 +14,6 @@
   /** @type {Record<string, Array<{s:string,de:string,en:string,html?:boolean}>>} */
   var MAP = {
     "index.html": [
-      { s: ".hero--service .fc-program-hero-eyebrow .de-t", de: "Service", en: "Service" },
       { s: "#service-heading .de-t .nowrap:nth-child(1)", de: "Dein Alltag ist", en: "Your everyday life" },
       { s: "#service-heading .de-t .nowrap:nth-child(2)", de: "gestaltbar", en: "is designable" },
       { s: ".hero--service .hero__lede .de-t", de: "Umgebung, Gewohnheiten, Bewegung. Wer an diesen drei Dingen arbeitet, lebt bewusster und findet seinen Rhythmus. Friday Circle steht dafür, dass das nicht alleine passiert. Joscha begleitet dich als Architekt und Personal Trainer.", en: "Environment, habits, movement. Working on these three things helps you live more consciously and find your rhythm. Friday Circle is here so you don't do it alone. Joscha supports you as an architect and personal trainer." },
@@ -31,7 +30,7 @@
     ],
     "loesungen.html": [
       { s: "#loesungen-heading .nowrap:nth-child(1)", de: "Auf der Suche nach", en: "Searching for" },
-      { s: "#loesungen-heading .nowrap:nth-child(2)", de: "Lösungen.", en: "solutions." },
+      { s: "#loesungen-heading .nowrap:nth-child(2)", de: "Lösungen", en: "solutions" },
       { s: ".hero__lede", de: "Wenn es einfach wäre, würde jeder Mensch mit einem Lächeln durchs Leben laufen. Wir wissen, dass in allen Themen so viele Fragen offen sind und Uneinigkeit herrscht. Was wir beherrschen können, ist hier notiert.", en: "If it were easy, every person would walk through life with a smile. We know that in every topic so many questions are open and there is disagreement. What we can learn to handle is noted here." },
       { s: ".fc-loesungen", attr: "aria-label", de: "Lösungen Moodboard", en: "Solutions moodboard" },
       { s: ".fc-loesungen .fc-board > .pin:nth-child(5) small", de: "Bewegung", en: "Movement" },
@@ -100,8 +99,8 @@
       },
     ],
     "projekte.html": [
-      { s: "#projekte-heading .nowrap:nth-child(1)", de: "Service von", en: "Service from" },
-      { s: "#projekte-heading .nowrap:nth-child(2)", de: "Friday Circle", en: "Friday Circle" },
+      { s: "#projekte-heading .nowrap:nth-child(1)", de: "Make everything", en: "Make everything" },
+      { s: "#projekte-heading .nowrap:nth-child(2)", de: "make sense for you.", en: "make sense for you." },
       { s: ".hero__lede", de: "Make everything make sense for you. Ich unterstütze Dich als Coach und Architekt mit Substanz — hier die Angebote im Überblick.", en: "Make everything make sense for you. I support you as a coach and architect with substance — here is an overview of what's on offer." },
       { s: "#gogogo .product__kicker", de: "Woher Du kommst und was Du willst ist individuell – so auch die echte & menschliche Betreuung.", en: "Where you come from and what you want is individual — and so is genuine human support." },
       { s: "#gogogo .product__tagline", de: "Komm in Bewegung.", en: "Get moving." },

@@ -16,9 +16,9 @@
   var SLIDE_LABELS = [
     { de: "Wer Gym-Buddys hat bleibt täglich in Bewegung", en: "If you have gym buddies, you stay moving every day" },
     { de: "Dein Interior Game auf das nächste Level", en: "Take your interior game to the next level" },
-    { de: "Fertig bepflanzte Balkone in Berlin", en: "Ready-planted balconies in Berlin" },
-    { de: "Einordnung ins große Ganze für mehr Gelassenheit", en: "Context for the bigger picture — more calm" },
+    { de: "Dein fertig bepflanzter Lieblingsort in Berlin.", en: "Your ready-planted favourite spot in Berlin." },
     { de: "Eine Tour durch Berlin als open Source Plattform", en: "A tour through Berlin as an open-source platform" },
+    { de: "Einordnung ins große Ganze für mehr Gelassenheit", en: "Context for the bigger picture — more calm" },
     {
       de: "Deine buchstäblich einzigartigen Produkte mit Zufriedenheitsgarantie",
       en: "Your literally unique products with satisfaction guarantee",
@@ -45,7 +45,7 @@
       d.classList.toggle("is-active", n === index);
       d.setAttribute("aria-selected", n === index ? "true" : "false");
     });
-    root.classList.toggle("is-lebensjahre", index === 3);
+    root.classList.toggle("is-lebensjahre", index === 4);
     updateTitle();
   }
 
