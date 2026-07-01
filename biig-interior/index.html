@@ -1495,6 +1495,7 @@
         min-width: 0;
         height: 100%;
         margin: 0;
+        position: relative;
         overflow: hidden;
         background: #ffffff;
         line-height: 0;
@@ -2670,6 +2671,10 @@
         line-height: 0;
       }
 
+      .bi-lightbox__slide:not(.bi-lightbox__slide--info) {
+        position: relative;
+      }
+
       .bi-lightbox__slide img {
         width: 100%;
         height: 100%;
@@ -2763,6 +2768,14 @@
         text-align: center;
       }
 
+      .bi-lightbox__info-foot-text {
+        margin: 0;
+      }
+
+      .bi-lightbox__info-foot .bi-disclosure-scale {
+        margin-bottom: 8px;
+      }
+
       .bi-slider__info {
         width: 100%;
         max-height: 100%;
@@ -2796,6 +2809,92 @@
         margin: 0;
         font-family: var(--font-sans);
         font-size: clamp(0.66rem, 0.86vw, 0.74rem);
+        font-weight: 300;
+        line-height: 1.45;
+        letter-spacing: 0.015em;
+        color: color-mix(in srgb, var(--text) 66%, #ffffff);
+      }
+
+      .bi-disclosure-scale {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 4;
+        padding: 8px 10px 10px;
+        pointer-events: none;
+      }
+
+      .bi-disclosure-scale--dark {
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+      }
+
+      .bi-disclosure-scale--light {
+        position: relative;
+        padding: 10px 0 0;
+        background: none;
+      }
+
+      .bi-disclosure-scale__dots {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: min(108px, 42%);
+        margin: 0 auto;
+        height: 8px;
+      }
+
+      .bi-disclosure-scale__line {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        height: 1px;
+        transform: translateY(-50%);
+        background: currentColor;
+        opacity: 0.55;
+        pointer-events: none;
+      }
+
+      .bi-disclosure-scale--dark {
+        color: rgba(255, 255, 255, 0.82);
+      }
+
+      .bi-disclosure-scale--light {
+        color: rgba(10, 10, 10, 0.42);
+      }
+
+      .bi-disclosure-scale__dot {
+        position: relative;
+        z-index: 1;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        border: 1px solid currentColor;
+        background: transparent;
+        box-sizing: border-box;
+      }
+
+      .bi-disclosure-scale__dot.is-active {
+        background: currentColor;
+        border-color: currentColor;
+        transform: scale(1.2);
+      }
+
+      .bi-slider__info .bi-disclosure-scale,
+      .bi-lightbox__info .bi-disclosure-scale,
+      .bi-mobile-tile-carousel__info .bi-disclosure-scale {
+        position: relative;
+        width: 100%;
+        margin: 0 0 10px;
+        padding: 0;
+      }
+
+      .bi-mobile-tile-carousel__info-foot {
+        margin: 12px 0 0;
+        font-family: var(--font-sans);
+        font-size: clamp(0.64rem, 2.8vw, 0.74rem);
         font-weight: 300;
         line-height: 1.45;
         letter-spacing: 0.015em;
@@ -5450,10 +5549,140 @@
 
         var activeServiceKey = null;
 
-        var INFO_FOOTER = {
-          de: "Fotos wurden in kleinen Details mit KI nachbearbeitet, um Designidee hervorzuheben. Bildrechte der Fotos und Visualisierungen liegen beim Architekt und Designer Ben Joscha Grope.",
-          en: "Photos were retouched in small details with AI to highlight the design intent. Image rights for photos and visualisations are held by architect and designer Ben Joscha Grope.",
+        var TILE_DISCLOSURE_LEVELS = {
+          dieffe33: 5,
+          altbau1: 1,
+          altbau2: 3,
+          homeoffice1: 3,
+          homeoffice2: 4,
+          hausA: 2,
+          hausB: 5,
+          loft: 3,
+          ordnung: 2,
+          kueche: 5,
+          kochinsel: 4,
+          oase: 4,
+          umbauten: 5,
+          vinothekGeo: 3,
+          vinothekAlpen: 5,
         };
+
+        var VISUAL_DISCLOSURE_LEVELS = [
+          {
+            labelDe: "100 % ausgedacht",
+            labelEn: "100% fabricated",
+            hintDe:
+              "Diese Projektdarstellung ist eine vollständig mit KI erzeugte Visualisierung ohne reale Fotobasis.",
+            hintEn:
+              "This project image is a fully AI-generated visualisation with no real photographic basis.",
+          },
+          {
+            labelDe: "starke Überzeichnung",
+            labelEn: "strong exaggeration",
+            hintDe:
+              "Diese Projektdarstellung basiert auf einer Vorlage und wurde mit KI stark überzeichnet bzw. idealisiert.",
+            hintEn:
+              "This project image is based on a source image and was strongly overdrawing or idealised using AI.",
+          },
+          {
+            labelDe: "grundlegende Bearbeitung",
+            labelEn: "basic editing",
+            hintDe:
+              "Diese Projektdarstellung wurde mit KI grundlegend bearbeitet, u. a. bei Material, Farbe oder Raumwirkung.",
+            hintEn:
+              "This project image was substantially edited with AI, including materials, colour, or spatial effect.",
+          },
+          {
+            labelDe: "in Teilen ergänzt",
+            labelEn: "partially supplemented",
+            hintDe:
+              "Diese Projektdarstellung kombiniert reale Aufnahmen mit in Teilen KI-ergänzten Bereichen.",
+            hintEn:
+              "This project image combines real photographs with sections partially supplemented using AI.",
+          },
+          {
+            labelDe: "mit leichter Bildbearbeitung",
+            labelEn: "with light image editing",
+            hintDe:
+              "Diese Projektdarstellung wurde mit leichter KI-Bildbearbeitung nachbearbeitet, um die Designidee zu verdeutlichen.",
+            hintEn:
+              "This project image was lightly retouched with AI to clarify the design intent.",
+          },
+        ];
+
+        var EU_DISCLOSURE_SUFFIX = {
+          de: "Offenlegung gemäß Verordnung (EU) 2024/1689 (KI-VO), Art. 50.",
+          en: "Disclosure pursuant to Regulation (EU) 2024/1689 (AI Act), Article 50.",
+        };
+
+        var IMAGE_RIGHTS_SUFFIX = {
+          de: "Bildrechte der Fotos und Visualisierungen: Ben Joscha Grope.",
+          en: "Image rights for photos and visualisations: Ben Joscha Grope.",
+        };
+
+        function getDisclosureLevel(projectId) {
+          return TILE_DISCLOSURE_LEVELS[projectId] || 0;
+        }
+
+        function getDisclosureMeta(level, lang) {
+          return VISUAL_DISCLOSURE_LEVELS[Math.max(1, Math.min(5, level)) - 1];
+        }
+
+        function getDisclosureFooterText(projectId, lang) {
+          var level = getDisclosureLevel(projectId);
+          if (!level) {
+            return lang === "en" ? IMAGE_RIGHTS_SUFFIX.en : IMAGE_RIGHTS_SUFFIX.de;
+          }
+          var meta = getDisclosureMeta(level, lang);
+          var hint = lang === "en" ? meta.hintEn : meta.hintDe;
+          var eu = lang === "en" ? EU_DISCLOSURE_SUFFIX.en : EU_DISCLOSURE_SUFFIX.de;
+          var copy = lang === "en" ? IMAGE_RIGHTS_SUFFIX.en : IMAGE_RIGHTS_SUFFIX.de;
+          return hint + " " + eu + " " + copy;
+        }
+
+        function createDisclosureScaleElement(level, theme) {
+          theme = theme || "dark";
+          var lang = getLang();
+          var meta = getDisclosureMeta(level, lang);
+          var el = document.createElement("div");
+          el.className = "bi-disclosure-scale bi-disclosure-scale--" + theme;
+          el.setAttribute("role", "img");
+          el.setAttribute("aria-label", lang === "en" ? meta.labelEn : meta.labelDe);
+
+          var dots = document.createElement("div");
+          dots.className = "bi-disclosure-scale__dots";
+          var line = document.createElement("span");
+          line.className = "bi-disclosure-scale__line";
+          line.setAttribute("aria-hidden", "true");
+          dots.appendChild(line);
+          for (var i = 1; i <= 5; i++) {
+            var dot = document.createElement("span");
+            dot.className = "bi-disclosure-scale__dot" + (i === level ? " is-active" : "");
+            dot.setAttribute("aria-hidden", "true");
+            dots.appendChild(dot);
+          }
+          el.appendChild(dots);
+          return el;
+        }
+
+        function appendDisclosureScaleToSlide(slide, projectId, theme) {
+          if (!slide || !projectId) return;
+          var level = getDisclosureLevel(projectId);
+          if (!level) return;
+          slide.appendChild(createDisclosureScaleElement(level, theme));
+        }
+
+        function applyTileDisclosureScales() {
+          document.querySelectorAll(".bi-tile--project[data-bi-project]").forEach(function (tile) {
+            if (tile.classList.contains("bi-tile--hochbau-collage")) return;
+            var projectId = tile.getAttribute("data-bi-project");
+            var media = tile.querySelector(".bi-tile__media");
+            if (!media) return;
+            var existing = media.querySelector(".bi-disclosure-scale");
+            if (existing) existing.remove();
+            appendDisclosureScaleToSlide(media, projectId, "dark");
+          });
+        }
 
         function projectHasInfoSlide(projectId) {
           return !!projectId && HOCHBAU_IDS.indexOf(projectId) === -1;
@@ -5478,7 +5707,7 @@
           return { line1: title, line2: "" };
         }
 
-        function appendInfoCard(parent, project, lang, variant) {
+        function appendInfoCard(parent, project, lang, variant, projectId) {
           var isLightbox = variant === "lightbox";
           var slide = document.createElement(isLightbox ? "div" : "figure");
           slide.className = isLightbox
@@ -5487,6 +5716,8 @@
 
           var card = document.createElement("div");
           card.className = isLightbox ? "bi-lightbox__info" : "bi-slider__info";
+          var pid = projectId || openProjectId;
+          var disclosureLevel = getDisclosureLevel(pid);
 
           if (isLightbox) {
             var heading = parseProjectInfoHeading(project, lang);
@@ -5512,7 +5743,13 @@
 
             var foot = document.createElement("footer");
             foot.className = "bi-lightbox__info-foot";
-            foot.textContent = lang === "en" ? INFO_FOOTER.en : INFO_FOOTER.de;
+            if (disclosureLevel) {
+              foot.appendChild(createDisclosureScaleElement(disclosureLevel, "dark"));
+            }
+            var footText = document.createElement("p");
+            footText.className = "bi-lightbox__info-foot-text";
+            footText.textContent = getDisclosureFooterText(pid, lang);
+            foot.appendChild(footText);
 
             card.appendChild(head);
             card.appendChild(main);
@@ -5526,12 +5763,15 @@
             sliderBody.className = "bi-slider__info-body";
             sliderBody.textContent = buildInfoBodyText(project, lang);
 
-            var sliderFoot = document.createElement("p");
-            sliderFoot.className = "bi-slider__info-foot";
-            sliderFoot.textContent = lang === "en" ? INFO_FOOTER.en : INFO_FOOTER.de;
-
             card.appendChild(title);
             card.appendChild(sliderBody);
+            if (disclosureLevel) {
+              card.appendChild(createDisclosureScaleElement(disclosureLevel, "light"));
+            }
+
+            var sliderFoot = document.createElement("p");
+            sliderFoot.className = "bi-slider__info-foot";
+            sliderFoot.textContent = getDisclosureFooterText(pid, lang);
             card.appendChild(sliderFoot);
           }
 
@@ -5839,7 +6079,7 @@
           entry.carousel.classList.toggle("is-cover-active", !!entry.items[entry.index].isCover);
         }
 
-        function appendMobileTileInfoSlide(track, project) {
+        function appendMobileTileInfoSlide(track, project, projectId) {
           var lang = getLang();
           var slide = document.createElement("div");
           slide.className = "bi-mobile-tile-carousel__slide bi-mobile-tile-carousel__slide--info";
@@ -5853,11 +6093,19 @@
           body.textContent = buildInfoBodyText(project, lang);
           inner.appendChild(title);
           inner.appendChild(body);
+          var level = getDisclosureLevel(projectId);
+          if (level) {
+            inner.appendChild(createDisclosureScaleElement(level, "light"));
+          }
+          var foot = document.createElement("p");
+          foot.className = "bi-mobile-tile-carousel__info-foot";
+          foot.textContent = getDisclosureFooterText(projectId, lang);
+          inner.appendChild(foot);
           slide.appendChild(inner);
           track.appendChild(slide);
         }
 
-        function appendMobileTileImageSlide(track, item, project, isCover) {
+        function appendMobileTileImageSlide(track, item, project, isCover, projectId) {
           var slide = document.createElement("div");
           slide.className = "bi-mobile-tile-carousel__slide" + (isCover ? " bi-mobile-tile-carousel__slide--cover" : "");
           var img = document.createElement("img");
@@ -5868,6 +6116,7 @@
           if (isCover) img.style.objectPosition = "left center";
           else if (item.objectPosition) img.style.objectPosition = item.objectPosition;
           slide.appendChild(img);
+          appendDisclosureScaleToSlide(slide, projectId || (item && item.projectId), "dark");
           track.appendChild(slide);
         }
 
@@ -5895,9 +6144,9 @@
 
           items.forEach(function (item, i) {
             if (item.isInfo) {
-              appendMobileTileInfoSlide(track, project);
+              appendMobileTileInfoSlide(track, project, projectId);
             } else {
-              appendMobileTileImageSlide(track, item, project, false);
+              appendMobileTileImageSlide(track, item, project, false, projectId);
             }
 
             var dot = document.createElement("span");
@@ -6065,7 +6314,7 @@
           items.forEach(function (item) {
             if (item.isInfo) {
               var infoProject = item.projectId ? PROJECTS[item.projectId] : null;
-              if (infoProject) appendInfoCard(lightboxTrack, infoProject, lang, "lightbox");
+              if (infoProject) appendInfoCard(lightboxTrack, infoProject, lang, "lightbox", item.projectId);
               return;
             }
             var slide = document.createElement("div");
@@ -6079,6 +6328,7 @@
             var project = item.projectId ? PROJECTS[item.projectId] : null;
             applyImageAdjust(img, getImageAdjust(project, item.imageIndex));
             slide.appendChild(img);
+            appendDisclosureScaleToSlide(slide, item.projectId, "dark");
             lightboxTrack.appendChild(slide);
           });
           lightboxTrackReady = true;
@@ -7004,10 +7254,11 @@
             img.decoding = "async";
             applyImageAdjust(img, getImageAdjust(project, i));
             fig.appendChild(img);
+            appendDisclosureScaleToSlide(fig, openProjectId, "dark");
             trackEl.appendChild(fig);
 
             if (i === 0 && hasInfo) {
-              appendInfoCard(trackEl, project, lang, "slider");
+              appendInfoCard(trackEl, project, lang, "slider", openProjectId);
             }
           });
 
@@ -7074,6 +7325,7 @@
           applyAria();
           normalizeProjectTileElements();
           applyTileLabels();
+          applyTileDisclosureScales();
           initHochbauCollage();
           initHochbauIndividualTiles();
           initMobileTileCarousels({ force: true });
