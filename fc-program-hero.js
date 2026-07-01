@@ -14,7 +14,7 @@
   if (!slides.length) return;
 
   var SLIDE_LABELS = [
-    { de: "Wer Gym-Buddys hat bleibt täglich in Bewegung", en: "If you have gym buddies, you stay moving every day" },
+    { de: "Wer Gym-Buddys hat bleibt leichter in Bewegung", en: "If you have gym buddies, staying in motion is easier" },
     { de: "Dein Interior Game auf das nächste Level", en: "Take your interior game to the next level" },
     { de: "Dein fertig bepflanzter Lieblingsort in Berlin.", en: "Your ready-planted favourite spot in Berlin." },
     { de: "Eine Tour durch Berlin als open Source Plattform", en: "A tour through Berlin as an open-source platform" },
