@@ -41,6 +41,29 @@ Friday Circle ist ein statisches Vercel-Projekt.
 
 Vercel serviert die HTML-Dateien direkt aus dem Repository-Root.
 
+## Domains & Deployments
+
+| Domain | Quelle | Deploy |
+|--------|--------|--------|
+| [fridaycircle.club](https://www.fridaycircle.club) | dieses Repo (`main`) | automatisch via Vercel bei `git push` |
+| [fridaycircle.club/biig-interior/…](https://www.fridaycircle.club/biig-interior/index.html) | dieselbe Deployment | automatisch |
+| [biig.works](https://biig.works) | Repo [`biigJ/biig-works`](https://github.com/biigJ/biig-works) | Export aus diesem Repo |
+
+**biig Interior + Kunst (WGA)** müssen auf beiden Domains gleich sein. Dafür:
+
+1. Hier ändern und `git push` → fridaycircle.club ist aktuell.
+2. **biig.works** wird bei Push auf `main` per GitHub Action synchronisiert (sobald Secret gesetzt, siehe unten).
+3. Lokal sofort deployen: `bash scripts/deploy-biig-works.sh`
+
+### GitHub Secret für Auto-Sync (einmalig)
+
+In **friday-circle** → Settings → Secrets → Actions → `BIIG_WORKS_DEPLOY_TOKEN`:
+
+- Personal Access Token (classic) mit Scope `repo` für Zugriff auf `biigJ/biig-works`
+- Danach pusht jede relevante Änderung an `main` automatisch den Export nach biig.works
+
+Ohne Secret: nach biig-Änderungen manuell `bash scripts/deploy-biig-works.sh` ausführen.
+
 ## Medien
 
 - **Hero-Video:** `assets/hero.mp4` — empfohlen H.264, stumm, Loop, z. B. 1920×1080.
