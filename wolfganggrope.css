@@ -359,10 +359,10 @@ body.wga-page {
 @media (max-width: 760px) {
   .wga-page .wga-nav .nav__inner {
     display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     grid-template-areas:
-      "logo logo logo logo logo logo"
-      "chapters bio biig inspiration shop lang";
+      "logo logo logo logo logo"
+      "chapters bio biig shop lang";
     align-items: center;
     column-gap: clamp(10px, 3vw, 18px);
     row-gap: clamp(12px, 2.8vw, 18px);
@@ -403,12 +403,6 @@ body.wga-page {
 
   .wga-page .wga-nav .wga-nav__biig {
     grid-area: biig;
-    justify-self: center;
-    align-self: center;
-  }
-
-  .wga-page .wga-nav .wga-nav__inspiration {
-    grid-area: inspiration;
     justify-self: center;
     align-self: center;
   }
