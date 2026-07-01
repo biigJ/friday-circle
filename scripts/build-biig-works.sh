@@ -85,7 +85,8 @@ sed_inplace \
   -e 's|src="bk-i18n.js"|src="biig-interior/bk-i18n.js"|g' \
   -e 's|src="biig-konfigurator.js"|src="biig-interior/biig-konfigurator.js"|g' \
   -e 's|\.\./assets/|assets/|g' \
-  -e 's|href="../kunst/index.html"|href="kunst/index.html"|g' \
+  -e 's|href="../kunst/index.html"|href="https://biig.works/kunst/index.html"|g' \
+  -e 's|href="kunst/index.html"|href="https://biig.works/kunst/index.html"|g' \
   "$BIIG_OUT/index.html"
 
 sed_inplace 's|\.\./assets/|assets/|g' "$BIIG_OUT/biig-interior/biig-konfigurator.js"
