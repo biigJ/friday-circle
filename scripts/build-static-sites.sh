@@ -76,11 +76,27 @@ cp "$ROOT/biig-interior/biig-shared.css" "$BIIG_OUT/biig-interior/"
 cp "$ROOT/styles.css" "$BIIG_OUT/"
 cp "$ROOT/fc-swipe-slider.js" "$BIIG_OUT/"
 cp "$ROOT/fc-lang.js" "$BIIG_OUT/"
+cp "$ROOT/fc-image-url.js" "$BIIG_OUT/"
 cp "$ROOT/wolfganggrope.css" "$BIIG_OUT/"
 cp "$ROOT/wolfganggrope.js" "$BIIG_OUT/"
 cp "$ROOT/data/wga-catalog.js" "$ROOT/data/wga-bio.js" "$ROOT/data/wga-catalog.json" "$BIIG_OUT/data/"
 for BIIG_PAGE in joscha kunst impressum datenschutz kontakt; do
   cp "$ROOT/biig-interior/$BIIG_PAGE/index.html" "$BIIG_OUT/$BIIG_PAGE/index.html"
+done
+
+BIIG_SHOP_URL="https://www.fridaycircle.club/kaufen/kunst.html"
+for BIIG_PAGE in joscha kunst impressum datenschutz kontakt; do
+  sed -i '' \
+    -e 's|href="/styles.css"|href="../styles.css"|g' \
+    -e 's|href="/wolfganggrope.css"|href="../wolfganggrope.css"|g' \
+    -e 's|href="/biig-interior/biig-shared.css"|href="../biig-interior/biig-shared.css"|g' \
+    -e 's|src="/fc-image-url.js"|src="../fc-image-url.js"|g' \
+    -e 's|src="/fc-lang.js"|src="../fc-lang.js"|g' \
+    -e 's|src="/fc-swipe-slider.js"|src="../fc-swipe-slider.js"|g' \
+    -e 's|src="/data/|src="../data/|g' \
+    -e 's|src="/wolfganggrope.js"|src="../wolfganggrope.js"|g' \
+    -e "s|href=\"/kaufen/kunst.html\"|href=\"$BIIG_SHOP_URL\"|g" \
+  "$BIIG_OUT/$BIIG_PAGE/index.html"
 done
 
 rsync -a "$ROOT/assets/interior/" "$BIIG_OUT/assets/interior/"
