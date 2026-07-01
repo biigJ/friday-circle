@@ -788,20 +788,24 @@ html[lang="de"] .en-t {
   padding: clamp(48px, 9vw, 112px) 0 clamp(20px, 3vw, 40px);
 }
 
-.hero--service .hero__grid--service {
-  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr) auto;
+.hero--service .hero__grid {
   align-items: end;
-  gap: clamp(24px, 4vw, 48px) clamp(40px, 8vw, 120px) clamp(12px, 2vw, 20px);
 }
 
 .hero--service .hero__lede {
   max-width: none;
-  margin: 0;
 }
 
-.hero--service .fc-program-hero-arrows {
-  align-self: end;
-  margin-bottom: 0.15em;
+.hero--service__arrows {
+  max-width: var(--content-max);
+  margin: clamp(16px, 2.5vw, 28px) auto 0;
+  padding: 0 var(--nav-pad-x);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero--service .hero__heading .nowrap {
+  white-space: nowrap;
 }
 
 .fc-program-hero-head {
@@ -949,15 +953,12 @@ html[lang="de"] .en-t {
     padding-bottom: clamp(12px, 2vw, 24px);
   }
 
-  .hero--service .hero__grid--service {
-    grid-template-columns: 1fr;
-    align-items: start;
+  .hero--service__arrows {
+    margin-top: clamp(20px, 4vw, 32px);
   }
 
-  .hero--service .fc-program-hero-arrows {
-    width: 100%;
-    justify-content: flex-end;
-    margin-bottom: 0;
+  .hero--service .hero__heading .nowrap {
+    white-space: normal;
   }
 
   .fc-program-hero-arrows {
