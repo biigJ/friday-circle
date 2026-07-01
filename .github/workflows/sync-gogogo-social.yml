@@ -1,0 +1,47 @@
+name: Sync gogogo.social
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "gogogo-landing.html"
+      - "gogogo-*.js"
+      - "gogogo-i18n-entries.js"
+      - "styles.css"
+      - "fc-lang.js"
+      - "fc-i18n.js"
+      - "fc-swipe-slider.js"
+      - "assets/gogogo/**"
+      - "assets/biigJ/**"
+      - "scripts/build-gogogo-social.sh"
+      - "scripts/deploy-gogogo-social.sh"
+      - "scripts/lib/**"
+      - ".github/workflows/sync-gogogo-social.yml"
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/checkout@v4
+        with:
+          repository: biigJ/gogogo-social
+          token: ${{ secrets.GOGOGO_SOCIAL_DEPLOY_TOKEN }}
+          path: gogogo-social
+
+      - name: Build and push export
+        env:
+          GOGOGO_OUT: ${{ github.workspace }}/gogogo-social
+        run: |
+          bash scripts/build-gogogo-social.sh
+          cd gogogo-social
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "No gogogo.social changes"
+            exit 0
+          fi
+          git commit -m "Sync from friday-circle@${GITHUB_SHA:0:7}"
+          git push

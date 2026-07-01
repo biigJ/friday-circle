@@ -2,27 +2,43 @@
 
 Statische Website für **FRIDAY CIRCLE**. Das Repo ist auf die aktiven Programme reduziert:
 
-- `gogogo`
-- `cycle training`
-- `gogogo App`
-- `biig Interior`
-- `Geschichte` (`programmierung.html`, Programmierung unter `programmierung/geschichte.html`)
-- `Berlin Architecture Tour` (`berlinarchtour.html`, Spec in `docs/berlin-arch-tour-spec.md`)
+- `gogogo` → öffentlich auf [gogogo.social](https://gogogo.social)
+- `biig Interior` → öffentlich auf [biig.works](https://biig.works)
+- `cycle training`, Berlin Architecture Tour, Kaufen, Kontakt, … → auf [fridaycircle.club](https://www.fridaycircle.club)
 
 Ausgelagerte Projekte wie Balko, Holyprop und Fitness First Social Club liegen nicht mehr in diesem Repo.
 
-## Lokal öffnen
+## Domains & Inhalts-Architektur
 
-Kein Build (außer Berlin Architecture Tour). `index.html` im Browser öffnen oder:
+| Domain | Rolle | Deploy |
+|--------|--------|--------|
+| [fridaycircle.club](https://www.fridaycircle.club) | **Friday Circle Hub** — Ziele, Lösungen, Service, Kaufen, Kontakt, Tour, … | Vercel bei `git push` |
+| [biig.works](https://biig.works) | **biig Interior** (+ Kunst/WGA unter `/kunst/`) | Export → [`biigJ/biig-works`](https://github.com/biigJ/biig-works) |
+| [gogogo.social](https://gogogo.social) | **gogogo** | Export → [`biigJ/gogogo-social`](https://github.com/biigJ/gogogo-social) |
+
+**Prinzip:** Alles wird hier entwickelt. fridaycircle.club **verlinkt** zu den Marken-Domains; alte FC-URLs (`/gogogo-landing.html`, `/biig-interior/…`, `/wolfganggrope.html`) **leiten um** (`fc-canonical-redirect.js`).
+
+```bash
+git push                              # → fridaycircle.club
+bash scripts/deploy-biig-works.sh     # → biig.works
+bash scripts/deploy-gogogo-social.sh  # → gogogo.social
+```
+
+GitHub Actions syncen biig.works und gogogo.social bei Push auf `main`, wenn Secrets gesetzt sind:
+
+| Secret | Ziel-Repo |
+|--------|-----------|
+| `BIIG_WORKS_DEPLOY_TOKEN` | `biigJ/biig-works` |
+| `GOGOGO_SOCIAL_DEPLOY_TOKEN` | `biigJ/gogogo-social` |
+
+## Lokal öffnen
 
 ```bash
 cd friday-circle
 python3 -m http.server 5173
-# → http://localhost:5173
-# → http://localhost:5173/berlinarchtour.html
 ```
 
-Berlin Architecture Tour neu generieren (nach Änderungen an `scripts/build-berlin-arch-tour.mjs`):
+Berlin Architecture Tour neu generieren:
 
 ```bash
 node scripts/build-berlin-arch-tour.mjs
@@ -31,47 +47,14 @@ node scripts/build-partial-js.mjs   # wenn site-header.html geändert wurde
 
 ## Vercel Deployment
 
-Friday Circle ist ein statisches Vercel-Projekt.
-
-- Framework Preset: `Other`
-- Root Directory: `.`
-- Build Command: leer lassen
-- Output Directory: leer lassen
-- Install Command: leer lassen
-
-Vercel serviert die HTML-Dateien direkt aus dem Repository-Root.
-
-## Domains & Deployments
-
-| Domain | Quelle | Deploy |
-|--------|--------|--------|
-| [fridaycircle.club](https://www.fridaycircle.club) | dieses Repo (`main`) | automatisch via Vercel bei `git push` |
-| [fridaycircle.club/biig-interior/…](https://www.fridaycircle.club/biig-interior/index.html) | dieselbe Deployment | automatisch |
-| [biig.works](https://biig.works) | Repo [`biigJ/biig-works`](https://github.com/biigJ/biig-works) | Export aus diesem Repo |
-
-**biig Interior + Kunst (WGA)** müssen auf beiden Domains gleich sein. Dafür:
-
-1. Hier ändern und `git push` → fridaycircle.club ist aktuell.
-2. **biig.works** wird bei Push auf `main` per GitHub Action synchronisiert (sobald Secret gesetzt, siehe unten).
-3. Lokal sofort deployen: `bash scripts/deploy-biig-works.sh`
-
-### GitHub Secret für Auto-Sync (einmalig)
-
-In **friday-circle** → Settings → Secrets → Actions → `BIIG_WORKS_DEPLOY_TOKEN`:
-
-- Personal Access Token (classic) mit Scope `repo` für Zugriff auf `biigJ/biig-works`
-- Danach pusht jede relevante Änderung an `main` automatisch den Export nach biig.works
-
-Ohne Secret: nach biig-Änderungen manuell `bash scripts/deploy-biig-works.sh` ausführen.
+Friday Circle ist ein statisches Vercel-Projekt (Framework: Other, kein Build).
 
 ## Medien
 
-- **Hero-Video:** `assets/hero.mp4` — empfohlen H.264, stumm, Loop, z. B. 1920×1080.
-- **Poster:** `assets/hero-poster.png` (oder `.jpg`) im `<video poster="…">`.
-- **gogogo auf Ziele:** `assets/gogogo.mp4`.
-- **Lösungen:** `assets/loesungen.MOV`.
-- **biig Interior:** `assets/biigJ-33-kitchen.jpeg`.
-- **Triff Joscha:** `assets/triff-joscha-hero.mp4` und `assets/triff-joscha-hero-poster.png`, falls vorhanden.
+- **Hero-Video:** `assets/hero.mp4`
+- **gogogo auf Ziele:** `assets/gogogo.mp4`
+- **Lösungen:** `assets/loesungen.MOV`
+- **biig Interior:** `assets/biigJ-33-kitchen.jpeg`
 
 ## Schriften
 
