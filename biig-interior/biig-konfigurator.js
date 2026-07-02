@@ -155,11 +155,17 @@ const BK_SIZE_BG = {
   haus_garten: '../assets/interior/Neubauhaus.png',
 };
 
+function bkBgUrl(src) {
+  if (!src) return "";
+  if (window.fcOptimizedUrl) return window.fcOptimizedUrl(src, 800);
+  return src;
+}
+
 function bkSetHeaderBg(sizeKey) {
   const bg = document.getElementById('bk-form-header-bg');
   if (!bg) return;
   const src = BK_SIZE_BG[sizeKey];
-  bg.style.backgroundImage = src ? 'url("' + src + '")' : '';
+  bg.style.backgroundImage = src ? 'url("' + bkBgUrl(src) + '")' : '';
 }
 
 window.biScrollSpaceAnpassen = function() {

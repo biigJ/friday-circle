@@ -50,6 +50,10 @@ cp "$ROOT/fc-image-url.js" "$BIIG_OUT/"
 cp "$ROOT/wolfganggrope.css" "$BIIG_OUT/"
 cp "$ROOT/wolfganggrope.js" "$BIIG_OUT/"
 cp "$ROOT/data/wga-catalog.js" "$ROOT/data/wga-bio.js" "$ROOT/data/wga-catalog.json" "$BIIG_OUT/data/"
+cp "$ROOT/biig-kunst-link-fix.js" "$BIIG_OUT/"
+touch "$BIIG_OUT/.nojekyll"
+
+BUILD_STAMP="$(date -u +"%Y-%m-%dT%H:%MZ")"
 
 for BIIG_PAGE in joscha kunst impressum datenschutz kontakt; do
   cp "$ROOT/biig-interior/$BIIG_PAGE/index.html" "$BIIG_OUT/$BIIG_PAGE/index.html"
@@ -83,6 +87,7 @@ cp "$ROOT/assets/audio/dramatic-motion-watermarked.mp3" "$BIIG_OUT/assets/audio/
 sed_inplace \
   -e 's|href="../styles.css"|href="styles.css"|g' \
   -e 's|src="../fc-swipe-slider.js"|src="fc-swipe-slider.js"|g' \
+  -e 's|src="../fc-image-url.js"|src="fc-image-url.js"|g' \
   -e 's|src="../fc-lang.js"|src="fc-lang.js"|g' \
   -e 's|href="biig-konfigurator.css"|href="biig-interior/biig-konfigurator.css"|g' \
   -e 's|src="bk-i18n.js"|src="biig-interior/bk-i18n.js"|g' \
@@ -95,6 +100,18 @@ sed_inplace \
 
 sed_inplace 's|\.\./assets/|assets/|g' "$BIIG_OUT/biig-interior/biig-konfigurator.js"
 
+for BIIG_HTML in "$BIIG_OUT/index.html" "$BIIG_OUT"/*/index.html; do
+  [[ -f "$BIIG_HTML" ]] || continue
+  if [[ "$BIIG_HTML" == "$BIIG_OUT/index.html" ]]; then
+  FIX_SRC="biig-kunst-link-fix.js"
+  else
+  FIX_SRC="../biig-kunst-link-fix.js"
+  fi
+  sed_inplace \
+    -e "s|</body>|<!-- biig-export ${BUILD_STAMP} --><script src=\"${FIX_SRC}\"></script></body>|" \
+    "$BIIG_HTML"
+done
+
 cat > "$BIIG_OUT/README.md" <<'EOF'
 # biig.works
 
@@ -104,7 +121,7 @@ Do not edit by hand — run `scripts/deploy-biig-works.sh` from friday-circle in
 ## Deploy
 
 GitHub Pages serves this repository (`CNAME`: biig.works).
-WGA/Kunst: `/kunst/index.html`
+WGA/Kunst: `/kunst/`
 EOF
 
 echo "==> biig.works export ready ($(find "$BIIG_OUT" -type f | wc -l | tr -d ' ') files)"
