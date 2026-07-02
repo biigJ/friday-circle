@@ -1519,9 +1519,10 @@
 
       .bi-mobile-tile-carousel__slide--info {
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: center;
-        padding: clamp(18px, 7vw, 32px);
+        justify-content: flex-end;
+        padding: clamp(48px, 12vw, 64px) clamp(16px, 5vw, 24px) clamp(14px, 4vw, 20px);
         box-sizing: border-box;
         background: #000000;
         color: #ffffff;
@@ -1529,6 +1530,10 @@
       }
 
       .bi-mobile-tile-carousel__info {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        width: 100%;
         max-width: 28rem;
         text-align: center;
         font-family: var(--font-sans);
@@ -1544,7 +1549,7 @@
       }
 
       .bi-mobile-tile-carousel__info-body {
-        margin: 0;
+        margin: 0 0 clamp(18px, 4.5vw, 26px);
         font-size: clamp(0.86rem, 3.9vw, 1rem);
         font-weight: 300;
         line-height: 1.55;
@@ -2922,12 +2927,12 @@
       .bi-mobile-tile-carousel__info .bi-disclosure-scale {
         position: relative;
         width: 100%;
-        margin: 0 0 clamp(12px, 1.8vw, 16px);
-        padding: 0;
+        margin: 0 0 clamp(10px, 2.8vw, 14px);
+        padding: 2.4em 0 0;
       }
 
       .bi-mobile-tile-carousel__info-foot {
-        margin: 12px 0 0;
+        margin: 0;
         font-family: var(--font-sans);
         font-size: clamp(0.64rem, 2.8vw, 0.74rem);
         font-weight: 300;

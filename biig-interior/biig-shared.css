@@ -191,16 +191,19 @@
   outline: none;
 }
 
-/* Kunst nav: mobile — logo row + menu row (wie wolfganggrope.html) */
+/* Kunst nav: mobile — logo, menu, then BIIG INTERIOR + DE/EN centered */
 @media (max-width: 760px) {
   .wga-page.biig-subpage .wga-nav .nav__inner {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, auto);
     grid-template-areas:
-      "logo logo logo logo"
-      "chapters bio shop trail";
+      "logo logo logo"
+      "chapters bio shop"
+      "trail trail trail";
+    justify-content: center;
+    justify-items: center;
     align-items: center;
-    column-gap: clamp(8px, 2.5vw, 14px);
+    column-gap: clamp(12px, 4vw, 20px);
     row-gap: clamp(10px, 2.5vw, 14px);
   }
 
@@ -214,8 +217,10 @@
 
   .wga-page.biig-subpage .wga-nav .wga-nav__trailing {
     grid-area: trail;
-    justify-self: end;
-    gap: clamp(10px, 2.5vw, 14px);
+    justify-self: center;
+    justify-content: center;
+    width: 100%;
+    gap: clamp(12px, 4vw, 18px);
   }
 
   .wga-page.biig-subpage .wga-nav .nav__logo {
@@ -227,7 +232,7 @@
 
   .wga-page.biig-subpage .wga-nav .wga-nav__chapters {
     grid-area: chapters;
-    justify-self: start;
+    justify-self: center;
     position: static;
     overflow: visible;
   }

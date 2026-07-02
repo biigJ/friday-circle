@@ -935,7 +935,9 @@ body.kaufen-page {
 
   .kaufen-lang {
     order: 2;
-    align-self: flex-start;
+    align-self: stretch;
+    display: flex;
+    justify-content: flex-end;
   }
 
   .kaufen-header__logo {
