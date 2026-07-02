@@ -121,9 +121,9 @@
   font-weight: 400;
 }
 
-/* Kunst nav: desktop — menu, then BIIG INTERIOR, then DE/EN far right */
+/* Kunst nav: desktop — menu left, BIIG INTERIOR + DE/EN grouped right */
 .wga-page.biig-subpage .wga-nav .nav__inner {
-  grid-template-columns: minmax(0, 1fr) auto auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   column-gap: clamp(16px, 2.5vw, 28px);
   overflow: visible;
 }
@@ -132,9 +132,15 @@
   overflow: visible;
 }
 
-.wga-page.biig-subpage .wga-nav .nav__lang {
+.wga-page.biig-subpage .wga-nav__trailing {
+  display: flex;
+  align-items: center;
   justify-self: end;
-  margin-left: clamp(10px, 1.6vw, 18px);
+  gap: clamp(14px, 2.2vw, 22px);
+}
+
+.wga-page.biig-subpage .wga-nav .nav__lang {
+  margin-left: 0;
 }
 
 .wga-page.biig-subpage .wga-nav__biig-home {
@@ -189,10 +195,10 @@
 @media (max-width: 760px) {
   .wga-page.biig-subpage .wga-nav .nav__inner {
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-template-areas:
-      "logo logo logo logo logo"
-      "chapters bio biig shop lang";
+      "logo logo logo logo"
+      "chapters bio shop trail";
     align-items: center;
     column-gap: clamp(8px, 2.5vw, 14px);
     row-gap: clamp(10px, 2.5vw, 14px);
@@ -204,6 +210,12 @@
 
   .wga-page.biig-subpage .wga-nav .wga-nav__menu {
     display: contents;
+  }
+
+  .wga-page.biig-subpage .wga-nav .wga-nav__trailing {
+    grid-area: trail;
+    justify-self: end;
+    gap: clamp(10px, 2.5vw, 14px);
   }
 
   .wga-page.biig-subpage .wga-nav .nav__logo {
@@ -235,20 +247,8 @@
     justify-self: center;
   }
 
-  .wga-page.biig-subpage .wga-nav .wga-nav__biig {
-    grid-area: biig;
-    justify-self: center;
-  }
-
   .wga-page.biig-subpage .wga-nav .wga-nav__shop {
     grid-area: shop;
     justify-self: center;
-  }
-
-  .wga-page.biig-subpage .wga-nav .nav__lang {
-    grid-area: lang;
-    justify-self: end;
-    align-self: center;
-    margin-left: 0;
   }
 }
