@@ -952,8 +952,6 @@
     var selected = "";
     var slideIndex = 0;
     var currentSlides = [];
-    var kunstDotGroups = [];
-    var kunstUseSectionDots = false;
 
     function workIsAvailable(work) {
       return work && !work.empty && work.berlinStatus !== "unavailable" && work.images && work.images[0];
@@ -1029,33 +1027,10 @@
       sectionLabelEl.textContent = slide ? slide.sectionLabel : "";
     }
 
-    function kunstSectionDotGroups(slides) {
-      var groups = [];
-      slides.forEach(function (item, index) {
-        var last = groups[groups.length - 1];
-        if (!last || last.sectionId !== item.sectionId) {
-          groups.push({
-            sectionId: item.sectionId,
-            sectionLabel: item.sectionLabel,
-            startIndex: index,
-          });
-        }
-      });
-      return groups;
-    }
-
     function updateKunstDots() {
       if (!dotsRoot) return;
-      if (!kunstUseSectionDots) {
-        dotsRoot.querySelectorAll(".kaufen-tile__dot").forEach(function (dot, n) {
-          dot.classList.toggle("is-active", n === slideIndex);
-        });
-        return;
-      }
-      var slide = currentSlides[slideIndex];
-      if (!slide) return;
-      dotsRoot.querySelectorAll(".kaufen-tile__dot").forEach(function (dot) {
-        dot.classList.toggle("is-active", dot.getAttribute("data-section-id") === slide.sectionId);
+      dotsRoot.querySelectorAll(".kaufen-tile__dot").forEach(function (dot, n) {
+        dot.classList.toggle("is-active", n === slideIndex);
       });
     }
 
@@ -1092,9 +1067,6 @@
         return;
       }
 
-      kunstUseSectionDots = currentSlides.length > 24;
-      kunstDotGroups = kunstUseSectionDots ? kunstSectionDotGroups(currentSlides) : [];
-
       currentSlides.forEach(function (item, n) {
         var slide = document.createElement("div");
         slide.className = "kaufen-tile__slide" + (n === 0 ? " is-active" : "");
@@ -1113,32 +1085,19 @@
       });
 
       if (dotsRoot && currentSlides.length > 1) {
-        if (kunstUseSectionDots) {
-          kunstDotGroups.forEach(function (group) {
-            var dot = document.createElement("button");
-            dot.type = "button";
-            dot.className = "kaufen-tile__dot kaufen-tile__dot--section";
-            dot.setAttribute("data-section-id", group.sectionId);
-            dot.setAttribute("aria-label", group.sectionLabel);
-            dot.title = group.sectionLabel;
-            dot.addEventListener("click", function (e) {
-              e.preventDefault();
-              showKunstSlide(group.startIndex);
-            });
-            dotsRoot.appendChild(dot);
+        dotsRoot.classList.toggle("kaufen-tile__dots--dense", currentSlides.length > 24);
+        currentSlides.forEach(function (_item, n) {
+          var dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = "kaufen-tile__dot" + (n === 0 ? " is-active" : "");
+          dot.addEventListener("click", function (e) {
+            e.preventDefault();
+            showKunstSlide(n);
           });
-        } else {
-          currentSlides.forEach(function (_item, n) {
-            var dot = document.createElement("button");
-            dot.type = "button";
-            dot.className = "kaufen-tile__dot" + (n === 0 ? " is-active" : "");
-            dot.addEventListener("click", function (e) {
-              e.preventDefault();
-              showKunstSlide(n);
-            });
-            dotsRoot.appendChild(dot);
-          });
-        }
+          dotsRoot.appendChild(dot);
+        });
+      } else if (dotsRoot) {
+        dotsRoot.classList.remove("kaufen-tile__dots--dense");
       }
 
       var multi = currentSlides.length > 1;

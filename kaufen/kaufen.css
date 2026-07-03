@@ -345,16 +345,22 @@ body.kaufen-page {
   background: #fff;
 }
 
-.kaufen-tile__dot--section {
-  width: 8px;
-  height: 8px;
-}
-
 .kaufen-product__figure--kunst .kaufen-tile__dots {
   flex-wrap: wrap;
+  justify-content: center;
   row-gap: 8px;
   max-width: 100%;
   min-height: 14px;
+}
+
+.kaufen-tile__dots--dense {
+  gap: 4px;
+  row-gap: 5px;
+}
+
+.kaufen-tile__dots--dense .kaufen-tile__dot {
+  width: 4px;
+  height: 4px;
 }
 
 .kaufen-tile__title {
