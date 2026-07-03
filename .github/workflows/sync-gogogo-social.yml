@@ -37,18 +37,24 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout friday-circle
+        uses: actions/checkout@v4
 
-      - uses: actions/checkout@v4
-        with:
-          repository: biigJ/gogogo-social
-          token: ${{ secrets.GOGOGO_SOCIAL_DEPLOY_TOKEN }}
-          path: gogogo-social
+      - name: Clone gogogo-social
+        run: git clone --depth 1 https://github.com/biigJ/gogogo-social.git gogogo-social
 
       - name: Build and push export
         env:
           GOGOGO_OUT: ${{ github.workspace }}/gogogo-social
+          GOGOGO_SOCIAL_DEPLOY_TOKEN: ${{ secrets.GOGOGO_SOCIAL_DEPLOY_TOKEN }}
         run: |
+          if [ -z "$GOGOGO_SOCIAL_DEPLOY_TOKEN" ]; then
+            echo "::error::Secret GOGOGO_SOCIAL_DEPLOY_TOKEN is not set."
+            echo "Add a fine-grained PAT (contents: read+write on biigJ/gogogo-social) under"
+            echo "Repository Settings → Secrets and variables → Actions → New repository secret."
+            exit 1
+          fi
+
           bash scripts/build-gogogo-social.sh
           cd gogogo-social
           git config user.name "github-actions[bot]"
@@ -59,4 +65,4 @@ jobs:
             exit 0
           fi
           git commit -m "Sync from friday-circle@${GITHUB_SHA:0:7}"
-          git push
+          git push "https://x-access-token:${GOGOGO_SOCIAL_DEPLOY_TOKEN}@github.com/biigJ/gogogo-social.git" HEAD:main

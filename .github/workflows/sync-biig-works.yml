@@ -32,17 +32,21 @@ jobs:
       - name: Checkout friday-circle
         uses: actions/checkout@v4
 
-      - name: Checkout biig-works
-        uses: actions/checkout@v4
-        with:
-          repository: biigJ/biig-works
-          token: ${{ secrets.BIIG_WORKS_DEPLOY_TOKEN }}
-          path: biig-works
+      - name: Clone biig-works
+        run: git clone --depth 1 https://github.com/biigJ/biig-works.git biig-works
 
       - name: Build and push export
         env:
           BIIG_OUT: ${{ github.workspace }}/biig-works
+          BIIG_WORKS_DEPLOY_TOKEN: ${{ secrets.BIIG_WORKS_DEPLOY_TOKEN }}
         run: |
+          if [ -z "$BIIG_WORKS_DEPLOY_TOKEN" ]; then
+            echo "::error::Secret BIIG_WORKS_DEPLOY_TOKEN is not set."
+            echo "Add a fine-grained PAT (contents: read+write on biigJ/biig-works) under"
+            echo "Repository Settings → Secrets and variables → Actions → New repository secret."
+            exit 1
+          fi
+
           bash scripts/build-biig-works.sh
           cd biig-works
           git config user.name "github-actions[bot]"
@@ -53,4 +57,4 @@ jobs:
             exit 0
           fi
           git commit -m "Sync from friday-circle@${GITHUB_SHA:0:7}"
-          git push
+          git push "https://x-access-token:${BIIG_WORKS_DEPLOY_TOKEN}@github.com/biigJ/biig-works.git" HEAD:main
