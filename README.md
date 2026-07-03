@@ -49,6 +49,8 @@ node scripts/build-partial-js.mjs   # wenn site-header.html geändert wurde
 
 Friday Circle ist ein statisches Vercel-Projekt (Framework: Other, kein Build).
 
+**biig.works auf Vercel (geplant):** Build-Skript und Checkliste liegen bereit — [`docs/biig-works-vercel-migration.md`](docs/biig-works-vercel-migration.md), `scripts/vercel-build-biig.sh`, `vercel.biig.json`.
+
 ## Medien
 
 - **Hero-Video:** `assets/hero.mp4`
