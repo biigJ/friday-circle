@@ -31,6 +31,7 @@
   var gogogoPages = [
     "cycle-training.html",
     "cycle-table.html",
+    "cycle-table-mobile.html",
     "gogogo-quiz.html",
     "joschaalstrainer.html",
     "joschaalscoach.html",

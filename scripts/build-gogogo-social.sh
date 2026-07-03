@@ -65,6 +65,7 @@ cp "$ROOT/register-training/index.html" "$GOGOGO_OUT/register-training/index.htm
 cp "$ROOT/start/index.html" "$GOGOGO_OUT/start/index.html"
 cp "$ROOT/cycle-training.html" "$GOGOGO_OUT/"
 cp "$ROOT/cycle-table.html" "$GOGOGO_OUT/"
+cp "$ROOT/cycle-table-mobile.html" "$GOGOGO_OUT/"
 cp "$ROOT/gogogo-quiz.html" "$GOGOGO_OUT/"
 cp "$ROOT/joschaalstrainer.html" "$GOGOGO_OUT/"
 cp "$ROOT/joschaalscoach.html" "$GOGOGO_OUT/"
@@ -73,6 +74,7 @@ cp "$ROOT/gogogo.html" "$GOGOGO_OUT/"
 
 cp "$ROOT/styles.css" "$GOGOGO_OUT/"
 cp "$ROOT/program-landing.css" "$GOGOGO_OUT/"
+cp "$ROOT/cycle-table-mobile.css" "$GOGOGO_OUT/"
 cp "$ROOT/fc-swipe-slider.js" "$GOGOGO_OUT/"
 cp "$ROOT/fc-lang.js" "$GOGOGO_OUT/"
 cp "$ROOT/fc-i18n.js" "$GOGOGO_OUT/"
@@ -83,6 +85,9 @@ cp "$ROOT/gogogo-i18n-entries.js" "$GOGOGO_OUT/"
 cp "$ROOT/register-i18n-entries.js" "$GOGOGO_OUT/"
 cp "$ROOT/cycle-cards.js" "$GOGOGO_OUT/"
 cp "$ROOT/cycle-table.js" "$GOGOGO_OUT/"
+cp "$ROOT/cycle-table-mobile.js" "$GOGOGO_OUT/"
+cp "$ROOT/fc-cycle-supabase.js" "$GOGOGO_OUT/"
+cp "$ROOT/fc-cycle-supabase-config.js" "$GOGOGO_OUT/"
 
 rsync -a "$ROOT/assets/gogogo/" "$GOGOGO_OUT/assets/gogogo/"
 rsync -a "$ROOT/assets/biigJ/" "$GOGOGO_OUT/assets/biigJ/"
@@ -94,6 +99,7 @@ for html in \
   "$GOGOGO_OUT/start/index.html" \
   "$GOGOGO_OUT/cycle-training.html" \
   "$GOGOGO_OUT/cycle-table.html" \
+  "$GOGOGO_OUT/cycle-table-mobile.html" \
   "$GOGOGO_OUT/gogogo-quiz.html" \
   "$GOGOGO_OUT/joschaalstrainer.html"; do
   gogogo_rewrite_fc_links "$html"
