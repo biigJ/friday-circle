@@ -930,7 +930,8 @@
     if (!sectionId) return "https://biig.works/kunst/#wga-catalog-root";
     var qs = "section=" + encodeURIComponent(sectionId) + "&view=catalog";
     if (workId) qs += "&work=" + encodeURIComponent(workId);
-    return "https://biig.works/kunst/?" + qs + "#" + encodeURIComponent(sectionId);
+    var hash = workId || sectionId;
+    return "https://biig.works/kunst/?" + qs + "#" + encodeURIComponent(hash);
   }
 
   function bindKunstPage() {
@@ -951,6 +952,8 @@
     var selected = "";
     var slideIndex = 0;
     var currentSlides = [];
+    var kunstDotGroups = [];
+    var kunstUseSectionDots = false;
 
     function workIsAvailable(work) {
       return work && !work.empty && work.berlinStatus !== "unavailable" && work.images && work.images[0];
@@ -969,7 +972,7 @@
     function updateCatalogLink() {
       if (!go) return;
       var slide = currentSlides[slideIndex];
-      go.href = wgaCatalogHref(slide ? slide.sectionId : "");
+      go.href = wgaCatalogHref(slide ? slide.sectionId : "", slide ? slide.workId : "");
     }
 
     function updateOrderMail() {
@@ -1026,17 +1029,43 @@
       sectionLabelEl.textContent = slide ? slide.sectionLabel : "";
     }
 
+    function kunstSectionDotGroups(slides) {
+      var groups = [];
+      slides.forEach(function (item, index) {
+        var last = groups[groups.length - 1];
+        if (!last || last.sectionId !== item.sectionId) {
+          groups.push({
+            sectionId: item.sectionId,
+            sectionLabel: item.sectionLabel,
+            startIndex: index,
+          });
+        }
+      });
+      return groups;
+    }
+
+    function updateKunstDots() {
+      if (!dotsRoot) return;
+      if (!kunstUseSectionDots) {
+        dotsRoot.querySelectorAll(".kaufen-tile__dot").forEach(function (dot, n) {
+          dot.classList.toggle("is-active", n === slideIndex);
+        });
+        return;
+      }
+      var slide = currentSlides[slideIndex];
+      if (!slide) return;
+      dotsRoot.querySelectorAll(".kaufen-tile__dot").forEach(function (dot) {
+        dot.classList.toggle("is-active", dot.getAttribute("data-section-id") === slide.sectionId);
+      });
+    }
+
     function showKunstSlide(i, animate) {
       if (!currentSlides.length) return;
       slideIndex = clampSlideIndex(i, currentSlides.length);
       slidesRoot.querySelectorAll(".kaufen-tile__slide").forEach(function (slide, n) {
         slide.classList.toggle("is-active", n === slideIndex);
       });
-      if (dotsRoot) {
-        dotsRoot.querySelectorAll(".kaufen-tile__dot").forEach(function (dot, n) {
-          dot.classList.toggle("is-active", n === slideIndex);
-        });
-      }
+      updateKunstDots();
       syncMobileProductSlider(slidesRoot, slideIndex, 0, animate !== false);
       updateSectionLabel();
       updateOrderMail();
@@ -1063,6 +1092,9 @@
         return;
       }
 
+      kunstUseSectionDots = currentSlides.length > 24;
+      kunstDotGroups = kunstUseSectionDots ? kunstSectionDotGroups(currentSlides) : [];
+
       currentSlides.forEach(function (item, n) {
         var slide = document.createElement("div");
         slide.className = "kaufen-tile__slide" + (n === 0 ? " is-active" : "");
@@ -1078,18 +1110,36 @@
         link.appendChild(img);
         slide.appendChild(link);
         slidesRoot.appendChild(slide);
-
-        if (dotsRoot && currentSlides.length > 1) {
-          var dot = document.createElement("button");
-          dot.type = "button";
-          dot.className = "kaufen-tile__dot" + (n === 0 ? " is-active" : "");
-          dot.addEventListener("click", function (e) {
-            e.preventDefault();
-            showKunstSlide(n);
-          });
-          dotsRoot.appendChild(dot);
-        }
       });
+
+      if (dotsRoot && currentSlides.length > 1) {
+        if (kunstUseSectionDots) {
+          kunstDotGroups.forEach(function (group) {
+            var dot = document.createElement("button");
+            dot.type = "button";
+            dot.className = "kaufen-tile__dot kaufen-tile__dot--section";
+            dot.setAttribute("data-section-id", group.sectionId);
+            dot.setAttribute("aria-label", group.sectionLabel);
+            dot.title = group.sectionLabel;
+            dot.addEventListener("click", function (e) {
+              e.preventDefault();
+              showKunstSlide(group.startIndex);
+            });
+            dotsRoot.appendChild(dot);
+          });
+        } else {
+          currentSlides.forEach(function (_item, n) {
+            var dot = document.createElement("button");
+            dot.type = "button";
+            dot.className = "kaufen-tile__dot" + (n === 0 ? " is-active" : "");
+            dot.addEventListener("click", function (e) {
+              e.preventDefault();
+              showKunstSlide(n);
+            });
+            dotsRoot.appendChild(dot);
+          });
+        }
+      }
 
       var multi = currentSlides.length > 1;
       if (prev) prev.hidden = !multi;

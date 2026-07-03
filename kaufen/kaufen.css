@@ -283,11 +283,14 @@ body.kaufen-page {
   position: absolute;
   inset: 0;
   opacity: 0;
+  pointer-events: none;
   transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .kaufen-tile__slide.is-active {
   opacity: 1;
+  pointer-events: auto;
+  z-index: 1;
 }
 
 .kaufen-tile__nav {
@@ -340,6 +343,18 @@ body.kaufen-page {
 
 .kaufen-tile__dot.is-active {
   background: #fff;
+}
+
+.kaufen-tile__dot--section {
+  width: 8px;
+  height: 8px;
+}
+
+.kaufen-product__figure--kunst .kaufen-tile__dots {
+  flex-wrap: wrap;
+  row-gap: 8px;
+  max-width: 100%;
+  min-height: 14px;
 }
 
 .kaufen-tile__title {

@@ -813,6 +813,15 @@ body.wga-page {
   width: 100%;
   height: auto;
   cursor: pointer;
+  scroll-margin-top: calc(var(--fc-nav-h, 72px) + 16px);
+}
+
+body.wga-shop-scroll-pending {
+  overflow: hidden;
+}
+
+body.wga-shop-scroll-pending .wga-tile__media {
+  min-height: 72px;
 }
 
 .wga-tile.is-shop-highlight {
@@ -824,6 +833,7 @@ body.wga-page {
   position: relative;
   display: block;
   width: 100%;
+  aspect-ratio: 1;
   overflow: hidden;
   line-height: 0;
   background: transparent;
@@ -832,7 +842,7 @@ body.wga-page {
 .wga-tile__media img {
   width: 100%;
   max-width: none;
-  height: auto !important;
+  height: 100%;
   object-fit: contain;
   object-position: center top;
   display: block;

@@ -22,7 +22,7 @@
   }
 
   /** Bump when partials/site-footer.html or site-header.html change (cache bust). */
-  var FC_PARTIAL_CACHE = "12";
+  var FC_PARTIAL_CACHE = "13";
 
   var KUNST_URL = "https://biig.works/kunst/";
 
@@ -43,6 +43,7 @@
   }
 
   function ensureSiteBase() {
+    if (document.body.classList.contains("kaufen-page")) return;
     var el = document.querySelector("base[data-fc-site-root]");
     if (!el) {
       el = document.createElement("base");
