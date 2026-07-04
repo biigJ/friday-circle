@@ -78,10 +78,10 @@ for BIIG_PAGE in joscha kunst impressum datenschutz kontakt; do
     "$BIIG_OUT/$BIIG_PAGE/index.html"
 done
 
-rsync -a "$ROOT/assets/interior/" "$BIIG_OUT/assets/interior/"
-rsync -a "$ROOT/assets/hochbau/" "$BIIG_OUT/assets/hochbau/"
-rsync -a "$ROOT/assets/biigJ/" "$BIIG_OUT/assets/biigJ/"
-rsync -a "$ROOT/assets/wolfgang-grope/" "$BIIG_OUT/assets/wolfgang-grope/"
+cp -a "$ROOT/assets/interior/." "$BIIG_OUT/assets/interior/"
+cp -a "$ROOT/assets/hochbau/." "$BIIG_OUT/assets/hochbau/"
+cp -a "$ROOT/assets/biigJ/." "$BIIG_OUT/assets/biigJ/"
+cp -a "$ROOT/assets/wolfgang-grope/." "$BIIG_OUT/assets/wolfgang-grope/"
 cp "$ROOT/assets/audio/dramatic-motion-watermarked.mp3" "$BIIG_OUT/assets/audio/"
 
 sed_inplace \
