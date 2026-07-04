@@ -12,13 +12,9 @@ BIIG_SHOP_URL="${BIIG_SHOP_URL:-https://www.fridaycircle.club/kaufen/kunst.html}
 echo "==> Building biig.works export at $BIIG_OUT"
 
 BIIG_GIT_BACKUP=""
-BIIG_CNAME_BACKUP=""
 if [[ -d "$BIIG_OUT/.git" ]]; then
   BIIG_GIT_BACKUP="$(mktemp -d)"
   cp -a "$BIIG_OUT/.git" "$BIIG_GIT_BACKUP/"
-fi
-if [[ -f "$BIIG_OUT/CNAME" ]]; then
-  BIIG_CNAME_BACKUP="$(cat "$BIIG_OUT/CNAME")"
 fi
 
 rm -rf "$BIIG_OUT"
@@ -31,11 +27,6 @@ done
 if [[ -n "$BIIG_GIT_BACKUP" ]]; then
   cp -a "$BIIG_GIT_BACKUP/.git" "$BIIG_OUT/"
   rm -rf "$BIIG_GIT_BACKUP"
-fi
-if [[ -n "$BIIG_CNAME_BACKUP" ]]; then
-  printf '%s\n' "$BIIG_CNAME_BACKUP" > "$BIIG_OUT/CNAME"
-else
-  printf 'biig.works\n' > "$BIIG_OUT/CNAME"
 fi
 
 cp "$ROOT/biig-interior/index.html" "$BIIG_OUT/index.html"
@@ -116,12 +107,11 @@ cat > "$BIIG_OUT/README.md" <<'EOF'
 # biig.works
 
 Static export of biig Interior from [friday-circle](https://github.com/biigJ/friday-circle).
-Do not edit by hand — run `scripts/deploy-biig-works.sh` from friday-circle instead.
+Do not edit by hand — Vercel builds from friday-circle (`scripts/vercel-build-biig.sh`).
 
-## Deploy
-
-GitHub Pages serves this repository (`CNAME`: biig.works).
 WGA/Kunst: `/kunst/`
+
+Deploy: Vercel project **biig-works** (domain biig.works). GitHub Pages is disabled.
 EOF
 
 echo "==> biig.works export ready ($(find "$BIIG_OUT" -type f | wc -l | tr -d ' ') files)"

@@ -36,13 +36,9 @@ gogogo_rewrite_fc_links() {
 echo "==> Building gogogo.social export at $GOGOGO_OUT"
 
 GOGOGO_GIT_BACKUP=""
-GOGOGO_CNAME_BACKUP=""
 if [[ -d "$GOGOGO_OUT/.git" ]]; then
   GOGOGO_GIT_BACKUP="$(mktemp -d)"
   cp -a "$GOGOGO_OUT/.git" "$GOGOGO_GIT_BACKUP/"
-fi
-if [[ -f "$GOGOGO_OUT/CNAME" ]]; then
-  GOGOGO_CNAME_BACKUP="$(cat "$GOGOGO_OUT/CNAME")"
 fi
 
 rm -rf "$GOGOGO_OUT"
@@ -52,11 +48,6 @@ mkdir -p "$GOGOGO_OUT/assets/gogogo" "$GOGOGO_OUT/assets/biigJ" \
 if [[ -n "$GOGOGO_GIT_BACKUP" ]]; then
   cp -a "$GOGOGO_GIT_BACKUP/.git" "$GOGOGO_OUT/"
   rm -rf "$GOGOGO_GIT_BACKUP"
-fi
-if [[ -n "$GOGOGO_CNAME_BACKUP" ]]; then
-  printf '%s\n' "$GOGOGO_CNAME_BACKUP" > "$GOGOGO_OUT/CNAME"
-else
-  printf 'gogogo.social\n' > "$GOGOGO_OUT/CNAME"
 fi
 
 cp "$ROOT/gogogo-landing.html" "$GOGOGO_OUT/index.html"
@@ -120,6 +111,8 @@ cat > "$GOGOGO_OUT/README.md" <<'EOF'
 
 Static export of gogogo from [friday-circle](https://github.com/biigJ/friday-circle).
 Do not edit by hand — run `scripts/deploy-gogogo-social.sh` from friday-circle instead.
+
+Deploy: Vercel project **gogogo-social** (domain gogogo.social). GitHub Pages is disabled.
 EOF
 
 echo "==> gogogo.social export ready ($(find "$GOGOGO_OUT" -type f | wc -l | tr -d ' ') files)"

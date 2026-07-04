@@ -12,24 +12,18 @@ Ausgelagerte Projekte wie Balko, Holyprop und Fitness First Social Club liegen n
 
 | Domain | Rolle | Deploy |
 |--------|--------|--------|
-| [fridaycircle.club](https://www.fridaycircle.club) | **Friday Circle Hub** — Ziele, Lösungen, Service, Kaufen, Kontakt, Tour, … | Vercel bei `git push` |
-| [biig.works](https://biig.works) | **biig Interior** + **Kunst/WGA** unter `/kunst/` | Export → [`biigJ/biig-works`](https://github.com/biigJ/biig-works) |
-| [gogogo.social](https://gogogo.social) | **gogogo** (Landing + Flows) | Export → [`biigJ/gogogo-social`](https://github.com/biigJ/gogogo-social) |
+| [fridaycircle.club](https://www.fridaycircle.club) | **Friday Circle Hub** — Ziele, Lösungen, Service, Kaufen, Kontakt, Tour, … | Vercel **`friday-circle`** bei `git push` |
+| [biig.works](https://biig.works) | **biig Interior** + **Kunst/WGA** unter `/kunst/` | Vercel **`biig-works`** bei `git push` (Build: `vercel-build-biig.sh`) |
+| [gogogo.social](https://gogogo.social) | **gogogo** (Landing + Flows) | Vercel **`gogogo-social`** — `bash scripts/deploy-gogogo-social.sh` |
 
 **Prinzip:** Alles wird hier entwickelt. fridaycircle.club **verlinkt** zu den Marken-Domains; alte FC-URLs **leiten um** (`fc-canonical-redirect.js`).
 
 ```bash
-git push                              # → fridaycircle.club
-bash scripts/deploy-biig-works.sh     # → biig.works (inkl. /kunst/)
-bash scripts/deploy-gogogo-social.sh  # → gogogo.social
+git push                              # → fridaycircle.club + biig.works (Vercel)
+bash scripts/deploy-gogogo-social.sh  # → gogogo.social (Vercel via gogogo-social repo)
 ```
 
-GitHub Actions syncen die Marken-Sites bei Push auf `main`, wenn Secrets gesetzt sind:
-
-| Secret | Ziel-Repo |
-|--------|-----------|
-| `BIIG_WORKS_DEPLOY_TOKEN` | `biigJ/biig-works` |
-| `GOGOGO_SOCIAL_DEPLOY_TOKEN` | `biigJ/gogogo-social` |
+GitHub Pages für `biig.works` und `gogogo.social` ist abgeschaltet — nur noch Vercel.
 
 ## Lokal öffnen
 
