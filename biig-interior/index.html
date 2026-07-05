@@ -1251,23 +1251,27 @@
       }
 
       @media (min-width: 901px) {
+        .bi-portfolio.bi-portfolio--standard .bi-grid,
         .bi-portfolio.bi-portfolio--service-filter .bi-grid {
           display: flex;
           flex-direction: row;
           flex-wrap: wrap;
         }
 
+        .bi-portfolio.bi-portfolio--standard .bi-image-row,
         .bi-portfolio.bi-portfolio--service-filter .bi-image-row,
         .bi-portfolio.bi-portfolio--service-filter .bi-hochbau-tiles-row,
         .bi-portfolio.bi-portfolio--service-filter.bi-portfolio--hochbau-expanded .bi-hochbau-tiles-row {
           display: contents;
         }
 
+        .bi-portfolio.bi-portfolio--standard .bi-image-row__scroll,
         .bi-portfolio.bi-portfolio--service-filter .bi-image-row__scroll,
         .bi-portfolio.bi-portfolio--service-filter.bi-portfolio--hochbau-expanded .bi-hochbau-tiles-row .bi-image-row__scroll {
           display: contents;
         }
 
+        .bi-portfolio.bi-portfolio--standard .bi-tile--project,
         .bi-portfolio.bi-portfolio--service-filter .bi-tile--project.bi-tile--service-visible {
           flex: 0 0 auto;
           width: var(--bi-col);
