@@ -57,8 +57,13 @@
 
       .biig-interior-page:not(.bi-nav-past-hero) .nav .bi-brand-logo,
       .biig-interior-page:not(.bi-nav-past-hero) .bi-nav__service-toggle,
-      .biig-interior-page:not(.bi-nav-past-hero) .nav__lang button {
+      .biig-interior-page:not(.bi-nav-past-hero) .nav__lang button,
+      .biig-interior-page:not(.bi-nav-past-hero) .bi-nav__sound-slot .bi-hero__sound {
         color: #ffffff;
+      }
+
+      .biig-interior-page:not(.bi-nav-past-hero) .bi-nav__sound-slot .bi-hero__sound {
+        border-color: #ffffff;
       }
 
       .biig-interior-page:not(.bi-nav-past-hero) .bi-nav__cta--calendly {
@@ -309,7 +314,34 @@
       }
 
       .bi-nav__sound-slot {
-        display: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 2;
+      }
+
+      .bi-nav__sound-slot .bi-hero__sound {
+        position: relative;
+        inset: auto;
+        top: auto;
+        right: auto;
+        flex: 0 0 auto;
+        border: 1px solid currentColor;
+        background: transparent;
+        box-shadow: none;
+        z-index: 2;
+      }
+
+      .bi-nav__sound-slot .bi-hero__sound:hover,
+      .bi-nav__sound-slot .bi-hero__sound:focus-visible {
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .biig-interior-page.bi-nav-past-hero .bi-nav__sound-slot .bi-hero__sound {
+        color: var(--text);
+        border-color: var(--text);
       }
 
       /* -- Hero -- */
@@ -2377,8 +2409,13 @@
 
         .biig-interior-page:not(.bi-nav-over-tiles):not(.bi-nav-past-hero) .nav .bi-brand-logo,
         .biig-interior-page:not(.bi-nav-over-tiles):not(.bi-nav-past-hero) .bi-nav__service-toggle,
-        .biig-interior-page:not(.bi-nav-over-tiles):not(.bi-nav-past-hero) .nav__lang button {
+        .biig-interior-page:not(.bi-nav-over-tiles):not(.bi-nav-past-hero) .nav__lang button,
+        .biig-interior-page:not(.bi-nav-over-tiles):not(.bi-nav-past-hero) .bi-nav__sound-slot .bi-hero__sound {
           color: var(--text);
+        }
+
+        .biig-interior-page:not(.bi-nav-over-tiles):not(.bi-nav-past-hero) .bi-nav__sound-slot .bi-hero__sound {
+          border-color: var(--text);
         }
 
         .biig-interior-page:not(.bi-nav-over-tiles):not(.bi-nav-past-hero) .bi-nav__cta--calendly {
@@ -2453,27 +2490,8 @@
           grid-row: 3;
           display: flex;
           justify-content: center;
-        }
-
-        .bi-nav__sound-slot {
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-        }
-
-        .bi-nav__sound-slot .bi-hero__sound {
           position: relative;
-          inset: auto;
-          flex: 0 0 auto;
-          border: 1px solid currentColor;
-          background: transparent;
-          box-shadow: none;
-        }
-
-        .bi-nav__sound-slot .bi-hero__sound:hover,
-        .bi-nav__sound-slot .bi-hero__sound:focus-visible {
-          background: transparent;
-          box-shadow: none;
+          z-index: 2;
         }
 
         .bi-hero {
@@ -5896,7 +5914,6 @@
         var heroAudio = document.getElementById("bi-hero-audio");
         var heroSound = document.getElementById("bi-hero-sound");
         var heroSoundNavSlot = document.getElementById("bi-nav-sound-slot");
-        var heroSoundHome = document.querySelector(".bi-hero__figure");
         var slideIndex = 0;
         var slideCount = 0;
         var heroIndex = 0;
@@ -6930,15 +6947,9 @@
         }
 
         function placeHeroSoundControl() {
-          if (!heroSound || !heroSoundNavSlot || !heroSoundHome) return;
-          var moveToNav = window.matchMedia("(max-width: 520px)").matches;
-          if (moveToNav) {
-            if (heroSound.parentNode !== heroSoundNavSlot) heroSoundNavSlot.appendChild(heroSound);
-            heroSoundNavSlot.removeAttribute("aria-hidden");
-            return;
-          }
-          if (heroSound.parentNode !== heroSoundHome) heroSoundHome.appendChild(heroSound);
-          heroSoundNavSlot.setAttribute("aria-hidden", "true");
+          if (!heroSound || !heroSoundNavSlot) return;
+          if (heroSound.parentNode !== heroSoundNavSlot) heroSoundNavSlot.appendChild(heroSound);
+          heroSoundNavSlot.removeAttribute("aria-hidden");
         }
 
         function toggleHeroSound() {
