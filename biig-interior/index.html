@@ -1226,6 +1226,12 @@
         display: none;
       }
 
+      .bi-portfolio.bi-portfolio--standard .bi-tile--hochbau-collage,
+      .bi-portfolio.bi-portfolio--standard .bi-hochbau-tiles-row,
+      .bi-portfolio.bi-portfolio--standard .bi-tile--hochbau-item {
+        display: none !important;
+      }
+
       .bi-portfolio.bi-portfolio--service-filter .bi-tile--project {
         display: none;
       }
@@ -1258,20 +1264,20 @@
           flex-wrap: wrap;
         }
 
-        .bi-portfolio.bi-portfolio--standard .bi-image-row,
+        .bi-portfolio.bi-portfolio--standard .bi-image-row:not(.bi-hochbau-tiles-row),
         .bi-portfolio.bi-portfolio--service-filter .bi-image-row,
         .bi-portfolio.bi-portfolio--service-filter .bi-hochbau-tiles-row,
         .bi-portfolio.bi-portfolio--service-filter.bi-portfolio--hochbau-expanded .bi-hochbau-tiles-row {
           display: contents;
         }
 
-        .bi-portfolio.bi-portfolio--standard .bi-image-row__scroll,
+        .bi-portfolio.bi-portfolio--standard .bi-image-row:not(.bi-hochbau-tiles-row) > .bi-image-row__scroll,
         .bi-portfolio.bi-portfolio--service-filter .bi-image-row__scroll,
         .bi-portfolio.bi-portfolio--service-filter.bi-portfolio--hochbau-expanded .bi-hochbau-tiles-row .bi-image-row__scroll {
           display: contents;
         }
 
-        .bi-portfolio.bi-portfolio--standard .bi-tile--project,
+        .bi-portfolio.bi-portfolio--standard .bi-tile--project:not(.bi-tile--hochbau-collage):not(.bi-tile--hochbau-item),
         .bi-portfolio.bi-portfolio--service-filter .bi-tile--project.bi-tile--service-visible {
           flex: 0 0 auto;
           width: var(--bi-col);
