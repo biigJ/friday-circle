@@ -3528,6 +3528,19 @@
                 <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
               </span>
             </button>
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="sammler">
+              <span class="bi-tile__media">
+                <img src="../assets/interior/Marvell-Living-daytime-800.webp" data-fc-fallback="../assets/interior/Marvell-Living-daytime.jpg" alt="" width="1844" height="2304" loading="lazy" decoding="async" />
+              </span>
+              <span class="bi-tile__label">
+                <span class="de-t">Sammler</span>
+                <span class="en-t">Collector</span>
+              </span>
+              <span class="bi-tile__hover">
+                <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
+                <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
+              </span>
+            </button>
             <button type="button" class="bi-tile bi-tile--project" data-bi-project="umbauten">
               <span class="bi-tile__media">
                 <img src="../assets/interior/rene-möbliert-01-800.webp" data-fc-fallback="../assets/interior/rene-möbliert-01.png" alt="" width="800" height="1067" loading="lazy" decoding="async" />
@@ -4797,6 +4810,36 @@
               "../assets/interior/oase-table.png",
             ],
           },
+          sammler: {
+            tileLabelDe: "Sammler",
+            tileLabelEn: "Collector",
+            titleDe: "Wohn- und Esszimmer, Berlin 2026",
+            titleEn: "Living and dining room, Berlin 2026",
+            bodyDe:
+              "Berliner Sammler mit Superheldenfiguren: eine Idee für Wohn- und Esszimmer, in dem Sammlung und Alltag zusammenfinden.",
+            bodyEn:
+              "Berlin collector with superhero figures: an idea for a living and dining room where collection and daily life come together.",
+            infoDetailDe:
+              "Ein Berliner Sammler mit einer großen Anzahl Superheldenfiguren suchte eine Idee für sein Wohn- und Esszimmer. Wie lassen sich Sammlung, Alltag und Gäste empfangen verbinden, ohne dass alles in Kartons verschwindet? Die Visualisierung zeigt einen offenen Wohn- und Essbereich mit inszenierten Regalen und Vitrinen für die Figuren, einem Esstisch zum Verweilen und zurückhaltender Beleuchtung für den Abend. Helles Tageslicht und abendliche Stimmung geben zwei Varianten derselben Raumidee wieder. Das Konzept wurde noch nicht umgesetzt; hier ist eine stark überzeichnete Variante der Idee dargestellt.",
+            infoDetailEn:
+              "A Berlin collector with a large number of superhero figures sought an idea for his living and dining room. How can collection, daily life, and receiving guests come together without everything disappearing into boxes? The visualisation shows an open living and dining area with staged shelves and display cases for the figures, a dining table for lingering, and restrained lighting for the evening. Bright daylight and evening mood show two variants of the same room idea. The concept has not been built yet; this is a strongly overdrawing version of the idea.",
+            keywordDe: "Sammler",
+            keywordEn: "Collector",
+            concreteDe: "Berlin, 2026",
+            concreteEn: "Berlin, 2026",
+            imageLabelsDe: [
+              "Wohn- und Esszimmer, Berlin 2026, Tag",
+              "Wohn- und Esszimmer, Berlin 2026, Abend",
+            ],
+            imageLabelsEn: [
+              "Living and dining room, Berlin 2026, daytime",
+              "Living and dining room, Berlin 2026, evening",
+            ],
+            images: [
+              "../assets/interior/Marvell-Living-daytime.jpg",
+              "../assets/interior/Marvell-Living-dark.jpg",
+            ],
+          },
           dieffe33: {
             tileLabelDe: "Mini-Space",
             tileLabelEn: "Mini space",
@@ -5323,7 +5366,7 @@
 
         var SERVICE_FILTERS = {
           "bi-pricing-ordnung": {
-            tiles: ["dieffe33", "altbau2", "ordnung", "oase"],
+            tiles: ["dieffe33", "altbau2", "ordnung", "oase", "sammler"],
             titleDe: "Aufräumservice oder Ideen sortieren",
             titleEn: "Decluttering service or sorting ideas",
             processTitleDe: "Aufräumen: Ablauf",
@@ -5342,6 +5385,7 @@
               "kueche",
               "kochinsel",
               "oase",
+              "sammler",
               "vinothekGeo",
               "vinothekAlpen",
               "moebel",
@@ -5364,7 +5408,7 @@
             processTitleEn: "Building planning: process",
           },
           "bi-pricing-moebel": {
-            tiles: ["moebel", "homeoffice1", "kueche", "vinothekGeo"],
+            tiles: ["moebel", "homeoffice1", "kueche", "vinothekGeo", "sammler"],
             titleDe: "Individuelle Möbel höchstwertig oder günstig",
             titleEn: "Custom furniture, premium or affordable",
             processTitleDe: "Möbelentwurf: Ablauf",
@@ -5661,6 +5705,7 @@
           kueche: 4,
           kochinsel: 3,
           oase: 4,
+          sammler: 2,
           umbauten: 5,
           vinothekGeo: 5,
           vinothekAlpen: 4,
