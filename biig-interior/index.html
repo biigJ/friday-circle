@@ -5347,8 +5347,8 @@
           },
           "bi-pricing-moebel": {
             tiles: ["moebel", "homeoffice1", "kueche", "vinothekGeo"],
-            titleDe: "Im Projekt des Mini-Apartements entstanden",
-            titleEn: "Created in the mini-apartment project",
+            titleDe: "Individuelle Möbel höchstwertig oder günstig",
+            titleEn: "Custom furniture, premium or affordable",
             processTitleDe: "Möbelentwurf: Ablauf",
             processTitleEn: "Furniture design: process",
           },
@@ -7255,10 +7255,7 @@
           initMobileTileCarousels({ force: true });
           updateMobileNavTransparency();
 
-          var scrollTarget =
-            serviceKey === "bi-pricing-moebel"
-              ? document.getElementById("bi-process") || portfolio
-              : portfolio;
+          var scrollTarget = portfolio;
           if (scrollTarget) {
             window.requestAnimationFrame(function () {
               scrollTarget.scrollIntoView({ behavior: "smooth", block: "start" });
