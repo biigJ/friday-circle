@@ -4208,7 +4208,7 @@
             <p class="bi-buy-popup__info-body" id="bi-buy-info-body"></p>
             <div class="bi-buy-popup__info-action">
               <p class="bi-buy-popup__info-spec" id="bi-buy-info-spec"></p>
-              <a class="bi-buy-popup__buy-link" id="bi-buy-link" href="kontakt/index.html">
+              <a class="bi-buy-popup__buy-link" id="bi-buy-link" href="kaufen/tisch.html">
                 <span class="de-t">Kaufen &gt;</span>
                 <span class="en-t">Buy &gt;</span>
               </a>
@@ -5188,6 +5188,7 @@
 
         var BUY_OFFERS = {
           moebel: {
+            buyUrl: "kaufen/tisch.html",
             slides: [
               {
                 src: "../assets/interior/freivonecken130-villaecke.png",
@@ -6814,8 +6815,13 @@
           buyInfoBody.textContent = lang === "en" ? slide.bodyEn : slide.bodyDe;
           buyInfoSpec.textContent = lang === "en" ? slide.specEn : slide.specDe;
           if (buyLink) {
-            var subject = encodeURIComponent(lang === "en" ? slide.mailSubjectEn : slide.mailSubjectDe);
-            buyLink.href = "../kontakt/index.html?anfrage=" + subject;
+            var offer = BUY_OFFERS[openBuyId];
+            if (offer && offer.buyUrl) {
+              buyLink.href = offer.buyUrl;
+            } else {
+              var subject = encodeURIComponent(lang === "en" ? slide.mailSubjectEn : slide.mailSubjectDe);
+              buyLink.href = "kontakt/index.html?anfrage=" + subject;
+            }
           }
           if (buyPrev) buyPrev.hidden = buyIndex <= 0;
           if (buyNext) buyNext.hidden = buyIndex >= slides.length - 1;

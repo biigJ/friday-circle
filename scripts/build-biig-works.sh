@@ -19,7 +19,7 @@ fi
 
 rm -rf "$BIIG_OUT"
 mkdir -p "$BIIG_OUT/biig-interior" "$BIIG_OUT/assets/interior" "$BIIG_OUT/assets/hochbau" \
-  "$BIIG_OUT/assets/audio" "$BIIG_OUT/assets/biigJ" "$BIIG_OUT/assets/wolfgang-grope" "$BIIG_OUT/data"
+  "$BIIG_OUT/assets/audio" "$BIIG_OUT/assets/biigJ" "$BIIG_OUT/assets/wolfgang-grope" "$BIIG_OUT/data" "$BIIG_OUT/kaufen"
 for BIIG_PAGE in joscha kunst impressum datenschutz kontakt; do
   mkdir -p "$BIIG_OUT/$BIIG_PAGE"
 done
@@ -74,6 +74,14 @@ cp -a "$ROOT/assets/hochbau/." "$BIIG_OUT/assets/hochbau/"
 cp -a "$ROOT/assets/biigJ/." "$BIIG_OUT/assets/biigJ/"
 cp -a "$ROOT/assets/wolfgang-grope/." "$BIIG_OUT/assets/wolfgang-grope/"
 cp "$ROOT/assets/audio/dramatic-motion-watermarked.mp3" "$BIIG_OUT/assets/audio/"
+cp "$ROOT/kaufen/tisch.html" "$ROOT/kaufen/kaufen.css" "$ROOT/kaufen/kaufen.js" "$BIIG_OUT/kaufen/"
+
+sed_inplace \
+  -e 's|href="index.html"|href="../index.html"|g' \
+  -e 's|href="../berlinarchtour.html"|href="https://biig.works/"|g' \
+  -e 's|href="../index.html"|href="https://biig.works/"|g' \
+  -e 's|src="../nav.js" defer></script>|src="../fc-image-url.js" defer></script><script src="../fc-lang.js" defer></script>|g' \
+  "$BIIG_OUT/kaufen/tisch.html"
 
 sed_inplace \
   -e 's|href="../styles.css"|href="styles.css"|g' \
@@ -84,6 +92,7 @@ sed_inplace \
   -e 's|src="bk-i18n.js"|src="biig-interior/bk-i18n.js"|g' \
   -e 's|src="biig-konfigurator.js"|src="biig-interior/biig-konfigurator.js"|g' \
   -e 's|\.\./assets/|assets/|g' \
+  -e 's|href="../kaufen/tisch.html"|href="kaufen/tisch.html"|g' \
   -e 's|href="../kunst/index.html"|href="https://biig.works/kunst/"|g' \
   -e 's|href="kunst/index.html"|href="https://biig.works/kunst/"|g' \
   -e 's|href="https://biig.works/kunst/index.html"|href="https://biig.works/kunst/"|g' \
