@@ -5920,7 +5920,7 @@
 
         var FC_IMG_TILE = 800;
         var FC_IMG_SLIDE = 1400;
-        var FC_IMG_HERO = 1600;
+        var FC_IMG_HERO = 1400;
 
         function biSetImg(img, src, width) {
           if (!img) return;
@@ -6956,8 +6956,8 @@
             img.alt = lang === "en" ? slide.altEn : slide.altDe;
             img.decoding = "async";
             img.loading = i === 0 ? "eager" : "lazy";
-            img.width = 1600;
-            img.height = 1000;
+            img.width = 1400;
+            img.height = 875;
             if (slide.objectPosition) img.style.objectPosition = slide.objectPosition;
             if (slide.scale) {
               img.style.transform = "scale(" + slide.scale + ")";
