@@ -7,7 +7,9 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 source "$ROOT/scripts/lib/sed-inplace.sh"
 
 BIIG_OUT="${BIIG_OUT:-$HOME/biig-works}"
-BIIG_SHOP_URL="${BIIG_SHOP_URL:-https://www.fridaycircle.club/kaufen/kunst.html}"
+FC_SHOP_BASE="${FC_SHOP_BASE:-https://www.fridaycircle.club/kaufen}"
+FC_SITE="${FC_SITE:-https://www.fridaycircle.club}"
+BIIG_SHOP_URL="${BIIG_SHOP_URL:-${FC_SHOP_BASE}/kunst.html}"
 
 echo "==> Building biig.works export at $BIIG_OUT"
 
@@ -77,9 +79,13 @@ cp "$ROOT/assets/audio/dramatic-motion-watermarked.mp3" "$BIIG_OUT/assets/audio/
 cp "$ROOT/kaufen/tisch.html" "$ROOT/kaufen/kaufen.css" "$ROOT/kaufen/kaufen.js" "$BIIG_OUT/kaufen/"
 
 sed_inplace \
-  -e 's|href="index.html"|href="../index.html"|g' \
+  -e "s|href=\"../index.html\"|href=\"${FC_SITE}/\"|g" \
   -e 's|href="../berlinarchtour.html"|href="https://biig.works/"|g' \
-  -e 's|href="../index.html"|href="https://biig.works/"|g' \
+  -e 's|href="index.html#moebel"|href="tisch.html"|g' \
+  -e "s|href=\"index.html#textilien\"|href=\"${FC_SHOP_BASE}/index.html#textilien\"|g" \
+  -e "s|href=\"index.html#kunst\"|href=\"${FC_SHOP_BASE}/index.html#kunst\"|g" \
+  -e "s|href=\"index.html#buch\"|href=\"${FC_SHOP_BASE}/index.html#buch\"|g" \
+  -e "s|href=\"index.html\"|href=\"${FC_SHOP_BASE}/index.html\"|g" \
   -e 's|src="../nav.js" defer></script>|src="../fc-image-url.js" defer></script><script src="../fc-lang.js" defer></script>|g' \
   "$BIIG_OUT/kaufen/tisch.html"
 
