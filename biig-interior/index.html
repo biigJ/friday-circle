@@ -1853,7 +1853,7 @@
 
       .bi-hochbau-collage {
         display: grid;
-        grid-template-columns: repeat(7, minmax(0, 1fr));
+        grid-template-columns: repeat(8, minmax(0, 1fr));
         width: 100%;
         height: 100%;
         gap: 2px;
@@ -4918,6 +4918,46 @@
               "../assets/interior/alpenkantine-V2.png",
             ],
           },
+          panketal: {
+            tileLabelDe: "Bahnhofstraße",
+            tileLabelEn: "Bahnhofstraße",
+            titleDe: "Mehrfamilienwohnhaus, Panketal 2026",
+            titleEn: "Multi-family residential building, Panketal 2026",
+            bodyDe:
+              "Neubau in Ecklage: 10 × 15 m, fünf Wohneinheiten über drei Geschosse plus Keller. Klare Form, Edelputz-Fassade, Terrassen, Südbalkone und Penthouse-Loggia.",
+            bodyEn:
+              "New build on a corner site: 10 × 15 m, five units over three floors plus basement. Clear volume, fine-render facade, terraces, south-facing balconies, and a penthouse loggia.",
+            infoDetailDe:
+              "Mehrfamilienhaus als Neubau in freistehender Ecklage an der Bahnhofstraße 29 und 30 in 16341 Panketal. Außenmaße 10,00 × 15,00 m, drei Vollgeschosse (Erdgeschoss, Obergeschoss, Dachgeschoss) plus Keller. Fünf Wohneinheiten: je zwei im Erd- und Obergeschoss, ein Penthouse im Dachgeschoss. Architektur mit zeitgemäßer Formensprache, klarem Baukörper und horizontaler Gliederung. Fassade in Edelputz mit heller Tönung, Sockel mineralisch geschlämmt. Fenster als Holzrahmen mit Dreifachverglasung, Uw ≤ 0,8 W/m²K. Geländer aus verzinktem Stahl mit vertikaler Stabfüllung. Erdgeschoss: private Terrassen und Gartenzugang Süd je Wohnung. Obergeschoss: durchlaufender Südbalkon, aufgeteilt je Einheit. Penthouse: Südloggia mit Patio und raumhoher Verglasung an der Südseite. Vollkeller unter dem Gesamtgebäude mit abgeschlossenem Kellerabteil je Einheit. Deckenhöhe 2,70 m in allen Vollgeschossen. Wärmepumpe Luft/Wasser mit Fußbodenheizung, kontrollierte Wohnraumlüftung mit Wärmerückgewinnung. Geplante Fertigstellung ca. 2027/2028, abhängig von der Baugenehmigung.",
+            infoDetailEn:
+              "Multi-family house as a new detached building on a corner site at Bahnhofstraße 29 and 30, 16341 Panketal. Exterior dimensions 10.00 × 15.00 m, three full storeys (ground, upper, attic) plus basement. Five residential units: two each on ground and upper floors, one penthouse in the attic. Architecture with contemporary form language, clear volume, and horizontal articulation. Facade in fine render with a light tint, base mineral-slurried. Windows in timber frames with triple glazing, Uw ≤ 0.8 W/m²K. Railings in galvanised steel with vertical bar infill. Ground floor: private terraces and south garden access for each unit. Upper floor: continuous south balcony divided per unit. Penthouse: south loggia with patio and floor-to-ceiling glazing on the south side. Full basement under the entire building with a locked cellar compartment per unit. Ceiling height 2.70 m on all full storeys. Air/water heat pump with underfloor heating, controlled domestic ventilation with heat recovery. Target completion approx. 2027/2028, depending on the building permit.",
+            keywordDe: "Neubau",
+            keywordEn: "New build",
+            concreteDe: "Panketal, 2026",
+            concreteEn: "Panketal, 2026",
+            imageLabelsDe: [
+              "Mehrfamilienwohnhaus, Panketal 2026",
+              "Mehrfamilienwohnhaus, Panketal 2026, Detail",
+              "Mehrfamilienwohnhaus, Panketal 2026, Detail",
+              "Mehrfamilienwohnhaus, Panketal 2026, Rückseite",
+              "Mehrfamilienwohnhaus, Panketal 2026, Rückansicht",
+            ],
+            imageLabelsEn: [
+              "Multi-family residential building, Panketal 2026",
+              "Multi-family residential building, Panketal 2026, detail",
+              "Multi-family residential building, Panketal 2026, detail",
+              "Multi-family residential building, Panketal 2026, rear",
+              "Multi-family residential building, Panketal 2026, rear view",
+            ],
+            images: [
+              "../assets/hochbau/Panketal_Bahnhofstr29-BIIG-260625-VIS2.png",
+              "../assets/hochbau/Panketal_Bahnhofstr29-BIIG-260629-VIS_Detail01.jpg",
+              "../assets/hochbau/Panketal_Bahnhofstr29-BIIG-260629-VIS_Detail03.jpg",
+              "../assets/hochbau/Panketal_Bahnhofstr29-BIIG-260630-VIS-Rückseite.jpg",
+              "../assets/hochbau/Panketal_Bahnhofstr29-BIIG-260630-VIS-Rück_ortho.jpg",
+            ],
+            cropPosition: "center center",
+          },
           klinker: {
             tileLabelDe: "Klinkertreppe",
             tileLabelEn: "Brick staircase",
@@ -5260,7 +5300,7 @@
           tileLabelEn: "Building projects",
         };
 
-        var HOCHBAU_IDS = ["klinker", "rothestr", "graefe", "destijl", "schleswig", "wedel", "neubauhausstrasse"];
+        var HOCHBAU_IDS = ["panketal", "klinker", "rothestr", "graefe", "destijl", "schleswig", "wedel", "neubauhausstrasse"];
 
         var SERVICE_FILTERS = {
           "bi-pricing-ordnung": {
@@ -5712,7 +5752,10 @@
         }
 
         function projectHasInfoSlide(projectId) {
-          return !!projectId && HOCHBAU_IDS.indexOf(projectId) === -1;
+          if (!projectId) return false;
+          var project = PROJECTS[projectId];
+          if (project && (project.infoDetailDe || project.infoDetailEn)) return true;
+          return HOCHBAU_IDS.indexOf(projectId) === -1;
         }
 
         function buildInfoBodyText(project, lang) {
@@ -5805,6 +5848,7 @@
         }
 
         var HOCHBAU_THUMB_FOCUS = [
+          "center center",
           "28% center",
           "center center",
           "center center",
