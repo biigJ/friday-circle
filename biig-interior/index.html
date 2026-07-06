@@ -5441,7 +5441,7 @@
             processTitleEn: "Design: process",
           },
           "bi-pricing-handwerker": {
-            tiles: ["dieffe33", "homeoffice1", "hausA", "vinothekGeo"],
+            tiles: ["dieffe33", "homeoffice1", "hausA", "vinothekGeo", "rothestr", "graefe", "destijl"],
             titleDe: "Vom baubarer Entwurf bis alles inklusive",
             titleEn: "From buildable design to all-inclusive",
             processTitleDe: "Grober Ablauf",
@@ -7331,6 +7331,12 @@
               tile.classList.add("bi-tile--service-visible");
             });
           } else if (filter.tiles) {
+            var showsHochbauTiles = filter.tiles.some(function (projectId) {
+              return HOCHBAU_IDS.indexOf(projectId) !== -1;
+            });
+            if (showsHochbauTiles) {
+              portfolio.classList.add("bi-portfolio--hochbau-expanded");
+            }
             filter.tiles.forEach(function (projectId) {
               var tile = portfolio.querySelector('[data-bi-project="' + projectId + '"]');
               if (tile) tile.classList.add("bi-tile--service-visible");
