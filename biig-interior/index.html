@@ -3442,6 +3442,19 @@
                 <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
               </span>
             </button>
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="bueroraeume">
+              <span class="bi-tile__media">
+                <img src="../assets/interior/buero-raum-800.webp" data-fc-fallback="../assets/interior/buero-raum.jpg" alt="" width="2048" height="2092" loading="lazy" decoding="async" />
+              </span>
+              <span class="bi-tile__label">
+                <span class="de-t">Büroräume, Berlin 2026</span>
+                <span class="en-t">Office spaces, Berlin 2026</span>
+              </span>
+              <span class="bi-tile__hover">
+                <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
+                <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
+              </span>
+            </button>
             <button type="button" class="bi-tile bi-tile--project" data-bi-project="hausA">
               <span class="bi-tile__media">
                 <img src="../assets/interior/traudi-küche-800.webp" data-fc-fallback="../assets/interior/traudi-küche.png" alt="" width="2193" height="1606" loading="lazy" decoding="async" />
@@ -4497,6 +4510,42 @@
             imageLabelsEn: ["Office space, Berlin 2026"],
             images: ["../assets/interior/office-02.png"],
           },
+          bueroraeume: {
+            tileLabelDe: "Büroräume, Berlin 2026",
+            tileLabelEn: "Office spaces, Berlin 2026",
+            titleDe: "Restrukturierung eines Familienfirmensitzes 2026",
+            titleEn: "Restructuring of a family company headquarters 2026",
+            bodyDe:
+              "Produzierendes Gewerbe auf dem Land: Arbeitsstruktur sortieren, Zonen schaffen, Blick auf den Garten und Essraum für Produktion und Gäste.",
+            bodyEn:
+              "Manufacturing business in the countryside: sorting the work structure, creating zones, garden views, and a dining room for production staff and guests.",
+            infoDetailDe:
+              "Ein produzierendes Gewerbe auf dem Land, geführt von Designliebhabern. Aufgabe: die Arbeitsstruktur sortieren, Zonen und Aufbewahrung schaffen, Blicke auf den Garten öffnen. Die Büroräume liegen direkt an der Produktionshalle. Der Essraum dient auch den Mitarbeitern in der Produktion und dem Empfang internationaler Gäste. Das Konzept wurde noch nicht umgesetzt; hier ist eine stark überzeichnete Variante der Idee.",
+            infoDetailEn:
+              "A manufacturing business in the countryside, run by design enthusiasts. The task: sort the work structure, create zones and storage, open views onto the garden. The office areas sit directly beside the production hall. The dining room also serves staff on the shop floor and the reception of international guests. The concept has not been built yet; this is a strongly overdrawing version of the idea.",
+            keywordDe: "Büroräume",
+            keywordEn: "Office spaces",
+            concreteDe: "Berlin, 2026",
+            concreteEn: "Berlin, 2026",
+            imageLabelsDe: [
+              "Restrukturierung Familienfirmensitz 2026, Arbeitsraum",
+              "Restrukturierung Familienfirmensitz 2026, vor dem Besprechungsraum",
+              "Restrukturierung Familienfirmensitz 2026, Flur",
+              "Restrukturierung Familienfirmensitz 2026, Essraum",
+            ],
+            imageLabelsEn: [
+              "Family company headquarters restructuring 2026, workspace",
+              "Family company headquarters restructuring 2026, before meeting room",
+              "Family company headquarters restructuring 2026, corridor",
+              "Family company headquarters restructuring 2026, dining room",
+            ],
+            images: [
+              "../assets/interior/buero-raum.jpg",
+              "../assets/interior/buero-vorm_besprecher.jpg",
+              "../assets/interior/buero-flur.jpg",
+              "../assets/interior/buero-essraum.jpg",
+            ],
+          },
           hausA: {
             tileLabelDe: "Küche",
             tileLabelEn: "Kitchen",
@@ -5410,7 +5459,7 @@
 
         var SERVICE_FILTERS = {
           "bi-pricing-ordnung": {
-            tiles: ["dieffe33", "altbau2", "ordnung", "oase", "sammler"],
+            tiles: ["dieffe33", "altbau2", "ordnung", "oase", "sammler", "bueroraeume"],
             titleDe: "Aufräumservice oder Ideen sortieren",
             titleEn: "Decluttering service or sorting ideas",
             processTitleDe: "Aufräumen: Ablauf",
@@ -5423,6 +5472,7 @@
               "altbau2",
               "homeoffice1",
               "homeoffice2",
+              "bueroraeume",
               "hausA",
               "hausB",
               "ordnung",
@@ -5453,7 +5503,7 @@
             processTitleEn: "Building planning: process",
           },
           "bi-pricing-moebel": {
-            tiles: ["moebel", "homeoffice1", "kueche", "vinothekGeo", "sammler"],
+            tiles: ["moebel", "homeoffice1", "kueche", "vinothekGeo", "sammler", "bueroraeume"],
             titleDe: "Individuelle Möbel höchstwertig oder günstig",
             titleEn: "Custom furniture, premium or affordable",
             processTitleDe: "Möbelentwurf: Ablauf",
@@ -5751,6 +5801,7 @@
           kochinsel: 3,
           oase: 4,
           sammler: 2,
+          bueroraeume: 2,
           freiVonEckenEsszimmer: 2,
           umbauten: 5,
           vinothekGeo: 5,
