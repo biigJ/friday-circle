@@ -612,40 +612,84 @@
         opacity: 0.5;
       }
 
+      .bi-rocket-mtv {
+        margin: 0 0 clamp(10px, 2vw, 18px);
+        font-family: Impact, "Arial Black", "Helvetica Neue", sans-serif;
+        font-size: clamp(2.6rem, 13.5vw, 8.25rem);
+        font-weight: 900;
+        font-style: italic;
+        line-height: 0.86;
+        letter-spacing: -0.035em;
+        text-transform: uppercase;
+        text-align: center;
+        animation: bi-rocket-mtv-flash 0.14s steps(1) infinite;
+      }
+
+      @keyframes bi-rocket-mtv-flash {
+        0% {
+          color: #ff0090;
+          -webkit-text-stroke: 2px #00e8ff;
+          text-shadow: 5px 4px 0 #ffe600, -4px 3px 0 #39ff14;
+        }
+        25% {
+          color: #39ff14;
+          -webkit-text-stroke: 2px #ff0090;
+          text-shadow: -5px 4px 0 #00e8ff, 4px -3px 0 #ffe600;
+        }
+        50% {
+          color: #00e8ff;
+          -webkit-text-stroke: 2px #ffe600;
+          text-shadow: 4px -4px 0 #ff0090, -3px 4px 0 #39ff14;
+        }
+        75% {
+          color: #ffe600;
+          -webkit-text-stroke: 2px #39ff14;
+          text-shadow: -4px -4px 0 #ff0090, 5px 3px 0 #00e8ff;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .bi-rocket-mtv {
+          animation: none;
+          color: #ff0090;
+          -webkit-text-stroke: 1px #00e8ff;
+        }
+      }
+
       .bi-rocket-science {
-        max-width: 52rem;
-        margin: 0 0 clamp(28px, 4vw, 44px);
-      }
-
-      .bi-rocket-science__intro {
-        margin: 0 0 clamp(12px, 2vw, 18px);
-      }
-
-      .bi-rocket-science__title {
-        margin: 0 0 4px;
-        font-family: var(--font-sans);
-        font-size: clamp(1.05rem, 1.45vw, 1.28rem);
-        font-weight: 600;
-        line-height: 1.25;
-        color: var(--text);
-      }
-
-      .bi-rocket-science__tagline {
+        width: 100%;
+        max-width: none;
         margin: 0;
-        font-family: var(--font-sans);
-        font-size: clamp(0.78rem, 1vw, 0.88rem);
-        font-weight: 300;
-        line-height: 1.45;
-        color: color-mix(in srgb, var(--text) 55%, #ffffff);
       }
 
       .bi-rocket-science__stage {
         position: relative;
+        width: 100%;
         aspect-ratio: 16 / 10;
-        min-height: clamp(220px, 42vw, 420px);
+        min-height: clamp(240px, 44vw, 460px);
         border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
         overflow: hidden;
         background: #0a0a0a;
+        transition:
+          width 0.45s ease,
+          min-height 0.45s ease,
+          margin 0.45s ease,
+          border-color 0.45s ease;
+      }
+
+      .bi-section--rocket.is-in-view .bi-rocket-science__stage {
+        width: 100vw;
+        max-width: 100vw;
+        margin-left: calc(50% - 50vw);
+        min-height: min(82vh, 100dvh);
+        aspect-ratio: auto;
+        border-left-color: transparent;
+        border-right-color: transparent;
+      }
+
+      .bi-rocket-science__layers {
+        position: absolute;
+        inset: 0;
       }
 
       .bi-rocket-science__bg {
@@ -654,11 +698,13 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: opacity 0.18s ease;
+        opacity: 0;
+        transition: none;
+        pointer-events: none;
       }
 
-      .bi-rocket-science__bg.is-fading {
-        opacity: 0.72;
+      .bi-rocket-science__bg.is-active {
+        opacity: 1;
       }
 
       .bi-rocket-science__shade {
@@ -671,6 +717,7 @@
       .bi-rocket-science__word {
         position: absolute;
         inset: 0;
+        z-index: 1;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -688,8 +735,9 @@
       }
 
       .bi-free-assessment {
-        margin: clamp(32px, 5vw, 56px) 0 0;
-        max-width: 52rem;
+        margin: clamp(20px, 3vw, 32px) 0 0;
+        width: 100%;
+        max-width: none;
         padding: clamp(18px, 2.4vw, 26px);
         border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
         background: #ffffff;
@@ -1030,7 +1078,7 @@
 
       @media (max-width: 980px) {
         .bi-compare {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
+          grid-template-columns: 1fr;
         }
 
         .bi-pricing__grid {
@@ -3783,58 +3831,6 @@
         </div>
       </section>
 
-      <section class="bi-section bi-section--tight-top bi-section--process" id="bi-process" aria-labelledby="bi-process-title">
-        <div class="bi-shell">
-          <h2 class="bi-section__title" id="bi-process-title">
-            <span class="de-t" id="bi-process-title-de">Projektablauf in Kurzform</span>
-            <span class="en-t" id="bi-process-title-en">Project process in brief</span>
-          </h2>
-          <div class="bi-rocket-science" id="bi-rocket-science">
-            <div class="bi-rocket-science__intro">
-              <h3 class="bi-rocket-science__title">Interior Rocket Science</h3>
-              <p class="bi-rocket-science__tagline">
-                <span class="de-t">Ist eigentlich keine.</span>
-                <span class="en-t">Actually, it isn't.</span>
-              </p>
-            </div>
-            <div class="bi-rocket-science__stage" id="bi-rocket-science-stage" aria-live="polite">
-              <img
-                class="bi-rocket-science__bg"
-                id="bi-rocket-science-bg"
-                src="../assets/interior-rocketscience/75D71C16-5E6A-401C-B693-EC7EEA750FD7.jpg"
-                alt=""
-                width="1600"
-                height="1000"
-                decoding="async"
-              />
-              <span class="bi-rocket-science__shade" aria-hidden="true"></span>
-              <p class="bi-rocket-science__word">
-                <span class="de-t" id="bi-rocket-science-word-de">Idee</span>
-                <span class="en-t" id="bi-rocket-science-word-en">Idea</span>
-              </p>
-            </div>
-          </div>
-          <section class="bi-free-assessment" aria-labelledby="bi-free-assessment-title">
-            <h3 class="bi-free-assessment__title" id="bi-free-assessment-title">
-              <span class="de-t">Kostenlose Ersteinschätzung</span>
-              <span class="en-t">Free initial assessment</span>
-            </h3>
-            <p class="bi-free-assessment__text">
-              <span class="de-t">Schick mir ein Foto deines Raums und drei Sätze zur Idee. Ich melde mich innerhalb von 24 Stunden mit einer Skizze und einem groben Projektablauf zurück.</span>
-              <span class="en-t">Send me a photo of your room and three sentences about your idea. I will get back to you within 24 hours with a sketch and a rough project outline.</span>
-            </p>
-            <p class="bi-free-assessment__quota">
-              <span class="de-t">Noch 3 von 5 Plätzen diesen Monat frei.</span>
-              <span class="en-t">3 of 5 slots still available this month.</span>
-            </p>
-            <a id="whatsapp-cta" class="bi-free-assessment__button" target="_blank" rel="noopener noreferrer">
-              <span class="de-t">Jetzt Ersteinschätzung anfragen</span>
-              <span class="en-t">Request initial assessment now</span>
-            </a>
-          </section>
-        </div>
-      </section>
-
       <section class="bi-section bi-section--tight-top bi-section--pricing" id="bi-pricing" aria-labelledby="bi-pricing-title">
         <div class="bi-shell">
           <h2 class="bi-section__title" id="bi-pricing-title">
@@ -3887,6 +3883,96 @@
               </ul>
             </article>
           </div>
+        </div>
+      </section>
+
+      <section class="bi-section bi-section--tight-top bi-section--rocket" id="bi-rocket-works" aria-labelledby="bi-rocket-mtv-label">
+        <div class="bi-shell">
+          <p class="bi-rocket-mtv" id="bi-rocket-mtv-label" aria-hidden="true">ROCKET INTERIOR WORKS</p>
+          <div class="bi-rocket-science" id="bi-rocket-science">
+            <div class="bi-rocket-science__stage" id="bi-rocket-science-stage" aria-live="polite">
+              <div class="bi-rocket-science__layers" aria-hidden="true">
+                <img
+                  class="bi-rocket-science__bg is-active"
+                  data-frame="0"
+                  src="../assets/interior-rocketscience/75D71C16-5E6A-401C-B693-EC7EEA750FD7.jpg"
+                  alt=""
+                  width="1600"
+                  height="1000"
+                  decoding="sync"
+                  fetchpriority="high"
+                />
+                <img
+                  class="bi-rocket-science__bg"
+                  data-frame="1"
+                  src="../assets/interior-rocketscience/IMG_0408.JPG"
+                  alt=""
+                  width="1600"
+                  height="1000"
+                  decoding="sync"
+                />
+                <img
+                  class="bi-rocket-science__bg"
+                  data-frame="2"
+                  src="../assets/interior-rocketscience/940ef00a-cda0-4611-958f-ca66bc43bb6e.jpg"
+                  alt=""
+                  width="1600"
+                  height="1000"
+                  decoding="sync"
+                />
+                <img
+                  class="bi-rocket-science__bg"
+                  data-frame="3"
+                  src="../assets/interior-rocketscience/IMG_1058.jpeg"
+                  alt=""
+                  width="1600"
+                  height="1000"
+                  decoding="sync"
+                />
+                <img
+                  class="bi-rocket-science__bg"
+                  data-frame="4"
+                  src="../assets/interior-rocketscience/IMG_2798.jpeg"
+                  alt=""
+                  width="1600"
+                  height="1000"
+                  decoding="sync"
+                />
+              </div>
+              <span class="bi-rocket-science__shade" aria-hidden="true"></span>
+              <p class="bi-rocket-science__word">
+                <span class="de-t" id="bi-rocket-science-word-de">Idee</span>
+                <span class="en-t" id="bi-rocket-science-word-en">Idea</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bi-section bi-section--tight-top bi-section--process" id="bi-process" aria-labelledby="bi-process-title">
+        <div class="bi-shell">
+          <h2 class="bi-section__title" id="bi-process-title">
+            <span class="de-t" id="bi-process-title-de">Projektablauf in Kurzform</span>
+            <span class="en-t" id="bi-process-title-en">Project process in brief</span>
+          </h2>
+          <section class="bi-free-assessment" aria-labelledby="bi-free-assessment-title">
+            <h3 class="bi-free-assessment__title" id="bi-free-assessment-title">
+              <span class="de-t">Kostenlose Ersteinschätzung</span>
+              <span class="en-t">Free initial assessment</span>
+            </h3>
+            <p class="bi-free-assessment__text">
+              <span class="de-t">Schick mir ein Foto deines Raums und drei Sätze zur Idee. Ich melde mich innerhalb von 24 Stunden mit einer Skizze und einem groben Projektablauf zurück.</span>
+              <span class="en-t">Send me a photo of your room and three sentences about your idea. I will get back to you within 24 hours with a sketch and a rough project outline.</span>
+            </p>
+            <p class="bi-free-assessment__quota">
+              <span class="de-t">Noch 3 von 5 Plätzen diesen Monat frei.</span>
+              <span class="en-t">3 of 5 slots still available this month.</span>
+            </p>
+            <a id="whatsapp-cta" class="bi-free-assessment__button" target="_blank" rel="noopener noreferrer">
+              <span class="de-t">Jetzt Ersteinschätzung anfragen</span>
+              <span class="en-t">Request initial assessment now</span>
+            </a>
+          </section>
         </div>
       </section>
 
@@ -7539,17 +7625,15 @@
 
         function showRocketScienceFrame(index) {
           var frame = ROCKET_SCIENCE_FRAMES[index];
-          var bg = document.getElementById("bi-rocket-science-bg");
+          var stage = document.getElementById("bi-rocket-science-stage");
           var wordDe = document.getElementById("bi-rocket-science-word-de");
           var wordEn = document.getElementById("bi-rocket-science-word-en");
-          if (!frame || !bg) return;
-          bg.classList.add("is-fading");
-          window.requestAnimationFrame(function () {
-            bg.src = frame.src;
-            if (wordDe) wordDe.textContent = frame.wordDe;
-            if (wordEn) wordEn.textContent = frame.wordEn;
-            bg.classList.remove("is-fading");
+          if (!frame || !stage) return;
+          stage.querySelectorAll(".bi-rocket-science__bg").forEach(function (img, imgIndex) {
+            img.classList.toggle("is-active", imgIndex === index);
           });
+          if (wordDe) wordDe.textContent = frame.wordDe;
+          if (wordEn) wordEn.textContent = frame.wordEn;
         }
 
         function scheduleRocketScienceStep() {
@@ -7565,13 +7649,42 @@
         function initRocketScienceSequence() {
           if (rocketScienceTimer) window.clearTimeout(rocketScienceTimer);
           rocketScienceIndex = 0;
-          ROCKET_SCIENCE_FRAMES.forEach(function (frame) {
-            var img = new Image();
-            img.src = frame.src;
+          var imgs = document.querySelectorAll(".bi-rocket-science__bg");
+          if (!imgs.length) return;
+
+          var pending = imgs.length;
+          function maybeStart() {
+            pending -= 1;
+            if (pending > 0) return;
+            showRocketScienceFrame(0);
+            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+            scheduleRocketScienceStep();
+          }
+
+          imgs.forEach(function (img) {
+            if (img.complete) maybeStart();
+            else {
+              img.addEventListener("load", maybeStart, { once: true });
+              img.addEventListener("error", maybeStart, { once: true });
+            }
           });
-          showRocketScienceFrame(0);
-          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-          scheduleRocketScienceStep();
+        }
+
+        function initRocketScienceViewport() {
+          var section = document.getElementById("bi-rocket-works");
+          if (!section || !("IntersectionObserver" in window)) return;
+          var observer = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                section.classList.toggle(
+                  "is-in-view",
+                  entry.isIntersecting && entry.intersectionRatio >= 0.35
+                );
+              });
+            },
+            { threshold: [0, 0.35, 0.55, 0.75] }
+          );
+          observer.observe(section);
         }
 
         function initWhatsappAssessmentCta() {
@@ -8024,6 +8137,7 @@
           document.addEventListener("DOMContentLoaded", function () {
             placeHeroSoundControl();
             initRocketScienceSequence();
+            initRocketScienceViewport();
             applyLang();
             updateNavHeroState();
             updateMobileNavTransparency();
@@ -8035,6 +8149,7 @@
         } else {
           placeHeroSoundControl();
           initRocketScienceSequence();
+          initRocketScienceViewport();
           applyLang();
           updateNavHeroState();
           updateMobileNavTransparency();
