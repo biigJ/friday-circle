@@ -612,16 +612,23 @@
         opacity: 0.5;
       }
 
+      .bi-section--rocket {
+        overflow-x: clip;
+        isolation: isolate;
+      }
+
       .bi-rocket-mtv {
         margin: 0 0 clamp(10px, 2vw, 18px);
         font-family: Impact, "Arial Black", "Helvetica Neue", sans-serif;
-        font-size: clamp(2.6rem, 13.5vw, 8.25rem);
+        font-size: clamp(2rem, 10.5vw, 6.75rem);
         font-weight: 900;
         font-style: italic;
-        line-height: 0.86;
-        letter-spacing: -0.035em;
+        line-height: 0.9;
+        letter-spacing: -0.03em;
         text-transform: uppercase;
         text-align: center;
+        contain: paint;
+        transform: translateZ(0);
         animation: bi-rocket-mtv-flash 0.14s steps(1) infinite;
       }
 
@@ -657,9 +664,20 @@
       }
 
       .bi-rocket-science {
+        position: relative;
         width: 100%;
         max-width: none;
         margin: 0;
+      }
+
+      .bi-rocket-science__sentinel {
+        position: absolute;
+        top: clamp(120px, 22vw, 230px);
+        left: 0;
+        width: 1px;
+        height: 1px;
+        pointer-events: none;
+        visibility: hidden;
       }
 
       .bi-rocket-science__stage {
@@ -670,11 +688,7 @@
         border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
         overflow: hidden;
         background: #0a0a0a;
-        transition:
-          width 0.45s ease,
-          min-height 0.45s ease,
-          margin 0.45s ease,
-          border-color 0.45s ease;
+        contain: layout paint;
       }
 
       .bi-section--rocket.is-in-view .bi-rocket-science__stage {
@@ -687,24 +701,14 @@
         border-right-color: transparent;
       }
 
-      .bi-rocket-science__layers {
-        position: absolute;
-        inset: 0;
-      }
-
       .bi-rocket-science__bg {
         position: absolute;
         inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0;
-        transition: none;
+        background-color: #0a0a0a;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         pointer-events: none;
-      }
-
-      .bi-rocket-science__bg.is-active {
-        opacity: 1;
       }
 
       .bi-rocket-science__shade {
@@ -3888,59 +3892,18 @@
 
       <section class="bi-section bi-section--tight-top bi-section--rocket" id="bi-rocket-works" aria-labelledby="bi-rocket-mtv-label">
         <div class="bi-shell">
-          <p class="bi-rocket-mtv" id="bi-rocket-mtv-label" aria-hidden="true">ROCKET INTERIOR WORKS</p>
+          <p class="bi-rocket-mtv" id="bi-rocket-mtv-label" aria-hidden="true">BIIG ROCKET INTERIOR WORKS</p>
           <div class="bi-rocket-science" id="bi-rocket-science">
-            <div class="bi-rocket-science__stage" id="bi-rocket-science-stage" aria-live="polite">
-              <div class="bi-rocket-science__layers" aria-hidden="true">
-                <img
-                  class="bi-rocket-science__bg is-active"
-                  data-frame="0"
-                  src="../assets/interior-rocketscience/75D71C16-5E6A-401C-B693-EC7EEA750FD7.jpg"
-                  alt=""
-                  width="1600"
-                  height="1000"
-                  decoding="sync"
-                  fetchpriority="high"
-                />
-                <img
-                  class="bi-rocket-science__bg"
-                  data-frame="1"
-                  src="../assets/interior-rocketscience/IMG_0408.JPG"
-                  alt=""
-                  width="1600"
-                  height="1000"
-                  decoding="sync"
-                />
-                <img
-                  class="bi-rocket-science__bg"
-                  data-frame="2"
-                  src="../assets/interior-rocketscience/940ef00a-cda0-4611-958f-ca66bc43bb6e.jpg"
-                  alt=""
-                  width="1600"
-                  height="1000"
-                  decoding="sync"
-                />
-                <img
-                  class="bi-rocket-science__bg"
-                  data-frame="3"
-                  src="../assets/interior-rocketscience/IMG_1058.jpeg"
-                  alt=""
-                  width="1600"
-                  height="1000"
-                  decoding="sync"
-                />
-                <img
-                  class="bi-rocket-science__bg"
-                  data-frame="4"
-                  src="../assets/interior-rocketscience/IMG_2798.jpeg"
-                  alt=""
-                  width="1600"
-                  height="1000"
-                  decoding="sync"
-                />
-              </div>
+            <div class="bi-rocket-science__sentinel" id="bi-rocket-science-sentinel" aria-hidden="true"></div>
+            <div class="bi-rocket-science__stage" id="bi-rocket-science-stage" aria-live="off">
+              <div
+                class="bi-rocket-science__bg"
+                id="bi-rocket-science-bg"
+                aria-hidden="true"
+                style="background-image: url('../assets/interior-rocketscience/75D71C16-5E6A-401C-B693-EC7EEA750FD7.jpg')"
+              ></div>
               <span class="bi-rocket-science__shade" aria-hidden="true"></span>
-              <p class="bi-rocket-science__word">
+              <p class="bi-rocket-science__word" aria-hidden="true">
                 <span class="de-t" id="bi-rocket-science-word-de">Idee</span>
                 <span class="en-t" id="bi-rocket-science-word-en">Idea</span>
               </p>
@@ -7622,69 +7585,101 @@
         ];
         var rocketScienceTimer = null;
         var rocketScienceIndex = 0;
+        var rocketScienceStarted = false;
+        var rocketScienceExpanded = false;
+        var rocketScienceViewportTick = false;
 
         function showRocketScienceFrame(index) {
           var frame = ROCKET_SCIENCE_FRAMES[index];
-          var stage = document.getElementById("bi-rocket-science-stage");
+          var bg = document.getElementById("bi-rocket-science-bg");
           var wordDe = document.getElementById("bi-rocket-science-word-de");
           var wordEn = document.getElementById("bi-rocket-science-word-en");
-          if (!frame || !stage) return;
-          stage.querySelectorAll(".bi-rocket-science__bg").forEach(function (img, imgIndex) {
-            img.classList.toggle("is-active", imgIndex === index);
-          });
+          if (!frame || !bg) return;
+          bg.style.backgroundImage = 'url("' + frame.src + '")';
           if (wordDe) wordDe.textContent = frame.wordDe;
           if (wordEn) wordEn.textContent = frame.wordEn;
         }
 
-        function scheduleRocketScienceStep() {
+        function tickRocketScienceSequence() {
           var frame = ROCKET_SCIENCE_FRAMES[rocketScienceIndex];
           if (!frame) return;
           rocketScienceTimer = window.setTimeout(function () {
             rocketScienceIndex = (rocketScienceIndex + 1) % ROCKET_SCIENCE_FRAMES.length;
             showRocketScienceFrame(rocketScienceIndex);
-            scheduleRocketScienceStep();
+            tickRocketScienceSequence();
           }, frame.ms);
+        }
+
+        function preloadRocketScienceImages() {
+          return Promise.all(
+            ROCKET_SCIENCE_FRAMES.map(function (frame) {
+              return new Promise(function (resolve) {
+                var img = new Image();
+                img.onload = resolve;
+                img.onerror = resolve;
+                img.src = frame.src;
+              });
+            })
+          );
+        }
+
+        function startRocketScienceSequence() {
+          if (rocketScienceStarted) return;
+          rocketScienceStarted = true;
+          rocketScienceIndex = 0;
+          showRocketScienceFrame(0);
+          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+          tickRocketScienceSequence();
         }
 
         function initRocketScienceSequence() {
           if (rocketScienceTimer) window.clearTimeout(rocketScienceTimer);
-          rocketScienceIndex = 0;
-          var imgs = document.querySelectorAll(".bi-rocket-science__bg");
-          if (!imgs.length) return;
+          rocketScienceStarted = false;
+          preloadRocketScienceImages().then(startRocketScienceSequence);
+        }
 
-          var pending = imgs.length;
-          function maybeStart() {
-            pending -= 1;
-            if (pending > 0) return;
-            showRocketScienceFrame(0);
-            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-            scheduleRocketScienceStep();
+        function updateRocketScienceViewport() {
+          rocketScienceViewportTick = false;
+          var section = document.getElementById("bi-rocket-works");
+          var sentinel = document.getElementById("bi-rocket-science-sentinel");
+          if (!section || !sentinel) return;
+
+          var rect = sentinel.getBoundingClientRect();
+          if (rect.bottom <= 0 || rect.top >= window.innerHeight) {
+            if (rocketScienceExpanded) {
+              rocketScienceExpanded = false;
+              section.classList.remove("is-in-view");
+            }
+            return;
           }
 
-          imgs.forEach(function (img) {
-            if (img.complete) maybeStart();
-            else {
-              img.addEventListener("load", maybeStart, { once: true });
-              img.addEventListener("error", maybeStart, { once: true });
-            }
-          });
+          var anchorY = rect.top + rect.height * 0.5;
+          var viewportCenterY = window.innerHeight * 0.5;
+          var centerOffset = Math.abs(anchorY - viewportCenterY);
+          var enterThreshold = window.innerHeight * 0.1;
+          var leaveThreshold = window.innerHeight * 0.22;
+
+          if (!rocketScienceExpanded && centerOffset < enterThreshold) {
+            rocketScienceExpanded = true;
+          } else if (rocketScienceExpanded && centerOffset > leaveThreshold) {
+            rocketScienceExpanded = false;
+          }
+
+          section.classList.toggle("is-in-view", rocketScienceExpanded);
+        }
+
+        function queueRocketScienceViewportUpdate() {
+          if (rocketScienceViewportTick) return;
+          rocketScienceViewportTick = true;
+          window.requestAnimationFrame(updateRocketScienceViewport);
         }
 
         function initRocketScienceViewport() {
           var section = document.getElementById("bi-rocket-works");
-          if (!section || !("IntersectionObserver" in window)) return;
-          var observer = new IntersectionObserver(
-            function (entries) {
-              entries.forEach(function (entry) {
-                section.classList.toggle(
-                  "is-in-view",
-                  entry.isIntersecting && entry.intersectionRatio >= 0.35
-                );
-              });
-            },
-            { threshold: [0, 0.35, 0.55, 0.75] }
-          );
-          observer.observe(section);
+          if (!section) return;
+          updateRocketScienceViewport();
+          window.addEventListener("scroll", queueRocketScienceViewportUpdate, { passive: true });
+          window.addEventListener("resize", queueRocketScienceViewportUpdate);
         }
 
         function initWhatsappAssessmentCta() {
