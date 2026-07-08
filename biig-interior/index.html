@@ -612,96 +612,83 @@
         opacity: 0.5;
       }
 
-      .bi-process__grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: clamp(12px, 2vw, 18px);
-      }
-
-      .bi-process__item {
-        padding: clamp(16px, 2.2vw, 22px);
-        border: 1px solid color-mix(in srgb, var(--text) 10%, transparent);
-        background: #ffffff;
-      }
-
-      .bi-process__item h3 {
-        margin: 0 0 8px;
-        font-family: var(--font-sans);
-        font-size: clamp(0.9rem, 1.15vw, 1rem);
-        font-weight: 600;
-        line-height: 1.3;
-      }
-
-      .bi-process__item p {
-        margin: 0;
-        font-family: var(--font-sans);
-        font-size: clamp(0.8rem, 1vw, 0.88rem);
-        font-weight: 300;
-        line-height: 1.5;
-        color: color-mix(in srgb, var(--text) 76%, #ffffff);
-      }
-
-      .bi-rocket-sequence {
-        margin: 0 0 clamp(20px, 3vw, 32px);
+      .bi-rocket-science {
         max-width: 52rem;
+        margin: 0 0 clamp(28px, 4vw, 44px);
       }
 
-      .bi-rocket-sequence__list {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: grid;
-        gap: clamp(10px, 1.5vw, 14px);
+      .bi-rocket-science__intro {
+        margin: 0 0 clamp(12px, 2vw, 18px);
       }
 
-      .bi-rocket-sequence__step {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        gap: clamp(12px, 2vw, 18px);
-        align-items: start;
-        padding: clamp(16px, 2.2vw, 22px);
-        border: 1px solid color-mix(in srgb, var(--text) 10%, transparent);
-        background: #ffffff;
-      }
-
-      .bi-rocket-sequence__step.is-launch {
-        border-color: color-mix(in srgb, var(--text) 22%, transparent);
-      }
-
-      .bi-rocket-sequence__tick {
+      .bi-rocket-science__title {
+        margin: 0 0 4px;
         font-family: var(--font-sans);
-        font-size: clamp(0.68rem, 0.95vw, 0.78rem);
+        font-size: clamp(1.05rem, 1.45vw, 1.28rem);
         font-weight: 600;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: color-mix(in srgb, var(--text) 50%, #ffffff);
-        min-width: 2.8ch;
-        padding-top: 0.15em;
-      }
-
-      .bi-rocket-sequence__step.is-launch .bi-rocket-sequence__tick {
+        line-height: 1.25;
         color: var(--text);
       }
 
-      .bi-rocket-sequence__title {
-        margin: 0 0 6px;
-        font-family: var(--font-sans);
-        font-size: clamp(0.9rem, 1.15vw, 1rem);
-        font-weight: 600;
-        line-height: 1.3;
-      }
-
-      .bi-rocket-sequence__text {
+      .bi-rocket-science__tagline {
         margin: 0;
         font-family: var(--font-sans);
-        font-size: clamp(0.8rem, 1vw, 0.88rem);
+        font-size: clamp(0.78rem, 1vw, 0.88rem);
         font-weight: 300;
-        line-height: 1.5;
-        color: color-mix(in srgb, var(--text) 76%, #ffffff);
+        line-height: 1.45;
+        color: color-mix(in srgb, var(--text) 55%, #ffffff);
+      }
+
+      .bi-rocket-science__stage {
+        position: relative;
+        aspect-ratio: 16 / 10;
+        min-height: clamp(220px, 42vw, 420px);
+        border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+        overflow: hidden;
+        background: #0a0a0a;
+      }
+
+      .bi-rocket-science__bg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: opacity 0.18s ease;
+      }
+
+      .bi-rocket-science__bg.is-fading {
+        opacity: 0.72;
+      }
+
+      .bi-rocket-science__shade {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.38);
+        pointer-events: none;
+      }
+
+      .bi-rocket-science__word {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: clamp(16px, 3vw, 28px);
+        font-family: var(--font-sans);
+        font-weight: 700;
+        font-size: clamp(2rem, min(8vw, 10cqw), 4.25rem);
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        color: #ffffff;
+        text-align: center;
+        text-shadow: 0 2px 24px rgba(0, 0, 0, 0.55);
+        pointer-events: none;
       }
 
       .bi-free-assessment {
-        margin: 0 0 clamp(24px, 3.5vw, 40px);
+        margin: clamp(32px, 5vw, 56px) 0 0;
         max-width: 52rem;
         padding: clamp(18px, 2.4vw, 26px);
         border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
@@ -760,18 +747,6 @@
         color: var(--text);
         outline: none;
         transform: translateY(-1px);
-      }
-
-      .bi-section--process .bi-process__grid {
-        display: none;
-      }
-
-      .bi-section--process.is-service-process-active .bi-process__grid {
-        display: grid;
-      }
-
-      .bi-section--process.is-service-process-active .bi-rocket-sequence {
-        margin-bottom: clamp(16px, 2.5vw, 24px);
       }
 
       .bi-pricing__grid {
@@ -1054,9 +1029,8 @@
       }
 
       @media (max-width: 980px) {
-        .bi-compare,
-        .bi-process__grid {
-          grid-template-columns: 1fr;
+        .bi-compare {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
         .bi-pricing__grid {
@@ -3815,8 +3789,30 @@
             <span class="de-t" id="bi-process-title-de">Projektablauf in Kurzform</span>
             <span class="en-t" id="bi-process-title-en">Project process in brief</span>
           </h2>
-          <div class="bi-rocket-sequence" id="bi-rocket-sequence" aria-label="Projektablauf">
-            <ol class="bi-rocket-sequence__list" id="bi-rocket-sequence-list"></ol>
+          <div class="bi-rocket-science" id="bi-rocket-science">
+            <div class="bi-rocket-science__intro">
+              <h3 class="bi-rocket-science__title">Interior Rocket Science</h3>
+              <p class="bi-rocket-science__tagline">
+                <span class="de-t">Ist eigentlich keine.</span>
+                <span class="en-t">Actually, it isn't.</span>
+              </p>
+            </div>
+            <div class="bi-rocket-science__stage" id="bi-rocket-science-stage" aria-live="polite">
+              <img
+                class="bi-rocket-science__bg"
+                id="bi-rocket-science-bg"
+                src="../assets/interior-rocketscience/75D71C16-5E6A-401C-B693-EC7EEA750FD7.jpg"
+                alt=""
+                width="1600"
+                height="1000"
+                decoding="async"
+              />
+              <span class="bi-rocket-science__shade" aria-hidden="true"></span>
+              <p class="bi-rocket-science__word">
+                <span class="de-t" id="bi-rocket-science-word-de">Idee</span>
+                <span class="en-t" id="bi-rocket-science-word-en">Idea</span>
+              </p>
+            </div>
           </div>
           <section class="bi-free-assessment" aria-labelledby="bi-free-assessment-title">
             <h3 class="bi-free-assessment__title" id="bi-free-assessment-title">
@@ -3836,7 +3832,6 @@
               <span class="en-t">Request initial assessment now</span>
             </a>
           </section>
-          <div class="bi-process__grid" id="bi-process-grid"></div>
         </div>
       </section>
 
@@ -7507,51 +7502,76 @@
           });
         }
 
-        function getRocketTick(index, total) {
-          if (index === total - 1) return "GO";
-          return "T-" + (total - index - 1);
+        var ROCKET_SCIENCE_FRAMES = [
+          {
+            wordDe: "Idee",
+            wordEn: "Idea",
+            src: "../assets/interior-rocketscience/75D71C16-5E6A-401C-B693-EC7EEA750FD7.jpg",
+            ms: 700,
+          },
+          {
+            wordDe: "Maße",
+            wordEn: "Dimensions",
+            src: "../assets/interior-rocketscience/IMG_0408.JPG",
+            ms: 700,
+          },
+          {
+            wordDe: "Zeichnung",
+            wordEn: "Drawing",
+            src: "../assets/interior-rocketscience/940ef00a-cda0-4611-958f-ca66bc43bb6e.jpg",
+            ms: 700,
+          },
+          {
+            wordDe: "Handwerker",
+            wordEn: "Trades",
+            src: "../assets/interior-rocketscience/IMG_1058.jpeg",
+            ms: 700,
+          },
+          {
+            wordDe: "Einzug",
+            wordEn: "Move-in",
+            src: "../assets/interior-rocketscience/IMG_2798.jpeg",
+            ms: 1750,
+          },
+        ];
+        var rocketScienceTimer = null;
+        var rocketScienceIndex = 0;
+
+        function showRocketScienceFrame(index) {
+          var frame = ROCKET_SCIENCE_FRAMES[index];
+          var bg = document.getElementById("bi-rocket-science-bg");
+          var wordDe = document.getElementById("bi-rocket-science-word-de");
+          var wordEn = document.getElementById("bi-rocket-science-word-en");
+          if (!frame || !bg) return;
+          bg.classList.add("is-fading");
+          window.requestAnimationFrame(function () {
+            bg.src = frame.src;
+            if (wordDe) wordDe.textContent = frame.wordDe;
+            if (wordEn) wordEn.textContent = frame.wordEn;
+            bg.classList.remove("is-fading");
+          });
         }
 
-        function renderRocketSequence(steps) {
-          var list = document.getElementById("bi-rocket-sequence-list");
-          if (!list || !steps || !steps.length) return;
-          list.innerHTML = "";
-          steps.forEach(function (step, index) {
-            var item = document.createElement("li");
-            item.className =
-              "bi-rocket-sequence__step" + (index === steps.length - 1 ? " is-launch" : "");
-            var tick = document.createElement("span");
-            tick.className = "bi-rocket-sequence__tick";
-            tick.textContent = getRocketTick(index, steps.length);
-            tick.setAttribute("aria-hidden", "true");
-            var body = document.createElement("div");
-            body.className = "bi-rocket-sequence__body";
-            var title = document.createElement("h3");
-            title.className = "bi-rocket-sequence__title";
-            var titleDe = document.createElement("span");
-            titleDe.className = "de-t";
-            titleDe.textContent = step.titleDe;
-            var titleEn = document.createElement("span");
-            titleEn.className = "en-t";
-            titleEn.textContent = step.titleEn || step.titleDe;
-            title.appendChild(titleDe);
-            title.appendChild(titleEn);
-            var text = document.createElement("p");
-            text.className = "bi-rocket-sequence__text";
-            var bodyDe = document.createElement("span");
-            bodyDe.className = "de-t";
-            bodyDe.textContent = step.bodyDe;
-            var bodyEn = document.createElement("span");
-            bodyEn.className = "en-t";
-            bodyEn.textContent = step.bodyEn || step.bodyDe;
-            text.appendChild(bodyDe);
-            text.appendChild(bodyEn);
-            body.appendChild(title);
-            body.appendChild(text);
-            item.appendChild(tick);
-            item.appendChild(body);
-            list.appendChild(item);
+        function scheduleRocketScienceStep() {
+          var frame = ROCKET_SCIENCE_FRAMES[rocketScienceIndex];
+          if (!frame) return;
+          rocketScienceTimer = window.setTimeout(function () {
+            rocketScienceIndex = (rocketScienceIndex + 1) % ROCKET_SCIENCE_FRAMES.length;
+            showRocketScienceFrame(rocketScienceIndex);
+            scheduleRocketScienceStep();
+          }, frame.ms);
+        }
+
+        function initRocketScienceSequence() {
+          if (rocketScienceTimer) window.clearTimeout(rocketScienceTimer);
+          rocketScienceIndex = 0;
+          ROCKET_SCIENCE_FRAMES.forEach(function (frame) {
+            var img = new Image();
+            img.src = frame.src;
           });
+          showRocketScienceFrame(0);
+          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+          scheduleRocketScienceStep();
         }
 
         function initWhatsappAssessmentCta() {
@@ -7576,64 +7596,8 @@
         }
 
         function renderProcessSteps(serviceKey) {
-          var grid = document.getElementById("bi-process-grid");
           var processSection = document.getElementById("bi-process");
-          var titleDe = document.getElementById("bi-process-title-de");
-          var titleEn = document.getElementById("bi-process-title-en");
-          if (!grid) return;
-
-          if (processSection) {
-            processSection.hidden = false;
-            processSection.classList.toggle("is-service-process-active", !!serviceKey);
-          }
-
-          var filter = serviceKey ? SERVICE_FILTERS[serviceKey] : null;
-          var processData =
-            serviceKey && PROCESS_STEPS[serviceKey] && PROCESS_STEPS[serviceKey].steps
-              ? PROCESS_STEPS[serviceKey]
-              : PROCESS_STEPS.default;
-          var steps = processData.steps || PROCESS_STEPS.default.steps;
-
-          if (titleDe && titleEn) {
-            if (filter && filter.processTitleDe) {
-              titleDe.textContent = filter.processTitleDe;
-              titleEn.textContent = filter.processTitleEn || filter.processTitleDe;
-            } else if (processData.titleDe) {
-              titleDe.textContent = processData.titleDe;
-              titleEn.textContent = processData.titleEn || processData.titleDe;
-            } else {
-              titleDe.textContent = PROCESS_STEPS.default.titleDe;
-              titleEn.textContent = PROCESS_STEPS.default.titleEn;
-            }
-          }
-
-          grid.innerHTML = "";
-          steps.forEach(function (step) {
-            var article = document.createElement("article");
-            article.className = "bi-process__item";
-            var h3 = document.createElement("h3");
-            var titleDeSpan = document.createElement("span");
-            titleDeSpan.className = "de-t";
-            titleDeSpan.textContent = step.titleDe;
-            var titleEnSpan = document.createElement("span");
-            titleEnSpan.className = "en-t";
-            titleEnSpan.textContent = step.titleEn || step.titleDe;
-            h3.appendChild(titleDeSpan);
-            h3.appendChild(titleEnSpan);
-            var p = document.createElement("p");
-            var bodyDeSpan = document.createElement("span");
-            bodyDeSpan.className = "de-t";
-            bodyDeSpan.textContent = step.bodyDe;
-            var bodyEnSpan = document.createElement("span");
-            bodyEnSpan.className = "en-t";
-            bodyEnSpan.textContent = step.bodyEn || step.bodyDe;
-            p.appendChild(bodyDeSpan);
-            p.appendChild(bodyEnSpan);
-            article.appendChild(h3);
-            article.appendChild(p);
-            grid.appendChild(article);
-          });
-          renderRocketSequence(steps);
+          if (processSection) processSection.hidden = false;
         }
 
         function applyPricingFilter(serviceKey) {
@@ -8059,6 +8023,7 @@
         if (document.readyState === "loading") {
           document.addEventListener("DOMContentLoaded", function () {
             placeHeroSoundControl();
+            initRocketScienceSequence();
             applyLang();
             updateNavHeroState();
             updateMobileNavTransparency();
@@ -8069,6 +8034,7 @@
           });
         } else {
           placeHeroSoundControl();
+          initRocketScienceSequence();
           applyLang();
           updateNavHeroState();
           updateMobileNavTransparency();

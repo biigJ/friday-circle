@@ -21,7 +21,7 @@ fi
 
 rm -rf "$BIIG_OUT"
 mkdir -p "$BIIG_OUT/biig-interior" "$BIIG_OUT/assets/interior" "$BIIG_OUT/assets/hochbau" \
-  "$BIIG_OUT/assets/audio" "$BIIG_OUT/assets/biigJ" "$BIIG_OUT/assets/wolfgang-grope" "$BIIG_OUT/data" "$BIIG_OUT/kaufen"
+  "$BIIG_OUT/assets/interior-rocketscience" "$BIIG_OUT/assets/audio" "$BIIG_OUT/assets/biigJ" "$BIIG_OUT/assets/wolfgang-grope" "$BIIG_OUT/data" "$BIIG_OUT/kaufen"
 for BIIG_PAGE in joscha kunst impressum datenschutz kontakt; do
   mkdir -p "$BIIG_OUT/$BIIG_PAGE"
 done
@@ -73,6 +73,7 @@ done
 
 cp -a "$ROOT/assets/interior/." "$BIIG_OUT/assets/interior/"
 cp -a "$ROOT/assets/hochbau/." "$BIIG_OUT/assets/hochbau/"
+cp -a "$ROOT/assets/interior-rocketscience/." "$BIIG_OUT/assets/interior-rocketscience/"
 cp -a "$ROOT/assets/biigJ/." "$BIIG_OUT/assets/biigJ/"
 cp -a "$ROOT/assets/wolfgang-grope/." "$BIIG_OUT/assets/wolfgang-grope/"
 cp "$ROOT/assets/audio/dramatic-motion-watermarked.mp3" "$BIIG_OUT/assets/audio/"
