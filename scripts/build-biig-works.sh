@@ -39,6 +39,7 @@ cp "$ROOT/biig-interior/biig-shared.css" "$BIIG_OUT/biig-interior/"
 cp "$ROOT/styles.css" "$BIIG_OUT/"
 cp "$ROOT/fc-swipe-slider.js" "$BIIG_OUT/"
 cp "$ROOT/fc-lang.js" "$BIIG_OUT/"
+cp "$ROOT/fc-i18n.js" "$BIIG_OUT/"
 cp "$ROOT/fc-image-url.js" "$BIIG_OUT/"
 cp "$ROOT/wolfganggrope.css" "$BIIG_OUT/"
 cp "$ROOT/wolfganggrope.js" "$BIIG_OUT/"
@@ -59,6 +60,7 @@ for BIIG_PAGE in joscha kunst impressum datenschutz kontakt; do
     -e 's|href="/biig-interior/biig-shared.css"|href="../biig-interior/biig-shared.css"|g' \
     -e 's|src="/fc-image-url.js"|src="../fc-image-url.js"|g' \
     -e 's|src="/fc-lang.js"|src="../fc-lang.js"|g' \
+    -e 's|src="/fc-i18n.js"|src="../fc-i18n.js"|g' \
     -e 's|src="/fc-swipe-slider.js"|src="../fc-swipe-slider.js"|g' \
     -e 's|src="/data/|src="../data/|g' \
     -e 's|src="/wolfganggrope.js"|src="../wolfganggrope.js"|g' \

@@ -40,6 +40,10 @@
   outline: none;
 }
 
+.biig-subpage .biig-subnav__lang {
+  flex-shrink: 0;
+}
+
 .footer .footer__logo.bi-brand-logo {
   color: var(--bg);
   font-family: var(--font-sans);
