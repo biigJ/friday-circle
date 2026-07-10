@@ -61,6 +61,11 @@ for BIIG_PAGE in joscha kunst impressum datenschutz kontakt; do
     -e 's|src="/fc-image-url.js"|src="../fc-image-url.js"|g' \
     -e 's|src="/fc-lang.js"|src="../fc-lang.js"|g' \
     -e 's|src="/fc-i18n.js"|src="../fc-i18n.js"|g' \
+    -e 's|href="../index.html"|href="/"|g' \
+    -e 's|href="../impressum/index.html"|href="/impressum/"|g' \
+    -e 's|href="../datenschutz/index.html"|href="/datenschutz/"|g' \
+    -e 's|href="../kontakt/index.html"|href="/kontakt/"|g' \
+    -e 's|href="../joscha/index.html"|href="/joscha/"|g' \
     -e 's|src="/fc-swipe-slider.js"|src="../fc-swipe-slider.js"|g' \
     -e 's|src="/data/|src="../data/|g' \
     -e 's|src="/wolfganggrope.js"|src="../wolfganggrope.js"|g' \

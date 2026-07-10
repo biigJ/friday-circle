@@ -44,6 +44,22 @@
   flex-shrink: 0;
 }
 
+/* Keep footer links clickable when main content overflows (e.g. Joscha wide figures). */
+.biig-subpage .footer,
+.biig-subpage #bi-site-footer {
+  position: relative;
+  z-index: 30;
+}
+
+.biig-subpage .footer__links a {
+  position: relative;
+  z-index: 1;
+}
+
+.triff-joscha-page .tj-main {
+  overflow-x: clip;
+}
+
 .footer .footer__logo.bi-brand-logo {
   color: var(--bg);
   font-family: var(--font-sans);
