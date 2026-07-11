@@ -1379,18 +1379,6 @@
         display: none !important;
       }
 
-      .bi-tile--hochbau-umbauten {
-        display: none !important;
-      }
-
-      .bi-portfolio.bi-portfolio--service-filter[data-bi-active-service="bi-pricing-hochbau"] .bi-tile--hochbau-umbauten.bi-tile--service-visible {
-        display: block;
-      }
-
-      .bi-portfolio.bi-portfolio--service-filter[data-bi-active-service="bi-pricing-hochbau"] .bi-tile--portfolio-umbauten {
-        display: none !important;
-      }
-
       .bi-portfolio.bi-portfolio--service-filter .bi-portfolio__lede {
         display: none;
       }
@@ -3716,7 +3704,7 @@
                 <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
               </span>
             </button>
-            <button type="button" class="bi-tile bi-tile--project bi-tile--portfolio-umbauten" data-bi-project="umbauten">
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="umbauten">
               <span class="bi-tile__media">
                 <img src="../assets/interior-rocketscience/Konstruktionszeichnung/Elbchaussee/elbchaussee-VIS-wohnung-800.webp" data-fc-fallback="../assets/interior-rocketscience/Konstruktionszeichnung/Elbchaussee/elbchaussee-VIS-wohnung.jpg" alt="" width="800" height="1067" loading="lazy" decoding="async" />
               </span>
@@ -5702,7 +5690,7 @@
         };
 
         var HOCHBAU_IDS = ["panketal", "klinker", "rothestr", "graefe", "destijl", "schleswig", "wedel", "neubauhausstrasse"];
-        var HOCHBAU_TILE_IDS = ["panketal", "klinker", "umbauten", "rothestr", "graefe", "destijl", "schleswig", "wedel", "neubauhausstrasse"];
+        var HOCHBAU_TRAILING_TILES = ["umbauten", "bueroraeume", "vinothekGeo"];
 
         var SERVICE_FILTERS = {
           "bi-pricing-ordnung": {
@@ -5747,7 +5735,7 @@
           },
           "bi-pricing-hochbau": {
             hochbau: true,
-            tiles: ["bueroraeume", "vinothekGeo"],
+            tiles: ["umbauten", "bueroraeume", "vinothekGeo"],
             processTitleDe: "Gebäudeplanung: Ablauf",
             processTitleEn: "Building planning: process",
           },
@@ -6534,6 +6522,61 @@
           return portfolio.querySelector(
             '.bi-tile--project[data-bi-project="' + projectId + '"]:not(.bi-tile--hochbau-item)'
           );
+        }
+
+        var hochbauTrailingHome = {};
+
+        function rememberTrailingTileHome(tile) {
+          var id = tile.getAttribute("data-bi-project");
+          if (!id || hochbauTrailingHome[id]) return;
+          hochbauTrailingHome[id] = {
+            parent: tile.parentNode,
+            next: tile.nextSibling,
+          };
+        }
+
+        function restoreHochbauTrailingTiles() {
+          HOCHBAU_TRAILING_TILES.forEach(function (projectId) {
+            var tile = findPortfolioTile(projectId);
+            var home = hochbauTrailingHome[projectId];
+            if (!tile || !home || !home.parent) return;
+            if (home.next && home.next.parentNode === home.parent) {
+              home.parent.insertBefore(tile, home.next);
+            } else {
+              home.parent.appendChild(tile);
+            }
+          });
+        }
+
+        function ensureHochbauTrailingRow() {
+          var grid = document.querySelector("#bi-portfolio .bi-grid");
+          var hochbauRow = document.getElementById("bi-hochbau-tiles-row");
+          if (!grid || !hochbauRow) return null;
+          var slot = document.getElementById("bi-hochbau-trailing-row");
+          if (!slot) {
+            slot = document.createElement("div");
+            slot.id = "bi-hochbau-trailing-row";
+            slot.className = "bi-image-row bi-hochbau-trailing-row";
+            var scroll = document.createElement("div");
+            scroll.className = "bi-image-row__scroll";
+            scroll.id = "bi-hochbau-trailing-inner";
+            slot.appendChild(scroll);
+          }
+          if (hochbauRow.nextSibling !== slot) {
+            grid.insertBefore(slot, hochbauRow.nextSibling);
+          }
+          return document.getElementById("bi-hochbau-trailing-inner");
+        }
+
+        function placeHochbauTrailingTiles() {
+          var inner = ensureHochbauTrailingRow();
+          if (!inner) return;
+          HOCHBAU_TRAILING_TILES.forEach(function (projectId) {
+            var tile = findPortfolioTile(projectId);
+            if (!tile) return;
+            rememberTrailingTileHome(tile);
+            inner.appendChild(tile);
+          });
         }
 
         function buildProjectLightboxImageItems(projectId, startImageIndex, labels, serviceKey) {
@@ -7537,13 +7580,11 @@
           var container = document.getElementById("bi-hochbau-tiles-inner");
           if (!container) return;
           container.innerHTML = "";
-          HOCHBAU_TILE_IDS.forEach(function (id, i) {
+          HOCHBAU_IDS.forEach(function (id, i) {
             var project = PROJECTS[id];
             if (!project) return;
             var tile = document.createElement("div");
-            tile.className =
-              "bi-tile bi-tile--project bi-tile--hochbau-item" +
-              (id === "umbauten" ? " bi-tile--hochbau-umbauten" : "");
+            tile.className = "bi-tile bi-tile--project bi-tile--hochbau-item";
             tile.setAttribute("data-bi-project", id);
             tile.setAttribute("role", "button");
             tile.setAttribute("tabindex", "0");
@@ -7554,11 +7595,7 @@
             img.alt = pick(project, "title");
             img.decoding = "async";
             img.loading = i < 4 ? "eager" : "lazy";
-            var focusIndex = HOCHBAU_IDS.indexOf(id);
-            img.style.objectPosition =
-              (focusIndex >= 0 ? HOCHBAU_THUMB_FOCUS[focusIndex] : null) ||
-              project.cropPosition ||
-              "center center";
+            img.style.objectPosition = HOCHBAU_THUMB_FOCUS[i] || project.cropPosition || "center center";
             media.appendChild(img);
             tile.appendChild(media);
             var label = document.createElement("span");
@@ -7889,6 +7926,12 @@
 
           updateServiceProjectTileImages(serviceKey);
           initHochbauIndividualTiles();
+
+          if (filter.hochbau) {
+            placeHochbauTrailingTiles();
+          } else {
+            restoreHochbauTrailingTiles();
+          }
 
           if (filter.hochbau) {
             portfolio.classList.add("bi-portfolio--hochbau-expanded");
