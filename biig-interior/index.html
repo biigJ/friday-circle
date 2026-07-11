@@ -5356,6 +5356,8 @@
               "Sanierung, Hamburg-Blankenese 2015",
               "Sanierung, Hamburg-Blankenese 2015",
               "Sanierung, Hamburg-Blankenese 2015",
+              "Elbchaussee, Visualisierung Wohnung",
+              "Elbchaussee, Konstruktionszeichnung",
             ],
             imageLabelsEn: [
               "Renovation, Hamburg-Blankenese 2015",
@@ -5363,6 +5365,8 @@
               "Renovation, Hamburg-Blankenese 2015",
               "Renovation, Hamburg-Blankenese 2015",
               "Renovation, Hamburg-Blankenese 2015",
+              "Elbchaussee, apartment visual",
+              "Elbchaussee, construction drawing",
             ],
             images: [
               "../assets/interior/rene-möbliert-01.png",
@@ -5370,6 +5374,8 @@
               "../assets/interior/rene-querblick.png",
               "../assets/interior/hagen.jpg?v=2",
               "../assets/interior/rene-pantry.png",
+              "../assets/interior-rocketscience/Konstruktionszeichnung/Elbchaussee/elbchaussee-VIS-wohnung.jpg",
+              "../assets/interior-rocketscience/Konstruktionszeichnung/Elbchaussee/IMG_2503.JPG",
             ],
           },
           rothestr: {
@@ -5720,6 +5726,7 @@
               "kochinsel",
               "oase",
               "sammler",
+              "umbauten",
               "freiVonEckenEsszimmer",
               "vinothekGeo",
               "vinothekAlpen",
@@ -5731,7 +5738,7 @@
             processTitleEn: "Design: process",
           },
           "bi-pricing-handwerker": {
-            tiles: ["dieffe33", "homeoffice1", "hausA", "vinothekGeo", "rothestr", "graefe", "destijl"],
+            tiles: ["dieffe33", "homeoffice1", "hausA", "vinothekGeo", "rothestr", "graefe", "destijl", "umbauten"],
             titleDe: "Vom baubarer Entwurf bis alles inklusive",
             titleEn: "From buildable design to all-inclusive",
             processTitleDe: "Grober Ablauf",
@@ -5739,6 +5746,7 @@
           },
           "bi-pricing-hochbau": {
             hochbau: true,
+            tiles: ["umbauten"],
             processTitleDe: "Gebäudeplanung: Ablauf",
             processTitleEn: "Building planning: process",
           },
@@ -6044,7 +6052,7 @@
           rueckzugsort: 2,
           bueroraeume: 2,
           freiVonEckenEsszimmer: 2,
-          umbauten: 5,
+          umbauten: 7,
           vinothekGeo: 5,
           vinothekAlpen: 4,
         };
@@ -7811,6 +7819,12 @@
             document.querySelectorAll(".bi-tile--hochbau-item").forEach(function (tile) {
               tile.classList.add("bi-tile--service-visible");
             });
+            if (filter.tiles) {
+              filter.tiles.forEach(function (projectId) {
+                var extraTile = portfolio.querySelector('[data-bi-project="' + projectId + '"]');
+                if (extraTile) extraTile.classList.add("bi-tile--service-visible");
+              });
+            }
           } else if (filter.tiles) {
             var showsHochbauTiles = filter.tiles.some(function (projectId) {
               return HOCHBAU_IDS.indexOf(projectId) !== -1;
