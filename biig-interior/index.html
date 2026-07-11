@@ -3803,6 +3803,28 @@
         </div>
       </section>
 
+      <section class="bi-section bi-section--tight-top bi-section--rocket" id="bi-rocket-hochbau" aria-labelledby="bi-rocket-hochbau-mtv-label">
+        <div class="bi-shell">
+          <p class="bi-rocket-mtv" id="bi-rocket-hochbau-mtv-label" aria-hidden="true">BIIG ROCKET HOCHBAU WORKS</p>
+          <div class="bi-rocket-science" id="bi-rocket-hochbau-science">
+            <div class="bi-rocket-science__sentinel" id="bi-rocket-hochbau-sentinel" aria-hidden="true"></div>
+            <div class="bi-rocket-science__stage" id="bi-rocket-hochbau-stage" aria-live="off">
+              <div
+                class="bi-rocket-science__bg"
+                id="bi-rocket-hochbau-bg"
+                aria-hidden="true"
+                style="background-image: url('../assets/interior-rocketscience/Hochbau/Rothestr/106-120215-3-BJG-VIS-Wohnen.jpg')"
+              ></div>
+              <span class="bi-rocket-science__shade" aria-hidden="true"></span>
+              <p class="bi-rocket-science__word" aria-hidden="true">
+                <span class="de-t" id="bi-rocket-hochbau-word-de">Idee</span>
+                <span class="en-t" id="bi-rocket-hochbau-word-en">Idea</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="bi-section bi-section--tight-top bi-section--rocket" id="bi-rocket-works" aria-labelledby="bi-rocket-mtv-label">
         <div class="bi-shell">
           <p class="bi-rocket-mtv" id="bi-rocket-mtv-label" aria-hidden="true">BIIG ROCKET INTERIOR WORKS</p>
@@ -3823,7 +3845,7 @@
                 class="bi-rocket-science__bg"
                 id="bi-rocket-science-bg"
                 aria-hidden="true"
-                style="background-image: url('../assets/interior-rocketscience/75D71C16-5E6A-401C-B693-EC7EEA750FD7.jpg')"
+                style="background-image: url('../assets/interior-rocketscience/Konstruktionszeichnung/Dieffenbachstr/75D71C16-5E6A-401C-B693-EC7EEA750FD7.jpg')"
               ></div>
               <span class="bi-rocket-science__shade" aria-hidden="true"></span>
               <p class="bi-rocket-science__word" aria-hidden="true">
@@ -7502,135 +7524,238 @@
           });
         }
 
-        var ROCKET_SCIENCE_FRAMES = [
+        var ROCKET_ELBAUSSEE_FRAMES = [
+          {
+            wordDe: "Ansicht",
+            wordEn: "View",
+            src: "../assets/interior-rocketscience/Konstruktionszeichnung/Elbchaussee/elbchaussee-VIS-wohnung.jpg",
+            ms: 1000,
+          },
+          {
+            wordDe: "Schnitt",
+            wordEn: "Section",
+            src: "../assets/interior-rocketscience/Konstruktionszeichnung/Elbchaussee/elbchaussee-VIS-restaurant.jpg",
+            ms: 1000,
+          },
+          {
+            wordDe: "Detail",
+            wordEn: "Detail",
+            src: "../assets/interior-rocketscience/Konstruktionszeichnung/Elbchaussee/119-VIS01.jpg",
+            ms: 1000,
+          },
+          {
+            wordDe: "Treppe",
+            wordEn: "Stairs",
+            src: "../assets/interior-rocketscience/Konstruktionszeichnung/Elbchaussee/119-VIS-Treppe07.jpg",
+            ms: 1000,
+          },
+          {
+            wordDe: "Plan",
+            wordEn: "Plan",
+            src: "../assets/interior-rocketscience/Konstruktionszeichnung/Elbchaussee/119-VIS03.jpg",
+            ms: 1000,
+          },
+        ];
+
+        var ROCKET_INTERIOR_FRAMES = [
           {
             wordDe: "Idee",
             wordEn: "Idea",
-            src: "../assets/interior-rocketscience/75D71C16-5E6A-401C-B693-EC7EEA750FD7.jpg",
+            src: "../assets/interior-rocketscience/Konstruktionszeichnung/Dieffenbachstr/75D71C16-5E6A-401C-B693-EC7EEA750FD7.jpg",
             ms: 1000,
           },
           {
             wordDe: "Maße",
             wordEn: "Dimensions",
-            src: "../assets/interior-rocketscience/IMG_0408.JPG",
+            src: "../assets/interior-rocketscience/Konstruktionszeichnung/Dieffenbachstr/IMG_0408.JPG",
             ms: 1000,
           },
           {
             wordDe: "Zeichnung",
             wordEn: "Drawing",
-            src: "../assets/interior-rocketscience/940ef00a-cda0-4611-958f-ca66bc43bb6e.jpg",
+            src: "../assets/interior-rocketscience/Konstruktionszeichnung/Dieffenbachstr/940ef00a-cda0-4611-958f-ca66bc43bb6e.jpg",
             ms: 1000,
           },
           {
             wordDe: "Handwerker",
             wordEn: "Trades",
-            src: "../assets/interior-rocketscience/IMG_1058.jpeg",
+            src: "../assets/interior-rocketscience/Konstruktionszeichnung/Dieffenbachstr/IMG_1058.jpeg",
             ms: 1000,
           },
           {
             wordDe: "Einzug",
             wordEn: "Move-in",
-            src: "../assets/interior-rocketscience/IMG_2798.jpeg",
+            src: "../assets/interior-rocketscience/Konstruktionszeichnung/Dieffenbachstr/IMG_2798.jpeg",
             ms: 1000,
           },
-        ];
-        var rocketScienceTimer = null;
-        var rocketScienceIndex = 0;
-        var rocketScienceStarted = false;
-        var rocketScienceExpanded = false;
-        var rocketScienceViewportTick = false;
+        ].concat(ROCKET_ELBAUSSEE_FRAMES);
 
-        function showRocketScienceFrame(index) {
-          var frame = ROCKET_SCIENCE_FRAMES[index];
-          var bg = document.getElementById("bi-rocket-science-bg");
-          var wordDe = document.getElementById("bi-rocket-science-word-de");
-          var wordEn = document.getElementById("bi-rocket-science-word-en");
-          if (!frame || !bg) return;
-          bg.style.backgroundImage = 'url("' + frame.src + '")';
-          if (wordDe) wordDe.textContent = frame.wordDe;
-          if (wordEn) wordEn.textContent = frame.wordEn;
+        var ROCKET_HOCHBAU_FRAMES = [
+          {
+            wordDe: "Idee",
+            wordEn: "Idea",
+            src: "../assets/interior-rocketscience/Hochbau/Rothestr/106-120215-3-BJG-VIS-Wohnen.jpg",
+            ms: 1000,
+          },
+          {
+            wordDe: "Grundriss",
+            wordEn: "Floor plan",
+            src: "../assets/interior-rocketscience/Hochbau/Rothestr/ROT-5AR-GR-G2-144-E.jpg",
+            ms: 1000,
+          },
+          {
+            wordDe: "Garten",
+            wordEn: "Garden",
+            src: "../assets/interior-rocketscience/Hochbau/Rothestr/106-120403-3-BJG-VIS-Garten.jpg",
+            ms: 1000,
+          },
+          {
+            wordDe: "Fassade",
+            wordEn: "Facade",
+            src: "../assets/interior-rocketscience/Hochbau/Rothestr/106-130119-3-BJG-VIS-Straße-rotesHolz.jpg",
+            ms: 1000,
+          },
+          {
+            wordDe: "Bezug",
+            wordEn: "Completion",
+            src: "../assets/interior-rocketscience/Hochbau/Rothestr/106-120215-3-BJG-VIS-Wohnen.jpg",
+            ms: 1000,
+          },
+        ].concat(ROCKET_ELBAUSSEE_FRAMES);
+
+        function createRocketScienceController(cfg) {
+          var frames = cfg.frames;
+          var timer = null;
+          var index = 0;
+          var started = false;
+          var expanded = false;
+          var viewportTick = false;
+
+          function showFrame(frameIndex) {
+            var frame = frames[frameIndex];
+            var bg = document.getElementById(cfg.bgId);
+            var wordDe = document.getElementById(cfg.wordDeId);
+            var wordEn = document.getElementById(cfg.wordEnId);
+            if (!frame || !bg) return;
+            bg.style.backgroundImage = 'url("' + frame.src + '")';
+            if (wordDe) wordDe.textContent = frame.wordDe;
+            if (wordEn) wordEn.textContent = frame.wordEn;
+          }
+
+          function tickSequence() {
+            var frame = frames[index];
+            if (!frame) return;
+            timer = window.setTimeout(function () {
+              index = (index + 1) % frames.length;
+              showFrame(index);
+              tickSequence();
+            }, frame.ms);
+          }
+
+          function preloadImages() {
+            return Promise.all(
+              frames.map(function (frame) {
+                return new Promise(function (resolve) {
+                  var img = new Image();
+                  img.onload = resolve;
+                  img.onerror = resolve;
+                  img.src = frame.src;
+                });
+              })
+            );
+          }
+
+          function startSequence() {
+            if (started) return;
+            started = true;
+            index = 0;
+            showFrame(0);
+            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+            tickSequence();
+          }
+
+          function initSequence() {
+            if (timer) window.clearTimeout(timer);
+            started = false;
+            preloadImages().then(startSequence);
+          }
+
+          function updateViewport() {
+            viewportTick = false;
+            var section = document.getElementById(cfg.sectionId);
+            var sentinel = document.getElementById(cfg.sentinelId);
+            if (!section || !sentinel) return;
+
+            var rect = sentinel.getBoundingClientRect();
+            if (rect.bottom <= 0 || rect.top >= window.innerHeight) {
+              if (expanded) {
+                expanded = false;
+                section.classList.remove("is-in-view");
+              }
+              return;
+            }
+
+            var anchorY = rect.top + rect.height * 0.5;
+            var viewportCenterY = window.innerHeight * 0.5;
+            var centerOffset = Math.abs(anchorY - viewportCenterY);
+            var enterThreshold = window.innerHeight * 0.1;
+            var leaveThreshold = window.innerHeight * 0.22;
+
+            if (!expanded && centerOffset < enterThreshold) {
+              expanded = true;
+            } else if (expanded && centerOffset > leaveThreshold) {
+              expanded = false;
+            }
+
+            section.classList.toggle("is-in-view", expanded);
+          }
+
+          function queueViewportUpdate() {
+            if (viewportTick) return;
+            viewportTick = true;
+            window.requestAnimationFrame(updateViewport);
+          }
+
+          function initViewport() {
+            var section = document.getElementById(cfg.sectionId);
+            if (!section) return;
+            updateViewport();
+            window.addEventListener("scroll", queueViewportUpdate, { passive: true });
+            window.addEventListener("resize", queueViewportUpdate);
+          }
+
+          return {
+            initSequence: initSequence,
+            initViewport: initViewport,
+          };
         }
 
-        function tickRocketScienceSequence() {
-          var frame = ROCKET_SCIENCE_FRAMES[rocketScienceIndex];
-          if (!frame) return;
-          rocketScienceTimer = window.setTimeout(function () {
-            rocketScienceIndex = (rocketScienceIndex + 1) % ROCKET_SCIENCE_FRAMES.length;
-            showRocketScienceFrame(rocketScienceIndex);
-            tickRocketScienceSequence();
-          }, frame.ms);
-        }
+        var rocketInteriorController = createRocketScienceController({
+          sectionId: "bi-rocket-works",
+          sentinelId: "bi-rocket-science-sentinel",
+          bgId: "bi-rocket-science-bg",
+          wordDeId: "bi-rocket-science-word-de",
+          wordEnId: "bi-rocket-science-word-en",
+          frames: ROCKET_INTERIOR_FRAMES,
+        });
 
-        function preloadRocketScienceImages() {
-          return Promise.all(
-            ROCKET_SCIENCE_FRAMES.map(function (frame) {
-              return new Promise(function (resolve) {
-                var img = new Image();
-                img.onload = resolve;
-                img.onerror = resolve;
-                img.src = frame.src;
-              });
-            })
-          );
-        }
-
-        function startRocketScienceSequence() {
-          if (rocketScienceStarted) return;
-          rocketScienceStarted = true;
-          rocketScienceIndex = 0;
-          showRocketScienceFrame(0);
-          if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-          tickRocketScienceSequence();
-        }
+        var rocketHochbauController = createRocketScienceController({
+          sectionId: "bi-rocket-hochbau",
+          sentinelId: "bi-rocket-hochbau-sentinel",
+          bgId: "bi-rocket-hochbau-bg",
+          wordDeId: "bi-rocket-hochbau-word-de",
+          wordEnId: "bi-rocket-hochbau-word-en",
+          frames: ROCKET_HOCHBAU_FRAMES,
+        });
 
         function initRocketScienceSequence() {
-          if (rocketScienceTimer) window.clearTimeout(rocketScienceTimer);
-          rocketScienceStarted = false;
-          preloadRocketScienceImages().then(startRocketScienceSequence);
-        }
-
-        function updateRocketScienceViewport() {
-          rocketScienceViewportTick = false;
-          var section = document.getElementById("bi-rocket-works");
-          var sentinel = document.getElementById("bi-rocket-science-sentinel");
-          if (!section || !sentinel) return;
-
-          var rect = sentinel.getBoundingClientRect();
-          if (rect.bottom <= 0 || rect.top >= window.innerHeight) {
-            if (rocketScienceExpanded) {
-              rocketScienceExpanded = false;
-              section.classList.remove("is-in-view");
-            }
-            return;
-          }
-
-          var anchorY = rect.top + rect.height * 0.5;
-          var viewportCenterY = window.innerHeight * 0.5;
-          var centerOffset = Math.abs(anchorY - viewportCenterY);
-          var enterThreshold = window.innerHeight * 0.1;
-          var leaveThreshold = window.innerHeight * 0.22;
-
-          if (!rocketScienceExpanded && centerOffset < enterThreshold) {
-            rocketScienceExpanded = true;
-          } else if (rocketScienceExpanded && centerOffset > leaveThreshold) {
-            rocketScienceExpanded = false;
-          }
-
-          section.classList.toggle("is-in-view", rocketScienceExpanded);
-        }
-
-        function queueRocketScienceViewportUpdate() {
-          if (rocketScienceViewportTick) return;
-          rocketScienceViewportTick = true;
-          window.requestAnimationFrame(updateRocketScienceViewport);
+          rocketInteriorController.initSequence();
+          rocketHochbauController.initSequence();
         }
 
         function initRocketScienceViewport() {
-          var section = document.getElementById("bi-rocket-works");
-          if (!section) return;
-          updateRocketScienceViewport();
-          window.addEventListener("scroll", queueRocketScienceViewportUpdate, { passive: true });
-          window.addEventListener("resize", queueRocketScienceViewportUpdate);
+          rocketInteriorController.initViewport();
+          rocketHochbauController.initViewport();
         }
 
         function initWhatsappAssessmentCta() {

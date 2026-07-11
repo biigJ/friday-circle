@@ -19,3 +19,6 @@ artikel/
 .vercel
 biig-export/
 gogogo-export/
+
+# Source files too large for GitHub
+*.psd
