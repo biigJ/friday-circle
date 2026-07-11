@@ -22,6 +22,7 @@ const VARIANT_SUFFIX = /-(800|1000|1200|1400|1600)\.webp$/i;
 const RULES = [
   { test: (p) => p.startsWith("assets/interior/"), variants: [{ w: 800, q: 82 }, { w: 1400, q: 82 }] },
   { test: (p) => p.startsWith("assets/hochbau/"), variants: [{ w: 800, q: 82 }, { w: 1400, q: 82 }] },
+  { test: (p) => p.startsWith("assets/interior-rocketscience/"), variants: [{ w: 800, q: 82 }, { w: 1400, q: 82 }] },
   { test: (p) => p.startsWith("assets/biigJ/"), variants: [{ w: 1200, q: 82 }] },
   { test: (p) => p.startsWith("assets/gogogo/"), variants: [{ w: 1600, q: 82 }] },
   { test: (p) => p.startsWith("assets/berlin-arch-tour/"), variants: [{ w: 1200, q: 82 }] },
