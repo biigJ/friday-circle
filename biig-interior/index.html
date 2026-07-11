@@ -617,26 +617,6 @@
         isolation: isolate;
       }
 
-      .bi-section--rocket-follow {
-        padding-top: 0;
-      }
-
-      .bi-section--rocket-follow .bi-shell {
-        padding-top: 0;
-      }
-
-      .bi-rocket-science--follow {
-        margin-top: clamp(12px, 2vw, 20px);
-      }
-
-      #bi-rocket-hochbau-pack[hidden] {
-        display: none !important;
-      }
-
-      #bi-rocket-works.is-rocket-hidden {
-        display: none !important;
-      }
-
       .bi-rocket-mtv {
         margin: 0 0 clamp(10px, 2vw, 18px);
         font-family: Impact, "Arial Black", "Helvetica Neue", sans-serif;
@@ -3826,7 +3806,7 @@
       <section class="bi-section bi-section--tight-top bi-section--rocket" id="bi-rocket-works" aria-labelledby="bi-rocket-mtv-label">
         <div class="bi-shell">
           <p class="bi-rocket-mtv" id="bi-rocket-mtv-label" aria-hidden="true">BIIG ROCKET INTERIOR WORKS</p>
-          <div class="bi-rocket-pitch">
+          <div class="bi-rocket-pitch" id="bi-rocket-pitch">
             <p class="bi-rocket-pitch__text">
               <span class="de-t">Schick mir 1 Foto und 3 Sätze.<br>Ich melde mich innerhalb eines Tages mit Skizze und Projektablauf zurück!</span>
               <span class="en-t">Send me 1 photo and 3 sentences.<br>I'll get back within a day with a sketch and project outline!</span>
@@ -3854,50 +3834,6 @@
           </div>
         </div>
       </section>
-
-      <div id="bi-rocket-hochbau-pack" hidden>
-        <section class="bi-section bi-section--tight-top bi-section--rocket" id="bi-rocket-hochbau" aria-labelledby="bi-rocket-hochbau-mtv-label">
-          <div class="bi-shell">
-            <p class="bi-rocket-mtv" id="bi-rocket-hochbau-mtv-label" aria-hidden="true">BIIG ROCKET HOCHBAU WORKS</p>
-            <div class="bi-rocket-science" id="bi-rocket-hochbau-science">
-              <div class="bi-rocket-science__sentinel" id="bi-rocket-hochbau-sentinel" aria-hidden="true"></div>
-              <div class="bi-rocket-science__stage" id="bi-rocket-hochbau-stage" aria-live="off">
-                <div
-                  class="bi-rocket-science__bg"
-                  id="bi-rocket-hochbau-bg"
-                  aria-hidden="true"
-                  style="background-image: url('../assets/interior-rocketscience/Rothestr-VIS-Wohnung.jpg')"
-                ></div>
-                <span class="bi-rocket-science__shade" aria-hidden="true"></span>
-                <p class="bi-rocket-science__word" aria-hidden="true">
-                  <span class="de-t" id="bi-rocket-hochbau-word-de">Idee</span>
-                  <span class="en-t" id="bi-rocket-hochbau-word-en">Idea</span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-        <section class="bi-section bi-section--rocket bi-section--rocket-follow" id="bi-rocket-elbchaussee" aria-label="Elbchaussee Projektablauf">
-          <div class="bi-shell">
-            <div class="bi-rocket-science bi-rocket-science--follow" id="bi-rocket-elbchaussee-science">
-              <div class="bi-rocket-science__sentinel" id="bi-rocket-elbchaussee-sentinel" aria-hidden="true"></div>
-              <div class="bi-rocket-science__stage" id="bi-rocket-elbchaussee-stage" aria-live="off">
-                <div
-                  class="bi-rocket-science__bg"
-                  id="bi-rocket-elbchaussee-bg"
-                  aria-hidden="true"
-                  style="background-image: url('../assets/interior-rocketscience/Konstruktionszeichnung/Elbchaussee/elbchaussee-VIS-wohnung.jpg')"
-                ></div>
-                <span class="bi-rocket-science__shade" aria-hidden="true"></span>
-                <p class="bi-rocket-science__word" aria-hidden="true">
-                  <span class="de-t" id="bi-rocket-elbchaussee-word-de">Idee</span>
-                  <span class="en-t" id="bi-rocket-elbchaussee-word-en">Idea</span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
 
       <section class="bi-konfigurator-section" aria-labelledby="bi-konfigurator-lede">
       <div class="bi-shell">
@@ -7680,6 +7616,9 @@
           },
         ];
 
+        var ROCKET_INTERIOR_FRAMES = ROCKET_DIEFFENBACHSTR_FRAMES.concat(ROCKET_ELBCHAUSSEE_FRAMES);
+        var ROCKET_HOCHBAU_FRAMES = ROCKET_ROTHESTR_FRAMES.concat(ROCKET_ELBCHAUSSEE_FRAMES);
+
         function rocketImageUrl(src) {
           var parts = src.split("/");
           var file = parts.pop();
@@ -7722,7 +7661,7 @@
                   var img = new Image();
                   img.onload = resolve;
                   img.onerror = resolve;
-                  img.src = frame.src;
+                  img.src = rocketImageUrl(frame.src);
                 });
               })
             );
@@ -7787,55 +7726,38 @@
             window.addEventListener("resize", queueViewportUpdate);
           }
 
+          function setFrames(nextFrames) {
+            frames = nextFrames;
+            initSequence();
+          }
+
           return {
             initSequence: initSequence,
             initViewport: initViewport,
+            setFrames: setFrames,
           };
         }
 
-        var rocketInteriorController = createRocketScienceController({
+        var rocketController = createRocketScienceController({
           sectionId: "bi-rocket-works",
           sentinelId: "bi-rocket-science-sentinel",
           bgId: "bi-rocket-science-bg",
           wordDeId: "bi-rocket-science-word-de",
           wordEnId: "bi-rocket-science-word-en",
-          frames: ROCKET_DIEFFENBACHSTR_FRAMES,
-        });
-
-        var rocketRothestrController = createRocketScienceController({
-          sectionId: "bi-rocket-hochbau",
-          sentinelId: "bi-rocket-hochbau-sentinel",
-          bgId: "bi-rocket-hochbau-bg",
-          wordDeId: "bi-rocket-hochbau-word-de",
-          wordEnId: "bi-rocket-hochbau-word-en",
-          frames: ROCKET_ROTHESTR_FRAMES,
-        });
-
-        var rocketElbchausseeController = createRocketScienceController({
-          sectionId: "bi-rocket-elbchaussee",
-          sentinelId: "bi-rocket-elbchaussee-sentinel",
-          bgId: "bi-rocket-elbchaussee-bg",
-          wordDeId: "bi-rocket-elbchaussee-word-de",
-          wordEnId: "bi-rocket-elbchaussee-word-en",
-          frames: ROCKET_ELBCHAUSSEE_FRAMES,
+          frames: ROCKET_INTERIOR_FRAMES,
         });
 
         function updateRocketSections(serviceKey) {
-          var interiorSection = document.getElementById("bi-rocket-works");
-          var hochbauPack = document.getElementById("bi-rocket-hochbau-pack");
           var isHochbau = serviceKey === "bi-pricing-hochbau";
-          if (interiorSection) {
-            interiorSection.classList.toggle("is-rocket-hidden", isHochbau);
+          var mtvLabel = document.getElementById("bi-rocket-mtv-label");
+          var pitch = document.getElementById("bi-rocket-pitch");
+          if (mtvLabel) {
+            mtvLabel.textContent = isHochbau ? "BIIG ROCKET HOCHBAU WORKS" : "BIIG ROCKET INTERIOR WORKS";
           }
-          if (hochbauPack) {
-            hochbauPack.hidden = !isHochbau;
+          if (pitch) {
+            pitch.hidden = isHochbau;
           }
-          if (isHochbau) {
-            rocketRothestrController.initSequence();
-            rocketElbchausseeController.initSequence();
-          } else {
-            rocketInteriorController.initSequence();
-          }
+          rocketController.setFrames(isHochbau ? ROCKET_HOCHBAU_FRAMES : ROCKET_INTERIOR_FRAMES);
         }
 
         function initRocketScienceSequence() {
@@ -7843,9 +7765,7 @@
         }
 
         function initRocketScienceViewport() {
-          rocketInteriorController.initViewport();
-          rocketRothestrController.initViewport();
-          rocketElbchausseeController.initViewport();
+          rocketController.initViewport();
         }
 
         function initWhatsappAssessmentCta() {
