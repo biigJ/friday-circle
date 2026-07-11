@@ -617,6 +617,26 @@
         isolation: isolate;
       }
 
+      .bi-section--rocket-follow {
+        padding-top: 0;
+      }
+
+      .bi-section--rocket-follow .bi-shell {
+        padding-top: 0;
+      }
+
+      .bi-rocket-science--follow {
+        margin-top: clamp(12px, 2vw, 20px);
+      }
+
+      #bi-rocket-hochbau-pack[hidden] {
+        display: none !important;
+      }
+
+      #bi-rocket-works.is-rocket-hidden {
+        display: none !important;
+      }
+
       .bi-rocket-mtv {
         margin: 0 0 clamp(10px, 2vw, 18px);
         font-family: Impact, "Arial Black", "Helvetica Neue", sans-serif;
@@ -3803,28 +3823,6 @@
         </div>
       </section>
 
-      <section class="bi-section bi-section--tight-top bi-section--rocket" id="bi-rocket-hochbau" aria-labelledby="bi-rocket-hochbau-mtv-label">
-        <div class="bi-shell">
-          <p class="bi-rocket-mtv" id="bi-rocket-hochbau-mtv-label" aria-hidden="true">BIIG ROCKET HOCHBAU WORKS</p>
-          <div class="bi-rocket-science" id="bi-rocket-hochbau-science">
-            <div class="bi-rocket-science__sentinel" id="bi-rocket-hochbau-sentinel" aria-hidden="true"></div>
-            <div class="bi-rocket-science__stage" id="bi-rocket-hochbau-stage" aria-live="off">
-              <div
-                class="bi-rocket-science__bg"
-                id="bi-rocket-hochbau-bg"
-                aria-hidden="true"
-                style="background-image: url('../assets/interior-rocketscience/Hochbau/Rothestr/106-120215-3-BJG-VIS-Wohnen.jpg')"
-              ></div>
-              <span class="bi-rocket-science__shade" aria-hidden="true"></span>
-              <p class="bi-rocket-science__word" aria-hidden="true">
-                <span class="de-t" id="bi-rocket-hochbau-word-de">Idee</span>
-                <span class="en-t" id="bi-rocket-hochbau-word-en">Idea</span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section class="bi-section bi-section--tight-top bi-section--rocket" id="bi-rocket-works" aria-labelledby="bi-rocket-mtv-label">
         <div class="bi-shell">
           <p class="bi-rocket-mtv" id="bi-rocket-mtv-label" aria-hidden="true">BIIG ROCKET INTERIOR WORKS</p>
@@ -3856,6 +3854,50 @@
           </div>
         </div>
       </section>
+
+      <div id="bi-rocket-hochbau-pack" hidden>
+        <section class="bi-section bi-section--tight-top bi-section--rocket" id="bi-rocket-hochbau" aria-labelledby="bi-rocket-hochbau-mtv-label">
+          <div class="bi-shell">
+            <p class="bi-rocket-mtv" id="bi-rocket-hochbau-mtv-label" aria-hidden="true">BIIG ROCKET HOCHBAU WORKS</p>
+            <div class="bi-rocket-science" id="bi-rocket-hochbau-science">
+              <div class="bi-rocket-science__sentinel" id="bi-rocket-hochbau-sentinel" aria-hidden="true"></div>
+              <div class="bi-rocket-science__stage" id="bi-rocket-hochbau-stage" aria-live="off">
+                <div
+                  class="bi-rocket-science__bg"
+                  id="bi-rocket-hochbau-bg"
+                  aria-hidden="true"
+                  style="background-image: url('../assets/interior-rocketscience/Rothestr-VIS-Wohnung.jpg')"
+                ></div>
+                <span class="bi-rocket-science__shade" aria-hidden="true"></span>
+                <p class="bi-rocket-science__word" aria-hidden="true">
+                  <span class="de-t" id="bi-rocket-hochbau-word-de">Idee</span>
+                  <span class="en-t" id="bi-rocket-hochbau-word-en">Idea</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="bi-section bi-section--rocket bi-section--rocket-follow" id="bi-rocket-elbchaussee" aria-label="Elbchaussee Projektablauf">
+          <div class="bi-shell">
+            <div class="bi-rocket-science bi-rocket-science--follow" id="bi-rocket-elbchaussee-science">
+              <div class="bi-rocket-science__sentinel" id="bi-rocket-elbchaussee-sentinel" aria-hidden="true"></div>
+              <div class="bi-rocket-science__stage" id="bi-rocket-elbchaussee-stage" aria-live="off">
+                <div
+                  class="bi-rocket-science__bg"
+                  id="bi-rocket-elbchaussee-bg"
+                  aria-hidden="true"
+                  style="background-image: url('../assets/interior-rocketscience/Konstruktionszeichnung/Elbchaussee/elbchaussee-VIS-wohnung.jpg')"
+                ></div>
+                <span class="bi-rocket-science__shade" aria-hidden="true"></span>
+                <p class="bi-rocket-science__word" aria-hidden="true">
+                  <span class="de-t" id="bi-rocket-elbchaussee-word-de">Idee</span>
+                  <span class="en-t" id="bi-rocket-elbchaussee-word-en">Idea</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
 
       <section class="bi-konfigurator-section" aria-labelledby="bi-konfigurator-lede">
       <div class="bi-shell">
@@ -7532,40 +7574,7 @@
           });
         }
 
-        var ROCKET_ELBAUSSEE_FRAMES = [
-          {
-            wordDe: "Ansicht",
-            wordEn: "View",
-            src: "../assets/interior-rocketscience/Konstruktionszeichnung/Elbchaussee/elbchaussee-VIS-wohnung.jpg",
-            ms: 1000,
-          },
-          {
-            wordDe: "Schnitt",
-            wordEn: "Section",
-            src: "../assets/interior-rocketscience/Konstruktionszeichnung/Elbchaussee/elbchaussee-VIS-restaurant.jpg",
-            ms: 1000,
-          },
-          {
-            wordDe: "Detail",
-            wordEn: "Detail",
-            src: "../assets/interior-rocketscience/Konstruktionszeichnung/Elbchaussee/119-VIS01.jpg",
-            ms: 1000,
-          },
-          {
-            wordDe: "Treppe",
-            wordEn: "Stairs",
-            src: "../assets/interior-rocketscience/Konstruktionszeichnung/Elbchaussee/119-VIS-Treppe07.jpg",
-            ms: 1000,
-          },
-          {
-            wordDe: "Plan",
-            wordEn: "Plan",
-            src: "../assets/interior-rocketscience/Konstruktionszeichnung/Elbchaussee/119-VIS03.jpg",
-            ms: 1000,
-          },
-        ];
-
-        var ROCKET_INTERIOR_FRAMES = [
+        var ROCKET_DIEFFENBACHSTR_FRAMES = [
           {
             wordDe: "Idee",
             wordEn: "Idea",
@@ -7596,40 +7605,79 @@
             src: "../assets/interior-rocketscience/Konstruktionszeichnung/Dieffenbachstr/IMG_2798.jpeg",
             ms: 1000,
           },
-        ].concat(ROCKET_ELBAUSSEE_FRAMES);
+        ];
 
-        var ROCKET_HOCHBAU_FRAMES = [
+        var ROCKET_ROTHESTR_FRAMES = [
           {
             wordDe: "Idee",
             wordEn: "Idea",
-            src: "../assets/interior-rocketscience/Hochbau/Rothestr/106-120215-3-BJG-VIS-Wohnen.jpg",
+            src: "../assets/interior-rocketscience/Rothestr-VIS-Wohnung.jpg",
             ms: 1000,
           },
           {
-            wordDe: "Grundriss",
-            wordEn: "Floor plan",
+            wordDe: "Zeichnung",
+            wordEn: "Drawing",
             src: "../assets/interior-rocketscience/Hochbau/Rothestr/ROT-5AR-GR-G2-144-E.jpg",
             ms: 1000,
           },
           {
-            wordDe: "Garten",
-            wordEn: "Garden",
-            src: "../assets/interior-rocketscience/Hochbau/Rothestr/106-120403-3-BJG-VIS-Garten.jpg",
+            wordDe: "Handwerker",
+            wordEn: "Trades",
+            src: "../assets/interior-rocketscience/Hochbau/Rothestr/P1020926.JPG",
             ms: 1000,
           },
           {
-            wordDe: "Fassade",
-            wordEn: "Facade",
-            src: "../assets/interior-rocketscience/Hochbau/Rothestr/106-130119-3-BJG-VIS-Straße-rotesHolz.jpg",
+            wordDe: "Handwerker",
+            wordEn: "Trades",
+            src: "../assets/interior-rocketscience/Hochbau/Rothestr/P1060369.JPG",
             ms: 1000,
           },
           {
-            wordDe: "Bezug",
-            wordEn: "Completion",
-            src: "../assets/interior-rocketscience/Hochbau/Rothestr/106-120215-3-BJG-VIS-Wohnen.jpg",
+            wordDe: "Stadtbild",
+            wordEn: "City view",
+            src: "../assets/interior-rocketscience/Hochbau/Rothestr/BJG_Rothestraße_150805_04+05.tiff",
             ms: 1000,
           },
-        ].concat(ROCKET_ELBAUSSEE_FRAMES);
+        ];
+
+        var ROCKET_ELBCHAUSSEE_FRAMES = [
+          {
+            wordDe: "Idee",
+            wordEn: "Idea",
+            src: "../assets/interior-rocketscience/Konstruktionszeichnung/Elbchaussee/elbchaussee-VIS-wohnung.jpg",
+            ms: 1000,
+          },
+          {
+            wordDe: "Auftrag",
+            wordEn: "Brief",
+            src: "../assets/interior-rocketscience/Konstruktionszeichnung/Elbchaussee/119-VIS-Haustür02.jpg",
+            ms: 1000,
+          },
+          {
+            wordDe: "Zeichnung",
+            wordEn: "Drawing",
+            src: "../assets/interior-rocketscience/Konstruktionszeichnung/Elbchaussee/119-5-AR- ZNG.jpg",
+            ms: 1000,
+          },
+          {
+            wordDe: "Handwerker",
+            wordEn: "Trades",
+            src: "../assets/interior-rocketscience/Konstruktionszeichnung/Elbchaussee/P1010918.JPG",
+            ms: 1000,
+          },
+          {
+            wordDe: "Einzug",
+            wordEn: "Move-in",
+            src: "../assets/interior-rocketscience/Konstruktionszeichnung/Elbchaussee/BJG_Elbchaussee_160229_04_8bit.tif",
+            ms: 1000,
+          },
+        ];
+
+        function rocketImageUrl(src) {
+          var parts = src.split("/");
+          var file = parts.pop();
+          return parts.join("/") + "/" + encodeURIComponent(file);
+        }
 
         function createRocketScienceController(cfg) {
           var frames = cfg.frames;
@@ -7645,7 +7693,7 @@
             var wordDe = document.getElementById(cfg.wordDeId);
             var wordEn = document.getElementById(cfg.wordEnId);
             if (!frame || !bg) return;
-            bg.style.backgroundImage = 'url("' + frame.src + '")';
+            bg.style.backgroundImage = 'url("' + rocketImageUrl(frame.src) + '")';
             if (wordDe) wordDe.textContent = frame.wordDe;
             if (wordEn) wordEn.textContent = frame.wordEn;
           }
@@ -7744,26 +7792,53 @@
           bgId: "bi-rocket-science-bg",
           wordDeId: "bi-rocket-science-word-de",
           wordEnId: "bi-rocket-science-word-en",
-          frames: ROCKET_INTERIOR_FRAMES,
+          frames: ROCKET_DIEFFENBACHSTR_FRAMES,
         });
 
-        var rocketHochbauController = createRocketScienceController({
+        var rocketRothestrController = createRocketScienceController({
           sectionId: "bi-rocket-hochbau",
           sentinelId: "bi-rocket-hochbau-sentinel",
           bgId: "bi-rocket-hochbau-bg",
           wordDeId: "bi-rocket-hochbau-word-de",
           wordEnId: "bi-rocket-hochbau-word-en",
-          frames: ROCKET_HOCHBAU_FRAMES,
+          frames: ROCKET_ROTHESTR_FRAMES,
         });
 
+        var rocketElbchausseeController = createRocketScienceController({
+          sectionId: "bi-rocket-elbchaussee",
+          sentinelId: "bi-rocket-elbchaussee-sentinel",
+          bgId: "bi-rocket-elbchaussee-bg",
+          wordDeId: "bi-rocket-elbchaussee-word-de",
+          wordEnId: "bi-rocket-elbchaussee-word-en",
+          frames: ROCKET_ELBCHAUSSEE_FRAMES,
+        });
+
+        function updateRocketSections(serviceKey) {
+          var interiorSection = document.getElementById("bi-rocket-works");
+          var hochbauPack = document.getElementById("bi-rocket-hochbau-pack");
+          var isHochbau = serviceKey === "bi-pricing-hochbau";
+          if (interiorSection) {
+            interiorSection.classList.toggle("is-rocket-hidden", isHochbau);
+          }
+          if (hochbauPack) {
+            hochbauPack.hidden = !isHochbau;
+          }
+          if (isHochbau) {
+            rocketRothestrController.initSequence();
+            rocketElbchausseeController.initSequence();
+          } else {
+            rocketInteriorController.initSequence();
+          }
+        }
+
         function initRocketScienceSequence() {
-          rocketInteriorController.initSequence();
-          rocketHochbauController.initSequence();
+          updateRocketSections(activeServiceKey);
         }
 
         function initRocketScienceViewport() {
           rocketInteriorController.initViewport();
-          rocketHochbauController.initViewport();
+          rocketRothestrController.initViewport();
+          rocketElbchausseeController.initViewport();
         }
 
         function initWhatsappAssessmentCta() {
@@ -7856,6 +7931,7 @@
 
           initMobileTileCarousels({ force: true });
           updateMobileNavTransparency();
+          updateRocketSections(serviceKey);
 
           var scrollTarget = portfolio;
           if (scrollTarget) {
