@@ -7727,7 +7727,12 @@
         var ROCKET_HOCHBAU_FRAMES = ROCKET_ROTHESTR_FRAMES.concat(ROCKET_ELBCHAUSSEE_FRAMES);
 
         function rocketImageUrl(src) {
-          var parts = src.split("/");
+          var path = src;
+          if (typeof window.fcOptimizedUrl === "function" && /\.(jpe?g|png)$/i.test(src)) {
+            var webp = window.fcOptimizedUrl(src, 1400);
+            if (webp && webp !== src) path = webp;
+          }
+          var parts = path.split("/");
           var file = parts.pop();
           return parts.join("/") + "/" + encodeURIComponent(file);
         }

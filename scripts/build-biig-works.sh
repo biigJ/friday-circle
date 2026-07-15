@@ -11,7 +11,57 @@ FC_SHOP_BASE="${FC_SHOP_BASE:-https://www.fridaycircle.club/kaufen}"
 FC_SITE="${FC_SITE:-https://www.fridaycircle.club}"
 BIIG_SHOP_URL="${BIIG_SHOP_URL:-${FC_SHOP_BASE}/kunst.html}"
 
+# Vercel sets VERCEL=1 during builds. Slim export keeps deploy artifacts under platform limits.
+BIIG_VERCEL_SLIM="${BIIG_VERCEL_SLIM:-${VERCEL:-}}"
+
+has_webp_variant() {
+  local base="$1"
+  local w
+  for w in 800 1000 1200 1400 1600; do
+    if [[ -f "${base}-${w}.webp" ]]; then
+      return 0
+    fi
+  done
+  return 1
+}
+
+is_design_source() {
+  local lower
+  lower="$(printf '%s' "${1##*.}" | tr '[:upper:]' '[:lower:]')"
+  case "$lower" in
+    psd | tif | tiff | ai | pdf) return 0 ;;
+    *) return 1 ;;
+  esac
+}
+
+copy_biig_assets() {
+  local src="$1"
+  local dest="$2"
+  find "$src" -type f ! -name '.DS_Store' -print0 | while IFS= read -r -d '' file; do
+    if is_design_source "$file"; then
+      continue
+    fi
+    local rel="${file#$src/}"
+    local lower_ext
+    lower_ext="$(printf '%s' "${file##*.}" | tr '[:upper:]' '[:lower:]')"
+    if [[ -n "$BIIG_VERCEL_SLIM" ]]; then
+      case "$lower_ext" in
+        jpg | jpeg | png)
+          if has_webp_variant "${file%.*}"; then
+            continue
+          fi
+          ;;
+      esac
+    fi
+    mkdir -p "$dest/$(dirname "$rel")"
+    cp -a "$file" "$dest/$rel"
+  done
+}
+
 echo "==> Building biig.works export at $BIIG_OUT"
+if [[ -n "$BIIG_VERCEL_SLIM" ]]; then
+  echo "==> Vercel slim asset export (WebP-first, no design sources)"
+fi
 
 BIIG_GIT_BACKUP=""
 if [[ -d "$BIIG_OUT/.git" ]]; then
@@ -78,18 +128,11 @@ for BIIG_PAGE in joscha kunst impressum datenschutz kontakt; do
     "$BIIG_OUT/$BIIG_PAGE/index.html"
 done
 
-cp -a "$ROOT/assets/interior/." "$BIIG_OUT/assets/interior/"
-cp -a "$ROOT/assets/hochbau/." "$BIIG_OUT/assets/hochbau/"
-rsync -a \
-  --exclude='.DS_Store' \
-  --exclude='*.psd' \
-  --exclude='*.tif' \
-  --exclude='*.tiff' \
-  --exclude='*.ai' \
-  --exclude='*.pdf' \
-  "$ROOT/assets/interior-rocketscience/." "$BIIG_OUT/assets/interior-rocketscience/"
-cp -a "$ROOT/assets/biigJ/." "$BIIG_OUT/assets/biigJ/"
-cp -a "$ROOT/assets/wolfgang-grope/." "$BIIG_OUT/assets/wolfgang-grope/"
+copy_biig_assets "$ROOT/assets/interior" "$BIIG_OUT/assets/interior"
+copy_biig_assets "$ROOT/assets/hochbau" "$BIIG_OUT/assets/hochbau"
+copy_biig_assets "$ROOT/assets/interior-rocketscience" "$BIIG_OUT/assets/interior-rocketscience"
+copy_biig_assets "$ROOT/assets/biigJ" "$BIIG_OUT/assets/biigJ"
+copy_biig_assets "$ROOT/assets/wolfgang-grope" "$BIIG_OUT/assets/wolfgang-grope"
 cp "$ROOT/assets/audio/dramatic-motion-watermarked.mp3" "$BIIG_OUT/assets/audio/"
 cp "$ROOT/kaufen/tisch.html" "$ROOT/kaufen/kaufen.css" "$ROOT/kaufen/kaufen.js" "$BIIG_OUT/kaufen/"
 
