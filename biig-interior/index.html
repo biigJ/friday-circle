@@ -7726,15 +7726,43 @@
         var ROCKET_INTERIOR_FRAMES = ROCKET_DIEFFENBACHSTR_FRAMES.concat(ROCKET_ELBCHAUSSEE_FRAMES);
         var ROCKET_HOCHBAU_FRAMES = ROCKET_ROTHESTR_FRAMES.concat(ROCKET_ELBCHAUSSEE_FRAMES);
 
-        function rocketImageUrl(src) {
-          var path = src;
-          if (typeof window.fcOptimizedUrl === "function" && /\.(jpe?g|png)$/i.test(src)) {
-            var webp = window.fcOptimizedUrl(src, 1400);
-            if (webp && webp !== src) path = webp;
-          }
+        function rocketImageEncode(path) {
           var parts = path.split("/");
           var file = parts.pop();
           return parts.join("/") + "/" + encodeURIComponent(file);
+        }
+
+        function rocketImageCandidates(src) {
+          var candidates = [];
+          if (!src) return candidates;
+          if (typeof window.fcOptimizedUrl === "function" && /\.(jpe?g|png)$/i.test(src)) {
+            var webp = window.fcOptimizedUrl(src, 1400);
+            if (webp && webp !== src) candidates.push(webp);
+          }
+          if (/\.tif{1,2}$/i.test(src)) {
+            candidates.push(src.replace(/\.[^/.]+$/, "") + "-1400.webp");
+          }
+          candidates.push(src);
+          return candidates.filter(function (value, index, list) {
+            return list.indexOf(value) === index;
+          });
+        }
+
+        function applyRocketBackground(bg, src) {
+          if (!bg || !src) return;
+          var urls = rocketImageCandidates(src).map(rocketImageEncode);
+          var attempt = 0;
+          function tryNext() {
+            if (attempt >= urls.length) return;
+            var url = urls[attempt++];
+            var probe = new Image();
+            probe.onload = function () {
+              bg.style.backgroundImage = 'url("' + url + '")';
+            };
+            probe.onerror = tryNext;
+            probe.src = url;
+          }
+          tryNext();
         }
 
         function createRocketScienceController(cfg) {
@@ -7751,7 +7779,8 @@
             var wordDe = document.getElementById(cfg.wordDeId);
             var wordEn = document.getElementById(cfg.wordEnId);
             if (!frame || !bg) return;
-            bg.style.backgroundImage = 'url("' + rocketImageUrl(frame.src) + '")';
+            bg.style.backgroundImage = "";
+            applyRocketBackground(bg, frame.src);
             if (wordDe) wordDe.textContent = frame.wordDe;
             if (wordEn) wordEn.textContent = frame.wordEn;
           }
@@ -7773,7 +7802,7 @@
                   var img = new Image();
                   img.onload = resolve;
                   img.onerror = resolve;
-                  img.src = rocketImageUrl(frame.src);
+                  img.src = rocketImageEncode(rocketImageCandidates(frame.src)[0]);
                 });
               })
             );

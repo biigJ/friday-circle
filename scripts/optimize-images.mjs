@@ -16,7 +16,7 @@ import sharp from "sharp";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
 
-const RASTER_EXT = /\.(jpe?g|png)$/i;
+const RASTER_EXT = /\.(jpe?g|png|tiff?)$/i;
 const VARIANT_SUFFIX = /-(800|1000|1200|1400|1600)\.webp$/i;
 
 const RULES = [
