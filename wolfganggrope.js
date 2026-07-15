@@ -507,7 +507,7 @@
       const el = document.createElement("div");
       el.className = "wga-hero__slide";
       const img = document.createElement("img");
-      wgaSetImg(img, resolveAsset(slide.src), 1200);
+      wgaSetImg(img, resolveAsset(slide.src), WGA_IMG_SLIDE);
       img.alt = slide.alt || "";
       img.decoding = "async";
       img.loading = i === 0 ? "eager" : "lazy";

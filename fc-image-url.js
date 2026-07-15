@@ -12,7 +12,13 @@
   }
 
   function normalizeAssetPath(src) {
-    return splitQuery(src).path.replace(/^(\.\.\/)+/, "").replace(/^\//, "");
+    var path = splitQuery(src).path;
+    if (/^https?:\/\//i.test(path)) {
+      try {
+        path = new URL(path).pathname;
+      } catch (e) {}
+    }
+    return path.replace(/^(\.\.\/)+/, "").replace(/^\//, "");
   }
 
   function shouldOptimizeSrc(src) {
@@ -96,6 +102,15 @@
     }
 
     function onError() {
+      if (!img.dataset.fcWidthFallback) {
+        var familyW = widthForSrc(src);
+        var familyWebp = optimizedUrl(src, familyW);
+        if (familyWebp && familyWebp !== webp && familyWebp !== src) {
+          img.dataset.fcWidthFallback = "1";
+          img.src = familyWebp;
+          return;
+        }
+      }
       useFallback();
     }
 
