@@ -1,24 +1,28 @@
 {
-  "rewrites": [
+  "redirects": [
     {
       "source": "/",
       "has": [{ "type": "host", "value": "bjgrope.de" }],
-      "destination": "/bjgrope.html"
+      "destination": "/bjgrope.html",
+      "permanent": false
     },
     {
       "source": "/",
       "has": [{ "type": "host", "value": "www.bjgrope.de" }],
-      "destination": "/bjgrope.html"
+      "destination": "/bjgrope.html",
+      "permanent": false
     },
     {
       "source": "/index.html",
       "has": [{ "type": "host", "value": "bjgrope.de" }],
-      "destination": "/bjgrope.html"
+      "destination": "/bjgrope.html",
+      "permanent": false
     },
     {
       "source": "/index.html",
       "has": [{ "type": "host", "value": "www.bjgrope.de" }],
-      "destination": "/bjgrope.html"
+      "destination": "/bjgrope.html",
+      "permanent": false
     }
   ]
 }
