@@ -16,6 +16,12 @@
   <body class="fc-home-page de">
     <header class="bjg-header" aria-label="Hauptnavigation">
       <a href="/" class="bjg-header__logo">Ben Joscha Grope</a>
+      <div class="bjg-header__actions">
+        <div class="bjg-lang" role="group" aria-label="Sprache">
+          <button type="button" class="is-active" data-fc-lang="de">DE</button>
+          <button type="button" data-fc-lang="en">EN</button>
+        </div>
+      </div>
     </header>
 
     <main class="bjg-legal">
@@ -90,11 +96,12 @@
       <div class="bjg-footer__inner">
         <a href="/" class="bjg-footer__brand">Ben Joscha Grope</a>
         <nav class="bjg-footer__links" aria-label="Rechtliches">
-          <a href="../bjg-impressum/index.html">Impressum</a>
-          <a href="index.html" aria-current="page">Datenschutz</a>
+          <a href="../bjg-impressum/index.html"><span class="de-t">Impressum</span><span class="en-t">Legal notice</span></a>
+          <a href="index.html" aria-current="page"><span class="de-t">Datenschutz</span><span class="en-t">Privacy</span></a>
         </nav>
         <p class="bjg-footer__copy">© 2026</p>
       </div>
     </footer>
+    <script src="../fc-lang.js" defer></script>
   </body>
 </html>

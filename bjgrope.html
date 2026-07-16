@@ -17,13 +17,19 @@
   <body class="fc-home-page de">
     <header class="bjg-header" aria-label="Hauptnavigation">
       <a href="/" class="bjg-header__logo">Ben Joscha Grope</a>
-      <button type="button" class="bjg-burger" aria-expanded="false" aria-controls="bjg-menu" aria-label="Menü öffnen">
-        <span class="bjg-burger__lines" aria-hidden="true">
-          <span class="bjg-burger__line"></span>
-          <span class="bjg-burger__line"></span>
-          <span class="bjg-burger__line"></span>
-        </span>
-      </button>
+      <div class="bjg-header__actions">
+        <div class="bjg-lang" role="group" aria-label="Sprache">
+          <button type="button" class="is-active" data-fc-lang="de">DE</button>
+          <button type="button" data-fc-lang="en">EN</button>
+        </div>
+        <button type="button" class="bjg-burger" aria-expanded="false" aria-controls="bjg-menu" aria-label="Menü öffnen">
+          <span class="bjg-burger__lines" aria-hidden="true">
+            <span class="bjg-burger__line"></span>
+            <span class="bjg-burger__line"></span>
+            <span class="bjg-burger__line"></span>
+          </span>
+        </button>
+      </div>
     </header>
 
     <div id="bjg-menu" class="bjg-menu" hidden>
@@ -35,11 +41,19 @@
           <a href="https://gogogo.social/">gogogo.social</a>
           <a href="https://biig.works/">biig.works</a>
           <a href="https://www.balkonius.de">Balkonius</a>
-          <a href="https://www.fridaycircle.club/berlinarchtour.html">Berlin Architektur</a>
-          <a href="https://www.fridaycircle.club/programmierung.html">Pragmatischer Optimismus</a>
-          <a href="https://biig.works/kunst/">Wolfgang Grope Kunst</a>
+          <a href="https://www.fridaycircle.club/berlinarchtour.html"
+            ><span class="de-t">Berlin Architektur</span><span class="en-t">Berlin Architecture</span></a
+          >
+          <a href="https://www.fridaycircle.club/programmierung.html"
+            ><span class="de-t">Pragmatischer Optimismus</span><span class="en-t">Pragmatic Optimism</span></a
+          >
+          <a href="https://biig.works/kunst/"
+            ><span class="de-t">Wolfgang Grope Kunst</span><span class="en-t">Wolfgang Grope Art</span></a
+          >
           <hr class="bjg-menu__divider" />
-          <a href="https://www.fridaycircle.club/kaufen/">Kaufen</a>
+          <a href="https://www.fridaycircle.club/kaufen/"
+            ><span class="de-t">Kaufen</span><span class="en-t">Shop</span></a
+          >
         </nav>
       </div>
     </div>
@@ -62,11 +76,19 @@
           <div class="bjg-about__copy">
             <h2 id="bjg-about-heading" class="visually-hidden">About</h2>
             <p class="bjg-about__text">
-              Coach &amp; Architekt. Ich bringe Menschen zusammen, um gemeinsam, undogmatisch und ganz pragmatisch das Geheimnis eines
-              zufriedenen Lebens zu ergründen. Tägliche Bewegung, bewusste Handlungen, Entschleunigung, gestaltete Orte machen einen
-              Unterschied.
+              <span class="de-t"
+                >Coach &amp; Architekt. Ich bringe Menschen zusammen, um gemeinsam, undogmatisch und ganz pragmatisch das Geheimnis eines
+                zufriedenen Lebens zu ergründen. Tägliche Bewegung, bewusste Handlungen, Entschleunigung, gestaltete Orte machen einen
+                Unterschied.</span
+              >
+              <span class="en-t"
+                >Coach &amp; architect. I bring people together to explore — undogmatically and very pragmatically — the secret of a
+                content life. Daily movement, conscious actions, slowing down, designed places make a difference.</span
+              >
             </p>
-            <a class="bjg-about__cta" href="https://www.fridaycircle.club/triff-joscha.html#joscha-auswahl">Über Joscha →</a>
+            <a class="bjg-about__cta" href="https://www.fridaycircle.club/triff-joscha.html#joscha-auswahl"
+              ><span class="de-t">Über Joscha →</span><span class="en-t">About Joscha →</span></a
+            >
           </div>
           <figure class="bjg-about__portrait" aria-hidden="true">
             <img
@@ -121,7 +143,9 @@
               loading="lazy"
               decoding="async"
             />
-            <span class="bjg-project__label">Berlin Architektur</span>
+            <span class="bjg-project__label"
+              ><span class="de-t">Berlin Architektur</span><span class="en-t">Berlin Architecture</span></span
+            >
           </a>
           <a class="bjg-project" href="https://www.fridaycircle.club/programmierung.html">
             <img
@@ -133,7 +157,9 @@
               loading="lazy"
               decoding="async"
             />
-            <span class="bjg-project__label bjg-project__label--small">Pragmatischer Optimismus</span>
+            <span class="bjg-project__label bjg-project__label--small"
+              ><span class="de-t">Pragmatischer Optimismus</span><span class="en-t">Pragmatic Optimism</span></span
+            >
           </a>
           <a class="bjg-project" href="https://biig.works/kunst/">
             <img
@@ -145,7 +171,9 @@
               loading="lazy"
               decoding="async"
             />
-            <span class="bjg-project__label bjg-project__label--small">Wolfgang Grope Kunst</span>
+            <span class="bjg-project__label bjg-project__label--small"
+              ><span class="de-t">Wolfgang Grope Kunst</span><span class="en-t">Wolfgang Grope Art</span></span
+            >
           </a>
         </div>
       </section>
@@ -155,9 +183,16 @@
           <div class="bjg-connect__copy">
             <h2 id="bjg-connect-heading" class="bjg-connect__heading">Let's keep connected</h2>
             <p class="bjg-connect__text">
-              Schreib mir konkret oder mit einem vagen Gedanken. Alles erlaubt.<br /><br />
-              Für gogogo als Gym-Buddy-Chance, für Interior-Fragen, für ein Kunst-Angebot, für dies das. Oder einfach zum Austausch über
-              Themen, die dir hier durch den Kopf schiessen.
+              <span class="de-t"
+                >Schreib mir konkret oder mit einem vagen Gedanken. Alles erlaubt.<br /><br />
+                Für gogogo als Gym-Buddy-Chance, für Interior-Fragen, für ein Kunst-Angebot, für dies das. Oder einfach zum Austausch über
+                Themen, die dir hier durch den Kopf schiessen.</span
+              >
+              <span class="en-t"
+                >Write to me with something concrete or a vague thought. Everything is welcome.<br /><br />
+                For gogogo as a gym-buddy chance, for interior questions, for an art offer, for this and that. Or simply to exchange on
+                topics that cross your mind here.</span
+              >
             </p>
           </div>
           <div class="bjg-connect__media" aria-hidden="true">
@@ -183,13 +218,14 @@
       <div class="bjg-footer__inner">
         <a href="/" class="bjg-footer__brand">Ben Joscha Grope</a>
         <nav class="bjg-footer__links" aria-label="Rechtliches">
-          <a href="bjg-impressum/index.html">Impressum</a>
-          <a href="bjg-datenschutz/index.html">Datenschutz</a>
+          <a href="bjg-impressum/index.html"><span class="de-t">Impressum</span><span class="en-t">Legal notice</span></a>
+          <a href="bjg-datenschutz/index.html"><span class="de-t">Datenschutz</span><span class="en-t">Privacy</span></a>
         </nav>
         <p class="bjg-footer__copy">© 2026</p>
       </div>
     </footer>
 
+    <script src="fc-lang.js" defer></script>
     <script src="fc-home.js" defer></script>
     <script>
       (function () {
