@@ -281,7 +281,7 @@
 /* About */
 .bjg-about {
   position: relative;
-  padding: clamp(40px, 6vw, 72px) var(--bjg-pad);
+  padding: 0;
   background: var(--bjg-black);
   overflow: hidden;
 }
@@ -291,12 +291,15 @@
   z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  gap: clamp(24px, 4vw, 48px);
-  align-items: center;
+  gap: 0;
+  align-items: stretch;
+  min-height: clamp(320px, 42vw, 520px);
 }
 
 .bjg-about__copy {
   max-width: 42rem;
+  padding: clamp(40px, 6vw, 72px) var(--bjg-pad);
+  align-self: center;
 }
 
 .bjg-about__text {
@@ -330,20 +333,24 @@
 .bjg-about__portrait {
   position: relative;
   margin: 0;
-  justify-self: end;
-  width: min(100%, 520px);
-  height: clamp(224px, 29.4vw, 392px);
+  justify-self: stretch;
+  align-self: stretch;
+  width: 100%;
+  min-height: 100%;
   overflow: hidden;
 }
 
 .bjg-about__portrait img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center center;
   opacity: 0.8;
   filter: grayscale(1) contrast(1.05);
-  transform: scale(calc(1 / 0.7));
+  /* ~5% crop total (top + bottom) */
+  transform: scale(calc(1 / 0.95));
   transform-origin: center center;
 }
 
@@ -638,12 +645,13 @@ body.bjg-menu-open {
 @media (max-width: 960px) {
   .bjg-about__inner {
     grid-template-columns: 1fr;
+    min-height: 0;
   }
 
   .bjg-about__portrait {
-    justify-self: start;
-    width: min(100%, 420px);
-    height: clamp(196px, 42vw, 280px);
+    justify-self: stretch;
+    width: 100%;
+    min-height: clamp(280px, 62vw, 420px);
   }
 
   .bjg-projects__grid {
