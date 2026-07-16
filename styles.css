@@ -2926,7 +2926,8 @@ a.community-product__cta.cta-pill {
     justify-self: end;
   }
 
-  .nav__links {
+  .nav__links,
+  #primary-nav {
     position: fixed;
     top: calc(var(--fc-nav-h, 72px) + 28px);
     right: 0;
@@ -2947,14 +2948,16 @@ a.community-product__cta.cta-pill {
     box-shadow: 0 18px 48px rgba(0, 0, 0, 0.12);
   }
 
-  .nav__links a {
+  .nav__links a,
+  #primary-nav a {
     padding: 10px 0;
     width: 100%;
     color: var(--text);
     text-align: right;
   }
 
-  .nav.nav--open .nav__links {
+  .nav.nav--open .nav__links,
+  .nav.nav--open #primary-nav {
     display: flex;
   }
 

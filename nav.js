@@ -210,13 +210,20 @@
       if (mq.matches) setOpen(false);
     }
 
-    btn.addEventListener("click", function () {
+    btn.addEventListener("click", function (e) {
       if (!mq.matches) return;
+      e.stopPropagation();
       setOpen(!header.classList.contains("nav--open"));
     });
 
     nav.querySelectorAll("a").forEach(function (link) {
       link.addEventListener("click", closeIfMobile);
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!mq.matches || !header.classList.contains("nav--open")) return;
+      if (header.contains(e.target)) return;
+      setOpen(false);
     });
 
     document.addEventListener("keydown", function (e) {
@@ -226,6 +233,8 @@
     mq.addEventListener("change", function () {
       if (!mq.matches) setOpen(false);
     });
+
+    setOpen(false);
   }
 
   loadFcImageUrl();
