@@ -400,6 +400,12 @@ body.bat-page .nav__logo {
   color: #fff;
 }
 
+.nav__gogogo-item--shop:hover,
+.nav__gogogo-item--shop:focus-visible {
+  background: #c52f33;
+  color: #fff;
+}
+
 .nav__gogogo-item--cardeluxe:hover,
 .nav__gogogo-item--cardeluxe:focus-visible {
   background: #fff200;

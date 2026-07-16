@@ -347,7 +347,70 @@
   transform-origin: center center;
 }
 
-/* Projects */
+.bjg-legal {
+  padding: clamp(96px, 12vw, 140px) var(--bjg-pad) clamp(64px, 8vw, 96px);
+  background: var(--bjg-black);
+  color: var(--bjg-white);
+}
+
+.bjg-legal__inner {
+  max-width: 46rem;
+  margin: 0 auto;
+}
+
+.bjg-legal__title {
+  margin: 0 0 clamp(24px, 4vw, 36px);
+  font-size: var(--bjg-logo-fs);
+  font-weight: 600;
+  letter-spacing: 0.018em;
+  text-transform: uppercase;
+}
+
+.bjg-legal__prose {
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  line-height: 1.65;
+  color: var(--bjg-muted);
+}
+
+.bjg-legal__prose h2 {
+  margin: clamp(28px, 4vw, 40px) 0 10px;
+  font-size: clamp(0.82rem, 1vw, 0.92rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--bjg-white);
+}
+
+.bjg-legal__prose p,
+.bjg-legal__prose ul {
+  margin: 0 0 14px;
+}
+
+.bjg-legal__prose ul {
+  padding-left: 1.2em;
+}
+
+.bjg-legal__prose a {
+  color: var(--bjg-accent);
+}
+
+.bjg-legal__back {
+  display: inline-block;
+  margin-bottom: clamp(24px, 4vw, 36px);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--bjg-accent);
+}
+
+.bjg-legal__back:hover,
+.bjg-legal__back:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
+
 .bjg-projects {
   background: var(--bjg-black);
 }
@@ -417,26 +480,28 @@
 .bjg-connect__copy {
   grid-column: 1;
   grid-row: 1;
-  padding: clamp(24px, 2.9vw, 42px) clamp(28px, 4vw, 52px) clamp(28px, 4vw, 52px);
-  background: #fff;
-  color: #0a0a0a;
+  padding: clamp(40px, 6vw, 72px) var(--bjg-pad);
+  background: transparent;
+  color: var(--bjg-white);
 }
 
 .bjg-connect__heading {
-  margin: 0 0 clamp(14px, 2vw, 22px);
-  font-size: clamp(2.2rem, 3.2vw, 2.85rem);
-  font-weight: 300;
-  line-height: 1.2;
-  letter-spacing: 0.02em;
+  margin: 0 0 clamp(20px, 3vw, 32px);
+  font-size: var(--bjg-logo-fs);
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: 0.018em;
   text-transform: uppercase;
 }
 
 .bjg-connect__text {
   margin: 0;
-  max-width: 51ch;
-  font-size: clamp(0.92rem, 1.1vw, 1.02rem);
-  font-weight: 300;
-  line-height: 1.45;
+  max-width: none;
+  font-size: var(--bjg-logo-fs);
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: 0.018em;
+  text-transform: uppercase;
 }
 
 .bjg-connect__media {
@@ -594,9 +659,10 @@ body.bjg-menu-open {
   .bjg-connect__copy {
     position: relative;
     z-index: 2;
-    min-height: min(72dvh, 640px);
+    min-height: auto;
+    padding: clamp(40px, 10vw, 56px) var(--bjg-pad);
     background: transparent;
-    color: #fff;
+    color: var(--bjg-white);
   }
 
   .bjg-connect__media {

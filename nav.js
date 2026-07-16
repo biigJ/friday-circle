@@ -22,7 +22,7 @@
   }
 
   /** Bump when partials/site-footer.html or site-header.html change (cache bust). */
-  var FC_PARTIAL_CACHE = "13";
+  var FC_PARTIAL_CACHE = "14";
 
   var KUNST_URL = "https://biig.works/kunst/";
 
