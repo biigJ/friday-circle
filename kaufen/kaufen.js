@@ -1,5 +1,5 @@
 (function () {
-  var MAIL = "mail@bjgrope.de";
+  var MAIL = "studio@biig.works";
 
   function setProductImg(img, src) {
     if (!img || !src) return;
