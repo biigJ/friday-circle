@@ -3,196 +3,216 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>FRIDAY CIRCLE — Dein Alltag ist gestaltbar</title>
-    <meta name="description" content="Friday Circle — Bewegung, Gewohnheiten, Umgebungen. Zufriedener leben, nicht alleine." />
+    <title>Ben Joscha Grope — Coach, Architekt, Friday Circle</title>
+    <meta name="description" content="Ben Joscha Grope — Bewegung, Interior, Projekte. gogogo, biig Interior, Balkonius und mehr." />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="fc-home.css" />
+    <link rel="preload" as="image" href="assets/gogogo/hero-poster-1600.webp" fetchpriority="high" />
     <script src="fc-image-url.js" defer></script>
   </head>
-  <body>
-    <div id="fc-site-header"></div>
+  <body class="fc-home-page de">
+    <header class="bjg-header" aria-label="Hauptnavigation">
+      <a href="index.html" class="bjg-header__logo">Ben Joscha Grope</a>
+      <button type="button" class="bjg-burger" aria-expanded="false" aria-controls="bjg-menu" aria-label="Menü öffnen">
+        <span class="bjg-burger__lines" aria-hidden="true">
+          <span class="bjg-burger__line"></span>
+          <span class="bjg-burger__line"></span>
+          <span class="bjg-burger__line"></span>
+        </span>
+      </button>
+    </header>
+
+    <div id="bjg-menu" class="bjg-menu" hidden>
+      <div class="bjg-menu__backdrop" data-bjg-menu-close aria-hidden="true"></div>
+      <div class="bjg-menu__panel" role="dialog" aria-modal="true" aria-label="Navigation">
+        <button type="button" class="bjg-menu__close" data-bjg-menu-close aria-label="Menü schließen">×</button>
+        <nav class="bjg-menu__nav" aria-label="Projekte und Seiten">
+          <a href="triff-joscha.html#joscha-auswahl">Joscha</a>
+          <a href="https://gogogo.social/">gogogo.social</a>
+          <a href="https://biig.works/">biig.works</a>
+          <a href="https://www.balkonius.de">Balkonius</a>
+          <a href="berlinarchtour.html">Berlin Architektur</a>
+          <a href="programmierung.html"><span class="de-t">Pragmatischer Optimismus</span><span class="en-t">Pragmatic Optimism</span></a>
+          <a href="https://biig.works/kunst/">Wolfgang Grope Kunst</a>
+          <hr class="bjg-menu__divider" />
+          <a href="kaufen/index.html"><span class="de-t">Kaufen</span><span class="en-t">Shop</span></a>
+        </nav>
+      </div>
+    </div>
 
     <main>
-      <section class="landing-bridge landing-bridge--programs" id="fc-program-hero-section" aria-label="Service">
-        <div class="fc-program-hero-stage">
-          <section class="hero hero--service" aria-labelledby="service-heading">
-            <div class="hero__grid">
-              <div class="hero__left">
-                <h1 id="service-heading" class="hero__heading">
-                  <span class="de-t"><span class="nowrap">Dein Alltag ist</span> <span class="nowrap">gestaltbar</span></span>
-                  <span class="en-t"><span class="nowrap">Your everyday life</span> <span class="nowrap">is designable</span></span>
-                </h1>
-              </div>
-              <p class="hero__lede">
-                <span class="de-t">Bewegung, Gewohnheiten, Umgebungen. Wer in diesen drei Bereichen für sich klar ist, lebt zufriedener. Friday Circle steht dafür, dass Du Dich dabei nicht allein fühlst.</span>
-                <span class="en-t">Movement, habits, environments. Whoever has clarity in these three areas lives more satisfied. Friday Circle is here so you don't feel alone doing it.</span>
-              </p>
-            </div>
-            <div class="hero--service__arrows">
-              <div class="fc-program-hero-arrows">
-                <button type="button" class="fc-program-hero-arrow fc-program-hero-arrow--prev" aria-label="Vorheriger Service"><span aria-hidden="true">‹</span></button>
-                <button type="button" class="fc-program-hero-arrow fc-program-hero-arrow--next" aria-label="Nächster Service"><span aria-hidden="true">›</span></button>
-              </div>
-            </div>
-          </section>
-          <div class="fc-program-hero-wrap">
-          <div class="fc-program-hero" id="fc-program-hero">
-          <div class="fc-program-hero__bg" aria-hidden="true">
-            <div class="fc-program-hero__slide fc-program-hero__slide--gogogo is-active" data-slide="0">
-              <div class="fc-program-hero__gogogo-media" aria-hidden="true">
-                <video autoplay muted loop playsinline preload="metadata" poster="assets/gogogo/hero-poster-1600.webp">
-                  <source src="assets/gogogo/hero.mp4" type="video/mp4" />
-                </video>
-              </div>
-            </div>
-            <div class="fc-program-hero__slide" data-slide="1">
-              <img src="assets/interior/biigJ-Küche-01-1400.webp" data-fc-fallback="assets/interior/biigJ-Küche-01.png" alt="" width="1600" height="900" decoding="async" />
-            </div>
-          </div>
-          <div class="fc-program-hero__content">
-            <div class="fc-program-hero__panel fc-program-hero__panel--gogogo is-active" data-panel="0">
-              <h2 class="fc-program-hero__title fc-program-hero__title--gogogo">
-                <span class="de-t"><span class="fc-gogogo-headline__line">Wer Gym-Buddys hat</span><span class="fc-gogogo-headline__line">bleibt leichter in Bewegung</span></span>
-                <span class="en-t"><span class="fc-gogogo-headline__line">If you have gym buddies</span><span class="fc-gogogo-headline__line">staying in motion is easier</span></span>
-              </h2>
-              <a class="fc-program-hero__cta fc-program-hero__cta--gogogo" href="https://gogogo.social/"><span class="de-t">gogogo</span><span class="en-t">gogogo</span></a>
-            </div>
-            <div class="fc-program-hero__panel fc-program-hero__panel--interior" data-panel="1">
-              <h2 class="fc-program-hero__title fc-program-hero__title--interior">
-                <span class="de-t">IST DEIN <span class="nowrap">SPACE GUT?</span><br />PASS IHN AN DEINEN <span class="nowrap">LEBENSENTWURF AN.</span></span>
-                <span class="en-t">IS YOUR <span class="nowrap">SPACE RIGHT?</span><br />TAILOR IT TO YOUR <span class="nowrap">LIFE DESIGN.</span></span>
-              </h2>
-              <a class="fc-program-hero__cta fc-program-hero__cta--haima" href="https://biig.works/"><span class="de-t">biig Interior</span><span class="en-t">biig Interior</span></a>
-            </div>
-          </div>
-          <div class="fc-program-hero__dots" role="tablist" aria-label="Service wählen">
-            <button type="button" class="fc-program-hero__dot is-active" role="tab" aria-selected="true" aria-label="gogogo"></button>
-            <button type="button" class="fc-program-hero__dot" role="tab" aria-selected="false" aria-label="biig Interior"></button>
-          </div>
+      <section class="bjg-hero" aria-label="Intro">
+        <div class="bjg-hero__media" aria-hidden="true">
+          <video autoplay muted loop playsinline preload="metadata" poster="assets/gogogo/hero-poster-1600.webp">
+            <source src="assets/gogogo/hero.mp4" type="video/mp4" />
+          </video>
         </div>
-        </div>
+        <h1 class="bjg-hero__title" aria-hidden="true">Joscha</h1>
+        <a class="bjg-hero__scroll" href="#about">
+          <span>Scroll</span>
+          <span class="bjg-hero__scroll-arrow" aria-hidden="true">↓</span>
+        </a>
+      </section>
+
+      <section class="bjg-about" id="about" aria-labelledby="bjg-about-heading">
+        <div class="bjg-about__inner">
+          <div class="bjg-about__copy">
+            <h2 id="bjg-about-heading" class="visually-hidden">About</h2>
+            <p class="bjg-about__text">
+              <span class="de-t"
+                >Ben Joscha Grope — <span class="bjg-accent">Coach</span>, <span class="bjg-accent">Architekt</span> und Gründer von
+                <span class="bjg-accent">gogogo</span>. Bewegung, Gewohnheiten, Umgebungen: wer hier Klarheit hat, lebt zufriedener.</span
+              >
+              <span class="en-t"
+                >Ben Joscha Grope — <span class="bjg-accent">coach</span>, <span class="bjg-accent">architect</span> and founder of
+                <span class="bjg-accent">gogogo</span>. Movement, habits, environments: clarity here means a more satisfied life.</span
+              >
+            </p>
+            <a class="bjg-about__cta" href="triff-joscha.html#joscha-auswahl"
+              ><span class="de-t">Über Joscha →</span><span class="en-t">About Joscha →</span></a
+            >
+          </div>
+          <figure class="bjg-about__portrait">
+            <img
+              src="assets/biigJ/biigJ-gym-1200.webp"
+              data-fc-fallback="assets/biigJ/biigJ-gym.png"
+              alt="Ben Joscha Grope"
+              width="1200"
+              height="1600"
+              decoding="async"
+            />
+          </figure>
         </div>
       </section>
 
-      <section class="landing-after-video" aria-labelledby="landing-name-heading">
-        <div class="landing-after-video__inner">
-          <hr class="landing-bridge__rule landing-after-video__rule-after-graphic" />
-          <div class="landing-name-story__grid">
-            <h2 id="landing-name-heading" class="landing-name-story__heading">
-              <span class="nowrap">Warum der Name</span>
-              <span class="nowrap">FRIDAY CIRCLE?</span>
-            </h2>
-            <div class="landing-name-story__prose">
-              <p class="landing-name-story__text">
-                <span class="de-t">Friday Circle ist aus einer Gruppe entstanden, die sich freitags mittags im Gym getroffen hat. Aus dieser Regelmäßigkeit wurde eine Philosophie.</span>
-                <span class="en-t">Friday Circle grew out of a group that met at the gym on Friday midday. That regularity became a philosophy.</span>
-              </p>
-              <p class="landing-name-story__text">
-                <span class="de-t">Der Gedanke dahinter: Damit die Tage nicht einfach davonziehen, braucht es bewusste Momente. Routinen die einem gut tun. Bewegung. Kreative Stunden. Ankerpunkte in der Woche, die man nicht verhandelt. Und das möglichst offline, ohne App, ohne Dashboard, ohne Optimierungsdruck.</span>
-                <span class="en-t">The idea: so days don't just slip away, you need conscious moments. Routines that do you good. Movement. Creative hours. Anchors in the week you don't negotiate away. Ideally offline — no app, no dashboard, no pressure to optimize.</span>
-              </p>
-              <p class="landing-name-story__text">
-                <span class="de-t">Zwei Dinge halte ich für unverhandelbar: die richtigen Menschen um sich und tägliche Bewegung. Wer beides hat, muss sich nicht jeden Tag neu überwinden.</span>
-                <span class="en-t">Two things are non-negotiable for me: the right people around you and daily movement. If you have both, you don't have to push yourself anew every day.</span>
-              </p>
-            </div>
-          </div>
-          <hr class="landing-bridge__rule landing-after-video__rule-after-name-story" />
+      <section class="bjg-projects" aria-label="Projekte">
+        <div class="bjg-projects__grid">
+          <a class="bjg-project" href="https://gogogo.social/">
+            <img src="assets/gogogo/hero-poster-1600.webp" alt="" width="1600" height="900" loading="lazy" decoding="async" />
+            <span class="bjg-project__label">gogogo.social</span>
+          </a>
+          <a class="bjg-project" href="https://biig.works/">
+            <img
+              src="assets/interior/biigJ-Küche-01-1400.webp"
+              data-fc-fallback="assets/interior/biigJ-Küche-01.png"
+              alt=""
+              width="1600"
+              height="900"
+              loading="lazy"
+              decoding="async"
+            />
+            <span class="bjg-project__label">biig.works</span>
+          </a>
+          <a class="bjg-project" href="https://www.balkonius.de">
+            <img
+              src="assets/balkonius-hero-blumenkästen-1400.webp"
+              data-fc-fallback="assets/balkonius-hero-blumenkästen.png"
+              alt=""
+              width="1400"
+              height="900"
+              loading="lazy"
+              decoding="async"
+            />
+            <span class="bjg-project__label">Balkonius</span>
+          </a>
+          <a class="bjg-project" href="berlinarchtour.html">
+            <img
+              src="assets/berlin-arch-tour/2023-05-21-HausLemke_MvdRohe_03-1200.webp"
+              data-fc-fallback="assets/berlin-arch-tour/2023-05-21-HausLemke_MvdRohe_03.jpg"
+              alt=""
+              width="1200"
+              height="900"
+              loading="lazy"
+              decoding="async"
+            />
+            <span class="bjg-project__label">Berlin Architektur</span>
+          </a>
+          <a class="bjg-project" href="programmierung.html">
+            <img
+              src="assets/biigJ/lebensjahre-1200.webp"
+              data-fc-fallback="assets/biigJ/lebensjahre.png"
+              alt=""
+              width="1200"
+              height="900"
+              loading="lazy"
+              decoding="async"
+            />
+            <span class="bjg-project__label bjg-project__label--small"
+              ><span class="de-t">Pragmatischer Optimismus</span><span class="en-t">Pragmatic Optimism</span></span
+            >
+          </a>
+          <a class="bjg-project" href="https://biig.works/kunst/">
+            <img
+              src="assets/wolfgang-grope/WolfgangGrope-jung-1000.webp"
+              data-fc-fallback="assets/wolfgang-grope/WolfgangGrope-jung.png"
+              alt=""
+              width="800"
+              height="1000"
+              loading="lazy"
+              decoding="async"
+            />
+            <span class="bjg-project__label bjg-project__label--small">Wolfgang Grope Kunst</span>
+          </a>
         </div>
       </section>
-      <section class="landing-faq" aria-labelledby="landing-faq-heading">
-        <div class="landing-faq__inner">
-          <div class="landing-faq__grid">
-            <h2 id="landing-faq-heading" class="landing-faq__heading">FAQ</h2>
-            <div class="landing-faq__list">
-              <details class="landing-faq__item">
-                <summary class="landing-faq__question">
-                  <span class="de-t">Was ist Friday Circle?</span>
-                  <span class="en-t">What is Friday Circle?</span>
-                </summary>
-                <p class="landing-faq__answer">
-                  <span class="de-t">Eine Idee, die aus einer Freitagsgruppe im Gym entstanden ist. Der Name hat sich festgesetzt, weil er gut passt: ein fester Punkt in der Woche, an dem man kurz innehält und sich bewegt. Nicht mehr, nicht weniger.</span>
-                  <span class="en-t">An idea that grew out of a Friday gym group. The name stuck because it fits: a fixed point in the week to pause briefly and move. Nothing more, nothing less.</span>
-                </p>
-                <p class="landing-faq__answer">
-                  <span class="de-t">Die Philosophie dahinter ist einfach. Tägliche Bewegung und die richtigen Menschen um sich sind keine Nice-to-haves. Wer beides hat, kommt leichter durch die Woche.</span>
-                  <span class="en-t">The philosophy is simple. Daily movement and the right people around you aren't nice-to-haves. If you have both, you get through the week more easily.</span>
-                </p>
-                <p class="landing-faq__answer">
-                  <span class="de-t">Unter gogogo kannst du das Intervalltraining remote mitmachen, wenn du magst.</span>
-                  <span class="en-t">Under gogogo you can join interval training remotely if you like.</span>
-                </p>
-              </details>
-              <details class="landing-faq__item">
-                <summary class="landing-faq__question">
-                  <span class="de-t">Muss ich sportlich sein?</span>
-                  <span class="en-t">Do I need to be athletic?</span>
-                </summary>
-                <p class="landing-faq__answer">
-                  <span class="de-t">Nein. Es geht hier nicht um Fitness-Level. Intervalltraining ist nur ein kleiner Teil davon.</span>
-                  <span class="en-t">No. This isn't about fitness level. Interval training is only a small part of it.</span>
-                </p>
-                <p class="landing-faq__answer">
-                  <span class="de-t">Worum es wirklich geht: wie du deinen Alltag gestaltest, welche Gewohnheiten du aufbaust und wie deine Umgebung aussieht. Ob du drei Mal die Woche trainierst oder gerade vom Sofa aufstehst, ob du Hochleistung gewohnt bist oder gerade keine Energie hast. Das spielt keine Rolle. Jeder will sein Leben leben, auf seine Art.</span>
-                  <span class="en-t">What it's really about: how you shape your everyday life, which habits you build, and what your environment looks like. Whether you train three times a week or are just getting off the sofa, whether you're used to peak performance or have no energy right now. It doesn't matter. Everyone wants to live their life, in their own way.</span>
-                </p>
-                <p class="landing-faq__answer">
-                  <span class="de-t">Hilfestellung um in Bewegung zu kommen findest du hier trotzdem, wenn du sie brauchst.</span>
-                  <span class="en-t">You'll still find support here to get moving, if you need it.</span>
-                </p>
-              </details>
-              <details class="landing-faq__item">
-                <summary class="landing-faq__question">
-                  <span class="de-t">Was bekomme ich?</span>
-                  <span class="en-t">What do I get?</span>
-                </summary>
-                <p class="landing-faq__answer">
-                  <span class="de-t">Joschas Kernthemen sind Bewegung und Interior. Alles andere wächst drumherum, wenn Bedarf da ist.</span>
-                  <span class="en-t">Joscha's core topics are movement and interior. Everything else grows around that when there's demand.</span>
-                </p>
-                <p class="landing-faq__answer">
-                  <span class="de-t">Er hat sich vorgenommen, nie wieder alleine zu arbeiten. Deshalb basiert hier alles auf Zusammenarbeit. Fitness Coaching im Netzwerk, Architektur mit Handwerkern und befreundeten Büros, ein Buch mit Co-Autor, ein Tisch mit Tischlerhilfe, Workshops mit Experten zu Themen die noch kommen. Wer anfragt, bekommt entweder Joscha direkt oder jemanden aus dem Netzwerk, dem er vertraut.</span>
-                  <span class="en-t">He decided never to work alone again. So everything here is based on collaboration. Fitness coaching in a network, architecture with craftspeople and friendly offices, a book with a co-author, a table with a carpenter's help, workshops with experts on topics still to come. If you enquire, you get either Joscha directly or someone from the network he trusts.</span>
-                </p>
-              </details>
-              <details class="landing-faq__item">
-                <summary class="landing-faq__question">
-                  <span class="de-t">Ist FRIDAY CIRCLE und gogogo eine App?</span>
-                  <span class="en-t">Are FRIDAY CIRCLE and gogogo an app?</span>
-                </summary>
-                <p class="landing-faq__answer">
-                  <span class="de-t">Nein, und das ist Absicht. Apps sind auf dem Weg raus. In zwei Jahren bieten Smartphones und neue Devices eine Oberfläche für alles, Dienstleistungen laufen dann im Hintergrund. Eine weitere App in die Welt zu setzen macht keinen Sinn.</span>
-                  <span class="en-t">No, and that's intentional. Apps are on their way out. In two years smartphones and new devices will offer a surface for everything; services will run in the background. Putting another app into the world makes no sense.</span>
-                </p>
-                <p class="landing-faq__answer">
-                  <span class="de-t">Was es gibt: eine Community-Plattform, so low-key wie möglich gehalten. WhatsApp, Interior-Projekte, echte Treffen und diese Website als gemeinsamer Ankerpunkt.</span>
-                  <span class="en-t">What there is: a community platform kept as low-key as possible. WhatsApp, interior projects, real meetups, and this website as a shared anchor.</span>
-                </p>
-              </details>
-              <details class="landing-faq__item">
-                <summary class="landing-faq__question">
-                  <span class="de-t">Wie soll ich mitmachen, wenn wir uns doch nicht aus zeitlichen oder geografischen Gründen treffen können?</span>
-                  <span class="en-t">How can I join in if we can't meet for time or geographic reasons?</span>
-                </summary>
-                <p class="landing-faq__answer">
-                  <span class="de-t">WhatsApp, Webmeeting und über diese Website per Datenbank-Eintrag. Wir machen das Friday Training mit individualisiertem Trainingsplan mit spielerisch einfachem Support. Und mit Belohnung. Check out.</span>
-                  <span class="en-t">WhatsApp, web meeting, and through this website via a database entry. We run Friday Training with a personalized training plan and playfully simple support. And with rewards. Check it out.</span>
-                </p>
-                <p class="landing-faq__answer">
-                  <span class="de-t">Interior Design und alles andere machen wir per Web Call, Telefonate und wenn's losgeht auch vor Ort woanders.</span>
-                  <span class="en-t">Interior design and everything else we do via web call, phone calls, and on site elsewhere when things get going.</span>
-                </p>
-              </details>
+
+      <section class="bjg-connect" id="connect" aria-labelledby="bjg-connect-heading">
+        <div class="bjg-connect__inner">
+          <div class="bjg-connect__card">
+            <div class="bjg-connect__copy">
+              <h2 id="bjg-connect-heading" class="bjg-connect__heading">Let's keep connected</h2>
+              <p class="bjg-connect__text">
+                <span class="de-t"
+                  >Friday Circle ist mein persönlicher Ankerpunkt — für gogogo, Interior über biig, Kunst-Angebote, Shop-Bestellungen oder
+                  einfach einen Austausch. Schreib mir konkret oder mit einem vagen Gedanken. Alles erlaubt.</span
+                >
+                <span class="en-t"
+                  >Friday Circle is my personal anchor — for gogogo, interior via biig, art offers, shop orders, or simply a conversation.
+                  Write with something concrete or a vague thought. Everything is welcome.</span
+                >
+              </p>
+            </div>
+            <div class="bjg-connect__media" aria-hidden="true">
+              <img
+                src="assets/biigJ/biig-YeahSweater-1200.webp"
+                data-fc-fallback="assets/biigJ/biig-YeahSweater.png"
+                alt=""
+                width="1687"
+                height="2342"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="bjg-connect__mail">
+              <a href="mailto:mail@bjgrope.de">mail@bjgrope.de</a>
+              <a href="kontakt/index.html">Calendly</a>
             </div>
           </div>
         </div>
       </section>
     </main>
 
-    <div id="fc-site-footer"></div>
-    <script src="nav.js" defer></script>
-    <script src="fc-program-hero.js" defer></script>
+    <footer class="bjg-footer" aria-label="Seitenfuß">
+      <div class="bjg-footer__inner">
+        <a href="index.html" class="bjg-footer__brand">Ben Joscha Grope</a>
+        <nav class="bjg-footer__links" aria-label="Rechtliches">
+          <a href="impressum/index.html"><span class="de-t">Impressum</span><span class="en-t">Legal notice</span></a>
+          <a href="datenschutz/index.html"><span class="de-t">Datenschutz</span><span class="en-t">Privacy</span></a>
+        </nav>
+        <p class="bjg-footer__copy">© 2026</p>
+      </div>
+    </footer>
+
+    <script src="fc-lang.js" defer></script>
+    <script src="fc-home.js" defer></script>
+    <script>
+      (function () {
+        var menu = document.getElementById("bjg-menu");
+        if (menu) menu.removeAttribute("hidden");
+      })();
+    </script>
   </body>
 </html>
