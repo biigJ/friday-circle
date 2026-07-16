@@ -293,7 +293,7 @@
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   gap: 0;
   align-items: stretch;
-  min-height: clamp(320px, 42vw, 520px);
+  min-height: clamp(260px, 34vw, 420px);
 }
 
 .bjg-about__copy {
@@ -651,7 +651,7 @@ body.bjg-menu-open {
   .bjg-about__portrait {
     justify-self: stretch;
     width: 100%;
-    min-height: clamp(280px, 62vw, 420px);
+    min-height: clamp(220px, 52vw, 340px);
   }
 
   .bjg-projects__grid {
