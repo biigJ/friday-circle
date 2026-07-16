@@ -514,6 +514,7 @@
 }
 
 .bjg-connect__card {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.36fr);
   grid-template-rows: minmax(0, 1fr) auto;
@@ -763,6 +764,7 @@ body.bjg-menu-open {
   .bjg-connect__media {
     position: absolute;
     inset: 0;
+    z-index: 0;
     grid-column: auto;
     grid-row: auto;
   }
