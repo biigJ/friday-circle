@@ -59,11 +59,11 @@
   if (videos.length < 2) return;
 
   var playlist = [
-    "assets/bjgrope/1EAEEA0D-408C-47A6-9D7A-284D294A5036.mp4",
     "assets/bjgrope/6E7CB054-194B-43A7-AC54-A574538302C4.mp4",
+    "assets/bjgrope/1EAEEA0D-408C-47A6-9D7A-284D294A5036.mp4",
     "assets/bjgrope/IMG_5284.MOV",
-    "assets/bjgrope/IMG_7473.MOV",
     "assets/bjgrope/ScreenRecording_03-20-2026%2009-42-14_1.mov",
+    "assets/bjgrope/IMG_7473.MOV",
     "assets/bjgrope/copy_766C6AA6-3A61-4BB7-BADF-677D3BB84361.mov",
   ];
 
