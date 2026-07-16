@@ -125,5 +125,21 @@
     }
   });
 
+  // If autoplay is blocked, try again on the first user gesture.
+  function tryPlayFromGesture() {
+    if (!stalled) return;
+    stalled = false;
+    var p3 = video.play();
+    if (p3 && typeof p3.catch === "function") {
+      p3.catch(function () {
+        stalled = true;
+      });
+    }
+  }
+
+  ["pointerdown", "touchstart", "keydown"].forEach(function (evt) {
+    document.addEventListener(evt, tryPlayFromGesture, { once: true });
+  });
+
   playIndex(0);
 })();
