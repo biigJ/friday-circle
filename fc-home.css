@@ -1,11 +1,10 @@
-/* Ben Joscha Grope — personal landing (fridaycircle.club) */
+/* Ben Joscha Grope — personal landing (bjgrope.de) */
 :root {
   --bjg-black: #050505;
-  --bjg-lime: #d4ff00;
+  --bjg-accent: #c52f33;
   --bjg-white: #f5f5f0;
   --bjg-muted: rgba(245, 245, 240, 0.72);
   --bjg-pad: clamp(20px, 4vw, 48px);
-  --bjg-max: 1320px;
   --bjg-font: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
@@ -53,9 +52,9 @@
 }
 
 .bjg-header__logo {
-  font-size: clamp(0.72rem, 1.1vw, 0.92rem);
-  font-weight: 800;
-  letter-spacing: 0.14em;
+  font-weight: 600;
+  font-size: clamp(2.1rem, 2.7vw, 2.7rem);
+  letter-spacing: 0.018em;
   text-transform: uppercase;
   text-decoration: none;
   color: var(--bjg-white);
@@ -63,15 +62,15 @@
 
 .bjg-header__logo:hover,
 .bjg-header__logo:focus-visible {
-  color: var(--bjg-lime);
+  color: var(--bjg-accent);
   outline: none;
 }
 
 .bjg-burger {
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
+  width: 57px;
+  height: 57px;
   padding: 0;
   border: 0;
   background: transparent;
@@ -81,8 +80,8 @@
 
 .bjg-burger__lines {
   display: grid;
-  gap: 7px;
-  width: 28px;
+  gap: 9px;
+  width: 36px;
 }
 
 .bjg-burger__line {
@@ -93,7 +92,7 @@
 }
 
 .bjg-burger[aria-expanded="true"] .bjg-burger__line:nth-child(1) {
-  transform: translateY(9px) rotate(45deg);
+  transform: translateY(11px) rotate(45deg);
 }
 
 .bjg-burger[aria-expanded="true"] .bjg-burger__line:nth-child(2) {
@@ -101,7 +100,7 @@
 }
 
 .bjg-burger[aria-expanded="true"] .bjg-burger__line:nth-child(3) {
-  transform: translateY(-9px) rotate(-45deg);
+  transform: translateY(-11px) rotate(-45deg);
 }
 
 /* Slide menu */
@@ -110,7 +109,7 @@
   inset: 0;
   z-index: 110;
   display: grid;
-  grid-template-columns: 1fr min(520px, 92vw);
+  grid-template-columns: 1fr min(720px, 96vw);
   pointer-events: none;
   visibility: hidden;
 }
@@ -134,8 +133,8 @@
   display: flex;
   flex-direction: column;
   padding: clamp(72px, 10vw, 96px) clamp(28px, 5vw, 56px);
-  background: var(--bjg-lime);
-  color: var(--bjg-black);
+  background: var(--bjg-accent);
+  color: #fff;
   transform: translateX(100%);
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   overflow-y: auto;
@@ -149,14 +148,14 @@
   position: absolute;
   top: clamp(18px, 2.4vw, 28px);
   right: clamp(20px, 4vw, 48px);
-  width: 44px;
-  height: 44px;
+  width: 57px;
+  height: 57px;
   border: 0;
   background: transparent;
-  font-size: 2rem;
+  font-size: 2.6rem;
   line-height: 1;
   cursor: pointer;
-  color: var(--bjg-black);
+  color: #fff;
 }
 
 .bjg-menu__nav {
@@ -173,19 +172,20 @@
   line-height: 1.05;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--bjg-black);
+  color: #fff;
+  white-space: nowrap;
 }
 
 .bjg-menu__nav a:hover,
 .bjg-menu__nav a:focus-visible {
-  opacity: 0.65;
+  opacity: 0.72;
   outline: none;
 }
 
 .bjg-menu__divider {
   margin: clamp(8px, 1.5vw, 16px) 0;
   border: 0;
-  border-top: 2px solid rgba(0, 0, 0, 0.18);
+  border-top: 2px solid rgba(255, 255, 255, 0.22);
 }
 
 /* Hero */
@@ -207,14 +207,24 @@
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 1;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 0.55) 100%);
+  pointer-events: none;
 }
 
-.bjg-hero__media video {
+.bjg-hero__video {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.9s ease;
   filter: grayscale(0.2) brightness(0.72) contrast(1.05);
+}
+
+.bjg-hero__video.is-active {
+  opacity: 1;
 }
 
 .bjg-hero__title {
@@ -228,7 +238,7 @@
   line-height: 0.88;
   text-transform: uppercase;
   text-align: center;
-  color: var(--bjg-lime);
+  color: var(--bjg-accent);
   pointer-events: none;
   user-select: none;
 }
@@ -252,7 +262,7 @@
 }
 
 .bjg-hero__scroll-arrow {
-  color: var(--bjg-lime);
+  color: var(--bjg-accent);
   font-size: 1rem;
   animation: bjg-bounce 1.6s ease-in-out infinite;
 }
@@ -269,34 +279,33 @@
 
 /* About */
 .bjg-about {
+  position: relative;
   padding: clamp(64px, 10vw, 120px) var(--bjg-pad);
   background: var(--bjg-black);
+  overflow: hidden;
 }
 
 .bjg-about__inner {
-  max-width: var(--bjg-max);
-  margin: 0 auto;
+  position: relative;
+  z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
   gap: clamp(32px, 6vw, 72px);
   align-items: center;
 }
 
 .bjg-about__copy {
-  max-width: 38rem;
+  max-width: 42rem;
 }
 
 .bjg-about__text {
   margin: 0;
-  font-size: clamp(1.35rem, 2.4vw, 2.15rem);
-  font-weight: 800;
-  line-height: 1.22;
-  letter-spacing: 0.01em;
+  font-size: clamp(1rem, 1.8vw, 1.35rem);
+  font-weight: 600;
+  line-height: 1.38;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-}
-
-.bjg-about__text .bjg-accent {
-  color: var(--bjg-lime);
+  color: var(--bjg-white);
 }
 
 .bjg-about__cta {
@@ -307,7 +316,7 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--bjg-lime);
+  color: var(--bjg-accent);
 }
 
 .bjg-about__cta:hover,
@@ -318,30 +327,32 @@
 }
 
 .bjg-about__portrait {
+  position: relative;
   margin: 0;
   justify-self: end;
   width: min(100%, 520px);
+  min-height: clamp(320px, 42vw, 560px);
 }
 
 .bjg-about__portrait img {
   width: 100%;
-  height: auto;
+  height: 100%;
+  min-height: inherit;
   object-fit: cover;
-  filter: grayscale(1) contrast(1.08) brightness(0.92);
+  object-position: center top;
+  opacity: 0.2;
+  filter: grayscale(1) contrast(1.05);
 }
 
 /* Projects */
 .bjg-projects {
-  padding: 0 var(--bjg-pad) clamp(72px, 10vw, 120px);
   background: var(--bjg-black);
 }
 
 .bjg-projects__grid {
-  max-width: var(--bjg-max);
-  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(10px, 1.4vw, 16px);
+  gap: 0;
 }
 
 .bjg-project {
@@ -385,16 +396,10 @@
   letter-spacing: 0.06em;
 }
 
-/* Connect (from kontakt layout) */
+/* Connect */
 .bjg-connect {
-  padding: clamp(48px, 8vw, 88px) var(--bjg-pad) clamp(64px, 9vw, 100px);
-  background: #f0eee6;
-  color: #0a0a0a;
-}
-
-.bjg-connect__inner {
-  max-width: var(--bjg-max);
-  margin: 0 auto;
+  background: var(--bjg-black);
+  color: #fff0f0;
 }
 
 .bjg-connect__card {
@@ -403,7 +408,6 @@
   grid-template-rows: minmax(0, 1fr) auto;
   min-height: clamp(420px, 52vw, 560px);
   background: #0a0a0a;
-  color: #fff0f0;
   overflow: hidden;
 }
 
@@ -509,8 +513,6 @@
 }
 
 .bjg-footer__inner {
-  max-width: var(--bjg-max);
-  margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -541,7 +543,7 @@
 
 .bjg-footer__links a:hover,
 .bjg-footer__links a:focus-visible {
-  color: var(--bjg-lime);
+  color: var(--bjg-accent);
   outline: none;
 }
 
@@ -573,6 +575,7 @@ body.bjg-menu-open {
   .bjg-about__portrait {
     justify-self: start;
     width: min(100%, 420px);
+    min-height: 320px;
   }
 
   .bjg-projects__grid {
@@ -624,6 +627,10 @@ body.bjg-menu-open {
     grid-column: 1;
     width: 100%;
     max-width: none;
+  }
+
+  .bjg-menu__nav a {
+    white-space: normal;
   }
 
   .bjg-projects__grid {

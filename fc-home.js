@@ -55,11 +55,9 @@
 })();
 
 (function () {
-  var video = document.getElementById("bjg-hero-video");
-  if (!video) return;
+  var videos = Array.prototype.slice.call(document.querySelectorAll(".bjg-hero__video"));
+  if (videos.length < 2) return;
 
-  // Play videos sequentially as Hero background, using files from assets/bjgrope/.
-  // Keep them relative so this works in local + deployed environments.
   var playlist = [
     "assets/bjgrope/1EAEEA0D-408C-47A6-9D7A-284D294A5036.mp4",
     "assets/bjgrope/6E7CB054-194B-43A7-AC54-A574538302C4.mp4",
@@ -69,77 +67,139 @@
     "assets/bjgrope/copy_766C6AA6-3A61-4BB7-BADF-677D3BB84361.mov",
   ];
 
-  var idx = 0;
+  if (!playlist.length) return;
+
+  var currentIndex = 0;
+  var frontSlot = 0;
+  var crossfading = false;
   var stalled = false;
 
-  function playIndex(i) {
-    if (!playlist.length) return;
-    idx = (i + playlist.length) % playlist.length;
-    var src = playlist[idx];
-    if (!src) return;
+  function videoAt(slot) {
+    return videos[slot];
+  }
 
-    stalled = false;
-    try {
-      video.pause();
-    } catch (e) {}
+  function setActive(slot) {
+    videos.forEach(function (video, i) {
+      video.classList.toggle("is-active", i === slot);
+    });
+  }
 
-    video.src = src;
-    video.load();
-
+  function tryPlay(video) {
+    if (!video) return;
     var p = video.play();
     if (p && typeof p.catch === "function") {
       p.catch(function () {
-        // Autoplay can be blocked; poster stays visible until user interaction.
         stalled = true;
       });
     }
   }
 
-  function next() {
-    if (stalled) {
-      // If we couldn't autoplay, just try again on end/error.
-      stalled = false;
-    }
-    playIndex(idx + 1);
+  function resumePlayback() {
+    stalled = false;
+    tryPlay(videoAt(frontSlot));
   }
 
-  video.addEventListener("ended", function () {
-    next();
-  });
+  function whenReady(video, cb) {
+    if (video.readyState >= 2) {
+      cb();
+      return;
+    }
+    video.addEventListener("canplay", cb, { once: true });
+  }
 
-  video.addEventListener("error", function () {
-    // Some formats might not be supported by the browser; skip to the next one.
-    next();
+  function assignSource(video, src) {
+    if (video.dataset.src === src) return;
+    video.dataset.src = src;
+    video.src = src;
+    video.load();
+  }
+
+  function preloadSlot(slot, index) {
+    assignSource(videoAt(slot), playlist[index]);
+  }
+
+  function playSlot(slot, index) {
+    var video = videoAt(slot);
+    assignSource(video, playlist[index]);
+    return new Promise(function (resolve) {
+      whenReady(video, function () {
+        tryPlay(video);
+        resolve();
+      });
+    });
+  }
+
+  function crossfadeNext() {
+    if (crossfading) return;
+    crossfading = true;
+
+    var backSlot = 1 - frontSlot;
+    var nextIndex = (currentIndex + 1) % playlist.length;
+
+    playSlot(backSlot, nextIndex).then(function () {
+      setActive(backSlot);
+      try {
+        videoAt(frontSlot).pause();
+      } catch (e) {}
+      frontSlot = backSlot;
+      currentIndex = nextIndex;
+      crossfading = false;
+      preloadSlot(1 - frontSlot, (currentIndex + 1) % playlist.length);
+    });
+  }
+
+  videos.forEach(function (video, slot) {
+    video.addEventListener("timeupdate", function () {
+      if (slot !== frontSlot || crossfading) return;
+      if (!video.duration || !isFinite(video.duration)) return;
+      if (video.duration - video.currentTime <= 0.85) {
+        crossfadeNext();
+      }
+    });
+
+    video.addEventListener("ended", function () {
+      if (slot === frontSlot && !crossfading) {
+        crossfadeNext();
+      }
+    });
+
+    video.addEventListener("error", function () {
+      if (slot !== frontSlot || crossfading) return;
+      currentIndex = (currentIndex + 1) % playlist.length;
+      playSlot(frontSlot, currentIndex).then(function () {
+        preloadSlot(1 - frontSlot, (currentIndex + 1) % playlist.length);
+      });
+    });
   });
 
   document.addEventListener("visibilitychange", function () {
     if (document.hidden) {
-      try {
-        video.pause();
-      } catch (e2) {}
+      videos.forEach(function (video) {
+        try {
+          video.pause();
+        } catch (e2) {}
+      });
       return;
     }
-    if (!stalled) {
-      var p2 = video.play();
-      if (p2 && typeof p2.catch === "function") p2.catch(function () {});
+    resumePlayback();
+  });
+
+  window.addEventListener("pageshow", function (event) {
+    if (event.persisted || document.visibilityState === "visible") {
+      resumePlayback();
     }
   });
 
-  // If autoplay is blocked, try again on the first user gesture.
-  function tryPlayFromGesture() {
-    if (!stalled) return;
-    stalled = false;
-    var p3 = video.play();
-    if (p3 && typeof p3.catch === "function") {
-      p3.catch(function () {
-        stalled = true;
-      });
-    }
-  }
+  window.addEventListener("focus", resumePlayback);
 
   ["pointerdown", "touchstart", "keydown"].forEach(function (evt) {
-    document.addEventListener(evt, tryPlayFromGesture, { once: true });
+    document.addEventListener(evt, function () {
+      if (stalled) resumePlayback();
+    }, { once: true });
   });
 
-  playIndex(0);
+  setActive(0);
+  playSlot(0, 0).then(function () {
+    preloadSlot(1, 1);
+  });
 })();
