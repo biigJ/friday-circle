@@ -140,6 +140,10 @@
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
+.bjg-burger[aria-expanded="true"] {
+  color: #fff;
+}
+
 .bjg-burger[aria-expanded="true"] .bjg-burger__line:nth-child(1) {
   transform: translateY(11px) rotate(45deg);
 }
@@ -191,29 +195,6 @@
 
 .bjg-menu.is-open .bjg-menu__panel {
   transform: translateX(0);
-}
-
-.bjg-menu__close {
-  position: absolute;
-  top: clamp(18px, 2.4vw, 28px);
-  right: clamp(20px, 4vw, 48px);
-  width: 57px;
-  height: 57px;
-  border: 0;
-  background: transparent;
-  font-size: 2.6rem;
-  line-height: 1;
-  cursor: pointer;
-  color: #fff;
-  outline: none;
-  box-shadow: none;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.bjg-menu__close:focus,
-.bjg-menu__close:focus-visible {
-  outline: none;
-  box-shadow: none;
 }
 
 .bjg-menu__nav {

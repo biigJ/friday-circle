@@ -1,30 +1,23 @@
 (function () {
   var menu = document.getElementById("bjg-menu");
   var burger = document.querySelector(".bjg-burger");
-  var closeBtn = document.querySelector(".bjg-menu__close");
   var backdrop = document.querySelector(".bjg-menu__backdrop");
 
   if (menu && burger) {
-  function setOpen(open) {
-    menu.classList.toggle("is-open", open);
-    burger.setAttribute("aria-expanded", open ? "true" : "false");
-    burger.setAttribute("aria-label", open ? "Menü schließen" : "Menü öffnen");
-    document.body.classList.toggle("bjg-menu-open", open);
-    if (open) {
-      var first = menu.querySelector(".bjg-menu__nav a");
-      if (first) first.focus({ preventScroll: true });
+    function setOpen(open) {
+      menu.classList.toggle("is-open", open);
+      burger.setAttribute("aria-expanded", open ? "true" : "false");
+      burger.setAttribute("aria-label", open ? "Menü schließen" : "Menü öffnen");
+      document.body.classList.toggle("bjg-menu-open", open);
+      if (open) {
+        var first = menu.querySelector(".bjg-menu__nav a");
+        if (first) first.focus({ preventScroll: true });
+      }
     }
-  }
 
     burger.addEventListener("click", function () {
       setOpen(!menu.classList.contains("is-open"));
     });
-
-    if (closeBtn) {
-      closeBtn.addEventListener("click", function () {
-        setOpen(false);
-      });
-    }
 
     menu.querySelectorAll("[data-bjg-menu-close]").forEach(function (el) {
       el.addEventListener("click", function () {
