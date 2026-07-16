@@ -6,6 +6,7 @@
   --bjg-muted: rgba(245, 245, 240, 0.72);
   --bjg-pad: clamp(20px, 4vw, 48px);
   --bjg-font: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --bjg-logo-fs: clamp(2.1rem, 2.7vw, 2.7rem);
 }
 
 .fc-home-page {
@@ -53,7 +54,7 @@
 
 .bjg-header__logo {
   font-weight: 600;
-  font-size: clamp(2.1rem, 2.7vw, 2.7rem);
+  font-size: var(--bjg-logo-fs);
   letter-spacing: 0.018em;
   text-transform: uppercase;
   text-decoration: none;
@@ -280,7 +281,7 @@
 /* About */
 .bjg-about {
   position: relative;
-  padding: clamp(64px, 10vw, 120px) var(--bjg-pad);
+  padding: clamp(40px, 6vw, 72px) var(--bjg-pad);
   background: var(--bjg-black);
   overflow: hidden;
 }
@@ -290,7 +291,7 @@
   z-index: 1;
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  gap: clamp(32px, 6vw, 72px);
+  gap: clamp(24px, 4vw, 48px);
   align-items: center;
 }
 
@@ -300,10 +301,10 @@
 
 .bjg-about__text {
   margin: 0;
-  font-size: clamp(1rem, 1.8vw, 1.35rem);
+  font-size: var(--bjg-logo-fs);
   font-weight: 600;
-  line-height: 1.38;
-  letter-spacing: 0.04em;
+  line-height: 1.22;
+  letter-spacing: 0.018em;
   text-transform: uppercase;
   color: var(--bjg-white);
 }
@@ -331,17 +332,19 @@
   margin: 0;
   justify-self: end;
   width: min(100%, 520px);
-  min-height: clamp(320px, 42vw, 560px);
+  height: clamp(224px, 29.4vw, 392px);
+  overflow: hidden;
 }
 
 .bjg-about__portrait img {
   width: 100%;
   height: 100%;
-  min-height: inherit;
   object-fit: cover;
-  object-position: center top;
-  opacity: 0.2;
+  object-position: center center;
+  opacity: 0.8;
   filter: grayscale(1) contrast(1.05);
+  transform: scale(calc(1 / 0.7));
+  transform-origin: center center;
 }
 
 /* Projects */
@@ -575,7 +578,7 @@ body.bjg-menu-open {
   .bjg-about__portrait {
     justify-self: start;
     width: min(100%, 420px);
-    min-height: 320px;
+    height: clamp(196px, 42vw, 280px);
   }
 
   .bjg-projects__grid {
