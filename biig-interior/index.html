@@ -2754,53 +2754,48 @@
           touch-action: pan-y;
         }
 
-        .bi-mobile-tile-carousel.is-swipe-dragging {
-          cursor: grabbing;
+        .bi-mobile-tile-carousel__chrome {
+          background: #ffffff;
+          padding: 0 var(--nav-pad-x) 10px;
         }
-      }
 
-      .bi-tile-wa-prompt {
-        display: none;
-      }
+        .bi-mobile-tile-carousel__dots {
+          padding: 8px 0 6px;
+        }
 
-      @media (max-width: 520px) {
-        .bi-tile-wa-prompt {
+        .bi-mobile-tile-carousel__wa {
           display: block;
-          box-sizing: border-box;
-          width: 100%;
-          flex: none;
-          padding: 10px var(--nav-pad-x) 18px;
           text-decoration: none;
           color: #000000;
-          background: #ffffff;
         }
 
-        .bi-tile-wa-prompt__icons {
+        .bi-mobile-tile-carousel__wa-icons {
           display: flex;
           align-items: center;
-          justify-content: flex-start;
-          gap: 10px;
+          gap: 16px;
           margin-bottom: 6px;
         }
 
-        .bi-tile-wa-prompt__icon {
-          font-size: 1.35rem;
-          line-height: 1;
+        .bi-mobile-tile-carousel__wa-icon {
+          width: 24px;
+          height: 24px;
+          flex: none;
           color: #000000;
         }
 
-        .bi-tile-wa-prompt__icon--heart {
-          color: #000000;
-        }
-
-        .bi-tile-wa-prompt__text {
+        .bi-mobile-tile-carousel__wa-caption {
           display: block;
           font-family: var(--font-sans);
-          font-size: 0.9rem;
-          font-weight: 600;
+          font-size: 0.78rem;
+          font-weight: 400;
           line-height: 1.35;
+          letter-spacing: 0;
           text-align: left;
           color: #000000;
+        }
+
+        .bi-mobile-tile-carousel.is-swipe-dragging {
+          cursor: grabbing;
         }
       }
 
@@ -6686,6 +6681,66 @@
             if (entry.tile) entry.tile.classList.remove("has-mobile-carousel");
           });
           mobileTileCarousels = [];
+          document.querySelectorAll(".bi-tile-wa-prompt").forEach(function (el) {
+            el.remove();
+          });
+        }
+
+        function createMobileCarouselIconSvg(type) {
+          var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+          svg.setAttribute("class", "bi-mobile-tile-carousel__wa-icon bi-mobile-tile-carousel__wa-icon--" + type);
+          svg.setAttribute("viewBox", "0 0 24 24");
+          svg.setAttribute("aria-hidden", "true");
+          var path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+          path.setAttribute("fill", "none");
+          path.setAttribute("stroke", "currentColor");
+          path.setAttribute("stroke-width", "1.75");
+          path.setAttribute("stroke-linejoin", "round");
+          if (type === "heart") {
+            path.setAttribute(
+              "d",
+              "M16.5 3c-1.74 0-3.41.81-4.5 2.09C10.91 3.81 9.24 3 7.5 3 4.42 3 2 5.42 2 8.5c0 5.25 7 11 10 11s10-5.75 10-11C22 5.42 19.58 3 16.5 3z"
+            );
+          } else {
+            path.setAttribute("d", "M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h14l4 4V4c0-1.1-.9-2-2-2z");
+          }
+          svg.appendChild(path);
+          return svg;
+        }
+
+        function appendMobileCarouselChrome(carousel, dots) {
+          var chrome = document.createElement("div");
+          chrome.className = "bi-mobile-tile-carousel__chrome";
+
+          var actions = document.createElement("a");
+          actions.className = "bi-mobile-tile-carousel__wa";
+          actions.href = getWhatsappContactHref();
+          actions.target = "_blank";
+          actions.rel = "noopener noreferrer";
+          actions.addEventListener("click", function (e) {
+            e.stopPropagation();
+          });
+
+          var icons = document.createElement("span");
+          icons.className = "bi-mobile-tile-carousel__wa-icons";
+          icons.setAttribute("aria-hidden", "true");
+          icons.appendChild(createMobileCarouselIconSvg("heart"));
+          icons.appendChild(createMobileCarouselIconSvg("bubble"));
+
+          var textDe = document.createElement("span");
+          textDe.className = "de-t bi-mobile-tile-carousel__wa-caption";
+          textDe.textContent = "Schick uns Deine Projektanfrage über WhatsApp >";
+
+          var textEn = document.createElement("span");
+          textEn.className = "en-t bi-mobile-tile-carousel__wa-caption";
+          textEn.textContent = "Send us your project enquiry via WhatsApp >";
+
+          actions.appendChild(icons);
+          actions.appendChild(textDe);
+          actions.appendChild(textEn);
+          chrome.appendChild(dots);
+          chrome.appendChild(actions);
+          carousel.appendChild(chrome);
         }
 
         function setMobileTileSlide(entry, index, animate, skipTransform) {
@@ -6770,7 +6825,7 @@
           label.className = "bi-mobile-tile-carousel__label";
           label.textContent = getProjectKachelLabel(project, getLang());
           carousel.appendChild(track);
-          carousel.appendChild(dots);
+          appendMobileCarouselChrome(carousel, dots);
           carousel.appendChild(label);
 
           items.forEach(function (item, i) {
@@ -6847,7 +6902,7 @@
           label.className = "bi-mobile-tile-carousel__label";
           label.textContent = getLang() === "en" ? HOCHBAU_TILE_LABEL.tileLabelEn : HOCHBAU_TILE_LABEL.tileLabelDe;
           carousel.appendChild(track);
-          carousel.appendChild(dots);
+          appendMobileCarouselChrome(carousel, dots);
           carousel.appendChild(label);
 
           items.forEach(function (item, i) {
@@ -7974,52 +8029,6 @@
           return "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
         }
 
-        function createMobileTileWhatsappPrompt(href) {
-          var link = document.createElement("a");
-          link.className = "bi-tile-wa-prompt";
-          link.href = href;
-          link.target = "_blank";
-          link.rel = "noopener noreferrer";
-
-          var icons = document.createElement("span");
-          icons.className = "bi-tile-wa-prompt__icons";
-          icons.setAttribute("aria-hidden", "true");
-
-          var heart = document.createElement("i");
-          heart.className = "ti ti-heart-filled bi-tile-wa-prompt__icon bi-tile-wa-prompt__icon--heart";
-          var bubble = document.createElement("i");
-          bubble.className = "ti ti-message bi-tile-wa-prompt__icon bi-tile-wa-prompt__icon--bubble";
-
-          icons.appendChild(heart);
-          icons.appendChild(bubble);
-
-          var textDe = document.createElement("span");
-          textDe.className = "de-t bi-tile-wa-prompt__text";
-          textDe.textContent = "Schick uns Deine Projektanfrage über WhatsApp >";
-
-          var textEn = document.createElement("span");
-          textEn.className = "en-t bi-tile-wa-prompt__text";
-          textEn.textContent = "Send us your project enquiry via WhatsApp >";
-
-          link.appendChild(icons);
-          link.appendChild(textDe);
-          link.appendChild(textEn);
-          return link;
-        }
-
-        function syncMobileTileWhatsappPrompts() {
-          document.querySelectorAll(".bi-tile-wa-prompt").forEach(function (el) {
-            el.remove();
-          });
-          var href = getWhatsappContactHref();
-          var portfolio = document.getElementById("bi-portfolio");
-          var isFiltered = portfolio && portfolio.classList.contains("bi-portfolio--service-filter");
-          document.querySelectorAll(".bi-tile--project[data-bi-project]:not(.bi-tile--hochbau-collage)").forEach(function (tile) {
-            if (isFiltered && !tile.classList.contains("bi-tile--service-visible")) return;
-            tile.insertAdjacentElement("afterend", createMobileTileWhatsappPrompt(href));
-          });
-        }
-
         function applyPricingFilter(serviceKey) {
           var pricing = document.getElementById("bi-pricing");
           if (!pricing) return;
@@ -8104,7 +8113,6 @@
           if (konfiguratorLede) konfiguratorLede.classList.add("is-visible");
 
           initMobileTileCarousels({ force: true });
-          syncMobileTileWhatsappPrompts();
           updateMobileNavTransparency();
           updateRocketSections(serviceKey);
 
@@ -8267,7 +8275,6 @@
           initHochbauCollage();
           initHochbauIndividualTiles();
           initMobileTileCarousels({ force: true });
-          syncMobileTileWhatsappPrompts();
           initWhatsappAssessmentCta();
           initHeroSlider();
           if (openOfferId) {
