@@ -2757,12 +2757,19 @@
         .bi-mobile-tile-carousel.is-swipe-dragging {
           cursor: grabbing;
         }
+      }
 
+      .bi-tile-wa-prompt {
+        display: none;
+      }
+
+      @media (max-width: 520px) {
         .bi-tile-wa-prompt {
           display: block;
+          box-sizing: border-box;
           width: 100%;
           flex: none;
-          padding: clamp(8px, 2vw, 12px) 0 clamp(16px, 3vw, 22px);
+          padding: 10px var(--nav-pad-x) 18px;
           text-decoration: none;
           color: #000000;
           background: #ffffff;
@@ -2777,24 +2784,24 @@
         }
 
         .bi-tile-wa-prompt__icon {
-          font-size: clamp(1.15rem, 4.5vw, 1.4rem);
+          font-size: 1.35rem;
           line-height: 1;
+          color: #000000;
+        }
+
+        .bi-tile-wa-prompt__icon--heart {
           color: #000000;
         }
 
         .bi-tile-wa-prompt__text {
           display: block;
           font-family: var(--font-sans);
-          font-size: clamp(0.82rem, 3.4vw, 0.98rem);
+          font-size: 0.9rem;
           font-weight: 600;
           line-height: 1.35;
           text-align: left;
           color: #000000;
         }
-      }
-
-      .bi-tile-wa-prompt {
-        display: none;
       }
 
       /* -- Image lightbox -- */
