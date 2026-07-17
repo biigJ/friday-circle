@@ -2757,6 +2757,44 @@
         .bi-mobile-tile-carousel.is-swipe-dragging {
           cursor: grabbing;
         }
+
+        .bi-tile-wa-prompt {
+          display: block;
+          width: 100%;
+          flex: none;
+          padding: clamp(8px, 2vw, 12px) 0 clamp(16px, 3vw, 22px);
+          text-decoration: none;
+          color: #000000;
+          background: #ffffff;
+        }
+
+        .bi-tile-wa-prompt__icons {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 10px;
+          margin-bottom: 6px;
+        }
+
+        .bi-tile-wa-prompt__icon {
+          font-size: clamp(1.15rem, 4.5vw, 1.4rem);
+          line-height: 1;
+          color: #000000;
+        }
+
+        .bi-tile-wa-prompt__text {
+          display: block;
+          font-family: var(--font-sans);
+          font-size: clamp(0.82rem, 3.4vw, 0.98rem);
+          font-weight: 600;
+          line-height: 1.35;
+          text-align: left;
+          color: #000000;
+        }
+      }
+
+      .bi-tile-wa-prompt {
+        display: none;
       }
 
       /* -- Image lightbox -- */
@@ -7913,6 +7951,10 @@
         function initWhatsappAssessmentCta() {
           var link = document.getElementById("whatsapp-cta");
           if (!link) return;
+          link.href = getWhatsappContactHref();
+        }
+
+        function getWhatsappContactHref() {
           var phoneNumber = "491747015500";
           var messageDe =
             "Hallo Joscha, ich schicke dir 1 Foto und 3 Sätze zur Idee.\n\n" +
@@ -7922,7 +7964,53 @@
             "(I will attach a photo right away)";
           var lang = getLang();
           var message = lang === "en" ? messageEn : messageDe;
-          link.href = "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+          return "https://wa.me/" + phoneNumber + "?text=" + encodeURIComponent(message);
+        }
+
+        function createMobileTileWhatsappPrompt(href) {
+          var link = document.createElement("a");
+          link.className = "bi-tile-wa-prompt";
+          link.href = href;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+
+          var icons = document.createElement("span");
+          icons.className = "bi-tile-wa-prompt__icons";
+          icons.setAttribute("aria-hidden", "true");
+
+          var heart = document.createElement("i");
+          heart.className = "ti ti-heart-filled bi-tile-wa-prompt__icon bi-tile-wa-prompt__icon--heart";
+          var bubble = document.createElement("i");
+          bubble.className = "ti ti-message bi-tile-wa-prompt__icon bi-tile-wa-prompt__icon--bubble";
+
+          icons.appendChild(heart);
+          icons.appendChild(bubble);
+
+          var textDe = document.createElement("span");
+          textDe.className = "de-t bi-tile-wa-prompt__text";
+          textDe.textContent = "Schick uns Deine Projektanfrage über WhatsApp >";
+
+          var textEn = document.createElement("span");
+          textEn.className = "en-t bi-tile-wa-prompt__text";
+          textEn.textContent = "Send us your project enquiry via WhatsApp >";
+
+          link.appendChild(icons);
+          link.appendChild(textDe);
+          link.appendChild(textEn);
+          return link;
+        }
+
+        function syncMobileTileWhatsappPrompts() {
+          document.querySelectorAll(".bi-tile-wa-prompt").forEach(function (el) {
+            el.remove();
+          });
+          var href = getWhatsappContactHref();
+          var portfolio = document.getElementById("bi-portfolio");
+          var isFiltered = portfolio && portfolio.classList.contains("bi-portfolio--service-filter");
+          document.querySelectorAll(".bi-tile--project[data-bi-project]:not(.bi-tile--hochbau-collage)").forEach(function (tile) {
+            if (isFiltered && !tile.classList.contains("bi-tile--service-visible")) return;
+            tile.insertAdjacentElement("afterend", createMobileTileWhatsappPrompt(href));
+          });
         }
 
         function applyPricingFilter(serviceKey) {
@@ -8009,6 +8097,7 @@
           if (konfiguratorLede) konfiguratorLede.classList.add("is-visible");
 
           initMobileTileCarousels({ force: true });
+          syncMobileTileWhatsappPrompts();
           updateMobileNavTransparency();
           updateRocketSections(serviceKey);
 
@@ -8171,6 +8260,7 @@
           initHochbauCollage();
           initHochbauIndividualTiles();
           initMobileTileCarousels({ force: true });
+          syncMobileTileWhatsappPrompts();
           initWhatsappAssessmentCta();
           initHeroSlider();
           if (openOfferId) {
