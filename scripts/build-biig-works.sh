@@ -95,6 +95,13 @@ cp "$ROOT/wolfganggrope.css" "$BIIG_OUT/"
 cp "$ROOT/wolfganggrope.js" "$BIIG_OUT/"
 cp "$ROOT/data/wga-catalog.js" "$ROOT/data/wga-bio.js" "$ROOT/data/wga-catalog.json" "$BIIG_OUT/data/"
 cp "$ROOT/biig-kunst-link-fix.js" "$BIIG_OUT/"
+# Favicons (Doppel-I in Gold)
+cp "$ROOT/favicon-biig.svg" "$BIIG_OUT/favicon.svg"
+cp "$ROOT/favicon-biig.ico" "$BIIG_OUT/favicon.ico"
+cp "$ROOT/apple-touch-icon-biig.png" "$BIIG_OUT/apple-touch-icon.png"
+cp "$ROOT/favicon-biig-32.png" "$BIIG_OUT/favicon-32.png"
+cp "$ROOT/favicon-biig-192.png" "$BIIG_OUT/icon-192.png"
+cp "$ROOT/favicon-biig-512.png" "$BIIG_OUT/icon-512.png"
 touch "$BIIG_OUT/.nojekyll"
 
 BUILD_STAMP="$(date -u +"%Y-%m-%dT%H:%MZ")"
@@ -160,7 +167,18 @@ sed_inplace \
   -e 's|href="../kunst/index.html"|href="https://biig.works/kunst/"|g' \
   -e 's|href="kunst/index.html"|href="https://biig.works/kunst/"|g' \
   -e 's|href="https://biig.works/kunst/index.html"|href="https://biig.works/kunst/"|g' \
+  -e 's|href="/favicon-biig\.svg"|href="/favicon.svg"|g' \
+  -e 's|href="/favicon-biig\.ico"|href="/favicon.ico"|g' \
+  -e 's|href="/apple-touch-icon-biig\.png"|href="/apple-touch-icon.png"|g' \
   "$BIIG_OUT/index.html"
+
+for BIIG_PAGE in joscha kunst impressum datenschutz kontakt; do
+  sed_inplace \
+    -e 's|href="/favicon-biig\.svg"|href="/favicon.svg"|g' \
+    -e 's|href="/favicon-biig\.ico"|href="/favicon.ico"|g' \
+    -e 's|href="/apple-touch-icon-biig\.png"|href="/apple-touch-icon.png"|g' \
+    "$BIIG_OUT/$BIIG_PAGE/index.html"
+done
 
 sed_inplace 's|\.\./assets/|assets/|g' "$BIIG_OUT/biig-interior/biig-konfigurator.js"
 
