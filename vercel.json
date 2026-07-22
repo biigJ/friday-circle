@@ -24,5 +24,37 @@
       "destination": "/bjgrope.html",
       "permanent": false
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/favicon.ico",
+      "has": [{ "type": "host", "value": "bjgrope.de" }],
+      "destination": "/favicon-bjg.ico"
+    },
+    {
+      "source": "/favicon.ico",
+      "has": [{ "type": "host", "value": "www.bjgrope.de" }],
+      "destination": "/favicon-bjg.ico"
+    },
+    {
+      "source": "/favicon.svg",
+      "has": [{ "type": "host", "value": "bjgrope.de" }],
+      "destination": "/favicon-bjg.svg"
+    },
+    {
+      "source": "/favicon.svg",
+      "has": [{ "type": "host", "value": "www.bjgrope.de" }],
+      "destination": "/favicon-bjg.svg"
+    },
+    {
+      "source": "/apple-touch-icon.png",
+      "has": [{ "type": "host", "value": "bjgrope.de" }],
+      "destination": "/apple-touch-icon-bjg.png"
+    },
+    {
+      "source": "/apple-touch-icon.png",
+      "has": [{ "type": "host", "value": "www.bjgrope.de" }],
+      "destination": "/apple-touch-icon-bjg.png"
+    }
   ]
 }
