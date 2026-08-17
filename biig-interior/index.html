@@ -1334,7 +1334,7 @@
       }
 
       .bi-portfolio__lede {
-        margin: 0 0 clamp(20px, 3vw, 28px);
+        margin: 0 0 clamp(32px, 5vw, 56px);
         max-width: 72ch;
         font-family: var(--font-sans);
         font-size: clamp(0.85rem, 1.15vw, 0.95rem);
@@ -1350,7 +1350,19 @@
         align-items: center;
         justify-content: flex-start;
         gap: 10px;
-        margin: 0 0 clamp(32px, 5vw, 56px);
+        margin: 0 0 clamp(16px, 2.5vw, 24px);
+      }
+
+      .bi-portfolio__filters-start {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+      }
+
+      .bi-portfolio__filter[data-bi-service="all"] {
+        margin-left: auto;
       }
 
       .bi-portfolio__filter {
@@ -1427,10 +1439,6 @@
 
       .bi-portfolio.bi-portfolio--service-filter .bi-tile--hochbau-collage {
         display: none !important;
-      }
-
-      .bi-portfolio.bi-portfolio--service-filter .bi-portfolio__lede {
-        display: none;
       }
 
       @media (min-width: 901px) {
@@ -3563,6 +3571,30 @@
 
       <section class="bi-portfolio bi-portfolio--standard" id="bi-portfolio" aria-labelledby="bi-portfolio-title">
         <div class="bi-shell">
+          <div class="bi-portfolio__filters" role="group" aria-label="Leistungen filtern">
+            <div class="bi-portfolio__filters-start">
+              <button type="button" class="bi-portfolio__filter" data-bi-service="bi-pricing-design" aria-pressed="false">
+                <span class="de-t">Interior</span>
+                <span class="en-t">Interior</span>
+              </button>
+              <button type="button" class="bi-portfolio__filter" data-bi-service="bi-pricing-handwerker" aria-pressed="false">
+                <span class="de-t">Plan</span>
+                <span class="en-t">Plan</span>
+              </button>
+              <button type="button" class="bi-portfolio__filter" data-bi-service="bi-pricing-hochbau" aria-pressed="false">
+                <span class="de-t">Gebäude</span>
+                <span class="en-t">Building</span>
+              </button>
+              <button type="button" class="bi-portfolio__filter" data-bi-service="bi-pricing-moebel" aria-pressed="false">
+                <span class="de-t">Möbel</span>
+                <span class="en-t">Furniture</span>
+              </button>
+            </div>
+            <button type="button" class="bi-portfolio__filter is-active" data-bi-service="all" aria-pressed="true">
+              <span class="de-t">Alles</span>
+              <span class="en-t">All</span>
+            </button>
+          </div>
           <h2 id="bi-portfolio-title" class="bi-portfolio__title">
             <span class="bi-portfolio__title-default">
               <span class="de-t">So kann es laufen:</span>
@@ -3586,20 +3618,6 @@
                 professional support.</span
               >
             </p>
-          </div>
-          <div class="bi-portfolio__filters" role="group" aria-label="Leistungen filtern">
-            <button type="button" class="bi-portfolio__filter" data-bi-service="bi-pricing-design" aria-pressed="false">
-              <span class="de-t">Design</span>
-              <span class="en-t">Design</span>
-            </button>
-            <button type="button" class="bi-portfolio__filter" data-bi-service="bi-pricing-hochbau" aria-pressed="false">
-              <span class="de-t">Gebäude</span>
-              <span class="en-t">Building</span>
-            </button>
-            <button type="button" class="bi-portfolio__filter" data-bi-service="bi-pricing-moebel" aria-pressed="false">
-              <span class="de-t">Möbel</span>
-              <span class="en-t">Furniture</span>
-            </button>
           </div>
           <div class="bi-grid">
             <div class="bi-image-row">
@@ -8112,14 +8130,55 @@
         }
 
         function syncPortfolioFilterButtons(serviceKey) {
+          var activeKey = serviceKey || "all";
           document.querySelectorAll(".bi-portfolio__filter").forEach(function (btn) {
-            var isActive = btn.getAttribute("data-bi-service") === serviceKey;
+            var isActive = btn.getAttribute("data-bi-service") === activeKey;
             btn.classList.toggle("is-active", isActive);
             btn.setAttribute("aria-pressed", isActive ? "true" : "false");
           });
         }
 
+        function clearServiceFilter(options) {
+          var portfolio = document.getElementById("bi-portfolio");
+          var pricing = document.getElementById("bi-pricing");
+          var konfiguratorLede = document.getElementById("bi-konfigurator-lede");
+          if (!portfolio) return;
+
+          activeServiceKey = null;
+          portfolio.removeAttribute("data-bi-active-service");
+          portfolio.classList.remove("bi-portfolio--service-filter", "bi-portfolio--hochbau-expanded");
+          document.querySelectorAll(".bi-tile--project").forEach(function (tile) {
+            tile.classList.remove("bi-tile--service-visible");
+          });
+          restoreHochbauTrailingTiles();
+          updateServiceProjectTileImages(null);
+          syncPortfolioFilterButtons("all");
+
+          if (pricing) {
+            pricing.classList.remove("is-service-hidden", "is-service-filter");
+            pricing.querySelectorAll(".bi-pricing-card").forEach(function (card) {
+              card.classList.remove("bi-pricing-card--service-visible");
+            });
+          }
+          if (konfiguratorLede) konfiguratorLede.classList.remove("is-visible");
+
+          initMobileTileCarousels({ force: true });
+          updateMobileNavTransparency();
+          updateRocketSections(null);
+
+          if (!options || !options.skipScroll) {
+            window.requestAnimationFrame(function () {
+              portfolio.scrollIntoView({ behavior: "smooth", block: "start" });
+            });
+          }
+        }
+
         function applyServiceFilter(serviceKey, options) {
+          if (serviceKey === "all") {
+            clearServiceFilter(options);
+            return;
+          }
+
           var portfolio = document.getElementById("bi-portfolio");
           var pricing = document.getElementById("bi-pricing");
           var konfiguratorLede = document.getElementById("bi-konfigurator-lede");
@@ -8172,15 +8231,8 @@
           }
 
           if (titleDefault && titleService) {
-            if (filter.titleDe) {
-              titleDefault.hidden = true;
-              titleService.hidden = false;
-              titleService.querySelector(".de-t").textContent = filter.titleDe;
-              titleService.querySelector(".en-t").textContent = filter.titleEn || filter.titleDe;
-            } else {
-              titleDefault.hidden = false;
-              titleService.hidden = true;
-            }
+            titleDefault.hidden = false;
+            titleService.hidden = true;
           }
 
           if (pricing) pricing.classList.remove("is-service-hidden");
