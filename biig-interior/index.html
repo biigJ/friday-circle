@@ -1334,7 +1334,7 @@
       }
 
       .bi-portfolio__lede {
-        margin: 0 0 clamp(32px, 5vw, 56px);
+        margin: 0 0 clamp(20px, 3vw, 28px);
         max-width: 72ch;
         font-family: var(--font-sans);
         font-size: clamp(0.85rem, 1.15vw, 0.95rem);
@@ -1342,6 +1342,52 @@
         line-height: 1.55;
         letter-spacing: 0.02em;
         color: color-mix(in srgb, var(--text) 78%, #ffffff);
+      }
+
+      .bi-portfolio__filters {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 10px;
+        margin: 0 0 clamp(32px, 5vw, 56px);
+      }
+
+      .bi-portfolio__filter {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 8px 14px;
+        border: 1px solid var(--text);
+        border-radius: 0;
+        background: var(--text);
+        color: #fff;
+        font-family: var(--font-sans);
+        font-size: clamp(0.58rem, 0.82vw, 0.72rem);
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 1.25;
+        white-space: nowrap;
+        cursor: pointer;
+        appearance: none;
+        -webkit-appearance: none;
+        transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+      }
+
+      .bi-portfolio__filter:hover,
+      .bi-portfolio__filter:focus-visible {
+        background: transparent;
+        color: var(--text);
+        outline: none;
+        transform: translateY(-1px);
+      }
+
+      .bi-portfolio__filter.is-active {
+        background: transparent;
+        color: var(--text);
       }
 
       .bi-portfolio__lede p {
@@ -2688,7 +2734,8 @@
         }
 
         .bi-portfolio__title,
-        .bi-portfolio__lede {
+        .bi-portfolio__lede,
+        .bi-portfolio__filters {
           padding-left: var(--nav-pad-x);
           padding-right: var(--nav-pad-x);
         }
@@ -3539,6 +3586,20 @@
                 professional support.</span
               >
             </p>
+          </div>
+          <div class="bi-portfolio__filters" role="group" aria-label="Leistungen filtern">
+            <button type="button" class="bi-portfolio__filter" data-bi-service="bi-pricing-design" aria-pressed="false">
+              <span class="de-t">Design</span>
+              <span class="en-t">Design</span>
+            </button>
+            <button type="button" class="bi-portfolio__filter" data-bi-service="bi-pricing-hochbau" aria-pressed="false">
+              <span class="de-t">Gebäude</span>
+              <span class="en-t">Building</span>
+            </button>
+            <button type="button" class="bi-portfolio__filter" data-bi-service="bi-pricing-moebel" aria-pressed="false">
+              <span class="de-t">Möbel</span>
+              <span class="en-t">Furniture</span>
+            </button>
           </div>
           <div class="bi-grid">
             <div class="bi-image-row">
@@ -8050,7 +8111,15 @@
           }
         }
 
-        function applyServiceFilter(serviceKey) {
+        function syncPortfolioFilterButtons(serviceKey) {
+          document.querySelectorAll(".bi-portfolio__filter").forEach(function (btn) {
+            var isActive = btn.getAttribute("data-bi-service") === serviceKey;
+            btn.classList.toggle("is-active", isActive);
+            btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+          });
+        }
+
+        function applyServiceFilter(serviceKey, options) {
           var portfolio = document.getElementById("bi-portfolio");
           var pricing = document.getElementById("bi-pricing");
           var konfiguratorLede = document.getElementById("bi-konfigurator-lede");
@@ -8061,6 +8130,7 @@
 
           activeServiceKey = serviceKey;
           portfolio.setAttribute("data-bi-active-service", serviceKey);
+          syncPortfolioFilterButtons(serviceKey);
 
           portfolio.classList.add("bi-portfolio--service-filter");
           portfolio.classList.remove("bi-portfolio--hochbau-expanded");
@@ -8121,15 +8191,25 @@
           updateMobileNavTransparency();
           updateRocketSections(serviceKey);
 
-          var scrollTarget = portfolio;
-          if (scrollTarget) {
-            window.requestAnimationFrame(function () {
-              scrollTarget.scrollIntoView({ behavior: "smooth", block: "start" });
-            });
+          if (!options || !options.skipScroll) {
+            var scrollTarget = portfolio;
+            if (scrollTarget) {
+              window.requestAnimationFrame(function () {
+                scrollTarget.scrollIntoView({ behavior: "smooth", block: "start" });
+              });
+            }
           }
         }
 
         window.biApplyServiceFilter = applyServiceFilter;
+
+        document.querySelectorAll(".bi-portfolio__filter").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            var serviceKey = btn.getAttribute("data-bi-service");
+            if (!serviceKey) return;
+            applyServiceFilter(serviceKey, { skipScroll: true });
+          });
+        });
 
         function applyTileLabels() {
           document.querySelectorAll("[data-bi-project]").forEach(function (btn) {
