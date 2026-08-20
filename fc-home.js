@@ -50,6 +50,7 @@
   if (videos.length < 2) return;
 
   var desktopPlaylist = [
+    "/assets/bjgrope/IMG_8082.mov",
     "/assets/bjgrope/6E7CB054-194B-43A7-AC54-A574538302C4.mp4",
     "/assets/bjgrope/1EAEEA0D-408C-47A6-9D7A-284D294A5036.mp4",
     "/assets/bjgrope/IMG_5284.MOV",
@@ -59,6 +60,7 @@
   ];
 
   var mobilePlaylist = [
+    "/assets/bjgrope/mobile/IMG_8082.mp4",
     "/assets/bjgrope/mobile/6E7CB054-194B-43A7-AC54-A574538302C4.mp4",
     "/assets/bjgrope/mobile/1EAEEA0D-408C-47A6-9D7A-284D294A5036.mp4",
     "/assets/bjgrope/mobile/IMG_5284.mp4",
