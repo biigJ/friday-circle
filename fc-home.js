@@ -51,22 +51,20 @@
 
   var desktopPlaylist = [
     "/assets/bjgrope/IMG_8082.mov",
-    "/assets/bjgrope/6E7CB054-194B-43A7-AC54-A574538302C4.mp4",
-    "/assets/bjgrope/1EAEEA0D-408C-47A6-9D7A-284D294A5036.mp4",
     "/assets/bjgrope/IMG_5284.MOV",
-    "/assets/bjgrope/ScreenRecording_03-20-2026 09-42-14_1.mov",
-    "/assets/bjgrope/IMG_7473.MOV",
     "/assets/bjgrope/copy_766C6AA6-3A61-4BB7-BADF-677D3BB84361.mov",
+    "/assets/bjgrope/1EAEEA0D-408C-47A6-9D7A-284D294A5036.mp4",
+    "/assets/bjgrope/ScreenRecording_03-20-2026 09-42-14_1.mov",
+    "/assets/bjgrope/6E7CB054-194B-43A7-AC54-A574538302C4.mp4",
   ];
 
   var mobilePlaylist = [
     "/assets/bjgrope/mobile/IMG_8082.mp4",
-    "/assets/bjgrope/mobile/6E7CB054-194B-43A7-AC54-A574538302C4.mp4",
-    "/assets/bjgrope/mobile/1EAEEA0D-408C-47A6-9D7A-284D294A5036.mp4",
     "/assets/bjgrope/mobile/IMG_5284.mp4",
-    "/assets/bjgrope/mobile/ScreenRecording_03-20-2026 09-42-14_1.mp4",
-    "/assets/bjgrope/mobile/IMG_7473.mp4",
     "/assets/bjgrope/mobile/copy_766C6AA6-3A61-4BB7-BADF-677D3BB84361.mp4",
+    "/assets/bjgrope/mobile/1EAEEA0D-408C-47A6-9D7A-284D294A5036.mp4",
+    "/assets/bjgrope/mobile/ScreenRecording_03-20-2026 09-42-14_1.mp4",
+    "/assets/bjgrope/mobile/6E7CB054-194B-43A7-AC54-A574538302C4.mp4",
   ];
 
   function useMobilePlaylist() {
