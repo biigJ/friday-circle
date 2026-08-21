@@ -60,8 +60,6 @@
       message: (document.getElementById("gogl-message") || {}).value.trim() || "",
       dsgvo: !!(document.getElementById("gogl-dsgvo") || {}).checked,
       membership: !!(document.getElementById("gogl-membership") || {}).checked,
-      whatsapp: !!(document.getElementById("gogl-whatsapp") || {}).checked,
-      invite: (form.getAttribute("data-gogl-register") || "") === "invite",
       service: service,
       source: source,
       anliegen: anliegen,
@@ -102,11 +100,6 @@
       t("FRIDAY CIRCLE Mitgliedschaft", "FRIDAY CIRCLE membership") +
         ": " +
         (data.membership ? t("ja", "yes") : t("nein", "no"))
-    );
-    lines.push(
-      t("WhatsApp-Kontakt", "WhatsApp contact") +
-        ": " +
-        (data.whatsapp ? t("ja", "yes") : t("nein", "no"))
     );
     return lines.join("\n");
   }
@@ -201,16 +194,14 @@
     formData.append("botcheck", "");
     formData.append(
       "subject",
-      data.invite
-        ? t("gogogo — Einladungscode", "gogogo — Invite code")
-        : data.service === "go-training"
-          ? t("gogogo — Training / Buddy Experte", "gogogo — Training / Buddy Expert")
-          : t("gogogo — Accountability / Gym Buddy", "gogogo — Accountability / Gym Buddy")
+      data.service === "go-training"
+        ? t("gogogo — Training / Buddy Experte", "gogogo — Training / Buddy Expert")
+        : t("gogogo — Accountability / Gym Buddy", "gogogo — Accountability / Gym Buddy")
     );
-    formData.append("from_name", name || data.fname || data.phone || "gogogo");
-    formData.append("name", name || data.fname || data.phone || "gogogo");
-    formData.append("email", data.email || "mail@bjgrope.de");
-    formData.append("replyto", data.email || "mail@bjgrope.de");
+    formData.append("from_name", name || data.fname);
+    formData.append("name", name || data.fname);
+    formData.append("email", data.email);
+    formData.append("replyto", data.email);
     if (data.phone) formData.append("phone", data.phone);
     var message = buildPlainText(data);
     if (pdfBlob) {
@@ -295,24 +286,13 @@
       var data = collectForm(form);
       var btn = form.querySelector(".gogl-form__submit");
 
-      if (data.invite) {
-        if (!data.phone) {
-          alert(t("Bitte Mobilnummer ausfüllen.", "Please fill in your mobile number."));
-          return;
-        }
-        if (!data.dsgvo || !data.membership || !data.whatsapp) {
-          alert(t("Bitte alle drei Einverständnis-Checkboxen setzen.", "Please check all three consent boxes."));
-          return;
-        }
-      } else {
-        if (!data.fname || !data.lname || !data.email || !data.phone) {
-          alert(t("Bitte Vorname, Nachname, E-Mail und Telefon ausfüllen.", "Please fill in first name, last name, email and phone."));
-          return;
-        }
-        if (!data.dsgvo || !data.membership) {
-          alert(t("Bitte beide Einverständnis-Checkboxen setzen.", "Please check both consent boxes."));
-          return;
-        }
+      if (!data.fname || !data.lname || !data.email || !data.phone) {
+        alert(t("Bitte Vorname, Nachname, E-Mail und Telefon ausfüllen.", "Please fill in first name, last name, email and phone."));
+        return;
+      }
+      if (!data.dsgvo || !data.membership) {
+        alert(t("Bitte beide Einverständnis-Checkboxen setzen.", "Please check both consent boxes."));
+        return;
       }
       if (!WEB3FORMS_ACCESS_KEY) {
         alert(t("Formular ist noch nicht konfiguriert.", "Form is not configured yet."));
@@ -323,20 +303,18 @@
       setBusy(btn, true);
 
       var pdfResult = null;
-      if (!data.invite) {
-        try {
-          pdfResult = createPdfBlob(data);
-          window.__goglLastPdf = pdfResult;
-          downloadBlob(pdfResult.blob, pdfResult.filename);
-        } catch (pdfErr) {
-          console.warn("PDF failed", pdfErr);
-          alert(
-            t(
-              "PDF konnte nicht erzeugt werden — Anfrage wird trotzdem gesendet.",
-              "PDF could not be created — request will still be sent."
-            )
-          );
-        }
+      try {
+        pdfResult = createPdfBlob(data);
+        window.__goglLastPdf = pdfResult;
+        downloadBlob(pdfResult.blob, pdfResult.filename);
+      } catch (pdfErr) {
+        console.warn("PDF failed", pdfErr);
+        alert(
+          t(
+            "PDF konnte nicht erzeugt werden — Anfrage wird trotzdem gesendet.",
+            "PDF could not be created — request will still be sent."
+          )
+        );
       }
 
       sendAnfrage(data, pdfResult && pdfResult.blob, pdfResult && pdfResult.filename)

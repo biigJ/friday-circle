@@ -43,7 +43,7 @@ fi
 
 rm -rf "$GOGOGO_OUT"
 mkdir -p "$GOGOGO_OUT/assets/gogogo" "$GOGOGO_OUT/assets/biigJ" \
-  "$GOGOGO_OUT/register-accountability" "$GOGOGO_OUT/register-training" "$GOGOGO_OUT/register-invite" "$GOGOGO_OUT/start"
+  "$GOGOGO_OUT/register-accountability" "$GOGOGO_OUT/register-training" "$GOGOGO_OUT/start"
 
 if [[ -n "$GOGOGO_GIT_BACKUP" ]]; then
   cp -a "$GOGOGO_GIT_BACKUP/.git" "$GOGOGO_OUT/"
@@ -53,7 +53,6 @@ fi
 cp "$ROOT/gogogo-landing.html" "$GOGOGO_OUT/index.html"
 cp "$ROOT/register-accountability/index.html" "$GOGOGO_OUT/register-accountability/index.html"
 cp "$ROOT/register-training/index.html" "$GOGOGO_OUT/register-training/index.html"
-cp "$ROOT/register-invite/index.html" "$GOGOGO_OUT/register-invite/index.html"
 cp "$ROOT/start/index.html" "$GOGOGO_OUT/start/index.html"
 cp "$ROOT/cycle-training.html" "$GOGOGO_OUT/"
 cp "$ROOT/cycle-table.html" "$GOGOGO_OUT/"
@@ -89,7 +88,6 @@ for html in \
   "$GOGOGO_OUT/index.html" \
   "$GOGOGO_OUT/register-accountability/index.html" \
   "$GOGOGO_OUT/register-training/index.html" \
-  "$GOGOGO_OUT/register-invite/index.html" \
   "$GOGOGO_OUT/start/index.html" \
   "$GOGOGO_OUT/cycle-training.html" \
   "$GOGOGO_OUT/cycle-table.html" \
