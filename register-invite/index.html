@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon-fc.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-fc.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon-fc.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <script src="../fc-canonical-redirect.js"></script>
+    <title>Einladungscode anfordern — gogogo</title>
+    <meta name="description" content="Mobilnummer eintragen — wir schicken Dir Deinen Einladungscode per WhatsApp." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      body.gogogo-page {
+        --page-x: 5%;
+        --page-max: 1280px;
+        background-color: #f0eee6;
+      }
+      .gogogo-page {
+        --cream: #f0eee6;
+        --black: #0a0a0a;
+        --font-sans: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+        color: var(--black);
+        background: #f0eee6;
+        font-family: var(--font-sans);
+        line-height: 1.5;
+        margin: 0;
+        min-height: 100%;
+      }
+      .gogogo-page *,
+      .gogogo-page *::before,
+      .gogogo-page *::after {
+        box-sizing: border-box;
+      }
+      .gogogo-page .gogogo-landing__logo {
+        font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        font-weight: 600;
+        font-size: clamp(1.05rem, 1.35vw, 1.35rem);
+        letter-spacing: 0.018em;
+        color: #0a0a0a;
+      }
+      .gogogo-page .nav__links--empty {
+        min-width: 0;
+        min-height: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      .gogl-invite {
+        min-height: calc(100vh - 140px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: clamp(32px, 6vw, 72px) var(--nav-pad-x, 24px);
+      }
+      .gogl-form-wrap {
+        width: 100%;
+        max-width: 28rem;
+        background: #b0532f;
+        padding: clamp(28px, 4vw, 44px) clamp(22px, 4vw, 40px);
+      }
+      .gogl-form__h1 {
+        margin: 0 0 10px;
+        text-align: center;
+        font-weight: 200;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        line-height: 1.05;
+        font-size: clamp(1.55rem, 3.4vw, 2.1rem);
+        color: #f0eee6;
+      }
+      .gogl-form__sub {
+        margin: 0 0 28px;
+        text-align: center;
+        font-size: 0.88rem;
+        font-weight: 300;
+        letter-spacing: 0.02em;
+        line-height: 1.5;
+        color: rgba(240, 238, 230, 0.88);
+      }
+      .gogl-field {
+        margin: 0 0 10px;
+      }
+      .gogl-field input {
+        width: 100%;
+        border: 1px solid rgba(240, 238, 230, 0.55);
+        border-radius: 0;
+        background: transparent;
+        color: #f0eee6;
+        padding: 14px 16px;
+        font-family: var(--font-sans);
+        font-size: 0.9rem;
+        font-weight: 300;
+        letter-spacing: 0.03em;
+      }
+      .gogl-field input::placeholder {
+        color: rgba(240, 238, 230, 0.72);
+      }
+      .gogl-field input:focus {
+        outline: none;
+        border-color: rgba(240, 238, 230, 0.9);
+      }
+      .gogl-field__hint {
+        margin: 8px 0 0;
+        font-size: 0.78rem;
+        font-weight: 300;
+        letter-spacing: 0.02em;
+        line-height: 1.45;
+        color: rgba(240, 238, 230, 0.8);
+      }
+      .gogl-consent {
+        margin: 18px 0 8px;
+      }
+      .gogl-consent__label + .gogl-consent__label {
+        margin-top: 14px;
+      }
+      .gogl-consent__label {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        font-size: 0.81rem;
+        font-weight: 300;
+        letter-spacing: 0.02em;
+        line-height: 1.45;
+        color: rgba(240, 238, 230, 0.88);
+      }
+      .gogl-consent__label input {
+        width: 18px;
+        height: 18px;
+        margin-top: 2px;
+        flex: 0 0 auto;
+      }
+      .gogl-consent__label a {
+        color: #f0eee6;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+      .gogl-form__submit {
+        display: block;
+        width: 100%;
+        margin: 24px auto 0;
+        border: 0;
+        border-radius: 0;
+        padding: 14px 22px;
+        background: #f0eee6;
+        color: #0a0a0a;
+        font-family: var(--font-sans);
+        font-size: 0.88rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        cursor: pointer;
+      }
+      .gogl-form__submit:hover,
+      .gogl-form__submit:focus-visible {
+        filter: brightness(0.96);
+        outline: none;
+      }
+      .gogl-form__submit.is-submitting,
+      .gogl-form__submit:disabled {
+        opacity: 0.72;
+        cursor: wait;
+      }
+      .gogl-form-done {
+        color: #f0eee6;
+      }
+      .gogl-form-done__title {
+        margin: 0 0 12px;
+        font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+      .gogl-form-done__body {
+        margin: 0;
+        font-size: 0.95rem;
+        font-weight: 300;
+        line-height: 1.55;
+        color: rgba(240, 238, 230, 0.88);
+      }
+    </style>
+  </head>
+  <body class="gogogo-page">
+    <header class="nav nav--gogogo-intake" aria-label="Hauptnavigation">
+      <div class="nav__inner nav__inner--gogogo-intake">
+        <a href="https://gogogo.social/" class="nav__logo gogogo-landing__logo" aria-label="gogogo Startseite">gogogo</a>
+        <nav class="nav__links nav__links--empty" aria-hidden="true"></nav>
+        <div class="nav__cta-bucket">
+          <div class="nav__lang" role="group" aria-label="Sprache">
+            <button type="button" class="is-active" data-fc-lang="de">DE</button>
+            <button type="button" data-fc-lang="en">EN</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="gogl-invite" aria-labelledby="gogl-form-h">
+        <div class="gogl-form-wrap">
+          <h1 id="gogl-form-h" class="gogl-form__h1">
+            <span class="de-t">Einladungscode</span><span class="en-t">Invite code</span>
+          </h1>
+          <p class="gogl-form__sub">
+            <span class="de-t">Mobilnummer eintragen. Wir schreiben Dir auf WhatsApp.</span>
+            <span class="en-t">Enter your mobile number. We will write to you on WhatsApp.</span>
+          </p>
+          <form class="gogl-form" method="POST" action="#" data-gogl-register="invite" novalidate>
+            <input type="hidden" name="_subject" value="Neue Anfrage – Einladungscode" />
+            <input type="hidden" name="service" value="invite-code" />
+            <input type="hidden" id="gogl-invite-source" name="source" value="register-invite" />
+            <input type="text" name="_gotcha" value="" style="display: none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+            <div class="gogl-field">
+              <input
+                id="gogl-phone"
+                name="telefon"
+                type="tel"
+                required
+                placeholder="Mobilnummer"
+                autocomplete="tel"
+                inputmode="tel"
+              />
+              <p class="gogl-field__hint">
+                <span class="de-t">Hinweis: Der Kontakt läuft über WhatsApp. Kein Spam, keine Weitergabe.</span>
+                <span class="en-t">Note: Contact is via WhatsApp. No spam, no sharing.</span>
+              </p>
+            </div>
+
+            <div class="gogl-consent">
+              <label class="gogl-consent__label" for="gogl-dsgvo">
+                <input type="checkbox" id="gogl-dsgvo" name="dsgvo_einverstaendnis" value="ja" required />
+                <span
+                  ><span class="de-t"
+                    >Ich bin einverstanden, dass meine Angaben zur Kontaktaufnahme und Betreuung gespeichert werden.
+                    <a href="https://www.fridaycircle.club/datenschutz/">Datenschutz</a></span
+                  ><span class="en-t"
+                    >I agree that my details may be stored for contact and support.
+                    <a href="https://www.fridaycircle.club/datenschutz/">Privacy</a></span
+                  ></span
+                >
+              </label>
+              <label class="gogl-consent__label" for="gogl-membership">
+                <input type="checkbox" id="gogl-membership" name="mitgliedschaft_email_einverstaendnis" value="ja" required />
+                <span
+                  ><span class="de-t"
+                    >ich möchte eine kostenlose Mitgliedschaft bei FRIDAY CIRCLE. Sie ist beidseitig per E-Mail kündbar. Ich kann jederzeit
+                    austreten, indem ich einfach auf die Willkommens-Email antworte oder an die Emailadresse
+                    <a href="mailto:service@fridaycircle.club">service@fridaycircle.club</a> schreibe. Ich stimme unregelmäßigen Emails mit
+                    Informationen zum Thema Bewegung und zu weiteren Services von FRIDAY CIRCLE zu.</span
+                  ><span class="en-t"
+                    >I want a free FRIDAY CIRCLE membership. Either side can cancel by email. I can leave anytime by replying to the welcome
+                    email or writing to <a href="mailto:service@fridaycircle.club">service@fridaycircle.club</a>. I agree to occasional
+                    emails about movement and other FRIDAY CIRCLE services.</span
+                  ></span
+                >
+              </label>
+              <label class="gogl-consent__label" for="gogl-whatsapp">
+                <input type="checkbox" id="gogl-whatsapp" name="whatsapp_einverstaendnis" value="ja" required />
+                <span
+                  ><span class="de-t">Ich bin einverstanden, dass ich zur Betreuung per WhatsApp kontaktiert werde.</span
+                  ><span class="en-t">I agree to be contacted via WhatsApp for support.</span></span
+                >
+              </label>
+            </div>
+
+            <button type="submit" class="gogl-form__submit">
+              <span class="de-t">Einladungscode anfordern</span><span class="en-t">Request invite code</span>
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" aria-label="Seitenfuß">
+      <div class="footer__inner">
+        <a href="https://www.fridaycircle.club/" class="footer__logo">FRIDAY CIRCLE</a>
+        <nav class="footer__links" aria-label="Rechtliches und Über uns">
+          <a href="https://www.fridaycircle.club/impressum/">Impressum</a>
+          <a href="https://www.fridaycircle.club/datenschutz/">Datenschutz</a>
+          <a href="https://www.fridaycircle.club/kontakt/">Kontakt</a>
+        </nav>
+        <p class="footer__copy">© 2026</p>
+      </div>
+    </footer>
+    <script src="../fc-lang.js" defer></script>
+    <script src="../assets/gogogo/register-form.js" defer></script>
+    <script>
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var source = params.get("source");
+        var field = document.getElementById("gogl-invite-source");
+        if (field && source) field.value = source;
+      })();
+    </script>
+  </body>
+</html>
