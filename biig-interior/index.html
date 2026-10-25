@@ -1361,8 +1361,8 @@
         padding: 8px 14px;
         border: 1px solid var(--text);
         border-radius: 0;
-        background: var(--text);
-        color: #fff;
+        background: transparent;
+        color: var(--text);
         font-family: var(--font-sans);
         font-size: clamp(0.58rem, 0.82vw, 0.72rem);
         font-weight: 500;
@@ -1379,15 +1379,21 @@
 
       .bi-portfolio__filter:hover,
       .bi-portfolio__filter:focus-visible {
-        background: transparent;
-        color: var(--text);
         outline: none;
         transform: translateY(-1px);
       }
 
       .bi-portfolio__filter.is-active {
-        background: transparent;
-        color: var(--text);
+        background: #000;
+        border-color: #000;
+        color: #fff;
+      }
+
+      .bi-portfolio__filter.is-active:hover,
+      .bi-portfolio__filter.is-active:focus-visible {
+        background: #000;
+        border-color: #000;
+        color: #fff;
       }
 
       .bi-portfolio__lede p {
