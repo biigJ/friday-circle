@@ -3637,8 +3637,8 @@
                 <img src="../assets/interior/Pannierstr11-260830-BIIG-VIS-01_b-800.webp" data-fc-fallback="../assets/interior/Pannierstr11-260830-BIIG-VIS-01_b.jpg" alt="" width="800" height="1067" loading="lazy" decoding="async" />
               </span>
               <span class="bi-tile__label">
-                <span class="de-t">Pannierstraße</span>
-                <span class="en-t">Pannierstraße</span>
+                <span class="de-t">Ferienwohnung</span>
+                <span class="en-t">Holiday apartment</span>
               </span>
               <span class="bi-tile__hover">
                 <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
@@ -4969,8 +4969,8 @@
           knorke: {
             tileLabelDe: "Knorke",
             tileLabelEn: "Knorke",
-            titleDe: "Friseursalon Knorke, Berlin 2026",
-            titleEn: "Hair salon Knorke, Berlin 2026",
+            titleDe: "Friseursalon Knorke, Berlin 2027",
+            titleEn: "Hair salon Knorke, Berlin 2027",
             bodyDe:
               "Stell Dir Deinen Friseursalon neu gedacht vor: Eingangsfassade, Empfangstheke und Durchgang – Marke und Raum in einem Auftritt.",
             bodyEn:
@@ -4981,8 +4981,8 @@
               "Imagine the hair salon Knorke: facade and entrance set the first impulse, the desk carries reception, corner and passageway connect client flows into a clear spatial sequence.",
             keywordDe: "Friseursalon",
             keywordEn: "Hair salon",
-            concreteDe: "Berlin, 2026",
-            concreteEn: "Berlin, 2026",
+            concreteDe: "Berlin, 2027",
+            concreteEn: "Berlin, 2027",
             imageLabelsDe: [
               "Knorke, Eingangsfassade",
               "Knorke, Ecke",
@@ -5003,10 +5003,10 @@
             ],
           },
           pannierstrasse: {
-            tileLabelDe: "Pannierstraße",
-            tileLabelEn: "Pannierstraße",
-            titleDe: "Umbau Glasererei zur Ferienwohnung, Berlin-Neukölln 2026",
-            titleEn: "Conversion of a glazier’s workshop into a holiday apartment, Berlin-Neukölln 2026",
+            tileLabelDe: "Ferienwohnung",
+            tileLabelEn: "Holiday apartment",
+            titleDe: "Umbau Glasererei zur Ferienwohnung, Berlin-Neukölln 2027",
+            titleEn: "Conversion of a glazier’s workshop into a holiday apartment, Berlin-Neukölln 2027",
             bodyDe:
               "Stell Dir den Umbau einer Glasererei zur Ferienwohnung vor: aus Werkstatt wird Wohnraum – klar, einladend und alltagstauglich für Gäste.",
             bodyEn:
@@ -5017,15 +5017,15 @@
               "Imagine Pannierstraße 11: a former glazier’s workshop converted into a holiday apartment. The visuals show how structure, light, and furnishings turn workshop character into homely stay quality.",
             keywordDe: "Umbau",
             keywordEn: "Conversion",
-            concreteDe: "Berlin-Neukölln, 2026",
-            concreteEn: "Berlin-Neukölln, 2026",
+            concreteDe: "Berlin-Neukölln, 2027",
+            concreteEn: "Berlin-Neukölln, 2027",
             imageLabelsDe: [
-              "Pannierstraße 11, Ferienwohnung 01",
-              "Pannierstraße 11, Ferienwohnung 02",
+              "Ferienwohnung, Berlin-Neukölln 2027",
+              "Ferienwohnung, Berlin-Neukölln 2027",
             ],
             imageLabelsEn: [
-              "Pannierstraße 11, holiday apartment 01",
-              "Pannierstraße 11, holiday apartment 02",
+              "Holiday apartment, Berlin-Neukölln 2027",
+              "Holiday apartment, Berlin-Neukölln 2027",
             ],
             images: [
               "../assets/interior/Pannierstr11-260830-BIIG-VIS-01_b.jpg",
@@ -8230,13 +8230,12 @@
                 return;
               }
               var projectId = tile.getAttribute("data-bi-project");
+              // Esstisch belongs to Möbel, not Interior.
+              if (projectId === "moebel" || tile.id === "bi-tile-moebel") return;
               if (projectId && HOCHBAU_IDS.indexOf(projectId) === -1) {
                 tile.classList.add("bi-tile--service-visible");
               }
             });
-            // Keep Esstisch visible in Interior (shop tile lives beside Bauprojekte collage).
-            var esstischTile = document.getElementById("bi-tile-moebel") || findPortfolioTile("moebel");
-            if (esstischTile) esstischTile.classList.add("bi-tile--service-visible");
           } else if (filter.tiles) {
             var showsHochbauTiles = filter.tiles.some(function (projectId) {
               return HOCHBAU_IDS.indexOf(projectId) !== -1;
