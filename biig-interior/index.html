@@ -1660,13 +1660,15 @@
       }
 
       .bi-tile__media img,
-      .bi-slider__slide img {
+      .bi-slider__slide img,
+      .bi-slider__slide video {
         width: 100%;
         height: 100%;
         object-fit: cover;
         object-position: center;
         display: block;
         transition: transform 0.45s ease;
+        background: #000;
       }
 
       .bi-hochbau-slider__slide img {
@@ -1724,7 +1726,8 @@
         line-height: 0;
       }
 
-      .bi-mobile-tile-carousel__slide img {
+      .bi-mobile-tile-carousel__slide img,
+      .bi-mobile-tile-carousel__slide video {
         width: 100%;
         height: 100%;
         object-fit: contain;
@@ -2518,11 +2521,13 @@
         overflow: hidden;
       }
 
-      .bi-slider__slide img {
+      .bi-slider__slide img,
+      .bi-slider__slide video {
         width: 100%;
         height: 100%;
         object-fit: cover;
         object-position: center;
+        background: #000;
       }
 
       .bi-slider__dots {
@@ -2930,11 +2935,13 @@
         position: relative;
       }
 
-      .bi-lightbox__slide img {
+      .bi-lightbox__slide img,
+      .bi-lightbox__slide video {
         width: 100%;
         height: 100%;
         object-fit: contain;
         display: block;
+        background: #000;
       }
 
       .bi-lightbox__slide--info {
@@ -3352,7 +3359,8 @@
           justify-content: center;
         }
 
-        .bi-lightbox__slide img {
+        .bi-lightbox__slide img,
+        .bi-lightbox__slide video {
           width: 100%;
           height: 100%;
           object-fit: contain;
@@ -4956,18 +4964,21 @@
               "Vinothek, Geisenheim 2023",
               "Vinothek, Geisenheim 2023",
               "Vinothek, Geisenheim 2023",
+              "Vinothek, Geisenheim 2023, Film",
             ],
             imageLabelsEn: [
               "Wine bar, Geisenheim 2023",
               "Wine bar, Geisenheim 2023",
               "Wine bar, Geisenheim 2023",
               "Wine bar, Geisenheim 2023",
+              "Wine bar, Geisenheim 2023, film",
             ],
             images: [
               "../assets/interior/geisenheim_blumen.png",
               "../assets/interior/geisenheim.jpeg",
               "../assets/interior/geisenheim-gedecktertisch.png",
               "../assets/interior/geisenheim-sundowner.png",
+              "../assets/interior/geisenheim-IMG_9985.mp4",
             ],
           },
           knorke: {
@@ -6599,6 +6610,29 @@
         var FC_IMG_SLIDE = 1400;
         var FC_IMG_HERO = 1400;
 
+        function isProjectVideoSrc(src) {
+          return /\.(mp4|webm|mov|m4v)(\?|$)/i.test(String(src || ""));
+        }
+
+        function createProjectMediaElement(src, altText) {
+          if (isProjectVideoSrc(src)) {
+            var video = document.createElement("video");
+            video.src = String(src).split("?")[0];
+            video.controls = true;
+            video.playsInline = true;
+            video.setAttribute("playsinline", "");
+            video.setAttribute("webkit-playsinline", "");
+            video.preload = "metadata";
+            if (altText) video.setAttribute("aria-label", altText);
+            return video;
+          }
+          var img = document.createElement("img");
+          biSetImg(img, src, FC_IMG_SLIDE);
+          if (altText) img.alt = altText;
+          img.decoding = "async";
+          return img;
+        }
+
         function biSetImg(img, src, width) {
           if (!img || !src) return;
           var pathOnly = String(src).split("?")[0];
@@ -6989,14 +7023,16 @@
         function appendMobileTileImageSlide(track, item, project, isCover, projectId) {
           var slide = document.createElement("div");
           slide.className = "bi-mobile-tile-carousel__slide" + (isCover ? " bi-mobile-tile-carousel__slide--cover" : "");
-          var img = document.createElement("img");
-          biSetImg(img, item.src, FC_IMG_SLIDE);
-          img.alt = getLang() === "en" ? item.altEn : item.altDe;
-          img.decoding = "async";
-          img.loading = "eager";
-          if (isCover) img.style.objectPosition = "left center";
-          else if (item.objectPosition) img.style.objectPosition = item.objectPosition;
-          slide.appendChild(img);
+          var alt = getLang() === "en" ? item.altEn : item.altDe;
+          var media = createProjectMediaElement(item.src, alt);
+          if (media.tagName === "IMG") {
+            media.loading = "eager";
+            if (isCover) media.style.objectPosition = "left center";
+            else if (item.objectPosition) media.style.objectPosition = item.objectPosition;
+          } else {
+            media.style.background = "#000";
+          }
+          slide.appendChild(media);
           track.appendChild(slide);
         }
 
@@ -7199,15 +7235,15 @@
             }
             var slide = document.createElement("div");
             slide.className = "bi-lightbox__slide";
-            var img = document.createElement("img");
-            biSetImg(img, item.src, FC_IMG_SLIDE);
-            img.alt = lang === "en" ? item.altEn : item.altDe;
-            img.decoding = "async";
-            img.loading = "eager";
-            if (item.objectPosition) img.style.objectPosition = item.objectPosition;
-            var project = item.projectId ? PROJECTS[item.projectId] : null;
-            applyImageAdjust(img, getImageAdjust(project, item.imageIndex));
-            slide.appendChild(img);
+            var alt = lang === "en" ? item.altEn : item.altDe;
+            var media = createProjectMediaElement(item.src, alt);
+            if (media.tagName === "IMG") {
+              media.loading = "eager";
+              if (item.objectPosition) media.style.objectPosition = item.objectPosition;
+              var project = item.projectId ? PROJECTS[item.projectId] : null;
+              applyImageAdjust(media, getImageAdjust(project, item.imageIndex));
+            }
+            slide.appendChild(media);
             lightboxTrack.appendChild(slide);
           });
           lightboxTrackReady = true;
@@ -8455,16 +8491,16 @@
           images.forEach(function (src, i) {
             var fig = document.createElement("figure");
             fig.className = "bi-slider__slide";
-            var img = document.createElement("img");
-            biSetImg(img, src, FC_IMG_SLIDE);
-            img.alt =
+            var alt =
               title +
               ", " +
-              (lang === "en" ? "Image " : "Bild ") +
+              (lang === "en" ? (isProjectVideoSrc(src) ? "Film " : "Image ") : isProjectVideoSrc(src) ? "Film " : "Bild ") +
               (i + 1);
-            img.decoding = "async";
-            applyImageAdjust(img, getImageAdjust(project, i));
-            fig.appendChild(img);
+            var media = createProjectMediaElement(src, alt);
+            if (media.tagName === "IMG") {
+              applyImageAdjust(media, getImageAdjust(project, i));
+            }
+            fig.appendChild(media);
             trackEl.appendChild(fig);
 
             if (i === 0 && hasInfo) {
