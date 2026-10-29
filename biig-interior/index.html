@@ -1661,7 +1661,8 @@
 
       .bi-tile__media img,
       .bi-slider__slide img,
-      .bi-slider__slide video {
+      .bi-slider__slide video,
+      .bi-slider__slide .bi-project-video {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -1727,7 +1728,8 @@
       }
 
       .bi-mobile-tile-carousel__slide img,
-      .bi-mobile-tile-carousel__slide video {
+      .bi-mobile-tile-carousel__slide video,
+      .bi-mobile-tile-carousel__slide .bi-project-video {
         width: 100%;
         height: 100%;
         object-fit: contain;
@@ -2522,7 +2524,8 @@
       }
 
       .bi-slider__slide img,
-      .bi-slider__slide video {
+      .bi-slider__slide video,
+      .bi-slider__slide .bi-project-video {
         width: 100%;
         height: 100%;
         object-fit: cover;
@@ -2936,12 +2939,77 @@
       }
 
       .bi-lightbox__slide img,
-      .bi-lightbox__slide video {
+      .bi-lightbox__slide video,
+      .bi-lightbox__slide .bi-project-video {
         width: 100%;
         height: 100%;
         object-fit: contain;
         display: block;
         background: #000;
+      }
+
+      .bi-project-video {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        background: #000;
+        overflow: hidden;
+      }
+
+      .bi-project-video video {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        display: block;
+        background: #000;
+      }
+
+      .bi-project-video__play {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        appearance: none;
+        -webkit-appearance: none;
+      }
+
+      .bi-project-video__play:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: -6px;
+      }
+
+      .bi-project-video__play-icon {
+        width: clamp(56px, 10vw, 84px);
+        height: clamp(56px, 10vw, 84px);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.92);
+        box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+        position: relative;
+      }
+
+      .bi-project-video__play-icon::before {
+        content: "";
+        position: absolute;
+        left: 52%;
+        top: 50%;
+        transform: translate(-40%, -50%);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 12px 0 12px 20px;
+        border-color: transparent transparent transparent #111;
+      }
+
+      .bi-project-video.is-playing .bi-project-video__play {
+        display: none;
       }
 
       .bi-lightbox__slide--info {
@@ -3360,7 +3428,8 @@
         }
 
         .bi-lightbox__slide img,
-        .bi-lightbox__slide video {
+        .bi-lightbox__slide video,
+        .bi-lightbox__slide .bi-project-video {
           width: 100%;
           height: 100%;
           object-fit: contain;
@@ -6614,17 +6683,73 @@
           return /\.(mp4|webm|mov|m4v)(\?|$)/i.test(String(src || ""));
         }
 
+        function projectVideoPosterSrc(src) {
+          var pathOnly = String(src || "").split("?")[0];
+          return pathOnly.replace(/\.(mp4|webm|mov|m4v)$/i, "-poster.jpg");
+        }
+
         function createProjectMediaElement(src, altText) {
           if (isProjectVideoSrc(src)) {
+            var wrap = document.createElement("div");
+            wrap.className = "bi-project-video";
             var video = document.createElement("video");
-            video.src = String(src).split("?")[0];
-            video.controls = true;
+            var videoSrc = String(src).split("?")[0];
+            video.src = videoSrc;
+            video.poster = projectVideoPosterSrc(videoSrc);
+            video.controls = false;
             video.playsInline = true;
             video.setAttribute("playsinline", "");
             video.setAttribute("webkit-playsinline", "");
             video.preload = "metadata";
+            video.setAttribute("controlslist", "nodownload");
             if (altText) video.setAttribute("aria-label", altText);
-            return video;
+
+            var playBtn = document.createElement("button");
+            playBtn.type = "button";
+            playBtn.className = "bi-project-video__play";
+            playBtn.setAttribute(
+              "aria-label",
+              (typeof getLang === "function" && getLang() === "en" ? "Play video" : "Video abspielen")
+            );
+            var playIcon = document.createElement("span");
+            playIcon.className = "bi-project-video__play-icon";
+            playIcon.setAttribute("aria-hidden", "true");
+            playBtn.appendChild(playIcon);
+
+            function startPlayback(e) {
+              if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+              }
+              wrap.classList.add("is-playing");
+              video.controls = true;
+              var playPromise = video.play();
+              if (playPromise && typeof playPromise.catch === "function") {
+                playPromise.catch(function () {
+                  wrap.classList.remove("is-playing");
+                  video.controls = false;
+                });
+              }
+            }
+
+            playBtn.addEventListener("click", startPlayback);
+            video.addEventListener("ended", function () {
+              wrap.classList.remove("is-playing");
+              video.controls = false;
+              try {
+                video.currentTime = 0;
+              } catch (err) {}
+            });
+            video.addEventListener("pause", function () {
+              if (video.ended) return;
+              if (video.currentTime > 0.05) return;
+              wrap.classList.remove("is-playing");
+              video.controls = false;
+            });
+
+            wrap.appendChild(video);
+            wrap.appendChild(playBtn);
+            return wrap;
           }
           var img = document.createElement("img");
           biSetImg(img, src, FC_IMG_SLIDE);
@@ -7109,7 +7234,7 @@
                 setMobileTileSlide(entry, newIndex, !meta || meta.animate !== false, true);
               },
               ignore: function (target) {
-                return !!target.closest("button, a");
+                return !!target.closest("button, a, video, .bi-project-video");
               },
             });
           }
@@ -7181,7 +7306,7 @@
                 setMobileTileSlide(entry, newIndex, !meta || meta.animate !== false, true);
               },
               ignore: function (target) {
-                return !!target.closest("button, a");
+                return !!target.closest("button, a, video, .bi-project-video");
               },
             });
           }
@@ -7470,7 +7595,7 @@
               });
             },
             ignore: function (target) {
-              return !!target.closest(".bi-lightbox__close, .bi-lightbox__nav, button, a");
+              return !!target.closest(".bi-lightbox__close, .bi-lightbox__nav, button, a, video, .bi-project-video");
             },
           });
         }
