@@ -7718,7 +7718,7 @@
               setSlide(newIndex, !meta || meta.animate !== false, meta && meta.from, true);
             },
             ignore: function (target) {
-              return !!target.closest(".bi-slider__dot, button, a");
+              return !!target.closest(".bi-slider__dot, button, a, video, .bi-project-video");
             },
             loop: true,
           });
