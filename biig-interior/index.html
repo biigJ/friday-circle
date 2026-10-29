@@ -1782,6 +1782,18 @@
         letter-spacing: 0.02em;
       }
 
+      .bi-mobile-tile-carousel__info-body:has(+ .bi-mobile-tile-carousel__info-credit) {
+        margin-bottom: 0;
+      }
+
+      .bi-mobile-tile-carousel__info-credit {
+        margin: 1.15em 0 clamp(18px, 4.5vw, 26px);
+        font-size: clamp(0.86rem, 3.9vw, 1rem);
+        font-weight: 300;
+        line-height: 1.55;
+        letter-spacing: 0.02em;
+      }
+
       .bi-mobile-tile-carousel__dots {
         position: relative;
         z-index: 5;
@@ -3084,6 +3096,17 @@
         color: #ffffff;
       }
 
+      .bi-lightbox__slide--info .bi-lightbox__info-credit {
+        margin: 1.15em 0 0;
+        text-align: center;
+        font-family: var(--font-sans);
+        font-size: clamp(1.032rem, 1.344vw, 1.152rem);
+        font-weight: 300;
+        line-height: 1.58;
+        letter-spacing: 0.02em;
+        color: #ffffff;
+      }
+
       .bi-lightbox__info-foot {
         flex: 0 0 auto;
         margin: 0;
@@ -3133,6 +3156,19 @@
 
       .bi-slider__info-body {
         margin: 0 0 clamp(14px, 2.2vw, 22px);
+        font-family: var(--font-sans);
+        font-size: clamp(0.86rem, 1.12vw, 0.96rem);
+        font-weight: 300;
+        line-height: 1.58;
+        letter-spacing: 0.02em;
+      }
+
+      .bi-slider__info-body:has(+ .bi-slider__info-credit) {
+        margin-bottom: 0;
+      }
+
+      .bi-slider__info-credit {
+        margin: 1.15em 0 clamp(14px, 2.2vw, 22px);
         font-family: var(--font-sans);
         font-size: clamp(0.86rem, 1.12vw, 0.96rem);
         font-weight: 300;
@@ -5024,6 +5060,8 @@
               "Stell Dir Deinen neuen Standort am Weingut vor: in der alten Kelterhalle entsteht Dein authentischer Auftritt zum Empfang von Besuchern und Geschäftspartnern – Kunst meets Wein & Sekt. Rustikale Tische mit Gastrostühlen, eine Wand mit Displays, Fassade und Terrasse neu gedacht.",
             infoDetailEn:
               "Imagine your new location at the winery: in the old press hall, your authentic presence for receiving visitors and business partners takes shape – art meets wine and sparkling wine. Rustic tables with hospitality chairs, a wall with displays, facade and terrace reimagined.",
+            infoCreditDe: "Kooperation mit Thies Wulf.",
+            infoCreditEn: "In cooperation with Thies Wulf.",
             keywordDe: "Gastronomie",
             keywordEn: "Hospitality",
             concreteDe: "Geisenheim, 2023",
@@ -6502,6 +6540,23 @@
           return project.infoDetailDe || project.bodyDe || "";
         }
 
+        function buildInfoCreditText(project, lang) {
+          if (!project) return "";
+          if (lang === "en") {
+            return project.infoCreditEn || project.infoCreditDe || "";
+          }
+          return project.infoCreditDe || project.infoCreditEn || "";
+        }
+
+        function appendInfoCredit(parent, project, lang, className) {
+          var creditText = buildInfoCreditText(project, lang);
+          if (!creditText || !parent) return;
+          var credit = document.createElement("p");
+          credit.className = className;
+          credit.textContent = creditText;
+          parent.appendChild(credit);
+        }
+
         function parseProjectInfoHeading(project, lang) {
           var title = getProjectNameLabel(project, lang);
           var comma = title.lastIndexOf(", ");
@@ -6547,6 +6602,7 @@
             body.className = "bi-lightbox__info-body";
             body.textContent = buildInfoBodyText(project, lang);
             main.appendChild(body);
+            appendInfoCredit(main, project, lang, "bi-lightbox__info-credit");
 
             var foot = document.createElement("footer");
             foot.className = "bi-lightbox__info-foot";
@@ -6572,6 +6628,7 @@
 
             card.appendChild(title);
             card.appendChild(sliderBody);
+            appendInfoCredit(card, project, lang, "bi-slider__info-credit");
 
             var sliderFoot = document.createElement("p");
             sliderFoot.className = "bi-slider__info-foot";
@@ -7157,6 +7214,7 @@
           body.textContent = buildInfoBodyText(project, lang);
           inner.appendChild(title);
           inner.appendChild(body);
+          appendInfoCredit(inner, project, lang, "bi-mobile-tile-carousel__info-credit");
           var level = getDisclosureLevel(projectId);
           if (level) {
             inner.appendChild(createDisclosureScaleElement(level, "dark"));
