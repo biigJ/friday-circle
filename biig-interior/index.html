@@ -3578,6 +3578,10 @@
               <span class="de-t">Möbel</span>
               <span class="en-t">Furniture</span>
             </button>
+            <button type="button" class="bi-portfolio__filter" data-bi-service="bi-pricing-mehr" aria-pressed="false">
+              <span class="de-t">mehr</span>
+              <span class="en-t">more</span>
+            </button>
           </div>
           <h2 id="bi-portfolio-title" class="bi-portfolio__title">
             <span class="bi-portfolio__title-default">
@@ -5648,7 +5652,21 @@
             keywordEn: "Study",
             concreteDe: "Hamburg, 2013",
             concreteEn: "Hamburg, 2013",
-            images: ["../assets/hochbau/Neubauhaus-Strasse.png"],
+            imageLabelsDe: [
+              "Entwurf, Hamburg 2013, Straße",
+              "Doppelhaus, Hamburg 2012",
+              "Doppelhaus, Hamburg 2012, Visualisierung",
+            ],
+            imageLabelsEn: [
+              "Design, Hamburg 2013, street",
+              "Semi-detached house, Hamburg 2012",
+              "Semi-detached house, Hamburg 2012, visualisation",
+            ],
+            images: [
+              "../assets/hochbau/Neubauhaus-Strasse.png",
+              "../assets/interior/Neubauhaus.png",
+              "../assets/hochbau/doppelhaus-visu-strich.png",
+            ],
             cropPosition: "center center",
           },
         };
@@ -5906,6 +5924,15 @@
           },
           "bi-pricing-design": {
             excludeHochbau: true,
+            excludeTiles: [
+              "altbau1",
+              "altbau2",
+              "homeoffice2",
+              "hausB",
+              "kochinsel",
+              "sammler",
+              "freiVonEckenEsszimmer",
+            ],
             titleDe: "Du bekommst Plan, Visu, Tabelle",
             titleEn: "You get plan, visual, spreadsheet",
             processTitleDe: "Design: Ablauf",
@@ -5930,6 +5957,21 @@
             titleEn: "Custom furniture, premium or affordable",
             processTitleDe: "Möbelentwurf: Ablauf",
             processTitleEn: "Furniture design: process",
+          },
+          "bi-pricing-mehr": {
+            tiles: [
+              "altbau1",
+              "altbau2",
+              "homeoffice2",
+              "hausB",
+              "kochinsel",
+              "sammler",
+              "freiVonEckenEsszimmer",
+            ],
+            titleDe: "Weitere Projekte",
+            titleEn: "More projects",
+            processTitleDe: "Weitere Projekte",
+            processTitleEn: "More projects",
           },
         };
 
@@ -8281,6 +8323,7 @@
               });
             }
           } else if (filter.excludeHochbau) {
+            var excludedTiles = filter.excludeTiles || [];
             document.querySelectorAll("#bi-portfolio .bi-tile--project").forEach(function (tile) {
               if (
                 tile.classList.contains("bi-tile--hochbau-item") ||
@@ -8291,6 +8334,7 @@
               var projectId = tile.getAttribute("data-bi-project");
               // Esstisch belongs to Möbel, not Interior.
               if (projectId === "moebel" || tile.id === "bi-tile-moebel") return;
+              if (projectId && excludedTiles.indexOf(projectId) !== -1) return;
               if (projectId && HOCHBAU_IDS.indexOf(projectId) === -1) {
                 tile.classList.add("bi-tile--service-visible");
               }
