@@ -6078,8 +6078,21 @@
           tileLabelEn: "Building projects",
         };
 
-        var HOCHBAU_IDS = ["wohnhausPraxis", "blissbungalows", "panketal", "klinker", "rothestr", "graefe", "destijl", "schleswig", "wedel", "neubauhausstrasse"];
-        var HOCHBAU_TRAILING_TILES = ["umbauten", "vinothekGeo"];
+        var HOCHBAU_IDS = [
+          "wohnhausPraxis",
+          "panketal",
+          "blissbungalows",
+          "vinothekGeo",
+          "umbauten",
+          "rothestr",
+          "wedel",
+          "graefe",
+          "klinker",
+          "destijl",
+          "neubauhausstrasse",
+          "schleswig",
+        ];
+        var HOCHBAU_TRAILING_TILES = [];
 
         var SERVICE_FILTERS = {
           "bi-pricing-ordnung": {
@@ -6115,7 +6128,7 @@
           },
           "bi-pricing-hochbau": {
             hochbau: true,
-            tiles: ["umbauten", "vinothekGeo"],
+            tiles: [],
             processTitleDe: "Gebäudeplanung: Ablauf",
             processTitleEn: "Building planning: process",
           },
@@ -6668,13 +6681,15 @@
           "center center",
           "center center",
           "center center",
+          "center center",
+          "center center",
+          "center center",
+          "center center",
+          "center center",
           "28% center",
-          "center center",
-          "center center",
           "72% center",
+          "center center",
           "78% center",
-          "center center",
-          "center center",
         ];
 
         var popup = document.getElementById("bi-project-popup");
@@ -8607,9 +8622,8 @@
               // Esstisch belongs to Möbel, not Interior.
               if (projectId === "moebel" || tile.id === "bi-tile-moebel") return;
               if (projectId && excludedTiles.indexOf(projectId) !== -1) return;
-              if (projectId && HOCHBAU_IDS.indexOf(projectId) === -1) {
-                tile.classList.add("bi-tile--service-visible");
-              }
+              // Keep Interior HTML tiles visible even if the same project also appears in Gebäudeplanung.
+              tile.classList.add("bi-tile--service-visible");
             });
           } else if (filter.tiles) {
             var showsHochbauTiles = filter.tiles.some(function (projectId) {
