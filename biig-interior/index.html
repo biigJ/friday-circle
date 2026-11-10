@@ -3780,19 +3780,6 @@
 
             <div class="bi-image-row">
               <div class="bi-image-row__scroll">
-            <button type="button" class="bi-tile bi-tile--project" data-bi-project="wohnhausPraxis">
-              <span class="bi-tile__media">
-                <img src="../assets/hochbau/wohnhaus-praxis-koepenick-800.webp" data-fc-fallback="../assets/hochbau/wohnhaus-praxis-koepenick.jpg" alt="" width="1024" height="553" loading="lazy" decoding="async" />
-              </span>
-              <span class="bi-tile__label">
-                <span class="de-t">Wohnhaus mit Praxis</span>
-                <span class="en-t">House with practice</span>
-              </span>
-              <span class="bi-tile__hover">
-                <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
-                <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
-              </span>
-            </button>
             <button type="button" class="bi-tile bi-tile--project" data-bi-project="vinothekGeo">
               <span class="bi-tile__media">
                 <img src="../assets/interior/geisenheim_blumen-800.webp" data-fc-fallback="../assets/interior/geisenheim_blumen.png" alt="" width="800" height="1067" loading="lazy" decoding="async" />
@@ -6091,8 +6078,8 @@
           tileLabelEn: "Building projects",
         };
 
-        var HOCHBAU_IDS = ["blissbungalows", "panketal", "klinker", "rothestr", "graefe", "destijl", "schleswig", "wedel", "neubauhausstrasse"];
-        var HOCHBAU_TRAILING_TILES = ["wohnhausPraxis", "umbauten", "vinothekGeo"];
+        var HOCHBAU_IDS = ["wohnhausPraxis", "blissbungalows", "panketal", "klinker", "rothestr", "graefe", "destijl", "schleswig", "wedel", "neubauhausstrasse"];
+        var HOCHBAU_TRAILING_TILES = ["umbauten", "vinothekGeo"];
 
         var SERVICE_FILTERS = {
           "bi-pricing-ordnung": {
@@ -6113,7 +6100,6 @@
               "sammler",
               "freiVonEckenEsszimmer",
               "rueckzugsort",
-              "wohnhausPraxis",
             ],
             titleDe: "Du bekommst Plan, Visu, Tabelle",
             titleEn: "You get plan, visual, spreadsheet",
@@ -6129,7 +6115,7 @@
           },
           "bi-pricing-hochbau": {
             hochbau: true,
-            tiles: ["wohnhausPraxis", "umbauten", "vinothekGeo"],
+            tiles: ["umbauten", "vinothekGeo"],
             processTitleDe: "Gebäudeplanung: Ablauf",
             processTitleEn: "Building planning: process",
           },
@@ -6679,6 +6665,7 @@
         }
 
         var HOCHBAU_THUMB_FOCUS = [
+          "center center",
           "center center",
           "center center",
           "28% center",
