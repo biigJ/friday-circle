@@ -3780,6 +3780,19 @@
 
             <div class="bi-image-row">
               <div class="bi-image-row__scroll">
+            <button type="button" class="bi-tile bi-tile--project" data-bi-project="wohnhausPraxis">
+              <span class="bi-tile__media">
+                <img src="../assets/hochbau/wohnhaus-praxis-koepenick-800.webp" data-fc-fallback="../assets/hochbau/wohnhaus-praxis-koepenick.jpg" alt="" width="1024" height="553" loading="lazy" decoding="async" />
+              </span>
+              <span class="bi-tile__label">
+                <span class="de-t">Wohnhaus mit Praxis</span>
+                <span class="en-t">House with practice</span>
+              </span>
+              <span class="bi-tile__hover">
+                <span class="bi-tile__keyword" data-bi-i18n="keyword"></span>
+                <span class="bi-tile__concrete" data-bi-i18n="concrete"></span>
+              </span>
+            </button>
             <button type="button" class="bi-tile bi-tile--project" data-bi-project="vinothekGeo">
               <span class="bi-tile__media">
                 <img src="../assets/interior/geisenheim_blumen-800.webp" data-fc-fallback="../assets/interior/geisenheim_blumen.png" alt="" width="800" height="1067" loading="lazy" decoding="async" />
@@ -4945,6 +4958,28 @@
               "../assets/interior/buero-essraum.jpg",
             ],
           },
+          wohnhausPraxis: {
+            tileLabelDe: "Wohnhaus mit Praxis",
+            tileLabelEn: "House with practice",
+            titleDe: "Wohnhaus mit Praxis, Berlin-Köpenick",
+            titleEn: "House with practice, Berlin-Köpenick",
+            bodyDe:
+              "Stell Dir vor: eine Ärztin mit Tochter baut auf dem eigenen Grundstück in Berlin-Köpenick ein neues Wohnhaus mit Praxisraum.",
+            bodyEn:
+              "Imagine a doctor and her daughter building a new house with a practice room on their own plot in Berlin-Köpenick.",
+            infoDetailDe:
+              "Stell Dir vor: eine Ärztin mit Tochter baut auf dem eigenen Grundstück in Berlin-Köpenick ein neues Wohnhaus mit Praxisraum. Das Bild ist eine Studie auf Grundlage einer Grundrissskizze – zur Unterstützung, einen Architekten zu beauftragen.",
+            infoDetailEn:
+              "Imagine a doctor and her daughter building a new house with a practice room on their own plot in Berlin-Köpenick. The image is a study based on a floor-plan sketch – to support commissioning an architect.",
+            keywordDe: "Studie",
+            keywordEn: "Study",
+            concreteDe: "Berlin-Köpenick",
+            concreteEn: "Berlin-Köpenick",
+            imageLabelsDe: ["Studie Wohnhaus mit Praxis, Berlin-Köpenick, Straßenansicht"],
+            imageLabelsEn: ["Study house with practice, Berlin-Köpenick, street view"],
+            images: ["../assets/hochbau/wohnhaus-praxis-koepenick.jpg"],
+            cropPosition: "center center",
+          },
           hausA: {
             tileLabelDe: "Herz der Familie",
             tileLabelEn: "Heart of the family",
@@ -6057,7 +6092,7 @@
         };
 
         var HOCHBAU_IDS = ["blissbungalows", "panketal", "klinker", "rothestr", "graefe", "destijl", "schleswig", "wedel", "neubauhausstrasse"];
-        var HOCHBAU_TRAILING_TILES = ["umbauten", "bueroraeume", "vinothekGeo"];
+        var HOCHBAU_TRAILING_TILES = ["wohnhausPraxis", "umbauten", "vinothekGeo"];
 
         var SERVICE_FILTERS = {
           "bi-pricing-ordnung": {
@@ -6078,6 +6113,7 @@
               "sammler",
               "freiVonEckenEsszimmer",
               "rueckzugsort",
+              "wohnhausPraxis",
             ],
             titleDe: "Du bekommst Plan, Visu, Tabelle",
             titleEn: "You get plan, visual, spreadsheet",
@@ -6093,7 +6129,7 @@
           },
           "bi-pricing-hochbau": {
             hochbau: true,
-            tiles: ["umbauten", "bueroraeume", "vinothekGeo"],
+            tiles: ["wohnhausPraxis", "umbauten", "vinothekGeo"],
             processTitleDe: "Gebäudeplanung: Ablauf",
             processTitleEn: "Building planning: process",
           },
@@ -6417,6 +6453,7 @@
           freiVonEckenEsszimmer: 2,
           umbauten: 7,
           vinothekGeo: 5,
+          wohnhausPraxis: 2,
           knorke: 1,
           pannierstrasse: 1,
           blissbungalows: 1,
